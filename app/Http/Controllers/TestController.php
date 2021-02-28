@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class TestController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -25,7 +25,13 @@ class HomeController extends Controller
     public function index(Request $req): Renderable
     {
         $sessionId = $req->session()->getId();
+
+        if($req->has('cartProductsCount')) {
+            $req->session()->put('cartProductsCount', $req->get('cartProductsCount'));
+        }
+        // dd(session('cartProductsCount'));
+
         $cartProductsCount = session('cartProductsCount');
-        return view('home.index', compact('sessionId', 'cartProductsCount'));
+        return view('test.index', compact('sessionId', 'cartProductsCount'));
     }
 }

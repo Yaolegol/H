@@ -2,7 +2,7 @@
 
 @section('content')
     <div>
-        Home!!!
+        Test!!!
     </div>
     <div>
         sessionId: {{$sessionId}}
@@ -10,10 +10,4 @@
     <div>
         cartProductsCount: {{$cartProductsCount}}
     </div>
-    <form action="/test" method="GET">
-        @csrf
-
-        <input name="cartProductsCount" type="text">
-        <button>Send</button>
-    </form>
 @endsection
