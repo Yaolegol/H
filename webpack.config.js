@@ -49,7 +49,7 @@ module.exports = {
             patterns: [
                 {
                     from: path.resolve(__dirname, "resources", "images"),
-                    to: path.resolve(__dirname, "public", "images")
+                    to: path.resolve(__dirname, "public", "build", "images")
                 },
             ],
         }),
