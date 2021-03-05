@@ -39,20 +39,20 @@ module.exports = {
         },
     },
     output: {
-        filename: "[name].[contenthash].bundle.js",
+        filename: "[name].bundle.js",
         path: path.resolve(__dirname, "public", "build"),
     },
     plugins: [
+        new CleanWebpackPlugin(),
+        new MiniCssExtractPlugin(),
         new CopyPlugin({
             patterns: [
                 {
-                    from: 'resources/images',
-                    to: 'images'
+                    from: path.resolve(__dirname, "resources", "images"),
+                    to: path.resolve(__dirname, "public", "images")
                 },
             ],
         }),
-        new MiniCssExtractPlugin(),
-        new CleanWebpackPlugin(),
     ],
     resolve: {
         modules: [
