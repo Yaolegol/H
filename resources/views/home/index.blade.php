@@ -4,16 +4,4 @@
     <div>
         Home!!!
     </div>
-    <div>
-        sessionId: {{$sessionId}}
-    </div>
-    <div>
-        cartProductsCount: {{$cartProductsCount}}
-    </div>
-    <form action="/test" method="GET">
-        @csrf
-
-        <input name="cartProductsCount" type="text">
-        <button>Send</button>
-    </form>
 @endsection
