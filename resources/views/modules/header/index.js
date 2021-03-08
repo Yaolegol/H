@@ -1,2 +1,3 @@
-import 'views/components/burger';
+import 'views/components/buttons/burger';
+import 'views/components/inputs/search';
 import './index.less';

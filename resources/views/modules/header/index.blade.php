@@ -3,9 +3,11 @@
         @include('icons.logo')
     </div>
     <div>
-        @include('components.burger.index')
+        @include('components.buttons.burger.index')
     </div>
-    <div>Search input</div>
+    <div>
+        @include('components.inputs.search.index')
+    </div>
     <div>Profile</div>
     <div>Cart</div>
 </div>
