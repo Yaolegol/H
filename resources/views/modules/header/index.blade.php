@@ -2,7 +2,9 @@
     <div class="header__logo-container">
         @include('icons.logo')
     </div>
-    <div>Menu button</div>
+    <div>
+        @include('components.burger.index')
+    </div>
     <div>Search input</div>
     <div>Profile</div>
     <div>Cart</div>

@@ -1,3 +1,21 @@
+.burger {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 48px;
+}
+.burger__line {
+  background-color: #000e66;
+  height: 5px;
+  margin-top: 5px;
+  width: 100%;
+}
+.burger__line:first-child {
+  margin-top: 0;
+}
+
 .header {
   align-items: center;
   background-color: #00ccff;
