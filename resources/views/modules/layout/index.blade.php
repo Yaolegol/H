@@ -13,8 +13,8 @@
         @yield('styles')
     </head>
     <body>
-        <!-- Navigation -->
-        @include('modules.navigation.index')
+        <!-- Header -->
+        @include('modules.header.index')
 
         <!-- Content -->
         @yield('content')

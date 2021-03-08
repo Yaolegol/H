@@ -1,2 +1,2 @@
-import 'views/modules/navigation';
+import 'views/modules/header';
 import './index.less';

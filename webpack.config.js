@@ -73,4 +73,5 @@ module.exports = {
             "node_modules"
         ],
     },
+    watch: true,
 };

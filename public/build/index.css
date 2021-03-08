@@ -1,5 +1,9 @@
-.navigation {
-  background-color: #002084;
+.header {
+  align-items: center;
+  background-color: #00ccff;
+  display: flex;
+  height: 88px;
+  justify-content: center;
 }
 
 @font-face {
