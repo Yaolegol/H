@@ -1,4 +1,4 @@
-@extends('layouts.index')
+@extends('modules.layout.index')
 
 @section('content')
     <div>

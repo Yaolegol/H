@@ -5,7 +5,7 @@ const path = require("path");
 
 module.exports = {
     entry: {
-        index: "./resources/views/home/index.js",
+        index: "./resources/views/pages/home",
     },
     module: {
         rules: [
@@ -20,6 +20,19 @@ module.exports = {
                         presets: ["@babel/preset-env"]
                     },
                 },
+            },
+            // fonts
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'fonts',
+                        }
+                    }
+                ],
             },
             // less
             {
