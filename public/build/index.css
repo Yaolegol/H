@@ -5,6 +5,10 @@
   height: 88px;
   justify-content: center;
 }
+.header__logo-container {
+  line-height: 0;
+  width: 50px;
+}
 
 @font-face {
   font-family: 'Lato';
@@ -225,8 +229,5 @@ p {
   font-size: 16px;
   letter-spacing: 0.16px;
   line-height: 26px;
-}
-body {
-  color: green;
 }
 
