@@ -8,6 +8,10 @@
     <div>
         @include('components.inputs.search.index')
     </div>
-    <div>Profile</div>
-    <div>Cart</div>
+    <div class="header__profile-container">
+        @include('icons.profile')
+    </div>
+    <div class="header__cart-container">
+        @include('icons.cart')
+    </div>
 </div>
