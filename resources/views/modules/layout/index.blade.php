@@ -13,13 +13,14 @@
         @yield('styles')
     </head>
     <body>
-        <!-- Header -->
-        @include('modules.header.index')
+        <div class="layout">
+            @include('modules.header.index')
 
-        <!-- Content -->
-        @yield('content')
+            <div class="layout__content">
+                @yield('content')
+            </div>
 
-        <!-- Scripts -->
-        @yield('scripts')
+            @yield('scripts')
+        </div>
     </body>
 </html>
