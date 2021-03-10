@@ -16,12 +16,21 @@
         top: 0;
     }
 
-    &__content {
+    &__content-area {
         background-color: @white;
+        display: flex;
         left: 0;
         margin: 0 auto;
         max-width: 1920px;
         position: absolute;
         right: 0;
+    }
+
+    &__content-block {
+        flex: 2 1 auto;
+    }
+
+    &__navigation {
+        flex: 1 1 auto;
     }
 }

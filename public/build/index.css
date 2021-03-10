@@ -12,13 +12,20 @@
   right: 0;
   top: 0;
 }
-.catalog__content {
+.catalog__content-area {
   background-color: #ffffff;
+  display: flex;
   left: 0;
   margin: 0 auto;
   max-width: 1920px;
   position: absolute;
   right: 0;
+}
+.catalog__content-block {
+  flex: 2 1 auto;
+}
+.catalog__navigation {
+  flex: 1 1 auto;
 }
 
 .buttons-burger {
