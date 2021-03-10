@@ -1,9 +1,7 @@
 @extends('modules.layout.index')
 
 @section('content')
-    <div>
-        Home!!!
-    </div>
+    @include('modules.home.index')
 @endsection
 
 @section('scripts')
