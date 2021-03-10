@@ -1,3 +1,17 @@
+.catalog__backdrop {
+  background-color: rgba(0, 0, 0, 0.8);
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.catalog__content {
+  background-color: #ffffff;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
 
 .buttons-burger {
   align-items: center;
@@ -205,6 +219,8 @@ a {
 }
 body {
   margin: 0;
+  min-height: 100vh;
+  position: relative;
 }
 button {
   background: none;
