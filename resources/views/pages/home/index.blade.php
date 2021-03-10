@@ -1,6 +1,7 @@
 @extends('modules.layout.index')
 
 @section('content')
+    @include('modules.catalog.index')
     @include('modules.home.index')
 @endsection
 
