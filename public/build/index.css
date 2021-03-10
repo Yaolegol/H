@@ -1,3 +1,9 @@
+.catalog {
+  display: none;
+}
+.catalog.show {
+  display: block;
+}
 .catalog__backdrop {
   background-color: rgba(0, 0, 0, 0.8);
   bottom: 0;

@@ -1,6 +1,12 @@
 @import (reference) '~styles/colors';
 
 .catalog {
+    display: none;
+
+    &.show {
+        display: block;
+    }
+
     &__backdrop {
         background-color: @black-80;
         bottom: 0;

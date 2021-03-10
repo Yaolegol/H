@@ -1,16 +1,29 @@
+import {EVENTS_NAMES} from 'events/index';
 import {addEventListener} from 'helpers/events';
 import './index.less';
 
-class Burger {
-    constructor() {
-        this.burger = document.querySelector('.j-burger');
+const {
+    COMMON: {
+        CATALOG: {
+            TOGGLE
+        }
+    }
+} = EVENTS_NAMES;
 
-        addEventListener(this.burger, 'click', this.handleClick);
+class Burger {
+    constructor(item) {
+        this.module = item;
+
+        addEventListener(this.module, 'click', this.handleClick);
     }
 
     handleClick = (e) => {
-        this.burger.dispatchEvent(new CustomEvent('j-click'));
+        document.dispatchEvent(new CustomEvent(TOGGLE));
     }
 }
 
-new Burger();
+const list = document.querySelectorAll('.j-components-buttons-burger');
+
+list.forEach((item) => {
+    new Burger(item);
+})
