@@ -16,7 +16,7 @@
         <div class="layout">
             @include('modules.header.index')
 
-            <div class="layout__content">
+            <div class="layout__content-container">
                 @yield('content')
             </div>
 
