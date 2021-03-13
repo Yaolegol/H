@@ -21,16 +21,16 @@ class HomeController extends Controller
                     'title' => 'Мясная продукция',
                     'categoriesList' => [
                         [
-                            'link' => '/content_0/category_0',
-                            'title' => 'content_0 category_0'
+                            'link' => '/meat/beef',
+                            'title' => 'Говядина'
                         ],
                         [
-                            'link' => '/content_0/category_1',
-                            'title' => 'content_0 category_1'
+                            'link' => '/meat/pork',
+                            'title' => 'Свинина'
                         ],
                         [
-                            'link' => '/content_0/category_2',
-                            'title' => 'content_0 category_2'
+                            'link' => '/meat/fish',
+                            'title' => 'Рыба'
                         ],
                     ]
                 ]
@@ -41,20 +41,20 @@ class HomeController extends Controller
                     'title' => 'Молочная продукция',
                     'categoriesList' => [
                         [
-                            'link' => '/content_1/category_0',
-                            'title' => 'content_1 category_0'
+                            'link' => '/milk/curd',
+                            'title' => 'Творог'
                         ],
                         [
-                            'link' => '/content_1/category_1',
-                            'title' => 'content_1 category_1'
+                            'link' => '/milk/cream',
+                            'title' => 'Сметана'
                         ],
                         [
-                            'link' => '/content_1/category_2',
-                            'title' => 'content_1 category_2'
+                            'link' => '/milk/kefir',
+                            'title' => 'Кефир'
                         ],
                         [
-                            'link' => '/content_1/category_3',
-                            'title' => 'content_1 category_3'
+                            'link' => '/milk/cheese',
+                            'title' => 'Сыр'
                         ],
                     ]
                 ]
@@ -65,25 +65,13 @@ class HomeController extends Controller
                     'title' => 'Яйца',
                     'categoriesList' => [
                         [
-                            'link' => '/content_2/category_0',
-                            'title' => 'content_2 category_0'
+                            'link' => '/eggs/chicken',
+                            'title' => 'Куриные яйца'
                         ],
                         [
-                            'link' => '/content_2/category_1',
-                            'title' => 'content_2 category_1'
-                        ],
-                        [
-                            'link' => '/content_2/category_2',
-                            'title' => 'content_2 category_2'
-                        ],
-                        [
-                            'link' => '/content_2/category_3',
-                            'title' => 'content_2 category_3'
-                        ],
-                        [
-                            'link' => '/content_2/category_4',
-                            'title' => 'content_2 category_4'
-                        ],
+                            'link' => '/eggs/quail',
+                            'title' => 'Перепелинные яйца'
+                        ]
                     ]
                 ]
             ]
