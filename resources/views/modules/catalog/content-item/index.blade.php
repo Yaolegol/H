@@ -2,6 +2,8 @@
      data-item-id="{{ $itemId }}"
      data-item-role="catalog-content-item"
 >
+    <div>{{ $catalogItem['title'] }}</div>
+
     @foreach( $catalogItem['content']['categoriesList'] as $category )
         <div>
             <a href="{{ $category['link'] }}">
@@ -9,4 +11,5 @@
             </a>
         </div>
     @endforeach
+
 </div>

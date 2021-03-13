@@ -16,9 +16,9 @@ class HomeController extends Controller
     {
         $catalogList = [
             [
-                'title' => 'catalog_0',
+                'title' => 'Мясная продукция',
                 'content' => [
-                    'title' => 'content_0',
+                    'title' => 'Мясная продукция',
                     'categoriesList' => [
                         [
                             'link' => '/content_0/category_0',
@@ -36,9 +36,9 @@ class HomeController extends Controller
                 ]
             ],
             [
-                'title' => 'catalog_1',
+                'title' => 'Молочная продукция',
                 'content' => [
-                    'title' => 'content_1',
+                    'title' => 'Молочная продукция',
                     'categoriesList' => [
                         [
                             'link' => '/content_1/category_0',
@@ -60,9 +60,9 @@ class HomeController extends Controller
                 ]
             ],
             [
-                'title' => 'catalog_2',
+                'title' => 'Яйца',
                 'content' => [
-                    'title' => 'content_2',
+                    'title' => 'Яйца',
                     'categoriesList' => [
                         [
                             'link' => '/content_2/category_0',
