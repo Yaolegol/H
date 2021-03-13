@@ -1,5 +1,6 @@
 .catalog-navigation-item__content-container {
   bottom: 0;
+  cursor: auto;
   display: none;
   height: 100%;
   left: 30%;
@@ -12,10 +13,8 @@
 .catalog-navigation-item__title-container:hover .catalog-navigation-item__content-container {
   display: block;
 }
-.catalog-navigation-item__title {
-  cursor: pointer;
-}
 .catalog-navigation-item__title-container {
+  cursor: pointer;
   width: 30%;
 }
 
