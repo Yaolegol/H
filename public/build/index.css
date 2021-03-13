@@ -1,21 +1,12 @@
-.catalog-navigation-item__content-container {
-  bottom: 0;
-  cursor: auto;
+.catalog-content-item {
   display: none;
-  height: 100%;
-  left: 30%;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 70%;
 }
-.catalog-navigation-item__content-container:hover,
-.catalog-navigation-item__title-container:hover .catalog-navigation-item__content-container {
+.catalog-content-item.selected {
   display: block;
 }
-.catalog-navigation-item__title-container {
+
+.catalog-navigation-item {
   cursor: pointer;
-  width: 30%;
 }
 
 .catalog {
@@ -32,16 +23,20 @@
   right: 0;
   top: 0;
 }
-.catalog__content-area {
+.catalog__catalog-container {
   background-color: #ffffff;
+  display: flex;
   left: 0;
   margin: 0 auto;
   max-width: 1920px;
   position: absolute;
   right: 0;
 }
-.catalog__navigation {
-  position: relative;
+.catalog__content-container {
+  flex: 2 1 auto;
+}
+.catalog__navigation-container {
+  flex: 1 1 auto;
 }
 
 .buttons-burger {

@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $catalog = [
+        $catalogList = [
             [
                 'title' => 'catalog_0',
                 'content' => [
@@ -89,7 +89,7 @@ class HomeController extends Controller
             ]
         ];
 
-        return view('pages.home.index', compact('catalog'));
+        return view('pages.home.index', compact('catalogList'));
     }
 
     /**

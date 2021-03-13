@@ -1,14 +1,6 @@
-<div class="catalog-navigation-item">
-    <div class="catalog-navigation-item__title-container">
-        <div class="catalog-navigation-item__title">{{ $catalogItem['title'] }}</div>
-        <div class="catalog-navigation-item__content-container">
-            @foreach( $catalogItem['content']['categoriesList'] as $category )
-                <div>
-                    <a href="{{ $category['link'] }}">
-                        {{ $category['title'] }}
-                    </a>
-                </div>
-            @endforeach
-        </div>
-    </div>
+<div class="catalog-navigation-item"
+     data-item-id="{{ $itemId }}"
+     data-item-role="catalog-navigation-item"
+>
+    {{ $catalogItem['title'] }}
 </div>

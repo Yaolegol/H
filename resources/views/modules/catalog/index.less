@@ -16,8 +16,9 @@
         top: 0;
     }
 
-    &__content-area {
+    &__catalog-container {
         background-color: @white;
+        display: flex;
         left: 0;
         margin: 0 auto;
         max-width: 1920px;
@@ -25,7 +26,11 @@
         right: 0;
     }
 
-    &__navigation {
-        position: relative;
+    &__content-container {
+        flex: 2 1 auto;
+    }
+
+    &__navigation-container {
+        flex: 1 1 auto;
     }
 }
