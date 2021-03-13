@@ -17,20 +17,74 @@ class HomeController extends Controller
         $catalog = [
             [
                 'title' => 'catalog_0',
-                'subcategory' => [
-                    'title' => 'subcategory_0'
+                'content' => [
+                    'title' => 'content_0',
+                    'categoriesList' => [
+                        [
+                            'link' => '/content_0/category_0',
+                            'title' => 'content_0 category_0'
+                        ],
+                        [
+                            'link' => '/content_0/category_1',
+                            'title' => 'content_0 category_1'
+                        ],
+                        [
+                            'link' => '/content_0/category_2',
+                            'title' => 'content_0 category_2'
+                        ],
+                    ]
                 ]
             ],
             [
                 'title' => 'catalog_1',
-                'subcategory' => [
-                    'title' => 'subcategory_1'
+                'content' => [
+                    'title' => 'content_1',
+                    'categoriesList' => [
+                        [
+                            'link' => '/content_1/category_0',
+                            'title' => 'content_1 category_0'
+                        ],
+                        [
+                            'link' => '/content_1/category_1',
+                            'title' => 'content_1 category_1'
+                        ],
+                        [
+                            'link' => '/content_1/category_2',
+                            'title' => 'content_1 category_2'
+                        ],
+                        [
+                            'link' => '/content_1/category_3',
+                            'title' => 'content_1 category_3'
+                        ],
+                    ]
                 ]
             ],
             [
                 'title' => 'catalog_2',
-                'subcategory' => [
-                    'title' => 'subcategory_2'
+                'content' => [
+                    'title' => 'content_2',
+                    'categoriesList' => [
+                        [
+                            'link' => '/content_2/category_0',
+                            'title' => 'content_2 category_0'
+                        ],
+                        [
+                            'link' => '/content_2/category_1',
+                            'title' => 'content_2 category_1'
+                        ],
+                        [
+                            'link' => '/content_2/category_2',
+                            'title' => 'content_2 category_2'
+                        ],
+                        [
+                            'link' => '/content_2/category_3',
+                            'title' => 'content_2 category_3'
+                        ],
+                        [
+                            'link' => '/content_2/category_4',
+                            'title' => 'content_2 category_4'
+                        ],
+                    ]
                 ]
             ]
         ];
