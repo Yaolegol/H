@@ -1,3 +1,18 @@
+.catalog-navigation-item__content-container {
+  display: none;
+  left: 30%;
+  position: absolute;
+  top: 0;
+  width: 70%;
+}
+.catalog-navigation-item__content-container:hover,
+.catalog-navigation-item__title-container:hover .catalog-navigation-item__content-container {
+  display: block;
+}
+.catalog-navigation-item__title-container {
+  width: 30%;
+}
+
 .catalog {
   display: none;
 }
@@ -14,18 +29,14 @@
 }
 .catalog__content-area {
   background-color: #ffffff;
-  display: flex;
   left: 0;
   margin: 0 auto;
   max-width: 1920px;
   position: absolute;
   right: 0;
 }
-.catalog__content-block {
-  flex: 2 1 auto;
-}
 .catalog__navigation {
-  flex: 1 1 auto;
+  position: relative;
 }
 
 .buttons-burger {

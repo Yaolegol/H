@@ -1,12 +1,18 @@
 .catalog-navigation-item {
-    display: flex;
-    position: relative;
-
     &__content-container {
-        flex: 2 1 auto;
+        display: none;
+        left: 30%;
+        position: absolute;
+        top: 0;
+        width: 70%;
+
+        &:hover,
+        .catalog-navigation-item__title-container:hover & {
+            display: block;
+        }
     }
 
-    &__title {
-        flex: 1 1 auto;
+    &__title-container {
+        width: 30%;
     }
 }

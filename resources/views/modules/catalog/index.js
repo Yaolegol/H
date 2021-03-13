@@ -1,6 +1,6 @@
 import {EVENTS_NAMES} from "events/index";
 import {addEventListener} from 'helpers/events';
-import "views/modules/navigation-item";
+import "views/modules/catalog/navigation-item";
 import './index.less';
 
 const {
