@@ -26,6 +26,12 @@ class HomeController extends Controller
                 'subcategory' => [
                     'title' => 'subcategory_1'
                 ]
+            ],
+            [
+                'title' => 'catalog_2',
+                'subcategory' => [
+                    'title' => 'subcategory_2'
+                ]
             ]
         ];
 
