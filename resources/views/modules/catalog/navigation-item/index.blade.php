@@ -1,3 +1,6 @@
 <div class="catalog-navigation-item">
-    {{ $catalogItem['title'] }}
+    <div class="catalog-navigation-item__title">{{ $catalogItem['title'] }}</div>
+    <div class="catalog-navigation-item__content-container">
+        {{ $catalogItem['subcategory']['title'] }}
+    </div>
 </div>

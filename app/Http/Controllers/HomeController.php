@@ -18,17 +18,13 @@ class HomeController extends Controller
             [
                 'title' => 'catalog_0',
                 'subcategory' => [
-                    [
-                        'title' => 'subcategory_0'
-                    ]
+                    'title' => 'subcategory_0'
                 ]
             ],
             [
                 'title' => 'catalog_1',
                 'subcategory' => [
-                    [
-                        'title' => 'subcategory_1'
-                    ]
+                    'title' => 'subcategory_1'
                 ]
             ]
         ];
