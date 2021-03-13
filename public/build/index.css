@@ -12,6 +12,9 @@
 .catalog-navigation-item__title-container:hover .catalog-navigation-item__content-container {
   display: block;
 }
+.catalog-navigation-item__title {
+  cursor: pointer;
+}
 .catalog-navigation-item__title-container {
   width: 30%;
 }
