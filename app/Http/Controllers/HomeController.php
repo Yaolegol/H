@@ -21,15 +21,15 @@ class HomeController extends Controller
                     'title' => 'Мясная продукция',
                     'categoriesList' => [
                         [
-                            'link' => '/meat/beef',
+                            'link' => '/catalog/meat/beef',
                             'title' => 'Говядина'
                         ],
                         [
-                            'link' => '/meat/pork',
+                            'link' => '/catalog/meat/pork',
                             'title' => 'Свинина'
                         ],
                         [
-                            'link' => '/meat/fish',
+                            'link' => '/catalog/meat/fish',
                             'title' => 'Рыба'
                         ],
                     ]
@@ -41,19 +41,19 @@ class HomeController extends Controller
                     'title' => 'Молочная продукция',
                     'categoriesList' => [
                         [
-                            'link' => '/milk/curd',
+                            'link' => '/catalog/milk/curd',
                             'title' => 'Творог'
                         ],
                         [
-                            'link' => '/milk/cream',
+                            'link' => '/catalog/milk/cream',
                             'title' => 'Сметана'
                         ],
                         [
-                            'link' => '/milk/kefir',
+                            'link' => '/catalog/milk/kefir',
                             'title' => 'Кефир'
                         ],
                         [
-                            'link' => '/milk/cheese',
+                            'link' => '/catalog/milk/cheese',
                             'title' => 'Сыр'
                         ],
                     ]
@@ -65,11 +65,11 @@ class HomeController extends Controller
                     'title' => 'Яйца',
                     'categoriesList' => [
                         [
-                            'link' => '/eggs/chicken',
+                            'link' => '/catalog/eggs/chicken',
                             'title' => 'Куриные яйца'
                         ],
                         [
-                            'link' => '/eggs/quail',
+                            'link' => '/catalog/eggs/quail',
                             'title' => 'Перепелинные яйца'
                         ]
                     ]
