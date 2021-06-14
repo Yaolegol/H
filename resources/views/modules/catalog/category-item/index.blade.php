@@ -1,5 +1,5 @@
 <div class="catalog-category-item">
-    <a href="{{ $category['link'] }}">
+    <a class="catalog-category-item__link" href="{{ $category['link'] }}">
         {{ $category['title'] }}
     </a>
 </div>

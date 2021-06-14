@@ -4,7 +4,9 @@
 >
     <div>{{ $catalogItem['title'] }}</div>
 
-    @foreach( $catalogItem['content']['categoriesList'] as $category )
-        @include('modules.catalog.category-item.index', [ 'category' => $category ])
-    @endforeach
+    <div class="catalog-content-item__categories-container">
+        @foreach( $catalogItem['content']['categoriesList'] as $category )
+            @include('modules.catalog.category-item.index', [ 'category' => $category ])
+        @endforeach
+    </div>
 </div>

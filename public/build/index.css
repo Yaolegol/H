@@ -1,9 +1,22 @@
+.catalog-category-item {
+  margin-bottom: 20px;
+}
+.catalog-category-item__link {
+  display: block;
+}
+.catalog-category-item__link:hover {
+  color: #FF0000;
+}
 
 .catalog-content-item {
   display: none;
 }
 .catalog-content-item.selected {
   display: block;
+}
+.catalog-content-item__categories-container {
+  columns: 3;
+  margin-top: 50px;
 }
 
 .catalog-navigation-item {
@@ -40,11 +53,11 @@
   right: 0;
 }
 .catalog__content-container {
-  columns: 3;
-  flex: 2 1 auto;
+  flex: 2 1 66%;
+  padding: 20px;
 }
 .catalog__navigation-container {
-  flex: 1 1 auto;
+  flex: 1 1 33%;
 }
 
 .buttons-burger {
