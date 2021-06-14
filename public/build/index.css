@@ -1,3 +1,4 @@
+
 .catalog-content-item {
   display: none;
 }
@@ -39,6 +40,7 @@
   right: 0;
 }
 .catalog__content-container {
+  columns: 3;
   flex: 2 1 auto;
 }
 .catalog__navigation-container {

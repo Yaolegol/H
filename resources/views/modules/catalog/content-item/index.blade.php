@@ -5,11 +5,6 @@
     <div>{{ $catalogItem['title'] }}</div>
 
     @foreach( $catalogItem['content']['categoriesList'] as $category )
-        <div>
-            <a href="{{ $category['link'] }}">
-                {{ $category['title'] }}
-            </a>
-        </div>
+        @include('modules.catalog.category-item.index', [ 'category' => $category ])
     @endforeach
-
 </div>
