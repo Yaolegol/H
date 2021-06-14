@@ -7,6 +7,10 @@
 
 .catalog-navigation-item {
   cursor: pointer;
+  padding: 20px;
+}
+.catalog-navigation-item:hover {
+  background-color: #E9EDF6;
 }
 
 .catalog {
@@ -25,10 +29,12 @@
 }
 .catalog__catalog-container {
   background-color: #FFFFFF;
+  border-radius: 20px;
   display: flex;
   left: 0;
   margin: 0 auto;
   max-width: 1920px;
+  overflow: hidden;
   position: absolute;
   right: 0;
 }
