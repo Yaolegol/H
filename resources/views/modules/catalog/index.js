@@ -59,14 +59,6 @@ class Catalog {
         this.selectContentItem(this.initialSelectedItemId);
     }
 
-    // resetState = () => {
-    //     this.unselectNavigationItem();
-    //     this.unselectContentItem();
-    //
-    //     this.selectedContentItem = null;
-    //     this.selectedNavigationItem = null;
-    // }
-
     selectContentItem = (id) => {
         const selectedItem = this.contentItemList.find((item) => {
             return item.dataset.itemId === id;
