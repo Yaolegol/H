@@ -9,7 +9,7 @@
   cursor: pointer;
   padding: 20px;
 }
-.catalog-navigation-item:hover {
+.catalog-navigation-item_active {
   background-color: #E9EDF6;
 }
 

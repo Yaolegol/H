@@ -5,7 +5,7 @@ import './index.less';
 const {
     COMMON: {
         CATALOG: {
-            TOGGLE
+            OPEN,
         }
     }
 } = EVENTS_NAMES;
@@ -18,7 +18,7 @@ class Burger {
     }
 
     handleClick = (e) => {
-        document.dispatchEvent(new CustomEvent(TOGGLE));
+        document.dispatchEvent(new CustomEvent(OPEN));
     }
 }
 

@@ -7,7 +7,7 @@ import './index.less';
 const {
     COMMON: {
         CATALOG: {
-            TOGGLE
+            OPEN,
         }
     }
 } = EVENTS_NAMES;
@@ -20,44 +20,81 @@ class Catalog {
         this.contentItemList = [
             ...this.module.querySelectorAll('[data-item-role="catalog-content-item"]')
         ];
+        this.navigationItemList = [
+            ...this.module.querySelectorAll('[data-item-role="catalog-navigation-item"]')
+        ];
 
-        addEventListener(document, TOGGLE, this.handleCatalogToggle);
+        this.selectedContentItem = null;
+        this.selectedNavigationItem = null;
+
+        addEventListener(document, OPEN, this.handleCatalogOpen);
         addEventListener(this.backdrop, 'click', this.handleBackdropClick);
         addEventListener(this.module, 'mouseover', this.handleMouseOver);
-
-        this.selectContentItem(this.initialSelectedItemId);
     }
 
     handleBackdropClick = (e) => {
-        this.module.classList.toggle('show');
+        this.module.classList.remove('show');
+        this.resetState();
     }
 
-    handleCatalogToggle = (e) => {
-        this.module.classList.toggle('show');
+    handleCatalogOpen = (e) => {
+        this.module.classList.add('show');
+
+        this.selectNavigationItem(this.initialSelectedItemId);
+        this.selectContentItem(this.initialSelectedItemId);
     }
 
     handleMouseOver = (e) => {
         const {itemId, itemRole} = e.target.dataset;
 
         if ('catalog-navigation-item' === itemRole) {
+            this.unselectNavigationItem();
+            this.selectNavigationItem(itemId);
+
+            this.unselectContentItem();
             this.selectContentItem(itemId);
         }
     }
 
+    resetState = () => {
+        this.unselectNavigationItem();
+        this.unselectContentItem();
+
+        this.selectedContentItem = null;
+        this.selectedNavigationItem = null;
+    }
+
     selectContentItem = (id) => {
         const selectedItem = this.contentItemList.find((item) => {
-            console.log('item.dataset.itemId')
-            console.log(item.dataset.itemId)
-            return item.dataset.itemId === id
+            return item.dataset.itemId === id;
         });
-
-        if(this.selectedContentItem) {
-            this.selectedContentItem.classList.remove('selected');
-        }
 
         if(selectedItem) {
             this.selectedContentItem = selectedItem;
             this.selectedContentItem.classList.add('selected');
+        }
+    }
+
+    selectNavigationItem = (id) => {
+        const selectedItem = this.navigationItemList.find((item) => {
+            return item.dataset.itemId === id;
+        });
+
+        if(selectedItem) {
+            this.selectedNavigationItem = selectedItem;
+            this.selectedNavigationItem.classList.add('catalog-navigation-item_active');
+        }
+    }
+
+    unselectContentItem = () => {
+        if(this.selectedContentItem) {
+            this.selectedContentItem.classList.remove('selected');
+        }
+    }
+
+    unselectNavigationItem = () => {
+        if(this.selectedNavigationItem) {
+            this.selectedNavigationItem.classList.remove('catalog-navigation-item_active');
         }
     }
 }

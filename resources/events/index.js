@@ -1,7 +1,8 @@
 export const EVENTS_NAMES = {
     COMMON: {
         CATALOG: {
-            TOGGLE: "TOGGLE"
+            CLOSE: "OPEN",
+            OPEN: "OPEN"
         }
     }
 }
