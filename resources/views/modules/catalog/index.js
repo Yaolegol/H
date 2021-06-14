@@ -30,18 +30,16 @@ class Catalog {
         addEventListener(document, OPEN, this.handleCatalogOpen);
         addEventListener(this.backdrop, 'click', this.handleBackdropClick);
         addEventListener(this.module, 'mouseover', this.handleMouseOver);
+
+        this.init();
     }
 
     handleBackdropClick = (e) => {
         this.module.classList.remove('show');
-        this.resetState();
     }
 
     handleCatalogOpen = (e) => {
         this.module.classList.add('show');
-
-        this.selectNavigationItem(this.initialSelectedItemId);
-        this.selectContentItem(this.initialSelectedItemId);
     }
 
     handleMouseOver = (e) => {
@@ -56,13 +54,18 @@ class Catalog {
         }
     }
 
-    resetState = () => {
-        this.unselectNavigationItem();
-        this.unselectContentItem();
-
-        this.selectedContentItem = null;
-        this.selectedNavigationItem = null;
+    init = () => {
+        this.selectNavigationItem(this.initialSelectedItemId);
+        this.selectContentItem(this.initialSelectedItemId);
     }
+
+    // resetState = () => {
+    //     this.unselectNavigationItem();
+    //     this.unselectContentItem();
+    //
+    //     this.selectedContentItem = null;
+    //     this.selectedNavigationItem = null;
+    // }
 
     selectContentItem = (id) => {
         const selectedItem = this.contentItemList.find((item) => {
