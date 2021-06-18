@@ -141,6 +141,11 @@
   width: 30px;
 }
 
+.catalog-item {
+  display: inline-block;
+}
+
+
 
 .layout__content-container {
   margin: 0 auto;
