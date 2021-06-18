@@ -6,7 +6,7 @@
 
     <div class="catalog-content-item__categories-container">
         @foreach( $catalogItem['content']['categoriesList'] as $category )
-            @include('modules.catalog.category-item.index', [ 'category' => $category ])
+            @include('modules.catalog.header.category-item.index', [ 'category' => $category ])
         @endforeach
     </div>
 </div>

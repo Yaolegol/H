@@ -16,27 +16,30 @@ class HomeController extends Controller
     {
         $catalogList = [
             [
-                'title' => 'Мясная продукция',
                 'content' => [
                     'title' => 'Мясная продукция',
                     'categoriesList' => [
                         [
+                            'image' => 'https://picsum.photos/200/300',
                             'link' => '/catalog/meat/beef',
                             'title' => 'Говядина'
                         ],
                         [
+                            'image' => 'https://picsum.photos/200/300',
                             'link' => '/catalog/meat/pork',
                             'title' => 'Свинина'
                         ],
                         [
+                            'image' => 'https://picsum.photos/200/300',
                             'link' => '/catalog/meat/fish',
                             'title' => 'Рыба'
                         ],
                     ]
-                ]
+                ],
+                'image' => 'https://picsum.photos/200/300',
+                'title' => 'Мясная продукция',
             ],
             [
-                'title' => 'Молочная продукция',
                 'content' => [
                     'title' => 'Молочная продукция',
                     'categoriesList' => [
@@ -57,10 +60,11 @@ class HomeController extends Controller
                             'title' => 'Сыр'
                         ],
                     ]
-                ]
+                ],
+                'image' => 'https://picsum.photos/200/300',
+                'title' => 'Молочная продукция',
             ],
             [
-                'title' => 'Яйца',
                 'content' => [
                     'title' => 'Яйца',
                     'categoriesList' => [
@@ -73,7 +77,9 @@ class HomeController extends Controller
                             'title' => 'Перепелинные яйца'
                         ]
                     ]
-                ]
+                ],
+                'image' => 'https://picsum.photos/200/300',
+                'title' => 'Яйца',
             ]
         ];
 

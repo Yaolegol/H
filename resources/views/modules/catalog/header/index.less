@@ -1,0 +1,39 @@
+@import (reference) '~styles/colors';
+
+.catalog {
+    display: none;
+
+    &.show {
+        display: block;
+    }
+
+    &__backdrop {
+        background-color: @black-80;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    &__catalog-container {
+        background-color: @white;
+        border-radius: 20px;
+        display: flex;
+        left: 0;
+        margin: 0 auto;
+        max-width: 1920px;
+        overflow: hidden;
+        position: absolute;
+        right: 0;
+    }
+
+    &__content-container {
+        flex: 2 1 66%;
+        padding: 20px;
+    }
+
+    &__navigation-container {
+        flex: 1 1 33%;
+    }
+}
