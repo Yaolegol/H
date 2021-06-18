@@ -143,7 +143,7 @@
 
 .catalog-item {
   display: inline-block;
-  flex-basis: 25%;
+  flex-basis: 15%;
   padding: 0 25px;
 }
 .catalog-item__image {
