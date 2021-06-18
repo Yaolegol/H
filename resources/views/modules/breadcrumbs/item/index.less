@@ -1,3 +1,16 @@
+@import (reference) '~styles/colors';
+
 .breadcrumbs-item {
     display: inline-block;
+    margin-right: 15px;
+
+    &__arrow {
+        margin-left: 15px;
+    }
+
+    &__link {
+        &:hover {
+            color: @red;
+        }
+    }
 }
