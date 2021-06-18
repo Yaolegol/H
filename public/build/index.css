@@ -144,9 +144,6 @@
 }
 
 .catalog-item {
-  display: inline-block;
-  flex-basis: 15%;
-  padding: 0 25px;
   position: relative;
 }
 .catalog-item__content-container {
@@ -164,6 +161,8 @@
   width: 100%;
 }
 .catalog-item__image-container {
+  border-radius: 15px;
+  overflow: hidden;
   padding-bottom: 100%;
   position: relative;
 }
@@ -181,6 +180,10 @@
   color: #FF0000;
 }
 
+.catalog__item {
+  flex-basis: 15%;
+  padding: 0 25px;
+}
 .catalog__items-container {
   display: flex;
   margin: 0 -25px;
