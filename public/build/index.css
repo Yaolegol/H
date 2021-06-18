@@ -147,6 +147,11 @@
   display: inline-block;
   flex-basis: 15%;
   padding: 0 25px;
+  position: relative;
+}
+.catalog-item__content-container {
+  margin-top: 15px;
+  text-align: center;
 }
 .catalog-item__image {
   bottom: 0;
@@ -161,6 +166,19 @@
 .catalog-item__image-container {
   padding-bottom: 100%;
   position: relative;
+}
+.catalog-item__link {
+  bottom: 0;
+  height: 100%;
+  object-fit: cover;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+.catalog-item:hover .catalog-item__title {
+  color: #FF0000;
 }
 
 .catalog__items-container {

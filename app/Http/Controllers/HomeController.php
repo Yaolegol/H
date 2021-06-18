@@ -37,6 +37,7 @@ class HomeController extends Controller
                     ]
                 ],
                 'image' => 'https://picsum.photos/200/300',
+                'link' => '/catalog/meat',
                 'title' => 'Мясная продукция',
             ],
             [
@@ -62,6 +63,7 @@ class HomeController extends Controller
                     ]
                 ],
                 'image' => 'https://picsum.photos/200/300',
+                'link' => '/catalog/milk',
                 'title' => 'Молочная продукция',
             ],
             [
@@ -79,6 +81,7 @@ class HomeController extends Controller
                     ]
                 ],
                 'image' => 'https://picsum.photos/200/300',
+                'link' => '/catalog/eggs',
                 'title' => 'Яйца',
             ]
         ];
