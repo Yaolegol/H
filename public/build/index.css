@@ -1,66 +1,3 @@
-.catalog-category-item {
-  margin-bottom: 20px;
-}
-.catalog-category-item__link {
-  display: block;
-}
-.catalog-category-item__link:hover {
-  color: #FF0000;
-}
-
-.catalog-content-item {
-  display: none;
-}
-.catalog-content-item.selected {
-  display: block;
-}
-.catalog-content-item__categories-container {
-  columns: 3;
-  margin-top: 50px;
-}
-
-.catalog-navigation-item {
-  border-radius: 5px;
-  cursor: pointer;
-  padding: 20px;
-}
-.catalog-navigation-item_active {
-  background-color: #E9EDF6;
-}
-
-.catalog {
-  display: none;
-}
-.catalog.show {
-  display: block;
-}
-.catalog__backdrop {
-  background-color: rgba(0, 0, 0, 0.8);
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-.catalog__catalog-container {
-  background-color: #FFFFFF;
-  border-radius: 20px;
-  display: flex;
-  left: 0;
-  margin: 0 auto;
-  max-width: 1920px;
-  overflow: hidden;
-  position: absolute;
-  right: 0;
-}
-.catalog__content-container {
-  flex: 2 1 66%;
-  padding: 20px;
-}
-.catalog__navigation-container {
-  flex: 1 1 33%;
-}
-
 .buttons-burger {
   align-items: center;
   cursor: pointer;
@@ -117,6 +54,69 @@
 }
 .inputs-search__input::placeholder {
   color: #FFFFFF;
+}
+
+.header-catalog-category-item {
+  margin-bottom: 20px;
+}
+.header-catalog-category-item__link {
+  display: block;
+}
+.header-catalog-category-item__link:hover {
+  color: #FF0000;
+}
+
+.header-catalog-content-item {
+  display: none;
+}
+.header-catalog-content-item.selected {
+  display: block;
+}
+.header-catalog-content-item__categories-container {
+  columns: 3;
+  margin-top: 50px;
+}
+
+.header-catalog-navigation-item {
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 20px;
+}
+.header-catalog-navigation-item_active {
+  background-color: #E9EDF6;
+}
+
+.header-catalog {
+  display: none;
+}
+.header-catalog.show {
+  display: block;
+}
+.header-catalog__backdrop {
+  background-color: rgba(0, 0, 0, 0.8);
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.header-catalog__catalog-container {
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  display: flex;
+  left: 0;
+  margin: 0 auto;
+  max-width: 1920px;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+}
+.header-catalog__content-container {
+  flex: 2 1 66%;
+  padding: 20px;
+}
+.header-catalog__navigation-container {
+  flex: 1 1 33%;
 }
 
 .header {

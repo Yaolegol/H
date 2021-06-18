@@ -1,8 +1,8 @@
 import {EVENTS_NAMES} from "events/index";
 import {addEventListener} from 'helpers/events';
-import "views/modules/catalog/header/category-item";
-import "views/modules/catalog/header/content-item";
-import "views/modules/catalog/header/navigation-item";
+import "views/modules/header/catalog/category-item";
+import "views/modules/header/catalog/content-item";
+import "views/modules/header/catalog/navigation-item";
 import './index.less';
 
 const {
@@ -17,12 +17,12 @@ class Catalog {
     constructor(item) {
         this.module = item;
         this.initialSelectedItemId = this.module.dataset.initialSelectedItemId;
-        this.backdrop = this.module.querySelector('.j-modules-catalog__backdrop');
+        this.backdrop = this.module.querySelector('.j-header-catalog__backdrop');
         this.contentItemList = [
-            ...this.module.querySelectorAll('[data-item-role="catalog-content-item"]')
+            ...this.module.querySelectorAll('[data-item-role="header-catalog-content-item"]')
         ];
         this.navigationItemList = [
-            ...this.module.querySelectorAll('[data-item-role="catalog-navigation-item"]')
+            ...this.module.querySelectorAll('[data-item-role="header-catalog-navigation-item"]')
         ];
 
         this.selectedContentItem = null;
@@ -46,7 +46,7 @@ class Catalog {
     handleMouseOver = (e) => {
         const {itemId, itemRole} = e.target.dataset;
 
-        if ('catalog-navigation-item' === itemRole) {
+        if ('header-catalog-navigation-item' === itemRole) {
             this.unselectNavigationItem();
             this.selectNavigationItem(itemId);
 
@@ -78,7 +78,7 @@ class Catalog {
 
         if(selectedItem) {
             this.selectedNavigationItem = selectedItem;
-            this.selectedNavigationItem.classList.add('catalog-navigation-item_active');
+            this.selectedNavigationItem.classList.add('header-catalog-navigation-item_active');
         }
     }
 
@@ -90,12 +90,12 @@ class Catalog {
 
     unselectNavigationItem = () => {
         if(this.selectedNavigationItem) {
-            this.selectedNavigationItem.classList.remove('catalog-navigation-item_active');
+            this.selectedNavigationItem.classList.remove('header-catalog-navigation-item_active');
         }
     }
 }
 
-const list = document.querySelectorAll('.j-modules-catalog');
+const list = document.querySelectorAll('.j-header-catalog');
 
 list.forEach((item) => {
     new Catalog(item);
