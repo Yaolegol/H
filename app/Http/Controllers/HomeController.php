@@ -14,6 +14,18 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $breadcrumbs = [
+            [
+                'link' => '/catalog/meat',
+                'title' => 'Мясная продукция',
+            ],
+            [
+                'active' => true,
+                'link' => '/catalog/meat/beef',
+                'title' => 'Говядина',
+            ]
+        ];
+
         $catalogList = [
             [
                 'content' => [
@@ -86,7 +98,10 @@ class HomeController extends Controller
             ]
         ];
 
-        return view('pages.home.index', compact('catalogList'));
+        return view('pages.home.index', [
+            'breadcrumbs' => $breadcrumbs,
+            'catalogList' => $catalogList,
+        ]);
     }
 
     /**
