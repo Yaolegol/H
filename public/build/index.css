@@ -143,8 +143,28 @@
 
 .catalog-item {
   display: inline-block;
+  flex-basis: 25%;
+  padding: 0 25px;
+}
+.catalog-item__image {
+  bottom: 0;
+  height: 100%;
+  object-fit: cover;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+.catalog-item__image-container {
+  padding-bottom: 100%;
+  position: relative;
 }
 
+.catalog__items-container {
+  display: flex;
+  margin: 0 -25px;
+}
 
 
 .layout__content-container {
