@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CatalogSecondLevel;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -97,6 +98,9 @@ class HomeController extends Controller
                 'title' => 'Яйца',
             ]
         ];
+
+        $catalogSecondLevel = CatalogSecondLevel::with('catalogFirstLevel')->get()->toArray();
+        dd($catalogSecondLevel);
 
         return view('pages.home.index', [
             'breadcrumbs' => $breadcrumbs,

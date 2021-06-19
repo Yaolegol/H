@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class CatalogSecondLevel extends Model
 {
     use HasFactory;
+
+    protected $table = 'catalog_second_level';
+
+    public function catalogFirstLevel()
+    {
+        return $this->belongsTo(CatalogFirstLevel::class);
+    }
 }

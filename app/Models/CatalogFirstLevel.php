@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class CatalogFirstLevel extends Model
 {
     use HasFactory;
+
+    protected $table = 'catalog_first_level';
 }
