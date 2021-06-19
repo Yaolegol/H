@@ -9,16 +9,16 @@ class CatalogFirstLevelSeeder extends Seeder
 {
     public $data = [
         [
+            'link' => '/meat',
             'title' => 'Мясная продукция',
-            'link' => '/meat'
         ],
         [
+            'link' => '/milk',
             'title' => 'Молочная продукция',
-            'link' => '/milk'
         ],
         [
+            'link' => '/eggs',
             'title' => 'Яйца',
-            'link' => '/eggs'
         ],
     ];
 
