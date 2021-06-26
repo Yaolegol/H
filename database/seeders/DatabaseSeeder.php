@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             CatalogFirstLevelSeeder::class,
             CatalogSecondLevelSeeder::class,
             BuyerSeeder::class,
+            ProductSeeder::class,
         ]);
     }
 }

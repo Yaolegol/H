@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class BuyerTable extends Migration
+class ProductTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,16 @@ class BuyerTable extends Migration
      */
     public function up()
     {
-        Schema::create('buyer', function (Blueprint $table) {
+        Schema::create('product', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('title');
+            $table->string('description');
+            $table->float('price');
             $table->string('image');
+            $table->string('measurement');
             $table->integer('order');
-            $table->bigInteger('user_id')->unsigned()->index()->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->bigInteger('buyer_id')->unsigned()->index()->nullable();
+            $table->foreign('buyer_id')->references('id')->on('buyer');
             $table->timestamps();
         });
     }
