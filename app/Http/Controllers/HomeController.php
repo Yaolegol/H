@@ -100,11 +100,28 @@ class HomeController extends Controller
         ];
 
         $catalogSecondLevel = CatalogSecondLevel::with('catalogFirstLevel')->get()->toArray();
-        dd($catalogSecondLevel);
+        $catalog = [];
+        foreach ($catalogSecondLevel as $value) {
+            $catalogName = $value['catalog_first_level']['title'];
+            if(!array_key_exists($catalogName, $catalog)) {
+                $catalog[$catalogName] = [
+                    'content' => [
+                        'categoriesList' => [$value],
+                        'title' => $value['catalog_first_level']['title'],
+                    ],
+                    'image' => $value['catalog_first_level']['image'],
+                    'link' => $value['catalog_first_level']['link'],
+                    'title' => $value['catalog_first_level']['title'],
+                ];
+            } else {
+                array_push($catalog[$catalogName]['content']['categoriesList'], $value);
+            }
+        }
+//        dd($catalog);
 
         return view('pages.home.index', [
             'breadcrumbs' => $breadcrumbs,
-            'catalogList' => $catalogList,
+            'catalogList' => $catalog,
         ]);
     }
 

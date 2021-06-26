@@ -17,6 +17,8 @@ class CreateCatalogFirstLevelTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('link');
+            $table->string('image');
+            $table->integer('order');
             $table->timestamps();
         });
     }

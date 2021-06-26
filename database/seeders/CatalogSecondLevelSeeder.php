@@ -10,32 +10,44 @@ class CatalogSecondLevelSeeder extends Seeder
     public $data = [
         [
             'catalog_first_level_id' => '1',
+            'image' => 'https://picsum.photos/200/300',
             'link' => '/beef',
+            'order' => 1,
             'title' => 'Говядина',
         ],
         [
             'catalog_first_level_id' => '1',
+            'image' => 'https://picsum.photos/200/300',
             'link' => '/chicken',
+            'order' => 2,
             'title' => 'Курица',
         ],
         [
             'catalog_first_level_id' => '2',
+            'image' => 'https://picsum.photos/200/300',
             'link' => '/milk',
+            'order' => 1,
             'title' => 'Молоко',
         ],
         [
             'catalog_first_level_id' => '2',
+            'image' => 'https://picsum.photos/200/300',
             'link' => '/kefir',
+            'order' => 3,
             'title' => 'Кефир',
         ],
         [
             'catalog_first_level_id' => '3',
+            'image' => 'https://picsum.photos/200/300',
             'link' => '/chicken',
+            'order' => 1,
             'title' => 'Куринные яйца',
         ],
         [
             'catalog_first_level_id' => '3',
+            'image' => 'https://picsum.photos/200/300',
             'link' => '/quail',
+            'order' => 2,
             'title' => 'Перепелинные яйца',
         ],
     ];
