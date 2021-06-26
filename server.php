@@ -1,5 +1,7 @@
 <?php
 
+set_include_path(__DIR__);
+
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
