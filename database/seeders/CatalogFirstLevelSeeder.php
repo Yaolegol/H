@@ -10,19 +10,19 @@ class CatalogFirstLevelSeeder extends Seeder
     public $data = [
         [
             'image' => 'https://picsum.photos/200/300',
-            'link' => '/meat',
+            'link' => 'meat',
             'order' => 1,
             'title' => 'Мясная продукция',
         ],
         [
             'image' => 'https://picsum.photos/200/300',
-            'link' => '/milk',
+            'link' => 'milk',
             'order' => 2,
             'title' => 'Молочная продукция',
         ],
         [
             'image' => 'https://picsum.photos/200/300',
-            'link' => '/eggs',
+            'link' => 'eggs',
             'order' => 3,
             'title' => 'Яйца',
         ],

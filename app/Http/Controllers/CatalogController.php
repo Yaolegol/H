@@ -62,9 +62,9 @@ class CatalogController extends Controller
         ];
 
         $catalogSecondLevel = CatalogSecondLevel::with('catalogFirstLevel')->get()->toArray();
-        $catalog = getCatalog($catalogSecondLevel);
+        $catalog = getCatalogSecondLevel($catalogSecondLevel, $name);
 
-        return view('pages.home.index', [
+        return view('pages.catalog.secondLevel.index', [
             'breadcrumbs' => $breadcrumbs,
             'catalogList' => $catalog,
         ]);
