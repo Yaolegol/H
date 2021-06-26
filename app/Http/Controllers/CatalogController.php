@@ -49,25 +49,13 @@ class CatalogController extends Controller
      */
     public function show($name)
     {
-        $breadcrumbs = [
-            [
-                'link' => '/',
-                'title' => 'Каталог',
-            ],
-            [
-                'active' => true,
-                'link' => '/catalog/meat',
-                'title' => 'Мясная продукция',
-            ]
-        ];
-
         $catalog = getCatalog();
         $catalogSecondLevel = getCatalogSecondLevel($name);
 
         return view('pages.catalog.secondLevel.index', [
-            'breadcrumbs' => $breadcrumbs,
+            'breadcrumbs' => $catalogSecondLevel['breadcrumbs'],
             'catalogHeaderList' => $catalog,
-            'catalogList' => $catalogSecondLevel,
+            'catalogList' => $catalogSecondLevel['catalog'],
         ]);
     }
 

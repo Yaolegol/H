@@ -16,22 +16,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $breadcrumbs = [
-            [
-                'link' => '/catalog/meat',
-                'title' => 'Мясная продукция',
-            ],
-            [
-                'active' => true,
-                'link' => '/catalog/meat/beef',
-                'title' => 'Говядина',
-            ]
-        ];
-
         $catalog = getCatalog();
 
         return view('pages.home.index', [
-            'breadcrumbs' => $breadcrumbs,
             'catalogHeaderList' => $catalog,
             'catalogList' => $catalog,
         ]);

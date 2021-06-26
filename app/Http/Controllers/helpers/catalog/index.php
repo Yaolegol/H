@@ -10,7 +10,7 @@ function getCatalog()
     foreach ($catalogSecondLevel as $value) {
         $catalogFL = $value['catalog_first_level'];
         $catalogFLName = $catalogFL['link'];
-        $catalogFLLink = '/' . 'catalog' . '/' . $catalogFL['link'];
+        $catalogSecondLevelLink = '/' . 'catalog' . '/' . $catalogFL['link'];
 
         if (!array_key_exists($catalogFLName, $catalog)) {
             $catalog[$catalogFLName] = [
@@ -19,7 +19,7 @@ function getCatalog()
                         [
                             "id" => $value['id'],
                             "title" => $value['title'],
-                            "link" => $catalogFLLink . '/' . $value['link'],
+                            "link" => $catalogSecondLevelLink . '/' . $value['link'],
                             "image" => $value['image'],
                             "order" => $value['order'],
                         ],
@@ -27,7 +27,7 @@ function getCatalog()
                     'title' => $value['catalog_first_level']['title'],
                 ],
                 'image' => $value['catalog_first_level']['image'],
-                'link' => $catalogFLLink,
+                'link' => $catalogSecondLevelLink,
                 'title' => $value['catalog_first_level']['title'],
             ];
         } else {
@@ -35,7 +35,7 @@ function getCatalog()
                 [
                     "id" => $value['id'],
                     "title" => $value['title'],
-                    "link" => $catalogFLLink . '/' . $value['link'],
+                    "link" => $catalogSecondLevelLink . '/' . $value['link'],
                     "image" => $value['image'],
                     "order" => $value['order'],
                 ]
@@ -45,7 +45,22 @@ function getCatalog()
     return $catalog;
 }
 
-function getCatalogSecondLevel($name) {
+function getCatalogSecondLevel($name)
+{
     $catalog = getCatalog();
-    return $catalog[$name]['content']['categoriesList'];
+    return [
+        'breadcrumbs' => [
+            [
+                'active' => false,
+                'link' => '/',
+                'title' => 'Каталог',
+            ],
+            [
+                'active' => true,
+                'link' => '/catalog/' . $name,
+                'title' => $catalog[$name]['title'],
+            ]
+        ],
+        'catalog' => $catalog[$name]['content']['categoriesList'],
+    ];
 }
