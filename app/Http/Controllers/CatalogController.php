@@ -51,22 +51,23 @@ class CatalogController extends Controller
     {
         $breadcrumbs = [
             [
-                'link' => '/catalog/meat',
-                'title' => 'Мясная продукция',
+                'link' => '/',
+                'title' => 'Каталог',
             ],
             [
                 'active' => true,
-                'link' => '/catalog/meat/beef',
-                'title' => 'Говядина',
+                'link' => '/catalog/meat',
+                'title' => 'Мясная продукция',
             ]
         ];
 
-        $catalogSecondLevel = CatalogSecondLevel::with('catalogFirstLevel')->get()->toArray();
-        $catalog = getCatalogSecondLevel($catalogSecondLevel, $name);
+        $catalog = getCatalog();
+        $catalogSecondLevel = getCatalogSecondLevel($name);
 
         return view('pages.catalog.secondLevel.index', [
             'breadcrumbs' => $breadcrumbs,
-            'catalogList' => $catalog,
+            'catalogHeaderList' => $catalog,
+            'catalogList' => $catalogSecondLevel,
         ]);
     }
 

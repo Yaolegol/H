@@ -28,9 +28,12 @@ class HomeController extends Controller
             ]
         ];
 
+        $catalog = getCatalog();
+
         return view('pages.home.index', [
             'breadcrumbs' => $breadcrumbs,
-            'catalogList' => getCatalog(),
+            'catalogHeaderList' => $catalog,
+            'catalogList' => $catalog,
         ]);
     }
 }

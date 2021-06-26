@@ -9,11 +9,11 @@ function getCatalog()
 
     foreach ($catalogSecondLevel as $value) {
         $catalogFL = $value['catalog_first_level'];
-        $catalogFLTitle = $catalogFL['title'];
+        $catalogFLName = $catalogFL['link'];
         $catalogFLLink = '/' . 'catalog' . '/' . $catalogFL['link'];
 
-        if (!array_key_exists($catalogFLTitle, $catalog)) {
-            $catalog[$catalogFLTitle] = [
+        if (!array_key_exists($catalogFLName, $catalog)) {
+            $catalog[$catalogFLName] = [
                 'content' => [
                     'categoriesList' => [
                         [
@@ -31,7 +31,7 @@ function getCatalog()
                 'title' => $value['catalog_first_level']['title'],
             ];
         } else {
-            array_push($catalog[$catalogFLTitle]['content']['categoriesList'],
+            array_push($catalog[$catalogFLName]['content']['categoriesList'],
                 [
                     "id" => $value['id'],
                     "title" => $value['title'],
@@ -45,9 +45,7 @@ function getCatalog()
     return $catalog;
 }
 
-function getCatalogSecondLevel($catalogList, $name) {
-    $catalog = getCatalog($catalogList);
-    dd($catalog);
-
-    return $catalog;
+function getCatalogSecondLevel($name) {
+    $catalog = getCatalog();
+    return $catalog[$name]['content']['categoriesList'];
 }
