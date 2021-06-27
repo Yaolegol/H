@@ -16,7 +16,7 @@ class CreateCatalogSecondLevelTable extends Migration
         Schema::create('catalog_second_level', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('link');
+            $table->string('link')->index()->unique();
             $table->string('image');
             $table->integer('order');
             $table->bigInteger('catalog_first_level_id')->unsigned()->index()->nullable();

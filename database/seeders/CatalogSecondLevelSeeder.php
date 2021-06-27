@@ -39,7 +39,7 @@ class CatalogSecondLevelSeeder extends Seeder
         [
             'catalog_first_level_id' => '3',
             'image' => 'https://picsum.photos/200/300',
-            'link' => 'chicken',
+            'link' => 'chicken-eggs',
             'order' => 1,
             'title' => 'Куринные яйца',
         ],
