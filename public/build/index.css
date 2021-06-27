@@ -661,7 +661,7 @@ p {
 }
 
 .offers-item {
-  color: green;
+  border: 1px solid #E9EDF6;
   padding: 20px;
 }
 
