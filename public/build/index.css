@@ -667,6 +667,7 @@ p {
 }
 .offers-item__content-block {
   flex: 3 0 auto;
+  padding: 0 0 0 20px;
 }
 .offers-item__image {
   bottom: 0;
