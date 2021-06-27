@@ -5,7 +5,9 @@
         </div>
     </div>
     <div class="offers-item__content-block">
-        {{$offer['title']}}
+        <div>{{$offer['title']}}</div>
+        <div>{{$offer['seller']['name']}}</div>
+        <div>{{$offer['product']['title']}}</div>
     </div>
 </div>
 
