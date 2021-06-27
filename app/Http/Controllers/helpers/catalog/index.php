@@ -88,7 +88,7 @@ function getOffers($product) {
     }
 
     if(!is_null($productItemId)) {
-        $offerList = Offer::where('product_id', $productItemId)->get()->toArray();
+        $offerList = Offer::where('product_id', $productItemId)->with('seller', 'product')->get()->toArray();
     }
 
     return $offerList;
