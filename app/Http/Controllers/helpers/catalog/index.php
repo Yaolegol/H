@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\CatalogSecondLevel;
+use App\Models\Seller;
 
 function getCatalog()
 {
@@ -63,4 +64,10 @@ function getCatalogSecondLevel($name)
         ],
         'catalog' => $catalog[$name]['content']['categoriesList'],
     ];
+}
+
+function getSellers() {
+    $sellers = Seller::all()->toArray();
+    dd($sellers);
+    return $sellers;
 }
