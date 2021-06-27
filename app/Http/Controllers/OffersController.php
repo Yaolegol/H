@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 require_once('app/Http/Controllers/helpers/catalog/index.php');
 
-class SellersController extends Controller
+class OffersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,12 +18,13 @@ class SellersController extends Controller
     public function index($catalogLevel2, $product)
     {
         $catalog = getCatalog();
-        $sellers = getSellers($product);
+        $offersList = getOffers($product);
+        dd($offersList);
 
-        return view('pages.sellers.index', [
+        return view('pages.offers.index', [
             'breadcrumbs' => [],
             'catalogHeaderList' => $catalog,
-            'catalogList' => $catalog,
+            'offersList' => $offersList,
         ]);
     }
 

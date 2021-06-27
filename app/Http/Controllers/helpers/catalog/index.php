@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\CatalogSecondLevel;
+use App\Models\Offer;
 use App\Models\Product;
 use App\Models\Seller;
 
@@ -67,27 +68,28 @@ function getCatalogSecondLevel($name)
     ];
 }
 
-function getSellers($product) {
+function getOffers($product) {
     $catalogItem = CatalogSecondLevel::where('link', $product)->get()->toArray();
     $catalogItemId = null;
     $productItem = null;
-    $sellers = null;
+    $productItemId = null;
+    $offerList = [];
 
     if(!empty($catalogItem)) {
         $catalogItemId = $catalogItem[0]['id'];
     }
 
     if(!is_null($catalogItemId)) {
-        $productItem = Product::where('catalog_id', $catalogItemId)->with('Sellers')->get()->toArray();
+        $productItem = Product::where('catalog_id', $catalogItemId)->get()->toArray();
 
         if(!empty($productItem)) {
-            $sellers = $productItem[0]['sellers'];
+            $productItemId = $productItem[0]['id'];
         }
     }
 
-    if(!empty($sellers)) {
-        dd($sellers);
+    if(!is_null($productItemId)) {
+        $offerList = Offer::where('product_id', $productItemId)->get()->toArray();
     }
 
-    return $sellers;
+    return $offerList;
 }
