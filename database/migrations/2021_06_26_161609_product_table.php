@@ -21,8 +21,8 @@ class ProductTable extends Migration
             $table->string('image');
             $table->string('measurement');
             $table->integer('order');
-            $table->bigInteger('buyer_id')->unsigned()->index()->nullable();
-            $table->foreign('buyer_id')->references('id')->on('buyer');
+            $table->bigInteger('seller_id')->unsigned()->index()->nullable();
+            $table->foreign('seller_id')->references('id')->on('seller');
             $table->timestamps();
         });
     }

@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             CatalogFirstLevelSeeder::class,
             CatalogSecondLevelSeeder::class,
-            BuyerSeeder::class,
+            SellerSeeder::class,
             ProductSeeder::class,
         ]);
     }

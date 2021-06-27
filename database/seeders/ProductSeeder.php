@@ -9,39 +9,39 @@ class ProductSeeder extends Seeder
 {
     public $data = [
         [
-            'buyer_id' => 1,
             'description' => '1 test description',
             'image' => 'https://picsum.photos/200/300',
             'measurement' => 'кг',
             'order' => 1,
             'price' => 100,
+            'seller_id' => 1,
             'title' => '1 test title',
         ],
         [
-            'buyer_id' => 1,
             'description' => '2 test description',
             'image' => 'https://picsum.photos/200/300',
             'measurement' => 'кг',
             'order' => 1,
             'price' => 200,
+            'seller_id' => 1,
             'title' => '2 test title',
         ],
         [
-            'buyer_id' => 2,
             'description' => '3 test description',
             'image' => 'https://picsum.photos/200/300',
             'measurement' => 'кг',
             'order' => 1,
             'price' => 300,
+            'seller_id' => 2,
             'title' => '3 test title',
         ],
         [
-            'buyer_id' => 2,
             'description' => '4 test description',
             'image' => 'https://picsum.photos/200/300',
             'measurement' => 'кг',
             'order' => 1,
             'price' => 400,
+            'seller_id' => 2,
             'title' => '4 test title',
         ],
     ];

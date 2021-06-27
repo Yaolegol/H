@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class BuyerSeeder extends Seeder
+class SellerSeeder extends Seeder
 {
     public $data = [
         [
@@ -42,7 +42,7 @@ class BuyerSeeder extends Seeder
     public function run()
     {
         foreach ($this->data as $dataItem) {
-            DB::table('buyer')->insert($dataItem);
+            DB::table('seller')->insert($dataItem);
         }
     }
 }
