@@ -18,8 +18,11 @@ class DatabaseSeeder extends Seeder
             CatalogFirstLevelSeeder::class,
             CatalogSecondLevelSeeder::class,
             SellerSeeder::class,
+            MeasureSeeder::class,
+            PriceSeeder::class,
             ProductSeeder::class,
             SellerProductSeeder::class,
+            ProductPriceSeeder::class,
         ]);
     }
 }

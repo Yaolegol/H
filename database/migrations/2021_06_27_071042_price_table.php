@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ProductTable extends Migration
+class PriceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class ProductTable extends Migration
      */
     public function up()
     {
-        Schema::create('product', function (Blueprint $table) {
+        Schema::create('price', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('image');
-            $table->integer('order');
+            $table->float('price');
+            $table->bigInteger('measure_id')->unsigned()->index()->nullable();
+            $table->foreign('measure_id')->references('id')->on('measure');
             $table->timestamps();
         });
     }

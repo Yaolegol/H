@@ -10,4 +10,9 @@ class Seller extends Model
     use HasFactory;
 
     protected $table = 'seller';
+
+    public function products()
+    {
+        return $this->morphToMany(Product::class, 'seller-product');
+    }
 }

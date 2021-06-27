@@ -66,7 +66,7 @@ function getCatalogSecondLevel($name)
     ];
 }
 
-function getSellers() {
+function getSellers($product) {
     $sellers = Seller::all()->toArray();
     dd($sellers);
     return $sellers;

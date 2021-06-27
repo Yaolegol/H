@@ -18,7 +18,7 @@ class SellersController extends Controller
     public function index($catalogLevel2, $product)
     {
         $catalog = getCatalog();
-        $sellers = getSellers();
+        $sellers = getSellers($product);
 
         return view('pages.sellers.index', [
             'breadcrumbs' => [],
