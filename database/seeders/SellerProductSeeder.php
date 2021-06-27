@@ -17,11 +17,11 @@ class SellerProductSeeder extends Seeder
             'seller_id' => 1,
         ],
         [
-            'product_id' => 3,
+            'product_id' => 4,
             'seller_id' => 2,
         ],
         [
-            'product_id' => 4,
+            'product_id' => 6,
             'seller_id' => 3,
         ],
     ];

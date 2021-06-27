@@ -18,6 +18,8 @@ class ProductTable extends Migration
             $table->string('title');
             $table->string('image');
             $table->integer('order');
+            $table->bigInteger('catalog_id')->unsigned()->index()->nullable();
+            $table->foreign('catalog_id')->references('id')->on('catalog_second_level');
             $table->timestamps();
         });
     }
