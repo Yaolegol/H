@@ -19,7 +19,6 @@ class OffersController extends Controller
     {
         $catalog = getCatalog();
         $offersList = getOffers($product);
-        dd($offersList);
 
         return view('pages.offers.index', [
             'breadcrumbs' => [],

@@ -1,5 +1,7 @@
 <div class="offers-list">
-    @include('modules.offers.item.index')
+    @foreach($offersList as $offerItem)
+        @include('modules.offers.item.index', ['offer' => $offerItem])
+    @endforeach
 </div>
 
 

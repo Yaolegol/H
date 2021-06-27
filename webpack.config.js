@@ -5,7 +5,7 @@ const path = require("path");
 
 module.exports = {
     entry: {
-        index: "./resources/views/pages/home",
+        index: "./resources/views/pages",
     },
     module: {
         rules: [

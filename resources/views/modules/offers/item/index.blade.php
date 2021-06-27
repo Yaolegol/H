@@ -1,5 +1,5 @@
 <div class="offers-item">
-    offers-item
+    {{$offer['title']}}
 </div>
 
 
