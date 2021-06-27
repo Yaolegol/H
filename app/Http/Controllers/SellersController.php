@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+require_once('app/Http/Controllers/helpers/catalog/index.php');
+
 class SellersController extends Controller
 {
     /**
@@ -15,7 +17,14 @@ class SellersController extends Controller
      */
     public function index($catalogLevel2, $product)
     {
-        return $catalogLevel2 . ' ' . $product;
+        $catalog = getCatalog();
+        $catalogSecondLevel = getCatalogSecondLevel($catalogLevel2);
+
+        return view('pages.sellers.index', [
+            'breadcrumbs' => $catalogSecondLevel['breadcrumbs'],
+            'catalogHeaderList' => $catalog,
+            'catalogList' => $catalogSecondLevel['catalog'],
+        ]);
     }
 
     /**

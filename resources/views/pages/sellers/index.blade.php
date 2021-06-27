@@ -2,7 +2,7 @@
 
 @section('content')
     @include('modules.header.catalog.index')
-    @include('modules.home.index')
+    @include('modules.sellers.index')
 @endsection
 
 @section('scripts')
