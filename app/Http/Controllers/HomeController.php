@@ -16,11 +16,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $catalog = getCatalog();
+        $catalogLevel1 = getCatalogLevel1();
 
         return view('pages.home.index', [
-            'catalogHeaderList' => $catalog,
-            'catalogList' => $catalog,
+            'catalogHeaderList' => [],
+            'catalogList' => $catalogLevel1,
         ]);
     }
 }

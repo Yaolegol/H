@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CatalogSecondLevel;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
