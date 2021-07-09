@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCatalogFirstLevelTable extends Migration
+class CreateCatalogTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateCatalogFirstLevelTable extends Migration
      */
     public function up()
     {
-        Schema::create('catalog_first_level', function (Blueprint $table) {
+        Schema::create('catalog', function (Blueprint $table) {
             $table->id();
+            $table->integer('level');
             $table->string('title');
             $table->string('link');
             $table->string('image');
@@ -30,6 +31,6 @@ class CreateCatalogFirstLevelTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('catalog_first_level');
+        Schema::dropIfExists('catalog');
     }
 }
