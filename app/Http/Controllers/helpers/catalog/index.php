@@ -59,11 +59,91 @@ function getCatalogLevel1()
         return $item["level"] === 1;
     });
 
-    return array_map(function($catalogItem, $key) {
-        $catalogItemNew = array_combine(array_keys($catalogItem), array_values($catalogItem));
+    return array_map(function ($catalogItem) {
+        $catalogItemNew = getNewArray($catalogItem);
         $catalogItemNew['link'] = 'catalog' . '/' . $catalogItemNew['link'];
         return $catalogItemNew;
-    }, $catalogLevel1, array_keys($catalogLevel1));
+    }, $catalogLevel1);
+}
+
+function getCatalogLevel2()
+{
+
+}
+
+function getCatalogFull()
+{
+    $catalog = getCatalog();
+    $catalogFormattedLinks = formatCatalogLinks($catalog);
+
+    return getCatalogFormatted($catalogFormattedLinks);
+}
+
+function getCatalogFormatted($catalog)
+{
+    return array_reduce(
+        $catalog,
+        function ($acc, $catalogItem) use ($catalog) {
+            $catalogItemNew = getNewArray($catalogItem);
+            if ($catalogItemNew['level'] === 1) {
+                $title = $catalogItemNew['title'];
+                $categoriesList = array_filter($catalog, function($item) use($catalogItemNew) {
+                    return $item['previous_level_id'] === $catalogItemNew['id'];
+                });
+
+                array_push(
+                    $acc,
+                    [
+                        'content' => [
+                            'categoriesList' => $categoriesList,
+                            'title' => $title,
+                        ],
+                        'image' => $catalogItemNew['image'],
+                        'link' => $catalogItemNew['link'],
+                        'title' => $title,
+                    ]
+                );
+            }
+
+            return $acc;
+        },
+        []
+    );
+}
+
+function formatCatalogLinks($catalog)
+{
+    return array_map(
+        function ($catalogItem) use ($catalog) {
+            $catalogItemNew = getNewArray($catalogItem);
+            if ($catalogItemNew['level'] === 1) {
+                $catalogItemNew['link'] = 'catalog' . '/' . $catalogItemNew['link'];
+            } elseif ($catalogItemNew['level'] === 2) {
+                $previousLevelId = $catalogItemNew['previous_level_id'];
+                $previousLevelItemIndex = array_search($previousLevelId, array_column($catalog, 'id'));
+                $previousLevelItem = $catalog[$previousLevelItemIndex];
+
+                $catalogItemNew['link'] = 'catalog' . '/' . $previousLevelItem['link'] . '/' . $catalogItemNew['link'];
+            }
+
+            return $catalogItemNew;
+        },
+        $catalog
+    );
+}
+
+function getNewArray($arr)
+{
+    return array_combine(array_keys($arr), array_values($arr));
+}
+
+function getCatalogLevel($level)
+{
+    $catalog = getCatalog();
+
+    return array_filter($catalog, function ($item) use ($level) {
+        return $item["level"] === $level;
+    });
 }
 
 function getCatalogSecondLevel($name)

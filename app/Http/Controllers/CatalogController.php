@@ -48,13 +48,12 @@ class CatalogController extends Controller
      */
     public function show($catalogLevel2)
     {
-        $catalog = getCatalog();
-        $catalogSecondLevel = getCatalogSecondLevel($catalogLevel2);
+        $catalogLevel2 = getCatalogLevel2();
 
         return view('pages.catalog.secondLevel.index', [
-            'breadcrumbs' => $catalogSecondLevel['breadcrumbs'],
-            'catalogHeaderList' => $catalog,
-            'catalogList' => $catalogSecondLevel['catalog'],
+            'breadcrumbs' => [],
+            'catalogHeaderList' => [],
+            'catalogList' => $catalogLevel2,
         ]);
     }
 

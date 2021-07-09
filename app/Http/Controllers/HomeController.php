@@ -16,7 +16,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $catalogLevel1 = getCatalogLevel1();
+        $catalogFull = getCatalogFull();
+        dd($catalogFull);
 
         return view('pages.home.index', [
             'catalogHeaderList' => [],
