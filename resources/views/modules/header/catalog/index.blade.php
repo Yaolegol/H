@@ -2,12 +2,12 @@
     <div class="header-catalog__backdrop j-header-catalog__backdrop"></div>
     <div class="header-catalog__catalog-container">
         <div class="header-catalog__navigation-container">
-            @foreach($catalogHeaderList as $catalogItem)
+            @foreach($catalogHeader as $catalogItem)
                 @include('modules.header.catalog.navigation-item.index', [ 'itemId' => $loop->index ])
             @endforeach
         </div>
         <div class="header-catalog__content-container">
-            @foreach($catalogHeaderList as $catalogItem)
+            @foreach($catalogHeader as $catalogItem)
                 @include('modules.header.catalog.content-item.index', [ 'itemId' => $loop->index ])
             @endforeach
         </div>

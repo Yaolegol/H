@@ -17,11 +17,10 @@ class HomeController extends Controller
     public function index()
     {
         $catalogFull = getCatalogFull();
-        dd($catalogFull);
 
         return view('pages.home.index', [
-            'catalogHeaderList' => [],
-            'catalogList' => $catalogLevel1,
+            'catalogHeader' => $catalogFull,
+            'catalogPage' => $catalogFull,
         ]);
     }
 }
