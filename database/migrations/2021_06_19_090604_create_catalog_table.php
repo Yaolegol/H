@@ -20,6 +20,7 @@ class CreateCatalogTable extends Migration
             $table->string('link');
             $table->string('image');
             $table->integer('order');
+            $table->integer('previous_level_id')->nullable();
             $table->timestamps();
         });
     }

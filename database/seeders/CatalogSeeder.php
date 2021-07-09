@@ -34,6 +34,7 @@ class CatalogSeeder extends Seeder
             'level' => 2,
             'link' => 'beef',
             'order' => 1,
+            'previous_level_id' => 1,
             'title' => 'Говядина',
         ],
         [
@@ -41,6 +42,7 @@ class CatalogSeeder extends Seeder
             'level' => 2,
             'link' => 'chicken',
             'order' => 2,
+            'previous_level_id' => 1,
             'title' => 'Курица',
         ],
         [
@@ -48,6 +50,7 @@ class CatalogSeeder extends Seeder
             'level' => 2,
             'link' => 'milk',
             'order' => 1,
+            'previous_level_id' => 2,
             'title' => 'Молоко',
         ],
         [
@@ -55,6 +58,7 @@ class CatalogSeeder extends Seeder
             'level' => 2,
             'link' => 'kefir',
             'order' => 3,
+            'previous_level_id' => 2,
             'title' => 'Кефир',
         ],
         [
@@ -62,6 +66,7 @@ class CatalogSeeder extends Seeder
             'level' => 2,
             'link' => 'chicken-eggs',
             'order' => 1,
+            'previous_level_id' => 3,
             'title' => 'Куринные яйца',
         ],
         [
@@ -69,6 +74,7 @@ class CatalogSeeder extends Seeder
             'level' => 2,
             'link' => 'quail',
             'order' => 2,
+            'previous_level_id' => 3,
             'title' => 'Перепелинные яйца',
         ],
     ];

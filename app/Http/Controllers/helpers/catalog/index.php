@@ -7,6 +7,9 @@ use App\Models\Seller;
 
 function getCatalog()
 {
+
+
+
     $catalogSecondLevel = CatalogSecondLevel::with('catalogFirstLevel')->get()->toArray();
     $catalog = [];
 
