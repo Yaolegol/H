@@ -14,9 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'CatalogController@index');
 Route::get('/catalog', 'CatalogController@index');
+
 Route::get('/catalog/{catalogLevel2}/{product}', 'OffersController@index');
+
 Route::get('/catalog/{catalogLevel2}', 'CatalogController@show');
 
 Auth::routes();
