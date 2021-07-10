@@ -80,31 +80,11 @@ function getNewArray($arr)
     return array_combine(array_keys($arr), array_values($arr));
 }
 
-function getOffers($product)
+function getOffers($productLink)
 {
-    $catalogItem = CatalogSecondLevel::where('link', $product)->get()->toArray();
-    $catalogItemId = null;
-    $productItem = null;
-    $productItemId = null;
-    $offerList = [];
+    $catalogProduct = array_merge(...Catalog::where(['link' => $productLink, 'level' => 2])->get()->toArray());
 
-    if (!empty($catalogItem)) {
-        $catalogItemId = $catalogItem[0]['id'];
-    }
-
-    if (!is_null($catalogItemId)) {
-        $productItem = Product::where('catalog_id', $catalogItemId)->get()->toArray();
-
-        if (!empty($productItem)) {
-            $productItemId = $productItem[0]['id'];
-        }
-    }
-
-    if (!is_null($productItemId)) {
-        $offerList = Offer::where('product_id', $productItemId)->with('seller', 'product')->get()->toArray();
-    }
-
-    return $offerList;
+    return Offer::where('catalog_id', $catalogProduct['id'])->with('catalog', 'seller', 'measure')->get()->toArray();
 }
 
 function setCatalogFullLinks($catalog)

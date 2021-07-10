@@ -11,8 +11,8 @@ class Seller extends Model
 
     protected $table = 'seller';
 
-    public function products()
+    public function catalog()
     {
-        return $this->morphToMany(Product::class, 'seller-product');
+        return $this->belongsTo(Catalog::class, 'seller-catalog');
     }
 }

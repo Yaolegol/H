@@ -48,6 +48,16 @@ class OfferSeeder extends Seeder
             'seller_id' => 3,
             'title' => 'Предложение кефир',
         ],
+        [
+            'catalog_id' => 4,
+            'description' => 'Описание 5',
+            'image' => 'https://picsum.photos/200/300',
+            'measure_id' => 1,
+            'order' => 1,
+            'price' => 800,
+            'seller_id' => 4,
+            'title' => 'Предложение говядина',
+        ],
     ];
 
     /**

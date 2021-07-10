@@ -11,13 +11,18 @@ class Offer extends Model
 
     protected $table = 'offer';
 
+    public function catalog()
+    {
+        return $this->belongsTo(Catalog::class);
+    }
+
+    public function measure()
+    {
+        return $this->belongsTo(Measure::class);
+    }
+
     public function seller()
     {
         return $this->belongsTo(Seller::class);
-    }
-
-    public function product()
-    {
-        return $this->belongsTo(Product::class);
     }
 }

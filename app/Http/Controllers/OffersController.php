@@ -15,10 +15,10 @@ class OffersController extends Controller
      * @param  string  $product
      * @return \Illuminate\Http\Response
      */
-    public function index($catalogLevel2Link, $product)
+    public function index($catalogLevel2Link, $productLink)
     {
         $catalogFull = getCatalogFull();
-        $offersList = getOffers($product);
+        $offersList = getOffers($productLink);
 
         return view('pages.offers.index', [
             'breadcrumbs' => [],
