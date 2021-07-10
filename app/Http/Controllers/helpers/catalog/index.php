@@ -75,27 +75,6 @@ function getCatalogLevel2($catalogFull, $link)
     return $catalogLevel2['content']['categoriesList'];
 }
 
-function setCatalogFullLinks($catalog)
-{
-    return array_map(
-        function ($catalogItem) use ($catalog) {
-            $catalogItemNew = getNewArray($catalogItem);
-            if ($catalogItemNew['level'] === 1) {
-                $catalogItemNew['linkFull'] = '/' . 'catalog' . '/' . $catalogItemNew['link'];
-            } elseif ($catalogItemNew['level'] === 2) {
-                $previousLevelId = $catalogItemNew['previous_level_id'];
-                $previousLevelItemIndex = array_search($previousLevelId, array_column($catalog, 'id'));
-                $previousLevelItem = $catalog[$previousLevelItemIndex];
-
-                $catalogItemNew['linkFull'] = '/' . 'catalog' . '/' . $previousLevelItem['link'] . '/' . $catalogItemNew['link'];
-            }
-
-            return $catalogItemNew;
-        },
-        $catalog
-    );
-}
-
 function getNewArray($arr)
 {
     return array_combine(array_keys($arr), array_values($arr));
@@ -126,4 +105,25 @@ function getOffers($product)
     }
 
     return $offerList;
+}
+
+function setCatalogFullLinks($catalog)
+{
+    return array_map(
+        function ($catalogItem) use ($catalog) {
+            $catalogItemNew = getNewArray($catalogItem);
+            if ($catalogItemNew['level'] === 1) {
+                $catalogItemNew['linkFull'] = '/' . 'catalog' . '/' . $catalogItemNew['link'];
+            } elseif ($catalogItemNew['level'] === 2) {
+                $previousLevelId = $catalogItemNew['previous_level_id'];
+                $previousLevelItemIndex = array_search($previousLevelId, array_column($catalog, 'id'));
+                $previousLevelItem = $catalog[$previousLevelItemIndex];
+
+                $catalogItemNew['linkFull'] = '/' . 'catalog' . '/' . $previousLevelItem['link'] . '/' . $catalogItemNew['link'];
+            }
+
+            return $catalogItemNew;
+        },
+        $catalog
+    );
 }

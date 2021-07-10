@@ -11,18 +11,18 @@ class OffersController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param  int  $catalogLevel2
-     * @param  int  $product
+     * @param  string  $catalogLevel2Link
+     * @param  string  $product
      * @return \Illuminate\Http\Response
      */
-    public function index($catalogLevel2, $product)
+    public function index($catalogLevel2Link, $product)
     {
-        $catalog = getCatalog();
+        $catalogFull = getCatalogFull();
         $offersList = getOffers($product);
 
         return view('pages.offers.index', [
             'breadcrumbs' => [],
-            'catalogHeaderList' => $catalog,
+            'catalogHeader' => $catalogFull,
             'offersList' => $offersList,
         ]);
     }
