@@ -15,4 +15,9 @@ class Seller extends Model
     {
         return $this->belongsTo(Catalog::class, 'seller-catalog');
     }
+
+    public function region()
+    {
+        return $this->belongsTo(Region::class, 'region_id');
+    }
 }

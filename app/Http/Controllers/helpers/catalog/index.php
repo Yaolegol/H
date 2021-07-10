@@ -106,7 +106,7 @@ function getOffers($productLink)
 {
     $catalogProduct = array_merge(...Catalog::where(['link' => $productLink, 'level' => 2])->get()->toArray());
 
-    return Offer::where('catalog_id', $catalogProduct['id'])->with('catalog', 'seller', 'measure')->get()->toArray();
+    return Offer::where('catalog_id', $catalogProduct['id'])->with('catalog', 'seller', 'seller.region', 'measure')->get()->toArray();
 }
 
 function getOffersBreadcrumbs($catalogFull, $catalogLevel2Link, $productLink)
