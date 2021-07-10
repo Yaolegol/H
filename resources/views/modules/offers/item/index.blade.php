@@ -7,6 +7,7 @@
     <div class="offers-item__content-block">
         <div>{{$offer['title']}}</div>
         <div>{{$offer['seller']['name']}}</div>
+        <div>{{$offer['seller']['region']['title']}}</div>
     </div>
 </div>
 
