@@ -18,7 +18,7 @@ class SellersController extends Controller
         $catalogFull = getCatalogFull();
         dd($catalogFull);
         $offersList = getOffers($productLink);
-        $breadcrumbs = getOffersBreadcrumbs($catalogFull, $catalogLevel2Link, $productLink);
+        $breadcrumbs = getCatalogOffersBreadcrumbs($catalogFull, $catalogLevel2Link, $productLink);
 
         return view('pages.sellers.index', [
             'breadcrumbs' => $breadcrumbs,

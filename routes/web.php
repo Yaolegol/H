@@ -23,4 +23,6 @@ Route::get('/catalog/{catalogLevel2}', 'CatalogController@show');
 
 Route::get('/sellers/{id}', 'SellersController@index');
 
+Route::get('/offers/{id}', 'OffersController@show');
+
 Auth::routes();

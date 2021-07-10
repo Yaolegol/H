@@ -19,7 +19,7 @@ class OffersController extends Controller
     {
         $catalogFull = getCatalogFull();
         $offersList = getOffers($productLink);
-        $breadcrumbs = getOffersBreadcrumbs($catalogFull, $catalogLevel2Link, $productLink);
+        $breadcrumbs = getCatalogOffersBreadcrumbs($catalogFull, $catalogLevel2Link, $productLink);
 
         return view('pages.offers.index', [
             'breadcrumbs' => $breadcrumbs,
@@ -57,7 +57,15 @@ class OffersController extends Controller
      */
     public function show($id)
     {
-        //
+        $catalogFull = getCatalogFull();
+        $offer = getOffer($id);
+        $breadcrumbs = getOfferBreadcrumbs();
+
+        return view('pages.offers.item.index', [
+            'breadcrumbs' => $breadcrumbs,
+            'catalogHeader' => $catalogFull,
+            'offer' => $offer,
+        ]);
     }
 
     /**
