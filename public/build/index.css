@@ -661,9 +661,14 @@ p {
 }
 
 .offers-item {
-  border: 1px solid #E9EDF6;
+  border-left: 1px solid #E9EDF6;
+  border-right: 1px solid #E9EDF6;
+  border-top: 1px solid #E9EDF6;
   display: flex;
   padding: 20px;
+}
+.offers-item:last-child {
+  border-bottom: 1px solid #E9EDF6;
 }
 .offers-item__content-block {
   flex: 3 0 auto;
