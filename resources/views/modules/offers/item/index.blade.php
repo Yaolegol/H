@@ -5,8 +5,12 @@
         </div>
     </div>
     <div class="offers-item__content-block">
-        <div>{{$offer['title']}}</div>
-        <div>{{$offer['seller']['name']}}</div>
+        <div>
+            <a href="/">{{$offer['title']}}</a>
+        </div>
+        <div>
+            <a href="/sellers/{{$offer['seller']['id']}}">{{$offer['seller']['name']}}</a>
+        </div>
         <div>{{$offer['seller']['region']['title']}}</div>
     </div>
 </div>
