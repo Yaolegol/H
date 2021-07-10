@@ -20,6 +20,7 @@ class OfferTable extends Migration
             $table->string('image');
             $table->integer('order');
             $table->float('price');
+            $table->boolean('is_active');
             $table->bigInteger('seller_id')->unsigned()->index();
             $table->foreign('seller_id')->references('id')->on('seller');
             $table->bigInteger('catalog_id')->unsigned()->index();
