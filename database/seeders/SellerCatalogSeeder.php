@@ -5,23 +5,23 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class SellerProductSeeder extends Seeder
+class SellerCatalogSeeder extends Seeder
 {
     public $data = [
         [
-            'product_id' => 1,
+            'catalog_id' => 1,
             'seller_id' => 1,
         ],
         [
-            'product_id' => 2,
+            'catalog_id' => 2,
             'seller_id' => 1,
         ],
         [
-            'product_id' => 4,
+            'catalog_id' => 4,
             'seller_id' => 2,
         ],
         [
-            'product_id' => 6,
+            'catalog_id' => 6,
             'seller_id' => 3,
         ],
     ];
@@ -34,7 +34,7 @@ class SellerProductSeeder extends Seeder
     public function run()
     {
         foreach ($this->data as $dataItem) {
-            DB::table('seller-product')->insert($dataItem);
+            DB::table('seller-catalog')->insert($dataItem);
         }
     }
 }

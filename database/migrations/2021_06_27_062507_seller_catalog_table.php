@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class SellerProductTable extends Migration
+class SellerCatalogTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class SellerProductTable extends Migration
      */
     public function up()
     {
-        Schema::create('seller-product', function (Blueprint $table) {
+        Schema::create('seller-catalog', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('seller_id')->unsigned()->index()->nullable();
+            $table->bigInteger('seller_id')->unsigned()->index();
             $table->foreign('seller_id')->references('id')->on('seller');
-            $table->bigInteger('product_id')->unsigned()->index()->nullable();
-            $table->foreign('product_id')->references('id')->on('product');
+            $table->bigInteger('catalog_id')->unsigned()->index();
+            $table->foreign('catalog_id')->references('id')->on('catalog');
             $table->timestamps();
         });
     }

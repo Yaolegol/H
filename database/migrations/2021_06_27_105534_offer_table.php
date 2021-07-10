@@ -20,10 +20,10 @@ class OfferTable extends Migration
             $table->string('image');
             $table->integer('order');
             $table->float('price');
-            $table->bigInteger('seller_id')->unsigned()->index()->nullable();
+            $table->bigInteger('seller_id')->unsigned()->index();
             $table->foreign('seller_id')->references('id')->on('seller');
-            $table->bigInteger('product_id')->unsigned()->index()->nullable();
-            $table->foreign('product_id')->references('id')->on('product');
+            $table->bigInteger('catalog_id')->unsigned()->index();
+            $table->foreign('catalog_id')->references('id')->on('catalog');
             $table->bigInteger('measure_id')->unsigned()->index()->nullable();
             $table->foreign('measure_id')->references('id')->on('measure');
             $table->timestamps();
