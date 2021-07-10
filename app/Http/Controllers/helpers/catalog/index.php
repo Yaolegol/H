@@ -102,12 +102,11 @@ function getNewArray($arr)
     return array_combine(array_keys($arr), array_values($arr));
 }
 
-function getOffers($productLink, $breadcrumbs)
+function getOffers($productLink)
 {
     $catalogProduct = array_merge(...Catalog::where(['link' => $productLink, 'level' => 2])->get()->toArray());
-    $offers = Offer::where('catalog_id', $catalogProduct['id'])->with('catalog', 'seller', 'seller.region', 'measure')->get()->toArray();
 
-    return setupOffers($offers, $breadcrumbs);
+    return Offer::where('catalog_id', $catalogProduct['id'])->with('catalog', 'seller', 'seller.region', 'measure')->get()->toArray();
 }
 
 function getOffersBreadcrumbs($catalogFull, $catalogLevel2Link, $productLink)
@@ -142,7 +141,6 @@ function getOffersBreadcrumbs($catalogFull, $catalogLevel2Link, $productLink)
         ],
         [
             'active' => true,
-            'link' => '/' . 'catalog' . '/' . $catalogLevel2Item['link'] . '/' . $catalogProduct['link'],
             'title' => $catalogProduct['title'],
         ]
     );
@@ -169,13 +167,4 @@ function setCatalogFullLinks($catalog)
         },
         $catalog
     );
-}
-
-function setupOffers($offers, $breadcrumbs)
-{
-    return array_map(function($item) use($breadcrumbs) {
-        $itemNew = getNewArray($item);
-        $itemNew['offerLink'] = $breadcrumbs[2]['link'] . '/' . $itemNew['id'];
-        return $itemNew;
-    }, $offers);
 }
