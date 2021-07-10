@@ -19,9 +19,10 @@ class OffersController extends Controller
     {
         $catalogFull = getCatalogFull();
         $offersList = getOffers($productLink);
+        $breadcrumbs = getOffersBreadcrumbs($catalogFull, $catalogLevel2Link, $productLink);
 
         return view('pages.offers.index', [
-            'breadcrumbs' => [],
+            'breadcrumbs' => $breadcrumbs,
             'catalogHeader' => $catalogFull,
             'offersList' => $offersList,
         ]);

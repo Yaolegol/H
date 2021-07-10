@@ -43,6 +43,7 @@ function getCatalogFormatted($catalog)
                         'image' => $item['image'],
                         'link' => $item['link'],
                         'linkFull' => $item['linkFull'],
+                        'previousLevelId' => $item['previous_level_id'],
                         'title' => $item['title'],
                     ];
                 }, $categoriesList);
@@ -106,6 +107,45 @@ function getOffers($productLink)
     $catalogProduct = array_merge(...Catalog::where(['link' => $productLink, 'level' => 2])->get()->toArray());
 
     return Offer::where('catalog_id', $catalogProduct['id'])->with('catalog', 'seller', 'measure')->get()->toArray();
+}
+
+function getOffersBreadcrumbs($catalogFull, $catalogLevel2Link, $productLink)
+{
+    $breadcrumbs = [
+        [
+            'active' => false,
+            'link' => '/',
+            'title' => 'Каталог',
+        ],
+    ];
+
+    $catalogLevel2Item = array_merge(...array_filter(
+        $catalogFull,
+        function ($item) use ($catalogLevel2Link) {
+            return $item['link'] === $catalogLevel2Link;
+        }
+    ));
+
+    $catalogProduct = array_merge(...array_filter(
+        $catalogLevel2Item['content']['categoriesList'],
+        function ($item) use ($catalogLevel2Item, $productLink) {
+            return $item['previousLevelId'] === $catalogLevel2Item['id'] && $item['link'] === $productLink;
+        }
+    ));
+
+    array_push($breadcrumbs,
+        [
+            'active' => false,
+            'link' => '/' . 'catalog' . '/' . $catalogLevel2Item['link'],
+            'title' => $catalogLevel2Item['title'],
+        ],
+        [
+            'active' => true,
+            'title' => $catalogProduct['title'],
+        ]
+    );
+
+    return $breadcrumbs;
 }
 
 function setCatalogFullLinks($catalog)
