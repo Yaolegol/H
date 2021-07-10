@@ -660,6 +660,43 @@ p {
   line-height: 26px;
 }
 
+.offers-item {
+  border-left: 1px solid #E9EDF6;
+  border-right: 1px solid #E9EDF6;
+  border-top: 1px solid #E9EDF6;
+  display: flex;
+  padding: 20px;
+}
+.offers-item:last-child {
+  border-bottom: 1px solid #E9EDF6;
+}
+.offers-item__content-block {
+  flex: 3 0 auto;
+  padding: 0 0 0 20px;
+}
+.offers-item__image {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+.offers-item__image-block {
+  flex: 2 0 auto;
+}
+.offers-item__image-container {
+  padding-bottom: 50%;
+  position: relative;
+}
+
+.offers-list {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
 
 @font-face {
   font-family: 'Lato';
