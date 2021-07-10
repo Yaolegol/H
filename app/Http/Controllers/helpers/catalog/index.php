@@ -2,7 +2,6 @@
 
 use App\Models\Catalog;
 use App\Models\Offer;
-use App\Models\Product;
 use App\Models\Seller;
 
 function getCatalog()
