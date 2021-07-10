@@ -664,6 +664,7 @@ p {
   border-left: 1px solid #E9EDF6;
   border-right: 1px solid #E9EDF6;
   border-top: 1px solid #E9EDF6;
+  cursor: pointer;
   display: flex;
   padding: 20px;
 }
