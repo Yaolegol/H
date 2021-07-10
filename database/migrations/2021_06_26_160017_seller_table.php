@@ -20,6 +20,8 @@ class SellerTable extends Migration
             $table->integer('order');
             $table->bigInteger('user_id')->unsigned()->index()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->bigInteger('region_id')->unsigned()->index()->nullable();
+            $table->foreign('region_id')->references('id')->on('region');
             $table->timestamps();
         });
     }
