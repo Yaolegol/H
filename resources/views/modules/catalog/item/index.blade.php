@@ -7,5 +7,5 @@
             {{$catalogItem['title']}}
         </div>
     </div>
-    <a class="catalog-item__link" href="{{$catalogItem['link']}}"></a>
+    <a class="catalog-item__link" href="{{$catalogItem['linkFull']}}"></a>
 </div>
