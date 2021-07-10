@@ -680,13 +680,17 @@ p {
   width: 100%;
 }
 .offers-item__image-block {
-  flex: 1 0 auto;
+  flex: 2 0 auto;
 }
 .offers-item__image-container {
   padding-bottom: 50%;
   position: relative;
 }
 
+.offers-list {
+  margin: 0 auto;
+  max-width: 800px;
+}
 
 
 @font-face {
