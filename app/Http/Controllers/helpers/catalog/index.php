@@ -2,11 +2,28 @@
 
 use App\Models\Catalog;
 use App\Models\Offer;
-use App\Models\Seller;
 
 function getCatalog()
 {
     return Catalog::all()->toArray();
+}
+
+function getCatalogBreadcrumbsLevel2($catalogFull, $catalogLevel2Link)
+{
+    $breadcrumbs = [
+        [
+            'active' => false,
+            'link' => '/',
+            'title' => 'Каталог',
+        ],
+    ];
+    $catalogLevel2 = getCatalogLevel2($catalogFull, $catalogLevel2Link);
+    array_push($breadcrumbs, [
+        'active' => true,
+        'title' => $catalogLevel2['title'],
+    ]);
+
+    return $breadcrumbs;
 }
 
 function getCatalogFormatted($catalog)
@@ -17,10 +34,10 @@ function getCatalogFormatted($catalog)
             $catalogItemNew = getNewArray($catalogItem);
             if ($catalogItemNew['level'] === 1) {
                 $title = $catalogItemNew['title'];
-                $categoriesList = array_filter($catalog, function($item) use($catalogItemNew) {
+                $categoriesList = array_filter($catalog, function ($item) use ($catalogItemNew) {
                     return $item['previous_level_id'] === $catalogItemNew['id'];
                 });
-                $categoriesListFormatted = array_map(function($item) {
+                $categoriesListFormatted = array_map(function ($item) {
                     return [
                         'id' => $item['id'],
                         'image' => $item['image'],
@@ -62,14 +79,19 @@ function getCatalogFull()
 
 function getCatalogLevel2($catalogFull, $link)
 {
-    $catalogItem = array_merge(...array_filter($catalogFull, function($item) use($link) {
+    $catalogItem = array_merge(...array_filter($catalogFull, function ($item) use ($link) {
         return $item['link'] === $link;
     }));
     $catalogItemId = $catalogItem['id'];
 
-    $catalogLevel2 = array_merge(...array_filter($catalogFull, function($item) use($catalogItemId) {
+    return array_merge(...array_filter($catalogFull, function ($item) use ($catalogItemId) {
         return $item['id'] === $catalogItemId;
     }));
+}
+
+function getCatalogLevel2CategoriesList($catalogFull, $link)
+{
+    $catalogLevel2 = getCatalogLevel2($catalogFull, $link);
 
     return $catalogLevel2['content']['categoriesList'];
 }
