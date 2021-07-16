@@ -148,8 +148,11 @@
   height: 30px;
   width: 30px;
 }
-.header__location-container {
+.header__location-button {
   color: #FFFFFF;
+  width: 100%;
+}
+.header__location-container {
   line-height: 0;
   width: 30px;
 }
@@ -350,6 +353,7 @@ body {
 button {
   background: none;
   border: none;
+  cursor: pointer;
   outline: none;
   padding: 0;
 }
@@ -573,6 +577,7 @@ body {
 button {
   background: none;
   border: none;
+  cursor: pointer;
   outline: none;
   padding: 0;
 }
@@ -834,6 +839,7 @@ body {
 button {
   background: none;
   border: none;
+  cursor: pointer;
   outline: none;
   padding: 0;
 }
@@ -1089,6 +1095,7 @@ body {
 button {
   background: none;
   border: none;
+  cursor: pointer;
   outline: none;
   padding: 0;
 }
