@@ -148,6 +148,11 @@
   height: 30px;
   width: 30px;
 }
+.header__location-container {
+  color: #FFFFFF;
+  line-height: 0;
+  width: 30px;
+}
 .header__logo-container {
   line-height: 0;
   width: 50px;
