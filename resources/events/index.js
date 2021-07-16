@@ -1,12 +1,12 @@
 export const EVENTS_NAMES = {
     COMMON: {
         CATALOG: {
-            CLOSE: "OPEN",
-            OPEN: "OPEN"
+            CLOSE: "CATALOG_CLOSE",
+            OPEN: "CATALOG_OPEN"
         },
         LOCATION: {
-            CLOSE: "OPEN",
-            OPEN: "OPEN"
+            CLOSE: "LOCATION_OPEN",
+            OPEN: "LOCATION_OPEN"
         }
     }
 }
