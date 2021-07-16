@@ -9,9 +9,7 @@
         @include('components.inputs.search.index')
     </div>
     <div class="header__location-container">
-        <button class="header__location-button">
-            @include('icons.location')
-        </button>
+        @include('components.buttons.location.index')
     </div>
     <div class="header__profile-container">
         @include('icons.profile')

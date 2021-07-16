@@ -3,6 +3,10 @@ export const EVENTS_NAMES = {
         CATALOG: {
             CLOSE: "OPEN",
             OPEN: "OPEN"
+        },
+        LOCATION: {
+            CLOSE: "OPEN",
+            OPEN: "OPEN"
         }
     }
 }
