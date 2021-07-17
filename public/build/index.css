@@ -234,14 +234,14 @@
 .modals-common_show {
   display: flex;
 }
-.modals-common__body-block {
+.modals-common__body-container {
   background-color: #FFFFFF;
   border-radius: 25px;
   margin: auto;
   max-height: 100%;
   overflow: auto;
 }
-.modals-common__body-container {
+.modals-common__body {
   padding: 50px;
 }
 
