@@ -2,6 +2,7 @@
 
 use App\Models\Catalog;
 use App\Models\Offer;
+use App\Models\Region;
 
 function getCatalog()
 {
@@ -181,6 +182,12 @@ function setCatalogFullLinks($catalog)
         },
         $catalog
     );
+}
+
+function getRegionList() {
+    $regionList = Region::where('id', $id)->toArray();
+    dd($regionList);
+    return [];
 }
 
 function setupOffer($offer)

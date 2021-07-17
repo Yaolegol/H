@@ -17,6 +17,9 @@ class CatalogController extends Controller
     public function index()
     {
         $catalogFull = getCatalogFull();
+        $regionList = getRegionList();
+
+        dd($regionList);
 
         return view('pages.home.index', [
             'catalogHeader' => $catalogFull,
