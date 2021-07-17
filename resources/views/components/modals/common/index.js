@@ -1,6 +1,5 @@
 import {EVENTS_NAMES} from 'events/index';
 import {addEventListener} from 'helpers/events';
-import 'views/components/modals/common/body';
 import './index.less';
 
 const {

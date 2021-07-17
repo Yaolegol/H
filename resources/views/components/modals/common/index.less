@@ -5,15 +5,28 @@
     background-color: @black-80;
     bottom: 0;
     display: none;
-    height: 100%;
+    height: 100vh;
     justify-content: center;
     left: 0;
+    padding: 50px;
     position: fixed;
     right: 0;
     top: 0;
-    width: 100%;
+    width: 100vw;
 
     &_show {
         display: flex;
+    }
+
+    &__body-block {
+        background-color: @white;
+        border-radius: 25px;
+        margin: auto;
+        max-height: 100%;
+        overflow: auto;
+    }
+
+    &__body-container {
+        padding: 50px;
     }
 }
