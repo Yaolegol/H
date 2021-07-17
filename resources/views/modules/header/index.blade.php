@@ -1,3 +1,5 @@
+@extends('components.modals.common.index')
+
 <div class="header">
     <div class="header__logo-container">
         @include('icons.logo')
@@ -18,3 +20,7 @@
         @include('icons.cart')
     </div>
 </div>
+
+@section('modals-common-content')
+    <div>test</div>
+@endsection
