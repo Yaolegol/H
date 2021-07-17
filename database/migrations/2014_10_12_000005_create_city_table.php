@@ -16,7 +16,10 @@ class CreateCityTable extends Migration
         Schema::create('city', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->bigInteger('region_id')->unsigned()->nullable();
+            $table->bigInteger('country_id')->unsigned();
+            $table->foreign('country_id')->references('id')->on('country');
+            $table->bigInteger('region_id')->unsigned();
+            $table->foreign('region_id')->references('id')->on('region');
             $table->timestamps();
         });
     }

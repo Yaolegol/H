@@ -9,10 +9,12 @@ class CitySeeder extends Seeder
 {
     public $data = [
         [
+            'country_id' => 1,
             'region_id' => 1,
             'title' => 'Томск',
         ],
         [
+            'country_id' => 1,
             'region_id' => 2,
             'title' => 'Новосибирск',
         ],
