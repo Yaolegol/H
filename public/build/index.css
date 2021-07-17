@@ -141,6 +141,9 @@
   flex: 1 1 33%;
 }
 
+.header-location-modal-content__title {
+  text-align: center;
+}
 
 .header {
   align-items: center;
