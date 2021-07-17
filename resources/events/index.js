@@ -5,8 +5,14 @@ export const EVENTS_NAMES = {
             OPEN: "CATALOG_OPEN"
         },
         LOCATION: {
-            CLOSE: "LOCATION_OPEN",
+            CLOSE: "LOCATION_CLOSE",
             OPEN: "LOCATION_OPEN"
+        },
+        MODALS: {
+            COMMON: {
+                CLOSE: "MODALS_COMMON_CLOSE",
+                OPEN: "MODALS_COMMON__OPEN"
+            }
         }
     }
 }
