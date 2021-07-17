@@ -1,1 +1,3 @@
-<div class="header-location-modal-content">test modal content</div>
+<div class="header-location-modal-content">
+    <div>Выберите город</div>
+</div>

@@ -246,9 +246,11 @@
   display: flex;
   margin: auto;
   max-height: 100%;
+  width: 100%;
 }
 .modals-common__body-container {
   padding: 50px;
+  width: 100%;
 }
 
 .layout {
