@@ -1,8 +1,8 @@
 <?php
 
 use App\Models\Catalog;
+use App\Models\City;
 use App\Models\Offer;
-use App\Models\Region;
 
 function getCatalog()
 {
@@ -184,9 +184,9 @@ function setCatalogFullLinks($catalog)
     );
 }
 
-function getRegionList() {
-    $regionList = Region::where('id', '1')->get()->toArray();
-    dd($regionList);
+function getCityList() {
+    $cityList = City::where('id', '1')->get()->toArray();
+    dd($cityList);
     return [];
 }
 
