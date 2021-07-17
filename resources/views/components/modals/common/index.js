@@ -1,6 +1,5 @@
 import {EVENTS_NAMES} from 'events/index';
 import {addEventListener} from 'helpers/events';
-import 'views/components/modals/common/backdrop';
 import 'views/components/modals/common/body';
 import './index.less';
 
@@ -18,7 +17,7 @@ class ModalsCommon {
     constructor(item) {
         this.module = item;
 
-        addEventListener(document, 'OPEN', this.handleOpen);
+        addEventListener(document, OPEN, this.handleOpen);
     }
 
     handleOpen = (e) => {

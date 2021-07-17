@@ -4,8 +4,10 @@ import './index.less';
 
 const {
     COMMON: {
-        LOCATION: {
-            OPEN,
+        MODALS: {
+            COMMON: {
+                OPEN,
+            }
         }
     }
 } = EVENTS_NAMES;

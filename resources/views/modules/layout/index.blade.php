@@ -20,6 +20,7 @@
                 @yield('content')
             </div>
 
+            @include('components.modals.common.index')
             @yield('scripts')
         </div>
     </body>
