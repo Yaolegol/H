@@ -1,15 +1,15 @@
 @extends('modules.layout.index')
 
-@section('content')
+@section('layout-content')
     @include('modules.header.catalog.index')
     @include('modules.home.index')
 @endsection
 
-@section('scripts')
+@section('layout-scripts')
     <script src="{{ asset('build/index.bundle.js') }}" defer></script>
 @endsection
 
-@section('styles')
+@section('layout-styles')
     <link href="{{ asset('build/index.css') }}" rel="stylesheet">
 @endsection
 

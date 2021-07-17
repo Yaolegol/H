@@ -1,3 +1,5 @@
+@extends('components.modals.common.index')
+
 <div class="header-catalog j-header-catalog" data-initial-selected-item-id="0">
     <div class="header-catalog__backdrop j-header-catalog__backdrop"></div>
     <div class="header-catalog__catalog-container">
@@ -13,3 +15,7 @@
         </div>
     </div>
 </div>
+
+@section('modals-common-content')
+    <div>test</div>
+@endsection

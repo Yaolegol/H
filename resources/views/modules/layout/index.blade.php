@@ -10,18 +10,17 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Styles -->
-        @yield('styles')
+        @yield('layout-styles')
     </head>
     <body>
         <div class="layout">
             @include('modules.header.index')
 
             <div class="layout__content-container">
-                @yield('content')
+                @yield('layout-content')
             </div>
 
-            @include('components.modals.common.index')
-            @yield('scripts')
+            @yield('layout-scripts')
         </div>
     </body>
 </html>
