@@ -234,14 +234,20 @@
 .modals-common_show {
   display: flex;
 }
-.modals-common__body-container {
+.modals-common__body {
+  overflow: auto;
+  height: 100%;
+}
+.modals-common__body-block {
   background-color: #FFFFFF;
   border-radius: 25px;
+  display: flex;
   margin: auto;
   max-height: 100%;
-  overflow: auto;
+  overflow: hidden;
 }
-.modals-common__body {
+.modals-common__body-container {
+  overflow: auto;
   padding: 50px;
 }
 
