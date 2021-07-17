@@ -18,6 +18,15 @@ class ModalsCommon {
         this.module = item;
 
         addEventListener(document, OPEN, this.handleOpen);
+        addEventListener(this.module, 'click', this.handleBackdropClick);
+    }
+
+    handleBackdropClick = (e) => {
+        const isClickedBackdrop = e.target.classList.contains('j-components-modals-common');
+
+        if(isClickedBackdrop) {
+            this.module.classList.remove('modals-common_show');
+        }
     }
 
     handleOpen = (e) => {
