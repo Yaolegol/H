@@ -185,7 +185,7 @@ function setCatalogFullLinks($catalog)
 }
 
 function getRegionList() {
-    $regionList = Region::where('id', $id)->toArray();
+    $regionList = Region::where('id', '1')->get()->toArray();
     dd($regionList);
     return [];
 }

@@ -5,16 +5,14 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class RegionSeeder extends Seeder
+class CountrySeeder extends Seeder
 {
     public $data = [
         [
-            'country_id' => 1,
-            'title' => 'Томская область',
+            'title' => 'Россия',
         ],
         [
-            'country_id' => 1,
-            'title' => 'Новосибирская область',
+            'title' => 'США',
         ],
     ];
 
@@ -26,7 +24,7 @@ class RegionSeeder extends Seeder
     public function run()
     {
         foreach ($this->data as $dataItem) {
-            DB::table('region')->insert($dataItem);
+            DB::table('country')->insert($dataItem);
         }
     }
 }

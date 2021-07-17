@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class SellerTable extends Migration
+class CreateCountryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class SellerTable extends Migration
      */
     public function up()
     {
-        Schema::create('seller', function (Blueprint $table) {
+        Schema::create('country', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('image');
-            $table->integer('order');
-            $table->bigInteger('user_id')->unsigned()->index()->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('title');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ class SellerTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('country');
     }
 }

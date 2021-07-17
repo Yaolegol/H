@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRegionTable extends Migration
+class CreateCityTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateRegionTable extends Migration
      */
     public function up()
     {
-        Schema::create('region', function (Blueprint $table) {
+        Schema::create('city', function (Blueprint $table) {
             $table->id();
-            $table->enum('level', ['country', 'region', 'city']);
             $table->string('title');
-            $table->bigInteger('previous_level_id')->unsigned()->nullable();
+            $table->bigInteger('region_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateRegionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('region');
+        Schema::dropIfExists('city');
     }
 }

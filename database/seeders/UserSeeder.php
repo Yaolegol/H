@@ -14,14 +14,14 @@ class UserSeeder extends Seeder
             'name' => 'User name 1',
             'lang_id' => 1,
             'password' => '1234561',
-            'region_id' => 4,
+            'city_id' => 1,
         ],
         [
             'email' => 'user2@yandex.ru',
             'lang_id' => 1,
             'name' => 'User name 2',
             'password' => '1234562',
-            'region_id' => 5,
+            'city_id' => 2,
         ],
         [
             'email' => 'user3@yandex.ru',
