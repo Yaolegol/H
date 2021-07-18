@@ -19,8 +19,6 @@ class CatalogController extends Controller
         $catalogFull = getCatalogFull();
         $locationList = getLocationList();
 
-        dd($locationList);
-
         return view('pages.home.index', [
             'catalogHeader' => $catalogFull,
             'catalogPage' => $catalogFull,

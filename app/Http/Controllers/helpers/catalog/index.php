@@ -185,7 +185,29 @@ function setCatalogFullLinks($catalog)
 }
 
 function getLocationList() {
-    return City::where('country_id', '1')->with('region', 'country')->get()->toArray();
+    $cityList = City::where('country_id', '1')->with('region', 'country')->get()->toArray();
+
+    return array_reduce($cityList, function($acc, $city) {
+        $cityNew = getNewArray($city);
+        $region = $cityNew['region'];
+        $regionId = $region['id'];
+        $isRegionIdExists = false;
+
+        unset($cityNew['region']);
+
+        if($acc !== null) {
+            $isRegionIdExists = array_key_exists($regionId, $acc);
+        }
+
+        if($isRegionIdExists) {
+            array_push($acc[$regionId]['cities'], $cityNew);
+        } else {
+            $region['cities'] = [$cityNew];
+            $acc[$regionId] = $region;
+        }
+
+        return $acc;
+    });
 }
 
 function setupOffer($offer)
