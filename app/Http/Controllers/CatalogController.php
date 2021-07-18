@@ -24,6 +24,7 @@ class CatalogController extends Controller
         return view('pages.home.index', [
             'catalogHeader' => $catalogFull,
             'catalogPage' => $catalogFull,
+            'locationList' => $locationList,
         ]);
     }
 

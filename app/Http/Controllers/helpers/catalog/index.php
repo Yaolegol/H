@@ -185,9 +185,7 @@ function setCatalogFullLinks($catalog)
 }
 
 function getLocationList() {
-    $locationList = City::where('country_id', '1')->with('region', 'country')->get()->toArray();
-    dd($locationList);
-    return [];
+    return City::where('country_id', '1')->with('region', 'country')->get()->toArray();
 }
 
 function setupOffer($offer)
