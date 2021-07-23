@@ -142,6 +142,15 @@
 }
 
 .header-location-modal-content__content-container {
+  margin-top: 20px;
+}
+.header-location-modal-content__cities-container {
+  margin-top: 10px;
+}
+.header-location-modal-content__city-title {
+  margin-top: 5px;
+}
+.header-location-modal-content__location-item {
   margin-top: 50px;
 }
 .header-location-modal-content__title {
