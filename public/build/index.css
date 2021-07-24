@@ -737,6 +737,9 @@ p {
 .offers-item:last-child {
   border-bottom: 1px solid #E9EDF6;
 }
+.offers-item__contacts-block {
+  margin-top: 15px;
+}
 .offers-item__content-block {
   flex: 3 0 auto;
   padding: 0 0 0 20px;
@@ -757,6 +760,9 @@ p {
 .offers-item__image-container {
   padding-bottom: 50%;
   position: relative;
+}
+.offers-item__rating-section {
+  margin-top: 20px;
 }
 
 .offers-list {

@@ -5,13 +5,25 @@
         </div>
     </div>
     <div class="offers-item__content-block">
-        <div>
-            <a href="{{$offer['offerLink']}}">{{$offer['title']}}</a>
+        <div class="offers-item__info-section">
+            <div>
+                <a href="{{$offer['offerLink']}}">{{$offer['title']}}</a>
+            </div>
+            <div class="offers-item__product-description">
+                <span>{{$offer['description']}}</span>
+            </div>
+            <div class="offers-item__contacts-block">
+                <div>
+                    Телефон: 8 111 111 11 11
+                </div>
+                <div>
+                    <span>Продавец: </span><a href="/sellers/{{$offer['seller']['id']}}">{{$offer['seller']['name']}}</a>
+                </div>
+            </div>
         </div>
-        <div>
-            <a href="/sellers/{{$offer['seller']['id']}}">{{$offer['seller']['name']}}</a>
+        <div class="offers-item__rating-section">
+            <span>Товар: 4.5</span> <span>Продавец: 4.0</span>
         </div>
-        <div>{{$offer['seller']['region']['title']}}</div>
     </div>
 </div>
 
