@@ -188,19 +188,10 @@ function getLocationList() {
     return City::where('country_id', '1')->with('region', 'country')->get()->toArray();
 }
 
-function getLocationListFormatted($request) {
+function getLocationListFormatted() {
     $cityList = getLocationList();
 
-    $url = $request->url();
-    $requestQueryList = $request->query();
-    $queryListWithoutLocation = array_filter($requestQueryList, function($queryParamKey) {
-        return $queryParamKey !== 'country' && $queryParamKey !== 'region' && $queryParamKey !== 'city';
-    }, ARRAY_FILTER_USE_KEY);
-    $queryStringWithoutLocation = http_build_query($queryListWithoutLocation);
-    $hasQueryExceptLocation = boolval(count($queryListWithoutLocation));
-    $urlWithoutLocationQueryString = $hasQueryExceptLocation ? $url . '/?' . $queryStringWithoutLocation : $url;
-
-    return array_reduce($cityList, function($acc, $city) use($hasQueryExceptLocation, $urlWithoutLocationQueryString) {
+    return array_reduce($cityList, function($acc, $city) {
         $cityNew = getNewArray($city);
         $region = $cityNew['region'];
         unset($cityNew['region']);
@@ -212,14 +203,8 @@ function getLocationListFormatted($request) {
         }
 
         if($isRegionIdExists) {
-            $cityNew['queryParam'] = $acc[$regionId]['queryParam'] . '&' . 'city=' . $cityNew['id'];
-            $cityNew['link'] = $hasQueryExceptLocation ? $urlWithoutLocationQueryString . '&' . $cityNew['queryParam'] : $urlWithoutLocationQueryString . '/?' . $cityNew['queryParam'];
             array_push($acc[$regionId]['cities'], $cityNew);
         } else {
-            $region['queryParam'] = 'region=' . $region['id'];
-            $region['link'] = $hasQueryExceptLocation ? $urlWithoutLocationQueryString . '&' . $region['queryParam'] : $urlWithoutLocationQueryString . '/?' . $region['queryParam'];
-            $cityNew['queryParam'] = $region['queryParam'] . '&' . 'city=' . $cityNew['id'];
-            $cityNew['link'] = $hasQueryExceptLocation ? $urlWithoutLocationQueryString . '&' . $cityNew['queryParam'] : $urlWithoutLocationQueryString . '/?' . $cityNew['queryParam'];
             $region['cities'] = [$cityNew];
             $acc[$regionId] = $region;
         }

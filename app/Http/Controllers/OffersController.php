@@ -24,7 +24,7 @@ class OffersController extends Controller
         $catalogFull = getCatalogFull();
         $offersList = getOffers($productLink, $searchCountryId, $searchRegionId, $searchCityId);
         $breadcrumbs = getCatalogOffersBreadcrumbs($catalogFull, $catalogLevel2Link, $productLink);
-        $locationList = getLocationListFormatted($request);
+        $locationList = getLocationListFormatted();
 
         return view('pages.offers.index', [
             'breadcrumbs' => $breadcrumbs,
@@ -61,12 +61,12 @@ class OffersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, $id)
+    public function show($id)
     {
         $catalogFull = getCatalogFull();
         $offer = getOffer($id);
         $breadcrumbs = getOfferBreadcrumbs();
-        $locationList = getLocationListFormatted($request);
+        $locationList = getLocationListFormatted();
 
         return view('pages.offers.item.index', [
             'breadcrumbs' => $breadcrumbs,

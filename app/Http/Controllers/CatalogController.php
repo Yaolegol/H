@@ -15,10 +15,10 @@ class CatalogController extends Controller
      *
      * @return Response
      */
-    public function index(Request $request)
+    public function index()
     {
         $catalogFull = getCatalogFull();
-        $locationList = getLocationListFormatted($request);
+        $locationList = getLocationListFormatted();
 
         return view('pages.home.index', [
             'catalogHeader' => $catalogFull,
@@ -54,12 +54,12 @@ class CatalogController extends Controller
      * @param  string  $catalogLevel2
      * @return Response
      */
-    public function show(Request $request, $catalogLevel2Link)
+    public function show($catalogLevel2Link)
     {
         $catalogFull = getCatalogFull();
         $catalogLevel2 = getCatalogLevel2CategoriesList($catalogFull, $catalogLevel2Link);
         $breadcrumbs = getCatalogBreadcrumbsLevel2($catalogFull, $catalogLevel2Link);
-        $locationList = getLocationListFormatted($request);
+        $locationList = getLocationListFormatted();
 
         return view('pages.catalog.secondLevel.index', [
             'breadcrumbs' => $breadcrumbs,
