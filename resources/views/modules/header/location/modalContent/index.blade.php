@@ -3,14 +3,14 @@
     <div class="header-location-modal-content__content-container">
         @foreach($locationList as $locationItem)
             <div class="header-location-modal-content__location-item">
-                <div class="header-location-modal-content__region-title">
+                <a class="header-location-modal-content__region-title" href="{{$locationItem['link']}}">
                     {{$locationItem['title']}}
-                </div>
+                </a>
                 <div class="header-location-modal-content__cities-container">
                     @foreach($locationItem['cities'] as $cityItem)
-                        <div class="header-location-modal-content__city-title">
+                        <a class="header-location-modal-content__city-title" href="{{$cityItem['link']}}">
                             {{$cityItem['title']}}
-                        </div>
+                        </a>
                     @endforeach
                 </div>
             </div>

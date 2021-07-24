@@ -14,10 +14,13 @@ class CatalogController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $url = $request->url();
+        $requestQueryList = $request->query();
+
         $catalogFull = getCatalogFull();
-        $locationList = getLocationList();
+        $locationList = getLocationListFormatted($url, $requestQueryList);
 
         return view('pages.home.index', [
             'catalogHeader' => $catalogFull,
