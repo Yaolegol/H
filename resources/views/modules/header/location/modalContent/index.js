@@ -9,12 +9,14 @@ class LocationModalContent {
 
     setLocationCookie = (target) => {
         const {searchCountryId, searchRegionId, searchCityId} = target.dataset;
+        const currentYear = new Date().getFullYear();
+        const expirationTime = new Date(currentYear + 10, 0);
 
-        document.cookie = `search-country-id=${searchCountryId};path=/;expires=Fri, 31 Dec 9999 23:59:59 GMT;`;
-        document.cookie = `search-region-id=${searchRegionId};path=/;expires=Fri, 31 Dec 9999 23:59:59 GMT;`;
+        document.cookie = `search-country-id=${searchCountryId};path=/;expires=${expirationTime};`;
+        document.cookie = `search-region-id=${searchRegionId};path=/;expires=${expirationTime};`;
 
         if(searchCityId) {
-            document.cookie = `search-city-id=${searchCityId};path=/;expires=Fri, 31 Dec 9999 23:59:59 GMT;`;
+            document.cookie = `search-city-id=${searchCityId};path=/;expires=${expirationTime};`;
         }
     }
 
