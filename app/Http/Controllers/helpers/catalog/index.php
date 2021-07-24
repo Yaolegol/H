@@ -108,10 +108,19 @@ function getOfferBreadcrumbs()
     return [];
 }
 
-function getOffers($productLink)
+function getOffers($request, $productLink)
 {
+    $requestQueryList = $request->query();
+    $isCountryQueryExists = array_key_exists('country', $requestQueryList);
+    $isRegionQueryExists = array_key_exists('region', $requestQueryList);
+    $isCityQueryExists = array_key_exists('city', $requestQueryList);
+
+
+    $requestCountryId = $isCountryQueryExists ? $requestQueryList['country'] : 1;
+    $requestRegionId = $isRegionQueryExists ? $requestQueryList['region'] : null;
+    $requestCityId = $isCityQueryExists ? $requestQueryList['city'] : null;
     $catalogProduct = array_merge(...Catalog::where(['link' => $productLink, 'level' => 2])->get()->toArray());
-    $offers = Offer::where('catalog_id', $catalogProduct['id'])->with('catalog', 'seller', 'seller.region', 'measure')->get()->toArray();
+    $offers = Offer::where(['catalog_id' => $catalogProduct['id'], 'country_id' => $requestCountryId, 'region_id' => $requestRegionId, 'city_id' => $requestCityId],)->with('catalog', 'seller', 'seller.region', 'measure')->get()->toArray();
 
     return setupOffers($offers);
 }

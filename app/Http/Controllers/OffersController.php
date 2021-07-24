@@ -18,7 +18,7 @@ class OffersController extends Controller
     public function index(Request $request, $catalogLevel2Link, $productLink)
     {
         $catalogFull = getCatalogFull();
-        $offersList = getOffers($productLink);
+        $offersList = getOffers($request, $productLink);
         $breadcrumbs = getCatalogOffersBreadcrumbs($catalogFull, $catalogLevel2Link, $productLink);
         $locationList = getLocationListFormatted($request);
 
