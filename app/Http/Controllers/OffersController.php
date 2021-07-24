@@ -15,16 +15,18 @@ class OffersController extends Controller
      * @param  string  $productLink
      * @return \Illuminate\Http\Response
      */
-    public function index($catalogLevel2Link, $productLink)
+    public function index(Request $request, $catalogLevel2Link, $productLink)
     {
         $catalogFull = getCatalogFull();
         $offersList = getOffers($productLink);
         $breadcrumbs = getCatalogOffersBreadcrumbs($catalogFull, $catalogLevel2Link, $productLink);
+        $locationList = getLocationListFormatted($request);
 
         return view('pages.offers.index', [
             'breadcrumbs' => $breadcrumbs,
             'catalogHeader' => $catalogFull,
             'offersList' => $offersList,
+            'locationList' => $locationList,
         ]);
     }
 
@@ -55,15 +57,17 @@ class OffersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
         $catalogFull = getCatalogFull();
         $offer = getOffer($id);
         $breadcrumbs = getOfferBreadcrumbs();
+        $locationList = getLocationListFormatted($request);
 
         return view('pages.offers.item.index', [
             'breadcrumbs' => $breadcrumbs,
             'catalogHeader' => $catalogFull,
+            'locationList' => $locationList,
             'offer' => $offer,
         ]);
     }

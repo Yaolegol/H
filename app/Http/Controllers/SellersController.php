@@ -13,16 +13,18 @@ class SellersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $catalogFull = getCatalogFull();
         dd($catalogFull);
         $offersList = getOffers($productLink);
         $breadcrumbs = getCatalogOffersBreadcrumbs($catalogFull, $catalogLevel2Link, $productLink);
+        $locationList = getLocationListFormatted($request);
 
         return view('pages.sellers.index', [
             'breadcrumbs' => $breadcrumbs,
             'catalogHeader' => $catalogFull,
+            'locationList' => $locationList,
             'sellersList' => $offersList,
         ]);
     }
