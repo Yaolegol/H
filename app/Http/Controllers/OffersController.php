@@ -17,8 +17,12 @@ class OffersController extends Controller
      */
     public function index(Request $request, $catalogLevel2Link, $productLink)
     {
+        $searchCountryId = $request->cookie('search-country-id');
+        $searchRegionId = $request->cookie('search-region-id');
+        $searchCityId = $request->cookie('search-city-id');
+
         $catalogFull = getCatalogFull();
-        $offersList = getOffers($request, $productLink);
+        $offersList = getOffers($productLink, $searchCountryId, $searchRegionId, $searchCityId);
         $breadcrumbs = getCatalogOffersBreadcrumbs($catalogFull, $catalogLevel2Link, $productLink);
         $locationList = getLocationListFormatted($request);
 
