@@ -16,11 +16,8 @@ class CatalogController extends Controller
      */
     public function index(Request $request)
     {
-        $url = $request->url();
-        $requestQueryList = $request->query();
-
         $catalogFull = getCatalogFull();
-        $locationList = getLocationListFormatted($url, $requestQueryList);
+        $locationList = getLocationListFormatted($request);
 
         return view('pages.home.index', [
             'catalogHeader' => $catalogFull,

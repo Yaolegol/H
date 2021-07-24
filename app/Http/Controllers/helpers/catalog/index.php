@@ -188,9 +188,11 @@ function getLocationList() {
     return City::where('country_id', '1')->with('region', 'country')->get()->toArray();
 }
 
-function getLocationListFormatted($url, $requestQueryList) {
+function getLocationListFormatted($request) {
     $cityList = getLocationList();
 
+    $url = $request->url();
+    $requestQueryList = $request->query();
     $queryListWithoutLocation = array_filter($requestQueryList, function($queryParamKey) {
         return $queryParamKey !== 'country' && $queryParamKey !== 'region' && $queryParamKey !== 'city';
     }, ARRAY_FILTER_USE_KEY);
