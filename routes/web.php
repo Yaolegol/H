@@ -25,6 +25,6 @@ Route::get('/sellers/{id}', 'SellersController@index');
 
 Route::get('/offers/{id}', 'OffersController@show');
 
-Route::get('/profile', 'ProfileController@index');
+Route::get('/profile', 'ProfileController@index')->middleware('auth');
 
-Auth::routes();
+Route::get('/login', 'LoginController@index');

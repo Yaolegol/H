@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+require_once('app/Http/Controllers/helpers/catalog/index.php');
+
 class LoginController extends Controller
 {
     /*
