@@ -31,6 +31,12 @@ class RegisterController extends Controller
      */
     public function register(Request $request)
     {
-        dd($request->input('email'));
+        $email = $request->input('email');
+        $password = $request->input('password');
+        $confirmPassword = $request->input('confirm-password');
+
+        if($password === $confirmPassword && $email !== '') {
+            trySaveUserInDB($email, $password);
+        }
     }
 }

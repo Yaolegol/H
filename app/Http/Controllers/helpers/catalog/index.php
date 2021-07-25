@@ -3,6 +3,7 @@
 use App\Models\Catalog;
 use App\Models\City;
 use App\Models\Offer;
+use App\Models\User;
 
 function getCatalog()
 {
@@ -232,4 +233,13 @@ function setupOffers($offers)
         $itemNew['offerLink'] = '/' . 'offers' . '/' . $itemNew['id'];
         return $itemNew;
     }, $offers);
+}
+
+function trySaveUserInDB($email, $password) {
+    $createdUser = User::create([
+        'email' => $email,
+        'password' => $password,
+    ]);
+
+    dd($createdUser);
 }
