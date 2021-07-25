@@ -1026,6 +1026,17 @@ p {
 .auth-login__form-item-container {
   margin-top: 30px;
 }
+.auth-login__send-button {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  padding: 20px;
+  text-align: center;
+}
+.auth-login__send-button-container {
+  margin-top: 50px;
+}
 .auth-login__tab-button {
   border-radius: 10px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);

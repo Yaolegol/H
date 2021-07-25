@@ -29,8 +29,8 @@ class RegisterController extends Controller
     /**
      * @return Response
      */
-    public function register()
+    public function register(Request $request)
     {
-        //
+        dd($request->input('email'));
     }
 }
