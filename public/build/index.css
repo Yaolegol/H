@@ -1007,6 +1007,12 @@ p {
   line-height: 26px;
 }
 
+.form-error {
+  color: #FF0000;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
 .auth-login {
   display: flex;
   flex: 1 1 auto;

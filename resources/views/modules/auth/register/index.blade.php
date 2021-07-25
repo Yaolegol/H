@@ -11,7 +11,11 @@
                     @include('components.inputs.form.index', [
                         'name' => 'email',
                         'placeholder' => 'Email',
-                        'type' => 'email'
+                        'type' => 'email',
+                        'value' => old('email')
+                    ])
+                    @include('components.form.error.index', [
+                        'message' => $errors->first('email'),
                     ])
                 </div>
                 <div class="auth-login__form-item-container">
@@ -20,12 +24,18 @@
                         'placeholder' => 'Password',
                         'type' => 'password'
                     ])
+                    @include('components.form.error.index', [
+                        'message' => $errors->first('password'),
+                    ])
                 </div>
                 <div class="auth-login__form-item-container">
                     @include('components.inputs.form.index', [
-                        'name' => 'confirm-password',
+                        'name' => 'password_confirmation',
                         'placeholder' => 'Confirm password',
                         'type' => 'password'
+                    ])
+                    @include('components.form.error.index', [
+                        'message' => $errors->first('password_confirmation'),
                     ])
                 </div>
                 <div class="auth-login__send-button-container">

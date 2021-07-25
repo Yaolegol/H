@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Validator;
 
 require_once('app/Http/Controllers/helpers/catalog/index.php');
 
@@ -31,12 +31,31 @@ class RegisterController extends Controller
      */
     public function register(Request $request)
     {
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'email' => ['required', 'email', 'unique:users', 'max:25'],
+                'password' => ['required', 'min:6'],
+                'password_confirmation' => ['required', 'same:password'],
+            ],
+            [
+                'max' => 'Поле должно содержать максимум :max символов',
+                'min' => 'Поле должно содержать минимум :min символов',
+                'same' => 'Поля Password и Confirm Password не совпадают',
+                'required' => 'Поле обязательно для заполнения',
+                'unique' => 'Пользователь с таким Email уже зарегистрирован',
+            ]
+        );
+
+        if($validator->fails()) {
+            return redirect('/register')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $email = $request->input('email');
         $password = $request->input('password');
-        $confirmPassword = $request->input('confirm-password');
 
-        if($password === $confirmPassword && $email !== '') {
-            trySaveUserInDB($email, $password);
-        }
+        trySaveUserInDB($email, $password);
     }
 }

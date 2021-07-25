@@ -4,5 +4,8 @@
             name="{{$name}}"
             placeholder="{{$placeholder}}"
             type="{{$type}}"
+            @isset($value)
+                value="{{$value}}"
+            @endisset
     >
 </div>
