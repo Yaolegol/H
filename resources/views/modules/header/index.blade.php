@@ -16,8 +16,8 @@
     <div class="header__profile-container">
         @include('icons.profile')
     </div>
-    <div class="header__cart-container">
-        @include('icons.cart')
+    <div class="header__profile-container">
+        @include('icons.profile')
     </div>
 </div>
 

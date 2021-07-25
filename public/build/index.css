@@ -164,11 +164,6 @@
   height: 88px;
   justify-content: center;
 }
-.header__cart-container {
-  color: #FFFFFF;
-  height: 30px;
-  width: 30px;
-}
 .header__location-container {
   line-height: 0;
   width: 30px;
