@@ -164,6 +164,11 @@
   height: 88px;
   justify-content: center;
 }
+.header__favorites-container {
+  color: #FFFFFF;
+  line-height: 0;
+  width: 30px;
+}
 .header__location-container {
   line-height: 0;
   width: 30px;

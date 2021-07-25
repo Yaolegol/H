@@ -13,6 +13,9 @@
     <div class="header__location-container">
         @include('components.buttons.location.index')
     </div>
+    <div class="header__favorites-container">
+        @include('icons.favorite')
+    </div>
     <div class="header__profile-container">
         @include('icons.profile')
     </div>
