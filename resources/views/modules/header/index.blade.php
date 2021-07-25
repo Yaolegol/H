@@ -16,9 +16,6 @@
     <div class="header__profile-container">
         @include('icons.profile')
     </div>
-    <div class="header__profile-container">
-        @include('icons.profile')
-    </div>
 </div>
 
 @section('modals-common-content')
