@@ -25,4 +25,6 @@ Route::get('/sellers/{id}', 'SellersController@index');
 
 Route::get('/offers/{id}', 'OffersController@show');
 
+Route::get('/profile', 'ProfileController@index');
+
 Auth::routes();
