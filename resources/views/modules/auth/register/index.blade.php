@@ -19,6 +19,12 @@
                         'type' => 'password'
                     ])
                 </div>
+                <div class="auth-login__form-item-container">
+                    @include('components.inputs.form.index', [
+                        'placeholder' => 'Confirm password',
+                        'type' => 'password'
+                    ])
+                </div>
             </form>
         </div>
     </div>

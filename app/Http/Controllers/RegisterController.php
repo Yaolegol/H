@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Cookie;
 
 require_once('app/Http/Controllers/helpers/catalog/index.php');
 
-class LoginController extends Controller
+class RegisterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +20,7 @@ class LoginController extends Controller
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
 
-        return view('pages.auth.login.index', [
+        return view('pages.auth.register.index', [
             'catalogHeader' => $catalogFull,
             'locationList' => $locationList,
         ]);
@@ -29,7 +29,7 @@ class LoginController extends Controller
     /**
      * @return Response
      */
-    public function login()
+    public function register()
     {
         //
     }

@@ -28,3 +28,7 @@ Route::get('/offers/{id}', 'OffersController@show');
 Route::get('/profile', 'ProfileController@index')->middleware('auth');
 
 Route::get('/login', 'LoginController@index');
+Route::post('/login', 'LoginController@login');
+
+Route::get('/register', 'RegisterController@index');
+Route::post('/register', 'RegisterController@register');
