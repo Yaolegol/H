@@ -236,10 +236,15 @@ function setupOffers($offers)
 }
 
 function trySaveUserInDB($email, $password) {
-    $createdUser = User::create([
+    $newUser = new User([
         'email' => $email,
         'password' => $password,
     ]);
 
-    dd($createdUser);
+    try {
+        $newUser->save();
+        return true;
+    } catch(\Exception $error) {
+        return false;
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
 require_once('app/Http/Controllers/helpers/catalog/index.php');
@@ -34,7 +35,7 @@ class RegisterController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'email' => ['required', 'email', 'unique:users', 'max:25'],
+                'email' => ['required', 'email', 'max:25'],
                 'password' => ['required', 'min:6'],
                 'password_confirmation' => ['required', 'same:password'],
             ],
@@ -56,6 +57,14 @@ class RegisterController extends Controller
         $email = $request->input('email');
         $password = $request->input('password');
 
-        trySaveUserInDB($email, $password);
+        $isSaved = trySaveUserInDB($email, $password);
+
+        if($isSaved) {
+            return redirect('/');
+        } else {
+            return redirect('/register')->with(
+                ['commonError' => 'Что-то пошло не так. Попробуйте снова']
+            );
+        }
     }
 }

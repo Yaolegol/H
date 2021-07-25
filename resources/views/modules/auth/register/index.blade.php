@@ -41,6 +41,9 @@
                 <div class="auth-login__send-button-container">
                     <button class="auth-login__send-button">Отправить</button>
                 </div>
+                @include('components.form.error.index', [
+                    'message' => session('commonError'),
+                ])
             </form>
         </div>
     </div>
