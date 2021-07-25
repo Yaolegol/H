@@ -5,7 +5,7 @@
             <div class="auth-login__tab-button auth-login__tab-button_with-offset">Регистрация</div>
         </div>
         <div class="auth-login__content-container">
-            <form action="/login" method="POST">
+            <form action="/register" method="POST">
                 @csrf
                 <div class="auth-login__form-item-container">
                     @include('components.inputs.form.index', [
