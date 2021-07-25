@@ -178,9 +178,11 @@
   width: 50px;
 }
 .header__profile-container {
-  color: #FFFFFF;
   height: 30px;
   width: 30px;
+}
+.header__profile-link {
+  color: #FFFFFF;
 }
 
 .catalog-item {

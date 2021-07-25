@@ -17,7 +17,9 @@
         @include('icons.favorite')
     </div>
     <div class="header__profile-container">
-        @include('icons.profile')
+        <a class="header__profile-link" href="/profile">
+            @include('icons.profile')
+        </a>
     </div>
 </div>
 
