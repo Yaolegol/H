@@ -1,8 +1,8 @@
 <div class="auth-login">
     <div class="auth-login__content-block">
         <div class="auth-login__tabs-container">
-            <div class="auth-login__tab-button">Вход</div>
-            <div class="auth-login__tab-button auth-login__tab-button_with-offset">Регистрация</div>
+            <a class="auth-login__tab-button" href="/login">Вход</a>
+            <div class="auth-login__tab-button auth-login__tab-button_with-offset auth-login__tab-button_active">Регистрация</div>
         </div>
         <div class="auth-login__content-container">
             <form action="/register" method="POST">

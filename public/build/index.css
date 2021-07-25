@@ -1047,11 +1047,20 @@ p {
   border-radius: 10px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
   color: rgba(0, 0, 0, 0.5);
-  cursor: pointer;
   display: inline-block;
   flex: 1 0 0;
   padding: 20px;
   text-align: center;
+}
+.auth-login__tab-button:hover:not(.auth-login__tab-button_active) {
+  background-color: rgba(76, 187, 23, 0.5);
+  color: #FFFFFF;
+}
+.auth-login__tab-button_active {
+  background-color: #4CBB17;
+  color: #FFFFFF;
+  cursor: auto;
+  font-weight: 900;
 }
 .auth-login__tab-button_with-offset {
   margin-left: 20px;

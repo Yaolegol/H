@@ -39,11 +39,22 @@
         border-radius: 10px;
         box-shadow: 0 0 5px 0 @black-15;
         color: @black-50;
-        cursor: pointer;
         display: inline-block;
         flex: 1 0 0;
         padding: 20px;
         text-align: center;
+
+        &:hover:not(.auth-login__tab-button_active) {
+            background-color: @primary-50;
+            color: @white;
+        }
+
+        &_active {
+            background-color: @primary;
+            color: @white;
+            cursor: auto;
+            font-weight: 900;
+        }
 
         &_with-offset {
             margin-left: 20px;
