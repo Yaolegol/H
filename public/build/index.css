@@ -1823,6 +1823,22 @@ p {
 .profile__info-container {
   margin-top: 50px;
 }
+.profile__tab-button {
+  border-radius: 10px;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  display: inline-block;
+  flex: 1 0 0;
+  padding: 20px;
+  text-align: center;
+}
+.profile__tab-button_with-offset {
+  margin-left: 20px;
+}
+.profile__tabs-container {
+  margin-top: 50px;
+}
 .profile__title {
   text-align: center;
 }

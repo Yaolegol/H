@@ -1,5 +1,26 @@
+@import (reference) '~styles/colors';
+
 .profile {
     &__info-container {
+        margin-top: 50px;
+    }
+
+    &__tab-button {
+        border-radius: 10px;
+        box-shadow: 0 0 10px 1px @black-10;
+        color: @black-80;
+        cursor: pointer;
+        display: inline-block;
+        flex: 1 0 0;
+        padding: 20px;
+        text-align: center;
+
+        &_with-offset {
+            margin-left: 20px;
+        }
+    }
+
+    &__tabs-container {
         margin-top: 50px;
     }
 
