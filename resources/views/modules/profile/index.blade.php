@@ -7,7 +7,7 @@
             <div class="profile__tab-item-container">
                 <a
                     class="profile__tab-button profile__tab-button_active"
-                    href="/profile"
+                    href="/profile/personal-info"
                 >
                     Личные данные
                 </a>
@@ -15,7 +15,7 @@
             <div class="profile__tab-item-container">
                 <a
                     class="profile__tab-button"
-                    href="/profile/organization"
+                    href="/profile/organization-info"
                 >
                     Информация об организации
                 </a>
