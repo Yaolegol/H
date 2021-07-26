@@ -16,13 +16,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $catalogFull = getCatalogFull();
-        $locationList = getLocationListFormatted();
-
-        return view('pages.profile.index', [
-            'catalogHeader' => $catalogFull,
-            'locationList' => $locationList,
-        ]);
+        return redirect('profile/personal-info');
     }
 
     /**
@@ -51,9 +45,21 @@ class ProfileController extends Controller
      *
      * @return Response
      */
-    public function show()
+    public function show($section)
     {
-        //
+        $catalogFull = getCatalogFull();
+        $locationList = getLocationListFormatted();
+        $isSectionExists = $section === 'personal-info';
+
+        if($isSectionExists) {
+            return view('pages.profile.personal-info.index', [
+                'catalogHeader' => $catalogFull,
+                'locationList' => $locationList,
+                'section' => $section,
+            ]);
+        }
+
+        abort(404);
     }
 
     /**

@@ -39,7 +39,9 @@
         </div>
     </div>
     <div class="profile__info-container">
-        @include('modules.profile.info.index')
+        @if($section === 'personal-info')
+            @include('modules.profile.personal-info.index')
+        @endif
     </div>
 </div>
 

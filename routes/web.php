@@ -25,8 +25,6 @@ Route::get('/sellers/{id}', 'SellersController@index');
 
 Route::get('/offers/{id}', 'OffersController@show');
 
-Route::get('/profile', 'ProfileController@index')->middleware('auth');
-
 Route::get('/login', 'LoginController@index');
 Route::post('/login', 'LoginController@login');
 
@@ -35,3 +33,5 @@ Route::post('/register', 'RegisterController@register');
 
 Route::get('/logout', 'LogoutController@index');
 
+Route::get('/profile', 'ProfileController@index')->middleware('auth');
+Route::get('/profile/{section}', 'ProfileController@show')->middleware('auth');
