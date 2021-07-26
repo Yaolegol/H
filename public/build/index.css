@@ -2284,17 +2284,17 @@ p {
   line-height: 26px;
 }
 
-.personal-info {
+.profile-personal-info {
   border: 1px solid #E9EDF6;
   border-radius: 25px;
   display: flex;
   padding: 20px;
 }
-.personal-info__content-block {
+.profile-personal-info__content-block {
   flex: 3 0 auto;
   padding: 0 0 0 20px;
 }
-.personal-info__image {
+.profile-personal-info__image {
   bottom: 0;
   height: 100%;
   left: 0;
@@ -2304,20 +2304,20 @@ p {
   top: 0;
   width: 100%;
 }
-.personal-info__image-block {
+.profile-personal-info__image-block {
   flex: 2 0 auto;
   position: relative;
 }
-.personal-info__info-title {
+.profile-personal-info__info-title {
   margin-top: 10px;
 }
-.personal-info__info-title_without-offset {
+.profile-personal-info__info-title_without-offset {
   margin-top: 0;
 }
-.personal-info__organization-info-container {
+.profile-personal-info__organization-info-container {
   margin-top: 50px;
 }
-.personal-info__sale-points-container {
+.profile-personal-info__sale-points-container {
   margin-top: 50px;
 }
 
