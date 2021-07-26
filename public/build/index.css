@@ -1819,6 +1819,18 @@ p {
   flex: 2 0 auto;
   position: relative;
 }
+.profile-info__info-title {
+  margin-top: 10px;
+}
+.profile-info__info-title_without-offset {
+  margin-top: 0;
+}
+.profile-info__organization-info-container {
+  margin-top: 50px;
+}
+.profile-info__sale-points-container {
+  margin-top: 50px;
+}
 
 .profile__info-container {
   margin-top: 50px;
