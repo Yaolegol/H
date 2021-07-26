@@ -42,8 +42,8 @@ class RegisterController extends Controller
                 'email' => 'Поле должно содержать email',
                 'max' => 'Поле должно содержать максимум :max символов',
                 'min' => 'Поле должно содержать минимум :min символов',
-                'same' => 'Поля Password и Confirm Password не совпадают',
                 'required' => 'Поле обязательно для заполнения',
+                'same' => 'Поля Password и Confirm Password не совпадают',
                 'unique' => 'Пользователь с таким Email уже зарегистрирован',
             ]
         );
