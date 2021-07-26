@@ -1837,6 +1837,7 @@ p {
   color: #FFFFFF;
   cursor: auto;
   font-weight: 900;
+  pointer-events: none;
 }
 .profile-layout__tab-item-container {
   padding: 10px;
