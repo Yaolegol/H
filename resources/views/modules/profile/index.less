@@ -15,13 +15,31 @@
         padding: 20px;
         text-align: center;
 
-        &_with-offset {
-            margin-left: 20px;
+        &:hover:not(.profile__tab-button_active) {
+            background-color: @primary-50;
+            color: @white;
+        }
+
+        &_active {
+            background-color: @primary;
+            color: @white;
+            cursor: auto;
+            font-weight: 900;
         }
     }
 
-    &__tabs-container {
+    &__tab-item-container {
+        padding: 10px;
+    }
+
+    &__tabs-block {
         margin-top: 50px;
+    }
+
+    &__tabs-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -10px -10px 0 -10px;
     }
 
     &__title {
