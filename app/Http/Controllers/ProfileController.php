@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
+require_once('app/Http/Controllers/helpers/catalog/index.php');
+
 class ProfileController extends Controller
 {
     /**
@@ -14,7 +16,13 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        //
+        $catalogFull = getCatalogFull();
+        $locationList = getLocationListFormatted();
+
+        return view('pages.profile.index', [
+            'catalogHeader' => $catalogFull,
+            'locationList' => $locationList,
+        ]);
     }
 
     /**
