@@ -1795,6 +1795,44 @@ p {
   line-height: 26px;
 }
 
+.profile-info {
+  border-left: 1px solid #E9EDF6;
+  border-right: 1px solid #E9EDF6;
+  border-top: 1px solid #E9EDF6;
+  display: flex;
+  padding: 20px;
+}
+.profile-info:last-child {
+  border-bottom: 1px solid #E9EDF6;
+}
+.profile-info__contacts-block {
+  margin-top: 15px;
+}
+.profile-info__content-block {
+  flex: 3 0 auto;
+  padding: 0 0 0 20px;
+}
+.profile-info__image {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+.profile-info__image-block {
+  flex: 2 0 auto;
+  position: relative;
+}
+.profile-info__rating-section {
+  margin-top: 20px;
+}
+
+.profile__info-container {
+  margin-top: 50px;
+}
 .profile__title {
   text-align: center;
 }
