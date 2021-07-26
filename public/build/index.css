@@ -1796,17 +1796,10 @@ p {
 }
 
 .profile-info {
-  border-left: 1px solid #E9EDF6;
-  border-right: 1px solid #E9EDF6;
-  border-top: 1px solid #E9EDF6;
+  border: 1px solid #E9EDF6;
+  border-radius: 25px;
   display: flex;
   padding: 20px;
-}
-.profile-info:last-child {
-  border-bottom: 1px solid #E9EDF6;
-}
-.profile-info__contacts-block {
-  margin-top: 15px;
 }
 .profile-info__content-block {
   flex: 3 0 auto;
@@ -1825,9 +1818,6 @@ p {
 .profile-info__image-block {
   flex: 2 0 auto;
   position: relative;
-}
-.profile-info__rating-section {
-  margin-top: 20px;
 }
 
 .profile__info-container {
