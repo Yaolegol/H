@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
 require_once('app/Http/Controllers/helpers/catalog/index.php');
@@ -40,6 +39,7 @@ class RegisterController extends Controller
                 'password_confirmation' => ['required', 'same:password'],
             ],
             [
+                'email' => 'Поле должно содержать email',
                 'max' => 'Поле должно содержать максимум :max символов',
                 'min' => 'Поле должно содержать минимум :min символов',
                 'same' => 'Поля Password и Confirm Password не совпадают',

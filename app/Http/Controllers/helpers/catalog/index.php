@@ -4,6 +4,7 @@ use App\Models\Catalog;
 use App\Models\City;
 use App\Models\Offer;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 function getCatalog()
 {
@@ -238,7 +239,7 @@ function setupOffers($offers)
 function trySaveUserInDB($email, $password) {
     $newUser = new User([
         'email' => $email,
-        'password' => $password,
+        'password' => Hash::make($password),
     ]);
 
     try {
