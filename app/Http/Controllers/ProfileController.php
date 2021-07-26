@@ -49,10 +49,13 @@ class ProfileController extends Controller
     {
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
-        $isSectionExists = $section === 'personal-info';
+        $isSectionExists = $section === 'personal-info'
+            || $section === 'organization-info'
+            || $section === 'sale-points'
+            || $section === 'offers';
 
         if($isSectionExists) {
-            return view('pages.profile.personal-info.index', [
+            return view('pages.profile.' . $section . '.index', [
                 'catalogHeader' => $catalogFull,
                 'locationList' => $locationList,
                 'section' => $section,

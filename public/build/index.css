@@ -2081,6 +2081,43 @@ p {
   line-height: 26px;
 }
 
+.profile-organization-info {
+  border: 1px solid #E9EDF6;
+  border-radius: 25px;
+  display: flex;
+  padding: 20px;
+}
+.profile-organization-info__content-block {
+  flex: 3 0 auto;
+  padding: 0 0 0 20px;
+}
+.profile-organization-info__image {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+.profile-organization-info__image-block {
+  flex: 2 0 auto;
+  position: relative;
+}
+.profile-organization-info__info-title {
+  margin-top: 10px;
+}
+.profile-organization-info__info-title_without-offset {
+  margin-top: 0;
+}
+.profile-organization-info__organization-info-container {
+  margin-top: 50px;
+}
+.profile-organization-info__sale-points-container {
+  margin-top: 50px;
+}
+
 @font-face {
   font-family: 'Lato';
   font-weight: 400;
