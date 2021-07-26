@@ -286,6 +286,7 @@
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
+  margin: 0 auto;
   max-width: 1920px;
   overflow: auto;
   padding: 0 50px;
@@ -764,8 +765,8 @@ p {
   border-radius: 20px;
   box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.15);
   margin: 0 auto;
+  min-width: 600px;
   padding: 50px;
-  width: 50%;
 }
 .auth-login__content-container {
   margin-top: 50px;
