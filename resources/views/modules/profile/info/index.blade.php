@@ -38,10 +38,10 @@
                 <h2>Торговые точки</h2>
                 <div>
                     <h3>Торговая точка 1</h3>
-                    <div class="profile-info__info-title">Адрес</div>
-                    <div class="profile-info__info-description">test address</div>
                     <div class="profile-info__info-title">Контактное лицо</div>
                     <div class="profile-info__info-description">test person name</div>
+                    <div class="profile-info__info-title">Адрес</div>
+                    <div class="profile-info__info-description">test address</div>
                     <div class="profile-info__info-title">Телефон</div>
                     <div class="profile-info__info-description">8 333 333 33 33</div>
                     <div class="profile-info__info-title">Фото</div>
@@ -49,10 +49,10 @@
                 </div>
                 <div>
                     <h3>Торговая точка 2</h3>
-                    <div class="profile-info__info-title">Адрес</div>
-                    <div class="profile-info__info-description">test address</div>
                     <div class="profile-info__info-title">Контактное лицо</div>
                     <div class="profile-info__info-description">test person name</div>
+                    <div class="profile-info__info-title">Адрес</div>
+                    <div class="profile-info__info-description">test address</div>
                     <div class="profile-info__info-title">Телефон</div>
                     <div class="profile-info__info-description">8 333 333 33 33</div>
                     <div class="profile-info__info-title">Фото</div>
