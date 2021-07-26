@@ -16,8 +16,10 @@
         <div class="layout">
             @include('modules.header.index')
 
-            <div class="layout__content-container">
-                @yield('layout-content')
+            <div class="layout__content-block">
+                <div class="layout__content-container">
+                    @yield('layout-content')
+                </div>
             </div>
 
             @yield('layout-scripts')
