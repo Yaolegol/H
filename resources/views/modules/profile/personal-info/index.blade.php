@@ -25,7 +25,7 @@
                 @include('components.inputs.form.index', [
                             'name' => 'phone',
                             'placeholder' => 'Phone',
-                            'type' => 'phone',
+                            'type' => 'tel',
                             'value' => old('phone')
                         ])
                 @include('components.form.error.index', [

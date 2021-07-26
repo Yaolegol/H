@@ -1,14 +1,12 @@
 @import (reference) '~styles/colors';
 
 .profile-organization-info {
-    border:1px solid @white_100;
-    border-radius: 25px;
     display: flex;
     padding: 20px;
 
-    &__content-block {
-        flex: 3 0 auto;
-        padding: 0 0 0 20px;
+    &__content-container {
+        flex: 3 1 auto;
+        padding-left: 50px;
     }
 
     &__image {
@@ -23,29 +21,36 @@
     }
 
     &__image-block {
-        flex: 2 0 auto;
+        flex: 1 0 auto;
+    }
+
+    &__image-container {
+        border-radius: 50%;
+        overflow: hidden;
+        padding-bottom: 100%;
         position: relative;
     }
 
-    &__info-description {
+    &__input-container {
+        margin-top: 5px;
+        max-width: 500px;
     }
 
     &__info-title {
-        margin-top: 10px;
-
-        &_without-offset {
-            margin-top: 0;
-        }
+        margin-top: 25px;
+        margin-left: 30px;
     }
 
-    &__organization-info-container {
-        margin-top: 50px;
+    &__send-button {
+        border: 1px solid @black-15;
+        border-radius: 25px;
+        color: @black-50;
+        cursor: pointer;
+        padding: 20px;
+        text-align: center;
     }
 
-    &__personal-info-container {
-    }
-
-    &__sale-points-container {
+    &__send-button-container {
         margin-top: 50px;
     }
 }

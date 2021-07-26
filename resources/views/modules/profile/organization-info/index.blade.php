@@ -1,65 +1,111 @@
-<div class="profile-info">
-    <div class="profile-info__image-block">
-        <img alt="test" class="profile-info__image" src="test">
-    </div>
-    <div class="profile-info__content-block">
-        <div class="profile-info__info-section">
-            <div class="profile-info__personal-info-container">
-                <h2>Личные данные</h2>
-                <div class="profile-info__info-title">Имя</div>
-                <div class="profile-info__info-description">Test name</div>
-                <div class="profile-info__info-title">Телефон</div>
-                <div class="profile-info__info-description">8 111 111 11 11</div>
-                <div class="profile-info__info-title">Email</div>
-                <div class="profile-info__info-description">test@test.com</div>
+<div class="profile-organization-info">
+    <div class="profile-organization-info__content-container">
+        <h2>Данные об организации</h2>
+        <form action="/profile/organization-info" method="POST">
+            @csrf
+            <div class="profile-organization-info__info-title">Наименование организации:</div>
+            <div class="profile-organization-info__input-container">
+                @include('components.inputs.form.index', [
+                            'name' => 'organization-name',
+                            'placeholder' => 'Organization name',
+                            'type' => 'text',
+                            'value' => old('organization-name')
+                        ])
+                @include('components.form.error.index', [
+                    'message' => $errors->first('organization-name'),
+                ])
             </div>
-
-            <div class="profile-info__organization-info-container">
-                <h2>Данные об организации</h2>
-                <div class="profile-info__info-title">Наименование организации</div>
-                <div class="profile-info__info-description">Test organization name</div>
-                <div class="profile-info__info-title">ИНН организации</div>
-                <div class="profile-info__info-description">Test INN</div>
-                <div class="profile-info__info-title">Юридический адрес органицации</div>
-                <div class="profile-info__info-description">Test legal address</div>
-                <div class="profile-info__info-title">Фактический адрес органицации</div>
-                <div class="profile-info__info-description">Test fact address</div>
-                <div class="profile-info__info-title">Email организации</div>
-                <div class="profile-info__info-description">test@test.com</div>
-                <div class="profile-info__info-title">Телефон организации</div>
-                <div class="profile-info__info-description">8 222 222 22 22</div>
-                <div class="profile-info__info-title">Свидетельства</div>
-                <div class="profile-info__info-description">Test certificate</div>
-                <div class="profile-info__info-title">Фото</div>
-                <div class="profile-info__info-description">Test фото</div>
+            <div class="profile-organization-info__info-title">ИНН организации:</div>
+            <div class="profile-organization-info__input-container">
+                @include('components.inputs.form.index', [
+                            'name' => 'inn',
+                            'placeholder' => 'Inn',
+                            'type' => 'number',
+                            'value' => old('inn')
+                        ])
+                @include('components.form.error.index', [
+                    'message' => $errors->first('inn'),
+                ])
             </div>
-
-            <div class="profile-info__sale-points-container">
-                <h2>Торговые точки</h2>
-                <div>
-                    <h3>Торговая точка 1</h3>
-                    <div class="profile-info__info-title">Контактное лицо</div>
-                    <div class="profile-info__info-description">test person name</div>
-                    <div class="profile-info__info-title">Адрес</div>
-                    <div class="profile-info__info-description">test address</div>
-                    <div class="profile-info__info-title">Телефон</div>
-                    <div class="profile-info__info-description">8 333 333 33 33</div>
-                    <div class="profile-info__info-title">Фото</div>
-                    <div class="profile-info__info-description">Test фото</div>
-                </div>
-                <div>
-                    <h3>Торговая точка 2</h3>
-                    <div class="profile-info__info-title">Контактное лицо</div>
-                    <div class="profile-info__info-description">test person name</div>
-                    <div class="profile-info__info-title">Адрес</div>
-                    <div class="profile-info__info-description">test address</div>
-                    <div class="profile-info__info-title">Телефон</div>
-                    <div class="profile-info__info-description">8 333 333 33 33</div>
-                    <div class="profile-info__info-title">Фото</div>
-                    <div class="profile-info__info-description">Test фото</div>
+            <div class="profile-organization-info__info-title">Юридический адрес организации:</div>
+            <div class="profile-organization-info__info-description">
+                <div class="profile-organization-info__input-container">
+                    @include('components.inputs.form.index', [
+                                'name' => 'legal-address',
+                                'placeholder' => 'Legal address',
+                                'type' => 'text',
+                                'value' => old('legal-address')
+                            ])
+                    @include('components.form.error.index', [
+                        'message' => $errors->first('legal-address'),
+                    ])
                 </div>
             </div>
-        </div>
+            <div class="profile-organization-info__info-title">Фактический адрес организации:</div>
+            <div class="profile-organization-info__info-description">
+                <div class="profile-organization-info__input-container">
+                    @include('components.inputs.form.index', [
+                                'name' => 'real-address',
+                                'placeholder' => 'Real address',
+                                'type' => 'text',
+                                'value' => old('real-address')
+                            ])
+                    @include('components.form.error.index', [
+                        'message' => $errors->first('real-address'),
+                    ])
+                </div>
+            </div>
+            <div class="profile-organization-info__info-title">Email организации:</div>
+            <div class="profile-organization-info__info-description">
+                <div class="profile-organization-info__input-container">
+                    @include('components.inputs.form.index', [
+                                'name' => 'organization-email',
+                                'placeholder' => 'Organization email',
+                                'type' => 'email',
+                                'value' => old('organization-email')
+                            ])
+                    @include('components.form.error.index', [
+                        'message' => $errors->first('organization-email'),
+                    ])
+                </div>
+            </div>
+            <div class="profile-organization-info__info-title">Телефон организации:</div>
+            <div class="profile-organization-info__info-description">
+                <div class="profile-organization-info__input-container">
+                    @include('components.inputs.form.index', [
+                                'name' => 'organization-phone',
+                                'placeholder' => 'Organization-phone',
+                                'type' => 'tel',
+                                'value' => old('organization-phone')
+                            ])
+                    @include('components.form.error.index', [
+                        'message' => $errors->first('organization-phone'),
+                    ])
+                </div>
+            </div>
+            <div class="profile-organization-info__info-title">Свидетельства:</div>
+            <div class="profile-organization-info__info-description">
+                <div class="profile-organization-info__input-container">
+                    @include('components.form.error.index', [
+                        'message' => $errors->first('organization-phone'),
+                    ])
+                </div>
+            </div>
+            <div class="profile-organization-info__info-title">Фото:</div>
+            <div class="profile-organization-info__info-description">
+                <div class="profile-organization-info__input-container">
+                    @include('components.form.error.index', [
+                        'message' => $errors->first('organization-phone'),
+                    ])
+                </div>
+            </div>
+            <div class="profile-organization-info__send-button-container">
+                <button class="profile-organization-info__send-button">Сохранить</button>
+            </div>
+            @include('components.form.error.index', [
+                'message' => session('commonError'),
+            ])
+        </form>
     </div>
 </div>
 

@@ -2082,14 +2082,12 @@ p {
 }
 
 .profile-organization-info {
-  border: 1px solid #E9EDF6;
-  border-radius: 25px;
   display: flex;
   padding: 20px;
 }
-.profile-organization-info__content-block {
-  flex: 3 0 auto;
-  padding: 0 0 0 20px;
+.profile-organization-info__content-container {
+  flex: 3 1 auto;
+  padding-left: 50px;
 }
 .profile-organization-info__image {
   bottom: 0;
@@ -2102,19 +2100,31 @@ p {
   width: 100%;
 }
 .profile-organization-info__image-block {
-  flex: 2 0 auto;
+  flex: 1 0 auto;
+}
+.profile-organization-info__image-container {
+  border-radius: 50%;
+  overflow: hidden;
+  padding-bottom: 100%;
   position: relative;
 }
+.profile-organization-info__input-container {
+  margin-top: 5px;
+  max-width: 500px;
+}
 .profile-organization-info__info-title {
-  margin-top: 10px;
+  margin-top: 25px;
+  margin-left: 30px;
 }
-.profile-organization-info__info-title_without-offset {
-  margin-top: 0;
+.profile-organization-info__send-button {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  padding: 20px;
+  text-align: center;
 }
-.profile-organization-info__organization-info-container {
-  margin-top: 50px;
-}
-.profile-organization-info__sale-points-container {
+.profile-organization-info__send-button-container {
   margin-top: 50px;
 }
 
