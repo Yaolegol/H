@@ -10,8 +10,8 @@
         border-radius: 20px;
         box-shadow: 0 0 40px 0 @black-15;
         margin: 0 auto;
-        min-width: 600px;
         padding: 50px;
+        width: 50%;
     }
 
     &__content-container {
@@ -22,15 +22,39 @@
         margin-top: 30px;
     }
 
+    &__send-button {
+        border: 1px solid @black-15;
+        border-radius: 25px;
+        color: @black-50;
+        cursor: pointer;
+        padding: 20px;
+        text-align: center;
+    }
+
+    &__send-button-container {
+        margin-top: 50px;
+    }
+
     &__tab-button {
         border-radius: 10px;
         box-shadow: 0 0 5px 0 @black-15;
         color: @black-50;
-        cursor: pointer;
         display: inline-block;
         flex: 1 0 0;
         padding: 20px;
         text-align: center;
+
+        &:hover:not(.auth-login__tab-button_active) {
+            background-color: @primary-50;
+            color: @white;
+        }
+
+        &_active {
+            background-color: @primary;
+            color: @white;
+            cursor: auto;
+            font-weight: 900;
+        }
 
         &_with-offset {
             margin-left: 20px;

@@ -6,12 +6,53 @@
     </div>
     <div class="profile-personal-info__content-container">
         <h2>Личные данные</h2>
-        <div class="profile-personal-info__info-title">Имя</div>
-        <div class="profile-personal-info__info-description">Test name</div>
-        <div class="profile-personal-info__info-title">Телефон</div>
-        <div class="profile-personal-info__info-description">8 111 111 11 11</div>
-        <div class="profile-personal-info__info-title">Email</div>
-        <div class="profile-personal-info__info-description">test@test.com</div>
+        <form action="/profile/personal-info" method="POST">
+            @csrf
+            <div class="profile-personal-info__info-title">Ваше имя:</div>
+            <div class="profile-personal-info__input-container">
+                @include('components.inputs.form.index', [
+                            'name' => 'name',
+                            'placeholder' => 'Name',
+                            'type' => 'text',
+                            'value' => old('name')
+                        ])
+                @include('components.form.error.index', [
+                    'message' => $errors->first('name'),
+                ])
+            </div>
+            <div class="profile-personal-info__info-title">Телефон:</div>
+            <div class="profile-personal-info__input-container">
+                @include('components.inputs.form.index', [
+                            'name' => 'phone',
+                            'placeholder' => 'Phone',
+                            'type' => 'phone',
+                            'value' => old('phone')
+                        ])
+                @include('components.form.error.index', [
+                    'message' => $errors->first('phone'),
+                ])
+            </div>
+            <div class="profile-personal-info__info-title">Email:</div>
+            <div class="profile-personal-info__info-description">
+                <div class="profile-personal-info__input-container">
+                    @include('components.inputs.form.index', [
+                                'name' => 'email',
+                                'placeholder' => 'Email',
+                                'type' => 'email',
+                                'value' => old('email')
+                            ])
+                    @include('components.form.error.index', [
+                        'message' => $errors->first('email'),
+                    ])
+                </div>
+            </div>
+            <div class="profile-personal-info__send-button-container">
+                <button class="profile-personal-info__send-button">Сохранить</button>
+            </div>
+            @include('components.form.error.index', [
+                'message' => session('commonError'),
+            ])
+        </form>
     </div>
 </div>
 
