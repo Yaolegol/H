@@ -173,6 +173,13 @@
   line-height: 0;
   width: 30px;
 }
+.header__login-container {
+  line-height: 0;
+  width: 30px;
+}
+.header__login-link {
+  color: #FFFFFF;
+}
 .header__logo-container {
   line-height: 0;
   width: 50px;

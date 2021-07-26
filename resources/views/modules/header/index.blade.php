@@ -21,6 +21,17 @@
             @include('icons.profile')
         </a>
     </div>
+    @auth
+        <div class="header__login-container">
+            <a class="header__login-link" href="/logout">Выйти</a>
+        </div>
+    @endauth
+
+    @guest
+        <div class="header__login-container">
+            <a class="header__login-link" href="/login">Войти</a>
+        </div>
+    @endguest
 </div>
 
 @section('modals-common-content')
