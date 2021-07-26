@@ -2285,14 +2285,12 @@ p {
 }
 
 .profile-personal-info {
-  border: 1px solid #E9EDF6;
-  border-radius: 25px;
   display: flex;
   padding: 20px;
 }
-.profile-personal-info__content-block {
-  flex: 3 0 auto;
-  padding: 0 0 0 20px;
+.profile-personal-info__content-container {
+  flex: 3 1 auto;
+  padding-left: 50px;
 }
 .profile-personal-info__image {
   bottom: 0;
@@ -2305,20 +2303,16 @@ p {
   width: 100%;
 }
 .profile-personal-info__image-block {
-  flex: 2 0 auto;
+  flex: 1 0 auto;
+}
+.profile-personal-info__image-container {
+  border-radius: 50%;
+  overflow: hidden;
+  padding-bottom: 100%;
   position: relative;
 }
 .profile-personal-info__info-title {
   margin-top: 10px;
-}
-.profile-personal-info__info-title_without-offset {
-  margin-top: 0;
-}
-.profile-personal-info__organization-info-container {
-  margin-top: 50px;
-}
-.profile-personal-info__sale-points-container {
-  margin-top: 50px;
 }
 
 @font-face {
