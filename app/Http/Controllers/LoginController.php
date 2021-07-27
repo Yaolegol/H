@@ -32,13 +32,13 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
-        $email = $request->input('email');
+        $email = $request->input('registration_email');
         $password = $request->input('password');
 
         $validator = Validator::make(
             $request->all(),
             [
-                'email' => ['required', 'email', 'max:25'],
+                'registration_email' => ['required', 'email', 'max:25'],
                 'password' => ['required', 'min:6'],
             ],
             [
@@ -57,7 +57,7 @@ class LoginController extends Controller
 
         if (Auth::attempt(
             [
-                'email' => $email,
+                'registration_email' => $email,
                 'password' => $password,
             ]
         )) {

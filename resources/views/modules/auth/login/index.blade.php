@@ -14,13 +14,13 @@
                 @csrf
                 <div class="auth-login__form-item-container">
                     @include('components.inputs.form.index', [
-                        'name' => 'email',
+                        'name' => 'registration_email',
                         'placeholder' => 'Email',
                         'type' => 'email',
-                        'value' => old('email')
+                        'value' => old('registration_email')
                     ])
                     @include('components.form.error.index', [
-                        'message' => $errors->first('email'),
+                        'message' => $errors->first('registration_email'),
                     ])
                 </div>
                 <div class="auth-login__form-item-container">

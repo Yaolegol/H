@@ -39,13 +39,13 @@
                     <div class="profile-personal-info__info-description">
                         <div class="profile-personal-info__input-container">
                             @include('components.inputs.form.index', [
-                                        'name' => 'email',
+                                        'name' => 'visible_email',
                                         'placeholder' => 'Email',
                                         'type' => 'email',
-                                        'value' => $userData['email']
+                                        'value' => $userData['visible_email']
                                     ])
                             @include('components.form.error.index', [
-                                'message' => $errors->first('email'),
+                                'message' => $errors->first('visible_email'),
                             ])
                         </div>
                     </div>
@@ -76,13 +76,13 @@
                     <div class="profile-personal-info__info-description">
                         <div class="profile-personal-info__input-container">
                             @include('components.inputs.form.index', [
-                                        'name' => 'email',
+                                        'name' => 'registration_email',
                                         'placeholder' => 'Email',
                                         'type' => 'email',
-                                        'value' => $userData['email']
+                                        'value' => $userData['registration_email']
                                     ])
                             @include('components.form.error.index', [
-                                'message' => $errors->first('email'),
+                                'message' => $errors->first('registration_email'),
                             ])
                         </div>
                     </div>

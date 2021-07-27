@@ -220,7 +220,10 @@ function getUserDataFormatted() {
     $userData = Auth::user()->getAttributes();
 
     return array_filter($userData, function($key) {
-        return $key === 'name' || $key === 'email' || $key === 'phone';
+        return $key === 'name'
+            || $key === 'visible_email'
+            || $key === 'registration_email'
+            || $key === 'phone';
     }, ARRAY_FILTER_USE_KEY);
 }
 
@@ -247,7 +250,7 @@ function setupOffers($offers)
 
 function trySaveUserInDB($email, $password) {
     $newUser = new User([
-        'email' => $email,
+        'registration_email' => $email,
         'password' => Hash::make($password),
     ]);
 

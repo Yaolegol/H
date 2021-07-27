@@ -9,7 +9,7 @@ class UserSeeder extends Seeder
 {
     public $data = [
         [
-            'email' => 'user1@yandex.ru',
+            'registration_email' => 'user1@yandex.ru',
             'is_admin' => true,
             'name' => 'User name 1',
             'lang_id' => 1,
@@ -17,19 +17,19 @@ class UserSeeder extends Seeder
             'city_id' => 1,
         ],
         [
-            'email' => 'user2@yandex.ru',
+            'registration_email' => 'user2@yandex.ru',
             'lang_id' => 1,
             'name' => 'User name 2',
             'password' => '1234562',
             'city_id' => 2,
         ],
         [
-            'email' => 'user3@yandex.ru',
+            'registration_email' => 'user3@yandex.ru',
             'name' => 'User name 3',
             'password' => '1234563',
         ],
         [
-            'email' => 'user4@yandex.ru',
+            'registration_email' => 'user4@yandex.ru',
             'lang_id' => 2,
             'name' => 'User name 4',
             'password' => '1234564',

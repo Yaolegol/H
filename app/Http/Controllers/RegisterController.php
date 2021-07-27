@@ -34,7 +34,7 @@ class RegisterController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'email' => ['required', 'email', 'max:25'],
+                'registration_email' => ['required', 'email', 'max:25'],
                 'password' => ['required', 'min:6'],
                 'password_confirmation' => ['required', 'same:password'],
             ],
@@ -54,7 +54,7 @@ class RegisterController extends Controller
                 ->withInput();
         }
 
-        $email = $request->input('email');
+        $email = $request->input('registration_email');
         $password = $request->input('password');
 
         $isSaved = trySaveUserInDB($email, $password);
