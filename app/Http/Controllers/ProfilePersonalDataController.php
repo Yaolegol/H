@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 require_once('app/Http/Controllers/helpers/catalog/index.php');
 
@@ -93,7 +94,30 @@ class ProfilePersonalDataController extends Controller
         }
 
         if($formSection === 'change-email') {
+            $currentPassword = $request->input('current_password');
 
+            if(Hash::check($currentPassword, Auth::user()->password)) {
+                $isSaved = tryChangeUserEmailInDB($request);
+
+                if($isSaved) {
+                    $userData = getUserDataFormatted();
+
+                    return view('pages.profile.personal-info.index', [
+                        'catalogHeader' => $catalogFull,
+                        'locationList' => $locationList,
+                        'section' => $section,
+                        'userData' => $userData
+                    ]);
+                } else {
+                    return back()->with(
+                        ['commonChangeEmailError' => 'Что-то пошло не так. Попробуйте снова']
+                    );
+                }
+            } else {
+                return back()->with(
+                    ['commonChangeEmailError' => 'Неверный пароль']
+                );
+            }
         }
 
         abort(404);

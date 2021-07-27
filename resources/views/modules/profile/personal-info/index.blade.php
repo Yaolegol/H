@@ -75,18 +75,18 @@
                     <h3>Изменить email</h3>
                     <form action="/profile/personal-info" method="POST">
                         @csrf
-                        <input name="section" type="hidden" value="change-email">
-                        <div class="profile-personal-info__info-title">Email:</div>
+                        <input name="form-section" type="hidden" value="change-email">
+                        <div class="profile-personal-info__info-title">Новый email:</div>
                         <div class="profile-personal-info__info-description">
                             <div class="profile-personal-info__input-container">
                                 @include('components.inputs.form.index', [
-                                            'name' => 'registration_email',
+                                            'name' => 'new_registration_email',
                                             'placeholder' => 'Email',
                                             'type' => 'email',
                                             'value' => $userData['registration_email']
                                         ])
                                 @include('components.form.error.index', [
-                                    'message' => $errors->first('registration_email'),
+                                    'message' => $errors->first('new_registration_email'),
                                 ])
                             </div>
                         </div>
@@ -107,7 +107,7 @@
                             <button class="profile-personal-info__send-button">Сохранить</button>
                         </div>
                         @include('components.form.error.index', [
-                            'message' => session('commonError'),
+                            'message' => session('commonChangeEmailError'),
                         ])
                     </form>
                 </div>
@@ -115,7 +115,7 @@
                     <h3>Изменить пароль</h3>
                     <form action="/profile/personal-info" method="POST">
                         @csrf
-                        <input name="section" type="hidden" value="change-password">
+                        <input name="form-section" type="hidden" value="change-password">
                         <div class="profile-personal-info__info-title">Текущий пароль:</div>
                         <div class="profile-personal-info__info-description">
                             <div class="profile-personal-info__input-container">

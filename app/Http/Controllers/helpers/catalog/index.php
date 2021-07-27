@@ -187,25 +187,27 @@ function setCatalogFullLinks($catalog)
     );
 }
 
-function getLocationList() {
+function getLocationList()
+{
     return City::where('country_id', '1')->with('region', 'country')->get()->toArray();
 }
 
-function getLocationListFormatted() {
+function getLocationListFormatted()
+{
     $cityList = getLocationList();
 
-    return array_reduce($cityList, function($acc, $city) {
+    return array_reduce($cityList, function ($acc, $city) {
         $cityNew = getNewArray($city);
         $region = $cityNew['region'];
         unset($cityNew['region']);
         $regionId = $region['id'];
         $isRegionIdExists = false;
 
-        if($acc !== null) {
+        if ($acc !== null) {
             $isRegionIdExists = array_key_exists($regionId, $acc);
         }
 
-        if($isRegionIdExists) {
+        if ($isRegionIdExists) {
             array_push($acc[$regionId]['cities'], $cityNew);
         } else {
             $region['cities'] = [$cityNew];
@@ -216,10 +218,11 @@ function getLocationListFormatted() {
     });
 }
 
-function getUserDataFormatted() {
+function getUserDataFormatted()
+{
     $userData = Auth::user()->getAttributes();
 
-    return array_filter($userData, function($key) {
+    return array_filter($userData, function ($key) {
         return $key === 'name'
             || $key === 'visible_email'
             || $key === 'registration_email'
@@ -248,38 +251,55 @@ function setupOffers($offers)
     }, $offers);
 }
 
-function tryChangeUserPersonalDataInDB($request) {
-    $name = $request->input('name');
-    $phone = $request->input('phone');
-    $visible_email = $request->input('visible_email');
-
-    $authUser = Auth::user();
-    $authUser->name = $name;
-    $authUser->phone = $phone;
-    $authUser->visible_email = $visible_email;
-
+function tryChangeUserEmailInDB($request)
+{
     try {
+        $newRegistrationEmail = $request->input('new_registration_email');
+
+        $authUser = Auth::user();
+        $authUser->registration_email = $newRegistrationEmail;
         $authUser->save();
+
         return true;
-    } catch(\Exception $error) {
+    } catch (\Exception $error) {
         return false;
     }
 }
 
-function trySaveUserInDB($request) {
-    $registration_email = $request->input('registration_email');
-    $password = $request->input('password');
-
-    $newUser = new User([
-        'visible_email' => $registration_email,
-        'registration_email' => $registration_email,
-        'password' => Hash::make($password),
-    ]);
-
+function tryChangeUserPersonalDataInDB($request)
+{
     try {
-        $newUser->save();
+        $name = $request->input('name');
+        $phone = $request->input('phone');
+        $visible_email = $request->input('visible_email');
+
+        $authUser = Auth::user();
+        $authUser->name = $name;
+        $authUser->phone = $phone;
+        $authUser->visible_email = $visible_email;
+        $authUser->save();
+
         return true;
-    } catch(\Exception $error) {
+    } catch (\Exception $error) {
+        return false;
+    }
+}
+
+function trySaveUserInDB($request)
+{
+    try {
+        $registration_email = $request->input('registration_email');
+        $password = $request->input('password');
+
+        $newUser = new User([
+            'visible_email' => $registration_email,
+            'registration_email' => $registration_email,
+            'password' => Hash::make($password),
+        ]);
+        $newUser->save();
+
+        return true;
+    } catch (\Exception $error) {
         return false;
     }
 }
