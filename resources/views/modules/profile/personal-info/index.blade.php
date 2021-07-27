@@ -6,7 +6,7 @@
     </div>
     <div class="profile-personal-info__content-container">
         <h2>Личные данные</h2>
-        <form action="/profile/personal-info" method="POST">
+        <form action="/profile/personal-info" enctype="multipart/form-data" method="POST">
             @csrf
             <div class="profile-personal-info__info-title">Ваше имя:</div>
             <div class="profile-personal-info__input-container">
@@ -49,8 +49,8 @@
             <div class="profile-personal-info__info-description profile-personal-info__info-description_with-offset">
                 <div class="profile-personal-info__input-container">
                     @include('components.inputs.file.index', [
-                                'name' => 'photo',
-                            ])
+                        'name' => 'photo',
+                    ])
                     @include('components.form.error.index', [
                         'message' => $errors->first('photo'),
                     ])
@@ -65,5 +65,3 @@
         </form>
     </div>
 </div>
-
-
