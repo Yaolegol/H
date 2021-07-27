@@ -35,7 +35,7 @@
                             'message' => $errors->first('phone'),
                         ])
                     </div>
-                    <div class="profile-personal-info__info-title">Email:</div>
+                    <div class="profile-personal-info__info-title">Email (отображаемый для других пользователей):</div>
                     <div class="profile-personal-info__info-description">
                         <div class="profile-personal-info__input-container">
                             @include('components.inputs.form.index', [

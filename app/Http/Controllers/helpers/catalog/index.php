@@ -250,6 +250,7 @@ function setupOffers($offers)
 
 function trySaveUserInDB($email, $password) {
     $newUser = new User([
+        'visible_email' => $email,
         'registration_email' => $email,
         'password' => Hash::make($password),
     ]);
