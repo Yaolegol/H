@@ -86,7 +86,9 @@ class ProfilePersonalDataController extends Controller
                     'userData' => $userData
                 ]);
             } else {
-                dd($isSaved);
+                return back()->with(
+                    ['commonError' => 'Что-то пошло не так. Попробуйте снова']
+                );
             }
         }
 
