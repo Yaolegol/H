@@ -80,13 +80,13 @@
                         <div class="profile-personal-info__info-description">
                             <div class="profile-personal-info__input-container">
                                 @include('components.inputs.form.index', [
-                                            'name' => 'new_registration_email',
+                                            'name' => 'registration_email',
                                             'placeholder' => 'Email',
                                             'type' => 'email',
                                             'value' => $userData['registration_email']
                                         ])
                                 @include('components.form.error.index', [
-                                    'message' => $errors->first('new_registration_email'),
+                                    'message' => $errors->first('registration_email'),
                                 ])
                             </div>
                         </div>
@@ -94,12 +94,12 @@
                         <div class="profile-personal-info__info-description">
                             <div class="profile-personal-info__input-container">
                                 @include('components.inputs.form.index', [
-                                'name' => 'current_password',
+                                'name' => 'password',
                                 'placeholder' => 'Current password',
                                 'type' => 'password'
                             ])
                                 @include('components.form.error.index', [
-                                    'message' => $errors->first('current_password'),
+                                    'message' => $errors->first('password'),
                                 ])
                             </div>
                         </div>
@@ -133,12 +133,12 @@
                         <div class="profile-personal-info__info-description">
                             <div class="profile-personal-info__input-container">
                                 @include('components.inputs.form.index', [
-                                'name' => 'new_password',
+                                'name' => 'password',
                                 'placeholder' => 'New password',
                                 'type' => 'password'
                             ])
                                 @include('components.form.error.index', [
-                                    'message' => $errors->first('new_password'),
+                                    'message' => $errors->first('password'),
                                 ])
                             </div>
                         </div>
@@ -146,12 +146,12 @@
                         <div class="profile-personal-info__info-description">
                             <div class="profile-personal-info__input-container">
                                 @include('components.inputs.form.index', [
-                                'name' => 'new_password_confirmation',
+                                'name' => 'password_confirmation',
                                 'placeholder' => 'Confirm new password',
                                 'type' => 'password'
                             ])
                                 @include('components.form.error.index', [
-                                    'message' => $errors->first('new_password_confirmation'),
+                                    'message' => $errors->first('password_confirmation'),
                                 ])
                             </div>
                         </div>
@@ -159,7 +159,7 @@
                             <button class="profile-personal-info__send-button">Сохранить</button>
                         </div>
                         @include('components.form.error.index', [
-                            'message' => session('commonError'),
+                            'message' => session('commonChangePasswordError'),
                         ])
                     </form>
                 </div>

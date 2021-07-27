@@ -254,10 +254,24 @@ function setupOffers($offers)
 function tryChangeUserEmailInDB($request)
 {
     try {
-        $newRegistrationEmail = $request->input('new_registration_email');
+        $newRegistrationEmail = $request->input('registration_email');
 
         $authUser = Auth::user();
         $authUser->registration_email = $newRegistrationEmail;
+        $authUser->save();
+
+        return true;
+    } catch (\Exception $error) {
+        return false;
+    }
+}
+
+function tryChangeUserPasswordInDB($request) {
+    try {
+        $newPassword = $request->input('password');
+
+        $authUser = Auth::user();
+        $authUser->password = Hash::make($newPassword);
         $authUser->save();
 
         return true;

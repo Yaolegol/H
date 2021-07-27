@@ -34,7 +34,7 @@ class RegisterController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'registration_email' => ['required', 'email', 'max:25'],
+                'registration_email' => ['required', 'email', 'max:25', 'unique:users'],
                 'password' => ['required', 'min:6'],
                 'password_confirmation' => ['required', 'same:password'],
             ],
