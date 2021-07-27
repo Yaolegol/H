@@ -11,7 +11,7 @@
                 <div>(отображаются для других пользователей)</div>
                 <form action="/profile/personal-info" enctype="multipart/form-data" method="POST">
                     @csrf
-                    <input name="form-section" type="hidden" value="personal-data">
+                    <input name="form-section" type="hidden" value="change-personal-data">
                     <div class="profile-personal-info__info-title">Ваше имя:</div>
                     <div class="profile-personal-info__input-container">
                         @include('components.inputs.form.index', [
@@ -75,7 +75,7 @@
                     <h3>Изменить email</h3>
                     <form action="/profile/personal-info" method="POST">
                         @csrf
-                        <input name="section" type="hidden" value="registration-data">
+                        <input name="section" type="hidden" value="change-email">
                         <div class="profile-personal-info__info-title">Email:</div>
                         <div class="profile-personal-info__info-description">
                             <div class="profile-personal-info__input-container">
@@ -115,7 +115,7 @@
                     <h3>Изменить пароль</h3>
                     <form action="/profile/personal-info" method="POST">
                         @csrf
-                        <input name="section" type="hidden" value="registration-data">
+                        <input name="section" type="hidden" value="change-password">
                         <div class="profile-personal-info__info-title">Текущий пароль:</div>
                         <div class="profile-personal-info__info-description">
                             <div class="profile-personal-info__input-container">

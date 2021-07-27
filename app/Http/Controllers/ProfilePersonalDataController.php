@@ -73,7 +73,7 @@ class ProfilePersonalDataController extends Controller
         $section = 'personal-info';
         $formSection = $request->input('form-section');
 
-        if($formSection === 'personal-data') {
+        if($formSection === 'change-personal-data') {
             $isSaved = tryChangeUserPersonalDataInDB($request);
 
             if($isSaved) {
@@ -92,7 +92,7 @@ class ProfilePersonalDataController extends Controller
             }
         }
 
-        if($formSection === 'registration-data') {
+        if($formSection === 'change-email') {
 
         }
 
