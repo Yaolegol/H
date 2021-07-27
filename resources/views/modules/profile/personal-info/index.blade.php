@@ -71,51 +71,99 @@
             </div>
             <div class="profile-personal-info__registration-data-container">
                 <h2>Регистрационные данные</h2>
-                <form action="/profile/personal-info" method="POST">
-                    @csrf
-                    <input name="section" type="hidden" value="registration-data">
-                    <div class="profile-personal-info__info-title">Email:</div>
-                    <div class="profile-personal-info__info-description">
-                        <div class="profile-personal-info__input-container">
-                            @include('components.inputs.form.index', [
-                                        'name' => 'registration_email',
-                                        'placeholder' => 'Email',
-                                        'type' => 'email',
-                                        'value' => $userData['registration_email']
-                                    ])
-                            @include('components.form.error.index', [
-                                'message' => $errors->first('registration_email'),
-                            ])
+                <div class="profile-personal-info__change-email-container">
+                    <h3>Изменить email</h3>
+                    <form action="/profile/personal-info" method="POST">
+                        @csrf
+                        <input name="section" type="hidden" value="registration-data">
+                        <div class="profile-personal-info__info-title">Email:</div>
+                        <div class="profile-personal-info__info-description">
+                            <div class="profile-personal-info__input-container">
+                                @include('components.inputs.form.index', [
+                                            'name' => 'registration_email',
+                                            'placeholder' => 'Email',
+                                            'type' => 'email',
+                                            'value' => $userData['registration_email']
+                                        ])
+                                @include('components.form.error.index', [
+                                    'message' => $errors->first('registration_email'),
+                                ])
+                            </div>
                         </div>
-                    </div>
-                    <div class="auth-login__form-item-container">
-                        @include('components.inputs.form.index', [
-                            'name' => 'password',
-                            'placeholder' => 'Password',
-                            'type' => 'password'
-                        ])
+                        <div class="profile-personal-info__info-title">Текущий пароль:</div>
+                        <div class="profile-personal-info__info-description">
+                            <div class="profile-personal-info__input-container">
+                                @include('components.inputs.form.index', [
+                                'name' => 'current_password',
+                                'placeholder' => 'Current password',
+                                'type' => 'password'
+                            ])
+                                @include('components.form.error.index', [
+                                    'message' => $errors->first('current_password'),
+                                ])
+                            </div>
+                        </div>
+                        <div class="profile-personal-info__send-button-container">
+                            <button class="profile-personal-info__send-button">Сохранить</button>
+                        </div>
                         @include('components.form.error.index', [
-                            'message' => $errors->first('password'),
+                            'message' => session('commonError'),
                         ])
-                    </div>
-                    <div class="auth-login__form-item-container">
-                        @include('components.inputs.form.index', [
-                            'name' => 'password_confirmation',
-                            'placeholder' => 'Confirm password',
-                            'type' => 'password'
-                        ])
+                    </form>
+                </div>
+                <div class="profile-personal-info__change-password-container">
+                    <h3>Изменить пароль</h3>
+                    <form action="/profile/personal-info" method="POST">
+                        @csrf
+                        <input name="section" type="hidden" value="registration-data">
+                        <div class="profile-personal-info__info-title">Текущий пароль:</div>
+                        <div class="profile-personal-info__info-description">
+                            <div class="profile-personal-info__input-container">
+                                @include('components.inputs.form.index', [
+                                'name' => 'current_password',
+                                'placeholder' => 'Current password',
+                                'type' => 'password'
+                            ])
+                                @include('components.form.error.index', [
+                                    'message' => $errors->first('current_password'),
+                                ])
+                            </div>
+                        </div>
+                        <div class="profile-personal-info__info-title">Новый пароль:</div>
+                        <div class="profile-personal-info__info-description">
+                            <div class="profile-personal-info__input-container">
+                                @include('components.inputs.form.index', [
+                                'name' => 'new_password',
+                                'placeholder' => 'New password',
+                                'type' => 'password'
+                            ])
+                                @include('components.form.error.index', [
+                                    'message' => $errors->first('new_password'),
+                                ])
+                            </div>
+                        </div>
+                        <div class="profile-personal-info__info-title">Подтверждение нового пароля:</div>
+                        <div class="profile-personal-info__info-description">
+                            <div class="profile-personal-info__input-container">
+                                @include('components.inputs.form.index', [
+                                'name' => 'new_password_confirmation',
+                                'placeholder' => 'Confirm new password',
+                                'type' => 'password'
+                            ])
+                                @include('components.form.error.index', [
+                                    'message' => $errors->first('new_password_confirmation'),
+                                ])
+                            </div>
+                        </div>
+                        <div class="profile-personal-info__send-button-container">
+                            <button class="profile-personal-info__send-button">Сохранить</button>
+                        </div>
                         @include('components.form.error.index', [
-                            'message' => $errors->first('password_confirmation'),
+                            'message' => session('commonError'),
                         ])
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-            <div class="profile-personal-info__send-button-container">
-                <button class="profile-personal-info__send-button">Сохранить</button>
-            </div>
-            @include('components.form.error.index', [
-                'message' => session('commonError'),
-            ])
         </div>
     </div>
 </div>

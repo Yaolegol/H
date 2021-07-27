@@ -2370,6 +2370,12 @@ p {
   display: flex;
   padding: 20px;
 }
+.profile-personal-info__change-email-container {
+  margin-top: 15px;
+}
+.profile-personal-info__change-password-container {
+  margin-top: 15px;
+}
 .profile-personal-info__content-block {
   flex: 3 1 auto;
 }
