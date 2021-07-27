@@ -7,7 +7,7 @@ use Illuminate\Http\Response;
 
 require_once('app/Http/Controllers/helpers/catalog/index.php');
 
-class ProfileController extends Controller
+class ProfileOrganizationDataController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -47,7 +47,22 @@ class ProfileController extends Controller
      */
     public function show($section)
     {
-        //
+        $catalogFull = getCatalogFull();
+        $locationList = getLocationListFormatted();
+        $isSectionExists = $section === 'personal-info'
+            || $section === 'organization-info'
+            || $section === 'sale-points'
+            || $section === 'offers';
+
+        if($isSectionExists) {
+            return view('pages.profile.' . $section . '.index', [
+                'catalogHeader' => $catalogFull,
+                'locationList' => $locationList,
+                'section' => $section,
+            ]);
+        }
+
+        abort(404);
     }
 
     /**

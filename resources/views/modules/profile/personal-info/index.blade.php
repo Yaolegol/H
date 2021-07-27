@@ -14,7 +14,7 @@
                             'name' => 'name',
                             'placeholder' => 'Name',
                             'type' => 'text',
-                            'value' => old('name')
+                            'value' => $userData['name']
                         ])
                 @include('components.form.error.index', [
                     'message' => $errors->first('name'),
@@ -26,7 +26,7 @@
                             'name' => 'phone',
                             'placeholder' => 'Phone',
                             'type' => 'tel',
-                            'value' => old('phone')
+                            'value' => $userData['phone']
                         ])
                 @include('components.form.error.index', [
                     'message' => $errors->first('phone'),
@@ -39,7 +39,7 @@
                                 'name' => 'email',
                                 'placeholder' => 'Email',
                                 'type' => 'email',
-                                'value' => old('email')
+                                'value' => $userData['email']
                             ])
                     @include('components.form.error.index', [
                         'message' => $errors->first('email'),

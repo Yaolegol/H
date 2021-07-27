@@ -4,6 +4,7 @@ use App\Models\Catalog;
 use App\Models\City;
 use App\Models\Offer;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 function getCatalog()
@@ -213,6 +214,14 @@ function getLocationListFormatted() {
 
         return $acc;
     });
+}
+
+function getUserDataFormatted() {
+    $userData = Auth::user()->getAttributes();
+
+    return array_filter($userData, function($key) {
+        return $key === 'name' || $key === 'email' || $key === 'phone';
+    }, ARRAY_FILTER_USE_KEY);
 }
 
 function setupOffer($offer)

@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 require_once('app/Http/Controllers/helpers/catalog/index.php');
 
-class ProfileController extends Controller
+class ProfilePersonalDataController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +17,22 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return redirect('profile/personal-info');
+        if (Auth::check())
+        {
+            $catalogFull = getCatalogFull();
+            $locationList = getLocationListFormatted();
+            $userData = getUserDataFormatted();
+            $section = 'personal-info';
+
+            return view('pages.profile.personal-info.index', [
+                'catalogHeader' => $catalogFull,
+                'locationList' => $locationList,
+                'section' => $section,
+                'userData' => $userData
+            ]);
+        }
+
+        abort(404);
     }
 
     /**
@@ -47,7 +63,22 @@ class ProfileController extends Controller
      */
     public function show($section)
     {
-        //
+        $catalogFull = getCatalogFull();
+        $locationList = getLocationListFormatted();
+        $isSectionExists = $section === 'personal-info'
+            || $section === 'organization-info'
+            || $section === 'sale-points'
+            || $section === 'offers';
+
+        if($isSectionExists) {
+            return view('pages.profile.' . $section . '.index', [
+                'catalogHeader' => $catalogFull,
+                'locationList' => $locationList,
+                'section' => $section,
+            ]);
+        }
+
+        abort(404);
     }
 
     /**
