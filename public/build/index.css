@@ -2370,8 +2370,11 @@ p {
   display: flex;
   padding: 20px;
 }
-.profile-personal-info__content-container {
+.profile-personal-info__content-block {
   flex: 3 1 auto;
+}
+.profile-personal-info__content-container {
+  max-width: 500px;
   padding-left: 50px;
 }
 .profile-personal-info__image {
@@ -2402,7 +2405,9 @@ p {
 }
 .profile-personal-info__input-container {
   margin-top: 5px;
-  max-width: 500px;
+}
+.profile-personal-info__registration-block {
+  margin-top: 50px;
 }
 .profile-personal-info__send-button {
   border: 1px solid rgba(0, 0, 0, 0.15);
