@@ -11,6 +11,7 @@
                 <div>(отображаются для других пользователей)</div>
                 <form action="/profile/personal-info" enctype="multipart/form-data" method="POST">
                     @csrf
+                    <input name="form-section" type="hidden" value="personal-data">
                     <div class="profile-personal-info__info-title">Ваше имя:</div>
                     <div class="profile-personal-info__input-container">
                         @include('components.inputs.form.index', [
@@ -72,6 +73,7 @@
                 <h2>Регистрационные данные</h2>
                 <form action="/profile/personal-info" method="POST">
                     @csrf
+                    <input name="section" type="hidden" value="registration-data">
                     <div class="profile-personal-info__info-title">Email:</div>
                     <div class="profile-personal-info__info-description">
                         <div class="profile-personal-info__input-container">

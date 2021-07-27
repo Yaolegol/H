@@ -54,10 +54,7 @@ class RegisterController extends Controller
                 ->withInput();
         }
 
-        $email = $request->input('registration_email');
-        $password = $request->input('password');
-
-        $isSaved = trySaveUserInDB($email, $password);
+        $isSaved = trySaveUserInDB($request);
 
         if($isSaved) {
             return redirect('/');

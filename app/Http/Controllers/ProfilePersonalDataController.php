@@ -17,22 +17,17 @@ class ProfilePersonalDataController extends Controller
      */
     public function index()
     {
-        if (Auth::check())
-        {
-            $catalogFull = getCatalogFull();
-            $locationList = getLocationListFormatted();
-            $userData = getUserDataFormatted();
-            $section = 'personal-info';
+        $catalogFull = getCatalogFull();
+        $locationList = getLocationListFormatted();
+        $userData = getUserDataFormatted();
+        $section = 'personal-info';
 
-            return view('pages.profile.personal-info.index', [
-                'catalogHeader' => $catalogFull,
-                'locationList' => $locationList,
-                'section' => $section,
-                'userData' => $userData
-            ]);
-        }
-
-        abort(404);
+        return view('pages.profile.personal-info.index', [
+            'catalogHeader' => $catalogFull,
+            'locationList' => $locationList,
+            'section' => $section,
+            'userData' => $userData
+        ]);
     }
 
     /**
@@ -63,33 +58,43 @@ class ProfilePersonalDataController extends Controller
      */
     public function show($section)
     {
-        $catalogFull = getCatalogFull();
-        $locationList = getLocationListFormatted();
-        $isSectionExists = $section === 'personal-info'
-            || $section === 'organization-info'
-            || $section === 'sale-points'
-            || $section === 'offers';
-
-        if($isSectionExists) {
-            return view('pages.profile.' . $section . '.index', [
-                'catalogHeader' => $catalogFull,
-                'locationList' => $locationList,
-                'section' => $section,
-            ]);
-        }
-
-        abort(404);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
      * @return Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        $catalogFull = getCatalogFull();
+        $locationList = getLocationListFormatted();
+        $section = 'personal-info';
+        $formSection = $request->input('form-section');
+
+        if($formSection === 'personal-data') {
+            $isSaved = tryChangeUserPersonalDataInDB($request);
+
+            if($isSaved) {
+                $userData = getUserDataFormatted();
+
+                return view('pages.profile.personal-info.index', [
+                    'catalogHeader' => $catalogFull,
+                    'locationList' => $locationList,
+                    'section' => $section,
+                    'userData' => $userData
+                ]);
+            } else {
+                dd($isSaved);
+            }
+        }
+
+        if($formSection === 'registration-data') {
+
+        }
+
+        abort(404);
     }
 
     /**

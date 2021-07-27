@@ -248,10 +248,31 @@ function setupOffers($offers)
     }, $offers);
 }
 
-function trySaveUserInDB($email, $password) {
+function tryChangeUserPersonalDataInDB($request) {
+    $name = $request->input('name');
+    $phone = $request->input('phone');
+    $visible_email = $request->input('visible_email');
+
+    $authUser = Auth::user();
+    $authUser->name = $name;
+    $authUser->phone = $phone;
+    $authUser->visible_email = $visible_email;
+
+    try {
+        $authUser->save();
+        return true;
+    } catch(\Exception $error) {
+        return false;
+    }
+}
+
+function trySaveUserInDB($request) {
+    $registration_email = $request->input('registration_email');
+    $password = $request->input('password');
+
     $newUser = new User([
-        'visible_email' => $email,
-        'registration_email' => $email,
+        'visible_email' => $registration_email,
+        'registration_email' => $registration_email,
         'password' => Hash::make($password),
     ]);
 
