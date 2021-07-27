@@ -46,6 +46,16 @@
                     ])
                 </div>
             </div>
+            <div class="profile-personal-info__info-description profile-personal-info__info-description_with-offset">
+                <div class="profile-personal-info__input-container">
+                    @include('components.inputs.file.index', [
+                                'name' => 'photo',
+                            ])
+                    @include('components.form.error.index', [
+                        'message' => $errors->first('photo'),
+                    ])
+                </div>
+            </div>
             <div class="profile-personal-info__send-button-container">
                 <button class="profile-personal-info__send-button">Сохранить</button>
             </div>

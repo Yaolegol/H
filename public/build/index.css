@@ -2352,6 +2352,19 @@ p {
   line-height: 26px;
 }
 
+.inputs-file__input {
+  display: none;
+}
+.inputs-file__label {
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  display: flex;
+  height: 55px;
+  justify-content: center;
+  width: 100%;
+}
+
 .profile-personal-info {
   display: flex;
   padding: 20px;
@@ -2379,13 +2392,16 @@ p {
   padding-bottom: 100%;
   position: relative;
 }
-.profile-personal-info__input-container {
-  margin-top: 5px;
-  max-width: 500px;
+.profile-personal-info__info-description_with-offset {
+  margin-top: 50px;
 }
 .profile-personal-info__info-title {
   margin-top: 25px;
   margin-left: 30px;
+}
+.profile-personal-info__input-container {
+  margin-top: 5px;
+  max-width: 500px;
 }
 .profile-personal-info__send-button {
   border: 1px solid rgba(0, 0, 0, 0.15);
