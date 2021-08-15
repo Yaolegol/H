@@ -7,4 +7,3 @@ import 'views/pages/offers/item';
 import 'views/pages/profile/offers';
 import 'views/pages/profile/organization-info';
 import 'views/pages/profile/personal-info';
-import 'views/pages/profile/sale-points';
