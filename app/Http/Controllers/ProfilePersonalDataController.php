@@ -22,12 +22,10 @@ class ProfilePersonalDataController extends Controller
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
         $userData = getUserDataFormatted();
-        $section = 'personal-info';
 
         return view('pages.profile.personal-info.index', [
             'catalogHeader' => $catalogFull,
             'locationList' => $locationList,
-            'section' => $section,
             'userData' => $userData
         ]);
     }

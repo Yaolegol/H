@@ -2,7 +2,7 @@
 
 @section('layout-content')
     @include('modules.header.catalog.index')
-    @include('modules.profile.layout.index')
+    @include('modules.profile.layout.index', [$section = 'organization-info'])
 @endsection
 
 @section('layout-scripts')
