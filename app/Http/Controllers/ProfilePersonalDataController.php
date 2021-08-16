@@ -70,7 +70,6 @@ class ProfilePersonalDataController extends Controller
     {
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
-        $section = 'personal-info';
         $formSection = $request->input('form-section');
 
         if($formSection === 'change-personal-data') {
@@ -82,7 +81,6 @@ class ProfilePersonalDataController extends Controller
                 return view('pages.profile.personal-info.index', [
                     'catalogHeader' => $catalogFull,
                     'locationList' => $locationList,
-                    'section' => $section,
                     'userData' => $userData
                 ]);
             } else {
@@ -125,7 +123,6 @@ class ProfilePersonalDataController extends Controller
                     return view('pages.profile.personal-info.index', [
                         'catalogHeader' => $catalogFull,
                         'locationList' => $locationList,
-                        'section' => $section,
                         'userData' => $userData
                     ]);
                 } else {
@@ -172,7 +169,6 @@ class ProfilePersonalDataController extends Controller
                     return view('pages.profile.personal-info.index', [
                         'catalogHeader' => $catalogFull,
                         'locationList' => $locationList,
-                        'section' => $section,
                         'userData' => $userData
                     ]);
                 } else {
