@@ -11,7 +11,7 @@
                                 'name' => 'title',
                                 'placeholder' => 'Organization name',
                                 'type' => 'text',
-                                'value' => old('title')
+                                'value' => $organizationData['title']
                             ])
                     @include('components.form.error.index', [
                         'message' => $errors->first('title'),
@@ -23,7 +23,7 @@
                                 'name' => 'inn',
                                 'placeholder' => 'Inn',
                                 'type' => 'number',
-                                'value' => old('inn')
+                                'value' => $organizationData['inn'],
                             ])
                     @include('components.form.error.index', [
                         'message' => $errors->first('inn'),
@@ -35,7 +35,7 @@
                                 'name' => 'legal_address',
                                 'placeholder' => 'Legal address',
                                 'type' => 'text',
-                                'value' => old('legal_address')
+                                'value' => $organizationData['legal_address'],
                             ])
                     @include('components.form.error.index', [
                         'message' => $errors->first('legal_address'),
@@ -47,7 +47,7 @@
                                 'name' => 'real_address',
                                 'placeholder' => 'Real address',
                                 'type' => 'text',
-                                'value' => old('real_address')
+                                'value' => $organizationData['real_address'],
                             ])
                     @include('components.form.error.index', [
                         'message' => $errors->first('real_address'),
@@ -59,7 +59,7 @@
                                 'name' => 'email',
                                 'placeholder' => 'Organization email',
                                 'type' => 'email',
-                                'value' => old('email')
+                                'value' => $organizationData['email'],
                             ])
                     @include('components.form.error.index', [
                         'message' => $errors->first('email'),
@@ -71,7 +71,7 @@
                                 'name' => 'phone',
                                 'placeholder' => 'Organization-phone',
                                 'type' => 'tel',
-                                'value' => old('phone')
+                                'value' => $organizationData['phone'],
                             ])
                     @include('components.form.error.index', [
                         'message' => $errors->first('phone-phone'),
@@ -132,7 +132,7 @@
                                 'name' => 'phone',
                                 'placeholder' => 'Phone',
                                 'type' => 'tel',
-                                'value' => $userData['phone']
+                                'value' => ''
                             ])
                     @include('components.form.error.index', [
                         'message' => $errors->first('phone'),
@@ -144,7 +144,7 @@
                                 'name' => 'name',
                                 'placeholder' => 'Name',
                                 'type' => 'text',
-                                'value' => $userData['name']
+                                'value' => ''
                             ])
                     @include('components.form.error.index', [
                         'message' => $errors->first('name'),
@@ -156,7 +156,7 @@
                                 'name' => 'phone',
                                 'placeholder' => 'Phone',
                                 'type' => 'tel',
-                                'value' => $userData['phone']
+                                'value' => ''
                             ])
                     @include('components.form.error.index', [
                         'message' => $errors->first('phone'),

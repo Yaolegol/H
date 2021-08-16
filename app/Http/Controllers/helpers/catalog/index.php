@@ -219,6 +219,27 @@ function getLocationListFormatted()
     });
 }
 
+function getUserOrganization($id)
+{
+    return Organization::where('user_id', $id)->get()->toArray();
+}
+
+function getOrganizationDataFormatted() {
+    $defaultOrganizationData = array(
+        'title' => '',
+        'inn' => '',
+        'legal_address' => '',
+        'real_address' => '',
+        'email' => '',
+        'phone' => '',
+    );
+
+    $authUser = Auth::user();
+    $authUserId = $authUser->id;
+
+    return array_merge($defaultOrganizationData, ...getUserOrganization($authUserId));
+}
+
 function getUserDataFormatted()
 {
     $userData = Auth::user()->getAttributes();

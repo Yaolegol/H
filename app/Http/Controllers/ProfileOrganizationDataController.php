@@ -21,12 +21,12 @@ class ProfileOrganizationDataController extends Controller
     {
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
-        $userData = getUserDataFormatted();
+        $organizationData = getOrganizationDataFormatted();
 
         return view('pages.profile.organization-info.index', [
             'catalogHeader' => $catalogFull,
             'locationList' => $locationList,
-            'userData' => $userData
+            'organizationData' => $organizationData,
         ]);
     }
 
@@ -76,12 +76,12 @@ class ProfileOrganizationDataController extends Controller
             $isSaved = tryChangeOrganizationDataInDB($request);
 
             if($isSaved) {
-                $userData = getUserDataFormatted();
+                $organizationData = getOrganizationDataFormatted();
 
-                return view('pages.profile.personal-info.index', [
+                return view('pages.profile.organization-info.index', [
                     'catalogHeader' => $catalogFull,
                     'locationList' => $locationList,
-                    'userData' => $userData
+                    'organizationData' => $organizationData,
                 ]);
             } else {
                 return back()->with(

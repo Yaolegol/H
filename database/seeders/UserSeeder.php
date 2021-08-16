@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -34,6 +35,12 @@ class UserSeeder extends Seeder
             'name' => 'User name 4',
             'password' => '1234564',
         ],
+        [
+            'registration_email' => 'test@test.com',
+            'lang_id' => 1,
+            'name' => 'Test',
+            'password' => 'dynamic value',
+        ],
     ];
 
     /**
@@ -44,6 +51,12 @@ class UserSeeder extends Seeder
     public function run()
     {
         foreach ($this->data as $dataItem) {
+            $adminUserPassword = Hash::make('123123');
+
+            if($dataItem['registration_email'] === 'test@test.com') {
+                $dataItem['password'] = $adminUserPassword;
+            }
+
             DB::table('users')->insert($dataItem);
         }
     }
