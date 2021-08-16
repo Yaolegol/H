@@ -72,8 +72,8 @@ class ProfileOrganizationDataController extends Controller
         $locationList = getLocationListFormatted();
         $formSection = $request->input('form-section');
 
-        if($formSection === 'change-personal-data') {
-            $isSaved = tryChangeUserPersonalDataInDB($request);
+        if($formSection === 'change-organization-data') {
+            $isSaved = tryChangeOrganizationDataInDB($request);
 
             if($isSaved) {
                 $userData = getUserDataFormatted();

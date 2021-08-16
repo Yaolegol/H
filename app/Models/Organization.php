@@ -11,6 +11,21 @@ class Organization extends Model
 
     protected $table = 'organization';
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'title',
+        'inn',
+        'legal_address',
+        'real_address',
+        'email',
+        'phone',
+        'user_id',
+    ];
+
 //    public function catalog()
 //    {
 //        return $this->belongsTo(Catalog::class, 'seller-catalog');

@@ -3,6 +3,7 @@
 use App\Models\Catalog;
 use App\Models\City;
 use App\Models\Offer;
+use App\Models\Organization;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -251,6 +252,37 @@ function setupOffers($offers)
     }, $offers);
 }
 
+function tryChangeOrganizationDataInDB($request)
+{
+    try {
+        $authUser = Auth::user();
+
+        $title = $request->input('title');
+        $inn = $request->input('inn');
+        $legal_address = $request->input('legal_address');
+        $real_address = $request->input('real_address');
+        $email = $request->input('email');
+        $phone = $request->input('phone');
+        $user_id = $authUser->id;
+
+        $newOrganization = new Organization([
+            'title' => $title,
+            'inn' => $inn,
+            'legal_address' => $legal_address,
+            'real_address' => $real_address,
+            'email' => $email,
+            'phone' => $phone,
+            'user_id' => $user_id,
+        ]);
+        $newOrganization->save();
+
+        return true;
+    } catch (\Exception $error) {
+        dd($error);
+        return false;
+    }
+}
+
 function tryChangeUserEmailInDB($request)
 {
     try {
@@ -266,7 +298,8 @@ function tryChangeUserEmailInDB($request)
     }
 }
 
-function tryChangeUserPasswordInDB($request) {
+function tryChangeUserPasswordInDB($request)
+{
     try {
         $newPassword = $request->input('password');
 

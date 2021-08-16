@@ -8,13 +8,13 @@
                 <div class="profile-organization-info__info-title">Наименование:</div>
                 <div class="profile-organization-info__input-container">
                     @include('components.inputs.form.index', [
-                                'name' => 'organization-name',
+                                'name' => 'title',
                                 'placeholder' => 'Organization name',
                                 'type' => 'text',
-                                'value' => old('organization-name')
+                                'value' => old('title')
                             ])
                     @include('components.form.error.index', [
-                        'message' => $errors->first('organization-name'),
+                        'message' => $errors->first('title'),
                     ])
                 </div>
                 <div class="profile-organization-info__info-title">ИНН:</div>
@@ -32,49 +32,49 @@
                 <div class="profile-organization-info__info-title">Юридический адрес:</div>
                 <div class="profile-organization-info__input-container">
                     @include('components.inputs.form.index', [
-                                'name' => 'legal-address',
+                                'name' => 'legal_address',
                                 'placeholder' => 'Legal address',
                                 'type' => 'text',
-                                'value' => old('legal-address')
+                                'value' => old('legal_address')
                             ])
                     @include('components.form.error.index', [
-                        'message' => $errors->first('legal-address'),
+                        'message' => $errors->first('legal_address'),
                     ])
                 </div>
                 <div class="profile-organization-info__info-title">Фактический адрес:</div>
                 <div class="profile-organization-info__input-container">
                     @include('components.inputs.form.index', [
-                                'name' => 'real-address',
+                                'name' => 'real_address',
                                 'placeholder' => 'Real address',
                                 'type' => 'text',
-                                'value' => old('real-address')
+                                'value' => old('real_address')
                             ])
                     @include('components.form.error.index', [
-                        'message' => $errors->first('real-address'),
+                        'message' => $errors->first('real_address'),
                     ])
                 </div>
                 <div class="profile-organization-info__info-title">Email:</div>
                 <div class="profile-organization-info__input-container">
                     @include('components.inputs.form.index', [
-                                'name' => 'organization-email',
+                                'name' => 'email',
                                 'placeholder' => 'Organization email',
                                 'type' => 'email',
-                                'value' => old('organization-email')
+                                'value' => old('email')
                             ])
                     @include('components.form.error.index', [
-                        'message' => $errors->first('organization-email'),
+                        'message' => $errors->first('email'),
                     ])
                 </div>
                 <div class="profile-organization-info__info-title">Телефон:</div>
                 <div class="profile-organization-info__input-container">
                     @include('components.inputs.form.index', [
-                                'name' => 'organization-phone',
+                                'name' => 'phone',
                                 'placeholder' => 'Organization-phone',
                                 'type' => 'tel',
-                                'value' => old('organization-phone')
+                                'value' => old('phone')
                             ])
                     @include('components.form.error.index', [
-                        'message' => $errors->first('organization-phone'),
+                        'message' => $errors->first('phone-phone'),
                     ])
                 </div>
                 <div class="profile-organization-info__info-title">Свидетельства:</div>
