@@ -1,6 +1,7 @@
 @php
     $salePointNumber = $index + 1;
 @endphp
+
 <div class="profile-sale-points-info-sale-point">
     <h4>Торговая точка {{$salePointNumber}}</h4>
     <form action="/profile/sale-points-info" method="POST">
