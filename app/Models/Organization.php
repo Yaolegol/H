@@ -25,9 +25,4 @@ class Organization extends Model
         'phone',
         'user_id',
     ];
-
-    public function salePoints()
-    {
-        return $this->hasMany(SalePoint::class);
-    }
 }

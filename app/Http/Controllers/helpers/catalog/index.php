@@ -242,12 +242,10 @@ function getSalePointsDataFormatted()
     $authUser = Auth::user();
     $user_id = $authUser->id;
 
-    $organization = getUserOrganization($user_id);
-    $organizationFormatted = array_merge(...$organization);
-    $salePointsList = $organizationFormatted['sale_points'];
+    $userSalePointsList = getUserSalePoints($user_id);
     $salePointsFormatted = [];
 
-    foreach ($salePointsList as $value) {
+    foreach ($userSalePointsList as $value) {
         $number = $value['number'];
         $salePointsFormatted[$number] = $value;
     }
@@ -273,6 +271,7 @@ function getSalePointsDataFormatted()
             $salePointsResultList[$key]['number'] = $number;
         }
     }
+
     return $salePointsResultList;
 }
 
@@ -290,7 +289,11 @@ function getUserDataFormatted()
 
 function getUserOrganization($id)
 {
-    return Organization::where('user_id', $id)->with('salePoints')->get()->toArray();
+    return Organization::where('user_id', $id)->get()->toArray();
+}
+
+function getUserSalePoints($id) {
+    return SalePoint::where('user_id', $id)->get()->toArray();
 }
 
 function setupOffer($offer)
@@ -350,33 +353,24 @@ function tryChangeSalePointDataInDB($request)
         $authUser = Auth::user();
         $user_id = $authUser->id;
 
-        $organization = getUserOrganization($user_id);
-        $organizationFormatted = array_merge(...$organization);
-        $organizationId = $organizationFormatted['id'];
+        $salePointNumber = $request->input('sale-point-number');
+        $title = $request->input('title') ?? '';
+        $address = $request->input('address') ?? '';
+        $working_hours = $request->input('working_hours') ?? '';
+        $contact_person = $request->input('contact_person') ?? '';
+        $phone = $request->input('phone') ?? '';
 
-        if ($organizationId) {
-            $salePointNumber = $request->input('sale-point-number');
-            $title = $request->input('title') ?? '';
-            $address = $request->input('address') ?? '';
-            $working_hours = $request->input('working_hours') ?? '';
-            $contact_person = $request->input('contact_person') ?? '';
-            $phone = $request->input('phone') ?? '';
-
-            SalePoint::updateOrCreate(
-                ['number' => $salePointNumber],
-                [
-                    'number' => $salePointNumber,
-                    'title' => $title,
-                    'address' => $address,
-                    'working_hours' => $working_hours,
-                    'contact_person' => $contact_person,
-                    'phone' => $phone,
-                    'organization_id' => $organizationId,
-                ]);
-        } else {
-            // если нет организации
-            dd('нет организации');
-        }
+        SalePoint::updateOrCreate(
+            ['number' => $salePointNumber],
+            [
+                'number' => $salePointNumber,
+                'title' => $title,
+                'address' => $address,
+                'working_hours' => $working_hours,
+                'contact_person' => $contact_person,
+                'phone' => $phone,
+                'user_id' => $user_id,
+            ]);
 
         return true;
     } catch (\Exception $error) {

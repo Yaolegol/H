@@ -15,7 +15,7 @@ class SalePointSeeder extends Seeder
             'working_hours' => '9-18',
             'contact_person' => 'Иван',
             'phone' => '+71231231111',
-            'organization_id' => '1',
+            'user_id' => '1',
         ],
         [
             'number' => 1,
@@ -24,7 +24,7 @@ class SalePointSeeder extends Seeder
             'working_hours' => '9-17',
             'contact_person' => 'Иван Дурак',
             'phone' => '+71231232222',
-            'organization_id' => '2',
+            'user_id' => '2',
         ],
         [
             'number' => 1,
@@ -33,7 +33,7 @@ class SalePointSeeder extends Seeder
             'working_hours' => '9-16',
             'contact_person' => 'Иван ванович',
             'phone' => '+71231233333',
-            'organization_id' => '3',
+            'user_id' => '3',
         ],
     ];
 

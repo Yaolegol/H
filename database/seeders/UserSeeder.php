@@ -10,6 +10,12 @@ class UserSeeder extends Seeder
 {
     public $data = [
         [
+            'registration_email' => 'test@test.com',
+            'lang_id' => 1,
+            'name' => 'Test',
+            'password' => 'dynamic value',
+        ],
+        [
             'registration_email' => 'user1@yandex.ru',
             'is_admin' => true,
             'name' => 'User name 1',
@@ -34,12 +40,6 @@ class UserSeeder extends Seeder
             'lang_id' => 2,
             'name' => 'User name 4',
             'password' => '1234564',
-        ],
-        [
-            'registration_email' => 'test@test.com',
-            'lang_id' => 1,
-            'name' => 'Test',
-            'password' => 'dynamic value',
         ],
     ];
 

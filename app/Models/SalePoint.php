@@ -21,7 +21,7 @@ class SalePoint extends Model
         'working_hours',
         'contact_person',
         'phone',
-        'organization_id'
+        'user_id'
     ];
 
     protected $table = 'sale_point';
