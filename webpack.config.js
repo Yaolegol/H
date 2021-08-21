@@ -11,7 +11,7 @@ module.exports = {
         rules: [
             // babel
             {
-                test: /\.m?js$/,
+                test: /\.m?js$/i,
                 exclude: /(node_modules|bower_components)/,
                 use: {
                     loader: "babel-loader",
@@ -23,7 +23,7 @@ module.exports = {
             },
             // fonts
             {
-                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                test: /\.(woff|woff2|eot|ttf|otf)$/i,
                 use: [
                     {
                         loader: 'file-loader',
@@ -36,13 +36,18 @@ module.exports = {
             },
             // less
             {
-                test: /\.less$/,
+                test: /\.less$/i,
                 use: [MiniCssExtractPlugin.loader, "css-loader", "less-loader"],
             },
             // css
             {
-                test: /\.css$/,
+                test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
+            },
+            // html
+            {
+                test: /\.html$/i,
+                loader: "html-loader",
             },
         ],
     },

@@ -16,7 +16,14 @@ class ProfileSalePointsController extends Controller
      */
     public function index()
     {
-        return redirect('profile/personal-info');
+        $catalogFull = getCatalogFull();
+        $locationList = getLocationListFormatted();
+        $organizationData = getOrganizationDataFormatted();
+
+        return view('pages.profile.sale-points-info.index', [
+            'catalogHeader' => $catalogFull,
+            'locationList' => $locationList,
+        ]);
     }
 
     /**
