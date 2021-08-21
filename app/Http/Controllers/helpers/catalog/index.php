@@ -322,24 +322,25 @@ function tryChangeOrganizationDataInDB($request)
     try {
         $authUser = Auth::user();
 
-        $title = $request->input('title');
-        $inn = $request->input('inn');
-        $legal_address = $request->input('legal_address');
-        $real_address = $request->input('real_address');
-        $email = $request->input('email');
-        $phone = $request->input('phone');
+        $title = $request->input('title') ?? '';
+        $inn = $request->input('inn') ?? '';
+        $legal_address = $request->input('legal_address') ?? '';
+        $real_address = $request->input('real_address') ?? '';
+        $email = $request->input('email') ?? '';
+        $phone = $request->input('phone') ?? '';
         $user_id = $authUser->id;
 
-        $newOrganization = new Organization([
-            'title' => $title,
-            'inn' => $inn,
-            'legal_address' => $legal_address,
-            'real_address' => $real_address,
-            'email' => $email,
-            'phone' => $phone,
-            'user_id' => $user_id,
-        ]);
-        $newOrganization->save();
+        Organization::updateOrCreate(
+            ['user_id' => $user_id],
+            [
+                'title' => $title,
+                'inn' => $inn,
+                'legal_address' => $legal_address,
+                'real_address' => $real_address,
+                'email' => $email,
+                'phone' => $phone,
+                'user_id' => $user_id,
+            ]);
 
         return true;
     } catch (\Exception $error) {
