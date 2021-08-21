@@ -1,19 +1,15 @@
-@php
-    $salePointNumber = $index + 1;
-@endphp
-
 <div class="profile-sale-points-info-sale-point">
-    <h4>Торговая точка {{$salePointNumber}}</h4>
+    <h4>Торговая точка {{$salePoint['number']}}</h4>
     <form action="/profile/sale-points-info" method="POST">
         @csrf
-        <input name="sale-point-number" type="hidden" value="{{$salePointNumber}}">
-        <div class="profile-sale-points-info-sale-point__info-title">Наименование:</div>
+        <input name="sale-point-number" type="hidden" value="{{$salePoint['number']}}">
+        <div class="profile-sale-points-info-sale-point__info-title">Название:</div>
         <div class="profile-sale-points-info-sale-point__input-container">
             @include('components.inputs.form.index', [
-                        'name' => 'organization-name',
-                        'placeholder' => 'Organization name',
+                        'name' => 'title',
+                        'placeholder' => 'Title',
                         'type' => 'text',
-                        'value' => old('organization-name')
+                        'value' => $salePoint['title']
                     ])
             @include('components.form.error.index', [
                 'message' => $errors->first('organization-name'),
@@ -22,37 +18,37 @@
         <div class="profile-sale-points-info-sale-point__info-title">Адрес:</div>
         <div class="profile-sale-points-info-sale-point__input-container">
             @include('components.inputs.form.index', [
-                        'name' => 'real-address',
-                        'placeholder' => 'Real address',
+                        'name' => 'address',
+                        'placeholder' => 'Address',
                         'type' => 'text',
-                        'value' => old('real-address')
+                        'value' => $salePoint['address']
                     ])
             @include('components.form.error.index', [
-                'message' => $errors->first('real-address'),
+                'message' => $errors->first('address'),
             ])
         </div>
         <div class="profile-sale-points-info-sale-point__info-title">Режим работы:</div>
         <div class="profile-sale-points-info-sale-point__input-container">
             @include('components.inputs.form.index', [
-                        'name' => 'phone',
-                        'placeholder' => 'Phone',
-                        'type' => 'tel',
-                        'value' => ''
+                        'name' => 'working_hours',
+                        'placeholder' => 'Working hours',
+                        'type' => 'text',
+                        'value' => $salePoint['working_hours']
                     ])
             @include('components.form.error.index', [
-                'message' => $errors->first('phone'),
+                'message' => $errors->first('working_hours'),
             ])
         </div>
         <div class="profile-sale-points-info-sale-point__info-title">Контактное лицо:</div>
         <div class="profile-sale-points-info-sale-point__input-container">
             @include('components.inputs.form.index', [
-                        'name' => 'name',
-                        'placeholder' => 'Name',
+                        'name' => 'contact_person',
+                        'placeholder' => 'Contact person',
                         'type' => 'text',
-                        'value' => ''
+                        'value' => $salePoint['contact_person']
                     ])
             @include('components.form.error.index', [
-                'message' => $errors->first('name'),
+                'message' => $errors->first('contact_person'),
             ])
         </div>
         <div class="profile-sale-points-info-sale-point__info-title">Телефон:</div>
@@ -61,18 +57,13 @@
                         'name' => 'phone',
                         'placeholder' => 'Phone',
                         'type' => 'tel',
-                        'value' => ''
+                        'value' => $salePoint['phone']
                     ])
             @include('components.form.error.index', [
                 'message' => $errors->first('phone'),
             ])
         </div>
         <div class="profile-sale-points-info-sale-point__info-title">Фото:</div>
-        <div class="profile-sale-points-info-sale-point__input-container">
-            @include('components.form.error.index', [
-                'message' => $errors->first('organization-phone'),
-            ])
-        </div>
         <div class="profile-sale-points-info-sale-point__send-button-container">
             <button class="profile-sale-points-info-sale-point__send-button">Сохранить</button>
         </div>

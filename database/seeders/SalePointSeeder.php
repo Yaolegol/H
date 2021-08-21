@@ -9,6 +9,7 @@ class SalePointSeeder extends Seeder
 {
     public $data = [
         [
+            'number' => 1,
             'title' => 'Organization 1 Sale Point 1',
             'address' => 'address organization 1 Sale Point 1',
             'working_hours' => '9-18',
@@ -17,12 +18,22 @@ class SalePointSeeder extends Seeder
             'organization_id' => '1',
         ],
         [
+            'number' => 1,
             'title' => 'Organization 2 Sale Point 1',
             'address' => 'address organization 2 Sale Point 1',
             'working_hours' => '9-17',
             'contact_person' => 'Иван Дурак',
             'phone' => '+71231232222',
             'organization_id' => '2',
+        ],
+        [
+            'number' => 1,
+            'title' => 'Organization 3 Sale Point 1',
+            'address' => 'address organization 3 Sale Point 1',
+            'working_hours' => '9-16',
+            'contact_person' => 'Иван ванович',
+            'phone' => '+71231233333',
+            'organization_id' => '3',
         ],
     ];
 

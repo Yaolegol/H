@@ -26,7 +26,6 @@ class DatabaseSeeder extends Seeder
             OfferSeeder::class,
             OrganizationSeeder::class,
             SalePointSeeder::class,
-            OrganizationSalePointSeeder::class,
         ]);
     }
 }

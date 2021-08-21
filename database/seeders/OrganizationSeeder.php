@@ -26,6 +26,15 @@ class OrganizationSeeder extends Seeder
             'phone' => '+72222222222',
             'user_id' => '2',
         ],
+        [
+            'title' => 'Test organization title 3',
+            'inn' => '12345678',
+            'legal_address' => 'test legal address 3',
+            'real_address' => 'test real address 3',
+            'email' => 'test_organization_3@yandex.ru',
+            'phone' => '+73333333333',
+            'user_id' => '5',
+        ],
     ];
 
     /**

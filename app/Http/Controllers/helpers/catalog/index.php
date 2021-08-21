@@ -219,11 +219,6 @@ function getLocationListFormatted()
     });
 }
 
-function getUserOrganization($id)
-{
-    return Organization::where('user_id', $id)->get()->toArray();
-}
-
 function getOrganizationDataFormatted() {
     $defaultOrganizationData = array(
         'title' => '',
@@ -240,6 +235,44 @@ function getOrganizationDataFormatted() {
     return array_merge($defaultOrganizationData, ...getUserOrganization($authUserId));
 }
 
+function getSalePointsDataFormatted() {
+    $authUser = Auth::user();
+    $user_id = $authUser->id;
+
+    $organization = getUserOrganization($user_id);
+    $organizationFormatted = array_merge(...$organization);
+    $salePointsList = $organizationFormatted['sale_points'];
+    $salePointsFormatted = [];
+
+    foreach($salePointsList as $value) {
+        $number = $value['number'];
+        $salePointsFormatted[$number] = $value;
+    }
+
+    $salePointDefaultData = array(
+        'number' => '',
+        'title' => '',
+        'address' => '',
+        'working_hours' => '',
+        'contact_person' => '',
+        'phone' => '',
+    );
+
+    $salePointsDefaultList = array_fill(0, 15, $salePointDefaultData);
+
+    foreach($salePointsDefaultList as $key => $value) {
+        $number = $key + 1;
+        $isSalePointExists = array_key_exists($number, $salePointsFormatted);
+
+        if($isSalePointExists) {
+            $salePointsDefaultList[$key] = $salePointsFormatted[$number];
+        } else {
+            $salePointsDefaultList[$key]['number'] = $number;
+        }
+    }
+    return $salePointsDefaultList;
+}
+
 function getUserDataFormatted()
 {
     $userData = Auth::user()->getAttributes();
@@ -250,6 +283,11 @@ function getUserDataFormatted()
             || $key === 'registration_email'
             || $key === 'phone';
     }, ARRAY_FILTER_USE_KEY);
+}
+
+function getUserOrganization($id)
+{
+    return Organization::where('user_id', $id)->with('salePoints')->get()->toArray();
 }
 
 function setupOffer($offer)

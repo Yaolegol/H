@@ -26,8 +26,8 @@ class Organization extends Model
         'user_id',
     ];
 
-//    public function catalog()
-//    {
-//        return $this->belongsTo(Catalog::class, 'seller-catalog');
-//    }
+    public function salePoints()
+    {
+        return $this->hasMany(SalePoint::class);
+    }
 }
