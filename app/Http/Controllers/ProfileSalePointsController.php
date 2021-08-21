@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 require_once('app/Http/Controllers/helpers/catalog/index.php');
 
@@ -53,35 +56,36 @@ class ProfileSalePointsController extends Controller
      *
      * @return Response
      */
-    public function show($section)
+    public function show()
     {
-        $catalogFull = getCatalogFull();
-        $locationList = getLocationListFormatted();
-        $isSectionExists = $section === 'personal-info'
-            || $section === 'organization-info'
-            || $section === 'sale-points'
-            || $section === 'offers';
-
-        if($isSectionExists) {
-            return view('pages.profile.' . $section . '.index', [
-                'catalogHeader' => $catalogFull,
-                'locationList' => $locationList,
-                'section' => $section,
-            ]);
-        }
-
-        abort(404);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
      * @return Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        $catalogFull = getCatalogFull();
+        $locationList = getLocationListFormatted();
+
+        $isSaved = tryChangeSalePointDataInDB($request);
+
+        if($isSaved) {
+            $salePointsList = getSalePointsDataFormatted();
+
+            return view('pages.profile.sale-points-info.index', [
+                'catalogHeader' => $catalogFull,
+                'locationList' => $locationList,
+                'salePointsList' => $salePointsList,
+            ]);
+        } else {
+            return back()->with(
+                ['commonError' => 'Что-то пошло не так. Попробуйте снова']
+            );
+        }
     }
 
     /**

@@ -70,120 +70,22 @@ class ProfileOrganizationDataController extends Controller
     {
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
-        $formSection = $request->input('form-section');
 
-        if($formSection === 'change-organization-data') {
-            $isSaved = tryChangeOrganizationDataInDB($request);
+        $isSaved = tryChangeOrganizationDataInDB($request);
 
-            if($isSaved) {
-                $organizationData = getOrganizationDataFormatted();
+        if($isSaved) {
+            $organizationData = getOrganizationDataFormatted();
 
-                return view('pages.profile.organization-info.index', [
-                    'catalogHeader' => $catalogFull,
-                    'locationList' => $locationList,
-                    'organizationData' => $organizationData,
-                ]);
-            } else {
-                return back()->with(
-                    ['commonError' => 'Что-то пошло не так. Попробуйте снова']
-                );
-            }
-        }
-
-        if($formSection === 'change-email') {
-            $currentPassword = $request->input('password');
-
-            $validator = Validator::make(
-                $request->all(),
-                [
-                    'registration_email' => ['required', 'email', 'max:25', 'unique:users'],
-                    'password' => ['required', 'min:6'],
-                ],
-                [
-                    'email' => 'Поле должно содержать email',
-                    'max' => 'Поле должно содержать максимум :max символов',
-                    'min' => 'Поле должно содержать минимум :min символов',
-                    'required' => 'Поле обязательно для заполнения',
-                    'unique' => 'Пользователь с таким Email уже зарегистрирован',
-                ]
+            return view('pages.profile.organization-info.index', [
+                'catalogHeader' => $catalogFull,
+                'locationList' => $locationList,
+                'organizationData' => $organizationData,
+            ]);
+        } else {
+            return back()->with(
+                ['commonError' => 'Что-то пошло не так. Попробуйте снова']
             );
-
-            if($validator->fails()) {
-                return back()
-                    ->withErrors($validator)
-                    ->withInput();
-            }
-
-            if(Hash::check($currentPassword, Auth::user()->password)) {
-                $isSaved = tryChangeUserEmailInDB($request);
-
-                if($isSaved) {
-                    $userData = getUserDataFormatted();
-
-                    return view('pages.profile.personal-info.index', [
-                        'catalogHeader' => $catalogFull,
-                        'locationList' => $locationList,
-                        'userData' => $userData
-                    ]);
-                } else {
-                    return back()->with(
-                        ['commonChangeEmailError' => 'Что-то пошло не так. Попробуйте снова']
-                    );
-                }
-            } else {
-                return back()->with(
-                    ['commonChangeEmailError' => 'Неверный пароль']
-                );
-            }
         }
-
-        if($formSection === 'change-password') {
-            $currentPassword = $request->input('current_password');
-
-            $validator = Validator::make(
-                $request->all(),
-                [
-                    'current_password' => ['required', 'min:6'],
-                    'password' => ['required', 'min:6'],
-                    'password_confirmation' => ['required', 'same:password'],
-                ],
-                [
-                    'min' => 'Поле должно содержать минимум :min символов',
-                    'required' => 'Поле обязательно для заполнения',
-                    'same' => 'Поля Password и Confirm Password не совпадают',
-                ]
-            );
-
-            if($validator->fails()) {
-                return back()
-                    ->withErrors($validator)
-                    ->withInput();
-            }
-
-            if(Hash::check($currentPassword, Auth::user()->password)) {
-                $isSaved = tryChangeUserPasswordInDB($request);
-
-                if($isSaved) {
-                    $userData = getUserDataFormatted();
-
-                    return view('pages.profile.personal-info.index', [
-                        'catalogHeader' => $catalogFull,
-                        'locationList' => $locationList,
-                        'userData' => $userData
-                    ]);
-                } else {
-                    return back()->with(
-                        ['commonChangePasswordError' => 'Что-то пошло не так. Попробуйте снова']
-                    );
-                }
-            } else {
-                return back()->with(
-                    ['commonChangePasswordError' => 'Неверный пароль']
-                );
-            }
-        }
-
-        abort(404);
     }
 
     /**

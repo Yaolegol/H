@@ -4,7 +4,6 @@
             <h2>Данные об организации</h2>
             <form action="/profile/organization-info" method="POST">
                 @csrf
-                <input name="form-section" type="hidden" value="change-organization-data">
                 <div class="profile-organization-info__info-title">Наименование:</div>
                 <div class="profile-organization-info__input-container">
                     @include('components.inputs.form.index', [

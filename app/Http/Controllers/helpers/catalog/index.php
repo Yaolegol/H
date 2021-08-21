@@ -4,6 +4,7 @@ use App\Models\Catalog;
 use App\Models\City;
 use App\Models\Offer;
 use App\Models\Organization;
+use App\Models\SalePoint;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -219,7 +220,8 @@ function getLocationListFormatted()
     });
 }
 
-function getOrganizationDataFormatted() {
+function getOrganizationDataFormatted()
+{
     $defaultOrganizationData = array(
         'title' => '',
         'inn' => '',
@@ -235,7 +237,8 @@ function getOrganizationDataFormatted() {
     return array_merge($defaultOrganizationData, ...getUserOrganization($authUserId));
 }
 
-function getSalePointsDataFormatted() {
+function getSalePointsDataFormatted()
+{
     $authUser = Auth::user();
     $user_id = $authUser->id;
 
@@ -244,7 +247,7 @@ function getSalePointsDataFormatted() {
     $salePointsList = $organizationFormatted['sale_points'];
     $salePointsFormatted = [];
 
-    foreach($salePointsList as $value) {
+    foreach ($salePointsList as $value) {
         $number = $value['number'];
         $salePointsFormatted[$number] = $value;
     }
@@ -260,11 +263,11 @@ function getSalePointsDataFormatted() {
 
     $salePointsResultList = array_fill(0, 15, $salePointDefaultData);
 
-    foreach($salePointsResultList as $key => $value) {
+    foreach ($salePointsResultList as $key => $value) {
         $number = $key + 1;
         $isSalePointExists = array_key_exists($number, $salePointsFormatted);
 
-        if($isSalePointExists) {
+        if ($isSalePointExists) {
             $salePointsResultList[$key] = $salePointsFormatted[$number];
         } else {
             $salePointsResultList[$key]['number'] = $number;
@@ -337,7 +340,46 @@ function tryChangeOrganizationDataInDB($request)
 
         return true;
     } catch (\Exception $error) {
-        dd($error);
+        return false;
+    }
+}
+
+function tryChangeSalePointDataInDB($request)
+{
+    try {
+        $authUser = Auth::user();
+        $user_id = $authUser->id;
+
+        $organization = getUserOrganization($user_id);
+        $organizationFormatted = array_merge(...$organization);
+        $organizationId = $organizationFormatted['id'];
+
+        if ($organizationId) {
+            $salePointNumber = $request->input('sale-point-number');
+            $title = $request->input('title') ?? '';
+            $address = $request->input('address') ?? '';
+            $working_hours = $request->input('working_hours') ?? '';
+            $contact_person = $request->input('contact_person') ?? '';
+            $phone = $request->input('phone') ?? '';
+
+            SalePoint::updateOrCreate(
+                ['number' => $salePointNumber],
+                [
+                    'number' => $salePointNumber,
+                    'title' => $title,
+                    'address' => $address,
+                    'working_hours' => $working_hours,
+                    'contact_person' => $contact_person,
+                    'phone' => $phone,
+                    'organization_id' => $organizationId,
+                ]);
+        } else {
+            // если нет организации
+            dd('нет организации');
+        }
+
+        return true;
+    } catch (\Exception $error) {
         return false;
     }
 }

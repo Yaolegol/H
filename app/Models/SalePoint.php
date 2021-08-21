@@ -9,10 +9,20 @@ class SalePoint extends Model
 {
     use HasFactory;
 
-    protected $table = 'sale_point';
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'number',
+        'title',
+        'address',
+        'working_hours',
+        'contact_person',
+        'phone',
+        'organization_id'
+    ];
 
-//    public function catalog()
-//    {
-//        return $this->belongsTo(Catalog::class, 'seller-catalog');
-//    }
+    protected $table = 'sale_point';
 }
