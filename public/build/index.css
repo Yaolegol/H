@@ -2655,6 +2655,9 @@ p {
 .profile-sale-points-info__content-container {
   flex: 3 1 auto;
 }
+.profile-sale-points-info__sale-point-container {
+  margin-top: 50px;
+}
 
 @font-face {
   font-family: 'Lato';

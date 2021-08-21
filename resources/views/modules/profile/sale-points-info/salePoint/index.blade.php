@@ -1,4 +1,5 @@
 <div class="profile-sale-points-info-sale-point">
+    <h4>Торговая точка {{$index + 1}}</h4>
     <form action="/profile/sale-points-info" method="POST">
         @csrf
         <input name="form-section" type="hidden" value="change-sale-point-data">
