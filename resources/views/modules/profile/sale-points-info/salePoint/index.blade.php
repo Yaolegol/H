@@ -1,8 +1,11 @@
+@php
+    $salePointNumber = $index + 1;
+@endphp
 <div class="profile-sale-points-info-sale-point">
-    <h4>Торговая точка {{$index + 1}}</h4>
+    <h4>Торговая точка {{$salePointNumber}}</h4>
     <form action="/profile/sale-points-info" method="POST">
         @csrf
-        <input name="form-section" type="hidden" value="change-sale-point-data">
+        <input name="sale-point-number" type="hidden" value="{{$salePointNumber}}">
         <div class="profile-sale-points-info-sale-point__info-title">Наименование:</div>
         <div class="profile-sale-points-info-sale-point__input-container">
             @include('components.inputs.form.index', [
