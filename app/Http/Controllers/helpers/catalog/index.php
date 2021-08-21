@@ -258,19 +258,19 @@ function getSalePointsDataFormatted() {
         'phone' => '',
     );
 
-    $salePointsDefaultList = array_fill(0, 15, $salePointDefaultData);
+    $salePointsResultList = array_fill(0, 15, $salePointDefaultData);
 
-    foreach($salePointsDefaultList as $key => $value) {
+    foreach($salePointsResultList as $key => $value) {
         $number = $key + 1;
         $isSalePointExists = array_key_exists($number, $salePointsFormatted);
 
         if($isSalePointExists) {
-            $salePointsDefaultList[$key] = $salePointsFormatted[$number];
+            $salePointsResultList[$key] = $salePointsFormatted[$number];
         } else {
-            $salePointsDefaultList[$key]['number'] = $number;
+            $salePointsResultList[$key]['number'] = $number;
         }
     }
-    return $salePointsDefaultList;
+    return $salePointsResultList;
 }
 
 function getUserDataFormatted()
