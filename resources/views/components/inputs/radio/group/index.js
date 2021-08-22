@@ -27,11 +27,9 @@ class InputsRadioGroup {
     }
 
     handleChange = (e) => {
-        if(this.value !== e.target.value) {
-            this.value = e.target.value;
+        this.value = e.target.value;
 
-            this.sendMessage();
-        }
+        this.sendMessage();
     }
 
     sendMessage = () => {
