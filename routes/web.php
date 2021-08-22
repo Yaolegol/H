@@ -40,4 +40,4 @@ Route::get('/profile/organization-info', 'ProfileOrganizationDataController@inde
 Route::post('/profile/organization-info', 'ProfileOrganizationDataController@edit')->middleware('auth');
 Route::get('/profile/sale-points-info', 'ProfileSalePointsController@index')->middleware('auth');
 Route::post('/profile/sale-points-info', 'ProfileSalePointsController@edit')->middleware('auth');
-Route::get('/profile/offers', 'ProfileOffersController@index')->middleware('auth');
+Route::get('/profile/sale-offers', 'ProfileSaleOffersController@index')->middleware('auth');

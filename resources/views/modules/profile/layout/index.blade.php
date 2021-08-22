@@ -33,8 +33,8 @@
             <div
                 class="profile-layout__tab-item-container">
                 <a
-                    class="profile-layout__tab-button {{$section === 'offers' ? 'profile-layout__tab-button_active' : '' }}"
-                    href="/profile/offers"
+                    class="profile-layout__tab-button {{$section === 'sale-offers' ? 'profile-layout__tab-button_active' : '' }}"
+                    href="/profile/sale-offers"
                 >
                     Мои торговые предложения
                 </a>
@@ -51,8 +51,8 @@
         @if($section === 'sale-points-info')
             @include('modules.profile.sale-points-info.index')
         @endif
-        @if($section === 'offers')
-            @include('modules.profile.offers.index')
+        @if($section === 'sale-offers')
+            @include('modules.profile.sale-offers.index')
         @endif
     </div>
 </div>

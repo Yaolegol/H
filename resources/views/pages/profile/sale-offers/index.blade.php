@@ -2,7 +2,7 @@
 
 @section('layout-content')
     @include('modules.header.catalog.index')
-    @include('modules.profile.index')
+    @include('modules.profile.layout.index', [$section = 'sale-offers'])
 @endsection
 
 @section('layout-scripts')
