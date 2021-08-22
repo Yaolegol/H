@@ -23,11 +23,6 @@ class InputsRadioGroup {
         if(this.dispatchEvents) {
             addEventListener(this.module, 'change', this.handleChange);
         }
-
-        addEventListener(document, CHANGE, (e) => {
-            console.log('--- e.detail');
-            console.log(e.detail);
-        });
     }
 
     handleChange = (e) => {

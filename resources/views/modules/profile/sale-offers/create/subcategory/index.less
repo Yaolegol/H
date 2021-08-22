@@ -1,11 +1,23 @@
 @import (reference) '~styles/colors';
 
 .profile--sale-offers--create--subcategory {
+    &_hidden {
+        display: none;
+    }
+
+    &__content-container {
+        margin-top: 10px;
+    }
+
     &__subcategory-container {
         display: none;
 
         &_active {
             display: block;
         }
+    }
+
+    &__title {
+        margin-left: 30px;
     }
 }

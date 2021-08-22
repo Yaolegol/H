@@ -39,14 +39,17 @@ class ProfileSaleOffersCreateSubcategory {
         const {groupName, value} = detail;
 
         if(groupName === 'category') {
+            this.module.classList.remove('profile--sale-offers--create--subcategory_hidden');
+
             if(this.activeSubcategoryContainer) {
                 this.activeSubcategoryContainer.classList.remove('profile--sale-offers--create--subcategory__subcategory-container_active');
-
                 const checkedInput = this.activeSubcategoryContainer.querySelector('input:checked');
+
                 if(checkedInput) {
                     checkedInput.checked = false;
                 }
             }
+
             this.activeSubcategoryContainer = this.subcategoryContainerMap[value];
             this.activeSubcategoryContainer.classList.add('profile--sale-offers--create--subcategory__subcategory-container_active');
         }

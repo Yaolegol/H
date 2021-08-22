@@ -2411,11 +2411,20 @@ p {
 }
 
 
+.profile--sale-offers--create--subcategory_hidden {
+  display: none;
+}
+.profile--sale-offers--create--subcategory__content-container {
+  margin-top: 10px;
+}
 .profile--sale-offers--create--subcategory__subcategory-container {
   display: none;
 }
 .profile--sale-offers--create--subcategory__subcategory-container_active {
   display: block;
+}
+.profile--sale-offers--create--subcategory__title {
+  margin-left: 30px;
 }
 
 .profile--sale-offers--create__all-offers-link {

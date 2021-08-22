@@ -30,7 +30,7 @@
         <form action="/profile/sale-offers" method="POST">
             @csrf
             <div class="profile--sale-offers--create__form-item-container">
-                <div class="profile--sale-offers--create__info-title">Выберите категорию:</div>
+                <div class="profile--sale-offers--create__info-title">Категория:</div>
                 <div class="profile--sale-offers--create__categories-container">
                     @include('components.inputs.radio.group.index', [
                         'dispatchEvents' => true,
