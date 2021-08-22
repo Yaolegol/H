@@ -52,7 +52,7 @@
             @include('modules.profile.sale-points-info.index')
         @endif
         @if($section === 'sale-offers')
-            @include('modules.profile.sale-offers.index')
+            @include('modules.profile.sale-offers.index.index')
         @endif
     </div>
 </div>
