@@ -1,9 +1,16 @@
 @php
-    $catalogRadioList = array_map(function($catalogItem) {
+    $catalogCategoriesList = array_map(function($catalogItem) {
         return [
             'id' => $catalogItem['id'],
             'title' => $catalogItem['title'],
             'value' => $catalogItem['id'],
+        ];
+    }, $catalogFull);
+
+    $catalogSubCategoriesList = array_map(function($catalogItem) {
+        return [
+            'id' => $catalogItem['id'],
+            'content' => $catalogItem['content'],
         ];
     }, $catalogFull);
 @endphp
@@ -22,14 +29,19 @@
     <div class="profile--sale-offers--create__form-container">
         <form action="/profile/sale-offers" method="POST">
             @csrf
-            <div class="profile--sale-offers--create__info-title">Выберите категорию:</div>
-            <div class="profile--sale-offers--create__categories-container">
-                <div class="profile--sale-offers--create__category-item">
+            <div class="profile--sale-offers--create__form-item-container">
+                <div class="profile--sale-offers--create__info-title">Выберите категорию:</div>
+                <div class="profile--sale-offers--create__categories-container">
                     @include('components.inputs.radio.group.index', [
-                        'itemsList' => $catalogRadioList,
+                        'itemsList' => $catalogCategoriesList,
                         'name' => 'category',
                     ])
                 </div>
+            </div>
+            <div class="profile--sale-offers--create__form-item-container">
+                @include('modules.profile.sale-offers.create.subcategory.index', [
+                    'catalogSubCategoriesList' => $catalogSubCategoriesList
+                ])
             </div>
             <div class="profile--sale-offers--create__info-title">Наименование:</div>
             <div class="profile--sale-offers--create__input-container">

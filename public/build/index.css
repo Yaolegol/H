@@ -2405,6 +2405,7 @@ p {
 
 
 
+
 .profile--sale-offers--create__all-offers-link {
   border-radius: 10px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
@@ -2436,6 +2437,9 @@ p {
 }
 .profile--sale-offers--create__form-container {
   margin-top: 50px;
+}
+.profile--sale-offers--create__form-item-container {
+  margin-top: 20px;
 }
 .profile--sale-offers--create__input-container {
   margin-top: 5px;
