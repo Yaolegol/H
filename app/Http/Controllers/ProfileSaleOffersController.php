@@ -35,7 +35,13 @@ class ProfileSaleOffersController extends Controller
      */
     public function create()
     {
-        //
+        $catalogFull = getCatalogFull();
+        $locationList = getLocationListFormatted();
+
+        return view('pages.profile.sale-offers.create.index', [
+            'catalogHeader' => $catalogFull,
+            'locationList' => $locationList,
+        ]);
     }
 
     /**

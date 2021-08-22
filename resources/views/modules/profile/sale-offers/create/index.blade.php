@@ -1,5 +1,5 @@
-<div class="profile-sale-offers">
-    <a href="/profile/sale-offers/create">Добавить</a>
+<div class="profile--sale-offers--create">
+    create
 </div>
 
 
