@@ -2403,8 +2403,20 @@ p {
   line-height: 26px;
 }
 
+.inputs-radio-item__category-input {
+  cursor: pointer;
+}
+.inputs-radio-item__category-input-label {
+  cursor: pointer;
+}
 
 
+.profile--sale-offers--create--subcategory__subcategory-container {
+  display: none;
+}
+.profile--sale-offers--create--subcategory__subcategory-container_active {
+  display: block;
+}
 
 .profile--sale-offers--create__all-offers-link {
   border-radius: 10px;

@@ -3,7 +3,8 @@
 >
     @foreach($catalogSubCategoriesList as $subCategoryItem)
         <div
-            class="profile--sale-offers--create--subcategory__subcategory-container"
+            class="profile--sale-offers--create--subcategory__subcategory-container
+            j-profile--sale-offers--create--subcategory__subcategory-container"
             data-subcategory-id="{{$subCategoryItem['id']}}"
         >
             @php

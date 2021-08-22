@@ -16,29 +16,40 @@ const {
 class ProfileSaleOffersCreateSubcategory {
     constructor(element) {
         this.module = element;
-        this.groupName = this.module.dataset.radioGroupName;
-        this.value = null;
+        this.subcategoryContainerList = [...this.module.querySelectorAll('.j-profile--sale-offers--create--subcategory__subcategory-container')];
+        this.subcategoryContainerMap = this.getSubcategoryContainerMap();
+        this.activeSubcategoryContainer = null;
 
-        addEventListener(this.module, 'change', this.handleChange);
-        addEventListener(document, CHANGE, (e) => {
-            console.log('--- e.detail');
-            console.log(e.detail);
-        });
+        addEventListener(document, CHANGE, this.handleChange);
+    }
+
+    getSubcategoryContainerMap = () => {
+        return this.subcategoryContainerList.reduce((acc, subcategoryContainer) => {
+            const id = subcategoryContainer.dataset.subcategoryId;
+
+            return {
+                ...acc,
+                [id]: subcategoryContainer
+            }
+        }, {});
     }
 
     handleChange = (e) => {
-        this.value = e.target.value;
+        const {detail} = e;
+        const {groupName, value} = detail;
 
-        this.sendMessage();
-    }
+        if(groupName === 'category') {
+            if(this.activeSubcategoryContainer) {
+                this.activeSubcategoryContainer.classList.remove('profile--sale-offers--create--subcategory__subcategory-container_active');
 
-    sendMessage = () => {
-        document.dispatchEvent(new CustomEvent(CHANGE, {
-            detail: {
-                groupName: this.groupName,
-                value: this.value,
+                const checkedInput = this.activeSubcategoryContainer.querySelector('input:checked');
+                if(checkedInput) {
+                    checkedInput.checked = false;
+                }
             }
-        }));
+            this.activeSubcategoryContainer = this.subcategoryContainerMap[value];
+            this.activeSubcategoryContainer.classList.add('profile--sale-offers--create--subcategory__subcategory-container_active');
+        }
     }
 }
 
