@@ -10,5 +10,12 @@ export const EVENTS_NAMES = {
                 OPEN: "MODALS_COMMON_OPEN"
             }
         }
+    },
+    INPUTS: {
+        RADIO: {
+            GROUP: {
+                CHANGE: "INPUTS_RADIO_GROUP_CHANGE",
+            }
+        },
     }
 }

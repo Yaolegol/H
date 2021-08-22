@@ -1,3 +1,12 @@
+@php
+    $catalogRadioList = array_map(function($catalogItem) {
+        return [
+            'id' => $catalogItem['id'],
+            'title' => $catalogItem['title'],
+            'value' => $catalogItem['id'],
+        ];
+    }, $catalogFull);
+@endphp
 <div class="profile--sale-offers--create">
     <div class="profile--sale-offers--create__all-offers-link-container">
         <a
@@ -15,23 +24,12 @@
             @csrf
             <div class="profile--sale-offers--create__info-title">Выберите категорию:</div>
             <div class="profile--sale-offers--create__categories-container">
-                @foreach($catalogFull as $catalogItem)
-                    <div class="profile--sale-offers--create__category-item">
-                        <input
-                            class="profile--sale-offers--create__category-input"
-                            id="profile--sale-offers--create__input-category-{{$catalogItem['id']}}"
-                            name="category"
-                            type="radio"
-                            value="{{$catalogItem['id']}}"
-                        >
-                        <label
-                            class="profile--sale-offers--create__category-input-label"
-                            for="profile--sale-offers--create__input-category-{{$catalogItem['id']}}"
-                        >
-                            {{$catalogItem['title']}}
-                        </label>
-                    </div>
-                @endforeach
+                <div class="profile--sale-offers--create__category-item">
+                    @include('components.inputs.radio.group.index', [
+                        'itemsList' => $catalogRadioList,
+                        'name' => 'category',
+                    ])
+                </div>
             </div>
             <div class="profile--sale-offers--create__info-title">Наименование:</div>
             <div class="profile--sale-offers--create__input-container">
