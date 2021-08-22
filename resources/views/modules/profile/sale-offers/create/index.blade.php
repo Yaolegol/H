@@ -33,6 +33,7 @@
                 <div class="profile--sale-offers--create__info-title">Выберите категорию:</div>
                 <div class="profile--sale-offers--create__categories-container">
                     @include('components.inputs.radio.group.index', [
+                        'dispatchEvents' => true,
                         'itemsList' => $catalogCategoriesList,
                         'name' => 'category',
                     ])

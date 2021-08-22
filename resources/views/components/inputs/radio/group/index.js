@@ -16,10 +16,14 @@ const {
 class InputsRadioGroup {
     constructor(element) {
         this.module = element;
+        this.dispatchEvents = this.module.hasAttribute('data-dispatch-events');
         this.groupName = this.module.dataset.radioGroupName;
         this.value = null;
 
-        addEventListener(this.module, 'change', this.handleChange);
+        if(this.dispatchEvents) {
+            addEventListener(this.module, 'change', this.handleChange);
+        }
+
         addEventListener(document, CHANGE, (e) => {
             console.log('--- e.detail');
             console.log(e.detail);
