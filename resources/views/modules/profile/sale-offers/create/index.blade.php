@@ -13,6 +13,26 @@
     <div class="profile--sale-offers--create__form-container">
         <form action="/profile/sale-offers" method="POST">
             @csrf
+            <div class="profile--sale-offers--create__info-title">Выберите категорию:</div>
+            <div class="profile--sale-offers--create__categories-container">
+                @foreach($catalogFull as $catalogItem)
+                    <div class="profile--sale-offers--create__category-item">
+                        <input
+                            class="profile--sale-offers--create__category-input"
+                            id="profile--sale-offers--create__input-category-{{$catalogItem['id']}}"
+                            name="category"
+                            type="radio"
+                            value="{{$catalogItem['id']}}"
+                        >
+                        <label
+                            class="profile--sale-offers--create__category-input-label"
+                            for="profile--sale-offers--create__input-category-{{$catalogItem['id']}}"
+                        >
+                            {{$catalogItem['title']}}
+                        </label>
+                    </div>
+                @endforeach
+            </div>
             <div class="profile--sale-offers--create__info-title">Наименование:</div>
             <div class="profile--sale-offers--create__input-container">
                 @include('components.inputs.form.index', [

@@ -39,6 +39,7 @@ class ProfileSaleOffersController extends Controller
         $locationList = getLocationListFormatted();
 
         return view('pages.profile.sale-offers.create.index', [
+            'catalogFull' => $catalogFull,
             'catalogHeader' => $catalogFull,
             'locationList' => $locationList,
         ]);

@@ -2422,6 +2422,16 @@ p {
   cursor: auto;
   font-weight: 900;
 }
+.profile--sale-offers--create__categories-container {
+  margin-top: 20px;
+  max-height: 500px;
+}
+.profile--sale-offers--create__category-input {
+  cursor: pointer;
+}
+.profile--sale-offers--create__category-input-label {
+  cursor: pointer;
+}
 .profile--sale-offers--create__form-container {
   margin-top: 50px;
 }
