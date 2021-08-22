@@ -13,8 +13,8 @@
     <div class="profile--sale-offers--create__form-container">
         <form action="/profile/sale-offers" method="POST">
             @csrf
-            <div class="profile-organization-info__info-title">Наименование:</div>
-            <div class="profile-organization-info__input-container">
+            <div class="profile--sale-offers--create__info-title">Наименование:</div>
+            <div class="profile--sale-offers--create__input-container">
                 @include('components.inputs.form.index', [
                             'name' => 'title',
                             'placeholder' => 'Organization name',
@@ -25,8 +25,8 @@
                     'message' => $errors->first('title'),
                 ])
             </div>
-            <div class="profile-organization-info__info-title">ИНН:</div>
-            <div class="profile-organization-info__input-container">
+            <div class="profile--sale-offers--create__info-title">ИНН:</div>
+            <div class="profile--sale-offers--create__input-container">
                 @include('components.inputs.form.index', [
                             'name' => 'inn',
                             'placeholder' => 'Inn',
@@ -37,8 +37,8 @@
                     'message' => $errors->first('inn'),
                 ])
             </div>
-            <div class="profile-organization-info__info-title">Юридический адрес:</div>
-            <div class="profile-organization-info__input-container">
+            <div class="profile--sale-offers--create__info-title">Юридический адрес:</div>
+            <div class="profile--sale-offers--create__input-container">
                 @include('components.inputs.form.index', [
                             'name' => 'legal_address',
                             'placeholder' => 'Legal address',
@@ -49,8 +49,8 @@
                     'message' => $errors->first('legal_address'),
                 ])
             </div>
-            <div class="profile-organization-info__info-title">Фактический адрес:</div>
-            <div class="profile-organization-info__input-container">
+            <div class="profile--sale-offers--create__info-title">Фактический адрес:</div>
+            <div class="profile--sale-offers--create__input-container">
                 @include('components.inputs.form.index', [
                             'name' => 'real_address',
                             'placeholder' => 'Real address',
@@ -61,8 +61,8 @@
                     'message' => $errors->first('real_address'),
                 ])
             </div>
-            <div class="profile-organization-info__info-title">Email:</div>
-            <div class="profile-organization-info__input-container">
+            <div class="profile--sale-offers--create__info-title">Email:</div>
+            <div class="profile--sale-offers--create__input-container">
                 @include('components.inputs.form.index', [
                             'name' => 'email',
                             'placeholder' => 'Organization email',
@@ -73,8 +73,8 @@
                     'message' => $errors->first('email'),
                 ])
             </div>
-            <div class="profile-organization-info__info-title">Телефон:</div>
-            <div class="profile-organization-info__input-container">
+            <div class="profile--sale-offers--create__info-title">Телефон:</div>
+            <div class="profile--sale-offers--create__input-container">
                 @include('components.inputs.form.index', [
                             'name' => 'phone',
                             'placeholder' => 'Organization-phone',
@@ -85,20 +85,20 @@
                     'message' => $errors->first('phone-phone'),
                 ])
             </div>
-            <div class="profile-organization-info__info-title">Свидетельства:</div>
-            <div class="profile-organization-info__input-container">
+            <div class="profile--sale-offers--create__info-title">Свидетельства:</div>
+            <div class="profile--sale-offers--create__input-container">
                 @include('components.form.error.index', [
                     'message' => $errors->first('organization-phone'),
                 ])
             </div>
-            <div class="profile-organization-info__info-title">Фото:</div>
-            <div class="profile-organization-info__input-container">
+            <div class="profile--sale-offers--create__info-title">Фото:</div>
+            <div class="profile--sale-offers--create__input-container">
                 @include('components.form.error.index', [
                     'message' => $errors->first('organization-phone'),
                 ])
             </div>
-            <div class="profile-organization-info__send-button-container">
-                <button class="profile-organization-info__send-button">Сохранить</button>
+            <div class="profile--sale-offers--create__send-button-container">
+                <button class="profile--sale-offers--create__send-button">Сохранить</button>
             </div>
             @include('components.form.error.index', [
                 'message' => session('commonError'),
