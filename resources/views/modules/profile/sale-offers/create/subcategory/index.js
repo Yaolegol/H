@@ -7,7 +7,8 @@ const {
     INPUTS: {
         RADIO: {
             GROUP: {
-                CHANGE
+                CHANGE,
+                RESET,
             }
         }
     }
@@ -43,11 +44,12 @@ class ProfileSaleOffersCreateSubcategory {
 
             if(this.activeSubcategoryContainer) {
                 this.activeSubcategoryContainer.classList.remove('profile--sale-offers--create--subcategory__subcategory-container_active');
-                const checkedInput = this.activeSubcategoryContainer.querySelector('input:checked');
 
-                if(checkedInput) {
-                    checkedInput.checked = false;
-                }
+                document.dispatchEvent(new CustomEvent(RESET, {
+                    detail: {
+                        groupName: 'subcategory',
+                    }
+                }));
             }
 
             this.activeSubcategoryContainer = this.subcategoryContainerMap[value];

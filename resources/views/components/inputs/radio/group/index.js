@@ -7,7 +7,8 @@ const {
     INPUTS: {
         RADIO: {
             GROUP: {
-                CHANGE
+                CHANGE,
+                RESET,
             }
         }
     }
@@ -23,12 +24,27 @@ class InputsRadioGroup {
         if(this.dispatchEvents) {
             addEventListener(this.module, 'change', this.handleChange);
         }
+
+        addEventListener(document, RESET, this.handleReset);
     }
 
     handleChange = (e) => {
         this.value = e.target.value;
 
         this.sendMessage();
+    }
+
+    handleReset = (e) => {
+        const {detail} = e;
+        const {groupName} = detail;
+
+        if(groupName === this.groupName) {
+            const checkedInput = this.module.querySelector('input:checked');
+
+            if(checkedInput) {
+                checkedInput.checked = false;
+            }
+        }
     }
 
     sendMessage = () => {
