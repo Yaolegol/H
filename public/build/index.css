@@ -2416,6 +2416,7 @@ p {
 }
 .profile--sale-offers--create--subcategory__content-container {
   margin-top: 10px;
+  max-height: 500px;
 }
 .profile--sale-offers--create--subcategory__subcategory-container {
   display: none;
