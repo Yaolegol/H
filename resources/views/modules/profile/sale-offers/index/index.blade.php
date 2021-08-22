@@ -1,5 +1,10 @@
 <div class="profile--sale-offers--index">
-    <a href="/profile/sale-offers/create">Добавить</a>
+    <a
+        class="profile--sale-offers--index__create-link"
+        href="/profile/sale-offers/create"
+    >
+        Добавить торговое предложение
+    </a>
 </div>
 
 

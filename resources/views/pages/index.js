@@ -4,7 +4,6 @@ import 'views/pages/catalog/secondLevel';
 import 'views/pages/home';
 import 'views/pages/offers';
 import 'views/pages/offers/item';
-import 'views/pages/profile/offers';
 import 'views/pages/profile/organization-info';
 import 'views/pages/profile/personal-info';
 import 'views/pages/profile/sale-offers/create';

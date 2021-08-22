@@ -1,5 +1,110 @@
 <div class="profile--sale-offers--create">
-    create
+    <div class="profile--sale-offers--create__all-offers-link-container">
+        <a
+            class="profile--sale-offers--create__all-offers-link"
+            href="/profile/sale-offers"
+        >
+            Смотреть все мои торговые предложения
+        </a>
+    </div>
+    <div class="profile--sale-offers--create__title-container">
+        <h1>Добавить торговое предложение</h1>
+    </div>
+    <div class="profile--sale-offers--create__form-container">
+        <form action="/profile/sale-offers" method="POST">
+            @csrf
+            <div class="profile-organization-info__info-title">Наименование:</div>
+            <div class="profile-organization-info__input-container">
+                @include('components.inputs.form.index', [
+                            'name' => 'title',
+                            'placeholder' => 'Organization name',
+                            'type' => 'text',
+                            'value' => ''
+                        ])
+                @include('components.form.error.index', [
+                    'message' => $errors->first('title'),
+                ])
+            </div>
+            <div class="profile-organization-info__info-title">ИНН:</div>
+            <div class="profile-organization-info__input-container">
+                @include('components.inputs.form.index', [
+                            'name' => 'inn',
+                            'placeholder' => 'Inn',
+                            'type' => 'number',
+                            'value' => '',
+                        ])
+                @include('components.form.error.index', [
+                    'message' => $errors->first('inn'),
+                ])
+            </div>
+            <div class="profile-organization-info__info-title">Юридический адрес:</div>
+            <div class="profile-organization-info__input-container">
+                @include('components.inputs.form.index', [
+                            'name' => 'legal_address',
+                            'placeholder' => 'Legal address',
+                            'type' => 'text',
+                            'value' => '',
+                        ])
+                @include('components.form.error.index', [
+                    'message' => $errors->first('legal_address'),
+                ])
+            </div>
+            <div class="profile-organization-info__info-title">Фактический адрес:</div>
+            <div class="profile-organization-info__input-container">
+                @include('components.inputs.form.index', [
+                            'name' => 'real_address',
+                            'placeholder' => 'Real address',
+                            'type' => 'text',
+                            'value' => '',
+                        ])
+                @include('components.form.error.index', [
+                    'message' => $errors->first('real_address'),
+                ])
+            </div>
+            <div class="profile-organization-info__info-title">Email:</div>
+            <div class="profile-organization-info__input-container">
+                @include('components.inputs.form.index', [
+                            'name' => 'email',
+                            'placeholder' => 'Organization email',
+                            'type' => 'email',
+                            'value' => '',
+                        ])
+                @include('components.form.error.index', [
+                    'message' => $errors->first('email'),
+                ])
+            </div>
+            <div class="profile-organization-info__info-title">Телефон:</div>
+            <div class="profile-organization-info__input-container">
+                @include('components.inputs.form.index', [
+                            'name' => 'phone',
+                            'placeholder' => 'Organization-phone',
+                            'type' => 'tel',
+                            'value' => '',
+                        ])
+                @include('components.form.error.index', [
+                    'message' => $errors->first('phone-phone'),
+                ])
+            </div>
+            <div class="profile-organization-info__info-title">Свидетельства:</div>
+            <div class="profile-organization-info__input-container">
+                @include('components.form.error.index', [
+                    'message' => $errors->first('organization-phone'),
+                ])
+            </div>
+            <div class="profile-organization-info__info-title">Фото:</div>
+            <div class="profile-organization-info__input-container">
+                @include('components.form.error.index', [
+                    'message' => $errors->first('organization-phone'),
+                ])
+            </div>
+            <div class="profile-organization-info__send-button-container">
+                <button class="profile-organization-info__send-button">Сохранить</button>
+            </div>
+            @include('components.form.error.index', [
+                'message' => session('commonError'),
+            ])
+        </form>
+    </div>
 </div>
 
 

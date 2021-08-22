@@ -1,4 +1,56 @@
 @import (reference) '~styles/colors';
 
 .profile--sale-offers--create {
+    &__all-offers-link {
+        border-radius: 10px;
+        box-shadow: 0 0 5px 0 @black_15;
+        color: @black_80;
+        display: inline-block;
+        flex: 1 0 0;
+        padding: 20px;
+        text-align: center;
+
+        &:hover:not(.auth-login__tab-button_active) {
+            background-color: @primary_50;
+            color: @white;
+        }
+
+        &_active {
+            background-color: @primary;
+            color: @white;
+            cursor: auto;
+            font-weight: 900;
+        }
+    }
+
+    &__form-container {
+        margin-top: 50px;
+    }
+
+    &__input-container {
+        margin-top: 5px;
+        max-width: 500px;
+    }
+
+    &__info-title {
+        margin-top: 25px;
+        margin-left: 30px;
+    }
+
+    &__send-button {
+        border: 1px solid @black_15;
+        border-radius: 25px;
+        color: @black_50;
+        cursor: pointer;
+        padding: 20px;
+        text-align: center;
+    }
+
+    &__send-button-container {
+        margin-top: 50px;
+    }
+
+    &__title-container {
+        margin-top: 50px;
+    }
 }
