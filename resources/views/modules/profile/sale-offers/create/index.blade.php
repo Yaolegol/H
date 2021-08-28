@@ -44,11 +44,11 @@
                     'catalogSubCategoriesList' => $catalogSubCategoriesList
                 ])
             </div>
-            <div class="profile--sale-offers--create__info-title">Наименование:</div>
+            <div class="profile--sale-offers--create__info-title">Заголовок:</div>
             <div class="profile--sale-offers--create__input-container">
                 @include('components.inputs.form.index', [
                             'name' => 'title',
-                            'placeholder' => 'Organization name',
+                            'placeholder' => 'Title',
                             'type' => 'text',
                             'value' => ''
                         ])
@@ -56,52 +56,28 @@
                     'message' => $errors->first('title'),
                 ])
             </div>
-            <div class="profile--sale-offers--create__info-title">ИНН:</div>
+            <div class="profile--sale-offers--create__info-title">Описание:</div>
             <div class="profile--sale-offers--create__input-container">
                 @include('components.inputs.form.index', [
-                            'name' => 'inn',
-                            'placeholder' => 'Inn',
-                            'type' => 'number',
-                            'value' => '',
-                        ])
-                @include('components.form.error.index', [
-                    'message' => $errors->first('inn'),
-                ])
-            </div>
-            <div class="profile--sale-offers--create__info-title">Юридический адрес:</div>
-            <div class="profile--sale-offers--create__input-container">
-                @include('components.inputs.form.index', [
-                            'name' => 'legal_address',
-                            'placeholder' => 'Legal address',
+                            'name' => 'description',
+                            'placeholder' => 'Description',
                             'type' => 'text',
                             'value' => '',
                         ])
                 @include('components.form.error.index', [
-                    'message' => $errors->first('legal_address'),
+                    'message' => $errors->first('description'),
                 ])
             </div>
-            <div class="profile--sale-offers--create__info-title">Фактический адрес:</div>
+            <div class="profile--sale-offers--create__info-title">Адрес:</div>
             <div class="profile--sale-offers--create__input-container">
                 @include('components.inputs.form.index', [
-                            'name' => 'real_address',
-                            'placeholder' => 'Real address',
+                            'name' => 'address',
+                            'placeholder' => 'Address',
                             'type' => 'text',
                             'value' => '',
                         ])
                 @include('components.form.error.index', [
-                    'message' => $errors->first('real_address'),
-                ])
-            </div>
-            <div class="profile--sale-offers--create__info-title">Email:</div>
-            <div class="profile--sale-offers--create__input-container">
-                @include('components.inputs.form.index', [
-                            'name' => 'email',
-                            'placeholder' => 'Organization email',
-                            'type' => 'email',
-                            'value' => '',
-                        ])
-                @include('components.form.error.index', [
-                    'message' => $errors->first('email'),
+                    'message' => $errors->first('address'),
                 ])
             </div>
             <div class="profile--sale-offers--create__info-title">Телефон:</div>
@@ -114,12 +90,6 @@
                         ])
                 @include('components.form.error.index', [
                     'message' => $errors->first('phone-phone'),
-                ])
-            </div>
-            <div class="profile--sale-offers--create__info-title">Свидетельства:</div>
-            <div class="profile--sale-offers--create__input-container">
-                @include('components.form.error.index', [
-                    'message' => $errors->first('organization-phone'),
                 ])
             </div>
             <div class="profile--sale-offers--create__info-title">Фото:</div>
