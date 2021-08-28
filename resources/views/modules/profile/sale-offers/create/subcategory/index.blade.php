@@ -19,7 +19,7 @@
                             'title' => $subCategoryItem['title'],
                             'value' => $subCategoryItem['id'],
                         ];
-                    }, $subCategoryItem['content']['categoriesList']);
+                    }, $subCategoryItem['content']);
                 @endphp
                 @include('components.inputs.radio.group.index', [
                         'dispatchEvents' => false,

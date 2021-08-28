@@ -10,7 +10,7 @@
     $catalogSubCategoriesList = array_map(function($catalogItem) {
         return [
             'id' => $catalogItem['id'],
-            'content' => $catalogItem['content'],
+            'content' => $catalogItem['catalog_level_two'],
         ];
     }, $catalogFull);
 @endphp
