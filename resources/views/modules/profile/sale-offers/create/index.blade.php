@@ -79,10 +79,11 @@
                 @include('components.inputs.radio.content-group.index', [
                     'contentList' => $catalogSubCategoriesList,
                     'listenGroupName' => 'radio-group__catalog_level_one',
+                    'title' => 'Подкатегория'
                 ])
             </div>
             <div class="profile--sale-offers--create__form-item-container">
-                <div class="profile--sale-offers--create__info-title">Город/регион:</div>
+                <div class="profile--sale-offers--create__info-title">Регион:</div>
                 <div class="profile--sale-offers--create__categories-container">
                     @include('components.inputs.radio.group.index', [
                         'dispatchEvents' => true,
@@ -96,6 +97,7 @@
                 @include('components.inputs.radio.content-group.index', [
                     'contentList' => $citiesList,
                     'listenGroupName' => 'radio-group__region',
+                    'title' => 'Город'
                 ])
             </div>
             <div class="profile--sale-offers--create__info-title">Заголовок:</div>

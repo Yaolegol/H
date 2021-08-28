@@ -6,7 +6,7 @@
     "
     data-listen-group-name="{{$listenGroupName}}"
 >
-    <div class="inputs-radio-content__title">Подкатегория:</div>
+    <div class="inputs-radio-content__title">{{$title}}:</div>
     <div class="inputs-radio-content__content-block">
         @foreach($contentList as $contentItem)
             <div
