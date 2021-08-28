@@ -5,7 +5,7 @@
     <div>{{ $catalogItem['title'] }}</div>
 
     <div class="header-catalog-content-item__categories-container">
-        @foreach( $catalogItem['content']['categoriesList'] as $category )
+        @foreach( $catalogItem['catalog_level_two'] as $category )
             @include('modules.header.catalog.category-item.index', [ 'category' => $category ])
         @endforeach
     </div>

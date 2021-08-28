@@ -9,7 +9,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-function getCatalogLevel1()
+function getCatalogLevelOne()
 {
     return CatalogLevelOne::query()->with('catalogLevelTwo')->get()->toArray();
 }
@@ -32,57 +32,11 @@ function getCatalogBreadcrumbsLevel2($catalogFull, $catalogLevel2Link)
     return $breadcrumbs;
 }
 
-function getCatalogFormatted($catalog)
-{
-    return array_reduce(
-        $catalog,
-        function ($acc, $catalogItem) use ($catalog) {
-            $catalogItemNew = getNewArray($catalogItem);
-            if ($catalogItemNew['level'] === 1) {
-                $title = $catalogItemNew['title'];
-                $categoriesList = array_filter($catalog, function ($item) use ($catalogItemNew) {
-                    return $item['previous_level_id'] === $catalogItemNew['id'];
-                });
-                $categoriesListFormatted = array_map(function ($item) {
-                    return [
-                        'id' => $item['id'],
-                        'image' => $item['image'],
-                        'link' => $item['link'],
-                        'linkFull' => $item['linkFull'],
-                        'previousLevelId' => $item['previous_level_id'],
-                        'title' => $item['title'],
-                    ];
-                }, $categoriesList);
-
-                array_push(
-                    $acc,
-                    [
-                        'content' => [
-                            'categoriesList' => array_values($categoriesListFormatted),
-                            'title' => $title,
-                        ],
-                        'id' => $catalogItemNew['id'],
-                        'image' => $catalogItemNew['image'],
-                        'link' => $catalogItemNew['link'],
-                        'linkFull' => $catalogItemNew['linkFull'],
-                        'title' => $title,
-                    ]
-                );
-            }
-
-            return $acc;
-        },
-        []
-    );
-}
-
 function getCatalogFull()
 {
-    $catalog = getCatalogLevel1();
-    dd($catalog);
-    $catalogFormattedLinks = setCatalogFullLinks($catalog);
+    $catalog = getCatalogLevelOne();
 
-    return getCatalogFormatted($catalogFormattedLinks);
+    return getCatalogLevelOneWithFullLinks($catalog);
 }
 
 function getCatalogLevel2CategoriesList($catalogFull, $link)
@@ -90,6 +44,18 @@ function getCatalogLevel2CategoriesList($catalogFull, $link)
     $catalogLevel2 = getCatalogLevel2($catalogFull, $link);
 
     return $catalogLevel2['content']['categoriesList'];
+}
+
+function getCatalogLevelOneWithFullLinks($catalog) {
+    foreach ($catalog as &$catalogLevelOneItem) {
+        $catalogLevelOneItem['linkFull'] = '/' . $catalogLevelOneItem['link'];
+
+        foreach ($catalogLevelOneItem['catalog_level_two'] as &$catalogLevelTwoItem) {
+            $catalogLevelTwoItem['linkFull'] = $catalogLevelOneItem['linkFull'] . '/' . $catalogLevelTwoItem['link'];
+        }
+    }
+
+    return $catalog;
 }
 
 function getNewArray($arr)
@@ -155,27 +121,6 @@ function getOffer($id)
     $offer = array_merge(...Offer::where('id', $id)->get()->toArray());
 
     return setupOffer($offer);
-}
-
-function setCatalogFullLinks($catalog)
-{
-    return array_map(
-        function ($catalogItem) use ($catalog) {
-            $catalogItemNew = getNewArray($catalogItem);
-            if ($catalogItemNew['level'] === 1) {
-                $catalogItemNew['linkFull'] = '/' . 'catalog' . '/' . $catalogItemNew['link'];
-            } elseif ($catalogItemNew['level'] === 2) {
-                $previousLevelId = $catalogItemNew['previous_level_id'];
-                $previousLevelItemIndex = array_search($previousLevelId, array_column($catalog, 'id'));
-                $previousLevelItem = $catalog[$previousLevelItemIndex];
-
-                $catalogItemNew['linkFull'] = '/' . 'catalog' . '/' . $previousLevelItem['link'] . '/' . $catalogItemNew['link'];
-            }
-
-            return $catalogItemNew;
-        },
-        $catalog
-    );
 }
 
 function getLocationList()
