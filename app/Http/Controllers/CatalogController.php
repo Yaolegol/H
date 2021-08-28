@@ -50,20 +50,20 @@ class CatalogController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  string  $catalogLevel2
+     * @param  string  $catalogLevelOneLink
      * @return Response
      */
-    public function show($catalogLevel2Link)
+    public function show($catalogLevelOneLink)
     {
         $catalogFull = getCatalogFull();
-        $catalogLevel2 = getCatalogLevel2CategoriesList($catalogFull, $catalogLevel2Link);
-        $breadcrumbs = getCatalogBreadcrumbsLevel2($catalogFull, $catalogLevel2Link);
+        $catalogLevelOneItemSubcategoriesList = getCatalogLevelOneItemSubcategoriesList($catalogFull, $catalogLevelOneLink);
+        $breadcrumbs = getCatalogLevelTwoBreadcrumbs($catalogFull, $catalogLevelOneLink);
         $locationList = getLocationListFormatted();
 
         return view('pages.catalog.secondLevel.index', [
             'breadcrumbs' => $breadcrumbs,
             'catalogHeader' => $catalogFull,
-            'catalogPage' => $catalogLevel2,
+            'catalogPage' => $catalogLevelOneItemSubcategoriesList,
             'locationList' => $locationList,
         ]);
     }

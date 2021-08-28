@@ -14,7 +14,7 @@ function getCatalogLevelOne()
     return CatalogLevelOne::query()->with('catalogLevelTwo')->get()->toArray();
 }
 
-function getCatalogBreadcrumbsLevel2($catalogFull, $catalogLevel2Link)
+function getCatalogLevelTwoBreadcrumbs($catalogFull, $catalogLevelOneLink)
 {
     $breadcrumbs = [
         [
@@ -23,10 +23,12 @@ function getCatalogBreadcrumbsLevel2($catalogFull, $catalogLevel2Link)
             'title' => 'Каталог',
         ],
     ];
-    $catalogLevel2 = getCatalogLevel2($catalogFull, $catalogLevel2Link);
+
+    $catalogLevelOneItem = getCatalogLevelOneItem($catalogFull, $catalogLevelOneLink);
+
     array_push($breadcrumbs, [
         'active' => true,
-        'title' => $catalogLevel2['title'],
+        'title' => $catalogLevelOneItem['title'],
     ]);
 
     return $breadcrumbs;
@@ -39,16 +41,9 @@ function getCatalogFull()
     return getCatalogLevelOneWithFullLinks($catalog);
 }
 
-function getCatalogLevel2CategoriesList($catalogFull, $link)
-{
-    $catalogLevel2 = getCatalogLevel2($catalogFull, $link);
-
-    return $catalogLevel2['content']['categoriesList'];
-}
-
 function getCatalogLevelOneWithFullLinks($catalog) {
     foreach ($catalog as &$catalogLevelOneItem) {
-        $catalogLevelOneItem['linkFull'] = '/' . $catalogLevelOneItem['link'];
+        $catalogLevelOneItem['linkFull'] = '/catalog/' . $catalogLevelOneItem['link'];
 
         foreach ($catalogLevelOneItem['catalog_level_two'] as &$catalogLevelTwoItem) {
             $catalogLevelTwoItem['linkFull'] = $catalogLevelOneItem['linkFull'] . '/' . $catalogLevelTwoItem['link'];
@@ -56,6 +51,20 @@ function getCatalogLevelOneWithFullLinks($catalog) {
     }
 
     return $catalog;
+}
+
+function getCatalogLevelOneItem($catalogFull, $catalogLevelOneLink)
+{
+    return array_merge(...array_filter($catalogFull, function($catalogLevelOneItem) use($catalogLevelOneLink) {
+        return $catalogLevelOneItem['link'] === $catalogLevelOneLink;
+    }));
+}
+
+function getCatalogLevelOneItemSubcategoriesList($catalogFull, $catalogLevelOneLink)
+{
+    $catalogLevelOneItem = getCatalogLevelOneItem($catalogFull, $catalogLevelOneLink);
+
+    return $catalogLevelOneItem['catalog_level_two'];
 }
 
 function getNewArray($arr)
