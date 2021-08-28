@@ -1,22 +1,7 @@
 @php
-    $regionList = $catalogCategoriesList = array_map(function($regionItem) {
-        return [
-            'id' => 'inputs-radio-item__input-region-' . $regionItem['id'],
-            'title' => $regionItem['title'],
-            'value' => $regionItem['id'],
-        ];
-    }, $locationList);
-
-    $citiesList = array_map(function($regionItem) {
-        return [
-            'content' => $regionItem['cities'],
-            'id' => 'inputs-radio-item__input-region-' . $regionItem['id'],
-        ];
-    }, $locationList);
-
     $catalogCategoriesList = array_map(function($catalogItem) {
         return [
-            'id' => 'inputs-radio-item__input-category-' . $catalogItem['id'],
+            'id' => 'id__radio-input__catalog-level-one__' . $catalogItem['id'],
             'title' => $catalogItem['title'],
             'value' => $catalogItem['id'],
         ];
@@ -24,12 +9,12 @@
 
     $catalogSubCategoriesList = array_map(function($catalogItem) {
         $catalogLevelTwoItemsList = array_map(function($catalogLevelTwoItem) {
-                        return [
-                            'id' => 'id__radio-input__catalog-level-two__' . $catalogLevelTwoItem['id'],
-                            'title' => $catalogLevelTwoItem['title'],
-                            'value' => $catalogLevelTwoItem['id'],
-                        ];
-                    }, $catalogItem['catalog_level_two']);
+            return [
+                'id' => 'id__radio-input__catalog-level-two__' . $catalogLevelTwoItem['id'],
+                'title' => $catalogLevelTwoItem['title'],
+                'value' => $catalogLevelTwoItem['id'],
+            ];
+        }, $catalogItem['catalog_level_two']);
 
         return [
             'content' => $catalogLevelTwoItemsList,
@@ -38,6 +23,31 @@
             'listenId' => $catalogItem['id'],
         ];
     }, $catalogFull);
+
+    $regionList = array_map(function($regionItem) {
+        return [
+            'id' => 'id__radio-input__region__' . $regionItem['id'],
+            'title' => $regionItem['title'],
+            'value' => $regionItem['id'],
+        ];
+    }, $locationList);
+
+    $citiesList = array_map(function($regionItem) {
+        $regionItemCitiesList = array_map(function($cityItem) {
+            return [
+                'id' => 'id__radio-input__city__' . $cityItem['id'],
+                'title' => $cityItem['title'],
+                'value' => $cityItem['id'],
+            ];
+        }, $regionItem['cities']);
+
+        return [
+            'content' => $regionItemCitiesList,
+            'groupName' => 'radio-group__cities',
+            'inputName' => 'city',
+            'listenId' => $regionItem['id'],
+        ];
+    }, $locationList);
 @endphp
 <div class="profile--sale-offers--create">
     <div class="profile--sale-offers--create__all-offers-link-container">
@@ -71,22 +81,23 @@
                     'listenGroupName' => 'radio-group__catalog_level_one',
                 ])
             </div>
-{{--            <div class="profile--sale-offers--create__form-item-container">--}}
-{{--                <div class="profile--sale-offers--create__info-title">Город/регион:</div>--}}
-{{--                <div class="profile--sale-offers--create__categories-container">--}}
-{{--                    @include('components.inputs.radio.group.index', [--}}
-{{--                        'dispatchEvents' => true,--}}
-{{--                        'itemsList' => $regionList,--}}
-{{--                        'name' => 'region_id',--}}
-{{--                    ])--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="profile--sale-offers--create__form-item-container">--}}
-{{--                @include('modules.profile.sale-offers.create.cities.index', [--}}
-{{--                    'catalogSubCategoriesList' => $citiesList,--}}
-{{--                    'name' => 'catalog_level_two_id',--}}
-{{--                ])--}}
-{{--            </div>--}}
+            <div class="profile--sale-offers--create__form-item-container">
+                <div class="profile--sale-offers--create__info-title">Город/регион:</div>
+                <div class="profile--sale-offers--create__categories-container">
+                    @include('components.inputs.radio.group.index', [
+                        'dispatchEvents' => true,
+                        'groupName' => 'radio-group__region',
+                        'itemsList' => $regionList,
+                        'inputName' => 'region_id',
+                    ])
+                </div>
+            </div>
+            <div class="profile--sale-offers--create__form-item-container">
+                @include('components.inputs.radio.content-group.index', [
+                    'contentList' => $citiesList,
+                    'listenGroupName' => 'radio-group__region',
+                ])
+            </div>
             <div class="profile--sale-offers--create__info-title">Заголовок:</div>
             <div class="profile--sale-offers--create__input-container">
                 @include('components.inputs.form.index', [
