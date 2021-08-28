@@ -9,7 +9,7 @@ class OfferSeeder extends Seeder
 {
     public $data = [
         [
-            'catalog_level_2_id' => 1,
+            'catalog_level_two_id' => 1,
             'description' => 'Описание Предложение Говядина Томск 1',
             'image' => 'https://picsum.photos/200/300',
             'measure_id' => 1,
@@ -23,7 +23,7 @@ class OfferSeeder extends Seeder
             'city_id' => 1,
         ],
         [
-            'catalog_level_2_id' => 1,
+            'catalog_level_two_id' => 1,
             'description' => 'Описание Предложение Говядина Томск 2',
             'image' => 'https://picsum.photos/200/300',
             'measure_id' => 1,
@@ -37,7 +37,7 @@ class OfferSeeder extends Seeder
             'city_id' => 1,
         ],
         [
-            'catalog_level_2_id' => 1,
+            'catalog_level_two_id' => 1,
             'description' => 'Описание Предложение Говядина Новосибирск 1',
             'image' => 'https://picsum.photos/200/300',
             'measure_id' => 1,
@@ -51,7 +51,7 @@ class OfferSeeder extends Seeder
             'city_id' => 4,
         ],
         [
-            'catalog_level_2_id' => 3,
+            'catalog_level_two_id' => 3,
             'description' => 'Описание Предложение молоко Томск',
             'image' => 'https://picsum.photos/200/300',
             'measure_id' => 1,
@@ -65,7 +65,7 @@ class OfferSeeder extends Seeder
             'city_id' => 1,
         ],
         [
-            'catalog_level_2_id' => 2,
+            'catalog_level_two_id' => 2,
             'description' => 'Описание Предложение курица Новосибирск',
             'image' => 'https://picsum.photos/200/300',
             'measure_id' => 2,
@@ -79,7 +79,7 @@ class OfferSeeder extends Seeder
             'city_id' => 4,
         ],
         [
-            'catalog_level_2_id' => 4,
+            'catalog_level_two_id' => 4,
             'description' => 'Описание Предложение кефир Новосибирск',
             'image' => 'https://picsum.photos/200/300',
             'measure_id' => 1,
@@ -93,7 +93,7 @@ class OfferSeeder extends Seeder
             'city_id' => 4,
         ],
         [
-            'catalog_level_2_id' => 1,
+            'catalog_level_two_id' => 1,
             'description' => 'Описание Предложение говядина Томск',
             'image' => 'https://picsum.photos/200/300',
             'measure_id' => 1,

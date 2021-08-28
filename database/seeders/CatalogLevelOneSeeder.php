@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class CatalogLevel1Seeder extends Seeder
+class CatalogLevelOneSeeder extends Seeder
 {
     public $data = [
         [
@@ -36,7 +36,7 @@ class CatalogLevel1Seeder extends Seeder
     public function run()
     {
         foreach ($this->data as $dataItem) {
-            DB::table('catalog_level_1')->insert($dataItem);
+            DB::table('catalog_level_one')->insert($dataItem);
         }
     }
 }

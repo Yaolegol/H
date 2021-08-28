@@ -5,49 +5,49 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class CatalogLevel2Seeder extends Seeder
+class CatalogLevelTwoSeeder extends Seeder
 {
     public $data = [
         [
             'image' => 'https://picsum.photos/200/300',
             'link' => 'beef',
             'order' => 1,
-            'catalog_level_1_id' => 1,
+            'catalog_level_one_id' => 1,
             'title' => 'Говядина',
         ],
         [
             'image' => 'https://picsum.photos/200/300',
             'link' => 'chicken',
             'order' => 2,
-            'catalog_level_1_id' => 1,
+            'catalog_level_one_id' => 1,
             'title' => 'Курица',
         ],
         [
             'image' => 'https://picsum.photos/200/300',
             'link' => 'milk',
             'order' => 1,
-            'catalog_level_1_id' => 2,
+            'catalog_level_one_id' => 2,
             'title' => 'Молоко',
         ],
         [
             'image' => 'https://picsum.photos/200/300',
             'link' => 'kefir',
             'order' => 3,
-            'catalog_level_1_id' => 2,
+            'catalog_level_one_id' => 2,
             'title' => 'Кефир',
         ],
         [
             'image' => 'https://picsum.photos/200/300',
             'link' => 'chicken-eggs',
             'order' => 1,
-            'catalog_level_1_id' => 3,
+            'catalog_level_one_id' => 3,
             'title' => 'Куринные яйца',
         ],
         [
             'image' => 'https://picsum.photos/200/300',
             'link' => 'quail',
             'order' => 2,
-            'catalog_level_1_id' => 3,
+            'catalog_level_one_id' => 3,
             'title' => 'Перепелинные яйца',
         ],
     ];
@@ -60,7 +60,7 @@ class CatalogLevel2Seeder extends Seeder
     public function run()
     {
         foreach ($this->data as $dataItem) {
-            DB::table('catalog_level_2')->insert($dataItem);
+            DB::table('catalog_level_two')->insert($dataItem);
         }
     }
 }

@@ -13,7 +13,7 @@ class Offer extends Model
 
     public function catalog()
     {
-        return $this->belongsTo(CatalogLevel1::class);
+        return $this->belongsTo(CatalogLevelOne::class);
     }
 
     public function measure()

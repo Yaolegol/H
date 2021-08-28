@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCatalogLevel2Table extends Migration
+class CreateCatalogLevelOneTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateCatalogLevel2Table extends Migration
      */
     public function up()
     {
-        Schema::create('catalog_level_2', function (Blueprint $table) {
+        Schema::create('catalog_level_one', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('link');
             $table->string('image');
             $table->integer('order');
-            $table->bigInteger('catalog_level_1_id')->unsigned()->index();
-            $table->foreign('catalog_level_1_id')->references('id')->on('catalog_level_1');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ class CreateCatalogLevel2Table extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('catalog_level_2');
+        Schema::dropIfExists('catalog_level_one');
     }
 }

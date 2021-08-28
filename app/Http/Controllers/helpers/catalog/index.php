@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\CatalogLevel1;
+use App\Models\CatalogLevelOne;
 use App\Models\City;
 use App\Models\Offer;
 use App\Models\Organization;
@@ -9,9 +9,9 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-function getCatalog()
+function getCatalogLevel1()
 {
-    return CatalogLevel1::all()->toArray();
+    return CatalogLevelOne::query()->with('catalogLevelTwo')->get()->toArray();
 }
 
 function getCatalogBreadcrumbsLevel2($catalogFull, $catalogLevel2Link)
@@ -78,22 +78,11 @@ function getCatalogFormatted($catalog)
 
 function getCatalogFull()
 {
-    $catalog = getCatalog();
+    $catalog = getCatalogLevel1();
+    dd($catalog);
     $catalogFormattedLinks = setCatalogFullLinks($catalog);
 
     return getCatalogFormatted($catalogFormattedLinks);
-}
-
-function getCatalogLevel2($catalogFull, $link)
-{
-    $catalogItem = array_merge(...array_filter($catalogFull, function ($item) use ($link) {
-        return $item['link'] === $link;
-    }));
-    $catalogItemId = $catalogItem['id'];
-
-    return array_merge(...array_filter($catalogFull, function ($item) use ($catalogItemId) {
-        return $item['id'] === $catalogItemId;
-    }));
 }
 
 function getCatalogLevel2CategoriesList($catalogFull, $link)
@@ -115,7 +104,7 @@ function getOfferBreadcrumbs()
 
 function getOffers($productLink, $searchCountry, $searchRegion, $searchCity)
 {
-    $catalogProduct = array_merge(...CatalogLevel1::where(['link' => $productLink, 'level' => 2])->get()->toArray());
+    $catalogProduct = array_merge(...CatalogLevelOne::where(['link' => $productLink, 'level' => 2])->get()->toArray());
     $offers = Offer::where(['catalog_id' => $catalogProduct['id'], 'country_id' => $searchCountry, 'region_id' => $searchRegion, 'city_id' => $searchCity],)->with('catalog', 'seller', 'seller.region', 'measure')->get()->toArray();
 
     return setupOffers($offers);
