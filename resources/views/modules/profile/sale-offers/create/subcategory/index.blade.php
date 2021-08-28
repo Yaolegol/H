@@ -24,7 +24,7 @@
                 @include('components.inputs.radio.group.index', [
                         'dispatchEvents' => false,
                         'itemsList' => $subCategoryItemsList,
-                        'name' => 'subcategory',
+                        'name' => 'catalog_level_two_id',
                     ])
             </div>
         @endforeach

@@ -368,6 +368,31 @@ function tryChangeUserPersonalDataInDB($request)
     }
 }
 
+function trySaveSaleOfferInDB($request) {
+    try {
+        $catalog_level_two_id = $request->input('catalog_level_two_id');
+        $title = $request->input('title');
+        $description = $request->input('description');
+        $address = $request->input('address');
+        $phone = $request->input('phone');
+        $price = $request->input('price');
+
+        $newOffer = new Offer([
+            'catalog_level_two_id' => $catalog_level_two_id,
+            'title' => $title,
+            'description' => $description,
+            'address' => $address,
+            'phone' => $phone,
+            'price' => $price,
+        ]);
+        $newOffer->save();
+
+        return true;
+    } catch (\Exception $error) {
+        return false;
+    }
+}
+
 function trySaveUserInDB($request)
 {
     try {

@@ -16,11 +16,11 @@ class OfferTable extends Migration
         Schema::create('offer', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description');
-            $table->string('image');
-            $table->integer('order');
+            $table->string('description')->nullable();
+            $table->string('image')->nullable();
+            $table->integer('order')->default(1);
             $table->float('price');
-            $table->boolean('is_active');
+            $table->boolean('is_active')->default(true);
             $table->bigInteger('user_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users');
             $table->bigInteger('catalog_level_two_id')->unsigned()->index();

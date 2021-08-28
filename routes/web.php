@@ -34,12 +34,17 @@ Route::post('/register', 'RegisterController@register');
 Route::get('/logout', 'LogoutController@index');
 
 Route::get('/profile', 'ProfileController@index')->middleware('auth');
+
 Route::get('/profile/personal-info', 'ProfilePersonalDataController@index')->middleware('auth');
 Route::post('/profile/personal-info', 'ProfilePersonalDataController@edit')->middleware('auth');
+
 Route::get('/profile/organization-info', 'ProfileOrganizationDataController@index')->middleware('auth');
 Route::post('/profile/organization-info', 'ProfileOrganizationDataController@edit')->middleware('auth');
+
 Route::get('/profile/sale-points-info', 'ProfileSalePointsController@index')->middleware('auth');
 Route::post('/profile/sale-points-info', 'ProfileSalePointsController@edit')->middleware('auth');
+
 Route::get('/profile/sale-offers', 'ProfileSaleOffersController@index')->middleware('auth');
 Route::get('/profile/sale-offers/create', 'ProfileSaleOffersController@create')->middleware('auth');
+
 Route::post('/profile/sale-offers', 'ProfileSaleOffersController@store')->middleware('auth');

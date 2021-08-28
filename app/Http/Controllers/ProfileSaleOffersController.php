@@ -53,7 +53,24 @@ class ProfileSaleOffersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $catalogFull = getCatalogFull();
+        $locationList = getLocationListFormatted();
+
+        $isSaved = trySaveSaleOfferInDB($request);
+
+        if($isSaved) {
+            $organizationData = getOrganizationDataFormatted();
+
+            return view('pages.profile.organization-info.index', [
+                'catalogHeader' => $catalogFull,
+                'locationList' => $locationList,
+                'organizationData' => $organizationData,
+            ]);
+        } else {
+            return back()->with(
+                ['commonError' => 'Что-то пошло не так. Попробуйте снова']
+            );
+        }
     }
 
     /**

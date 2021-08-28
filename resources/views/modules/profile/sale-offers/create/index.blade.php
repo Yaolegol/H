@@ -35,7 +35,7 @@
                     @include('components.inputs.radio.group.index', [
                         'dispatchEvents' => true,
                         'itemsList' => $catalogCategoriesList,
-                        'name' => 'category',
+                        'name' => 'catalog_level_one_id',
                     ])
                 </div>
             </div>
@@ -90,6 +90,18 @@
                         ])
                 @include('components.form.error.index', [
                     'message' => $errors->first('phone-phone'),
+                ])
+            </div>
+            <div class="profile--sale-offers--create__info-title">Цена:</div>
+            <div class="profile--sale-offers--create__input-container">
+                @include('components.inputs.form.index', [
+                            'name' => 'price',
+                            'placeholder' => 'Price',
+                            'type' => 'number',
+                            'value' => '',
+                        ])
+                @include('components.form.error.index', [
+                    'message' => $errors->first('price'),
                 ])
             </div>
             <div class="profile--sale-offers--create__info-title">Фото:</div>
