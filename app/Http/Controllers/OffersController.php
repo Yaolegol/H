@@ -11,19 +11,19 @@ class OffersController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param  string  $catalogLevel2Link
+     * @param  string  $catalogLevelOneLink
      * @param  string  $productLink
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, $catalogLevel2Link, $productLink)
+    public function index(Request $request, $catalogLevelOneLink, $productLink)
     {
         $searchCountryId = $request->cookie('search-country-id');
         $searchRegionId = $request->cookie('search-region-id');
         $searchCityId = $request->cookie('search-city-id');
 
         $catalogFull = getCatalogFull();
-        $offersList = getOffers($productLink, $searchCountryId, $searchRegionId, $searchCityId);
-        $breadcrumbs = getCatalogOffersBreadcrumbs($catalogFull, $catalogLevel2Link, $productLink);
+        $offersList = getOffers($catalogFull, $catalogLevelOneLink, $productLink, $searchCountryId, $searchRegionId, $searchCityId);
+        $breadcrumbs = getCatalogOffersBreadcrumbs($catalogFull, $catalogLevelOneLink, $productLink);
         $locationList = getLocationListFormatted();
 
         return view('pages.offers.index', [

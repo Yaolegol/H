@@ -11,9 +11,9 @@ class Offer extends Model
 
     protected $table = 'offer';
 
-    public function catalog()
+    public function catalogLevelTwo()
     {
-        return $this->belongsTo(CatalogLevelOne::class);
+        return $this->belongsTo(CatalogLevelTwo::class);
     }
 
     public function measure()

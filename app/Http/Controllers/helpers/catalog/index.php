@@ -60,6 +60,15 @@ function getCatalogLevelOneItem($catalogFull, $catalogLevelOneLink)
     }));
 }
 
+function getCatalogLevelTwoItem($catalogFull, $catalogLevelOneLink, $catalogLevelTwoLink)
+{
+    $catalogLevelOneItem = getCatalogLevelOneItem($catalogFull, $catalogLevelOneLink);
+
+    return array_merge(...array_filter($catalogLevelOneItem['catalog_level_two'], function($catalogLevelTwoItem) use($catalogLevelTwoLink) {
+        return $catalogLevelTwoItem['link'] === $catalogLevelTwoLink;
+    }));
+}
+
 function getCatalogLevelOneItemSubcategoriesList($catalogFull, $catalogLevelOneLink)
 {
     $catalogLevelOneItem = getCatalogLevelOneItem($catalogFull, $catalogLevelOneLink);
@@ -77,15 +86,15 @@ function getOfferBreadcrumbs()
     return [];
 }
 
-function getOffers($productLink, $searchCountry, $searchRegion, $searchCity)
+function getOffers($catalogFull, $catalogLevelOneLink, $productLink, $searchCountry, $searchRegion, $searchCity)
 {
-    $catalogProduct = array_merge(...CatalogLevelOne::where(['link' => $productLink, 'level' => 2])->get()->toArray());
-    $offers = Offer::where(['catalog_id' => $catalogProduct['id'], 'country_id' => $searchCountry, 'region_id' => $searchRegion, 'city_id' => $searchCity],)->with('catalog', 'seller', 'seller.region', 'measure')->get()->toArray();
+    $catalogLevelTwoItem = getCatalogLevelTwoItem($catalogFull, $catalogLevelOneLink, $productLink);
+    $offers = Offer::where(['catalog_level_two_id' => $catalogLevelTwoItem['id'], 'country_id' => $searchCountry, 'region_id' => $searchRegion, 'city_id' => $searchCity],)->with('catalogLevelTwo', 'user', 'measure')->get()->toArray();
 
-    return setupOffers($offers);
+    return setOffersLink($offers);
 }
 
-function getCatalogOffersBreadcrumbs($catalogFull, $catalogLevel2Link, $productLink)
+function getCatalogOffersBreadcrumbs($catalogFull, $catalogLevelOneLink, $productLink)
 {
     $breadcrumbs = [
         [
@@ -95,30 +104,19 @@ function getCatalogOffersBreadcrumbs($catalogFull, $catalogLevel2Link, $productL
         ],
     ];
 
-    $catalogLevel2Item = array_merge(...array_filter(
-        $catalogFull,
-        function ($item) use ($catalogLevel2Link) {
-            return $item['link'] === $catalogLevel2Link;
-        }
-    ));
-
-    $catalogProduct = array_merge(...array_filter(
-        $catalogLevel2Item['content']['categoriesList'],
-        function ($item) use ($catalogLevel2Item, $productLink) {
-            return $item['previousLevelId'] === $catalogLevel2Item['id'] && $item['link'] === $productLink;
-        }
-    ));
+    $catalogLevelOneItem = getCatalogLevelOneItem($catalogFull, $catalogLevelOneLink);
+    $catalogLevelTwoItem = getCatalogLevelTwoItem($catalogFull, $catalogLevelOneLink, $productLink);
 
     array_push($breadcrumbs,
         [
             'active' => false,
-            'link' => '/' . 'catalog' . '/' . $catalogLevel2Item['link'],
-            'title' => $catalogLevel2Item['title'],
+            'link' => $catalogLevelOneItem['linkFull'],
+            'title' => $catalogLevelOneItem['title'],
         ],
         [
             'active' => true,
-            'link' => '/' . 'catalog' . '/' . $catalogLevel2Item['link'] . '/' . $catalogProduct['link'],
-            'title' => $catalogProduct['title'],
+            'link' => $catalogLevelTwoItem['linkFull'],
+            'title' => $catalogLevelTwoItem['title'],
         ]
     );
 
@@ -251,12 +249,11 @@ function setupOffer($offer)
     ];
 }
 
-function setupOffers($offers)
+function setOffersLink($offers)
 {
     return array_map(function ($item) {
-        $itemNew = getNewArray($item);
-        $itemNew['offerLink'] = '/' . 'offers' . '/' . $itemNew['id'];
-        return $itemNew;
+        $item['offerLink'] = '/' . 'offers' . '/' . $item['id'];
+        return $item;
     }, $offers);
 }
 

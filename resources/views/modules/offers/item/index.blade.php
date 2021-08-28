@@ -15,7 +15,7 @@
                     Телефон: 8 111 111 11 11
                 </div>
                 <div>
-                    <span>Продавец: </span><a href="/sellers/{{$offer['seller']['id']}}">{{$offer['seller']['name']}}</a>
+                    <span>Продавец: </span><a href="/sellers/{{$offer['user']['id']}}">{{$offer['user']['name']}}</a>
                 </div>
             </div>
         </div>
