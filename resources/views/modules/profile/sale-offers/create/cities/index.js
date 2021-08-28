@@ -17,7 +17,7 @@ const {
 class ProfileSaleOffersCreateSubcategory {
     constructor(element) {
         this.module = element;
-        this.subcategoryContainerList = [...this.module.querySelectorAll('.j-profile--sale-offers--create--subcategory__subcategory-container')];
+        this.subcategoryContainerList = [...this.module.querySelectorAll('.j-profile--sale-offers--create--city__city-container')];
         this.subcategoryContainerMap = this.getSubcategoryContainerMap();
         this.activeSubcategoryContainer = null;
 
@@ -39,7 +39,7 @@ class ProfileSaleOffersCreateSubcategory {
         const {detail} = e;
         const {groupName, value} = detail;
 
-        if(groupName === 'catalog_level_one_id') {
+        if(groupName === 'region_id') {
             this.module.classList.remove('profile--sale-offers--create--subcategory_hidden');
 
             if(this.activeSubcategoryContainer) {
@@ -47,20 +47,18 @@ class ProfileSaleOffersCreateSubcategory {
 
                 document.dispatchEvent(new CustomEvent(RESET, {
                     detail: {
-                        groupName: 'catalog_level_one_id',
+                        groupName: 'region_id',
                     }
                 }));
             }
 
-            console.log('this.subcategoryContainerMap')
-            console.log(this.subcategoryContainerMap)
             this.activeSubcategoryContainer = this.subcategoryContainerMap[value];
             this.activeSubcategoryContainer.classList.add('profile--sale-offers--create--subcategory__subcategory-container_active');
         }
     }
 }
 
-const list = [...document.querySelectorAll('.j-profile--sale-offers--create--subcategory')];
+const list = [...document.querySelectorAll('.j-profile--sale-offers--create--city')];
 
 list.forEach((element) => {
     new ProfileSaleOffersCreateSubcategory(element);

@@ -2410,23 +2410,23 @@ p {
   cursor: pointer;
 }
 
-
-.profile--sale-offers--create--subcategory_hidden {
+.inputs-radio-content_hidden {
   display: none;
 }
-.profile--sale-offers--create--subcategory__content-container {
+.inputs-radio-content__content-block {
   margin-top: 10px;
   max-height: 500px;
 }
-.profile--sale-offers--create--subcategory__subcategory-container {
+.inputs-radio-content__content-container {
   display: none;
 }
-.profile--sale-offers--create--subcategory__subcategory-container_active {
+.inputs-radio-content__content-container_active {
   display: block;
 }
-.profile--sale-offers--create--subcategory__title {
+.inputs-radio-content__title {
   margin-left: 30px;
 }
+
 
 .profile--sale-offers--create__all-offers-link {
   border-radius: 10px;

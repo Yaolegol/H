@@ -1,3 +1,3 @@
+import 'views/components/inputs/radio/content-group';
 import 'views/components/inputs/radio/group';
-import './subcategory';
 import './index.less';

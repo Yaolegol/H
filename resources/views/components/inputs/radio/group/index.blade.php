@@ -3,12 +3,12 @@
     @if($dispatchEvents)
         data-dispatch-events
     @endif
-    data-radio-group-name="{{$name}}"
+    data-group-name="{{$groupName}}"
 >
     @foreach($itemsList as $item)
         @include('components.inputs.radio.item.index', [
             'id' => $item['id'],
-            'name' => $name,
+            'name' => $inputName,
             'title' => $item['title'],
             'value' => $item['value'],
         ])

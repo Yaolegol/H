@@ -15,7 +15,6 @@ export const EVENTS_NAMES = {
         RADIO: {
             GROUP: {
                 CHANGE: "INPUTS_RADIO_GROUP_CHANGE",
-                RESET: "INPUTS_RADIO_GROUP_RESET",
             }
         },
     }
