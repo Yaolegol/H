@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class SellerCatalogTable extends Migration
+class CreateCatalogLevel1Table extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class SellerCatalogTable extends Migration
      */
     public function up()
     {
-        Schema::create('seller-catalog', function (Blueprint $table) {
+        Schema::create('catalog_level_1', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('seller_id')->unsigned()->index();
-            $table->foreign('seller_id')->references('id')->on('seller');
-            $table->bigInteger('catalog_id')->unsigned()->index();
-            $table->foreign('catalog_id')->references('id')->on('catalog');
+            $table->string('title');
+            $table->string('link');
+            $table->string('image');
+            $table->integer('order');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class SellerCatalogTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('catalog_level_1');
     }
 }

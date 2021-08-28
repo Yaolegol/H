@@ -21,10 +21,10 @@ class OfferTable extends Migration
             $table->integer('order');
             $table->float('price');
             $table->boolean('is_active');
-            $table->bigInteger('seller_id')->unsigned()->index();
-            $table->foreign('seller_id')->references('id')->on('seller');
-            $table->bigInteger('catalog_id')->unsigned()->index();
-            $table->foreign('catalog_id')->references('id')->on('catalog');
+            $table->bigInteger('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->bigInteger('catalog_level_2_id')->unsigned()->index();
+            $table->foreign('catalog_level_2_id')->references('id')->on('catalog_level_2');
             $table->bigInteger('measure_id')->unsigned()->index()->nullable();
             $table->foreign('measure_id')->references('id')->on('measure');
             $table->bigInteger('country_id')->unsigned()->index();
@@ -44,6 +44,6 @@ class OfferTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('offer');
     }
 }

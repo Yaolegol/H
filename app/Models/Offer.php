@@ -13,7 +13,7 @@ class Offer extends Model
 
     public function catalog()
     {
-        return $this->belongsTo(Catalog::class);
+        return $this->belongsTo(CatalogLevel1::class);
     }
 
     public function measure()
@@ -21,8 +21,8 @@ class Offer extends Model
         return $this->belongsTo(Measure::class);
     }
 
-    public function seller()
+    public function user()
     {
-        return $this->belongsTo(Seller::class);
+        return $this->belongsTo(User::class);
     }
 }

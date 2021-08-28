@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Catalog;
+use App\Models\CatalogLevel1;
 use App\Models\City;
 use App\Models\Offer;
 use App\Models\Organization;
@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Hash;
 
 function getCatalog()
 {
-    return Catalog::all()->toArray();
+    return CatalogLevel1::all()->toArray();
 }
 
 function getCatalogBreadcrumbsLevel2($catalogFull, $catalogLevel2Link)
@@ -115,7 +115,7 @@ function getOfferBreadcrumbs()
 
 function getOffers($productLink, $searchCountry, $searchRegion, $searchCity)
 {
-    $catalogProduct = array_merge(...Catalog::where(['link' => $productLink, 'level' => 2])->get()->toArray());
+    $catalogProduct = array_merge(...CatalogLevel1::where(['link' => $productLink, 'level' => 2])->get()->toArray());
     $offers = Offer::where(['catalog_id' => $catalogProduct['id'], 'country_id' => $searchCountry, 'region_id' => $searchRegion, 'city_id' => $searchCity],)->with('catalog', 'seller', 'seller.region', 'measure')->get()->toArray();
 
     return setupOffers($offers);

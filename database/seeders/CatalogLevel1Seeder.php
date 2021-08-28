@@ -5,32 +5,26 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class SellerSeeder extends Seeder
+class CatalogLevel1Seeder extends Seeder
 {
     public $data = [
         [
             'image' => 'https://picsum.photos/200/300',
-            'name' => 'ИП 1',
+            'link' => 'meat',
             'order' => 1,
-            'user_id' => 1
+            'title' => 'Мясная продукция',
         ],
         [
             'image' => 'https://picsum.photos/200/300',
-            'name' => 'ИП 2',
-            'order' => 1,
-            'user_id' => 2
+            'link' => 'milk',
+            'order' => 2,
+            'title' => 'Молочная продукция',
         ],
         [
             'image' => 'https://picsum.photos/200/300',
-            'name' => 'ИП 3',
-            'order' => 1,
-            'user_id' => 3
-        ],
-        [
-            'image' => 'https://picsum.photos/200/300',
-            'name' => 'ИП 4',
-            'order' => 1,
-            'user_id' => 4
+            'link' => 'eggs',
+            'order' => 3,
+            'title' => 'Яйца',
         ],
     ];
 
@@ -42,7 +36,7 @@ class SellerSeeder extends Seeder
     public function run()
     {
         foreach ($this->data as $dataItem) {
-            DB::table('seller')->insert($dataItem);
+            DB::table('catalog_level_1')->insert($dataItem);
         }
     }
 }
