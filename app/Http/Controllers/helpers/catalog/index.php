@@ -8,6 +8,7 @@ use App\Models\SalePoint;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 function getCatalogLevelOne()
 {
@@ -229,6 +230,10 @@ function getUserDataFormatted()
 
     if($userDataFiltered['avatar'] === '') {
         $userDataFiltered['avatar'] = 'https://picsum.photos/200/300';
+    } else {
+        $path = str_replace('public/', '/', $userDataFiltered['avatar']);
+
+        $userDataFiltered['avatar'] = '/storage/' . $path;
     }
 
     return $userDataFiltered;
@@ -361,11 +366,19 @@ function tryChangeUserPersonalDataInDB($request)
         $name = $request->input('name');
         $phone = $request->input('phone');
         $visible_email = $request->input('visible_email');
+        $avatar = $request->file('avatar');
 
         $authUser = Auth::user();
         $authUser->name = $name;
         $authUser->phone = $phone;
         $authUser->visible_email = $visible_email;
+
+        $avatarName = $authUser['id'] . '.' . $avatar->extension();
+        $avatarPath = $avatar->storeAs(
+            '/public/avatars', $avatarName
+        );
+        $authUser->avatar = $avatarPath;
+
         $authUser->save();
 
         return true;

@@ -54,10 +54,10 @@
                         class="profile-personal-info__info-description profile-personal-info__info-description_with-offset">
                         <div class="profile-personal-info__input-container">
                             @include('components.inputs.file.index', [
-                                'name' => 'photo',
+                                'name' => 'avatar',
                             ])
                             @include('components.form.error.index', [
-                                'message' => $errors->first('photo'),
+                                'message' => $errors->first('avatar'),
                             ])
                         </div>
                     </div>
