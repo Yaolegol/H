@@ -219,13 +219,19 @@ function getSalePointsDataFormatted()
 function getUserDataFormatted()
 {
     $userData = Auth::user()->getAttributes();
-
-    return array_filter($userData, function ($key) {
-        return $key === 'name'
+    $userDataFiltered = array_filter($userData, function ($key) {
+        return $key === 'avatar'
+            || $key === 'name'
             || $key === 'visible_email'
             || $key === 'registration_email'
             || $key === 'phone';
     }, ARRAY_FILTER_USE_KEY);
+
+    if($userDataFiltered['avatar'] === '') {
+        $userDataFiltered['avatar'] = 'https://picsum.photos/200/300';
+    }
+
+    return $userDataFiltered;
 }
 
 function getUserOrganization($id)
