@@ -55,6 +55,7 @@
                         <div class="profile-personal-info__input-container">
                             @include('components.inputs.file.index', [
                                 'name' => 'avatar',
+                                'title' => 'Добавить фото',
                             ])
                             @include('components.form.error.index', [
                                 'message' => $errors->first('avatar'),

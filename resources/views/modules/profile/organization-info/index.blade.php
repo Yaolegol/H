@@ -76,17 +76,27 @@
                         'message' => $errors->first('phone-phone'),
                     ])
                 </div>
-                <div class="profile-organization-info__info-title">Свидетельства:</div>
-                <div class="profile-organization-info__input-container">
-                    @include('components.form.error.index', [
-                        'message' => $errors->first('organization-phone'),
-                    ])
+                <div class="profile-organization-info__info-title">
+                    <div class="profile-organization-info__input-container">
+                        @include('components.inputs.file.index', [
+                            'name' => 'certificate',
+                            'title' => 'Добавить свидетельства',
+                        ])
+                        @include('components.form.error.index', [
+                            'message' => $errors->first('avatar'),
+                        ])
+                    </div>
                 </div>
-                <div class="profile-organization-info__info-title">Фото:</div>
-                <div class="profile-organization-info__input-container">
-                    @include('components.form.error.index', [
-                        'message' => $errors->first('organization-phone'),
-                    ])
+                <div class="profile-organization-info__info-title">
+                    <div class="profile-organization-info__input-container">
+                        @include('components.inputs.file.index', [
+                            'name' => 'photo',
+                            'title' => 'Добавить фото',
+                        ])
+                        @include('components.form.error.index', [
+                            'message' => $errors->first('avatar'),
+                        ])
+                    </div>
                 </div>
                 <div class="profile-organization-info__send-button-container">
                     <button class="profile-organization-info__send-button">Сохранить</button>
