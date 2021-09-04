@@ -56,6 +56,7 @@
                             @include('components.inputs.file.item.index', [
                                 'name' => 'avatar',
                                 'title' => 'Добавить фото',
+                                'withPreviewFile' => true,
                             ])
                             @include('components.form.error.index', [
                                 'message' => $errors->first('avatar'),

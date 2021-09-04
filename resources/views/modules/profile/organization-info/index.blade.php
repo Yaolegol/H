@@ -92,6 +92,7 @@
                     <div class="profile-organization-info__info-title">
                         <div class="profile-organization-info__input-container">
                             @include('components.inputs.file.group.index', [
+                                'groupName' => 'certificate',
                                 'name' => 'certificate',
                                 'title' => 'Добавить свидетельство',
                             ])
@@ -108,29 +109,29 @@
                     ])
                 </form>
             </div>
-            <div class="profile-organization-info__section">
-                <h2>Фотографии организации</h2>
-                <form action="/profile/organization-info" method="POST">
-                    @csrf
-                    <div class="profile-organization-info__info-title">
-                        <div class="profile-organization-info__input-container">
-                            @include('components.inputs.file.group.index', [
-                                'name' => 'photo',
-                                'title' => 'Добавить фото',
-                            ])
-                            @include('components.form.error.index', [
-                                'message' => $errors->first('photo'),
-                            ])
-                        </div>
-                    </div>
-                    <div class="profile-organization-info__send-button-container">
-                        <button class="profile-organization-info__send-button">Сохранить</button>
-                    </div>
-                    @include('components.form.error.index', [
-                        'message' => session('commonError'),
-                    ])
-                </form>
-            </div>
+{{--            <div class="profile-organization-info__section">--}}
+{{--                <h2>Фотографии организации</h2>--}}
+{{--                <form action="/profile/organization-info" method="POST">--}}
+{{--                    @csrf--}}
+{{--                    <div class="profile-organization-info__info-title">--}}
+{{--                        <div class="profile-organization-info__input-container">--}}
+{{--                            @include('components.inputs.file.group.index', [--}}
+{{--                                'name' => 'photo',--}}
+{{--                                'title' => 'Добавить фото',--}}
+{{--                            ])--}}
+{{--                            @include('components.form.error.index', [--}}
+{{--                                'message' => $errors->first('photo'),--}}
+{{--                            ])--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="profile-organization-info__send-button-container">--}}
+{{--                        <button class="profile-organization-info__send-button">Сохранить</button>--}}
+{{--                    </div>--}}
+{{--                    @include('components.form.error.index', [--}}
+{{--                        'message' => session('commonError'),--}}
+{{--                    ])--}}
+{{--                </form>--}}
+{{--            </div>--}}
         </div>
     </div>
 </div>

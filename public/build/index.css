@@ -1855,6 +1855,30 @@ p {
   margin-top: 50px;
 }
 
+.inputs-file-item__image {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  height: 200px;
+  object-fit: contain;
+  width: 200px;
+}
+.inputs-file-item__image-section {
+  line-height: 0;
+}
+.inputs-file-item__input {
+  display: none;
+}
+.inputs-file-item__label {
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  cursor: pointer;
+  display: flex;
+  height: 55px;
+  justify-content: center;
+  width: 100%;
+}
+
+
 .profile-organization-info {
   display: flex;
 }
@@ -2109,29 +2133,6 @@ p {
   font-size: 16px;
   letter-spacing: 0.16px;
   line-height: 26px;
-}
-
-.inputs-file-item__image {
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  height: 200px;
-  object-fit: contain;
-  width: 200px;
-}
-.inputs-file-item__image-section {
-  line-height: 0;
-}
-.inputs-file-item__input {
-  display: none;
-}
-.inputs-file-item__label {
-  align-items: center;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 25px;
-  cursor: pointer;
-  display: flex;
-  height: 55px;
-  justify-content: center;
-  width: 100%;
 }
 
 .profile-personal-info {

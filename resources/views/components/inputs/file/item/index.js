@@ -6,6 +6,8 @@ class InputsFileItem {
         this.module = element;
         this.imageContainer = this.module.querySelector('.j-inputs-file-item__image-container');
         this.input = this.module.querySelector('.j-inputs-file-item__input');
+        this.withPreviewFile = this.module.hasAttribute('data-with-preview-file');
+        this.groupName = this.module.dataset.groupName;
 
         this.bind();
     }
@@ -14,7 +16,28 @@ class InputsFileItem {
         addEventListener(this.input, 'change', this.handleInputChange);
     }
 
-    addImageToHTML = (src) => {
+    handleInputChange = (e) => {
+        const file = e.target.files[0];
+
+        if(file) {
+            const src = URL.createObjectURL(file);
+
+            if(this.groupName) {
+                document.dispatchEvent(new CustomEvent('j-inputs-file-item__add-file', {
+                    detail: {
+                        fileSrc: src,
+                        groupName: this.groupName,
+                    }
+                }));
+            }
+
+            if(this.withPreviewFile) {
+                this.showFilePreview(src);
+            }
+        }
+    }
+
+    showFilePreview = (src) => {
         const image = `
             <img
                 alt=""
@@ -23,16 +46,7 @@ class InputsFileItem {
             >
         `;
 
-        this.imageContainer.innerHTML = ('beforeend', image);
-    }
-
-    handleInputChange = (e) => {
-        const file = e.target.files[0];
-
-        if(file) {
-            const src = URL.createObjectURL(file);
-            this.addImageToHTML(src);
-        }
+        this.imageContainer.innerHTML = image;
     }
 }
 
