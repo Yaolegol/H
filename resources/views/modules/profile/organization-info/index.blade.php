@@ -93,7 +93,7 @@
                         <div class="profile-organization-info__input-container">
                             @include('components.inputs.file.index', [
                                 'name' => 'certificate',
-                                'title' => 'Добавить свидетельства',
+                                'title' => 'Добавить свидетельство',
                             ])
                             @include('components.form.error.index', [
                                 'message' => $errors->first('avatar'),
