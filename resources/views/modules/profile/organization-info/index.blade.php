@@ -96,7 +96,7 @@
                                 'title' => 'Добавить свидетельство',
                             ])
                             @include('components.form.error.index', [
-                                'message' => $errors->first('avatar'),
+                                'message' => $errors->first('certificate'),
                             ])
                         </div>
                     </div>
@@ -119,7 +119,7 @@
                                 'title' => 'Добавить фото',
                             ])
                             @include('components.form.error.index', [
-                                'message' => $errors->first('avatar'),
+                                'message' => $errors->first('photo'),
                             ])
                         </div>
                     </div>
