@@ -23,7 +23,7 @@ class InputsFile {
             >
         `;
 
-        this.imageContainer.insertAdjacentHTML('afterbegin', image);
+        this.imageContainer.innerHTML = image;
     }
 
     handleInputChange = (e) => {
