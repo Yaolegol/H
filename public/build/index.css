@@ -2117,6 +2117,9 @@ p {
   object-fit: contain;
   width: 200px;
 }
+.inputs-file-item__image-section {
+  line-height: 0;
+}
 .inputs-file-item__input {
   display: none;
 }
