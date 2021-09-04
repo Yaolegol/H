@@ -1,4 +1,4 @@
-<div class="inputs-file">
+<div class="inputs-file j-inputs-file">
     <label class="inputs-file__label" for="file-input-{{$name}}">{{$title}}</label>
     <input
             class="inputs-file__input"
