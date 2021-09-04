@@ -1869,6 +1869,12 @@ p {
   margin-top: 25px;
   margin-left: 30px;
 }
+.profile-organization-info__section {
+  margin-top: 50px;
+}
+.profile-organization-info__section_without-offset {
+  margin-top: 0;
+}
 .profile-organization-info__send-button {
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 25px;
