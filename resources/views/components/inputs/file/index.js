@@ -23,7 +23,7 @@ class InputsFile {
             >
         `;
 
-        this.imageContainer.innerHTML = image;
+        this.imageContainer.innerHTML = ('beforeend', image);
     }
 
     handleInputChange = (e) => {
