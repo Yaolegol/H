@@ -1,6 +1,20 @@
 @import (reference) '~styles/colors';
 
 .inputs-file-item {
+    &.with-file {
+        display: flex;
+    }
+
+    &__buttons-section {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5px;
+    }
+
+    &__content-section {
+
+    }
+
     &__image {
         border: 1px solid @black_15;
         height: 200px;
@@ -8,12 +22,16 @@
         width: 200px;
     }
 
-    &__image-section {
+    &__image-container {
         line-height: 0;
     }
 
     &__input {
         display: none;
+    }
+
+    &__input-section {
+
     }
 
     &__label {
@@ -25,5 +43,9 @@
         height: 55px;
         justify-content: center;
         width: 100%;
+    }
+
+    &__remove-button {
+        color: @red;
     }
 }

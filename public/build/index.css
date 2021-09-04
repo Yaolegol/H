@@ -531,6 +531,9 @@ p {
   letter-spacing: 0.16px;
   line-height: 26px;
 }
+.hidden {
+  display: none;
+}
 
 .auth-login {
   display: flex;
@@ -810,6 +813,9 @@ p {
   font-size: 16px;
   letter-spacing: 0.16px;
   line-height: 26px;
+}
+.hidden {
+  display: none;
 }
 
 .breadcrumbs-item {
@@ -1100,6 +1106,9 @@ p {
   letter-spacing: 0.16px;
   line-height: 26px;
 }
+.hidden {
+  display: none;
+}
 
 @font-face {
   font-family: 'Lato';
@@ -1323,6 +1332,9 @@ p {
   font-size: 16px;
   letter-spacing: 0.16px;
   line-height: 26px;
+}
+.hidden {
+  display: none;
 }
 
 .offers-item {
@@ -1589,6 +1601,9 @@ p {
   letter-spacing: 0.16px;
   line-height: 26px;
 }
+.hidden {
+  display: none;
+}
 
 
 @font-face {
@@ -1814,6 +1829,9 @@ p {
   letter-spacing: 0.16px;
   line-height: 26px;
 }
+.hidden {
+  display: none;
+}
 
 .profile-layout__info-container {
   margin-top: 50px;
@@ -1855,13 +1873,21 @@ p {
   margin-top: 50px;
 }
 
+.inputs-file-item.with-file {
+  display: flex;
+}
+.inputs-file-item__buttons-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
 .inputs-file-item__image {
   border: 1px solid rgba(0, 0, 0, 0.15);
   height: 200px;
   object-fit: contain;
   width: 200px;
 }
-.inputs-file-item__image-section {
+.inputs-file-item__image-container {
   line-height: 0;
 }
 .inputs-file-item__input {
@@ -1876,6 +1902,9 @@ p {
   height: 55px;
   justify-content: center;
   width: 100%;
+}
+.inputs-file-item__remove-button {
+  color: #FF0000;
 }
 
 
@@ -2134,6 +2163,9 @@ p {
   letter-spacing: 0.16px;
   line-height: 26px;
 }
+.hidden {
+  display: none;
+}
 
 .profile-personal-info {
   display: flex;
@@ -2170,9 +2202,6 @@ p {
   padding-bottom: 100%;
   position: relative;
 }
-.profile-personal-info__info-description_with-offset {
-  margin-top: 50px;
-}
 .profile-personal-info__info-title {
   margin-top: 25px;
   margin-left: 30px;
@@ -2180,7 +2209,7 @@ p {
 .profile-personal-info__input-container {
   margin-top: 5px;
 }
-.profile-personal-info__registration-data-container {
+.profile-personal-info__section-container {
   margin-top: 50px;
 }
 .profile-personal-info__send-button {
@@ -2417,6 +2446,9 @@ p {
   font-size: 16px;
   letter-spacing: 0.16px;
   line-height: 26px;
+}
+.hidden {
+  display: none;
 }
 
 .inputs-radio-item__category-input {
@@ -2725,6 +2757,9 @@ p {
   letter-spacing: 0.16px;
   line-height: 26px;
 }
+.hidden {
+  display: none;
+}
 
 .profile--sale-offers--index__create-link {
   background-color: #e34132;
@@ -2964,6 +2999,9 @@ p {
   font-size: 16px;
   letter-spacing: 0.16px;
   line-height: 26px;
+}
+.hidden {
+  display: none;
 }
 
 .profile-sale-points-info-sale-point__info-title {
@@ -3218,5 +3256,8 @@ p {
   font-size: 16px;
   letter-spacing: 0.16px;
   line-height: 26px;
+}
+.hidden {
+  display: none;
 }
 
