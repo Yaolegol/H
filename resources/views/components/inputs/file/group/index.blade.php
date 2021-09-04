@@ -1,11 +1,9 @@
-<div
-    class="inputs-file-group j-inputs-file-group"
-    data-group-name="{{$groupName}}"
->
-    <div class="inputs-file-group__image-list-container j-inputs-file-group__image-list-container"></div>
-    @include('components.inputs.file.item.index', [
-        'groupName' => $groupName,
-        'name' => 'photo',
-        'title' => 'Добавить фото',
-   ])
+<div class="inputs-file-group j-inputs-file-group">
+    @for ($i = 0; $i < $fileInputsCount; $i++)
+        @include('components.inputs.file.item.index', [
+            'name' => 'photo' . '_' . $i,
+            'title' => 'Добавить фото',
+            'withPreviewFile' => true,
+        ])
+    @endfor
 </div>

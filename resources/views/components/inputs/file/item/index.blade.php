@@ -1,6 +1,5 @@
 <div
     class="inputs-file-item j-inputs-file-item"
-    data-group-name="{{$groupName ?? ''}}"
     @if($withPreviewFile ?? false)
         data-with-preview-file
     @endif

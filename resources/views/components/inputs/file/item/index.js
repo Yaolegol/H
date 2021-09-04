@@ -11,9 +11,20 @@ class InputsFileItem {
         this.changeFileButton = this.module.querySelector('.j-inputs-file-item__change-file-button');
         this.removeFileButton = this.module.querySelector('.j-inputs-file-item__remove-file-button');
         this.withPreviewFile = this.module.hasAttribute('data-with-preview-file');
-        this.groupName = this.module.dataset.groupName;
 
         this.bind();
+    }
+
+    addFilePreview = (src) => {
+        const image = `
+            <img
+                alt=""
+                class="inputs-file-item__image"
+                src="${src}"
+            >
+        `;
+
+        this.imageContainer.innerHTML = image;
     }
 
     bind = () => {
@@ -29,21 +40,15 @@ class InputsFileItem {
     handleInputChange = (e) => {
         const file = e.target.files[0];
 
-        if(file) {
-            const src = URL.createObjectURL(file);
-
-            if(this.groupName) {
-                this.notify(src);
-            }
-
-            if(this.withPreviewFile) {
-                this.showFilePreview(src);
-            }
-
-            this.showContent();
-        } else {
-            if(e.target.files.length === 0) {
-                this.hideContent();
+        if (this.withPreviewFile) {
+            if (file) {
+                const src = URL.createObjectURL(file);
+                this.addFilePreview(src);
+                this.showContent();
+            } else {
+                if (e.target.files.length === 0) {
+                    this.hideContent();
+                }
             }
         }
     }
@@ -59,31 +64,10 @@ class InputsFileItem {
         this.inputSection.classList.remove('hidden');
     }
 
-    notify = (src) => {
-        document.dispatchEvent(new CustomEvent('j-inputs-file-item__add-file', {
-            detail: {
-                fileSrc: src,
-                groupName: this.groupName,
-            }
-        }));
-    }
-
     showContent = () => {
         this.module.classList.add('with-file');
         this.contentSection.classList.remove('hidden');
         this.inputSection.classList.add('hidden');
-    }
-
-    showFilePreview = (src) => {
-        const image = `
-            <img
-                alt=""
-                class="inputs-file-item__image"
-                src="${src}"
-            >
-        `;
-
-        this.imageContainer.innerHTML = image;
     }
 }
 

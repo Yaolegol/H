@@ -92,7 +92,7 @@
                     <div class="profile-organization-info__info-title">
                         <div class="profile-organization-info__input-container">
                             @include('components.inputs.file.group.index', [
-                                'groupName' => 'certificate',
+                                'fileInputsCount' => 5,
                                 'name' => 'certificate',
                                 'title' => 'Добавить свидетельство',
                             ])
