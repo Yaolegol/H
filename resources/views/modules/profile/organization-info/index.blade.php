@@ -91,7 +91,7 @@
                     @csrf
                     <div class="profile-organization-info__info-title">
                         <div class="profile-organization-info__input-container">
-                            @include('components.inputs.file.index', [
+                            @include('components.inputs.file.group.index', [
                                 'name' => 'certificate',
                                 'title' => 'Добавить свидетельство',
                             ])
@@ -114,7 +114,7 @@
                     @csrf
                     <div class="profile-organization-info__info-title">
                         <div class="profile-organization-info__input-container">
-                            @include('components.inputs.file.index', [
+                            @include('components.inputs.file.group.index', [
                                 'name' => 'photo',
                                 'title' => 'Добавить фото',
                             ])

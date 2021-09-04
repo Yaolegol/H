@@ -2111,16 +2111,16 @@ p {
   line-height: 26px;
 }
 
-.inputs-file__image {
+.inputs-file-item__image {
   border: 1px solid rgba(0, 0, 0, 0.15);
   height: 200px;
   object-fit: contain;
   width: 200px;
 }
-.inputs-file__input {
+.inputs-file-item__input {
   display: none;
 }
-.inputs-file__label {
+.inputs-file-item__label {
   align-items: center;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 25px;

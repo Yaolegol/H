@@ -53,7 +53,7 @@
                     <div
                         class="profile-personal-info__info-description profile-personal-info__info-description_with-offset">
                         <div class="profile-personal-info__input-container">
-                            @include('components.inputs.file.index', [
+                            @include('components.inputs.file.item.index', [
                                 'name' => 'avatar',
                                 'title' => 'Добавить фото',
                             ])
