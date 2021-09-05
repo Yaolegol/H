@@ -1,9 +1,11 @@
 <div class="inputs-file-group j-inputs-file-group">
-    @for ($i = 0; $i < $fileInputsCount; $i++)
-        @include('components.inputs.file.item.index', [
-            'name' => 'photo' . '_' . $i,
-            'title' => 'Добавить фото',
-            'withPreviewFile' => true,
-        ])
+    @for ($i = 1; $i <= $fileInputsCount; $i++)
+        <div class="inputs-file-group__item-container">
+            @include('components.inputs.file.item.index', [
+                'name' => $name . '_' . $i,
+                'title' => $title . ' №' . $i,
+                'withPreviewFile' => true,
+            ])
+        </div>
     @endfor
 </div>

@@ -1910,8 +1910,8 @@ p {
   color: #FF0000;
 }
 
-.inputs-file-group {
-  display: flex;
+.inputs-file-group__item-container {
+  margin-top: 10px;
 }
 
 .profile-organization-info {
@@ -1930,6 +1930,9 @@ p {
 }
 .profile-organization-info__section {
   margin-top: 50px;
+}
+.profile-organization-info__section_add-file {
+  margin-top: 15px;
 }
 .profile-organization-info__section_without-offset {
   margin-top: 0;
