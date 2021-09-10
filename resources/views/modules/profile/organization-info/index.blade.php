@@ -116,7 +116,7 @@
                     <div class="profile-organization-info__section profile-organization-info__section_add-file">
                         <div class="profile-organization-info__input-container">
                             @include('components.inputs.file.group.index', [
-                                'fileInputsCount' => 5,
+                                'fileInputsCount' => 3,
                                 'name' => 'photo',
                                 'title' => 'Добавить фото',
                             ])
