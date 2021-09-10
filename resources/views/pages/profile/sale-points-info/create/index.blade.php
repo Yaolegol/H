@@ -2,7 +2,7 @@
 
 @section('layout-content')
     @include('modules.header.catalog.index')
-    @include('modules.profile.layout.index', [$section = 'sale-points-info'])
+    @include('modules.profile.layout.index', [$section = 'sale-points-info/create'])
 @endsection
 
 @section('layout-scripts')

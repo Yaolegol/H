@@ -8,4 +8,5 @@ import 'views/pages/profile/organization-info';
 import 'views/pages/profile/personal-info';
 import 'views/pages/profile/sale-offers/create';
 import 'views/pages/profile/sale-offers/index';
-import 'views/pages/profile/sale-points-info';
+import 'views/pages/profile/sale-points-info/create';
+import 'views/pages/profile/sale-points-info/index';

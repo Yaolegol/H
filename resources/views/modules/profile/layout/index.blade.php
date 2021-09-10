@@ -24,7 +24,8 @@
             <div
                 class="profile-layout__tab-item-container">
                 <a
-                    class="profile-layout__tab-button {{$section === 'sale-points-info' ? 'profile-layout__tab-button_active' : '' }}"
+                    class="profile-layout__tab-button
+                    {{$section === 'sale-points-info/index' || $section === 'sale-points-info/create' ? 'profile-layout__tab-button_active' : '' }}"
                     href="/profile/sale-points-info"
                 >
                     Информация о торговых точках
@@ -43,20 +44,23 @@
         </div>
     </div>
     <div class="profile-layout__info-container">
-        @if($section === 'personal-info')
-            @include('modules.profile.personal-info.index')
-        @endif
         @if($section === 'organization-info')
             @include('modules.profile.organization-info.index')
         @endif
-        @if($section === 'sale-points-info')
-            @include('modules.profile.sale-points-info.index')
+        @if($section === 'personal-info')
+            @include('modules.profile.personal-info.index')
+        @endif
+        @if($section === 'sale-offers/create')
+            @include('modules.profile.sale-offers.create.index')
         @endif
         @if($section === 'sale-offers/index')
             @include('modules.profile.sale-offers.index.index')
         @endif
-        @if($section === 'sale-offers/create')
-            @include('modules.profile.sale-offers.create.index')
+        @if($section === 'sale-points-info/create')
+            @include('modules.profile.sale-points-info.create.index')
+        @endif
+        @if($section === 'sale-points-info/index')
+            @include('modules.profile.sale-points-info.index.index')
         @endif
     </div>
 </div>
