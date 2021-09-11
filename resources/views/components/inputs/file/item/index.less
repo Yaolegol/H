@@ -1,7 +1,7 @@
 @import (reference) '~styles/colors';
 
 .inputs-file-item {
-    &.with-file {
+    &_with-image {
         display: flex;
     }
 
@@ -12,7 +12,11 @@
     }
 
     &__content-section {
+        display: none;
 
+        .inputs-file-item_with-image & {
+            display: block;
+        }
     }
 
     &__image {
@@ -31,7 +35,9 @@
     }
 
     &__input-section {
-
+        .inputs-file-item_with-image & {
+            display: none;
+        }
     }
 
     &__label {

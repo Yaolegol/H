@@ -1,11 +1,25 @@
 <div
-    class="inputs-file-item j-inputs-file-item"
+    class="
+        inputs-file-item
+        @if($imageSrc ?? false)
+            inputs-file-item_with-image
+        @endif
+        j-inputs-file-item
+    "
     @if($withPreviewFile ?? false)
         data-with-preview-file
     @endif
 >
-    <div class="inputs-file-item__content-section hidden j-inputs-file-item__content-section">
-        <div class="inputs-file-item__image-container j-inputs-file-item__image-container"></div>
+    <div class="inputs-file-item__content-section j-inputs-file-item__content-section">
+        <div class="inputs-file-item__image-container j-inputs-file-item__image-container">
+            @if($imageSrc ?? false)
+                <img
+                    alt=""
+                    class="inputs-file-item__image"
+                    src="{{$imageSrc}}"
+                >
+            @endif
+        </div>
         <div class="inputs-file-item__buttons-section">
             <button
                 class="j-inputs-file-item__change-file-button"

@@ -233,10 +233,12 @@ function getUserDataFormatted()
     if($userDataFiltered['avatar'] === '') {
         $userDataFiltered['avatar'] = 'https://picsum.photos/200/300';
     } else {
-        $path = str_replace('public/', '/', $userDataFiltered['avatar']);
+        $path = str_replace('public/', '', $userDataFiltered['avatar']);
 
         $userDataFiltered['avatar'] = '/storage/' . $path;
     }
+
+//    dd($userDataFiltered);
 
     return $userDataFiltered;
 }
@@ -448,24 +450,59 @@ function tryChangeUserPasswordInDB($request)
     }
 }
 
+function removeUserAvatarFromStorage($userId) {
+    $oldAvatarsArray = File::glob(storage_path() . '/app/public/users/' . $userId . '/avatar/*');
+    File::delete($oldAvatarsArray);
+}
+
+function saveAuthUserAvatarInDB($avatar) {
+    $authUser = Auth::user();
+    $authUserId = $authUser->id;
+
+    $avatarName = $authUserId . '.' . $avatar->extension();
+    $avatarPath = $avatar->storeAs(
+        '/public/users/1/avatar', $avatarName
+    );
+    $authUser->avatar = $avatarPath;
+}
+
+function clearAuthUserAvatarInDB() {
+    $authUser = Auth::user();
+
+    $authUser->avatar = '';
+}
+
+function updateUserAvatar($request) {
+    $authUser = Auth::user();
+    $authUserId = $authUser->id;
+    $avatar = $request->file('avatar');
+
+    if($avatar) {
+        removeUserAvatarFromStorage($authUserId);
+        saveAuthUserAvatarInDB($avatar);
+    } else {
+        $isRemoveAvatar = $request->has('remove_avatar');
+
+        if($isRemoveAvatar) {
+            removeUserAvatarFromStorage($authUserId);
+            clearAuthUserAvatarInDB();
+        }
+    }
+}
+
 function tryChangeUserPersonalDataInDB($request)
 {
     try {
         $name = $request->input('name');
         $phone = $request->input('phone');
         $visible_email = $request->input('visible_email');
-        $avatar = $request->file('avatar');
 
         $authUser = Auth::user();
         $authUser->name = $name;
         $authUser->phone = $phone;
         $authUser->visible_email = $visible_email;
 
-        $avatarName = $authUser['id'] . '.' . $avatar->extension();
-        $avatarPath = $avatar->storeAs(
-            '/public/avatars', $avatarName
-        );
-        $authUser->avatar = $avatarPath;
+        updateUserAvatar($request);
 
         $authUser->save();
 

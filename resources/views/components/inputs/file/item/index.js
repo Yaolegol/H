@@ -6,8 +6,6 @@ class InputsFileItem {
         this.module = element;
         this.imageContainer = this.module.querySelector('.j-inputs-file-item__image-container');
         this.input = this.module.querySelector('.j-inputs-file-item__input');
-        this.contentSection = this.module.querySelector('.j-inputs-file-item__content-section');
-        this.inputSection = this.module.querySelector('.j-inputs-file-item__input-section');
         this.changeFileButton = this.module.querySelector('.j-inputs-file-item__change-file-button');
         this.removeFileButton = this.module.querySelector('.j-inputs-file-item__remove-file-button');
         this.withPreviewFile = this.module.hasAttribute('data-with-preview-file');
@@ -59,15 +57,11 @@ class InputsFileItem {
     }
 
     hideContent = () => {
-        this.module.classList.remove('with-file');
-        this.contentSection.classList.add('hidden');
-        this.inputSection.classList.remove('hidden');
+        this.module.classList.remove('inputs-file-item_with-image');
     }
 
     showContent = () => {
-        this.module.classList.add('with-file');
-        this.contentSection.classList.remove('hidden');
-        this.inputSection.classList.add('hidden');
+        this.module.classList.add('inputs-file-item_with-image');
     }
 }
 

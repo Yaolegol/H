@@ -1873,13 +1873,19 @@ p {
   margin-top: 50px;
 }
 
-.inputs-file-item.with-file {
+.inputs-file-item_with-image {
   display: flex;
 }
 .inputs-file-item__buttons-section {
   display: flex;
   justify-content: space-between;
   margin-top: 5px;
+}
+.inputs-file-item__content-section {
+  display: none;
+}
+.inputs-file-item_with-image .inputs-file-item__content-section {
+  display: block;
 }
 .inputs-file-item__image {
   border: 1px solid rgba(0, 0, 0, 0.15);
@@ -1891,6 +1897,9 @@ p {
   line-height: 0;
 }
 .inputs-file-item__input {
+  display: none;
+}
+.inputs-file-item_with-image .inputs-file-item__input-section {
   display: none;
 }
 .inputs-file-item__label {
@@ -2217,6 +2226,9 @@ p {
 }
 .profile-personal-info__input-container {
   margin-top: 5px;
+}
+.profile-personal-info__photo-block {
+  margin-top: 25px;
 }
 .profile-personal-info__section-container {
   margin-top: 50px;

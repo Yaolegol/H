@@ -9,7 +9,11 @@
             <div class="profile-personal-info__personal-data-container">
                 <h2>Личные данные</h2>
                 <div>(отображаются для других пользователей)</div>
-                <form action="/profile/personal-info" method="POST">
+                <form
+                    action="/profile/personal-info"
+                    enctype="multipart/form-data"
+                    method="POST"
+                >
                     @csrf
                     <input name="form-section" type="hidden" value="change-personal-data">
                     <div class="profile-personal-info__info-title">Ваше имя:</div>
@@ -50,22 +54,11 @@
                             ])
                         </div>
                     </div>
-                    <div class="profile-personal-info__send-button-container">
-                        <button class="profile-personal-info__send-button">Сохранить</button>
-                    </div>
-                    @include('components.form.error.index', [
-                        'message' => session('commonError'),
-                    ])
-                </form>
-                <div class="profile-personal-info__section-container">
-                    <h2>Ваше фото</h2>
-                    <form action="/profile/personal-info" enctype="multipart/form-data" method="POST">
-                        @csrf
-                        <input name="form-section" type="hidden" value="change-photo">
-                        <div
-                            class="profile-personal-info__info-description">
+                    <div class="profile-personal-info__photo-block">
+                        <div class="profile-personal-info__info-description">
                             <div class="profile-personal-info__input-container">
                                 @include('components.inputs.file.item.index', [
+                                    'imageSrc' => $userData['avatar'],
                                     'name' => 'avatar',
                                     'title' => 'Добавить фото',
                                     'withPreviewFile' => true,
@@ -75,14 +68,14 @@
                                 ])
                             </div>
                         </div>
-                        <div class="profile-personal-info__send-button-container">
-                            <button class="profile-personal-info__send-button">Сохранить</button>
-                        </div>
-                        @include('components.form.error.index', [
-                            'message' => session('commonError'),
-                        ])
-                    </form>
-                </div>
+                    </div>
+                    <div class="profile-personal-info__send-button-container">
+                        <button class="profile-personal-info__send-button">Сохранить</button>
+                    </div>
+                    @include('components.form.error.index', [
+                        'message' => session('commonError'),
+                    ])
+                </form>
             </div>
             <div class="profile-personal-info__section-container">
                 <h2>Регистрационные данные</h2>
