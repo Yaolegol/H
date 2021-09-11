@@ -230,15 +230,11 @@ function getUserDataFormatted()
             || $key === 'phone';
     }, ARRAY_FILTER_USE_KEY);
 
-    if($userDataFiltered['avatar'] === '') {
-        $userDataFiltered['avatar'] = 'https://picsum.photos/200/300';
-    } else {
+    if($userDataFiltered['avatar'] !== '') {
         $path = str_replace('public/', '', $userDataFiltered['avatar']);
 
         $userDataFiltered['avatar'] = '/storage/' . $path;
     }
-
-//    dd($userDataFiltered);
 
     return $userDataFiltered;
 }

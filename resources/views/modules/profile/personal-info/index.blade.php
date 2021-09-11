@@ -1,7 +1,7 @@
 <div class="profile-personal-info">
     <div class="profile-personal-info__image-block">
         <div class="profile-personal-info__image-container">
-            <img alt="Photo" class="profile-personal-info__image" src="{{$userData['avatar']}}">
+            <img alt="Photo" class="profile-personal-info__image" src="{{$userData['avatar'] ? $userData['avatar'] : 'https://picsum.photos/200/300'}}">
         </div>
     </div>
     <div class="profile-personal-info__content-block">

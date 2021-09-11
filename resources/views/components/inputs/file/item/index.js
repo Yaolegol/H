@@ -6,6 +6,7 @@ class InputsFileItem {
         this.module = element;
         this.imageContainer = this.module.querySelector('.j-inputs-file-item__image-container');
         this.input = this.module.querySelector('.j-inputs-file-item__input');
+        this.inputName = this.input.name;
         this.changeFileButton = this.module.querySelector('.j-inputs-file-item__change-file-button');
         this.removeFileButton = this.module.querySelector('.j-inputs-file-item__remove-file-button');
         this.withPreviewFile = this.module.hasAttribute('data-with-preview-file');
@@ -23,6 +24,14 @@ class InputsFileItem {
         `;
 
         this.imageContainer.innerHTML = image;
+    }
+
+    addRemoveInput = () => {
+        const input = `
+            <input name="remove_${this.inputName}" />
+        `;
+
+        this.module.insertAdjacentHTML('afterbegin', input);
     }
 
     bind = () => {
@@ -54,6 +63,7 @@ class InputsFileItem {
     handleRemoveFileButtonClick = (e) => {
         this.input.value = '';
         this.hideContent();
+        this.addRemoveInput();
     }
 
     hideContent = () => {
