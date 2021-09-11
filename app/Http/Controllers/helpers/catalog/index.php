@@ -7,8 +7,10 @@ use App\Models\Organization;
 use App\Models\SalePoint;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Request;
 
 function getCatalogLevelOne()
 {
@@ -268,10 +270,87 @@ function setOffersLink($offers)
     }, $offers);
 }
 
+function updateOrganizationCertificates($request) {
+    $authUser = Auth::user();
+    $certificateArray = [];
+
+    $certificateInputsIteration = 1;
+    while ($certificateInputsIteration <= 5) {
+        $certificateDBColumn = 'certificate_' . $certificateInputsIteration;
+        $certificate = $request->file('certificate' . '_' . $certificateInputsIteration) ?? '';
+
+        if($certificate) {
+            $certificateName = $authUser['id'] . '_' . '1' . '.' . $certificate->extension();
+
+            $certificatePath = $certificate->storeAs(
+                '/public/certificate', $certificateName
+            );
+
+            array_push($certificateArray, [
+                $certificateDBColumn => $certificatePath
+            ]);
+        } else {
+            $remove_certificate_file_name = $request->input('remove_certificate_' . $certificateInputsIteration) ?? '';
+
+            if($remove_certificate_file_name) {
+                $path = '/public/certificate/' . $authUser['id'] . '_' . $remove_certificate_file_name;
+                Storage::delete($path);
+
+                array_push($certificateArray, [
+                    $certificateDBColumn => ''
+                ]);
+            }
+        }
+
+        $certificateInputsIteration++;
+    }
+
+    return $certificateArray;
+}
+
+function updateOrganizationPhotos($request) {
+    $authUser = Auth::user();
+    $photosArray = [];
+
+    $photoInputsIteration = 1;
+    while ($photoInputsIteration <= 3) {
+        $photoDBColumn = 'photo_' . $photoInputsIteration;
+        $photo = $request->file('photo' . '_' . $photoInputsIteration) ?? '';
+
+        if($photo) {
+            $photoName = $authUser['id'] . '_' . '1' . '.' . $photo->extension();
+
+            $photoPath = $photo->storeAs(
+                '/public/photo', $photoName
+            );
+
+            array_push($photosArray, [
+                $photoDBColumn => $photoPath
+            ]);
+        } else {
+            $remove_photo_file_name = $request->input('remove_photo_' . $photoInputsIteration) ?? '';
+
+            if($remove_photo_file_name) {
+                $path = '/public/photo/' . $authUser['id'] . '_' . $remove_photo_file_name;
+                Storage::delete($path);
+
+                array_push($photosArray, [
+                    $photoDBColumn => ''
+                ]);
+            }
+        }
+
+        $photoInputsIteration++;
+    }
+
+    return $photosArray;
+}
+
 function tryChangeOrganizationDataInDB($request)
 {
     try {
         $authUser = Auth::user();
+        $authUserId = $authUser->id;
 
         $title = $request->input('title') ?? '';
         $inn = $request->input('inn') ?? '';
@@ -279,10 +358,11 @@ function tryChangeOrganizationDataInDB($request)
         $real_address = $request->input('real_address') ?? '';
         $email = $request->input('email') ?? '';
         $phone = $request->input('phone') ?? '';
-        $user_id = $authUser->id;
 
-        Organization::updateOrCreate(
-            ['user_id' => $user_id],
+        $newCertificates = updateOrganizationCertificates($request);
+        $newPhotos = updateOrganizationPhotos($request);
+
+        $newOrganizationData = array_merge(
             [
                 'title' => $title,
                 'inn' => $inn,
@@ -290,8 +370,16 @@ function tryChangeOrganizationDataInDB($request)
                 'real_address' => $real_address,
                 'email' => $email,
                 'phone' => $phone,
-                'user_id' => $user_id,
-            ]);
+                'user_id' => $authUserId,
+            ],
+            ...$newCertificates,
+            ...$newPhotos
+        );
+
+        Organization::updateOrCreate(
+            ['user_id' => $authUserId],
+            $newOrganizationData,
+        );
 
         return true;
     } catch (\Exception $error) {

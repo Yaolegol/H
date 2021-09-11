@@ -15,12 +15,20 @@ class OrganizationTable extends Migration
     {
         Schema::create('organization', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('inn');
-            $table->string('legal_address');
-            $table->string('real_address');
-            $table->string('email');
-            $table->string('phone');
+            $table->string('title')->nullable();
+            $table->string('inn')->nullable();
+            $table->string('legal_address')->nullable();
+            $table->string('real_address')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('certificate_1')->nullable();
+            $table->string('certificate_2')->nullable();
+            $table->string('certificate_3')->nullable();
+            $table->string('certificate_4')->nullable();
+            $table->string('certificate_5')->nullable();
+            $table->string('photo_1')->nullable();
+            $table->string('photo_2')->nullable();
+            $table->string('photo_3')->nullable();
             $table->bigInteger('user_id')->unsigned()->index()->unique();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

@@ -3,8 +3,13 @@
         <div class="profile-organization-info__organization-data-container">
             <div class="profile-organization-info__section profile-organization-info__section_without-offset">
                 <h2>Общая информация об организации</h2>
-                <form action="/profile/organization-info" method="POST">
+                <form
+                    action="/profile/organization-info"
+                    enctype="multipart/form-data"
+                    method="POST"
+                >
                     @csrf
+                    <input name="section" type="hidden" value="info">
                     <div class="profile-organization-info__info-title">Наименование:</div>
                     <div class="profile-organization-info__input-container">
                         @include('components.inputs.form.index', [
@@ -77,60 +82,45 @@
                             'message' => $errors->first('phone-phone'),
                         ])
                     </div>
-                    <div class="profile-organization-info__send-button-container">
-                        <button class="profile-organization-info__send-button">Сохранить</button>
+                    <div class="profile-organization-info__section">
+                        <h2>Свидетельтва, выданные организации</h2>
+                        <div class="profile-organization-info__section profile-organization-info__section_add-file">
+                            <div class="profile-organization-info__input-container">
+                                @include('components.inputs.file.group.index', [
+                                    'fileInputsCount' => 5,
+                                    'name' => 'certificate',
+                                    'title' => 'Добавить свидетельство',
+                                ])
+                                @include('components.form.error.index', [
+                                    'message' => $errors->first('certificate'),
+                                ])
+                            </div>
+                        </div>
+                        @include('components.form.error.index', [
+                            'message' => session('commonError'),
+                        ])
                     </div>
-                    @include('components.form.error.index', [
-                        'message' => session('commonError'),
-                    ])
-                </form>
-            </div>
-            <div class="profile-organization-info__section">
-                <h2>Свидетельтва, выданные организации</h2>
-                <form action="/profile/organization-info" method="POST">
-                    @csrf
-                    <div class="profile-organization-info__section profile-organization-info__section_add-file">
-                        <div class="profile-organization-info__input-container">
-                            @include('components.inputs.file.group.index', [
-                                'fileInputsCount' => 5,
-                                'name' => 'certificate',
-                                'title' => 'Добавить свидетельство',
-                            ])
-                            @include('components.form.error.index', [
-                                'message' => $errors->first('certificate'),
-                            ])
+                    <div class="profile-organization-info__section">
+                        <h2>Фотографии организации</h2>
+                        <div class="profile-organization-info__section profile-organization-info__section_add-file">
+                            <div class="profile-organization-info__input-container">
+                                @include('components.inputs.file.group.index', [
+                                    'fileInputsCount' => 3,
+                                    'name' => 'photo',
+                                    'title' => 'Добавить фото',
+                                ])
+                                @include('components.form.error.index', [
+                                    'message' => $errors->first('photo'),
+                                ])
+                            </div>
                         </div>
                     </div>
-                    <div class="profile-organization-info__send-button-container">
-                        <button class="profile-organization-info__send-button">Сохранить</button>
-                    </div>
                     @include('components.form.error.index', [
                         'message' => session('commonError'),
                     ])
-                </form>
-            </div>
-            <div class="profile-organization-info__section">
-                <h2>Фотографии организации</h2>
-                <form action="/profile/organization-info" method="POST">
-                    @csrf
-                    <div class="profile-organization-info__section profile-organization-info__section_add-file">
-                        <div class="profile-organization-info__input-container">
-                            @include('components.inputs.file.group.index', [
-                                'fileInputsCount' => 3,
-                                'name' => 'photo',
-                                'title' => 'Добавить фото',
-                            ])
-                            @include('components.form.error.index', [
-                                'message' => $errors->first('photo'),
-                            ])
-                        </div>
-                    </div>
                     <div class="profile-organization-info__send-button-container">
                         <button class="profile-organization-info__send-button">Сохранить</button>
                     </div>
-                    @include('components.form.error.index', [
-                        'message' => session('commonError'),
-                    ])
                 </form>
             </div>
         </div>

@@ -23,6 +23,14 @@ class Organization extends Model
         'real_address',
         'email',
         'phone',
+        'certificate_1',
+        'certificate_2',
+        'certificate_3',
+        'certificate_4',
+        'certificate_5',
+        'photo_1',
+        'photo_2',
+        'photo_3',
         'user_id',
     ];
 }
