@@ -173,12 +173,52 @@ function getOrganizationDataFormatted()
         'real_address' => '',
         'email' => '',
         'phone' => '',
+        'certificate_1' => '',
+        'certificate_2' => '',
+        'certificate_3' => '',
+        'certificate_4' => '',
+        'certificate_5' => '',
+        'photo_1' => '',
+        'photo_2' => '',
+        'photo_3' => '',
     );
 
     $authUser = Auth::user();
     $authUserId = $authUser->id;
 
-    return array_merge($defaultOrganizationData, ...getUserOrganization($authUserId));
+    $userOrganizationData = getUserOrganization($authUserId);
+    $userOrganizationDataFormatted = array_merge($defaultOrganizationData, ...$userOrganizationData);
+
+    $certificateInputsIteration = 1;
+    while ($certificateInputsIteration <= 5) {
+        $currentCertificateName = 'certificate_' . $certificateInputsIteration;
+        $currentCertificateValue = $userOrganizationDataFormatted[$currentCertificateName];
+
+        if($currentCertificateValue) {
+            $path = str_replace('public/', '', $currentCertificateValue);
+
+            $userOrganizationDataFormatted[$currentCertificateName] = '/storage/' . $path;
+        }
+
+        $certificateInputsIteration++;
+    }
+
+    $photoInputsIteration = 1;
+    while ($photoInputsIteration <= 3) {
+        $currentPhotoName = 'photo_' . $photoInputsIteration;
+        $currentPhotoValue = $userOrganizationDataFormatted[$currentPhotoName];
+
+        if($currentPhotoValue) {
+            $path = str_replace('public/', '', $currentPhotoValue);
+
+            $userOrganizationDataFormatted[$currentPhotoName] = '/storage/' . $path;
+        }
+
+        $photoInputsIteration++;
+    }
+
+
+    return $userOrganizationDataFormatted;
 }
 
 function getSalePointsDataFormatted()
@@ -270,6 +310,7 @@ function setOffersLink($offers)
 
 function updateOrganizationCertificates($request) {
     $authUser = Auth::user();
+    $authUserId = $authUser['id'];
     $certificateArray = [];
 
     $certificateInputsIteration = 1;
@@ -278,21 +319,21 @@ function updateOrganizationCertificates($request) {
         $certificate = $request->file('certificate' . '_' . $certificateInputsIteration) ?? '';
 
         if($certificate) {
-            $certificateName = $authUser['id'] . '_' . '1' . '.' . $certificate->extension();
+            $certificateName = $authUserId . '_' . $certificateInputsIteration . '.' . $certificate->extension();
 
             $certificatePath = $certificate->storeAs(
-                '/public/certificate', $certificateName
+                '/public/users/1/certificate', $certificateName
             );
 
             array_push($certificateArray, [
                 $certificateDBColumn => $certificatePath
             ]);
         } else {
-            $remove_certificate_file_name = $request->input('remove_certificate_' . $certificateInputsIteration) ?? '';
+            $remove_certificate_file_name = $request->has('remove_certificate_' . $certificateInputsIteration) ?? false;
 
             if($remove_certificate_file_name) {
-                $path = '/public/certificate/' . $authUser['id'] . '_' . $remove_certificate_file_name;
-                Storage::delete($path);
+                $oldAvatarsArray = File::glob(storage_path() . '/app/public/users/' . $authUserId . '/photo/' . $authUserId . '_' . $certificateInputsIteration . '.*');
+                File::delete($oldAvatarsArray);
 
                 array_push($certificateArray, [
                     $certificateDBColumn => ''
@@ -308,6 +349,7 @@ function updateOrganizationCertificates($request) {
 
 function updateOrganizationPhotos($request) {
     $authUser = Auth::user();
+    $authUserId = $authUser['id'];
     $photosArray = [];
 
     $photoInputsIteration = 1;
@@ -316,21 +358,21 @@ function updateOrganizationPhotos($request) {
         $photo = $request->file('photo' . '_' . $photoInputsIteration) ?? '';
 
         if($photo) {
-            $photoName = $authUser['id'] . '_' . '1' . '.' . $photo->extension();
+            $photoName = $authUserId . '_' . $photoInputsIteration . '.' . $photo->extension();
 
             $photoPath = $photo->storeAs(
-                '/public/photo', $photoName
+                '/public/users/1/photo', $photoName
             );
 
             array_push($photosArray, [
                 $photoDBColumn => $photoPath
             ]);
         } else {
-            $remove_photo_file_name = $request->input('remove_photo_' . $photoInputsIteration) ?? '';
+            $remove_photo_file_name = $request->has('remove_photo_' . $photoInputsIteration) ?? false;
 
             if($remove_photo_file_name) {
-                $path = '/public/photo/' . $authUser['id'] . '_' . $remove_photo_file_name;
-                Storage::delete($path);
+                $oldAvatarsArray = File::glob(storage_path() . '/app/public/users/' . $authUserId . '/photo/' . $authUserId . '_' . $photoInputsIteration . '.*');
+                File::delete($oldAvatarsArray);
 
                 array_push($photosArray, [
                     $photoDBColumn => ''

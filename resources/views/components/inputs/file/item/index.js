@@ -28,7 +28,7 @@ class InputsFileItem {
 
     addRemoveInput = () => {
         const input = `
-            <input name="remove_${this.inputName}" />
+            <input name="remove_${this.inputName}" type="hidden" />
         `;
 
         this.module.insertAdjacentHTML('afterbegin', input);

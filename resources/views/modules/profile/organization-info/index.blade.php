@@ -86,31 +86,96 @@
                         <h2>Свидетельтва, выданные организации</h2>
                         <div class="profile-organization-info__section profile-organization-info__section_add-file">
                             <div class="profile-organization-info__input-container">
-                                @include('components.inputs.file.group.index', [
-                                    'fileInputsCount' => 5,
-                                    'name' => 'certificate',
-                                    'title' => 'Добавить свидетельство',
+                                @include('components.inputs.file.item.index', [
+                                    'imageSrc' => $organizationData['certificate_1'],
+                                    'name' => 'certificate_1',
+                                    'title' => 'Добавить свидетельство №1',
+                                    'withPreviewFile' => true,
                                 ])
                                 @include('components.form.error.index', [
-                                    'message' => $errors->first('certificate'),
+                                    'message' => $errors->first('certificate_1'),
+                                ])
+                            </div>
+                            <div class="profile-organization-info__input-container">
+                                @include('components.inputs.file.item.index', [
+                                    'imageSrc' => $organizationData['certificate_2'],
+                                    'name' => 'certificate_2',
+                                    'title' => 'Добавить свидетельство №2',
+                                    'withPreviewFile' => true,
+                                ])
+                                @include('components.form.error.index', [
+                                    'message' => $errors->first('certificate_2'),
+                                ])
+                            </div>
+                            <div class="profile-organization-info__input-container">
+                                @include('components.inputs.file.item.index', [
+                                    'imageSrc' => $organizationData['certificate_3'],
+                                    'name' => 'certificate_3',
+                                    'title' => 'Добавить свидетельство №3',
+                                    'withPreviewFile' => true,
+                                ])
+                                @include('components.form.error.index', [
+                                    'message' => $errors->first('certificate_3'),
+                                ])
+                            </div>
+                            <div class="profile-organization-info__input-container">
+                                @include('components.inputs.file.item.index', [
+                                    'imageSrc' => $organizationData['certificate_4'],
+                                    'name' => 'certificate_4',
+                                    'title' => 'Добавить свидетельство №4',
+                                    'withPreviewFile' => true,
+                                ])
+                                @include('components.form.error.index', [
+                                    'message' => $errors->first('certificate_4'),
+                                ])
+                            </div>
+                            <div class="profile-organization-info__input-container">
+                                @include('components.inputs.file.item.index', [
+                                    'imageSrc' => $organizationData['certificate_5'],
+                                    'name' => 'certificate_5',
+                                    'title' => 'Добавить свидетельство №5',
+                                    'withPreviewFile' => true,
+                                ])
+                                @include('components.form.error.index', [
+                                    'message' => $errors->first('certificate_5'),
                                 ])
                             </div>
                         </div>
-                        @include('components.form.error.index', [
-                            'message' => session('commonError'),
-                        ])
                     </div>
                     <div class="profile-organization-info__section">
                         <h2>Фотографии организации</h2>
                         <div class="profile-organization-info__section profile-organization-info__section_add-file">
                             <div class="profile-organization-info__input-container">
-                                @include('components.inputs.file.group.index', [
-                                    'fileInputsCount' => 3,
-                                    'name' => 'photo',
-                                    'title' => 'Добавить фото',
+                                @include('components.inputs.file.item.index', [
+                                    'imageSrc' => $organizationData['photo_1'],
+                                    'name' => 'photo_1',
+                                    'title' => 'Добавить фото №1',
+                                    'withPreviewFile' => true,
                                 ])
                                 @include('components.form.error.index', [
-                                    'message' => $errors->first('photo'),
+                                    'message' => $errors->first('photo_1'),
+                                ])
+                            </div>
+                            <div class="profile-organization-info__input-container">
+                                @include('components.inputs.file.item.index', [
+                                    'imageSrc' => $organizationData['photo_2'],
+                                    'name' => 'photo_2',
+                                    'title' => 'Добавить фото №2',
+                                    'withPreviewFile' => true,
+                                ])
+                                @include('components.form.error.index', [
+                                    'message' => $errors->first('photo_2'),
+                                ])
+                            </div>
+                            <div class="profile-organization-info__input-container">
+                                @include('components.inputs.file.item.index', [
+                                    'imageSrc' => $organizationData['photo_3'],
+                                    'name' => 'photo_3',
+                                    'title' => 'Добавить фото №3',
+                                    'withPreviewFile' => true,
+                                ])
+                                @include('components.form.error.index', [
+                                    'message' => $errors->first('photo_3'),
                                 ])
                             </div>
                         </div>
