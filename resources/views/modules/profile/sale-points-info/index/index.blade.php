@@ -9,11 +9,11 @@
     </div>
     <div class="profile--sale-points-info--index__content-container">
         <h2>Ваши торговые точки</h2>
-        @for ($i = 0; $i < 5; $i++)
+        @foreach ($salePointsList as $salePointItem)
             <div class="profile--sale-points-info--index__sale-point-container">
-                test
+                {{$salePointItem['title']}}
             </div>
-        @endfor
+        @endforeach
     </div>
 </div>
 

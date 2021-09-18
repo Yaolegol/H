@@ -44,7 +44,8 @@ function getCatalogFull()
     return getCatalogLevelOneWithFullLinks($catalog);
 }
 
-function getCatalogLevelOneWithFullLinks($catalog) {
+function getCatalogLevelOneWithFullLinks($catalog)
+{
     foreach ($catalog as &$catalogLevelOneItem) {
         $catalogLevelOneItem['linkFull'] = '/catalog/' . $catalogLevelOneItem['link'];
 
@@ -58,7 +59,7 @@ function getCatalogLevelOneWithFullLinks($catalog) {
 
 function getCatalogLevelOneItem($catalogFull, $catalogLevelOneLink)
 {
-    return array_merge(...array_filter($catalogFull, function($catalogLevelOneItem) use($catalogLevelOneLink) {
+    return array_merge(...array_filter($catalogFull, function ($catalogLevelOneItem) use ($catalogLevelOneLink) {
         return $catalogLevelOneItem['link'] === $catalogLevelOneLink;
     }));
 }
@@ -67,7 +68,7 @@ function getCatalogLevelTwoItem($catalogFull, $catalogLevelOneLink, $catalogLeve
 {
     $catalogLevelOneItem = getCatalogLevelOneItem($catalogFull, $catalogLevelOneLink);
 
-    return array_merge(...array_filter($catalogLevelOneItem['catalog_level_two'], function($catalogLevelTwoItem) use($catalogLevelTwoLink) {
+    return array_merge(...array_filter($catalogLevelOneItem['catalog_level_two'], function ($catalogLevelTwoItem) use ($catalogLevelTwoLink) {
         return $catalogLevelTwoItem['link'] === $catalogLevelTwoLink;
     }));
 }
@@ -194,7 +195,7 @@ function getOrganizationDataFormatted()
         $currentCertificateName = 'certificate_' . $certificateInputsIteration;
         $currentCertificateValue = $userOrganizationDataFormatted[$currentCertificateName];
 
-        if($currentCertificateValue) {
+        if ($currentCertificateValue) {
             $path = str_replace('public/', '', $currentCertificateValue);
 
             $userOrganizationDataFormatted[$currentCertificateName] = '/storage/' . $path;
@@ -208,7 +209,7 @@ function getOrganizationDataFormatted()
         $currentPhotoName = 'photo_' . $photoInputsIteration;
         $currentPhotoValue = $userOrganizationDataFormatted[$currentPhotoName];
 
-        if($currentPhotoValue) {
+        if ($currentPhotoValue) {
             $path = str_replace('public/', '', $currentPhotoValue);
 
             $userOrganizationDataFormatted[$currentPhotoName] = '/storage/' . $path;
@@ -227,19 +228,25 @@ function getSalePointsDataFormatted()
     $user_id = $authUser->id;
 
     $userSalePointsList = getUserSalePoints($user_id);
-    $salePointsFormatted = [];
 
-    $salePointDefaultData = array(
-        'title' => '',
-        'address' => '',
-        'working_hours' => '',
-        'contact_person' => '',
-        'phone' => '',
-    );
+    foreach ($userSalePointsList as $userSalePointItem) {
 
-    $salePointsResultList = array_fill(0, 15, $salePointDefaultData);
+        $photoIteration = 1;
+        while($photoIteration <= 3) {
+            $currentPhotoName = 'photo_' . $photoIteration;
+            $currentPhotoValue = $userSalePointItem[$currentPhotoName];
 
-    return $salePointsResultList;
+            if($currentPhotoValue) {
+                $path = str_replace('public/', '', $currentPhotoValue);
+                $userSalePointItem[$currentPhotoName] = '/storage/' . $path;
+            }
+
+            $photoIteration++;
+        }
+    }
+
+
+    return $userSalePointsList;
 }
 
 function getUserDataFormatted()
@@ -253,7 +260,7 @@ function getUserDataFormatted()
             || $key === 'phone';
     }, ARRAY_FILTER_USE_KEY);
 
-    if($userDataFiltered['avatar'] !== '') {
+    if ($userDataFiltered['avatar'] !== '') {
         $path = str_replace('public/', '', $userDataFiltered['avatar']);
 
         $userDataFiltered['avatar'] = '/storage/' . $path;
@@ -267,7 +274,8 @@ function getUserOrganization($id)
     return Organization::where('user_id', $id)->get()->toArray();
 }
 
-function getUserSalePoints($id) {
+function getUserSalePoints($id)
+{
     return SalePoint::where('user_id', $id)->get()->toArray();
 }
 
@@ -291,7 +299,8 @@ function setOffersLink($offers)
     }, $offers);
 }
 
-function updateOrganizationCertificates($request) {
+function updateOrganizationCertificates($request)
+{
     $authUser = Auth::user();
     $authUserId = $authUser->id;
     $certificateArray = [];
@@ -301,7 +310,7 @@ function updateOrganizationCertificates($request) {
         $certificateDBColumn = 'certificate_' . $certificateInputsIteration;
         $certificate = $request->file('certificate' . '_' . $certificateInputsIteration) ?? '';
 
-        if($certificate) {
+        if ($certificate) {
             $certificateName = $authUserId . '_' . $certificateInputsIteration . '.' . $certificate->extension();
 
             $certificatePath = $certificate->storeAs(
@@ -314,7 +323,7 @@ function updateOrganizationCertificates($request) {
         } else {
             $remove_certificate_file_name = $request->has('remove_certificate_' . $certificateInputsIteration) ?? false;
 
-            if($remove_certificate_file_name) {
+            if ($remove_certificate_file_name) {
                 $oldAvatarsArray = File::glob(storage_path() . '/app/public/users/' . $authUserId . 'organization/photo/' . $authUserId . '_' . $certificateInputsIteration . '.*');
                 File::delete($oldAvatarsArray);
 
@@ -330,7 +339,8 @@ function updateOrganizationCertificates($request) {
     return $certificateArray;
 }
 
-function updateOrganizationPhotos($request) {
+function updateOrganizationPhotos($request)
+{
     $authUser = Auth::user();
     $authUserId = $authUser->id;
     $photosArray = [];
@@ -340,7 +350,7 @@ function updateOrganizationPhotos($request) {
         $photoDBColumn = 'photo_' . $photoInputsIteration;
         $photo = $request->file('photo' . '_' . $photoInputsIteration) ?? '';
 
-        if($photo) {
+        if ($photo) {
             $photoName = $authUserId . '_' . $photoInputsIteration . '.' . $photo->extension();
 
             $photoPath = $photo->storeAs(
@@ -353,7 +363,7 @@ function updateOrganizationPhotos($request) {
         } else {
             $remove_photo_file_name = $request->has('remove_photo_' . $photoInputsIteration) ?? false;
 
-            if($remove_photo_file_name) {
+            if ($remove_photo_file_name) {
                 $oldAvatarsArray = File::glob(storage_path() . '/app/public/users/' . $authUserId . 'organization/photo/' . $authUserId . '_' . $photoInputsIteration . '.*');
                 File::delete($oldAvatarsArray);
 
@@ -410,7 +420,8 @@ function tryChangeOrganizationDataInDB($request)
     }
 }
 
-function updateSalePointPhotos($request) {
+function updateSalePointPhotos($request)
+{
     $authUser = Auth::user();
     $authUserId = $authUser->id;
     $photosArray = [];
@@ -419,7 +430,7 @@ function updateSalePointPhotos($request) {
     while ($photoInputsIteration <= 3) {
         $photoDBColumn = 'photo_' . $photoInputsIteration;
         $photo = $request->file('photo' . '_' . $photoInputsIteration) ?? '';
-        if($photo) {
+        if ($photo) {
             $photoName = $authUserId . '_' . $photoInputsIteration . '.' . $photo->extension();
 
             $photoPath = $photo->storeAs(
@@ -502,12 +513,14 @@ function tryChangeUserPasswordInDB($request)
     }
 }
 
-function removeUserAvatarFromStorage($userId) {
+function removeUserAvatarFromStorage($userId)
+{
     $oldAvatarsArray = File::glob(storage_path() . '/app/public/users/' . $userId . '/avatar/*');
     File::delete($oldAvatarsArray);
 }
 
-function saveAuthUserAvatarInDB($avatar) {
+function saveAuthUserAvatarInDB($avatar)
+{
     $authUser = Auth::user();
     $authUserId = $authUser->id;
 
@@ -518,24 +531,26 @@ function saveAuthUserAvatarInDB($avatar) {
     $authUser->avatar = $avatarPath;
 }
 
-function clearAuthUserAvatarInDB() {
+function clearAuthUserAvatarInDB()
+{
     $authUser = Auth::user();
 
     $authUser->avatar = '';
 }
 
-function updateUserAvatar($request) {
+function updateUserAvatar($request)
+{
     $authUser = Auth::user();
     $authUserId = $authUser->id;
     $avatar = $request->file('avatar');
 
-    if($avatar) {
+    if ($avatar) {
         removeUserAvatarFromStorage($authUserId);
         saveAuthUserAvatarInDB($avatar);
     } else {
         $isRemoveAvatar = $request->has('remove_avatar');
 
-        if($isRemoveAvatar) {
+        if ($isRemoveAvatar) {
             removeUserAvatarFromStorage($authUserId);
             clearAuthUserAvatarInDB();
         }
@@ -564,7 +579,8 @@ function tryChangeUserPersonalDataInDB($request)
     }
 }
 
-function trySaveSaleOfferInDB($request) {
+function trySaveSaleOfferInDB($request)
+{
     try {
         $catalog_level_two_id = $request->input('catalog_level_two_id');
         $title = $request->input('title');
