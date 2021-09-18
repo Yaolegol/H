@@ -9,7 +9,6 @@ class SalePointSeeder extends Seeder
 {
     public $data = [
         [
-            'number' => 1,
             'title' => 'Organization 1 Sale Point 1',
             'address' => 'address organization 1 Sale Point 1',
             'working_hours' => '9-18',
@@ -18,7 +17,6 @@ class SalePointSeeder extends Seeder
             'user_id' => '1',
         ],
         [
-            'number' => 1,
             'title' => 'Organization 2 Sale Point 1',
             'address' => 'address organization 2 Sale Point 1',
             'working_hours' => '9-17',
@@ -27,7 +25,6 @@ class SalePointSeeder extends Seeder
             'user_id' => '2',
         ],
         [
-            'number' => 1,
             'title' => 'Organization 3 Sale Point 1',
             'address' => 'address organization 3 Sale Point 1',
             'working_hours' => '9-16',

@@ -15,12 +15,14 @@ class SalePoint extends Model
      * @var array
      */
     protected $fillable = [
-        'number',
         'title',
         'address',
         'working_hours',
         'contact_person',
         'phone',
+        'photo_1',
+        'photo_2',
+        'photo_3',
         'user_id'
     ];
 

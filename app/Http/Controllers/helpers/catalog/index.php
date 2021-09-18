@@ -229,13 +229,7 @@ function getSalePointsDataFormatted()
     $userSalePointsList = getUserSalePoints($user_id);
     $salePointsFormatted = [];
 
-    foreach ($userSalePointsList as $value) {
-        $number = $value['number'];
-        $salePointsFormatted[$number] = $value;
-    }
-
     $salePointDefaultData = array(
-        'number' => '',
         'title' => '',
         'address' => '',
         'working_hours' => '',
@@ -244,17 +238,6 @@ function getSalePointsDataFormatted()
     );
 
     $salePointsResultList = array_fill(0, 15, $salePointDefaultData);
-
-    foreach ($salePointsResultList as $key => $value) {
-        $number = $key + 1;
-        $isSalePointExists = array_key_exists($number, $salePointsFormatted);
-
-        if ($isSalePointExists) {
-            $salePointsResultList[$key] = $salePointsFormatted[$number];
-        } else {
-            $salePointsResultList[$key]['number'] = $number;
-        }
-    }
 
     return $salePointsResultList;
 }
@@ -310,7 +293,7 @@ function setOffersLink($offers)
 
 function updateOrganizationCertificates($request) {
     $authUser = Auth::user();
-    $authUserId = $authUser['id'];
+    $authUserId = $authUser->id;
     $certificateArray = [];
 
     $certificateInputsIteration = 1;
@@ -322,7 +305,7 @@ function updateOrganizationCertificates($request) {
             $certificateName = $authUserId . '_' . $certificateInputsIteration . '.' . $certificate->extension();
 
             $certificatePath = $certificate->storeAs(
-                '/public/users/1/certificate', $certificateName
+                '/public/users/1/organization/certificate', $certificateName
             );
 
             array_push($certificateArray, [
@@ -332,7 +315,7 @@ function updateOrganizationCertificates($request) {
             $remove_certificate_file_name = $request->has('remove_certificate_' . $certificateInputsIteration) ?? false;
 
             if($remove_certificate_file_name) {
-                $oldAvatarsArray = File::glob(storage_path() . '/app/public/users/' . $authUserId . '/photo/' . $authUserId . '_' . $certificateInputsIteration . '.*');
+                $oldAvatarsArray = File::glob(storage_path() . '/app/public/users/' . $authUserId . 'organization/photo/' . $authUserId . '_' . $certificateInputsIteration . '.*');
                 File::delete($oldAvatarsArray);
 
                 array_push($certificateArray, [
@@ -349,7 +332,7 @@ function updateOrganizationCertificates($request) {
 
 function updateOrganizationPhotos($request) {
     $authUser = Auth::user();
-    $authUserId = $authUser['id'];
+    $authUserId = $authUser->id;
     $photosArray = [];
 
     $photoInputsIteration = 1;
@@ -361,7 +344,7 @@ function updateOrganizationPhotos($request) {
             $photoName = $authUserId . '_' . $photoInputsIteration . '.' . $photo->extension();
 
             $photoPath = $photo->storeAs(
-                '/public/users/1/photo', $photoName
+                '/public/users/1/organization/photo', $photoName
             );
 
             array_push($photosArray, [
@@ -371,7 +354,7 @@ function updateOrganizationPhotos($request) {
             $remove_photo_file_name = $request->has('remove_photo_' . $photoInputsIteration) ?? false;
 
             if($remove_photo_file_name) {
-                $oldAvatarsArray = File::glob(storage_path() . '/app/public/users/' . $authUserId . '/photo/' . $authUserId . '_' . $photoInputsIteration . '.*');
+                $oldAvatarsArray = File::glob(storage_path() . '/app/public/users/' . $authUserId . 'organization/photo/' . $authUserId . '_' . $photoInputsIteration . '.*');
                 File::delete($oldAvatarsArray);
 
                 array_push($photosArray, [
@@ -427,30 +410,61 @@ function tryChangeOrganizationDataInDB($request)
     }
 }
 
+function updateSalePointPhotos($request) {
+    $authUser = Auth::user();
+    $authUserId = $authUser->id;
+    $photosArray = [];
+
+    $photoInputsIteration = 1;
+    while ($photoInputsIteration <= 3) {
+        $photoDBColumn = 'photo_' . $photoInputsIteration;
+        $photo = $request->file('photo' . '_' . $photoInputsIteration) ?? '';
+        if($photo) {
+            $photoName = $authUserId . '_' . $photoInputsIteration . '.' . $photo->extension();
+
+            $photoPath = $photo->storeAs(
+                '/public/users/1/sale-point/' . 'photo', $photoName
+            );
+
+            array_push($photosArray, [
+                $photoDBColumn => $photoPath
+            ]);
+        }
+
+        $photoInputsIteration++;
+    }
+
+    return $photosArray;
+}
+
 function tryChangeSalePointDataInDB($request)
 {
     try {
         $authUser = Auth::user();
         $user_id = $authUser->id;
 
-        $salePointNumber = $request->input('sale-point-number');
         $title = $request->input('title') ?? '';
         $address = $request->input('address') ?? '';
         $working_hours = $request->input('working_hours') ?? '';
         $contact_person = $request->input('contact_person') ?? '';
         $phone = $request->input('phone') ?? '';
 
-        SalePoint::updateOrCreate(
-            ['number' => $salePointNumber],
+        $newPhotos = updateSalePointPhotos($request);
+
+        $newSalePointData = array_merge(
             [
-                'number' => $salePointNumber,
                 'title' => $title,
                 'address' => $address,
                 'working_hours' => $working_hours,
                 'contact_person' => $contact_person,
                 'phone' => $phone,
                 'user_id' => $user_id,
-            ]);
+
+            ],
+            ...$newPhotos,
+        );
+
+        SalePoint::create($newSalePointData);
 
         return true;
     } catch (\Exception $error) {
