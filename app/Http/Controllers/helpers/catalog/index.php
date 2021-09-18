@@ -302,6 +302,22 @@ function setOffersLink($offers)
     }, $offers);
 }
 
+function tryDestroySalePointDataInDB($id) {
+    try {
+        $authUser = Auth::user();
+        $user_id = $authUser->id;
+
+        SalePoint::where([
+            ['user_id', '=', $user_id],
+            ['id', '=', $id]
+        ])->delete();;
+
+        return true;
+    } catch (\Exception $error) {
+        return false;
+    }
+}
+
 function updateOrganizationCertificates($request)
 {
     $authUser = Auth::user();

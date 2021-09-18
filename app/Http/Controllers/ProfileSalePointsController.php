@@ -124,6 +124,14 @@ class ProfileSalePointsController extends Controller
      */
     public function destroy($id)
     {
-        dd($id);
+        $isDestroyed = tryDestroySalePointDataInDB($id);
+
+        if($isDestroyed) {
+            return redirect('/profile/sale-points-info');
+        } else {
+            return back()->with(
+                ['commonError' => 'Что-то пошло не так. Попробуйте снова']
+            );
+        }
     }
 }
