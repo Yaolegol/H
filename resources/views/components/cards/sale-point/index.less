@@ -6,6 +6,14 @@
     max-width: 500px;
     padding: 20px;
 
+    &__edit-button-container {
+
+    }
+
+    &__remove-button-container {
+        margin-left: 15px;
+    }
+
     &__image {
         height: 200px;
         width: 200px;
@@ -14,8 +22,19 @@
     &__item-container {
         margin-top: 20px;
 
+        &_service {
+            display: flex;
+            justify-content: flex-end;
+        }
+
         &_without-offset {
             margin-top: 0;
+        }
+    }
+
+    &__link {
+        &_remove {
+            color: @red;
         }
     }
 

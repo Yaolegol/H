@@ -3301,6 +3301,9 @@ p {
   max-width: 500px;
   padding: 20px;
 }
+.cards--sale-point__remove-button-container {
+  margin-left: 15px;
+}
 .cards--sale-point__image {
   height: 200px;
   width: 200px;
@@ -3308,8 +3311,15 @@ p {
 .cards--sale-point__item-container {
   margin-top: 20px;
 }
+.cards--sale-point__item-container_service {
+  display: flex;
+  justify-content: flex-end;
+}
 .cards--sale-point__item-container_without-offset {
   margin-top: 0;
+}
+.cards--sale-point__link_remove {
+  color: #FF0000;
 }
 .cards--sale-point__value {
   margin-top: 5px;
