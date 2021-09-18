@@ -310,7 +310,7 @@ function tryDestroySalePointDataInDB($id) {
         SalePoint::where([
             ['user_id', '=', $user_id],
             ['id', '=', $id]
-        ])->delete();;
+        ])->delete();
 
         return true;
     } catch (\Exception $error) {
