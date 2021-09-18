@@ -307,10 +307,26 @@ function tryDestroySalePointDataInDB($id) {
         $authUser = Auth::user();
         $user_id = $authUser->id;
 
-        SalePoint::where([
+        $salePoint = SalePoint::where([
             ['user_id', '=', $user_id],
             ['id', '=', $id]
-        ])->delete();
+        ]);
+
+        $salePointData = array_merge(...$salePoint->get()->toArray());
+
+        $photoIteration = 1;
+        while ($photoIteration <= 3) {
+            $photoName = 'photo_' . $photoIteration;
+            $photoValue = $salePointData[$photoName];
+            if ($photoValue) {
+                $oldAvatarsArray = File::glob(storage_path() . '/app/' . $photoValue);
+                File::delete($oldAvatarsArray);
+            }
+
+            $photoIteration++;
+        }
+
+        $salePoint->delete();
 
         return true;
     } catch (\Exception $error) {
@@ -450,7 +466,7 @@ function updateSalePointPhotos($request)
         $photoDBColumn = 'photo_' . $photoInputsIteration;
         $photo = $request->file('photo' . '_' . $photoInputsIteration) ?? '';
         if ($photo) {
-            $photoName = $authUserId . '_' . $photoInputsIteration . '.' . $photo->extension();
+            $photoName = time() . '_' . $photoInputsIteration . '.' . $photo->extension();
 
             $photoPath = $photo->storeAs(
                 '/public/users/1/sale-point/' . 'photo', $photoName
