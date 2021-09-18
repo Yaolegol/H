@@ -11,7 +11,9 @@
         <h2>Ваши торговые точки</h2>
         @foreach ($salePointsList as $salePointItem)
             <div class="profile--sale-points-info--index__sale-point-container">
-                {{$salePointItem['title']}}
+                @include('components.cards.sale-point.index', [
+                            'salePoint' => $salePointItem,
+                        ])
             </div>
         @endforeach
     </div>

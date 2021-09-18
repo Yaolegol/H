@@ -228,6 +228,7 @@ function getSalePointsDataFormatted()
     $user_id = $authUser->id;
 
     $userSalePointsList = getUserSalePoints($user_id);
+    $userSalePointsListFormatted = [];
 
     foreach ($userSalePointsList as $userSalePointItem) {
 
@@ -243,10 +244,12 @@ function getSalePointsDataFormatted()
 
             $photoIteration++;
         }
+
+        array_push($userSalePointsListFormatted, $userSalePointItem);
     }
 
 
-    return $userSalePointsList;
+    return $userSalePointsListFormatted;
 }
 
 function getUserDataFormatted()

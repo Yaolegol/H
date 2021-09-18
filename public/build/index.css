@@ -3295,6 +3295,26 @@ p {
   display: none;
 }
 
+.cards--sale-point {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  max-width: 500px;
+  padding: 20px;
+}
+.cards--sale-point__image {
+  height: 200px;
+  width: 200px;
+}
+.cards--sale-point__item-container {
+  margin-top: 20px;
+}
+.cards--sale-point__item-container_without-offset {
+  margin-top: 0;
+}
+.cards--sale-point__value {
+  margin-top: 5px;
+}
+
 .profile--sale-points-info--index__content-container {
   margin-top: 50px;
 }
