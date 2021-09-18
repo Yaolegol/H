@@ -124,6 +124,6 @@ class ProfileSalePointsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        dd($id);
     }
 }

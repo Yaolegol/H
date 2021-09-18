@@ -42,7 +42,7 @@
             <a class="cards--sale-point__link cards--sale-point__link_edit" href="./sale-points-info/edit">Изменить</a>
         </div>
         <div class="cards--sale-point__remove-button-container">
-            <a class="cards--sale-point__link cards--sale-point__link_remove" href="./sale-points-info/delete">Удалить</a>
+            <a class="cards--sale-point__link cards--sale-point__link_remove" href="./sale-points-info/destroy/{{$salePoint['id']}}">Удалить</a>
         </div>
     </div>
 </div>
