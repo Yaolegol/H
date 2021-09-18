@@ -56,19 +56,10 @@ class ProfileSalePointsController extends Controller
      */
     public function store(Request $request)
     {
-        $catalogFull = getCatalogFull();
-        $locationList = getLocationListFormatted();
-
         $isSaved = tryChangeSalePointDataInDB($request);
 
         if($isSaved) {
-            $salePointsList = getSalePointsDataFormatted();
-
-            return view('pages.profile.sale-points-info.index.index', [
-                'catalogHeader' => $catalogFull,
-                'locationList' => $locationList,
-                'salePointsList' => $salePointsList,
-            ]);
+            return redirect('/profile/sale-points-info');
         } else {
             return back()->with(
                 ['commonError' => 'Что-то пошло не так. Попробуйте снова']
