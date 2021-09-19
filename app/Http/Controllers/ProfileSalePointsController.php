@@ -82,26 +82,17 @@ class ProfileSalePointsController extends Controller
      *
      * @return Response
      */
-    public function edit(Request $request)
+    public function edit(Request $request, $id)
     {
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
+        $salePointsList = getSalePointsDataFormatted();
 
-        $isSaved = tryChangeSalePointDataInDB($request);
-
-        if($isSaved) {
-            $salePointsList = getSalePointsDataFormatted();
-
-            return view('pages.profile.sale-points-info.index.index', [
-                'catalogHeader' => $catalogFull,
-                'locationList' => $locationList,
-                'salePointsList' => $salePointsList,
-            ]);
-        } else {
-            return back()->with(
-                ['commonError' => 'Что-то пошло не так. Попробуйте снова']
-            );
-        }
+        return view('pages.profile.sale-points-info.edit.index', [
+            'catalogHeader' => $catalogFull,
+            'locationList' => $locationList,
+            'salePointsList' => $salePointsList,
+        ]);
     }
 
     /**

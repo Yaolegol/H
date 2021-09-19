@@ -43,6 +43,7 @@ Route::post('/profile/organization-info', 'ProfileOrganizationDataController@edi
 
 Route::get('/profile/sale-points-info', 'ProfileSalePointsController@index')->middleware('auth');
 Route::get('/profile/sale-points-info/create', 'ProfileSalePointsController@create')->middleware('auth');
+Route::get('/profile/sale-points-info/edit/{id}', 'ProfileSalePointsController@edit')->middleware('auth');
 Route::get('/profile/sale-points-info/destroy/{id}', 'ProfileSalePointsController@destroy')->middleware('auth');
 Route::post('/profile/sale-points-info', 'ProfileSalePointsController@store')->middleware('auth');
 

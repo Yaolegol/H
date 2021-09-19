@@ -25,7 +25,12 @@
                 class="profile-layout__tab-item-container">
                 <a
                     class="profile-layout__tab-button
-                    {{$section === 'sale-points-info/index' || $section === 'sale-points-info/create' ? 'profile-layout__tab-button_active' : '' }}"
+                    {{$section === 'sale-points-info/index'
+                      || $section === 'sale-points-info/edit'
+                      || $section === 'sale-points-info/create'
+                      ? 'profile-layout__tab-button_active'
+                      : ''
+                      }}"
                     href="/profile/sale-points-info"
                 >
                     Информация о торговых точках
@@ -58,6 +63,9 @@
         @endif
         @if($section === 'sale-points-info/create')
             @include('modules.profile.sale-points-info.create.index')
+        @endif
+        @if($section === 'sale-points-info/edit')
+            @include('modules.profile.sale-points-info.edit.index')
         @endif
         @if($section === 'sale-points-info/index')
             @include('modules.profile.sale-points-info.index.index')
