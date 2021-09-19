@@ -21,21 +21,23 @@
     </div>
     <div class="cards--sale-point__item-container">
         <div class="cards--sale-point__title">Фото</div>
-        @if($salePoint['photo_1'])
-            <div class="cards--sale-point__value">
-                <img alt="" class="cards--sale-point__image" src="{{$salePoint['photo_1']}}">
-            </div>
-        @endif
-        @if($salePoint['photo_2'])
-            <div class="cards--sale-point__value">
-                <img alt="" class="cards--sale-point__image" src="{{$salePoint['photo_2']}}">
-            </div>
-        @endif
-        @if($salePoint['photo_3'])
-            <div class="cards--sale-point__value">
-                <img alt="" class="cards--sale-point__image" src="{{$salePoint['photo_3']}}">
-            </div>
-        @endif
+        <div class="cards--sale-point__image-list-container">
+            @if($salePoint['photo_1'])
+                <div class="cards--sale-point__image-item-container">
+                    <img alt="" class="cards--sale-point__image" src="{{$salePoint['photo_1']}}">
+                </div>
+            @endif
+            @if($salePoint['photo_2'])
+                <div class="cards--sale-point__image-item-container">
+                    <img alt="" class="cards--sale-point__image" src="{{$salePoint['photo_2']}}">
+                </div>
+            @endif
+            @if($salePoint['photo_3'])
+                <div class="cards--sale-point__image-item-container">
+                    <img alt="" class="cards--sale-point__image" src="{{$salePoint['photo_3']}}">
+                </div>
+            @endif
+        </div>
     </div>
     <div class="cards--sale-point__item-container cards--sale-point__item-container_service">
         <div class="cards--sale-point__edit-button-container">

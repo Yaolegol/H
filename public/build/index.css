@@ -3308,6 +3308,19 @@ p {
   height: 200px;
   width: 200px;
 }
+.cards--sale-point__image-item-container {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  margin-left: 20px;
+  overflow: hidden;
+}
+.cards--sale-point__image-item-container:first-child {
+  margin-left: 0;
+}
+.cards--sale-point__image-list-container {
+  display: flex;
+  margin-top: 20px;
+}
 .cards--sale-point__item-container {
   margin-top: 20px;
 }
