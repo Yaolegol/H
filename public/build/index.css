@@ -3297,7 +3297,7 @@ p {
 
 .cards--sale-point {
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
+  border-radius: 20px;
   max-width: 500px;
   padding: 20px;
 }
@@ -3305,14 +3305,13 @@ p {
   margin-left: 15px;
 }
 .cards--sale-point__image {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
   height: 200px;
   width: 200px;
 }
 .cards--sale-point__image-item-container {
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 20px;
   margin-left: 20px;
-  overflow: hidden;
 }
 .cards--sale-point__image-item-container:first-child {
   margin-left: 0;
