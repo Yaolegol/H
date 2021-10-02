@@ -15,13 +15,21 @@ class Offer extends Model
      * @var array
      */
     protected $fillable = [
-        'catalog_level_one_id',
-        'catalog_level_two_id',
         'title',
         'description',
-        'address',
-        'phone',
+        'image',
+        'order',
         'price',
+        'photo_1',
+        'photo_2',
+        'photo_3',
+        'is_active',
+        'user_id',
+        'catalog_level_two_id',
+        'measure_id',
+        'country_id',
+        'region_id',
+        'city_id',
     ];
 
     protected $table = 'offer';

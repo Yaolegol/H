@@ -17,9 +17,11 @@ class OfferTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('description')->nullable();
-            $table->string('image')->nullable();
             $table->integer('order')->default(1);
             $table->float('price');
+            $table->string('photo_1')->nullable();
+            $table->string('photo_2')->nullable();
+            $table->string('photo_3')->nullable();
             $table->boolean('is_active')->default(true);
             $table->bigInteger('user_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users');

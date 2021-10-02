@@ -49,5 +49,4 @@ Route::post('/profile/sale-points-info', 'ProfileSalePointsController@store')->m
 
 Route::get('/profile/sale-offers', 'ProfileSaleOffersController@index')->middleware('auth');
 Route::get('/profile/sale-offers/create', 'ProfileSaleOffersController@create')->middleware('auth');
-
 Route::post('/profile/sale-offers', 'ProfileSaleOffersController@store')->middleware('auth');
