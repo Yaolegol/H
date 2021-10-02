@@ -1,18 +1,23 @@
 @php
     $catalogCategoriesList = array_map(function($catalogItem) {
+        $catalogItemId = $catalogItem['id'];
+
         return [
-            'id' => 'id__radio-input__catalog-level-one__' . $catalogItem['id'],
+            'id' => 'id__radio-input__catalog-level-one__' . $catalogItemId,
             'title' => $catalogItem['title'],
-            'value' => $catalogItem['id'],
+            'value' => $catalogItemId,
         ];
     }, $catalogFull);
 
-    $catalogSubCategoriesList = array_map(function($catalogItem) {
-        $catalogLevelTwoItemsList = array_map(function($catalogLevelTwoItem) {
+    $catalogSubCategoriesList = array_map(function($catalogItem) use($saleOfferItemData) {
+        $catalogLevelTwoItemsList = array_map(function($catalogLevelTwoItem) use($saleOfferItemData) {
+            $catalogLevelTwoItemId = $catalogLevelTwoItem['id'];
+
             return [
-                'id' => 'id__radio-input__catalog-level-two__' . $catalogLevelTwoItem['id'],
+                'id' => 'id__radio-input__catalog-level-two__' . $catalogLevelTwoItemId,
+                'isChecked' => $catalogLevelTwoItemId === $saleOfferItemData['catalog_level_two_id'],
                 'title' => $catalogLevelTwoItem['title'],
-                'value' => $catalogLevelTwoItem['id'],
+                'value' => $catalogLevelTwoItemId,
             ];
         }, $catalogItem['catalog_level_two']);
 
