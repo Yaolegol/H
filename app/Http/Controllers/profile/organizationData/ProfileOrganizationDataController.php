@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\profile\organizationData;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Controller;
 
 require_once('app/Http/Controllers/helpers/catalog/index.php');
 
-class ProfileSaleOffersController extends Controller
+class ProfileOrganizationDataController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,12 +22,12 @@ class ProfileSaleOffersController extends Controller
     {
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
-        $saleOffersList = getSaleOffersDataFormatted();
+        $organizationData = getOrganizationDataFormatted();
 
-        return view('pages.profile.sale-offers.index.index', [
+        return view('pages.profile.organization-info.index', [
             'catalogHeader' => $catalogFull,
             'locationList' => $locationList,
-            'saleOffersList' => $saleOffersList,
+            'organizationData' => $organizationData,
         ]);
     }
 
@@ -37,14 +38,7 @@ class ProfileSaleOffersController extends Controller
      */
     public function create()
     {
-        $catalogFull = getCatalogFull();
-        $locationList = getLocationListFormatted();
-
-        return view('pages.profile.sale-offers.create.index', [
-            'catalogFull' => $catalogFull,
-            'catalogHeader' => $catalogFull,
-            'locationList' => $locationList,
-        ]);
+        //
     }
 
     /**
@@ -55,15 +49,7 @@ class ProfileSaleOffersController extends Controller
      */
     public function store(Request $request)
     {
-        $isSaved = trySaveSaleOfferInDB($request);
-
-        if($isSaved) {
-            return redirect('/profile/sale-offers');
-        } else {
-            return back()->with(
-                ['commonError' => 'Что-то пошло не так. Попробуйте снова']
-            );
-        }
+        //
     }
 
     /**
@@ -83,7 +69,24 @@ class ProfileSaleOffersController extends Controller
      */
     public function edit(Request $request)
     {
-        //
+        $catalogFull = getCatalogFull();
+        $locationList = getLocationListFormatted();
+
+        $isSaved = tryChangeOrganizationDataInDB($request);
+
+        if($isSaved) {
+            $organizationData = getOrganizationDataFormatted();
+
+            return view('pages.profile.organization-info.index', [
+                'catalogHeader' => $catalogFull,
+                'locationList' => $locationList,
+                'organizationData' => $organizationData,
+            ]);
+        } else {
+            return back()->with(
+                ['commonError' => 'Что-то пошло не так. Попробуйте снова']
+            );
+        }
     }
 
     /**
