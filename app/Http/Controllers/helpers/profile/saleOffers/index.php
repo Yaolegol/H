@@ -7,12 +7,11 @@ use Illuminate\Support\Facades\File;
 function createSaleOfferPhotos($request, $createdSaleOfferId)
 {
     $photosArray = [];
-    $photoInputsIteration = 1;
 
+    $photoInputsIteration = 1;
     while ($photoInputsIteration <= 3) {
         $photoDBColumn = 'photo_' . $photoInputsIteration;
         $photo = $request->file('photo' . '_' . $photoInputsIteration) ?? '';
-
         if ($photo) {
             $photoName = $photoInputsIteration . '.' . $photo->extension();
 
@@ -28,7 +27,7 @@ function createSaleOfferPhotos($request, $createdSaleOfferId)
         $photoInputsIteration++;
     }
 
-    return $photosArray;
+    return array_merge(...$photosArray);
 }
 
 function getSaleOfferItemDataFormatted($id)
@@ -159,7 +158,7 @@ function trySaveSaleOfferInDB($request)
         Offer::where([
             ['user_id', $authUserId],
             ['id', $createdSaleOfferId]
-        ])->update(...$newPhotos);
+        ])->update($newPhotos);
 
         return true;
     } catch (\Exception $error) {
@@ -236,7 +235,7 @@ function updateSaleOfferPhotos($request, $updatingSaleOfferId) {
             $photoName = $photoInputsIteration . '.' . $photo->extension();
 
             $photoPath = $photo->storeAs(
-                '/public/users/1/sale-point/' . $updatingSaleOfferId . '/photo', $photoName
+                '/public/users/1/offer/' . $updatingSaleOfferId . '/photo', $photoName
             );
 
             array_push($photosArray, [

@@ -27,7 +27,7 @@ function createSalePointPhotos($request, $createdSalePointId)
         $photoInputsIteration++;
     }
 
-    return $photosArray;
+    return array_merge(...$photosArray);
 }
 
 function getSalePointItemDataFormatted($id)
@@ -153,7 +153,7 @@ function tryStoreSalePointDataInDB($request)
         SalePoint::where([
             ['user_id', $user_id],
             ['id', $createdSalePointId]
-        ])->update(...$newPhotos);
+        ])->update($newPhotos);
 
         return true;
     } catch (\Exception $error) {
