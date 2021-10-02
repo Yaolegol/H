@@ -24,13 +24,16 @@
             <div
                 class="profile-layout__tab-item-container">
                 <a
-                    class="profile-layout__tab-button
-                    {{$section === 'sale-points-info/index'
-                      || $section === 'sale-points-info/edit'
-                      || $section === 'sale-points-info/create'
-                      ? 'profile-layout__tab-button_active'
-                      : ''
-                      }}"
+                    class="
+                        profile-layout__tab-button
+                        {{
+                            $section === 'sale-points-info/index'
+                            || $section === 'sale-points-info/edit'
+                            || $section === 'sale-points-info/create'
+                            ? 'profile-layout__tab-button_active'
+                            : ''
+                        }}
+                    "
                     href="/profile/sale-points-info"
                 >
                     Информация о торговых точках
@@ -39,8 +42,16 @@
             <div
                 class="profile-layout__tab-item-container">
                 <a
-                    class="profile-layout__tab-button
-                    {{$section === 'sale-offers/index' || $section === 'sale-offers/create' ? 'profile-layout__tab-button_active' : '' }}"
+                    class="
+                        profile-layout__tab-button
+                        {{
+                            $section === 'sale-offers/index'
+                            || $section === 'sale-offers/create'
+                            || $section === 'sale-offers/edit'
+                            ? 'profile-layout__tab-button_active'
+                            : ''
+                        }}
+                    "
                     href="/profile/sale-offers"
                 >
                     Мои торговые предложения
@@ -57,6 +68,9 @@
         @endif
         @if($section === 'sale-offers/create')
             @include('modules.profile.sale-offers.create.index')
+        @endif
+        @if($section === 'sale-offers/edit')
+            @include('modules.profile.sale-offers.edit.index')
         @endif
         @if($section === 'sale-offers/index')
             @include('modules.profile.sale-offers.index.index')

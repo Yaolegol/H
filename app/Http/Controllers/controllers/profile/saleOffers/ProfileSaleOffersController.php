@@ -84,9 +84,18 @@ class ProfileSaleOffersController extends Controller
      *
      * @return Response
      */
-    public function edit(Request $request)
+    public function edit(Request $request, $id)
     {
-        //
+        $catalogFull = getCatalogFull();
+        $locationList = getLocationListFormatted();
+        $saleOfferItemData = getSaleOfferItemDataFormatted($id);
+
+        return view('pages.profile.sale-offers.edit.index', [
+            'catalogFull' => $catalogFull,
+            'catalogHeader' => $catalogFull,
+            'locationList' => $locationList,
+            'saleOfferItemData' => $saleOfferItemData,
+        ]);
     }
 
     /**

@@ -3,21 +3,40 @@
 use App\Models\Offer;
 use Illuminate\Support\Facades\Auth;
 
-function getSaleOffersDataFormatted() {
-    $authUser = Auth::user();
-    $user_id = $authUser->id;
+function getSaleOfferItemDataFormatted($id)
+{
+    $userSaleOfferItemData = getUserSaleOfferItem($id);
+    $userSaleOfferItemDataFormatted = array_merge($userSaleOfferItemData);
 
-    $userSaleOffersList = getUserSaleOffers($user_id);
+    $photoIteration = 1;
+    while ($photoIteration <= 3) {
+        $currentPhotoName = 'photo_' . $photoIteration;
+        $currentPhotoValue = $userSaleOfferItemDataFormatted[$currentPhotoName];
+
+        if ($currentPhotoValue) {
+            $path = str_replace('public/', '', $currentPhotoValue);
+            $userSaleOfferItemDataFormatted[$currentPhotoName] = '/storage/' . $path;
+        }
+
+        $photoIteration++;
+    }
+
+    return $userSaleOfferItemDataFormatted;
+}
+
+function getSaleOffersDataFormatted()
+{
+    $userSaleOffersList = getUserSaleOffers();
     $userSaleOffersListFormatted = [];
 
     foreach ($userSaleOffersList as $userOfferItem) {
 
         $photoIteration = 1;
-        while($photoIteration <= 3) {
+        while ($photoIteration <= 3) {
             $currentPhotoName = 'photo_' . $photoIteration;
             $currentPhotoValue = $userOfferItem[$currentPhotoName];
 
-            if($currentPhotoValue) {
+            if ($currentPhotoValue) {
                 $path = str_replace('public/', '', $currentPhotoValue);
                 $userOfferItem[$currentPhotoName] = '/storage/' . $path;
             }
@@ -31,8 +50,23 @@ function getSaleOffersDataFormatted() {
     return $userSaleOffersListFormatted;
 }
 
-function getUserSaleOffers($id) {
-    return Offer::where('user_id', $id)->get()->toArray();
+function getUserSaleOfferItem($id)
+{
+    $authUser = Auth::user();
+    $user_id = $authUser->id;
+
+    return Offer::where([
+        ['user_id', $user_id],
+        ['id', $id],
+    ])->first()->toArray();
+}
+
+function getUserSaleOffers()
+{
+    $authUser = Auth::user();
+    $user_id = $authUser->id;
+
+    return Offer::where('user_id', $user_id)->get()->toArray();
 }
 
 function trySaveSaleOfferInDB($request)
@@ -76,7 +110,8 @@ function trySaveSaleOfferInDB($request)
     }
 }
 
-function updateSaleOfferPhotos($request) {
+function updateSaleOfferPhotos($request)
+{
     $authUser = Auth::user();
     $authUserId = $authUser->id;
     $photosArray = [];

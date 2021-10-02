@@ -50,6 +50,6 @@ Route::put('/profile/sale-points-info/{id}', 'controllers\profile\salePointsInfo
 
 Route::get('/profile/sale-offers', 'controllers\profile\saleOffers\ProfileSaleOffersController@index')->middleware('auth');
 Route::get('/profile/sale-offers/create', 'controllers\profile\saleOffers\ProfileSaleOffersController@create')->middleware('auth');
-Route::get('/profile/sale-offers/edit/{id}', 'controllers\profile\saleOffers\ProfileSalePointsController@edit')->middleware('auth');
-Route::get('/profile/sale-offers/destroy/{id}', 'controllers\profile\saleOffers\ProfileSalePointsController@destroy')->middleware('auth');
+Route::get('/profile/sale-offers/edit/{id}', 'controllers\profile\saleOffers\ProfileSaleOffersController@edit')->middleware('auth');
+Route::get('/profile/sale-offers/destroy/{id}', 'controllers\profile\saleOffers\ProfileSaleOffersController@destroy')->middleware('auth');
 Route::post('/profile/sale-offers', 'controllers\profile\saleOffers\ProfileSaleOffersController@store')->middleware('auth');

@@ -7,6 +7,7 @@ import 'views/pages/offers/item';
 import 'views/pages/profile/organization-info';
 import 'views/pages/profile/personal-info';
 import 'views/pages/profile/sale-offers/create';
+import 'views/pages/profile/sale-offers/edit';
 import 'views/pages/profile/sale-offers/index';
 import 'views/pages/profile/sale-points-info/create';
 import 'views/pages/profile/sale-points-info/edit';
