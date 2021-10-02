@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\profile\personalData;
+namespace App\Http\Controllers\controllers\profile\personalData;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;

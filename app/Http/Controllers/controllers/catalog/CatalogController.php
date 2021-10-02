@@ -1,12 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\profile\index;
+namespace App\Http\Controllers\controllers\catalog;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 
-class ProfileController extends Controller
+require_once('app/Http/Controllers/helpers/breadcrumbs/index.php');
+require_once('app/Http/Controllers/helpers/catalog/index.php');
+require_once('app/Http/Controllers/helpers/location/index.php');
+
+class CatalogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +19,14 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return redirect('profile/personal-info');
+        $catalogFull = getCatalogFull();
+        $locationList = getLocationListFormatted();
+
+        return view('pages.home.index', [
+            'catalogHeader' => $catalogFull,
+            'catalogPage' => $catalogFull,
+            'locationList' => $locationList,
+        ]);
     }
 
     /**
@@ -42,11 +53,22 @@ class ProfileController extends Controller
     /**
      * Display the specified resource.
      *
+     * @param  string  $catalogLevelOneLink
      * @return Response
      */
-    public function show($section)
+    public function show($catalogLevelOneLink)
     {
-        //
+        $catalogFull = getCatalogFull();
+        $catalogLevelOneItemSubcategoriesList = getCatalogLevelOneItemSubcategoriesList($catalogFull, $catalogLevelOneLink);
+        $breadcrumbs = getCatalogLevelTwoBreadcrumbs($catalogFull, $catalogLevelOneLink);
+        $locationList = getLocationListFormatted();
+
+        return view('pages.catalog.secondLevel.index', [
+            'breadcrumbs' => $breadcrumbs,
+            'catalogHeader' => $catalogFull,
+            'catalogPage' => $catalogLevelOneItemSubcategoriesList,
+            'locationList' => $locationList,
+        ]);
     }
 
     /**

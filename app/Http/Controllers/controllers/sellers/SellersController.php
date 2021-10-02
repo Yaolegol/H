@@ -1,40 +1,33 @@
 <?php
 
-namespace App\Http\Controllers\offers;
+namespace App\Http\Controllers\controllers\sellers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-require_once('app/Http/Controllers/helpers/breadcrumbs/index.php');
 require_once('app/Http/Controllers/helpers/catalog/index.php');
 require_once('app/Http/Controllers/helpers/location/index.php');
 require_once('app/Http/Controllers/helpers/offers/index.php');
 
-class OffersController extends Controller
+class SellersController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @param  string  $catalogLevelOneLink
-     * @param  string  $productLink
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, $catalogLevelOneLink, $productLink)
+    public function index()
     {
-        $searchCountryId = $request->cookie('search-country-id');
-        $searchRegionId = $request->cookie('search-region-id');
-        $searchCityId = $request->cookie('search-city-id');
-
         $catalogFull = getCatalogFull();
-        $offersList = getOffers($catalogFull, $catalogLevelOneLink, $productLink, $searchCountryId, $searchRegionId, $searchCityId);
-        $breadcrumbs = getCatalogOffersBreadcrumbs($catalogFull, $catalogLevelOneLink, $productLink);
+        $offersList = getOffers($productLink);
+        $breadcrumbs = getCatalogOffersBreadcrumbs($catalogFull, $catalogLevel2Link, $productLink);
         $locationList = getLocationListFormatted();
 
-        return view('pages.offers.index', [
+        return view('pages.sellers.index', [
             'breadcrumbs' => $breadcrumbs,
             'catalogHeader' => $catalogFull,
-            'offersList' => $offersList,
             'locationList' => $locationList,
+            'sellersList' => $offersList,
         ]);
     }
 
@@ -67,17 +60,7 @@ class OffersController extends Controller
      */
     public function show($id)
     {
-        $catalogFull = getCatalogFull();
-        $offer = getOffer($id);
-        $breadcrumbs = getOfferBreadcrumbs();
-        $locationList = getLocationListFormatted();
-
-        return view('pages.offers.item.index', [
-            'breadcrumbs' => $breadcrumbs,
-            'catalogHeader' => $catalogFull,
-            'locationList' => $locationList,
-            'offer' => $offer,
-        ]);
+        //
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\profile\saleOffers;
+namespace App\Http\Controllers\controllers\profile\salePointsInfo;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -11,9 +11,9 @@ use App\Http\Controllers\Controller;
 
 require_once('app/Http/Controllers/helpers/catalog/index.php');
 require_once('app/Http/Controllers/helpers/location/index.php');
-require_once('app/Http/Controllers/helpers/profile/saleOffers/index.php');
+require_once('app/Http/Controllers/helpers/profile/salePointsInfo/index.php');
 
-class ProfileSaleOffersController extends Controller
+class ProfileSalePointsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,12 +24,12 @@ class ProfileSaleOffersController extends Controller
     {
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
-        $saleOffersList = getSaleOffersDataFormatted();
+        $salePointsList = getSalePointsDataFormatted();
 
-        return view('pages.profile.sale-offers.index.index', [
+        return view('pages.profile.sale-points-info.index.index', [
             'catalogHeader' => $catalogFull,
             'locationList' => $locationList,
-            'saleOffersList' => $saleOffersList,
+            'salePointsList' => $salePointsList,
         ]);
     }
 
@@ -42,11 +42,12 @@ class ProfileSaleOffersController extends Controller
     {
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
+        $salePointsList = getSalePointsDataFormatted();
 
-        return view('pages.profile.sale-offers.create.index', [
-            'catalogFull' => $catalogFull,
+        return view('pages.profile.sale-points-info.create.index', [
             'catalogHeader' => $catalogFull,
             'locationList' => $locationList,
+            'salePointsList' => $salePointsList,
         ]);
     }
 
@@ -58,10 +59,10 @@ class ProfileSaleOffersController extends Controller
      */
     public function store(Request $request)
     {
-        $isSaved = trySaveSaleOfferInDB($request);
+        $isSaved = tryChangeSalePointDataInDB($request);
 
         if($isSaved) {
-            return redirect('/profile/sale-offers');
+            return redirect('/profile/sale-points-info');
         } else {
             return back()->with(
                 ['commonError' => 'Что-то пошло не так. Попробуйте снова']
@@ -74,7 +75,7 @@ class ProfileSaleOffersController extends Controller
      *
      * @return Response
      */
-    public function show($section)
+    public function show()
     {
         //
     }
@@ -84,9 +85,17 @@ class ProfileSaleOffersController extends Controller
      *
      * @return Response
      */
-    public function edit(Request $request)
+    public function edit(Request $request, $id)
     {
-        //
+        $catalogFull = getCatalogFull();
+        $locationList = getLocationListFormatted();
+        $salePointsList = getSalePointsDataFormatted();
+
+        return view('pages.profile.sale-points-info.edit.index', [
+            'catalogHeader' => $catalogFull,
+            'locationList' => $locationList,
+            'salePointsList' => $salePointsList,
+        ]);
     }
 
     /**
@@ -109,6 +118,14 @@ class ProfileSaleOffersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $isDestroyed = tryDestroySalePointDataInDB($id);
+
+        if($isDestroyed) {
+            return redirect('/profile/sale-points-info');
+        } else {
+            return back()->with(
+                ['commonError' => 'Что-то пошло не так. Попробуйте снова']
+            );
+        }
     }
 }

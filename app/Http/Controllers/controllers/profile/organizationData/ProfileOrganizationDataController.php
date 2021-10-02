@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\profile\organizationData;
+namespace App\Http\Controllers\controllers\profile\organizationData;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\authorization\register;
+namespace App\Http\Controllers\controllers\authorization\register;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
