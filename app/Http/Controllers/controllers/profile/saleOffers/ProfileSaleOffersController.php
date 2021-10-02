@@ -107,7 +107,15 @@ class ProfileSaleOffersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $isSaved = tryUpdateSaleOfferInDB($request, $id);
+
+        if($isSaved) {
+            return redirect('/profile/sale-offers');
+        } else {
+            return back()->with(
+                ['commonError' => 'Что-то пошло не так. Попробуйте снова']
+            );
+        }
     }
 
     /**

@@ -53,3 +53,4 @@ Route::get('/profile/sale-offers/create', 'controllers\profile\saleOffers\Profil
 Route::get('/profile/sale-offers/edit/{id}', 'controllers\profile\saleOffers\ProfileSaleOffersController@edit')->middleware('auth');
 Route::get('/profile/sale-offers/destroy/{id}', 'controllers\profile\saleOffers\ProfileSaleOffersController@destroy')->middleware('auth');
 Route::post('/profile/sale-offers', 'controllers\profile\saleOffers\ProfileSaleOffersController@store')->middleware('auth');
+Route::put('/profile/sale-offers/{id}', 'controllers\profile\saleOffers\ProfileSaleOffersController@update')->middleware('auth');

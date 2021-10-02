@@ -2,6 +2,34 @@
 
 use App\Models\Offer;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+
+function createSaleOfferPhotos($request, $createdSaleOfferId)
+{
+    $photosArray = [];
+    $photoInputsIteration = 1;
+
+    while ($photoInputsIteration <= 3) {
+        $photoDBColumn = 'photo_' . $photoInputsIteration;
+        $photo = $request->file('photo' . '_' . $photoInputsIteration) ?? '';
+
+        if ($photo) {
+            $photoName = $photoInputsIteration . '.' . $photo->extension();
+
+            $photoPath = $photo->storeAs(
+                '/public/users/1/offer/' . $createdSaleOfferId . '/photo', $photoName
+            );
+
+            array_push($photosArray, [
+                $photoDBColumn => $photoPath
+            ]);
+        }
+
+        $photoInputsIteration++;
+    }
+
+    return $photosArray;
+}
 
 function getSaleOfferItemDataFormatted($id)
 {
@@ -84,7 +112,50 @@ function trySaveSaleOfferInDB($request)
         $region_id = $request->input('region_id');
         $city_id = $request->input('city_id');
 
-        $newPhotos = updateSaleOfferPhotos($request);
+        $createdSaleOffer = Offer::create([
+            'title' => $title,
+            'description' => $description,
+            'address' => $address,
+            'phone' => $phone,
+            'price' => $price,
+            'user_id' => $authUserId,
+            'catalog_level_two_id' => $catalog_level_two_id,
+            'region_id' => $region_id,
+            'city_id' => $city_id,
+        ]);
+
+        $createdSaleOfferData = $createdSaleOffer->toArray();
+        $createdSaleOfferId = $createdSaleOfferData['id'];
+
+        $newPhotos = createSaleOfferPhotos($request, $createdSaleOfferId);
+
+        Offer::where([
+            ['user_id', $authUserId],
+            ['id', $createdSaleOfferId]
+        ])->update(...$newPhotos);
+
+        return true;
+    } catch (\Exception $error) {
+        return false;
+    }
+}
+
+function tryUpdateSaleOfferInDB($request, $id)
+{
+    try {
+        $authUser = Auth::user();
+        $authUserId = $authUser->id;
+
+        $title = $request->input('title');
+        $description = $request->input('description');
+        $address = $request->input('address');
+        $phone = $request->input('phone');
+        $price = $request->input('price');
+        $catalog_level_two_id = $request->input('catalog_level_two_id');
+        $region_id = $request->input('region_id');
+        $city_id = $request->input('city_id');
+
+        $newPhotos = updateSaleOfferPhotos($request, $id);
 
         $newSaleOfferData = array_merge(
             [
@@ -101,19 +172,20 @@ function trySaveSaleOfferInDB($request)
             ...$newPhotos,
         );
 
-        Offer::create($newSaleOfferData);
+        Offer::where([
+            ['user_id', $authUserId],
+            ['id', $id]
+        ])->update($newSaleOfferData);
 
         return true;
     } catch (\Exception $error) {
-        dd($error);
         return false;
     }
 }
 
-function updateSaleOfferPhotos($request)
-{
+function updateSaleOfferPhotos($request, $updatingSaleOfferId) {
     $authUser = Auth::user();
-    $authUserId = $authUser->id;
+    $user_id = $authUser->id;
     $photosArray = [];
 
     $photoInputsIteration = 1;
@@ -121,15 +193,47 @@ function updateSaleOfferPhotos($request)
         $photoDBColumn = 'photo_' . $photoInputsIteration;
         $photo = $request->file('photo' . '_' . $photoInputsIteration) ?? '';
         if ($photo) {
-            $photoName = time() . '_' . $photoInputsIteration . '.' . $photo->extension();
+            $oldPhoto = File::glob(
+                storage_path() .
+                '/app/public/users/' .
+                $user_id .
+                '/offer/' .
+                $updatingSaleOfferId .
+                '/photo/' .
+                $photoInputsIteration .
+                '*'
+            );
+            File::delete($oldPhoto);
+
+            $photoName = $photoInputsIteration . '.' . $photo->extension();
 
             $photoPath = $photo->storeAs(
-                '/public/users/1/offer/' . 'photo', $photoName
+                '/public/users/1/sale-point/' . $updatingSaleOfferId . '/photo', $photoName
             );
 
             array_push($photosArray, [
                 $photoDBColumn => $photoPath
             ]);
+        } else {
+            $isRemovePhoto = $request->has('remove_photo_' . $photoInputsIteration);
+
+            if ($isRemovePhoto) {
+                $oldPhoto = File::glob(
+                    storage_path() .
+                    '/app/public/users/' .
+                    $user_id .
+                    '/offer/' .
+                    $updatingSaleOfferId .
+                    '/photo/' .
+                    $photoInputsIteration .
+                    '*'
+                );
+                File::delete($oldPhoto);
+
+                array_push($photosArray, [
+                    $photoDBColumn => ''
+                ]);
+            }
         }
 
         $photoInputsIteration++;
