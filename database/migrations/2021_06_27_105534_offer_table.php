@@ -17,11 +17,13 @@ class OfferTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('description')->nullable();
-            $table->integer('order')->default(1);
+            $table->string('address');
+            $table->string('phone');
             $table->float('price');
             $table->string('photo_1')->nullable();
             $table->string('photo_2')->nullable();
             $table->string('photo_3')->nullable();
+            $table->integer('order')->default(1);
             $table->boolean('is_active')->default(true);
             $table->bigInteger('user_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users');
@@ -29,11 +31,11 @@ class OfferTable extends Migration
             $table->foreign('catalog_level_two_id')->references('id')->on('catalog_level_two');
             $table->bigInteger('measure_id')->unsigned()->index()->nullable();
             $table->foreign('measure_id')->references('id')->on('measure');
-            $table->bigInteger('country_id')->unsigned()->index();
+            $table->bigInteger('country_id')->unsigned()->index()->nullable()->default(1);
             $table->foreign('country_id')->references('id')->on('country');
             $table->bigInteger('region_id')->unsigned()->index();
             $table->foreign('region_id')->references('id')->on('region');
-            $table->bigInteger('city_id')->unsigned()->index();
+            $table->bigInteger('city_id')->unsigned()->index()->nullable();
             $table->foreign('city_id')->references('id')->on('city');
             $table->timestamps();
         });

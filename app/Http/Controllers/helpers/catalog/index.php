@@ -617,20 +617,36 @@ function tryChangeUserPersonalDataInDB($request)
 function trySaveSaleOfferInDB($request)
 {
     try {
-        $catalog_level_two_id = $request->input('catalog_level_two_id');
+        $authUser = Auth::user();
+        $authUserId = $authUser->id;
+
         $title = $request->input('title');
         $description = $request->input('description');
         $address = $request->input('address');
         $phone = $request->input('phone');
         $price = $request->input('price');
 
+        $photo_1 = $request->file('photo_1');
+        $photo_2 = $request->file('photo_2');
+        $photo_3 = $request->file('photo_3');
+
+        $catalog_level_two_id = $request->input('catalog_level_two_id');
+        $region_id = $request->input('region_id');
+        $city_id = $request->input('city_id');
+
         $newOffer = new Offer([
-            'catalog_level_two_id' => $catalog_level_two_id,
             'title' => $title,
             'description' => $description,
             'address' => $address,
             'phone' => $phone,
             'price' => $price,
+            'photo_1' => $photo_1,
+            'photo_2' => $photo_2,
+            'photo_3' => $photo_3,
+            'user_id' => $authUserId,
+            'catalog_level_two_id' => $catalog_level_two_id,
+            'region_id' => $region_id,
+            'city_id' => $city_id,
         ]);
         $newOffer->save();
 
