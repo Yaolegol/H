@@ -1,5 +1,25 @@
 <?php
 
+function getCatalogLevelTwoBreadcrumbs($catalogFull, $catalogLevelOneLink)
+{
+    $breadcrumbs = [
+        [
+            'active' => false,
+            'link' => '/',
+            'title' => 'Каталог',
+        ],
+    ];
+
+    $catalogLevelOneItem = getCatalogLevelOneItem($catalogFull, $catalogLevelOneLink);
+
+    array_push($breadcrumbs, [
+        'active' => true,
+        'title' => $catalogLevelOneItem['title'],
+    ]);
+
+    return $breadcrumbs;
+}
+
 function getCatalogOffersBreadcrumbs($catalogFull, $catalogLevelOneLink, $productLink)
 {
     $breadcrumbs = [

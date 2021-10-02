@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 require_once('app/Http/Controllers/helpers/catalog/index.php');
 require_once('app/Http/Controllers/helpers/location/index.php');
+require_once('app/Http/Controllers/helpers/authorization/index.php');
 
 class RegisterController extends Controller
 {
