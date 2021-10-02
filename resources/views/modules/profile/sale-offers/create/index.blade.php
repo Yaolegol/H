@@ -19,7 +19,7 @@
         return [
             'content' => $catalogLevelTwoItemsList,
             'groupName' => 'radio-group__catalog_level_two',
-            'inputName' => 'catalog_level_two',
+            'inputName' => 'catalog_level_two_id',
             'listenId' => $catalogItem['id'],
         ];
     }, $catalogFull);
