@@ -59,7 +59,7 @@ class ProfileSalePointsController extends Controller
      */
     public function store(Request $request)
     {
-        $isSaved = tryChangeSalePointDataInDB($request);
+        $isSaved = tryStoreSalePointDataInDB($request);
 
         if($isSaved) {
             return redirect('/profile/sale-points-info');
@@ -89,12 +89,12 @@ class ProfileSalePointsController extends Controller
     {
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
-        $salePointsList = getSalePointsDataFormatted();
+        $salePointItemData = getSalePointItemDataFormatted($id);
 
         return view('pages.profile.sale-points-info.edit.index', [
             'catalogHeader' => $catalogFull,
             'locationList' => $locationList,
-            'salePointsList' => $salePointsList,
+            'salePointItemData' => $salePointItemData,
         ]);
     }
 
@@ -107,7 +107,15 @@ class ProfileSalePointsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $isSaved = tryUpdateSalePointDataInDB($request, $id);
+
+        if($isSaved) {
+            return redirect('/profile/sale-points-info');
+        } else {
+            return back()->with(
+                ['commonError' => 'Что-то пошло не так. Попробуйте снова']
+            );
+        }
     }
 
     /**

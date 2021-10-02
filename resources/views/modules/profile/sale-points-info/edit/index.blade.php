@@ -8,21 +8,23 @@
         </a>
     </div>
     <div class="profile--sale-points-info--edit__title-container">
-        <h2>Добавить торговую точку</h2>
+        <h2>Изменить данные о торговой точке</h2>
     </div>
     <div class="profile--sale-points-info--edit__form-container">
         <form
-            action="/profile/sale-points-info"
+            action="/profile/sale-points-info/{{$salePointItemData['id']}}"
             enctype="multipart/form-data"
             method="POST"
         >
             @csrf
+            @method('PUT')
             <div class="profile--sale-points-info--edit__info-title">Название:</div>
             <div class="profile--sale-points-info--edit__input-container">
                 @include('components.inputs.form.index', [
                             'name' => 'title',
                             'placeholder' => 'Title',
                             'type' => 'text',
+                            'value' => $salePointItemData['title'],
                         ])
                 @include('components.form.error.index', [
                     'message' => $errors->first('organization-name'),
@@ -34,6 +36,7 @@
                             'name' => 'address',
                             'placeholder' => 'Address',
                             'type' => 'text',
+                            'value' => $salePointItemData['address'],
                         ])
                 @include('components.form.error.index', [
                     'message' => $errors->first('address'),
@@ -45,6 +48,7 @@
                             'name' => 'working_hours',
                             'placeholder' => 'Working hours',
                             'type' => 'text',
+                            'value' => $salePointItemData['working_hours'],
                         ])
                 @include('components.form.error.index', [
                     'message' => $errors->first('working_hours'),
@@ -56,6 +60,7 @@
                             'name' => 'contact_person',
                             'placeholder' => 'Contact person',
                             'type' => 'text',
+                            'value' => $salePointItemData['contact_person'],
                         ])
                 @include('components.form.error.index', [
                     'message' => $errors->first('contact_person'),
@@ -67,6 +72,7 @@
                             'name' => 'phone',
                             'placeholder' => 'Phone',
                             'type' => 'tel',
+                            'value' => $salePointItemData['phone'],
                         ])
                 @include('components.form.error.index', [
                     'message' => $errors->first('phone'),
@@ -77,7 +83,7 @@
                 <div class="profile-organization-info__section profile-organization-info__section_add-file">
                     <div class="profile-organization-info__input-container">
                         @include('components.inputs.file.item.index', [
-                                    'imageSrc' => '',
+                                    'imageSrc' => $salePointItemData['photo_1'],
                                     'name' => 'photo_1',
                                     'title' => 'Добавить фото №1',
                                     'withPreviewFile' => true,
@@ -88,7 +94,7 @@
                     </div>
                     <div class="profile-organization-info__input-container">
                         @include('components.inputs.file.item.index', [
-                                    'imageSrc' => '',
+                                    'imageSrc' => $salePointItemData['photo_2'],
                                     'name' => 'photo_2',
                                     'title' => 'Добавить фото №2',
                                     'withPreviewFile' => true,
@@ -99,7 +105,7 @@
                     </div>
                     <div class="profile-organization-info__input-container">
                         @include('components.inputs.file.item.index', [
-                                    'imageSrc' => '',
+                                    'imageSrc' => $salePointItemData['photo_3'],
                                     'name' => 'photo_3',
                                     'title' => 'Добавить фото №3',
                                     'withPreviewFile' => true,
