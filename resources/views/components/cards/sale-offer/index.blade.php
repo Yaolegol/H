@@ -41,7 +41,7 @@
     </div>
     <div class="cards--sale-offer__item-container cards--sale-offer__item-container_service">
         <div class="cards--sale-offer__edit-button-container">
-            <a class="cards--sale-offer__link cards--sale-offer__link_edit" href="./sale-offers/edit">Изменить</a>
+            <a class="cards--sale-offer__link cards--sale-offer__link_edit" href="./sale-offers/edit/{{$saleOffer['id']}}">Изменить</a>
         </div>
         <div class="cards--sale-offer__remove-button-container">
             <a class="cards--sale-offer__link cards--sale-offer__link_remove" href="./sale-offers/destroy/{{$saleOffer['id']}}">Удалить</a>

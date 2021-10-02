@@ -41,7 +41,7 @@
     </div>
     <div class="cards--sale-point__item-container cards--sale-point__item-container_service">
         <div class="cards--sale-point__edit-button-container">
-            <a class="cards--sale-point__link cards--sale-point__link_edit" href="./sale-points-info/edit">Изменить</a>
+            <a class="cards--sale-point__link cards--sale-point__link_edit" href="./sale-points-info/edit/{{$salePoint['id']}}">Изменить</a>
         </div>
         <div class="cards--sale-point__remove-button-container">
             <a class="cards--sale-point__link cards--sale-point__link_remove" href="./sale-points-info/destroy/{{$salePoint['id']}}">Удалить</a>
