@@ -97,6 +97,33 @@ function getUserSaleOffers()
     return Offer::where('user_id', $user_id)->get()->toArray();
 }
 
+function tryDestroySaleOfferDataInDB($id)
+{
+    try {
+        $authUser = Auth::user();
+        $user_id = $authUser->id;
+
+        $saleOffer = Offer::where([
+            ['user_id', $user_id],
+            ['id', $id]
+        ]);
+
+        $saleOffer->delete();
+
+        File::deleteDirectory(
+            storage_path() .
+            '/app/public/users/' .
+            $user_id .
+            '/offer/' .
+            $id
+        );
+
+        return true;
+    } catch (\Exception $error) {
+        return false;
+    }
+}
+
 function trySaveSaleOfferInDB($request)
 {
     try {

@@ -44,7 +44,7 @@
         return [
             'content' => $regionItemCitiesList,
             'groupName' => 'radio-group__cities',
-            'inputName' => 'city',
+            'inputName' => 'city_id',
             'listenId' => $regionItem['id'],
         ];
     }, $locationList);

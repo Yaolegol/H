@@ -126,6 +126,14 @@ class ProfileSaleOffersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $isDestroyed = tryDestroySaleOfferDataInDB($id);
+
+        if($isDestroyed) {
+            return redirect('/profile/sale-offers');
+        } else {
+            return back()->with(
+                ['commonError' => 'Что-то пошло не так. Попробуйте снова']
+            );
+        }
     }
 }
