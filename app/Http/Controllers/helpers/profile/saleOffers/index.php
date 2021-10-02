@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Offer;
+use App\Models\SalePoint;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
@@ -77,6 +78,10 @@ function getSaleOffersDataFormatted()
     return $userSaleOffersListFormatted;
 }
 
+function getSalePointsListFormatted() {
+    return getUserSalePointsList();
+}
+
 function getUserSaleOfferItem($id)
 {
     $authUser = Auth::user();
@@ -94,6 +99,13 @@ function getUserSaleOffers()
     $user_id = $authUser->id;
 
     return Offer::where('user_id', $user_id)->get()->toArray();
+}
+
+function getUserSalePointsList() {
+    $authUser = Auth::user();
+    $user_id = $authUser->id;
+
+    return SalePoint::where('user_id', $user_id)->get()->toArray();
 }
 
 function tryDestroySaleOfferDataInDB($id)
