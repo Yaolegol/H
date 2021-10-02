@@ -1,7 +1,7 @@
 @php
     $catalogCategoriesList = array_map(function($catalogLevelOneItem) use($saleOfferItemData) {
         $catalogLevelOneItemId = $catalogLevelOneItem['id'];
-        $saleOfferItemDataId = $saleOfferItemData['catalog_level_two_id'];
+        $saleOfferItemDataCatalogId = $saleOfferItemData['catalog_level_two_id'];
         $catalogLevelTwoItemsList = $catalogLevelOneItem['catalog_level_two'];
 
         $isChecked = false;
@@ -9,7 +9,7 @@
         foreach ($catalogLevelTwoItemsList as $catalogLevelTwoItem) {
             $catalogLevelTwoItemId = $catalogLevelTwoItem['id'];
 
-            if($catalogLevelTwoItemId === $saleOfferItemDataId) {
+            if($catalogLevelTwoItemId === $saleOfferItemDataCatalogId) {
                 $isChecked = true;
             }
         }
@@ -25,11 +25,11 @@
     $catalogSubCategoriesList = array_map(function($catalogLevelOneItem) use($saleOfferItemData) {
         $catalogLevelTwoItemsList = array_map(function($catalogLevelTwoItem) use($saleOfferItemData) {
             $catalogLevelTwoItemId = $catalogLevelTwoItem['id'];
-            $saleOfferItemDataId = $saleOfferItemData['catalog_level_two_id'];
+            $saleOfferItemDataCatalogId = $saleOfferItemData['catalog_level_two_id'];
 
             return [
                 'id' => 'id__radio-input__catalog-level-two__' . $catalogLevelTwoItemId,
-                'isChecked' => $catalogLevelTwoItemId === $saleOfferItemDataId,
+                'isChecked' => $catalogLevelTwoItemId === $saleOfferItemDataCatalogId,
                 'title' => $catalogLevelTwoItem['title'],
                 'value' => $catalogLevelTwoItemId,
             ];
@@ -43,27 +43,35 @@
         ];
     }, $catalogFull);
 
-    $regionList = array_map(function($regionItem) {
+    $regionList = array_map(function($regionItem) use($saleOfferItemData) {
+        $regionItemId = $regionItem['id'];
+        $saleOfferItemDataRegionId = $saleOfferItemData['region_id'];
+
         return [
-            'id' => 'id__radio-input__region__' . $regionItem['id'],
+            'id' => 'id__radio-input__region__' . $regionItemId,
+            'isChecked' => $regionItemId === $saleOfferItemDataRegionId,
             'title' => $regionItem['title'],
-            'value' => $regionItem['id'],
+            'value' => $regionItemId,
         ];
     }, $locationList);
 
-    $citiesList = array_map(function($regionItem) {
-        $regionItemCitiesList = array_map(function($cityItem) {
+    $citiesList = array_map(function($regionItem) use($saleOfferItemData) {
+        $regionItemCitiesList = array_map(function($cityItem) use($saleOfferItemData) {
+            $cityItemId = $cityItem['id'];
+            $saleOfferItemDataCityId = $saleOfferItemData['city_id'];
+
             return [
-                'id' => 'id__radio-input__city__' . $cityItem['id'],
+                'id' => 'id__radio-input__city__' . $cityItemId,
+                'isChecked' => $cityItemId === $saleOfferItemDataCityId,
                 'title' => $cityItem['title'],
-                'value' => $cityItem['id'],
+                'value' => $cityItemId,
             ];
         }, $regionItem['cities']);
 
         return [
             'content' => $regionItemCitiesList,
             'groupName' => 'radio-group__cities',
-            'inputName' => 'city',
+            'inputName' => 'city_id',
             'listenId' => $regionItem['id'],
         ];
     }, $locationList);

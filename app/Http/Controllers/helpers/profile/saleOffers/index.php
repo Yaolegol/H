@@ -179,6 +179,7 @@ function tryUpdateSaleOfferInDB($request, $id)
 
         return true;
     } catch (\Exception $error) {
+        dd($error);
         return false;
     }
 }
