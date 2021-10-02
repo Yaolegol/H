@@ -7,9 +7,13 @@
     </a>
     <div class="profile--sale-points-info--index__content-container">
         <h2>Ваши торговые предложения</h2>
-        <div class="profile--sale-points-info--index__sale-point-container">
-
-        </div>
+        @foreach ($saleOffersList as $saleOfferItem)
+            <div class="profile--sale-points-info--index__sale-point-container">
+                @include('components.cards.sale-offer.index', [
+                            'saleOffer' => $saleOfferItem,
+                        ])
+            </div>
+        @endforeach
     </div>
 </div>
 

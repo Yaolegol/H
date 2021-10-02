@@ -614,6 +614,65 @@ function tryChangeUserPersonalDataInDB($request)
     }
 }
 
+function updateSaleOfferPhotos($request) {
+    $authUser = Auth::user();
+    $authUserId = $authUser->id;
+    $photosArray = [];
+
+    $photoInputsIteration = 1;
+    while ($photoInputsIteration <= 3) {
+        $photoDBColumn = 'photo_' . $photoInputsIteration;
+        $photo = $request->file('photo' . '_' . $photoInputsIteration) ?? '';
+        if ($photo) {
+            $photoName = time() . '_' . $photoInputsIteration . '.' . $photo->extension();
+
+            $photoPath = $photo->storeAs(
+                '/public/users/1/offer/' . 'photo', $photoName
+            );
+
+            array_push($photosArray, [
+                $photoDBColumn => $photoPath
+            ]);
+        }
+
+        $photoInputsIteration++;
+    }
+
+    return $photosArray;
+}
+
+function getUserSaleOffers($id) {
+    return Offer::where('user_id', $id)->get()->toArray();
+}
+
+function getSaleOffersDataFormatted() {
+    $authUser = Auth::user();
+    $user_id = $authUser->id;
+
+    $userSaleOffersList = getUserSaleOffers($user_id);
+    $userSaleOffersListFormatted = [];
+
+    foreach ($userSaleOffersList as $userOfferItem) {
+
+        $photoIteration = 1;
+        while($photoIteration <= 3) {
+            $currentPhotoName = 'photo_' . $photoIteration;
+            $currentPhotoValue = $userOfferItem[$currentPhotoName];
+
+            if($currentPhotoValue) {
+                $path = str_replace('public/', '', $currentPhotoValue);
+                $userOfferItem[$currentPhotoName] = '/storage/' . $path;
+            }
+
+            $photoIteration++;
+        }
+
+        array_push($userSaleOffersListFormatted, $userOfferItem);
+    }
+
+    return $userSaleOffersListFormatted;
+}
+
 function trySaveSaleOfferInDB($request)
 {
     try {
@@ -625,30 +684,28 @@ function trySaveSaleOfferInDB($request)
         $address = $request->input('address');
         $phone = $request->input('phone');
         $price = $request->input('price');
-
-        $photo_1 = $request->file('photo_1');
-        $photo_2 = $request->file('photo_2');
-        $photo_3 = $request->file('photo_3');
-
         $catalog_level_two_id = $request->input('catalog_level_two_id');
         $region_id = $request->input('region_id');
         $city_id = $request->input('city_id');
 
-        $newOffer = new Offer([
-            'title' => $title,
-            'description' => $description,
-            'address' => $address,
-            'phone' => $phone,
-            'price' => $price,
-            'photo_1' => $photo_1,
-            'photo_2' => $photo_2,
-            'photo_3' => $photo_3,
-            'user_id' => $authUserId,
-            'catalog_level_two_id' => $catalog_level_two_id,
-            'region_id' => $region_id,
-            'city_id' => $city_id,
-        ]);
-        $newOffer->save();
+        $newPhotos = updateSaleOfferPhotos($request);
+
+        $newSaleOfferData = array_merge(
+            [
+                'title' => $title,
+                'description' => $description,
+                'address' => $address,
+                'phone' => $phone,
+                'price' => $price,
+                'user_id' => $authUserId,
+                'catalog_level_two_id' => $catalog_level_two_id,
+                'region_id' => $region_id,
+                'city_id' => $city_id,
+            ],
+            ...$newPhotos,
+        );
+
+        Offer::create($newSaleOfferData);
 
         return true;
     } catch (\Exception $error) {

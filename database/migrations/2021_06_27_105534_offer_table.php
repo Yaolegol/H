@@ -19,7 +19,7 @@ class OfferTable extends Migration
             $table->string('description')->nullable();
             $table->string('address');
             $table->string('phone');
-            $table->float('price');
+            $table->double('price');
             $table->string('photo_1')->nullable();
             $table->string('photo_2')->nullable();
             $table->string('photo_3')->nullable();

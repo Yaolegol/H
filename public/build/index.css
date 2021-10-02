@@ -2777,6 +2777,48 @@ p {
   display: none;
 }
 
+.cards--sale-point {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  max-width: 500px;
+  padding: 20px;
+}
+.cards--sale-point__remove-button-container {
+  margin-left: 15px;
+}
+.cards--sale-point__image {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  height: 200px;
+  width: 200px;
+}
+.cards--sale-point__image-item-container {
+  margin-left: 20px;
+}
+.cards--sale-point__image-item-container:first-child {
+  margin-left: 0;
+}
+.cards--sale-point__image-list-container {
+  display: flex;
+  margin-top: 20px;
+}
+.cards--sale-point__item-container {
+  margin-top: 20px;
+}
+.cards--sale-point__item-container_service {
+  display: flex;
+  justify-content: flex-end;
+}
+.cards--sale-point__item-container_without-offset {
+  margin-top: 0;
+}
+.cards--sale-point__link_remove {
+  color: #FF0000;
+}
+.cards--sale-point__value {
+  margin-top: 5px;
+}
+
 .profile--sale-offers--index__create-link {
   background-color: #e34132;
   border-radius: 10px;
@@ -3570,45 +3612,45 @@ p {
   display: none;
 }
 
-.cards--sale-point {
+.cards--sale-offer {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 20px;
   max-width: 500px;
   padding: 20px;
 }
-.cards--sale-point__remove-button-container {
+.cards--sale-offer__remove-button-container {
   margin-left: 15px;
 }
-.cards--sale-point__image {
+.cards--sale-offer__image {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 20px;
   height: 200px;
   width: 200px;
 }
-.cards--sale-point__image-item-container {
+.cards--sale-offer__image-item-container {
   margin-left: 20px;
 }
-.cards--sale-point__image-item-container:first-child {
+.cards--sale-offer__image-item-container:first-child {
   margin-left: 0;
 }
-.cards--sale-point__image-list-container {
+.cards--sale-offer__image-list-container {
   display: flex;
   margin-top: 20px;
 }
-.cards--sale-point__item-container {
+.cards--sale-offer__item-container {
   margin-top: 20px;
 }
-.cards--sale-point__item-container_service {
+.cards--sale-offer__item-container_service {
   display: flex;
   justify-content: flex-end;
 }
-.cards--sale-point__item-container_without-offset {
+.cards--sale-offer__item-container_without-offset {
   margin-top: 0;
 }
-.cards--sale-point__link_remove {
+.cards--sale-offer__link_remove {
   color: #FF0000;
 }
-.cards--sale-point__value {
+.cards--sale-offer__value {
   margin-top: 5px;
 }
 

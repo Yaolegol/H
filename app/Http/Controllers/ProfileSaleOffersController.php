@@ -21,10 +21,12 @@ class ProfileSaleOffersController extends Controller
     {
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
+        $saleOffersList = getSaleOffersDataFormatted();
 
         return view('pages.profile.sale-offers.index.index', [
             'catalogHeader' => $catalogFull,
             'locationList' => $locationList,
+            'saleOffersList' => $saleOffersList,
         ]);
     }
 
@@ -53,19 +55,10 @@ class ProfileSaleOffersController extends Controller
      */
     public function store(Request $request)
     {
-        $catalogFull = getCatalogFull();
-        $locationList = getLocationListFormatted();
-
         $isSaved = trySaveSaleOfferInDB($request);
 
         if($isSaved) {
-            $organizationData = getOrganizationDataFormatted();
-
-            return view('pages.profile.organization-info.index', [
-                'catalogHeader' => $catalogFull,
-                'locationList' => $locationList,
-                'organizationData' => $organizationData,
-            ]);
+            return redirect('/profile/sale-offers');
         } else {
             return back()->with(
                 ['commonError' => 'Что-то пошло не так. Попробуйте снова']
