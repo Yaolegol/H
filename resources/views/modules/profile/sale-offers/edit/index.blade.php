@@ -1,31 +1,45 @@
 @php
-    $catalogCategoriesList = array_map(function($catalogItem) {
-        $catalogItemId = $catalogItem['id'];
+    $catalogCategoriesList = array_map(function($catalogLevelOneItem) use($saleOfferItemData) {
+        $catalogLevelOneItemId = $catalogLevelOneItem['id'];
+        $saleOfferItemDataId = $saleOfferItemData['catalog_level_two_id'];
+        $catalogLevelTwoItemsList = $catalogLevelOneItem['catalog_level_two'];
+
+        $isChecked = false;
+
+        foreach ($catalogLevelTwoItemsList as $catalogLevelTwoItem) {
+            $catalogLevelTwoItemId = $catalogLevelTwoItem['id'];
+
+            if($catalogLevelTwoItemId === $saleOfferItemDataId) {
+                $isChecked = true;
+            }
+        }
 
         return [
-            'id' => 'id__radio-input__catalog-level-one__' . $catalogItemId,
-            'title' => $catalogItem['title'],
-            'value' => $catalogItemId,
+            'id' => 'id__radio-input__catalog-level-one__' . $catalogLevelOneItemId,
+            'isChecked' => $isChecked,
+            'title' => $catalogLevelOneItem['title'],
+            'value' => $catalogLevelOneItemId,
         ];
     }, $catalogFull);
 
-    $catalogSubCategoriesList = array_map(function($catalogItem) use($saleOfferItemData) {
+    $catalogSubCategoriesList = array_map(function($catalogLevelOneItem) use($saleOfferItemData) {
         $catalogLevelTwoItemsList = array_map(function($catalogLevelTwoItem) use($saleOfferItemData) {
             $catalogLevelTwoItemId = $catalogLevelTwoItem['id'];
+            $saleOfferItemDataId = $saleOfferItemData['catalog_level_two_id'];
 
             return [
                 'id' => 'id__radio-input__catalog-level-two__' . $catalogLevelTwoItemId,
-                'isChecked' => $catalogLevelTwoItemId === $saleOfferItemData['catalog_level_two_id'],
+                'isChecked' => $catalogLevelTwoItemId === $saleOfferItemDataId,
                 'title' => $catalogLevelTwoItem['title'],
                 'value' => $catalogLevelTwoItemId,
             ];
-        }, $catalogItem['catalog_level_two']);
+        }, $catalogLevelOneItem['catalog_level_two']);
 
         return [
             'content' => $catalogLevelTwoItemsList,
             'groupName' => 'radio-group__catalog_level_two',
             'inputName' => 'catalog_level_two_id',
-            'listenId' => $catalogItem['id'],
+            'listenId' => $catalogLevelOneItem['id'],
         ];
     }, $catalogFull);
 
