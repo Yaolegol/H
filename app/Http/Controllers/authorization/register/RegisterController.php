@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 
 require_once('app/Http/Controllers/helpers/catalog/index.php');
+require_once('app/Http/Controllers/helpers/location/index.php');
 
 class RegisterController extends Controller
 {

@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 
-require_once('app/Http/Controllers/helpers/catalog/index.php');
-
 class ProfileController extends Controller
 {
     /**
