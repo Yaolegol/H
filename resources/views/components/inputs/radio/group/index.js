@@ -18,10 +18,15 @@ class InputsRadioGroup {
         this.module = element;
         this.dispatchEvents = this.module.hasAttribute('data-dispatch-events');
         this.groupName = this.module.dataset.groupName;
-        this.value = null;
+        this.checkedInput = this.module.querySelector('input[checked]');
+        this.value = this.checkedInput ? this.checkedInput.value : null;
 
         if(this.dispatchEvents) {
             addEventListener(this.module, 'change', this.handleChange);
+
+            if(this.value) {
+                this.sendMessage();
+            }
         }
     }
 
