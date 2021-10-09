@@ -42,7 +42,7 @@ class ProfileSaleOffersController extends Controller
     {
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
-        $salePointsList = getSalePointsListFormatted();
+        $salePointsList = getUserSalePointsList();
 
         return view('pages.profile.sale-offers.create.index', [
             'catalogFull' => $catalogFull,
@@ -91,7 +91,7 @@ class ProfileSaleOffersController extends Controller
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
         $saleOfferItemData = getSaleOfferItemDataFormatted($id);
-        $salePointsList = getSalePointsListFormatted();
+        $salePointsList = getSaleOfferSalePointsListFormatted($saleOfferItemData);
 
         return view('pages.profile.sale-offers.edit.index', [
             'catalogFull' => $catalogFull,

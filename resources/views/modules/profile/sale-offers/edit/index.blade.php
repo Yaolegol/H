@@ -197,6 +197,9 @@
                 @foreach($salePointsList as $salePointItem)
                     <label>
                         <input
+                            @if($salePointItem['active'])
+                                checked
+                            @endif
                             name="sale-point_{{$loop->index}}"
                             type="checkbox"
                             value="{{$salePointItem['id']}}"

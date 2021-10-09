@@ -78,8 +78,25 @@ function getSaleOffersDataFormatted()
     return $userSaleOffersListFormatted;
 }
 
-function getSalePointsListFormatted() {
-    return getUserSalePointsList();
+function getSaleOfferSalePointsListFormatted($saleOfferItemData) {
+    $saleOfferItemSalePointsList = $saleOfferItemData['sale_points'];
+    $saleOfferItemSalePointsIdList = array_map(function($saleOfferItemSalePoint) {
+        return $saleOfferItemSalePoint['id'];
+    }, $saleOfferItemSalePointsList);
+    $userSalePointsList = getUserSalePointsList();
+
+    foreach ($userSalePointsList as $key=>$userSalePoint) {
+        $userSalePointId = $userSalePoint['id'];
+        $isActive = in_array($userSalePointId, $saleOfferItemSalePointsIdList);
+
+        if($isActive) {
+            $userSalePointsList[$key]['active'] = true;
+        } else {
+            $userSalePointsList[$key]['active'] = false;
+        }
+    }
+
+    return $userSalePointsList;
 }
 
 function getUserSaleOfferItem($id)
@@ -90,7 +107,7 @@ function getUserSaleOfferItem($id)
     return Offer::where([
         ['user_id', $user_id],
         ['id', $id],
-    ])->first()->toArray();
+    ])->with('salePoints')->first()->toArray();
 }
 
 function getUserSaleOffers()
