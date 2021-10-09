@@ -103,13 +103,6 @@ function tryDestroySalePointDataInDB($id)
         $authUser = Auth::user();
         $user_id = $authUser->id;
 
-        $salePoint = SalePoint::where([
-            ['user_id', $user_id],
-            ['id', $id]
-        ]);
-
-        $salePoint->delete();
-
         File::deleteDirectory(
             storage_path() .
             '/app/public/users/' .
@@ -117,6 +110,14 @@ function tryDestroySalePointDataInDB($id)
             '/sale-point/' .
             $id
         );
+
+        $salePoint = SalePoint::where([
+            ['user_id', $user_id],
+            ['id', $id]
+        ])->with('offers');
+
+        $salePoint->first()->offers()->detach();
+        $salePoint->delete();
 
         return true;
     } catch (\Exception $error) {
