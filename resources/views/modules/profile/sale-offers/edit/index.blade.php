@@ -192,6 +192,19 @@
                     'message' => $errors->first('price'),
                 ])
             </div>
+            <div class="profile--sale-offers--create__info-title">Торговые точки:</div>
+            <div class="profile--sale-offers--create__input-container">
+                @foreach($salePointsList as $salePointItem)
+                    <label>
+                        <input
+                            name="sale-point_{{$loop->index}}"
+                            type="checkbox"
+                            value="{{$salePointItem['id']}}"
+                        >
+                        <span>{{$salePointItem['title']}}</span>
+                    </label>
+                @endforeach
+            </div>
             <div class="profile-organization-info__section">
                 <h2>Фотографии товара</h2>
                 <div class="profile-organization-info__section profile-organization-info__section_add-file">

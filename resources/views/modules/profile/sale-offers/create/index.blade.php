@@ -169,7 +169,7 @@
                 @foreach($salePointsList as $salePointItem)
                     <label>
                         <input
-                            name="sale-point"
+                            name="sale-point_{{$loop->index}}"
                             type="checkbox"
                             value="{{$salePointItem['id']}}"
                         >

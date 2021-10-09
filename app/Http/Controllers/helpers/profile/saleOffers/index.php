@@ -114,13 +114,6 @@ function tryDestroySaleOfferDataInDB($id)
         $authUser = Auth::user();
         $user_id = $authUser->id;
 
-        $saleOffer = Offer::where([
-            ['user_id', $user_id],
-            ['id', $id]
-        ]);
-
-        $saleOffer->delete();
-
         File::deleteDirectory(
             storage_path() .
             '/app/public/users/' .
@@ -129,8 +122,17 @@ function tryDestroySaleOfferDataInDB($id)
             $id
         );
 
+        $saleOffer = Offer::where([
+            ['user_id', $user_id],
+            ['id', $id]
+        ])->with('salePoints');
+
+        $saleOffer->first()->salePoints()->detach();
+        $saleOffer->delete();
+
         return true;
     } catch (\Exception $error) {
+        dd($error);
         return false;
     }
 }
@@ -167,10 +169,32 @@ function trySaveSaleOfferInDB($request)
 
         $newPhotos = createSaleOfferPhotos($request, $createdSaleOfferId);
 
-        Offer::where([
+        $newOffer = Offer::where([
             ['user_id', $authUserId],
             ['id', $createdSaleOfferId]
         ])->update($newPhotos);
+
+        $isSalePointInputsExists = $request->has('sale-point_0');
+
+        if($isSalePointInputsExists) {
+            $salePointValuesArray = [];
+
+            $salePointInputIteration = 0;
+            while ($salePointInputIteration < 15) {
+                $salePointInputName = 'sale-point_' . $salePointInputIteration;
+                $salePointInputValue = $request->input($salePointInputName);
+
+                if($salePointInputValue) {
+                    array_push($salePointValuesArray, $salePointInputValue);
+                }
+
+                $salePointInputIteration++;
+            }
+
+            $createdSaleOffer->salePoints()->sync($salePointValuesArray);
+        } else {
+            $createdSaleOffer->salePoints()->detach();
+        }
 
         return true;
     } catch (\Exception $error) {
@@ -210,10 +234,33 @@ function tryUpdateSaleOfferInDB($request, $id)
             ...$newPhotos,
         );
 
-        Offer::where([
+        $currentOffer = Offer::where([
             ['user_id', $authUserId],
             ['id', $id]
-        ])->update($newSaleOfferData);
+        ]);
+        $currentOffer->update($newSaleOfferData);
+
+        $isSalePointInputsExists = $request->has('sale-point_0');
+
+        if($isSalePointInputsExists) {
+            $salePointValuesArray = [];
+
+            $salePointInputIteration = 0;
+            while ($salePointInputIteration < 15) {
+                $salePointInputName = 'sale-point_' . $salePointInputIteration;
+                $salePointInputValue = $request->input($salePointInputName);
+
+                if($salePointInputValue) {
+                    array_push($salePointValuesArray, $salePointInputValue);
+                }
+
+                $salePointInputIteration++;
+            }
+
+            $currentOffer->first()->salePoints()->sync($salePointValuesArray);
+        } else {
+            $currentOffer->first()->salePoints()->detach();
+        }
 
         return true;
     } catch (\Exception $error) {

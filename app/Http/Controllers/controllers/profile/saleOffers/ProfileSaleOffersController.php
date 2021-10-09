@@ -91,12 +91,14 @@ class ProfileSaleOffersController extends Controller
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
         $saleOfferItemData = getSaleOfferItemDataFormatted($id);
+        $salePointsList = getSalePointsListFormatted();
 
         return view('pages.profile.sale-offers.edit.index', [
             'catalogFull' => $catalogFull,
             'catalogHeader' => $catalogFull,
             'locationList' => $locationList,
             'saleOfferItemData' => $saleOfferItemData,
+            'salePointsList' => $salePointsList,
         ]);
     }
 

@@ -27,4 +27,9 @@ class SalePoint extends Model
     ];
 
     protected $table = 'sale_point';
+
+    public function offers()
+    {
+        return $this->belongsToMany(Offer::class, 'sale_point_offer', 'sale_point_id', 'offer_id');
+    }
 }
