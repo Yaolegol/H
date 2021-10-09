@@ -191,27 +191,21 @@ function trySaveSaleOfferInDB($request)
             ['id', $createdSaleOfferId]
         ])->update($newPhotos);
 
-        $isSalePointInputsExists = $request->has('sale-point_0');
+        $salePointValuesArray = [];
 
-        if($isSalePointInputsExists) {
-            $salePointValuesArray = [];
+        $salePointInputIteration = 0;
+        while ($salePointInputIteration < 15) {
+            $salePointInputName = 'sale-point_' . $salePointInputIteration;
+            $salePointInputValue = $request->input($salePointInputName);
 
-            $salePointInputIteration = 0;
-            while ($salePointInputIteration < 15) {
-                $salePointInputName = 'sale-point_' . $salePointInputIteration;
-                $salePointInputValue = $request->input($salePointInputName);
-
-                if($salePointInputValue) {
-                    array_push($salePointValuesArray, $salePointInputValue);
-                }
-
-                $salePointInputIteration++;
+            if($salePointInputValue) {
+                array_push($salePointValuesArray, $salePointInputValue);
             }
 
-            $createdSaleOffer->salePoints()->sync($salePointValuesArray);
-        } else {
-            $createdSaleOffer->salePoints()->detach();
+            $salePointInputIteration++;
         }
+
+        $createdSaleOffer->salePoints()->sync($salePointValuesArray);
 
         return true;
     } catch (\Exception $error) {
@@ -257,27 +251,21 @@ function tryUpdateSaleOfferInDB($request, $id)
         ]);
         $currentOffer->update($newSaleOfferData);
 
-        $isSalePointInputsExists = $request->has('sale-point_0');
+        $salePointValuesArray = [];
 
-        if($isSalePointInputsExists) {
-            $salePointValuesArray = [];
+        $salePointInputIteration = 0;
+        while ($salePointInputIteration < 15) {
+            $salePointInputName = 'sale-point_' . $salePointInputIteration;
+            $salePointInputValue = $request->input($salePointInputName);
 
-            $salePointInputIteration = 0;
-            while ($salePointInputIteration < 15) {
-                $salePointInputName = 'sale-point_' . $salePointInputIteration;
-                $salePointInputValue = $request->input($salePointInputName);
-
-                if($salePointInputValue) {
-                    array_push($salePointValuesArray, $salePointInputValue);
-                }
-
-                $salePointInputIteration++;
+            if($salePointInputValue) {
+                array_push($salePointValuesArray, $salePointInputValue);
             }
 
-            $currentOffer->first()->salePoints()->sync($salePointValuesArray);
-        } else {
-            $currentOffer->first()->salePoints()->detach();
+            $salePointInputIteration++;
         }
+
+        $currentOffer->first()->salePoints()->sync($salePointValuesArray);
 
         return true;
     } catch (\Exception $error) {
