@@ -15,7 +15,16 @@
             <div
                 class="profile-layout__tab-item-container">
                 <a
-                    class="profile-layout__tab-button {{$section === 'organization-info' ? 'profile-layout__tab-button_active' : '' }}"
+                    class="
+                        profile-layout__tab-button
+                        {{
+                            $section === 'organization-info/create'
+                            || $section === 'organization-info/edit'
+                            || $section === 'organization-info/index'
+                            ? 'profile-layout__tab-button_active'
+                            : ''
+                        }}
+                    "
                     href="/profile/organization-info"
                 >
                     Информация об организации
@@ -27,9 +36,9 @@
                     class="
                         profile-layout__tab-button
                         {{
-                            $section === 'sale-points-info/index'
+                            $section === 'sale-points-info/create'
                             || $section === 'sale-points-info/edit'
-                            || $section === 'sale-points-info/create'
+                            || $section === 'sale-points-info/index'
                             ? 'profile-layout__tab-button_active'
                             : ''
                         }}
@@ -45,9 +54,9 @@
                     class="
                         profile-layout__tab-button
                         {{
-                            $section === 'sale-offers/index'
-                            || $section === 'sale-offers/create'
+                            $section === 'sale-offers/create'
                             || $section === 'sale-offers/edit'
+                            || $section === 'sale-offers/index'
                             ? 'profile-layout__tab-button_active'
                             : ''
                         }}
@@ -60,8 +69,14 @@
         </div>
     </div>
     <div class="profile-layout__info-container">
-        @if($section === 'organization-info')
-            @include('modules.profile.organization-info.index')
+        @if($section === 'organization-info/create')
+            @include('modules.profile.organization-info.create.index')
+        @endif
+        @if($section === 'organization-info/edit')
+            @include('modules.profile.organization-info.edit.index')
+        @endif
+        @if($section === 'organization-info/index')
+            @include('modules.profile.organization-info.index.index')
         @endif
         @if($section === 'personal-info')
             @include('modules.profile.personal-info.index')

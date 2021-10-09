@@ -26,7 +26,7 @@ class ProfileOrganizationDataController extends Controller
         $locationList = getLocationListFormatted();
         $organizationData = getOrganizationDataFormatted();
 
-        return view('pages.profile.organization-info.index', [
+        return view('pages.profile.organization-info.index.index', [
             'catalogHeader' => $catalogFull,
             'locationList' => $locationList,
             'organizationData' => $organizationData,
@@ -40,7 +40,13 @@ class ProfileOrganizationDataController extends Controller
      */
     public function create()
     {
-        //
+        $catalogFull = getCatalogFull();
+        $locationList = getLocationListFormatted();
+
+        return view('pages.profile.organization-info.create.index', [
+            'catalogHeader' => $catalogFull,
+            'locationList' => $locationList,
+        ]);
     }
 
     /**
