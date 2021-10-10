@@ -75,10 +75,10 @@
     </div>
     <div class="cards--organization__item-container cards--organization__item-container_service">
         <div class="cards--organization__edit-button-container">
-            <a class="cards--organization__link cards--organization__link_edit" href="./sale-points-info/edit/{{$organization['id']}}">Изменить</a>
+            <a class="cards--organization__link cards--organization__link_edit" href="./organization-info/edit/{{$organization['id']}}">Изменить</a>
         </div>
         <div class="cards--organization__remove-button-container">
-            <a class="cards--organization__link cards--organization__link_remove" href="./sale-points-info/destroy/{{$organization['id']}}">Удалить</a>
+            <a class="cards--organization__link cards--organization__link_remove" href="./organization-info/destroy/{{$organization['id']}}">Удалить</a>
         </div>
     </div>
 </div>
