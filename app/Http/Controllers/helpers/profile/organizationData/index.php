@@ -311,3 +311,30 @@ function updateOrganizationPhotos($request)
 
     return $photosArray;
 }
+
+function tryDestroyOrganizationDataInDB($id)
+{
+    try {
+        $authUser = Auth::user();
+        $user_id = $authUser->id;
+
+        File::deleteDirectory(
+            storage_path() .
+            '/app/public/users/' .
+            $user_id .
+            '/organization/' .
+            $id
+        );
+
+        $organization = Organization::where([
+            ['user_id', $user_id],
+            ['id', $id]
+        ]);
+
+        $organization->delete();
+
+        return true;
+    } catch (\Exception $error) {
+        return false;
+    }
+}

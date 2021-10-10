@@ -133,6 +133,14 @@ class ProfileOrganizationDataController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $isDestroyed = tryDestroyOrganizationDataInDB($id);
+
+        if($isDestroyed) {
+            return redirect('/profile/organization-info');
+        } else {
+            return back()->with(
+                ['commonError' => 'Что-то пошло не так. Попробуйте снова']
+            );
+        }
     }
 }
