@@ -108,7 +108,7 @@ class ProfileOrganizationDataController extends Controller
         $isSaved = tryUpdateOrganizationDataInDB($request, $id);
 
         if($isSaved) {
-            return redirect('/profile/sale-points-info');
+            return redirect('/profile/organization-info');
         } else {
             return back()->with(
                 ['commonError' => 'Что-то пошло не так. Попробуйте снова']

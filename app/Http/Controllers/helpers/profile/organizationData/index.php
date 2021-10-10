@@ -232,46 +232,6 @@ function tryStoreOrganizationDataDataInDB($request) {
     }
 }
 
-function updateOrganizationCertificates($request)
-{
-    $authUser = Auth::user();
-    $authUserId = $authUser->id;
-    $certificateArray = [];
-
-    $certificateInputsIteration = 1;
-    while ($certificateInputsIteration <= 5) {
-        $certificateDBColumn = 'certificate_' . $certificateInputsIteration;
-        $certificate = $request->file('certificate' . '_' . $certificateInputsIteration) ?? '';
-
-        if ($certificate) {
-            $certificateName = $authUserId . '_' . $certificateInputsIteration . '.' . $certificate->extension();
-
-            $certificatePath = $certificate->storeAs(
-                '/public/users/1/organization/certificate', $certificateName
-            );
-
-            array_push($certificateArray, [
-                $certificateDBColumn => $certificatePath
-            ]);
-        } else {
-            $remove_certificate_file_name = $request->has('remove_certificate_' . $certificateInputsIteration) ?? false;
-
-            if ($remove_certificate_file_name) {
-                $oldAvatarsArray = File::glob(storage_path() . '/app/public/users/' . $authUserId . 'organization/photo/' . $authUserId . '_' . $certificateInputsIteration . '.*');
-                File::delete($oldAvatarsArray);
-
-                array_push($certificateArray, [
-                    $certificateDBColumn => ''
-                ]);
-            }
-        }
-
-        $certificateInputsIteration++;
-    }
-
-    return $certificateArray;
-}
-
 function updateOrganizationCertificates($request, $updatingOrganizationId)
 {
     $authUser = Auth::user();
