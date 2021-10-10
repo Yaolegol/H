@@ -83,7 +83,27 @@ class ProfileOrganizationDataController extends Controller
      *
      * @return Response
      */
-    public function edit(Request $request)
+    public function edit(Request $request, $id)
+    {
+        $catalogFull = getCatalogFull();
+        $locationList = getLocationListFormatted();
+        $organizationItemData = getOrganizationItemDataFormatted($id);
+
+        return view('pages.profile.organization-info.edit.index', [
+            'catalogHeader' => $catalogFull,
+            'locationList' => $locationList,
+            'organizationItemData' => $organizationItemData,
+        ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  Request  $request
+     * @param  int  $id
+     * @return Response
+     */
+    public function update(Request $request, $id)
     {
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
@@ -103,18 +123,6 @@ class ProfileOrganizationDataController extends Controller
                 ['commonError' => 'Что-то пошло не так. Попробуйте снова']
             );
         }
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  Request  $request
-     * @param  int  $id
-     * @return Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
     }
 
     /**
