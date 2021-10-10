@@ -56,6 +56,44 @@ function createOrganizationPhotos($request, $createdOrganizationId)
     return array_merge(...$photosArray);
 }
 
+function getOrganizationDataFormatted()
+{
+    $userOrganizationList = getUserOrganization();
+    $userOrganizationListFormatted = [];
+
+    foreach ($userOrganizationList as $userOrganizationItem) {
+        $photoIteration = 1;
+        while ($photoIteration <= 3) {
+            $currentPhotoName = 'photo_' . $photoIteration;
+            $currentPhotoValue = $userOrganizationItem[$currentPhotoName];
+
+            if ($currentPhotoValue) {
+                $path = str_replace('public/', '', $currentPhotoValue);
+                $userOrganizationItem[$currentPhotoName] = '/storage/' . $path;
+            }
+
+            $photoIteration++;
+        }
+
+        $certificateIteration = 1;
+        while ($certificateIteration <= 5) {
+            $currentCertificateName = 'certificate_' . $certificateIteration;
+            $currentCertificateValue = $userOrganizationItem[$currentCertificateName];
+
+            if ($currentCertificateValue) {
+                $path = str_replace('public/', '', $currentCertificateValue);
+                $userOrganizationItem[$currentCertificateName] = '/storage/' . $path;
+            }
+
+            $certificateIteration++;
+        }
+
+        array_push($userOrganizationListFormatted, $userOrganizationItem);
+    }
+
+    return $userOrganizationListFormatted;
+}
+
 function getOrganizationItemDataFormatted($id)
 {
     $userOrganizationItemData = getUserOrganizationItem($id);
@@ -89,10 +127,12 @@ function getOrganizationItemDataFormatted($id)
     return $userOrganizationItemData;
 }
 
-function getUserOrganization($id)
+function getUserOrganization()
 {
-    return Organization::where('user_id', $id)->get()->toArray();
+    $authUser = Auth::user();
+    $user_id = $authUser->id;
 
+    return Organization::where('user_id', $user_id)->get()->toArray();
 }
 
 function getUserOrganizationItem($id)
