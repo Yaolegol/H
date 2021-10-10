@@ -105,19 +105,10 @@ class ProfileOrganizationDataController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $catalogFull = getCatalogFull();
-        $locationList = getLocationListFormatted();
-
-        $isSaved = tryChangeOrganizationDataInDB($request);
+        $isSaved = tryUpdateOrganizationDataInDB($request, $id);
 
         if($isSaved) {
-            $organizationData = getOrganizationDataFormatted();
-
-            return view('pages.profile.organization-info.index', [
-                'catalogHeader' => $catalogFull,
-                'locationList' => $locationList,
-                'organizationData' => $organizationData,
-            ]);
+            return redirect('/profile/sale-points-info');
         } else {
             return back()->with(
                 ['commonError' => 'Что-то пошло не так. Попробуйте снова']

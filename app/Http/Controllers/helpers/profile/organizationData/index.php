@@ -272,33 +272,113 @@ function updateOrganizationCertificates($request)
     return $certificateArray;
 }
 
-function updateOrganizationPhotos($request)
+function updateOrganizationCertificates($request, $updatingOrganizationId)
 {
     $authUser = Auth::user();
-    $authUserId = $authUser->id;
+    $user_id = $authUser->id;
+    $certificatesArray = [];
+
+    $certificateInputsIteration = 1;
+    while ($certificateInputsIteration <= 3) {
+        $certificateDBColumn = 'certificate_' . $certificateInputsIteration;
+        $certificate = $request->file('certificate' . '_' . $certificateInputsIteration) ?? '';
+        if ($certificate) {
+            $oldCertificate = File::glob(
+                storage_path() .
+                '/app/public/users/' .
+                $user_id .
+                '/organization/' .
+                $updatingOrganizationId .
+                '/certificate/' .
+                $certificateInputsIteration .
+                '*'
+            );
+            File::delete($oldCertificate);
+
+            $certificateName = $certificateInputsIteration . '.' . $certificate->extension();
+
+            $certificatePath = $certificate->storeAs(
+                '/public/users/1/organization/' . $updatingOrganizationId . '/certificate', $certificateName
+            );
+
+            array_push($certificatesArray, [
+                $certificateDBColumn => $certificatePath
+            ]);
+        } else {
+            $isRemoveCertificate = $request->has('remove_certificate_' . $certificateInputsIteration);
+
+            if ($isRemoveCertificate) {
+                $olCertificate = File::glob(
+                    storage_path() .
+                    '/app/public/users/' .
+                    $user_id .
+                    '/organization/' .
+                    $updatingOrganizationId .
+                    '/certificate/' .
+                    $certificateInputsIteration .
+                    '*'
+                );
+                File::delete($olCertificate);
+
+                array_push($certificatesArray, [
+                    $certificateDBColumn => ''
+                ]);
+            }
+        }
+
+        $certificateInputsIteration++;
+    }
+
+    return $certificatesArray;
+}
+
+function updateOrganizationPhotos($request, $updatingOrganizationId)
+{
+    $authUser = Auth::user();
+    $user_id = $authUser->id;
     $photosArray = [];
 
     $photoInputsIteration = 1;
     while ($photoInputsIteration <= 3) {
         $photoDBColumn = 'photo_' . $photoInputsIteration;
         $photo = $request->file('photo' . '_' . $photoInputsIteration) ?? '';
-
         if ($photo) {
-            $photoName = $authUserId . '_' . $photoInputsIteration . '.' . $photo->extension();
+            $oldPhoto = File::glob(
+                storage_path() .
+                '/app/public/users/' .
+                $user_id .
+                '/organization/' .
+                $updatingOrganizationId .
+                '/photo/' .
+                $photoInputsIteration .
+                '*'
+            );
+            File::delete($oldPhoto);
+
+            $photoName = $photoInputsIteration . '.' . $photo->extension();
 
             $photoPath = $photo->storeAs(
-                '/public/users/1/organization/photo', $photoName
+                '/public/users/1/organization/' . $updatingOrganizationId . '/photo', $photoName
             );
 
             array_push($photosArray, [
                 $photoDBColumn => $photoPath
             ]);
         } else {
-            $remove_photo_file_name = $request->has('remove_photo_' . $photoInputsIteration) ?? false;
+            $isRemovePhoto = $request->has('remove_photo_' . $photoInputsIteration);
 
-            if ($remove_photo_file_name) {
-                $oldAvatarsArray = File::glob(storage_path() . '/app/public/users/' . $authUserId . 'organization/photo/' . $authUserId . '_' . $photoInputsIteration . '.*');
-                File::delete($oldAvatarsArray);
+            if ($isRemovePhoto) {
+                $oldPhoto = File::glob(
+                    storage_path() .
+                    '/app/public/users/' .
+                    $user_id .
+                    '/organization/' .
+                    $updatingOrganizationId .
+                    '/photo/' .
+                    $photoInputsIteration .
+                    '*'
+                );
+                File::delete($oldPhoto);
 
                 array_push($photosArray, [
                     $photoDBColumn => ''
@@ -332,6 +412,46 @@ function tryDestroyOrganizationDataInDB($id)
         ]);
 
         $organization->delete();
+
+        return true;
+    } catch (\Exception $error) {
+        return false;
+    }
+}
+
+function tryUpdateOrganizationDataInDB($request, $id) {
+    try {
+        $authUser = Auth::user();
+        $authUserId = $authUser->id;
+
+        $title = $request->input('title') ?? '';
+        $inn = $request->input('inn') ?? '';
+        $legal_address = $request->input('legal_address') ?? '';
+        $real_address = $request->input('real_address') ?? '';
+        $email = $request->input('email') ?? '';
+        $phone = $request->input('phone') ?? '';
+
+        $newCertificates = updateOrganizationCertificates($request, $id);
+        $newPhotos = updateOrganizationPhotos($request, $id);
+
+        $newOrganizationData = array_merge(
+            [
+                'title' => $title,
+                'inn' => $inn,
+                'legal_address' => $legal_address,
+                'real_address' => $real_address,
+                'email' => $email,
+                'phone' => $phone,
+                'user_id' => $authUserId,
+            ],
+            ...$newCertificates,
+            ...$newPhotos,
+        );
+
+        Organization::where([
+            ['user_id', $authUserId],
+            ['id', $id]
+        ])->update($newOrganizationData);
 
         return true;
     } catch (\Exception $error) {
