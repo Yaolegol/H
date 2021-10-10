@@ -4,6 +4,58 @@ use App\Models\Organization;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
+function createOrganizationCertificates($request, $createdOrganizationId)
+{
+    $photosArray = [];
+
+    $photoInputsIteration = 1;
+    while ($photoInputsIteration <= 5) {
+        $photoDBColumn = 'certificate_' . $photoInputsIteration;
+        $photo = $request->file('certificate' . '_' . $photoInputsIteration) ?? '';
+        if ($photo) {
+            $photoName = $photoInputsIteration . '.' . $photo->extension();
+
+            $photoPath = $photo->storeAs(
+                '/public/users/1/organization/' . $createdOrganizationId . '/certificate', $photoName
+            );
+
+            array_push($photosArray, [
+                $photoDBColumn => $photoPath
+            ]);
+        }
+
+        $photoInputsIteration++;
+    }
+
+    return array_merge(...$photosArray);
+}
+
+function createOrganizationPhotos($request, $createdOrganizationId)
+{
+    $photosArray = [];
+
+    $photoInputsIteration = 1;
+    while ($photoInputsIteration <= 3) {
+        $photoDBColumn = 'photo_' . $photoInputsIteration;
+        $photo = $request->file('photo' . '_' . $photoInputsIteration) ?? '';
+        if ($photo) {
+            $photoName = $photoInputsIteration . '.' . $photo->extension();
+
+            $photoPath = $photo->storeAs(
+                '/public/users/1/organization/' . $createdOrganizationId . '/photo', $photoName
+            );
+
+            array_push($photosArray, [
+                $photoDBColumn => $photoPath
+            ]);
+        }
+
+        $photoInputsIteration++;
+    }
+
+    return array_merge(...$photosArray);
+}
+
 function getOrganizationDataFormatted()
 {
     $defaultOrganizationData = array(
@@ -103,6 +155,51 @@ function tryChangeOrganizationDataInDB($request)
 
         return true;
     } catch (\Exception $error) {
+        return false;
+    }
+}
+
+function tryStoreOrganizationDataDataInDB($request) {
+    try {
+        $authUser = Auth::user();
+        $authUserId = $authUser->id;
+
+        $title = $request->input('title') ?? '';
+        $inn = $request->input('inn') ?? '';
+        $legal_address = $request->input('legal_address') ?? '';
+        $real_address = $request->input('real_address') ?? '';
+        $email = $request->input('email') ?? '';
+        $phone = $request->input('phone') ?? '';
+
+        $createdOrganization = Organization::create([
+            'title' => $title,
+            'inn' => $inn,
+            'legal_address' => $legal_address,
+            'real_address' => $real_address,
+            'email' => $email,
+            'phone' => $phone,
+            'user_id' => $authUserId,
+        ]);
+
+        $createdOrganizationData = $createdOrganization->toArray();
+        $createdOrganizationId = $createdOrganizationData['id'];
+
+        $newPhotos = createOrganizationPhotos($request, $createdOrganizationId);
+        $newCertificates = createOrganizationCertificates($request, $createdOrganizationId);
+
+        $newOrganizationImages = array_merge(
+            $newCertificates,
+            $newPhotos
+        );
+
+        Organization::where([
+            ['user_id', $authUserId],
+            ['id', $createdOrganizationId]
+        ])->update($newOrganizationImages);
+
+        return true;
+    } catch (\Exception $error) {
+        dd($error);
         return false;
     }
 }

@@ -57,7 +57,15 @@ class ProfileOrganizationDataController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $isSaved = tryStoreOrganizationDataDataInDB($request);
+
+        if($isSaved) {
+            return redirect('/profile/organization-info');
+        } else {
+            return back()->with(
+                ['commonError' => 'Что-то пошло не так. Попробуйте снова']
+            );
+        }
     }
 
     /**

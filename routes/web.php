@@ -45,7 +45,6 @@ Route::get('/profile/organization-info/destroy/{id}', 'controllers\profile\organ
 Route::post('/profile/organization-info', 'controllers\profile\organizationData\ProfileOrganizationDataController@store')->middleware('auth');
 Route::put('/profile/organization-info/{id}', 'controllers\profile\organizationData\ProfileOrganizationDataController@update')->middleware('auth');
 
-
 Route::get('/profile/sale-points-info', 'controllers\profile\salePointsInfo\ProfileSalePointsController@index')->middleware('auth');
 Route::get('/profile/sale-points-info/create', 'controllers\profile\salePointsInfo\ProfileSalePointsController@create')->middleware('auth');
 Route::get('/profile/sale-points-info/edit/{id}', 'controllers\profile\salePointsInfo\ProfileSalePointsController@edit')->middleware('auth');

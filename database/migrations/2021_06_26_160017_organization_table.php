@@ -29,7 +29,7 @@ class OrganizationTable extends Migration
             $table->string('photo_1')->nullable();
             $table->string('photo_2')->nullable();
             $table->string('photo_3')->nullable();
-            $table->bigInteger('user_id')->unsigned()->index()->unique();
+            $table->bigInteger('user_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
