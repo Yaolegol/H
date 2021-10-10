@@ -2469,6 +2469,48 @@ p {
   display: none;
 }
 
+.cards--organization {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  max-width: 500px;
+  padding: 20px;
+}
+.cards--organization__remove-button-container {
+  margin-left: 15px;
+}
+.cards--organization__image {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  height: 200px;
+  width: 200px;
+}
+.cards--organization__image-item-container {
+  margin-left: 20px;
+}
+.cards--organization__image-item-container:first-child {
+  margin-left: 0;
+}
+.cards--organization__image-list-container {
+  display: flex;
+  margin-top: 20px;
+}
+.cards--organization__item-container {
+  margin-top: 20px;
+}
+.cards--organization__item-container_service {
+  display: flex;
+  justify-content: flex-end;
+}
+.cards--organization__item-container_without-offset {
+  margin-top: 0;
+}
+.cards--organization__link_remove {
+  color: #FF0000;
+}
+.cards--organization__value {
+  margin-top: 5px;
+}
+
 .profile--organization-info--index__content-container {
   margin-top: 50px;
 }

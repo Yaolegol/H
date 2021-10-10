@@ -1,0 +1,59 @@
+@import (reference) '~styles/colors';
+
+.cards--organization {
+    border: 1px solid @black_20;
+    border-radius: 20px;
+    max-width: 500px;
+    padding: 20px;
+
+    &__edit-button-container {
+
+    }
+
+    &__remove-button-container {
+        margin-left: 15px;
+    }
+
+    &__image {
+        border: 1px solid @black_20;
+        border-radius: 20px;
+        height: 200px;
+        width: 200px;
+    }
+
+    &__image-item-container {
+        margin-left: 20px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+
+    &__image-list-container {
+        display: flex;
+        margin-top: 20px;
+    }
+
+    &__item-container {
+        margin-top: 20px;
+
+        &_service {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        &_without-offset {
+            margin-top: 0;
+        }
+    }
+
+    &__link {
+        &_remove {
+            color: @red;
+        }
+    }
+
+    &__value {
+        margin-top: 5px;
+    }
+}

@@ -24,12 +24,12 @@ class ProfileOrganizationDataController extends Controller
     {
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
-        $organizationData = getOrganizationDataFormatted();
+        $organizationList = getOrganizationDataFormatted();
 
         return view('pages.profile.organization-info.index.index', [
             'catalogHeader' => $catalogFull,
             'locationList' => $locationList,
-            'organizationData' => $organizationData,
+            'organizationList' => $organizationList,
         ]);
     }
 
