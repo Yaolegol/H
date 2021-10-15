@@ -19,18 +19,22 @@
         <div class="cards--sale-offer__title">Цена</div>
         <div class="cards--sale-offer__value">{{$saleOffer['price']}}</div>
     </div>
-    <div class="cards--sale-point__item-container">
-        <div class="cards--sale-point__title">Организация</div>
-        <div class="cards--sale-point__value">{{$saleOffer['organization']['title']}}</div>
-    </div>
-    <div class="cards--sale-point__item-container">
-        <div class="cards--sale-point__title">Торговые точки</div>
-        <div class="cards--sale-point__value">
-            @foreach($saleOffer['sale_points'] as $salePointItem)
-                <div>{{$salePointItem['title']}}</div>
-            @endforeach
+    @if($saleOffer['organization'])
+        <div class="cards--sale-point__item-container">
+            <div class="cards--sale-point__title">Организация</div>
+            <div class="cards--sale-point__value">{{$saleOffer['organization']['title']}}</div>
         </div>
-    </div>
+    @endif
+    @if($saleOffer['sale_points'])
+        <div class="cards--sale-point__item-container">
+            <div class="cards--sale-point__title">Торговые точки</div>
+            <div class="cards--sale-point__value">
+                @foreach($saleOffer['sale_points'] as $salePointItem)
+                    <div>{{$salePointItem['title']}}</div>
+                @endforeach
+            </div>
+        </div>
+    @endif
     <div class="cards--sale-offer__item-container">
         <div class="cards--sale-offer__title">Фото</div>
         <div class="cards--sale-offer__image-list-container">
