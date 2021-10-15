@@ -42,12 +42,14 @@ class ProfileSaleOffersController extends Controller
     {
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
+        $organizationsList = getUserOrganizationsListFormatted();
         $salePointsList = getUserSalePointsList();
 
         return view('pages.profile.sale-offers.create.index', [
             'catalogFull' => $catalogFull,
             'catalogHeader' => $catalogFull,
             'locationList' => $locationList,
+            'organizationsList' => $organizationsList,
             'salePointsList' => $salePointsList,
         ]);
     }

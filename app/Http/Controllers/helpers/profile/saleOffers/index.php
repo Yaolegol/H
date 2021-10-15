@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Offer;
+use App\Models\Organization;
 use App\Models\SalePoint;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -97,6 +98,17 @@ function getSaleOfferSalePointsListFormatted($saleOfferItemData) {
     }
 
     return $userSalePointsList;
+}
+
+function getUserOrganizations() {
+    $authUser = Auth::user();
+    $user_id = $authUser->id;
+
+    return Organization::where('user_id', $user_id)->get()->toArray();
+}
+
+function getUserOrganizationsListFormatted() {
+    return getUserOrganizations();
 }
 
 function getUserSaleOfferItem($id)

@@ -164,6 +164,19 @@
                     'message' => $errors->first('price'),
                 ])
             </div>
+            <div class="profile--sale-offers--create__info-title">Организация:</div>
+            <div class="profile--sale-offers--create__input-container">
+                @foreach($organizationsList as $organizationItem)
+                    <div class="profile--sale-offers--create__categories-container">
+                        @include('components.inputs.radio.item.index', [
+                            'id' => $organizationItem['id'],
+                            'name' => 'organization',
+                            'title' => $organizationItem['title'],
+                            'value' => $organizationItem['id'],
+                        ])
+                    </div>
+                @endforeach
+            </div>
             <div class="profile--sale-offers--create__info-title">Торговые точки:</div>
             <div class="profile--sale-offers--create__input-container">
                 @foreach($salePointsList as $salePointItem)

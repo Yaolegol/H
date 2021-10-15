@@ -1,6 +1,6 @@
 <div class="inputs-radio-item">
     <input
-        @if($isChecked)
+        @if($isChecked ?? false)
             checked
         @endif
         class="inputs-radio-item__category-input"
