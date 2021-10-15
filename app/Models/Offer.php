@@ -46,6 +46,11 @@ class Offer extends Model
         return $this->belongsTo(Measure::class);
     }
 
+    public function organization()
+    {
+        return $this->belongsTo(Organization::class);
+    }
+
     public function salePoints()
     {
         return $this->belongsToMany(SalePoint::class, 'sale_point_offer', 'offer_id', 'sale_point_id');
