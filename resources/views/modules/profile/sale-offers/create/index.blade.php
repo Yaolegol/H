@@ -170,7 +170,7 @@
                     <div class="profile--sale-offers--create__categories-container">
                         @include('components.inputs.radio.item.index', [
                             'id' => $organizationItem['id'],
-                            'name' => 'organization',
+                            'name' => 'organization_id',
                             'title' => $organizationItem['title'],
                             'value' => $organizationItem['id'],
                         ])

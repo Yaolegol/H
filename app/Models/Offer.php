@@ -26,6 +26,7 @@ class Offer extends Model
         'photo_3',
         'is_active',
         'user_id',
+        'organization_id',
         'catalog_level_two_id',
         'measure_id',
         'country_id',

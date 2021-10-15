@@ -180,6 +180,7 @@ function trySaveSaleOfferInDB($request)
         $catalog_level_two_id = $request->input('catalog_level_two_id');
         $region_id = $request->input('region_id');
         $city_id = $request->input('city_id');
+        $organization_id = $request->input('organization_id') ?? null;
 
         $createdSaleOffer = Offer::create([
             'title' => $title,
@@ -191,6 +192,7 @@ function trySaveSaleOfferInDB($request)
             'catalog_level_two_id' => $catalog_level_two_id,
             'region_id' => $region_id,
             'city_id' => $city_id,
+            'organization_id' => $organization_id,
         ]);
 
         $createdSaleOfferData = $createdSaleOffer->toArray();
