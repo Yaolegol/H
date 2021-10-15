@@ -127,7 +127,7 @@ function getUserSaleOffers()
     $authUser = Auth::user();
     $user_id = $authUser->id;
 
-    return Offer::where('user_id', $user_id)->get()->toArray();
+    return Offer::where('user_id', $user_id)->with(['organization', 'salePoints'])->get()->toArray();
 }
 
 function getUserSalePointsList() {
