@@ -140,6 +140,14 @@
                     'message' => $errors->first('address'),
                 ])
             </div>
+            <div class="profile--sale-offers--create__info-title">Карта:</div>
+            <div
+                class="profile--sale-offers--create__input-container"
+                id="leaflet-map"
+                style="height: 500px;"
+            >
+
+            </div>
             <div class="profile--sale-offers--create__info-title">Телефон:</div>
             <div class="profile--sale-offers--create__input-container">
                 @include('components.inputs.form.index', [

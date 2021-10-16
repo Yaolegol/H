@@ -21,6 +21,19 @@ module.exports = {
                     },
                 },
             },
+            // images
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'images',
+                        }
+                    },
+                ],
+            },
             // fonts
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
@@ -42,7 +55,7 @@ module.exports = {
             // css
             {
                 test: /\.css$/i,
-                use: ['style-loader', 'css-loader'],
+                use: [MiniCssExtractPlugin.loader, 'css-loader'],
             },
             // html
             {
@@ -53,6 +66,13 @@ module.exports = {
     },
     optimization: {
         splitChunks: {
+            cacheGroups: {
+                defaultVendors: {
+                    name: 'vendor',
+                    reuseExistingChunk: true,
+                    test: /[\\/]node_modules[\\/]/,
+                },
+            },
             chunks: 'all',
         },
     },
