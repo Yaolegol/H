@@ -1,21 +1,43 @@
-import DG from '2gis-maps';
-import 'leaflet.markercluster';
-import 'leaflet.markercluster/dist/MarkerCluster.css';
-import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
+import {Map2gis} from 'views/modules/map2gis';
 import 'views/components/inputs/radio/content-group';
 import 'views/components/inputs/radio/group';
 import 'views/components/inputs/radio/group';
 import './index.less';
 
-const map2gis = DG.map('map-2gis', {
-    'center': [56.486932, 84.944716],
-    'zoom': 14
-});
-const clusterGroup = DG.markerClusterGroup();
-const marker = DG.marker(new DG.LatLng(56.486932, 84.944716));
-marker.bindPopup('<a href="/test">test</a>');
+const markerDataList = [
+    {
+        lat: 56.486932,
+        lng: 84.944716,
+        popupHtml: '<a href="/test">test</a>'
+    },
+    {
+        lat: 56.486932,
+        lng: 84.944716,
+    },
+    {
+        lat: 56.486932,
+        lng: 84.944716,
+    },
+    {
+        lat: 56.486932,
+        lng: 84.944716,
+    },
+    {
+        lat: 56.453613,
+        lng: 84.951289,
+    },
+    {
+        lat: 56.453613,
+        lng: 84.951289,
+    },
+    {
+        lat: 56.453613,
+        lng: 84.951289,
+    },
+];
 
-const marker2 = DG.marker(new DG.LatLng(56.486932, 84.944716));
-clusterGroup.addLayer(marker);
-clusterGroup.addLayer(marker2);
-map2gis.addLayer(clusterGroup);
+new Map2gis({
+    center: [56.486932, 84.944716],
+    markerDataList,
+    zoom: 14
+});
