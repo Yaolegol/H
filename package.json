@@ -25,6 +25,8 @@
         "webpack-dev-server": "^3.11.0"
     },
     "dependencies": {
-        "leaflet": "^1.7.1"
+        "2gis-maps": "^3.6.6",
+        "leaflet": "^1.7.1",
+        "leaflet.markercluster": "^1.5.3"
     }
 }

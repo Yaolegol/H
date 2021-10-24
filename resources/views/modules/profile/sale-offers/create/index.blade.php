@@ -144,10 +144,14 @@
             <div
                 class="profile--sale-offers--create__input-container"
                 id="leaflet-map"
+                style="height: 100px;"
+            ></div>
+            <div class="profile--sale-offers--create__info-title">Карта 2гис:</div>
+            <div
+                class="profile--sale-offers--create__input-container"
+                id="2gis-map"
                 style="height: 500px;"
-            >
-
-            </div>
+            ></div>
             <div class="profile--sale-offers--create__info-title">Телефон:</div>
             <div class="profile--sale-offers--create__input-container">
                 @include('components.inputs.form.index', [
