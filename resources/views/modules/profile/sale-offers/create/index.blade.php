@@ -143,12 +143,6 @@
             <div class="profile--sale-offers--create__info-title">Карта:</div>
             <div
                 class="profile--sale-offers--create__input-container"
-                id="leaflet-map"
-                style="height: 100px;"
-            ></div>
-            <div class="profile--sale-offers--create__info-title">Карта 2гис:</div>
-            <div
-                class="profile--sale-offers--create__input-container"
                 id="map-2gis"
                 style="height: 500px;"
             ></div>
