@@ -37,7 +37,7 @@ const markerDataList = [
 ];
 
 new Map2gis({
-    center: [56.486932, 84.944716],
+    center: [62.395570, 104.432320],
     markerDataList,
-    zoom: 14
+    zoom: 2
 });
