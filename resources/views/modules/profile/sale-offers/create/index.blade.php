@@ -149,7 +149,7 @@
             <div class="profile--sale-offers--create__info-title">Карта 2гис:</div>
             <div
                 class="profile--sale-offers--create__input-container"
-                id="2gis-map"
+                id="map-2gis"
                 style="height: 500px;"
             ></div>
             <div class="profile--sale-offers--create__info-title">Телефон:</div>
