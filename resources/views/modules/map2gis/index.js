@@ -4,21 +4,40 @@ import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 
 export class Map2gis {
-    constructor({center, markerDataList, zoom}) {
-        this.initMap({center, zoom});
-        this.initMarkers(markerDataList);
+    constructor({center, markerDataList, onMapClick, useMarkerCluster, zoom}) {
+        this.initMap({center, onMapClick, zoom});
+        this.initMarkers({markerDataList, useMarkerCluster});
     }
 
-    initMap = ({center, zoom}) => {
+    addMarker = ({lat, lng, popupHtml}) => {
+        const coords = new DG.LatLng(lat, lng);
+        const marker = DG.marker(coords);
+
+        if(popupHtml) {
+            marker.bindPopup(popupHtml);
+        }
+
+        this.map.addLayer(marker);
+
+        return marker;
+    }
+
+    initMap = ({center, onMapClick, zoom}) => {
         this.map = DG.map('map-2gis', {
             center,
             zoom
         });
+
+        if(onMapClick) {
+            this.map.on('click', onMapClick);
+        }
     }
 
-    initMarkers = (markerDataList) => {
+    initMarkers = ({markerDataList, useMarkerCluster}) => {
         if(markerDataList && markerDataList.length) {
-            const clusterGroup = DG.markerClusterGroup();
+            if(useMarkerCluster) {
+                this.clusterGroup = DG.markerClusterGroup();
+            }
 
             markerDataList.forEach(({lat, lng, popupHtml}) => {
                 const coords = new DG.LatLng(lat, lng);
@@ -28,10 +47,16 @@ export class Map2gis {
                     marker.bindPopup(popupHtml);
                 }
 
-                clusterGroup.addLayer(marker);
+                if(useMarkerCluster) {
+                    this.clusterGroup.addLayer(marker);
+                } else {
+                    this.map.addLayer(marker);
+                }
             });
 
-            this.map.addLayer(clusterGroup);
+            if(useMarkerCluster) {
+                this.map.addLayer(this.clusterGroup);
+            }
         }
     }
 }

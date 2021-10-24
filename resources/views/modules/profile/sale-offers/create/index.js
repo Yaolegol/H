@@ -36,8 +36,21 @@ const markerDataList = [
     },
 ];
 
-new Map2gis({
+let newMarker;
+
+const onMapClick = (e) => {
+    const {lat, lng} = e.latlng;
+
+    if(newMarker) {
+        newMarker.removeFrom(mapInstance.map);
+    }
+
+    newMarker = mapInstance.addMarker({lat, lng});
+}
+
+const mapInstance = new Map2gis({
     center: [62.395570, 104.432320],
     markerDataList,
+    onMapClick,
     zoom: 2
 });
