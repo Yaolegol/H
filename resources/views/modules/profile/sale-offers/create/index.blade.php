@@ -140,7 +140,7 @@
                     'message' => $errors->first('address'),
                 ])
             </div>
-            <div class="profile--sale-offers--create__info-title">Торговые точки (информацию о торговых точках можно добавить в соответствующем разделе профиле Вашего профиля):</div>
+            <div class="profile--sale-offers--create__info-title">Торговые точки (информацию о торговых точках можно добавить в соответствующем разделе Вашего профиля):</div>
             <div class="profile--sale-offers--create__input-container">
                 @foreach($salePointsList as $salePointItem)
                     <label>
