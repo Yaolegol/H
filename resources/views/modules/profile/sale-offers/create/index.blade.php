@@ -128,7 +128,7 @@
                     'message' => $errors->first('description'),
                 ])
             </div>
-            <div class="profile--sale-offers--create__info-title">Адрес:</div>
+            <div class="profile--sale-offers--create__info-title">Адрес (где можно купить Вашу продукцию):</div>
             <div class="profile--sale-offers--create__input-container">
                 @include('components.inputs.form.index', [
                             'name' => 'address',
@@ -139,6 +139,19 @@
                 @include('components.form.error.index', [
                     'message' => $errors->first('address'),
                 ])
+            </div>
+            <div class="profile--sale-offers--create__info-title">Торговые точки (информацию о торговых точках можно добавить в соответствующем разделе профиле Вашего профиля):</div>
+            <div class="profile--sale-offers--create__input-container">
+                @foreach($salePointsList as $salePointItem)
+                    <label>
+                        <input
+                            name="sale-point_{{$loop->index}}"
+                            type="checkbox"
+                            value="{{$salePointItem['id']}}"
+                        >
+                        <span>{{$salePointItem['title']}}</span>
+                    </label>
+                @endforeach
             </div>
             <div class="profile--sale-offers--create__info-title">Карта:</div>
             <div
@@ -181,19 +194,6 @@
                             'value' => $organizationItem['id'],
                         ])
                     </div>
-                @endforeach
-            </div>
-            <div class="profile--sale-offers--create__info-title">Торговые точки:</div>
-            <div class="profile--sale-offers--create__input-container">
-                @foreach($salePointsList as $salePointItem)
-                    <label>
-                        <input
-                            name="sale-point_{{$loop->index}}"
-                            type="checkbox"
-                            value="{{$salePointItem['id']}}"
-                        >
-                        <span>{{$salePointItem['title']}}</span>
-                    </label>
                 @endforeach
             </div>
             <div class="profile-organization-info__section">
