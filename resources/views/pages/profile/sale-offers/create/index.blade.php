@@ -2,7 +2,9 @@
 
 @section('layout-content')
     @include('modules.header.catalog.index')
-    @include('modules.profile.layout.index', [$section = 'sale-offers/create'])
+    @component('modules.profile.layout.index', ['activeTab' => 'sale-offers'])
+        @include('modules.profile.sale-offers.create.index')
+    @endcomponent
 @endsection
 
 @section('layout-scripts')
