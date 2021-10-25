@@ -1,5 +1,6 @@
-import DG from '2gis-maps';
-import 'leaflet.markercluster';
+// import DG from '2gis-maps';
+// import 'leaflet';
+// import 'leaflet.markercluster';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 

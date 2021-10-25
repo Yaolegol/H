@@ -1,6 +1,8 @@
 import {addEventListener} from 'helpers/events';
 import './index.less';
 
+console.log('file InputsFileItem')
+
 class InputsFileItem {
     constructor(element) {
         this.module = element;
