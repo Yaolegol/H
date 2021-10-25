@@ -154,11 +154,9 @@
                 @endforeach
             </div>
             <div class="profile--sale-offers--create__info-title">Карта:</div>
-            <div
-                class="profile--sale-offers--create__input-container"
-                id="map-2gis"
-                style="height: 500px;"
-            ></div>
+            <div class="profile--sale-offers--create__input-container">
+                @include('components.map.2gis.add-marker.index')
+            </div>
             <div class="profile--sale-offers--create__info-title">Телефон:</div>
             <div class="profile--sale-offers--create__input-container">
                 @include('components.inputs.form.index', [

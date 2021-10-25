@@ -3072,6 +3072,11 @@ p {
 }
 
 
+.map-2gis-add-marker__map-container {
+  height: 500px;
+  width: 500px;
+}
+
 .profile--sale-offers--create__all-offers-link {
   border-radius: 10px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
