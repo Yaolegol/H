@@ -255,5 +255,7 @@
                     ])
             @endcomponent
         @endcomponent
+
+        @include('modules.profile.common.footer.index')
     </form>
 @endcomponent

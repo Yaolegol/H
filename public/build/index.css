@@ -1952,17 +1952,6 @@ p {
   margin-top: 5px;
   max-width: 500px;
 }
-.profile-common-body-create__send-button {
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 25px;
-  color: rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-  padding: 20px;
-  text-align: center;
-}
-.profile-common-body-create__send-button-container {
-  margin-top: 50px;
-}
 .profile-common-body-create__title-container {
   margin-top: 50px;
 }
@@ -1984,6 +1973,18 @@ p {
 }
 
 .profile-common-container-section {
+  margin-top: 50px;
+}
+
+.profile-common-footer__send-button {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  padding: 20px;
+  text-align: center;
+}
+.profile-common-footer__send-button-container {
   margin-top: 50px;
 }
 

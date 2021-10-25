@@ -13,10 +13,4 @@
     <div class="profile-common-body-create__form-container">
         {{$slot}}
     </div>
-    <div class="profile-common-body-create__send-button-container">
-        <button class="profile-common-body-create__send-button">Сохранить</button>
-    </div>
-    @include('components.form.error.index', [
-        'message' => session('commonError'),
-    ])
 </div>
