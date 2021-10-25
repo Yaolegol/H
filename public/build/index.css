@@ -1833,10 +1833,10 @@ p {
   display: none;
 }
 
-.profile-layout__info-container {
+.profile-common-header__info-container {
   margin-top: 50px;
 }
-.profile-layout__tab-button {
+.profile-common-header__tab-button {
   border-radius: 10px;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
   color: rgba(0, 0, 0, 0.8);
@@ -1846,30 +1846,30 @@ p {
   padding: 20px;
   text-align: center;
 }
-.profile-layout__tab-button:hover:not(.profile__tab-button_active) {
+.profile-common-header__tab-button:hover:not(.profile__tab-button_active) {
   background-color: rgba(76, 187, 23, 0.5);
   color: #FFFFFF;
 }
-.profile-layout__tab-button_active {
+.profile-common-header__tab-button_active {
   background-color: #4CBB17;
   color: #FFFFFF;
   font-weight: 900;
 }
-.profile-layout__tab-item-container {
+.profile-common-header__tab-item-container {
   padding: 10px;
 }
-.profile-layout__tabs-block {
+.profile-common-header__tabs-block {
   margin-top: 50px;
 }
-.profile-layout__tabs-container {
+.profile-common-header__tabs-container {
   display: flex;
   flex-wrap: wrap;
   margin: -10px -10px 0 -10px;
 }
-.profile-layout__title {
+.profile-common-header__title {
   text-align: center;
 }
-.profile-layout__title-container {
+.profile-common-header__title-container {
   margin-top: 50px;
 }
 
@@ -1919,7 +1919,7 @@ p {
   color: #FF0000;
 }
 
-.profile--sale-points-info--create__all-points-link {
+.profile-common-body-create__all-points-link {
   border-radius: 10px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
   color: rgba(0, 0, 0, 0.8);
@@ -1928,31 +1928,31 @@ p {
   padding: 20px;
   text-align: center;
 }
-.profile--sale-points-info--create__all-points-link:hover:not(.auth-login__tab-button_active) {
+.profile-common-body-create__all-points-link:hover:not(.auth-login__tab-button_active) {
   background-color: rgba(76, 187, 23, 0.5);
   color: #FFFFFF;
 }
-.profile--sale-points-info--create__all-points-link_active {
+.profile-common-body-create__all-points-link_active {
   background-color: #4CBB17;
   color: #FFFFFF;
   cursor: auto;
   font-weight: 900;
 }
-.profile--sale-points-info--create__all-points-link-container {
+.profile-common-body-create__all-points-link-container {
   margin-top: 10px;
 }
-.profile--sale-points-info--create__form-container {
+.profile-common-body-create__form-container {
   margin-top: 50px;
 }
-.profile--sale-points-info--create__info-title {
+.profile-common-body-create__info-title {
   margin-top: 25px;
   margin-left: 30px;
 }
-.profile--sale-points-info--create__input-container {
+.profile-common-body-create__input-container {
   margin-top: 5px;
   max-width: 500px;
 }
-.profile--sale-points-info--create__send-button {
+.profile-common-body-create__send-button {
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 25px;
   color: rgba(0, 0, 0, 0.5);
@@ -1960,10 +1960,30 @@ p {
   padding: 20px;
   text-align: center;
 }
-.profile--sale-points-info--create__send-button-container {
+.profile-common-body-create__send-button-container {
   margin-top: 50px;
 }
-.profile--sale-points-info--create__title-container {
+.profile-common-body-create__title-container {
+  margin-top: 50px;
+}
+
+.profile-common-container-file-field {
+  margin-top: 15px;
+  max-width: 500px;
+}
+
+.profile-common-container-form-field {
+  margin-top: 25px;
+}
+.profile-common-container-form-field__content-container {
+  margin-top: 5px;
+  max-width: 500px;
+}
+.profile-common-container-form-field__title {
+  margin-left: 30px;
+}
+
+.profile-common-container-section {
   margin-top: 50px;
 }
 
@@ -2469,6 +2489,29 @@ p {
   display: none;
 }
 
+.profile-common-body-index__content-container {
+  margin-top: 50px;
+}
+.profile-common-body-index__create-link {
+  background-color: #e34132;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  flex: 1 0 0;
+  font-weight: 900;
+  padding: 20px;
+  text-align: center;
+}
+.profile-common-body-index__create-link:hover {
+  background-color: #FF0000;
+}
+
+.profile-common-container-card {
+  margin-top: 50px;
+}
+
 .cards--organization {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 20px;
@@ -2509,28 +2552,6 @@ p {
 }
 .cards--organization__value {
   margin-top: 5px;
-}
-
-.profile--organization-info--index__content-container {
-  margin-top: 50px;
-}
-.profile--organization-info--index__create-link {
-  background-color: #e34132;
-  border-radius: 10px;
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
-  color: #FFFFFF;
-  cursor: pointer;
-  display: inline-block;
-  flex: 1 0 0;
-  font-weight: 900;
-  padding: 20px;
-  text-align: center;
-}
-.profile--organization-info--index__create-link:hover {
-  background-color: #FF0000;
-}
-.profile--organization-info--index__sale-point-container {
-  margin-top: 50px;
 }
 
 @font-face {
@@ -2760,23 +2781,23 @@ p {
   display: none;
 }
 
-.profile-personal-info {
+.profile-components-personal-info {
   display: flex;
 }
-.profile-personal-info__change-email-container {
+.profile-components-personal-info__change-email-container {
   margin-top: 15px;
 }
-.profile-personal-info__change-password-container {
+.profile-components-personal-info__change-password-container {
   margin-top: 15px;
 }
-.profile-personal-info__content-block {
+.profile-components-personal-info__content-block {
   flex: 3 1 auto;
 }
-.profile-personal-info__content-container {
+.profile-components-personal-info__content-container {
   max-width: 500px;
   padding-left: 50px;
 }
-.profile-personal-info__image {
+.profile-components-personal-info__image {
   bottom: 0;
   height: 100%;
   left: 0;
@@ -2786,29 +2807,29 @@ p {
   top: 0;
   width: 100%;
 }
-.profile-personal-info__image-block {
+.profile-components-personal-info__image-block {
   flex: 1 0 auto;
 }
-.profile-personal-info__image-container {
+.profile-components-personal-info__image-container {
   border-radius: 50%;
   overflow: hidden;
   padding-bottom: 100%;
   position: relative;
 }
-.profile-personal-info__info-title {
+.profile-components-personal-info__info-title {
   margin-top: 25px;
   margin-left: 30px;
 }
-.profile-personal-info__input-container {
+.profile-components-personal-info__input-container {
   margin-top: 5px;
 }
-.profile-personal-info__photo-block {
+.profile-components-personal-info__photo-block {
   margin-top: 25px;
 }
-.profile-personal-info__section-container {
+.profile-components-personal-info__section-container {
   margin-top: 50px;
 }
-.profile-personal-info__send-button {
+.profile-components-personal-info__send-button {
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 25px;
   color: rgba(0, 0, 0, 0.5);
@@ -2816,7 +2837,7 @@ p {
   padding: 20px;
   text-align: center;
 }
-.profile-personal-info__send-button-container {
+.profile-components-personal-info__send-button-container {
   margin-top: 50px;
 }
 
@@ -3075,63 +3096,6 @@ p {
 .map-2gis-add-marker__map-container {
   height: 500px;
   width: 500px;
-}
-
-.profile--sale-offers--create__all-offers-link {
-  border-radius: 10px;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
-  color: rgba(0, 0, 0, 0.8);
-  display: inline-block;
-  flex: 1 0 0;
-  padding: 20px;
-  text-align: center;
-}
-.profile--sale-offers--create__all-offers-link:hover:not(.auth-login__tab-button_active) {
-  background-color: rgba(76, 187, 23, 0.5);
-  color: #FFFFFF;
-}
-.profile--sale-offers--create__all-offers-link_active {
-  background-color: #4CBB17;
-  color: #FFFFFF;
-  cursor: auto;
-  font-weight: 900;
-}
-.profile--sale-offers--create__categories-container {
-  margin-top: 10px;
-}
-.profile--sale-offers--create__category-input {
-  cursor: pointer;
-}
-.profile--sale-offers--create__category-input-label {
-  cursor: pointer;
-}
-.profile--sale-offers--create__form-container {
-  margin-top: 50px;
-}
-.profile--sale-offers--create__form-item-container {
-  margin-top: 20px;
-}
-.profile--sale-offers--create__input-container {
-  margin-top: 5px;
-  max-width: 500px;
-}
-.profile--sale-offers--create__info-title {
-  margin-top: 25px;
-  margin-left: 30px;
-}
-.profile--sale-offers--create__send-button {
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 25px;
-  color: rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-  padding: 20px;
-  text-align: center;
-}
-.profile--sale-offers--create__send-button-container {
-  margin-top: 50px;
-}
-.profile--sale-offers--create__title-container {
-  margin-top: 50px;
 }
 
 @font-face {
@@ -3687,22 +3651,6 @@ p {
   margin-top: 5px;
 }
 
-.profile--sale-offers--index__create-link {
-  background-color: #e34132;
-  border-radius: 10px;
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
-  color: #FFFFFF;
-  cursor: pointer;
-  display: inline-block;
-  flex: 1 0 0;
-  font-weight: 900;
-  padding: 20px;
-  text-align: center;
-}
-.profile--sale-offers--index__create-link:hover {
-  background-color: #FF0000;
-}
-
 @font-face {
   font-family: 'Lato';
   font-weight: 400;
@@ -3928,54 +3876,6 @@ p {
 }
 .hidden {
   display: none;
-}
-
-.profile--sale-points-info--create__all-points-link {
-  border-radius: 10px;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
-  color: rgba(0, 0, 0, 0.8);
-  display: inline-block;
-  flex: 1 0 0;
-  padding: 20px;
-  text-align: center;
-}
-.profile--sale-points-info--create__all-points-link:hover:not(.auth-login__tab-button_active) {
-  background-color: rgba(76, 187, 23, 0.5);
-  color: #FFFFFF;
-}
-.profile--sale-points-info--create__all-points-link_active {
-  background-color: #4CBB17;
-  color: #FFFFFF;
-  cursor: auto;
-  font-weight: 900;
-}
-.profile--sale-points-info--create__all-points-link-container {
-  margin-top: 10px;
-}
-.profile--sale-points-info--create__form-container {
-  margin-top: 50px;
-}
-.profile--sale-points-info--create__info-title {
-  margin-top: 25px;
-  margin-left: 30px;
-}
-.profile--sale-points-info--create__input-container {
-  margin-top: 5px;
-  max-width: 500px;
-}
-.profile--sale-points-info--create__send-button {
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 25px;
-  color: rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-  padding: 20px;
-  text-align: center;
-}
-.profile--sale-points-info--create__send-button-container {
-  margin-top: 50px;
-}
-.profile--sale-points-info--create__title-container {
-  margin-top: 50px;
 }
 
 @font-face {
@@ -4520,28 +4420,6 @@ p {
 }
 .cards--sale-point__value {
   margin-top: 5px;
-}
-
-.profile--sale-points-info--index__content-container {
-  margin-top: 50px;
-}
-.profile--sale-points-info--index__create-link {
-  background-color: #e34132;
-  border-radius: 10px;
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
-  color: #FFFFFF;
-  cursor: pointer;
-  display: inline-block;
-  flex: 1 0 0;
-  font-weight: 900;
-  padding: 20px;
-  text-align: center;
-}
-.profile--sale-points-info--index__create-link:hover {
-  background-color: #FF0000;
-}
-.profile--sale-points-info--index__sale-point-container {
-  margin-top: 50px;
 }
 
 @font-face {

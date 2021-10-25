@@ -1,5 +1,5 @@
 import 'views/modules/header';
 import 'views/modules/layout';
-import 'views/modules/profile/layout';
-import 'views/modules/profile/sale-offers/index';
+import 'views/modules/profile/common/header';
+import 'views/modules/profile/components/sale-offers/index';
 import './index.less';

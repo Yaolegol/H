@@ -2,8 +2,8 @@
 
 @section('layout-content')
     @include('modules.header.catalog.index')
-    @component('modules.profile.layout.index', ['activeTab' => 'sale-offers'])
-        @include('modules.profile.sale-offers.create.index')
+    @component('modules.profile.common.header.index', ['activeTab' => 'sale-offers'])
+        @include('modules.profile.components.sale-offers.create.index')
     @endcomponent
 @endsection
 
