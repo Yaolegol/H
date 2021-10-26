@@ -12,7 +12,7 @@
         @method('PUT')
 
         @component('modules.profile.common.container.form-field.index', ['title' => 'Категория:'])
-            @include('components.inputs.radio.group.index', [
+            @include('components.inputs.radio.group-first-level.index', [
                         'dispatchEvents' => true,
                         'groupName' => 'radio-group__catalog_level_one',
                         'itemsList' => $catalogCategoriesList,
@@ -21,7 +21,7 @@
         @endcomponent
 
         @component('modules.profile.common.container.form-field.index')
-            @include('components.inputs.radio.content-group.index', [
+            @include('components.inputs.radio.group-second-level.index', [
                         'contentList' => $catalogSubCategoriesList,
                         'listenGroupName' => 'radio-group__catalog_level_one',
                         'title' => 'Подкатегория'
@@ -29,7 +29,7 @@
         @endcomponent
 
         @component('modules.profile.common.container.form-field.index', ['title' => 'Регион:'])
-            @include('components.inputs.radio.group.index', [
+            @include('components.inputs.radio.group-first-level.index', [
                         'dispatchEvents' => true,
                         'groupName' => 'radio-group__region',
                         'itemsList' => $regionList,
@@ -38,7 +38,7 @@
         @endcomponent
 
         @component('modules.profile.common.container.form-field.index')
-            @include('components.inputs.radio.content-group.index', [
+            @include('components.inputs.radio.group-second-level.index', [
                     'contentList' => $citiesList,
                     'listenGroupName' => 'radio-group__region',
                     'title' => 'Город'

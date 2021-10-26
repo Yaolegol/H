@@ -3028,23 +3028,23 @@ p {
   cursor: pointer;
 }
 
-.inputs-radio-content_hidden {
+
+.inputs-radio-group-second-level_hidden {
   display: none;
 }
-.inputs-radio-content__content-block {
+.inputs-radio-group-second-level__content-block {
   margin-top: 10px;
   max-height: 500px;
 }
-.inputs-radio-content__content-container {
+.inputs-radio-group-second-level__content-container {
   display: none;
 }
-.inputs-radio-content__content-container_active {
+.inputs-radio-group-second-level__content-container_active {
   display: block;
 }
-.inputs-radio-content__title {
+.inputs-radio-group-second-level__title {
   margin-left: 30px;
 }
-
 
 .map-2gis-add-marker__map-container {
   height: 500px;

@@ -42,7 +42,7 @@ class ProfileSaleOffersController extends Controller
     {
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
-        $organizationsList = getUserOrganizationsWithSelectedList();
+        $organizationsList = getUserOrganizationsListFormatted();
         $salePointsList = getUserSalePointsList();
         $catalogCategoriesList = getCatalogCategoriesList($catalogFull);
         $catalogSubCategoriesList = getCatalogSubCategoriesList($catalogFull);

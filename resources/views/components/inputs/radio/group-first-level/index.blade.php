@@ -1,8 +1,5 @@
 <div
-    class="inputs-radio-group j-inputs-radio-group"
-    @if($dispatchEvents ?? false)
-        data-dispatch-events
-    @endif
+    class="inputs-radio-group-first-level j-inputs-radio-group-first-level"
     data-group-name="{{$groupName}}"
 >
     @foreach($itemsList as $item)

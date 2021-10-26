@@ -13,10 +13,10 @@ const {
     }
 } = EVENTS_NAMES;
 
-class InputsRadioContentGroup {
+class InputsRadioGroupSecondLevel {
     constructor(element) {
         this.module = element;
-        this.contentContainerList = [...this.module.querySelectorAll('.j-inputs-radio-content-group__content-container')];
+        this.contentContainerList = [...this.module.querySelectorAll('.j-inputs-radio-group-second-level__content-container')];
         this.contentContainersMap = this.getContentContainersMap();
         this.listenGroupName = this.module.dataset.listenGroupName;
         this.activeContentContainer = null;
@@ -40,10 +40,10 @@ class InputsRadioContentGroup {
         const {groupName, value} = detail;
 
         if(groupName === this.listenGroupName) {
-            this.module.classList.remove('inputs-radio-content_hidden');
+            this.module.classList.remove('inputs-radio-group-second-level_hidden');
 
             if(this.activeContentContainer) {
-                this.activeContentContainer.classList.remove('inputs-radio-content__content-container_active');
+                this.activeContentContainer.classList.remove('inputs-radio-group-second-level__content-container_active');
                 const checkedInput = this.activeContentContainer.querySelector('input:checked');
 
                 if(checkedInput) {
@@ -52,13 +52,13 @@ class InputsRadioContentGroup {
             }
 
             this.activeContentContainer = this.contentContainersMap[value];
-            this.activeContentContainer.classList.add('inputs-radio-content__content-container_active');
+            this.activeContentContainer.classList.add('inputs-radio-group-second-level__content-container_active');
         }
     }
 }
 
-const list = [...document.querySelectorAll('.j-inputs-radio-content-group')];
+const list = [...document.querySelectorAll('.j-inputs-radio-group-second-level')];
 
 list.forEach((element) => {
-    new InputsRadioContentGroup(element);
+    new InputsRadioGroupSecondLevel(element);
 });

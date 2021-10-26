@@ -13,27 +13,28 @@ const {
     }
 } = EVENTS_NAMES;
 
-class InputsRadioGroup {
+class InputsRadioGroupFirstLevel {
     constructor(element) {
         this.module = element;
-        this.dispatchEvents = this.module.hasAttribute('data-dispatch-events');
         this.groupName = this.module.dataset.groupName;
         this.checkedInput = this.module.querySelector('input[checked]');
         this.value = this.checkedInput ? this.checkedInput.value : null;
 
-        if(this.dispatchEvents) {
-            addEventListener(this.module, 'change', this.handleChange);
+        this.init();
 
-            if(this.value) {
-                this.sendMessage();
-            }
-        }
+        addEventListener(this.module, 'change', this.handleChange);
     }
 
     handleChange = (e) => {
         this.value = e.target.value;
 
         this.sendMessage();
+    }
+
+    init = () => {
+        if(this.value) {
+            this.sendMessage();
+        }
     }
 
     sendMessage = () => {
@@ -46,8 +47,8 @@ class InputsRadioGroup {
     }
 }
 
-const list = [...document.querySelectorAll('.j-inputs-radio-group')];
+const list = [...document.querySelectorAll('.j-inputs-radio-group-first-level')];
 
 list.forEach((element) => {
-    new InputsRadioGroup(element);
+    new InputsRadioGroupFirstLevel(element);
 });
