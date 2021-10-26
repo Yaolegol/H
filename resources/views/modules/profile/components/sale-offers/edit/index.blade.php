@@ -98,7 +98,7 @@
         @endcomponent
 
         @component('modules.profile.common.container.form-field.index', ['title' => 'Карта:'])
-            @include('components.map.2gis.add-marker.index')
+            @include('components.map.2gis.components.add-marker.index')
         @endcomponent
 
         @component('modules.profile.common.container.form-field.index', ['title' => 'Телефон:'])

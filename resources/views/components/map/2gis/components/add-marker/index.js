@@ -1,4 +1,4 @@
-import {Map2gisBase} from 'views/components/map/2gis/base';
+import {Map2gisCommonBase} from 'views/components/map/2gis/common/base';
 import './index.less';
 
 const markerDataList = [
@@ -33,7 +33,7 @@ const markerDataList = [
     },
 ];
 
-class Map2gisAddMarker {
+class Map2gisComponentsAddMarker {
     constructor(element) {
         this.module = element;
 
@@ -41,7 +41,7 @@ class Map2gisAddMarker {
     }
 
     initMap = () => {
-        this.mapInstance = new Map2gisBase({
+        this.mapInstance = new Map2gisCommonBase({
             center: [62.395570, 104.432320],
             markerDataList,
             onMapClick: this.onMapClick,
@@ -61,8 +61,8 @@ class Map2gisAddMarker {
     }
 }
 
-const list = [...document.querySelectorAll('.j-map-2gis-add-marker')];
+const list = [...document.querySelectorAll('.j-map-2gis-components-add-marker')];
 
 list.forEach((element) => {
-    new Map2gisAddMarker(element);
+    new Map2gisComponentsAddMarker(element);
 })

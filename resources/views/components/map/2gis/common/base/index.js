@@ -3,7 +3,7 @@ import 'leaflet.markercluster';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 
-export class Map2gisBase {
+export class Map2gisCommonBase {
     constructor({center, markerDataList, onMapClick, useMarkerCluster, zoom}) {
         this.initMap({center, onMapClick, zoom});
         this.initMarkers({markerDataList, useMarkerCluster});
