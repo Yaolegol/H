@@ -89,14 +89,6 @@
                     'title' => $salePointItem['title'],
                     'value' => $salePointItem['id']
                 ])
-{{--                <label>--}}
-{{--                    <input--}}
-{{--                        name="sale-point_{{$loop->index}}"--}}
-{{--                        type="checkbox"--}}
-{{--                        value="{{$salePointItem['id']}}"--}}
-{{--                    >--}}
-{{--                    <span>{{$salePointItem['title']}}</span>--}}
-{{--                </label>--}}
             @endforeach
         @endcomponent
 
