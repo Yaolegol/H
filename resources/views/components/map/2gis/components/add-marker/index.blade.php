@@ -1,7 +1,7 @@
 <div
     class="map-2gis-components-add-marker j-map-2gis-components-add-marker"
-    data-marker-lat="{{$markerLat}}"
-    data-marker-lng="{{$markerLng}}"
+    data-marker-lat="{{$markerLat ?? ''}}"
+    data-marker-lng="{{$markerLng ?? ''}}"
 >
     <input
         class="j-map-2gis-components-add-marker__lat-input"

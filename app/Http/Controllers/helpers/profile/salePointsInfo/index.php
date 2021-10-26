@@ -136,6 +136,8 @@ function tryStoreSalePointDataInDB($request)
         $working_hours = $request->input('working_hours') ?? '';
         $contact_person = $request->input('contact_person') ?? '';
         $phone = $request->input('phone') ?? '';
+        $mapMarkerLat = $request->input('map_marker_lat');
+        $mapMarkerLng = $request->input('map_marker_lng');
 
         $createdSalePoint = SalePoint::create([
             'title' => $title,
@@ -143,6 +145,8 @@ function tryStoreSalePointDataInDB($request)
             'working_hours' => $working_hours,
             'contact_person' => $contact_person,
             'phone' => $phone,
+            'map_marker_lat' => $mapMarkerLat,
+            'map_marker_lng' => $mapMarkerLng,
             'user_id' => $user_id,
         ]);
 
@@ -172,6 +176,8 @@ function tryUpdateSalePointDataInDB($request, $id) {
         $working_hours = $request->input('working_hours') ?? '';
         $contact_person = $request->input('contact_person') ?? '';
         $phone = $request->input('phone') ?? '';
+        $mapMarkerLat = $request->input('map_marker_lat');
+        $mapMarkerLng = $request->input('map_marker_lng');
 
         $newPhotos = updateSalePointPhotos($request, $id);
 
@@ -182,8 +188,9 @@ function tryUpdateSalePointDataInDB($request, $id) {
                 'working_hours' => $working_hours,
                 'contact_person' => $contact_person,
                 'phone' => $phone,
+                'map_marker_lat' => $mapMarkerLat,
+                'map_marker_lng' => $mapMarkerLng,
                 'user_id' => $user_id,
-
             ],
             ...$newPhotos,
         );

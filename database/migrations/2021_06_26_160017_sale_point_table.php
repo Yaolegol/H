@@ -23,6 +23,8 @@ class SalePointTable extends Migration
             $table->string('photo_1')->nullable();
             $table->string('photo_2')->nullable();
             $table->string('photo_3')->nullable();
+            $table->double('map_marker_lat')->nullable();
+            $table->double('map_marker_lng')->nullable();
             $table->bigInteger('user_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
