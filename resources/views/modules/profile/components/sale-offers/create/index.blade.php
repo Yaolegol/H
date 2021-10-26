@@ -82,14 +82,21 @@
 
         @component('modules.profile.common.container.form-field.index', ['title' => 'Торговые точки (информацию о торговых точках можно добавить в соответствующем разделе Вашего профиля):'])
             @foreach($salePointsList as $salePointItem)
-                <label>
-                    <input
-                        name="sale-point_{{$loop->index}}"
-                        type="checkbox"
-                        value="{{$salePointItem['id']}}"
-                    >
-                    <span>{{$salePointItem['title']}}</span>
-                </label>
+                @include('components.checkboxes.map.index', [
+                    'map_marker_lat' => $salePointItem['map_marker_lat'],
+                    'map_marker_lng' => $salePointItem['map_marker_lng'],
+                    'name' => "sale-point_{{$loop->index}}",
+                    'title' => $salePointItem['title'],
+                    'value' => $salePointItem['id']
+                ])
+{{--                <label>--}}
+{{--                    <input--}}
+{{--                        name="sale-point_{{$loop->index}}"--}}
+{{--                        type="checkbox"--}}
+{{--                        value="{{$salePointItem['id']}}"--}}
+{{--                    >--}}
+{{--                    <span>{{$salePointItem['title']}}</span>--}}
+{{--                </label>--}}
             @endforeach
         @endcomponent
 

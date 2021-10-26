@@ -1,3 +1,4 @@
+import {addEventListener} from "helpers/events";
 import {Map2gisCommonBase} from 'views/components/map/2gis/common/base';
 import './index.less';
 
@@ -10,25 +11,54 @@ class Map2gisComponentsAddMarker {
         this.markerLng = Number(this.module.dataset.markerLng);
 
         this.init();
+        this.bind();
     }
 
     addInitialMarker = () => {
         if(this.markerLat && this.markerLng) {
-            this.addMarker(this.markerLat, this.markerLng);
+            this.addMarkerFromClick(this.markerLat, this.markerLng);
         }
     }
 
     addMarker = (lat, lng) => {
-        if(this.newMarker) {
-            this.newMarker.removeFrom(this.mapInstance.map);
+        return this.mapInstance.addMarker({lat, lng});
+    }
+
+    addMarkerFromClick = (lat, lng) => {
+        if(this.newMarkerFromClick) {
+            this.newMarkerFromClick.removeFrom(this.mapInstance.map);
         }
 
-        this.newMarker = this.mapInstance.addMarker({lat, lng});
+        this.newMarkerFromClick = this.addMarker(lat, lng);
 
         this.setLatLngInputsValues(lat, lng);
     }
 
+    addMarkerFromCheckbox = ({lat, lng, value}) => {
+        const markerInstance = this.addMarker(lat, lng);
+
+        this.checkboxesMap[value] = markerInstance;
+    }
+
+    bind = () => {
+        addEventListener(document, 'j-event__need-update-map-marker', this.handleUpdateMarker);
+    }
+
+    handleUpdateMarker = (e) => {
+        const {detail} = e;
+        const {coords, isChecked, value} = detail;
+        const {lat, lng} = coords;
+
+        if(isChecked) {
+            this.addMarkerFromCheckbox({lat, lng, value});
+        } else {
+            this.removeMarkerFromCheckbox(value);
+        }
+    }
+
     init = () => {
+        this.checkboxesMap = {};
+
         this.initMap();
         this.addInitialMarker();
     }
@@ -46,7 +76,15 @@ class Map2gisComponentsAddMarker {
         const {latlng} = e;
         const {lat, lng} = latlng;
 
-        this.addMarker(lat, lng);
+        this.addMarkerFromClick(lat, lng);
+    }
+
+    removeMarkerFromCheckbox = (value) => {
+        const markerInstance = this.checkboxesMap[value];
+
+        if(markerInstance) {
+            markerInstance.removeFrom(this.mapInstance.map);
+        }
     }
 
     setLatLngInputsValues = (lat, lng) => {
