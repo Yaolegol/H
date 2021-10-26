@@ -85,7 +85,7 @@
                 @include('components.checkboxes.map.index', [
                     'map_marker_lat' => $salePointItem['map_marker_lat'],
                     'map_marker_lng' => $salePointItem['map_marker_lng'],
-                    'name' => "sale-point_{{$loop->index}}",
+                    'name' => "sale-point_$loop->index",
                     'title' => $salePointItem['title'],
                     'value' => $salePointItem['id']
                 ])

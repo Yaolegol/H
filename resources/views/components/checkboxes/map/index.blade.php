@@ -5,6 +5,9 @@
 >
     <label>
         <input
+            @if($salePointItem['active'] ?? false)
+                checked
+            @endif
             class="j-checkboxes-map__input"
             name="{{$name}}"
             type="checkbox"

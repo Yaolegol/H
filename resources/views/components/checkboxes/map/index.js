@@ -5,14 +5,18 @@ import './index.less';
 class CheckboxesMap {
     constructor(element) {
         this.module = element;
+        this.input = this.module.querySelector('.j-checkboxes-map__input');
+        this.isChecked = this.input.hasAttribute('checked');
         this.markerLat = this.module.dataset.markerLat;
         this.markerLng = this.module.dataset.markerLng;
+        this.withCoords = Boolean(this.markerLat) && Boolean(this.markerLng);
 
+        this.sendInitialMessage();
         this.bind();
     }
 
     bind = () => {
-        if(this.markerLat && this.markerLng) {
+        if(this.withCoords) {
             addEventListener(this.module, 'change', this.handleChange);
         }
     }
@@ -22,22 +26,28 @@ class CheckboxesMap {
         const isInput = target.classList.contains('j-checkboxes-map__input');
 
         if(isInput) {
+            this.sendMessage();
+        }
+    }
+
+    sendInitialMessage = () => {
+        if(this.isChecked && this.withCoords) {
             this.sendMessage({
-                isChecked: target.checked,
-                value: target.value
+                isChecked: this.input.checked,
+                value: this.input.value
             });
         }
     }
 
-    sendMessage = ({isChecked, value}) => {
+    sendMessage = () => {
         document.dispatchEvent(new CustomEvent('j-event__need-update-map-marker', {
             detail: {
                 coords: {
                   lat: this.markerLat,
                   lng: this.markerLng,
                 },
-                isChecked,
-                value
+                isChecked: this.input.checked,
+                value: this.input.value,
             }
         }));
     }
