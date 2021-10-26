@@ -25,9 +25,7 @@ class Map2gisComponentsAddMarker {
     }
 
     addMarkerFromClick = (lat, lng) => {
-        if(this.newMarkerFromClick) {
-            this.newMarkerFromClick.removeFrom(this.mapInstance.map);
-        }
+        this.removeMarkerFromClick();
 
         this.newMarkerFromClick = this.addMarker(lat, lng);
 
@@ -73,10 +71,16 @@ class Map2gisComponentsAddMarker {
     }
 
     onMapClick = (e) => {
-        const {latlng} = e;
+        const {latlng, originalEvent} = e;
         const {lat, lng} = latlng;
 
-        this.addMarkerFromClick(lat, lng);
+        const isClickOnMap = originalEvent.target.classList.contains('j-map-2gis-components-add-marker__map-container');
+
+        if(isClickOnMap) {
+            this.addMarkerFromClick(lat, lng);
+        } else {
+            this.removeMarkerFromClick();
+        }
     }
 
     removeMarkerFromCheckbox = (value) => {
@@ -84,6 +88,13 @@ class Map2gisComponentsAddMarker {
 
         if(markerInstance) {
             markerInstance.removeFrom(this.mapInstance.map);
+        }
+    }
+
+    removeMarkerFromClick = () => {
+        if(this.newMarkerFromClick) {
+            this.newMarkerFromClick.removeFrom(this.mapInstance.map);
+            this.setLatLngInputsValues(0, 0);
         }
     }
 
