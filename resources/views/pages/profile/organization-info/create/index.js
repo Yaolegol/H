@@ -3,5 +3,3 @@ import 'views/modules/layout';
 import 'views/modules/profile/common/header';
 import 'views/modules/profile/components/organization-info/create';
 import './index.less';
-
-console.log('file resources/views/pages/profile/organization-info/create/index.js')

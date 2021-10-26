@@ -3,5 +3,3 @@ import 'views/modules/layout';
 import 'views/modules/profile/common/header';
 import 'views/modules/profile/components/sale-points-info/index';
 import './index.less';
-
-console.log('TEST0')
