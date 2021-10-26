@@ -269,6 +269,8 @@ function tryUpdateSaleOfferInDB($request, $id)
         $catalog_level_two_id = $request->input('catalog_level_two_id');
         $region_id = $request->input('region_id');
         $city_id = $request->input('city_id');
+        $mapMarkerLat = $request->input('map_marker_lat');
+        $mapMarkerLng = $request->input('map_marker_lng');
 
         $newPhotos = updateSaleOfferPhotos($request, $id);
 
@@ -283,6 +285,8 @@ function tryUpdateSaleOfferInDB($request, $id)
                 'catalog_level_two_id' => $catalog_level_two_id,
                 'region_id' => $region_id,
                 'city_id' => $city_id,
+                'map_marker_lat' => $mapMarkerLat,
+                'map_marker_lng' => $mapMarkerLng,
             ],
             ...$newPhotos,
         );

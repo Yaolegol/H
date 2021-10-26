@@ -98,7 +98,10 @@
         @endcomponent
 
         @component('modules.profile.common.container.form-field.index', ['title' => 'Карта:'])
-            @include('components.map.2gis.components.add-marker.index')
+            @include('components.map.2gis.components.add-marker.index', [
+                'markerLat' => $saleOfferItemData['map_marker_lat'],
+                'markerLng' => $saleOfferItemData['map_marker_lng'],
+            ])
         @endcomponent
 
         @component('modules.profile.common.container.form-field.index', ['title' => 'Телефон:'])
