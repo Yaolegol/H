@@ -1,6 +1,6 @@
 <div
     class="inputs-radio-group j-inputs-radio-group"
-    @if($dispatchEvents)
+    @if($dispatchEvents ?? false)
         data-dispatch-events
     @endif
     data-group-name="{{$groupName}}"

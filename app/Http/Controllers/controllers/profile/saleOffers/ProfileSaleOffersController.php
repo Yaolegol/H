@@ -100,8 +100,8 @@ class ProfileSaleOffersController extends Controller
     {
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
-        $organizationsList = getUserOrganizationsListFormatted();
         $saleOfferItemData = getSaleOfferItemDataFormatted($id);
+        $organizationsList = getUserOrganizationsWithSelectedListFormatted($saleOfferItemData);
         $salePointsList = getSaleOfferSalePointsListFormatted($saleOfferItemData);
         $catalogCategoriesList = getCatalogCategoriesWithSelectedList($catalogFull, $saleOfferItemData);
         $catalogSubCategoriesList = getCatalogSubCategoriesWithSelectedList($catalogFull, $saleOfferItemData);

@@ -127,14 +127,11 @@
 
         @component('modules.profile.common.container.form-field.index', ['title' => 'Организация:'])
             @foreach($organizationsList as $organizationItem)
-                <div class="profile--sale-offers--create__categories-container">
-                    @include('components.inputs.radio.item.index', [
-                        'id' => $organizationItem['id'],
-                        'name' => 'organization_id',
-                        'title' => $organizationItem['title'],
-                        'value' => $organizationItem['id'],
-                    ])
-                </div>
+                @include('components.inputs.radio.group.index', [
+                                'groupName' => 'radio-group__organization',
+                                'itemsList' => $organizationsList,
+                                'inputName' => 'organization_id',
+                            ])
             @endforeach
         @endcomponent
 

@@ -111,6 +111,21 @@ function getUserOrganizationsListFormatted() {
     return getUserOrganizations();
 }
 
+function getUserOrganizationsWithSelectedListFormatted($saleOfferItemData) {
+    $userOrganizations = getUserOrganizationsListFormatted();
+    $saleOfferItemOrganization = $saleOfferItemData['organization'];
+
+    foreach ($userOrganizations as &$userOrganizationItem) {
+        $userOrganizationItem['value'] = $userOrganizationItem['id'];
+
+        if(!empty($saleOfferItemOrganization)) {
+            $userOrganizationItem['isChecked'] = $userOrganizationItem['id'] === $saleOfferItemOrganization['id'];
+        }
+    }
+
+    return $userOrganizations;
+}
+
 function getUserSaleOfferItem($id)
 {
     $authUser = Auth::user();
@@ -119,7 +134,7 @@ function getUserSaleOfferItem($id)
     return Offer::where([
         ['user_id', $user_id],
         ['id', $id],
-    ])->with('salePoints')->first()->toArray();
+    ])->with(['salePoints', 'organization'])->first()->toArray();
 }
 
 function getUserSaleOffers()
