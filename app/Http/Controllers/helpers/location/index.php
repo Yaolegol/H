@@ -2,6 +2,25 @@
 
 use App\Models\City;
 
+function getCitiesList($locationList) {
+    return array_map(function($regionItem) {
+        $regionItemCitiesList = array_map(function($cityItem) {
+            return [
+                'id' => 'id__radio-input__city__' . $cityItem['id'],
+                'title' => $cityItem['title'],
+                'value' => $cityItem['id'],
+            ];
+        }, $regionItem['cities']);
+
+        return [
+            'content' => $regionItemCitiesList,
+            'groupName' => 'radio-group__cities',
+            'inputName' => 'city_id',
+            'listenId' => $regionItem['id'],
+        ];
+    }, $locationList);
+}
+
 function getNewArray($arr)
 {
     return array_combine(array_keys($arr), array_values($arr));
@@ -36,4 +55,14 @@ function getLocationListFormatted()
 
         return $acc;
     });
+}
+
+function getRegionList($locationList) {
+    return array_map(function($regionItem) {
+        return [
+            'id' => 'id__radio-input__region__' . $regionItem['id'],
+            'title' => $regionItem['title'],
+            'value' => $regionItem['id'],
+        ];
+    }, $locationList);
 }

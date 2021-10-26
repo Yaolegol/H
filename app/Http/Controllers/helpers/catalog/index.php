@@ -2,9 +2,33 @@
 
 use App\Models\CatalogLevelOne;
 
-function getCatalogLevelOne()
-{
-    return CatalogLevelOne::query()->with('catalogLevelTwo')->get()->toArray();
+function getCatalogCategoriesList($catalogFull) {
+    return array_map(function($catalogItem) {
+        return [
+            'id' => 'id__radio-input__catalog-level-one__' . $catalogItem['id'],
+            'title' => $catalogItem['title'],
+            'value' => $catalogItem['id'],
+        ];
+    }, $catalogFull);
+}
+
+function getCatalogSubCategoriesList($catalogFull) {
+    return array_map(function($catalogItem) {
+        $catalogLevelTwoItemsList = array_map(function($catalogLevelTwoItem) {
+            return [
+                'id' => 'id__radio-input__catalog-level-two__' . $catalogLevelTwoItem['id'],
+                'title' => $catalogLevelTwoItem['title'],
+                'value' => $catalogLevelTwoItem['id'],
+            ];
+        }, $catalogItem['catalog_level_two']);
+
+        return [
+            'content' => $catalogLevelTwoItemsList,
+            'groupName' => 'radio-group__catalog_level_two',
+            'inputName' => 'catalog_level_two_id',
+            'listenId' => $catalogItem['id'],
+        ];
+    }, $catalogFull);
 }
 
 function getCatalogFull()
@@ -12,6 +36,11 @@ function getCatalogFull()
     $catalog = getCatalogLevelOne();
 
     return getCatalogLevelOneWithFullLinks($catalog);
+}
+
+function getCatalogLevelOne()
+{
+    return CatalogLevelOne::query()->with('catalogLevelTwo')->get()->toArray();
 }
 
 function getCatalogLevelOneWithFullLinks($catalog)

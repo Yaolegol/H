@@ -44,12 +44,20 @@ class ProfileSaleOffersController extends Controller
         $locationList = getLocationListFormatted();
         $organizationsList = getUserOrganizationsListFormatted();
         $salePointsList = getUserSalePointsList();
+        $catalogCategoriesList = getCatalogCategoriesList($catalogFull);
+        $catalogSubCategoriesList = getCatalogSubCategoriesList($catalogFull);
+        $regionList = getRegionList($locationList);
+        $citiesList = getCitiesList($locationList);
 
         return view('pages.profile.sale-offers.create.index', [
+            'catalogCategoriesList' => $catalogCategoriesList,
+            'catalogSubCategoriesList' => $catalogSubCategoriesList,
             'catalogFull' => $catalogFull,
             'catalogHeader' => $catalogFull,
+            'citiesList' => $citiesList,
             'locationList' => $locationList,
             'organizationsList' => $organizationsList,
+            'regionList' => $regionList,
             'salePointsList' => $salePointsList,
         ]);
     }
