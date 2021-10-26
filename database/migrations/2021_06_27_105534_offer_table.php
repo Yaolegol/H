@@ -23,6 +23,8 @@ class OfferTable extends Migration
             $table->string('photo_1')->nullable();
             $table->string('photo_2')->nullable();
             $table->string('photo_3')->nullable();
+            $table->double('map_marker_lat')->nullable();
+            $table->double('map_marker_lng')->nullable();
             $table->integer('order')->default(1);
             $table->boolean('is_active')->default(true);
             $table->bigInteger('user_id')->unsigned()->index();
