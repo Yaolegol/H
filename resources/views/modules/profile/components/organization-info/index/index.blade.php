@@ -3,13 +3,13 @@
         'createTitle' => 'Добавить организацию',
         'title' => 'Ваши организации'
     ])
-    @component('modules.profile.common.container.card.index')
-        @foreach ($organizationList as $organizationItem)
+    @foreach ($organizationList as $organizationItem)
+        @component('modules.profile.common.container.card.index')
             @include('components.cards.organization.index', [
                             'organization' => $organizationItem,
                         ])
-        @endforeach
-    @endcomponent
+        @endcomponent
+    @endforeach
 @endcomponent
 
 

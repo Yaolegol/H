@@ -3,13 +3,13 @@
         'createTitle' => 'Добавить торговую точку',
         'title' => 'Ваши торговые точки'
     ])
-    @component('modules.profile.common.container.card.index')
-        @foreach ($salePointsList as $salePointItem)
+    @foreach ($salePointsList as $salePointItem)
+        @component('modules.profile.common.container.card.index')
             @include('components.cards.sale-point.index', [
                             'salePoint' => $salePointItem,
                         ])
-        @endforeach
-    @endcomponent
+        @endcomponent
+    @endforeach
 @endcomponent
 
 

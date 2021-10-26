@@ -3,13 +3,13 @@
         'createTitle' => 'Добавить торговое предложение',
         'title' => 'Ваши торговые предложения'
     ])
-    @component('modules.profile.common.container.card.index')
-        @foreach ($saleOffersList as $saleOfferItem)
+    @foreach ($saleOffersList as $saleOfferItem)
+        @component('modules.profile.common.container.card.index')
             @include('components.cards.sale-offer.index', [
-                            'saleOffer' => $saleOfferItem,
-                        ])
-        @endforeach
-    @endcomponent
+                                    'saleOffer' => $saleOfferItem,
+                                ])
+        @endcomponent
+    @endforeach
 @endcomponent
 
 
