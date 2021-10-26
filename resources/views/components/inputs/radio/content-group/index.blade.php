@@ -16,12 +16,15 @@
                 "
                 data-listen-id="{{$contentItem['listenId']}}"
             >
-                @include('components.inputs.radio.group.index', [
-                        'dispatchEvents' => false,
-                        'groupName' => $contentItem['groupName'],
-                        'inputName' => $contentItem['inputName'],
-                        'itemsList' => $contentItem['content'],
+                @foreach($contentItem['content'] as $item)
+                    @include('components.inputs.radio.item.index', [
+                        'id' => $item['id'],
+                        'isChecked' => $item['isChecked'] ?? false,
+                        'name' => $contentItem['inputName'],
+                        'title' => $item['title'],
+                        'value' => $item['value'],
                     ])
+                @endforeach
             </div>
         @endforeach
     </div>
