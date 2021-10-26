@@ -16,5 +16,3 @@
     <link href="{{ asset('build/index.css') }}" rel="stylesheet">
     <link href="{{ asset('build/vendor.css') }}" rel="stylesheet">
 @endsection
-
-
