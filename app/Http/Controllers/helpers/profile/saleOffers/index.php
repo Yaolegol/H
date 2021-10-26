@@ -108,19 +108,28 @@ function getUserOrganizations() {
 }
 
 function getUserOrganizationsListFormatted() {
-    return getUserOrganizations();
+    $userOrganizations = getUserOrganizations();
+
+    return array_map(function($userOrganizationItem) {
+        $userOrganizationItemId = $userOrganizationItem['id'];
+
+        return [
+            'id' => $userOrganizationItemId,
+            'isChecked' => false,
+            'title' => $userOrganizationItem['title'],
+            'value' => $userOrganizationItemId,
+        ];
+    }, $userOrganizations);
 }
 
-function getUserOrganizationsWithSelectedListFormatted($saleOfferItemData) {
+function getUserOrganizationsWithSelectedList($saleOfferItemData) {
     $userOrganizations = getUserOrganizationsListFormatted();
-    $saleOfferItemOrganization = $saleOfferItemData['organization'];
 
     foreach ($userOrganizations as &$userOrganizationItem) {
-        $userOrganizationItem['value'] = $userOrganizationItem['id'];
+        $userOrganizationItemId = $userOrganizationItem['id'];
+        $saleOfferItemDataOrganizationId = $saleOfferItemData['organization_id'];
 
-        if(!empty($saleOfferItemOrganization)) {
-            $userOrganizationItem['isChecked'] = $userOrganizationItem['id'] === $saleOfferItemOrganization['id'];
-        }
+        $userOrganizationItem['isChecked'] = $userOrganizationItemId === $saleOfferItemDataOrganizationId;
     }
 
     return $userOrganizations;

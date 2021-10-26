@@ -127,11 +127,12 @@
 
         @component('modules.profile.common.container.form-field.index', ['title' => 'Организация:'])
             @foreach($organizationsList as $organizationItem)
-                @include('components.inputs.radio.group.index', [
-                                'groupName' => 'radio-group__organization',
-                                'itemsList' => $organizationsList,
-                                'inputName' => 'organization_id',
-                            ])
+                @include('components.inputs.radio.item.index', [
+                        'isChecked' => $organizationItem['isChecked'] ?? false,
+                        'name' => 'organization_id',
+                        'title' => $organizationItem['title'],
+                        'value' => $organizationItem['value'],
+                    ])
             @endforeach
         @endcomponent
 
