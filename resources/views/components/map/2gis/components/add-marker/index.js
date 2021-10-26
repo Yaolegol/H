@@ -36,6 +36,8 @@ const markerDataList = [
 class Map2gisComponentsAddMarker {
     constructor(element) {
         this.module = element;
+        this.latInput = this.module.querySelector('.j-map-2gis-components-add-marker__lat-input');
+        this.lngInput = this.module.querySelector('.j-map-2gis-components-add-marker__lng-input');
 
         this.initMap();
     }
@@ -58,6 +60,13 @@ class Map2gisComponentsAddMarker {
         }
 
         this.newMarker = this.mapInstance.addMarker({lat, lng});
+
+        this.setLatLngInputsValues(lat, lng);
+    }
+
+    setLatLngInputsValues = (lat, lng) => {
+        this.latInput.value = lat;
+        this.lngInput.value = lng;
     }
 }
 
