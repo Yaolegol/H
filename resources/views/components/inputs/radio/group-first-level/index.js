@@ -1,5 +1,6 @@
 import {EVENTS_NAMES} from 'events/index';
 import {addEventListener} from 'helpers/events';
+import 'views/components/inputs/radio/group-second-level';
 import 'views/components/inputs/radio/item';
 import './index.less';
 
@@ -20,9 +21,9 @@ class InputsRadioGroupFirstLevel {
         this.checkedInput = this.module.querySelector('input[checked]');
         this.value = this.checkedInput ? this.checkedInput.value : null;
 
-        this.init();
-
         addEventListener(this.module, 'change', this.handleChange);
+
+        this.init();
     }
 
     handleChange = (e) => {

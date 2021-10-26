@@ -3028,7 +3028,6 @@ p {
   cursor: pointer;
 }
 
-
 .inputs-radio-group-second-level_hidden {
   display: none;
 }
@@ -3045,6 +3044,7 @@ p {
 .inputs-radio-group-second-level__title {
   margin-left: 30px;
 }
+
 
 .map-2gis-add-marker__map-container {
   height: 500px;
