@@ -21,6 +21,29 @@ function getCitiesList($locationList) {
     }, $locationList);
 }
 
+function getCitiesWithSelectedList($locationList, $saleOfferItemData) {
+    return array_map(function($regionItem) use($saleOfferItemData) {
+        $regionItemCitiesList = array_map(function($cityItem) use($saleOfferItemData) {
+            $cityItemId = $cityItem['id'];
+            $saleOfferItemDataCityId = $saleOfferItemData['city_id'];
+
+            return [
+                'id' => 'id__radio-input__city__' . $cityItemId,
+                'isChecked' => $cityItemId === $saleOfferItemDataCityId,
+                'title' => $cityItem['title'],
+                'value' => $cityItemId,
+            ];
+        }, $regionItem['cities']);
+
+        return [
+            'content' => $regionItemCitiesList,
+            'groupName' => 'radio-group__cities',
+            'inputName' => 'city_id',
+            'listenId' => $regionItem['id'],
+        ];
+    }, $locationList);
+}
+
 function getNewArray($arr)
 {
     return array_combine(array_keys($arr), array_values($arr));
@@ -63,6 +86,20 @@ function getRegionList($locationList) {
             'id' => 'id__radio-input__region__' . $regionItem['id'],
             'title' => $regionItem['title'],
             'value' => $regionItem['id'],
+        ];
+    }, $locationList);
+}
+
+function getRegionWithSelectedList($locationList, $saleOfferItemData) {
+    return array_map(function($regionItem) use($saleOfferItemData) {
+        $regionItemId = $regionItem['id'];
+        $saleOfferItemDataRegionId = $saleOfferItemData['region_id'];
+
+        return [
+            'id' => 'id__radio-input__region__' . $regionItemId,
+            'isChecked' => $regionItemId === $saleOfferItemDataRegionId,
+            'title' => $regionItem['title'],
+            'value' => $regionItemId,
         ];
     }, $locationList);
 }

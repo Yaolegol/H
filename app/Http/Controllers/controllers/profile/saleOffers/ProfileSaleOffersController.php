@@ -100,13 +100,23 @@ class ProfileSaleOffersController extends Controller
     {
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
+        $organizationsList = getUserOrganizationsListFormatted();
         $saleOfferItemData = getSaleOfferItemDataFormatted($id);
         $salePointsList = getSaleOfferSalePointsListFormatted($saleOfferItemData);
+        $catalogCategoriesList = getCatalogCategoriesWithSelectedList($catalogFull, $saleOfferItemData);
+        $catalogSubCategoriesList = getCatalogSubCategoriesWithSelectedList($catalogFull, $saleOfferItemData);
+        $regionList = getRegionWithSelectedList($locationList, $saleOfferItemData);
+        $citiesList = getCitiesWithSelectedList($locationList, $saleOfferItemData);
 
         return view('pages.profile.sale-offers.edit.index', [
+            'catalogCategoriesList' => $catalogCategoriesList,
+            'catalogSubCategoriesList' => $catalogSubCategoriesList,
             'catalogFull' => $catalogFull,
             'catalogHeader' => $catalogFull,
+            'citiesList' => $citiesList,
             'locationList' => $locationList,
+            'organizationsList' => $organizationsList,
+            'regionList' => $regionList,
             'saleOfferItemData' => $saleOfferItemData,
             'salePointsList' => $salePointsList,
         ]);

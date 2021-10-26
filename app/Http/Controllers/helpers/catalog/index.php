@@ -12,6 +12,31 @@ function getCatalogCategoriesList($catalogFull) {
     }, $catalogFull);
 }
 
+function getCatalogCategoriesWithSelectedList($catalogFull, $saleOfferItemData) {
+    return array_map(function($catalogLevelOneItem) use($saleOfferItemData) {
+        $catalogLevelOneItemId = $catalogLevelOneItem['id'];
+        $saleOfferItemDataCatalogId = $saleOfferItemData['catalog_level_two_id'];
+        $catalogLevelTwoItemsList = $catalogLevelOneItem['catalog_level_two'];
+
+        $isChecked = false;
+
+        foreach ($catalogLevelTwoItemsList as $catalogLevelTwoItem) {
+            $catalogLevelTwoItemId = $catalogLevelTwoItem['id'];
+
+            if($catalogLevelTwoItemId === $saleOfferItemDataCatalogId) {
+                $isChecked = true;
+            }
+        }
+
+        return [
+            'id' => 'id__radio-input__catalog-level-one__' . $catalogLevelOneItemId,
+            'isChecked' => $isChecked,
+            'title' => $catalogLevelOneItem['title'],
+            'value' => $catalogLevelOneItemId,
+        ];
+    }, $catalogFull);
+}
+
 function getCatalogSubCategoriesList($catalogFull) {
     return array_map(function($catalogItem) {
         $catalogLevelTwoItemsList = array_map(function($catalogLevelTwoItem) {
@@ -27,6 +52,29 @@ function getCatalogSubCategoriesList($catalogFull) {
             'groupName' => 'radio-group__catalog_level_two',
             'inputName' => 'catalog_level_two_id',
             'listenId' => $catalogItem['id'],
+        ];
+    }, $catalogFull);
+}
+
+function getCatalogSubCategoriesWithSelectedList($catalogFull, $saleOfferItemData) {
+    return array_map(function($catalogLevelOneItem) use($saleOfferItemData) {
+        $catalogLevelTwoItemsList = array_map(function($catalogLevelTwoItem) use($saleOfferItemData) {
+            $catalogLevelTwoItemId = $catalogLevelTwoItem['id'];
+            $saleOfferItemDataCatalogId = $saleOfferItemData['catalog_level_two_id'];
+
+            return [
+                'id' => 'id__radio-input__catalog-level-two__' . $catalogLevelTwoItemId,
+                'isChecked' => $catalogLevelTwoItemId === $saleOfferItemDataCatalogId,
+                'title' => $catalogLevelTwoItem['title'],
+                'value' => $catalogLevelTwoItemId,
+            ];
+        }, $catalogLevelOneItem['catalog_level_two']);
+
+        return [
+            'content' => $catalogLevelTwoItemsList,
+            'groupName' => 'radio-group__catalog_level_two',
+            'inputName' => 'catalog_level_two_id',
+            'listenId' => $catalogLevelOneItem['id'],
         ];
     }, $catalogFull);
 }
