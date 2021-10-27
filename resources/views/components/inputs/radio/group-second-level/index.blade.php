@@ -18,9 +18,8 @@
             >
                 @foreach($contentItem['content'] as $item)
                     @include('components.inputs.radio.item.index', [
-                        'id' => $item['id'],
                         'isChecked' => $item['isChecked'] ?? false,
-                        'name' => $contentItem['inputName'],
+                        'name' => $inputsName,
                         'title' => $item['title'],
                         'value' => $item['value'],
                     ])

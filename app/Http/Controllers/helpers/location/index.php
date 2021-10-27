@@ -5,17 +5,16 @@ use App\Models\City;
 function getCitiesList($locationList) {
     return array_map(function($regionItem) {
         $regionItemCitiesList = array_map(function($cityItem) {
+            $cityItemId = $cityItem['id'];
+
             return [
-                'id' => 'id__radio-input__city__' . $cityItem['id'],
                 'title' => $cityItem['title'],
-                'value' => $cityItem['id'],
+                'value' => $cityItemId,
             ];
         }, $regionItem['cities']);
 
         return [
             'content' => $regionItemCitiesList,
-            'groupName' => 'radio-group__cities',
-            'inputName' => 'city_id',
             'listenId' => $regionItem['id'],
         ];
     }, $locationList);
@@ -28,7 +27,6 @@ function getCitiesWithSelectedList($locationList, $saleOfferItemData) {
             $saleOfferItemDataCityId = $saleOfferItemData['city_id'];
 
             return [
-                'id' => 'id__radio-input__city__' . $cityItemId,
                 'isChecked' => $cityItemId === $saleOfferItemDataCityId,
                 'title' => $cityItem['title'],
                 'value' => $cityItemId,
@@ -37,8 +35,6 @@ function getCitiesWithSelectedList($locationList, $saleOfferItemData) {
 
         return [
             'content' => $regionItemCitiesList,
-            'groupName' => 'radio-group__cities',
-            'inputName' => 'city_id',
             'listenId' => $regionItem['id'],
         ];
     }, $locationList);
@@ -83,7 +79,6 @@ function getLocationListFormatted()
 function getRegionList($locationList) {
     return array_map(function($regionItem) {
         return [
-            'id' => 'id__radio-input__region__' . $regionItem['id'],
             'title' => $regionItem['title'],
             'value' => $regionItem['id'],
         ];
@@ -96,7 +91,6 @@ function getRegionWithSelectedList($locationList, $saleOfferItemData) {
         $saleOfferItemDataRegionId = $saleOfferItemData['region_id'];
 
         return [
-            'id' => 'id__radio-input__region__' . $regionItemId,
             'isChecked' => $regionItemId === $saleOfferItemDataRegionId,
             'title' => $regionItem['title'],
             'value' => $regionItemId,

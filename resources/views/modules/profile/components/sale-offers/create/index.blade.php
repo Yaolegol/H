@@ -12,7 +12,6 @@
 
         @component('modules.profile.common.container.form-field.index', ['title' => 'Категория:'])
             @include('components.inputs.radio.group-first-level.index', [
-                        'dispatchEvents' => true,
                         'groupName' => 'radio-group__catalog_level_one',
                         'itemsList' => $catalogCategoriesList,
                         'inputName' => 'catalog_level_one_id',
@@ -22,6 +21,7 @@
         @component('modules.profile.common.container.form-field.index')
             @include('components.inputs.radio.group-second-level.index', [
                         'contentList' => $catalogSubCategoriesList,
+                        'inputsName' => 'catalog_level_two_id',
                         'listenGroupName' => 'radio-group__catalog_level_one',
                         'title' => 'Подкатегория'
                     ])
@@ -29,7 +29,6 @@
 
         @component('modules.profile.common.container.form-field.index', ['title' => 'Регион:'])
             @include('components.inputs.radio.group-first-level.index', [
-                        'dispatchEvents' => true,
                         'groupName' => 'radio-group__region',
                         'itemsList' => $regionList,
                         'inputName' => 'region_id',
@@ -39,6 +38,7 @@
         @component('modules.profile.common.container.form-field.index')
             @include('components.inputs.radio.group-second-level.index', [
                     'contentList' => $citiesList,
+                    'inputsName' => 'city_id',
                     'listenGroupName' => 'radio-group__region',
                     'title' => 'Город'
                 ])

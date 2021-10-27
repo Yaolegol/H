@@ -5,7 +5,6 @@ use App\Models\CatalogLevelOne;
 function getCatalogCategoriesList($catalogFull) {
     return array_map(function($catalogItem) {
         return [
-            'id' => 'id__radio-input__catalog-level-one__' . $catalogItem['id'],
             'title' => $catalogItem['title'],
             'value' => $catalogItem['id'],
         ];
@@ -29,7 +28,6 @@ function getCatalogCategoriesWithSelectedList($catalogFull, $saleOfferItemData) 
         }
 
         return [
-            'id' => 'id__radio-input__catalog-level-one__' . $catalogLevelOneItemId,
             'isChecked' => $isChecked,
             'title' => $catalogLevelOneItem['title'],
             'value' => $catalogLevelOneItemId,
@@ -41,7 +39,6 @@ function getCatalogSubCategoriesList($catalogFull) {
     return array_map(function($catalogItem) {
         $catalogLevelTwoItemsList = array_map(function($catalogLevelTwoItem) {
             return [
-                'id' => 'id__radio-input__catalog-level-two__' . $catalogLevelTwoItem['id'],
                 'title' => $catalogLevelTwoItem['title'],
                 'value' => $catalogLevelTwoItem['id'],
             ];
@@ -49,8 +46,6 @@ function getCatalogSubCategoriesList($catalogFull) {
 
         return [
             'content' => $catalogLevelTwoItemsList,
-            'groupName' => 'radio-group__catalog_level_two',
-            'inputName' => 'catalog_level_two_id',
             'listenId' => $catalogItem['id'],
         ];
     }, $catalogFull);
@@ -63,7 +58,6 @@ function getCatalogSubCategoriesWithSelectedList($catalogFull, $saleOfferItemDat
             $saleOfferItemDataCatalogId = $saleOfferItemData['catalog_level_two_id'];
 
             return [
-                'id' => 'id__radio-input__catalog-level-two__' . $catalogLevelTwoItemId,
                 'isChecked' => $catalogLevelTwoItemId === $saleOfferItemDataCatalogId,
                 'title' => $catalogLevelTwoItem['title'],
                 'value' => $catalogLevelTwoItemId,
@@ -72,8 +66,6 @@ function getCatalogSubCategoriesWithSelectedList($catalogFull, $saleOfferItemDat
 
         return [
             'content' => $catalogLevelTwoItemsList,
-            'groupName' => 'radio-group__catalog_level_two',
-            'inputName' => 'catalog_level_two_id',
             'listenId' => $catalogLevelOneItem['id'],
         ];
     }, $catalogFull);
