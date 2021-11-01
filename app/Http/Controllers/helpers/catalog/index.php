@@ -75,15 +75,36 @@ function getCatalogFull()
 {
     $catalog = getCatalogLevelOne();
 
+    return getCatalogFullWithFullLinks($catalog);
+}
+
+function getCatalogLevelOne($withLevelTwo = true)
+{
+    $withLevelTwoArray = ['catalogLevelTwo'];
+    $withoutLevelTwoArray = [];
+
+    return CatalogLevelOne::query()
+        ->with($withLevelTwo ? $withLevelTwoArray : $withoutLevelTwoArray)
+        ->get()
+        ->toArray();
+}
+
+function getCatalogLevelOneFormatted()
+{
+    $catalog = getCatalogLevelOne(false);
+
     return getCatalogLevelOneWithFullLinks($catalog);
 }
 
-function getCatalogLevelOne()
-{
-    return CatalogLevelOne::query()->with('catalogLevelTwo')->get()->toArray();
+function getCatalogLevelOneWithFullLinks($catalog) {
+    foreach ($catalog as &$catalogLevelOneItem) {
+        $catalogLevelOneItem['linkFull'] = '/catalog/' . $catalogLevelOneItem['link'];
+    }
+
+    return $catalog;
 }
 
-function getCatalogLevelOneWithFullLinks($catalog)
+function getCatalogFullWithFullLinks($catalog)
 {
     foreach ($catalog as &$catalogLevelOneItem) {
         $catalogLevelOneItem['linkFull'] = '/catalog/' . $catalogLevelOneItem['link'];

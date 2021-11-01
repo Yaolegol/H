@@ -17,9 +17,9 @@ class ApiCatalogController extends Controller
      */
     public function index()
     {
-        $catalogFull = getCatalogFull();
+        $catalogLevelOne = getCatalogLevelOneFormatted();
 
-        return json_encode($catalogFull, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+        return json_encode($catalogLevelOne, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
     }
 
     /**
