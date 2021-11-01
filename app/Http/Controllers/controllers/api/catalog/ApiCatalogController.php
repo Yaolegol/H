@@ -53,15 +53,9 @@ class ApiCatalogController extends Controller
     {
         $catalogFull = getCatalogFull();
         $catalogLevelOneItemSubcategoriesList = getCatalogLevelOneItemSubcategoriesList($catalogFull, $catalogLevelOneLink);
-        $breadcrumbs = getCatalogLevelTwoBreadcrumbs($catalogFull, $catalogLevelOneLink);
-        $locationList = getLocationListFormatted();
 
-        return view('pages.catalog.secondLevel.index', [
-            'breadcrumbs' => $breadcrumbs,
-            'catalogHeader' => $catalogFull,
-            'catalogPage' => $catalogLevelOneItemSubcategoriesList,
-            'locationList' => $locationList,
-        ]);
+        return json_encode($catalogLevelOneItemSubcategoriesList, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+
     }
 
     /**
