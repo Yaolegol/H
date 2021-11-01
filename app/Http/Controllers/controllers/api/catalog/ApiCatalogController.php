@@ -19,7 +19,7 @@ class ApiCatalogController extends Controller
     {
         $catalogFull = getCatalogFull();
 
-        return json_encode($catalogFull, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
+        return json_encode($catalogFull, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
     }
 
     /**
