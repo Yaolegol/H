@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\controllers\api\authorization\register\ApiRegisterController;
 use App\Http\Controllers\controllers\api\authorization\login\ApiLoginController;
+use App\Http\Controllers\controllers\api\authorization\logout\ApiLogoutController;
 use App\Http\Controllers\controllers\api\catalog\ApiCatalogController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,7 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::get('/test', function(Request $request) {
         return $request->user();
     });
+    Route::post('/logout', [ApiLogoutController::class, 'logout']);
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
