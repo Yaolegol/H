@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\controllers\authorization\login;
+namespace App\Http\Controllers\controllers\api\authorization\login;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -8,27 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 
-require_once('app/Http/Controllers/helpers/catalog/index.php');
-require_once('app/Http/Controllers/helpers/location/index.php');
-
-class LoginController extends Controller
+class ApiLoginController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function index()
-    {
-        $catalogFull = getCatalogFull();
-        $locationList = getLocationListFormatted();
-
-        return view('pages.auth.login.index', [
-            'catalogHeader' => $catalogFull,
-            'locationList' => $locationList,
-        ]);
-    }
-
     /**
      * @return Response
      */
@@ -52,9 +33,12 @@ class LoginController extends Controller
         );
 
         if ($validator->fails()) {
-            return back()
-                ->withErrors($validator)
-                ->withInput();
+            $data = [
+                'data' => '',
+                'errors' => $validator->errors(),
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
         }
 
         if (Auth::attempt(
@@ -63,11 +47,23 @@ class LoginController extends Controller
                 'password' => $password,
             ]
         )) {
-            $request->session()->regenerate();
+            $data = [
+                'data' => [
+                    'token' => $request->user()->createToken($request->input('registration_email'))->plainTextToken,
+                ],
+                'errors' => '',
+            ];
 
-            return redirect()->intended('/');
+            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
         }
 
-        return back()->with(['commonError' => 'Не верный email или пароль. Попробуйте снова']);
+        $data = [
+            'data' => '',
+            'errors' => [
+                'common' => 'Не верный email или пароль. Попробуйте снова'
+            ],
+        ];
+
+        return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
     }
 }
