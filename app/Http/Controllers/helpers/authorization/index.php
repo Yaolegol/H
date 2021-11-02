@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Request;
 
-function trySaveUserInDB($request)
+function trySaveUserInDB($request, $isApi = false)
 {
     try {
         $registration_email = $request->input('registration_email');
@@ -25,8 +25,16 @@ function trySaveUserInDB($request)
         ]);
         $newUser->save();
 
+        if($isApi) {
+            return $newUser;
+        }
+
         return true;
     } catch (\Exception $error) {
+        if($isApi) {
+            return null;
+        }
+
         return false;
     }
 }
