@@ -19,7 +19,12 @@ class ApiCatalogController extends Controller
     {
         $catalogLevelOne = getCatalogLevelOneFormatted();
 
-        return json_encode($catalogLevelOne, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+        $data = [
+            'data' => $catalogLevelOne,
+            'errors' => '',
+        ];
+
+        return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
     }
 
     /**
@@ -54,8 +59,12 @@ class ApiCatalogController extends Controller
         $catalogFull = getCatalogFull();
         $catalogLevelOneItemSubcategoriesList = getCatalogLevelOneItemSubcategoriesList($catalogFull, $catalogLevelOneLink);
 
-        return json_encode($catalogLevelOneItemSubcategoriesList, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+        $data = [
+            'data' => $catalogLevelOneItemSubcategoriesList,
+            'errors' => '',
+        ];
 
+        return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
     }
 
     /**
