@@ -28,7 +28,7 @@ class ApiProfilePersonalDataController extends Controller
             'errors' => '',
         ];
 
-        return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+        return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
     }
 
     /**
@@ -38,7 +38,7 @@ class ApiProfilePersonalDataController extends Controller
     {
         $avatarPath = apiTryChangeUserAvatarInDB($request);
 
-        if($avatarPath != '') {
+        if ($avatarPath != '') {
             $data = [
                 'data' => [
                     'avatar' => $avatarPath,
@@ -46,7 +46,7 @@ class ApiProfilePersonalDataController extends Controller
                 'errors' => '',
             ];
 
-            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+            return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
         } else {
             $data = [
                 'data' => '',
@@ -55,7 +55,7 @@ class ApiProfilePersonalDataController extends Controller
                 ],
             ];
 
-            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+            return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
         }
     }
 
@@ -66,7 +66,7 @@ class ApiProfilePersonalDataController extends Controller
     {
         $isRemoved = apiTryDeleteUserAvatarInDB();
 
-        if($isRemoved) {
+        if ($isRemoved) {
             $data = [
                 'data' => [
                     'avatar' => '',
@@ -74,7 +74,7 @@ class ApiProfilePersonalDataController extends Controller
                 'errors' => '',
             ];
 
-            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+            return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
         } else {
             $data = [
                 'data' => '',
@@ -83,7 +83,7 @@ class ApiProfilePersonalDataController extends Controller
                 ],
             ];
 
-            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+            return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
         }
     }
 
@@ -100,7 +100,7 @@ class ApiProfilePersonalDataController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request  $request
+     * @param Request $request
      * @return Response
      */
     public function store(Request $request)
@@ -131,20 +131,20 @@ class ApiProfilePersonalDataController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request  $request
+     * @param Request $request
      * @return Response
      */
-    public function update(Request $request)
+    public function updatePersonalData(Request $request)
     {
         $isSaved = apiTryChangeUserPersonalDataInDB($request);
 
-        if($isSaved) {
+        if ($isSaved) {
             $data = [
                 'data' => '',
                 'errors' => '',
             ];
 
-            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+            return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
         } else {
             $data = [
                 'data' => '',
@@ -153,14 +153,84 @@ class ApiProfilePersonalDataController extends Controller
                 ],
             ];
 
-            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+            return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
         }
     }
 
     /**
+     * Update the specified resource in storage.
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function updatePersonalEmail(Request $request)
+    {
+        $currentPassword = $request->input('password');
+
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'registration_email' => ['required', 'email', 'max:25', 'unique:users'],
+                'password' => ['required', 'min:6'],
+            ],
+            [
+                'email' => 'Поле должно содержать email',
+                'max' => 'Поле должно содержать максимум :max символов',
+                'min' => 'Поле должно содержать минимум :min символов',
+                'required' => 'Поле обязательно для заполнения',
+                'unique' => 'Пользователь с таким Email уже зарегистрирован',
+            ]
+        );
+
+        if($validator->fails()) {
+            $data = [
+                'data' => '',
+                'errors' => $validator->errors(),
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+
+        }
+
+        if(Hash::check($currentPassword, Auth::user()->password)) {
+            $isSaved = tryChangeUserEmailInDB($request);
+
+            if($isSaved) {
+                $data = [
+                    'data' => '',
+                    'errors' => '',
+                ];
+
+                return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+            } else {
+                $data = [
+                    'data' => '',
+                    'errors' => [
+                        'common' => 'Что-то пошло не так. Попробуйте снова',
+                    ],
+                ];
+
+                return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+
+            }
+        } else {
+            $data = [
+                'data' => '',
+                'errors' => [
+                    'common' => 'Неверный пароль',
+                ],
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+
+        }
+    }
+
+
+    /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return Response
      */
     public function destroy($id)
