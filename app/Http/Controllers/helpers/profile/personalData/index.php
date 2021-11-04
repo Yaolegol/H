@@ -32,8 +32,7 @@ function getUserDataFormatted()
 
 function removeUserAvatarFromStorage($userId)
 {
-    $oldAvatarsArray = File::glob(storage_path() . '/app/public/users/' . $userId . '/avatar/*');
-    File::delete($oldAvatarsArray);
+    File::deleteDirectory(storage_path() . '/app/public/users/' . $userId . '/avatar');
 }
 
 function saveAuthUserAvatarInDB($avatar)
@@ -44,7 +43,7 @@ function saveAuthUserAvatarInDB($avatar)
 
     $avatarName = $authUserId . '_' . $date->getTimestamp() . '.' . $avatar->extension();
     $avatarPath = $avatar->storeAs(
-        '/public/users/1/avatar', $avatarName
+        '/public/users/'. $authUserId . '/avatar', $avatarName
     );
     $authUser->avatar = $avatarPath;
 

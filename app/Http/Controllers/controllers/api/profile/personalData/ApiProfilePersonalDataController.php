@@ -60,6 +60,34 @@ class ApiProfilePersonalDataController extends Controller
     }
 
     /**
+     * @return Response
+     */
+    public function removeAvatar()
+    {
+        $isRemoved = apiTryDeleteUserAvatarInDB();
+
+        if($isRemoved) {
+            $data = [
+                'data' => [
+                    'avatar' => '',
+                ],
+                'errors' => '',
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+        } else {
+            $data = [
+                'data' => '',
+                'errors' => [
+                    'common' => 'Что-то пошло не так. Попробуйте снова.',
+                ],
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+        }
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return Response

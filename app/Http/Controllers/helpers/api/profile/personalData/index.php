@@ -18,6 +18,22 @@ function apiTryChangeUserAvatarInDB($request)
     }
 }
 
+function apiTryDeleteUserAvatarInDB() {
+    try {
+        $authUser = Auth::user();
+        $authUserId = $authUser->id;
+
+        removeUserAvatarFromStorage($authUserId);
+
+        $authUser->avatar = '';
+        $authUser->save();
+
+        return true;
+    } catch(\Exception $err) {
+        return false;
+    }
+}
+
 function apiUpdateUserAvatar($request)
 {
     $authUser = Auth::user();
