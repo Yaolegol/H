@@ -189,7 +189,6 @@ class ApiProfilePersonalDataController extends Controller
             ];
 
             return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
-
         }
 
         if(Hash::check($currentPassword, Auth::user()->password)) {
@@ -211,7 +210,6 @@ class ApiProfilePersonalDataController extends Controller
                 ];
 
                 return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
-
             }
         } else {
             $data = [
@@ -222,10 +220,72 @@ class ApiProfilePersonalDataController extends Controller
             ];
 
             return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
-
         }
     }
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function updatePersonalPassword(Request $request) {
+        $currentPassword = $request->input('current_password');
+
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'current_password' => ['required', 'min:6'],
+                'password' => ['required', 'min:6'],
+                'password_confirmation' => ['required', 'same:password'],
+            ],
+            [
+                'min' => 'Поле должно содержать минимум :min символов',
+                'required' => 'Поле обязательно для заполнения',
+                'same' => 'Поля Password и Confirm Password не совпадают',
+            ]
+        );
+
+        if($validator->fails()) {
+            $data = [
+                'data' => '',
+                'errors' => $validator->errors(),
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+        }
+
+        if(Hash::check($currentPassword, Auth::user()->password)) {
+            $isSaved = tryChangeUserPasswordInDB($request);
+
+            if($isSaved) {
+                $data = [
+                    'data' => '',
+                    'errors' => '',
+                ];
+
+                return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+            } else {
+                $data = [
+                    'data' => '',
+                    'errors' => [
+                        'common' => 'Что-то пошло не так. Попробуйте снова',
+                    ],
+                ];
+
+                return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+            }
+        } else {
+            $data = [
+                'data' => '',
+                'errors' => [
+                    'common' => 'Неверный пароль',
+                ],
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+        }
+    }
 
     /**
      * Remove the specified resource from storage.
