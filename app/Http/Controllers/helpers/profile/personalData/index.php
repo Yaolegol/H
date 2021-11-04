@@ -40,12 +40,15 @@ function saveAuthUserAvatarInDB($avatar)
 {
     $authUser = Auth::user();
     $authUserId = $authUser->id;
+    $date = new DateTime();
 
-    $avatarName = $authUserId . '.' . $avatar->extension();
+    $avatarName = $authUserId . '_' . $date->getTimestamp() . '.' . $avatar->extension();
     $avatarPath = $avatar->storeAs(
         '/public/users/1/avatar', $avatarName
     );
     $authUser->avatar = $avatarPath;
+
+    return $avatarPath;
 }
 
 function tryChangeUserEmailInDB($request)

@@ -4,6 +4,7 @@ use App\Http\Controllers\controllers\api\authorization\register\ApiRegisterContr
 use App\Http\Controllers\controllers\api\authorization\login\ApiLoginController;
 use App\Http\Controllers\controllers\api\authorization\logout\ApiLogoutController;
 use App\Http\Controllers\controllers\api\catalog\ApiCatalogController;
+use App\Http\Controllers\controllers\api\profile\personalData\ApiProfilePersonalDataController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,8 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::get('/test', function(Request $request) {
         return $request->user();
     });
+    Route::get('/profile/personal-info', [ApiProfilePersonalDataController::class, 'index']);
+    Route::post('/profile/add-avatar', [ApiProfilePersonalDataController::class, 'addAvatar']);
     Route::post('/logout', [ApiLogoutController::class, 'logout']);
 });
 
