@@ -33,4 +33,9 @@ class Organization extends Model
         'photo_3',
         'user_id',
     ];
+
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
 }
