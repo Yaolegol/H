@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::post('/profile/remove-avatar', [ApiProfilePersonalDataController::class, 'removeAvatar']);
 
     Route::get('/profile/organizations-info', [ApiProfileOrganizationDataController::class, 'index']);
+    Route::post('/profile/organizations-info', [ApiProfileOrganizationDataController::class, 'store']);
 
     Route::post('/logout', [ApiLogoutController::class, 'logout']);
 });
