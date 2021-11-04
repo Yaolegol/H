@@ -18,6 +18,26 @@ function apiTryChangeUserAvatarInDB($request)
     }
 }
 
+function apiTryChangeUserPersonalDataInDB($request)
+{
+    try {
+        $name = $request->input('name');
+        $phone = $request->input('phone');
+        $visible_email = $request->input('visible_email');
+
+        $authUser = Auth::user();
+        $authUser->name = $name;
+        $authUser->phone = $phone;
+        $authUser->visible_email = $visible_email;
+
+        $authUser->save();
+
+        return true;
+    } catch (\Exception $error) {
+        return false;
+    }
+}
+
 function apiTryDeleteUserAvatarInDB() {
     try {
         $authUser = Auth::user();

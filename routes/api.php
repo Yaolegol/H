@@ -30,6 +30,7 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
         return $request->user();
     });
     Route::get('/profile/personal-info', [ApiProfilePersonalDataController::class, 'index']);
+    Route::post('/profile/personal-info', [ApiProfilePersonalDataController::class, 'update']);
     Route::post('/profile/add-avatar', [ApiProfilePersonalDataController::class, 'addAvatar']);
     Route::post('/profile/remove-avatar', [ApiProfilePersonalDataController::class, 'removeAvatar']);
     Route::post('/logout', [ApiLogoutController::class, 'logout']);
