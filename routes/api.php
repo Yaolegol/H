@@ -6,6 +6,7 @@ use App\Http\Controllers\controllers\api\authorization\logout\ApiLogoutControlle
 use App\Http\Controllers\controllers\api\catalog\ApiCatalogController;
 use App\Http\Controllers\controllers\api\profile\personalData\ApiProfilePersonalDataController;
 use App\Http\Controllers\controllers\api\profile\organizationData\ApiProfileOrganizationDataController;
+use App\Http\Controllers\controllers\api\profile\salePointsInfo\ApiProfileSalePointsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +39,8 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::post('/profile/organizations-info', [ApiProfileOrganizationDataController::class, 'store']);
     Route::post('/profile/organizations-info/edit/{id}', [ApiProfileOrganizationDataController::class, 'update']);
     Route::post('/profile/organizations-info/destroy/{id}', [ApiProfileOrganizationDataController::class, 'destroy']);
+
+    Route::get('/profile/sale-points-info', [ApiProfileSalePointsController::class, 'index']);
 
     Route::post('/logout', [ApiLogoutController::class, 'logout']);
 });
