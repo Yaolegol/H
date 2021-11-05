@@ -113,7 +113,6 @@ class ApiProfileOrganizationDataController extends Controller
             ];
 
             return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
-
         } else {
             $data = [
                 'data' => '',
@@ -129,19 +128,30 @@ class ApiProfileOrganizationDataController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     * @param  Request  $request
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $isDestroyed = tryDestroyOrganizationDataInDB($id);
 
         if($isDestroyed) {
-            return redirect('/profile/organization-info');
+            $data = [
+                'data' => '',
+                'errors' => '',
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
         } else {
-            return back()->with(
-                ['commonError' => 'Что-то пошло не так. Попробуйте снова']
-            );
+            $data = [
+                'data' => '',
+                'errors' => [
+                    'common' => 'Что-то пошло не так. Попробуйте снова',
+                ],
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
         }
     }
 }
