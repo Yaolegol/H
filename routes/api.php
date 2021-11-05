@@ -36,6 +36,7 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
 
     Route::get('/profile/organizations-info', [ApiProfileOrganizationDataController::class, 'index']);
     Route::post('/profile/organizations-info', [ApiProfileOrganizationDataController::class, 'store']);
+    Route::post('/profile/organizations-info/edit/{id}', [ApiProfileOrganizationDataController::class, 'update']);
 
     Route::post('/logout', [ApiLogoutController::class, 'logout']);
 });
