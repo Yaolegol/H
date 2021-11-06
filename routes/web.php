@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\controllers\map\mobileApp\MapMobileAppSinglePoint;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -58,3 +59,5 @@ Route::get('/profile/sale-offers/edit/{id}', 'controllers\profile\saleOffers\Pro
 Route::get('/profile/sale-offers/destroy/{id}', 'controllers\profile\saleOffers\ProfileSaleOffersController@destroy')->middleware('auth');
 Route::post('/profile/sale-offers', 'controllers\profile\saleOffers\ProfileSaleOffersController@store')->middleware('auth');
 Route::put('/profile/sale-offers/{id}', 'controllers\profile\saleOffers\ProfileSaleOffersController@update')->middleware('auth');
+
+Route::get('/map/mobile-app/single-point', [MapMobileAppSinglePoint::class, 'singlePoint']);
