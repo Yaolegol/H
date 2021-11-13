@@ -1883,9 +1883,29 @@ p {
   display: none;
 }
 
+
+.sliders-base {
+  padding-bottom: 50px;
+  position: relative;
+}
+
 .offer__content-area {
   margin: 15px auto 0;
   max-width: 800px;
+}
+.offer__slider-image {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  object-fit: contain;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+.offer__slider-image-container {
+  padding-bottom: 50%;
+  position: relative;
 }
 
 @font-face {
