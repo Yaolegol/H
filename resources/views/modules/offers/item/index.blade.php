@@ -13,7 +13,7 @@
             </div>
             <div class="offers-item__contacts-block">
                 <div>
-                    Телефон: <a href="tel:8 111 111 11 11">8 111 111 11 11</a>
+                    Телефон: <a href="tel:{{$offer['phone']}}">{{$offer['phone']}}</a>
                 </div>
                 <div class="offers-item__seller-info-container">
                     <span>Продавец: </span><a href="/sellers/{{$offer['user']['id']}}">{{$offer['user']['name']}}</a>
