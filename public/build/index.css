@@ -1586,6 +1586,9 @@ p {
 .location-info__change-button-container {
   margin-left: 10px;
 }
+.location-info__title {
+  font-weight: bold;
+}
 
 .location {
   display: flex;
@@ -1646,7 +1649,9 @@ p {
   margin-top: 0;
 }
 
-.offers {
+.offers__location-container {
+  display: flex;
+  justify-content: center;
   margin-top: 15px;
 }
 
