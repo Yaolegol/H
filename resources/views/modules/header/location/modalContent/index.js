@@ -17,6 +17,8 @@ class LocationModalContent {
 
         if(searchCityId) {
             document.cookie = `search-city-id=${searchCityId};path=/;expires=${expirationTime};`;
+        } else {
+            document.cookie = `search-city-id=${searchCityId};path=/;expires=Thu, 01 Jan 1970 00:00:00 GMT;`;
         }
     }
 

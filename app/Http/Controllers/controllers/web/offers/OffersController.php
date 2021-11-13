@@ -29,12 +29,7 @@ class OffersController extends Controller
         $offersList = getOffers($catalogFull, $catalogLevelOneLink, $productLink, $searchCountryId, $searchRegionId, $searchCityId);
         $breadcrumbs = getCatalogOffersBreadcrumbs($catalogFull, $catalogLevelOneLink, $productLink);
         $locationList = getLocationListFormatted();
-
-        $locationSearch = [
-            'country' => 'country',
-            'region' => 'region',
-            'city' => 'city',
-        ];
+        $locationSearch = getLocationSearchFormatted($locationList, $searchCountryId, $searchRegionId, $searchCityId);
 
         return view('pages.offers.index', [
             'breadcrumbs' => $breadcrumbs,

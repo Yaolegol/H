@@ -50,6 +50,29 @@ function getLocationListFormatted()
     return getLocationList();
 }
 
+function getLocationSearchFormatted($locationList, $searchCountryId, $searchRegionId, $searchCityId)
+{
+    $locationData = [
+        'city' => null,
+        'country' => null,
+        'region' => null,
+    ];
+
+    foreach ($locationList as $regionItem) {
+        if($regionItem['id'] == $searchRegionId) {
+            $locationData['region'] = $regionItem;
+
+            foreach ($regionItem['cities'] as $cityItem) {
+                if($cityItem['id'] == $searchCityId) {
+                    $locationData['city'] = $cityItem;
+                }
+            }
+        }
+    }
+
+    return $locationData;
+}
+
 function getRegionList($locationList) {
     return array_map(function($regionItem) {
         return [
