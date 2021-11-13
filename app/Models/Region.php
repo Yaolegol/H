@@ -10,4 +10,9 @@ class Region extends Model
     use HasFactory;
 
     protected $table = 'region';
+
+    public function cities()
+    {
+        return $this->hasMany(City::class);
+    }
 }

@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\City;
+use App\Models\Region;
 
 function getCitiesList($locationList) {
     return array_map(function($regionItem) {
@@ -40,40 +40,14 @@ function getCitiesWithSelectedList($locationList, $saleOfferItemData) {
     }, $locationList);
 }
 
-function getNewArray($arr)
-{
-    return array_combine(array_keys($arr), array_values($arr));
-}
-
 function getLocationList()
 {
-    return City::where('country_id', '1')->with('region', 'country')->get()->toArray();
+    return Region::with('cities')->get()->toArray();
 }
 
 function getLocationListFormatted()
 {
-    $cityList = getLocationList();
-
-    return array_reduce($cityList, function ($acc, $city) {
-        $cityNew = getNewArray($city);
-        $region = $cityNew['region'];
-        unset($cityNew['region']);
-        $regionId = $region['id'];
-        $isRegionIdExists = false;
-
-        if ($acc !== null) {
-            $isRegionIdExists = array_key_exists($regionId, $acc);
-        }
-
-        if ($isRegionIdExists) {
-            array_push($acc[$regionId]['cities'], $cityNew);
-        } else {
-            $region['cities'] = [$cityNew];
-            $acc[$regionId] = $region;
-        }
-
-        return $acc;
-    });
+    return getLocationList();
 }
 
 function getRegionList($locationList) {
