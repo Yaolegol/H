@@ -1577,6 +1577,10 @@ p {
   display: none;
 }
 
+.location {
+  display: flex;
+}
+
 .offers-item {
   border: 1px solid #E9EDF6;
   border-radius: 10px;
@@ -1629,6 +1633,9 @@ p {
   margin-top: 0;
 }
 
+.offers {
+  margin-top: 15px;
+}
 
 @font-face {
   font-family: 'Lato';
