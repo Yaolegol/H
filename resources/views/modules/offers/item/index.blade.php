@@ -13,9 +13,9 @@
             </div>
             <div class="offers-item__contacts-block">
                 <div>
-                    Телефон: 8 111 111 11 11
+                    Телефон: <a href="tel:8 111 111 11 11">8 111 111 11 11</a>
                 </div>
-                <div>
+                <div class="offers-item__seller-info-container">
                     <span>Продавец: </span><a href="/sellers/{{$offer['user']['id']}}">{{$offer['user']['name']}}</a>
                 </div>
             </div>
