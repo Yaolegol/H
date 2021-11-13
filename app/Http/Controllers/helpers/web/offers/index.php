@@ -25,7 +25,7 @@ function formatOffers($offers) {
 
 function getOffer($id)
 {
-    return Offer::where('id', $id)->get()->toArray();
+    return Offer::where('id', $id)->with(['catalogLevelTwo', 'catalogLevelTwo.catalogLevelOne'])->get()->toArray();
 }
 
 function getOfferFormatted($id)

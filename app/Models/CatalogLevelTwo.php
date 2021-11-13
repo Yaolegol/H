@@ -10,4 +10,9 @@ class CatalogLevelTwo extends Model
     use HasFactory;
 
     protected $table = 'catalog_level_two';
+
+    public function catalogLevelOne()
+    {
+        return $this->belongsTo(CatalogLevelOne::class);
+    }
 }

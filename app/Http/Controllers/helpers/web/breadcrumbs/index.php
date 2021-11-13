@@ -49,7 +49,35 @@ function getCatalogOffersBreadcrumbs($catalogFull, $catalogLevelOneLink, $produc
     return $breadcrumbs;
 }
 
-function getOfferBreadcrumbs()
+function getOfferBreadcrumbs($catalogFull, $offer)
 {
-    return [];
+    $offerCatalogLevelTwoId = $offer['catalog_level_two']['id'];
+    $offerCatalogLevelOneId = $offer['catalog_level_two']['catalog_level_one_id'];
+
+    $catalogLevelOneItemData = array_merge(...array_filter($catalogFull, function ($catalogLevelOneItem) use ($offerCatalogLevelOneId) {
+        return $catalogLevelOneItem['id'] == $offerCatalogLevelOneId;
+    }));
+
+    $catalogLevelTwoItemData = array_merge(...array_filter($catalogLevelOneItemData['catalog_level_two'], function ($catalogLevelTwoItem) use ($offerCatalogLevelTwoId) {
+        return $catalogLevelTwoItem['id'] == $offerCatalogLevelTwoId;
+    }));
+
+
+    return [
+        [
+            'active' => false,
+            'link' => '/',
+            'title' => 'Каталог',
+        ],
+        [
+            'active' => false,
+            'link' => $catalogLevelOneItemData['linkFull'],
+            'title' => $catalogLevelOneItemData['title'],
+        ],
+        [
+            'active' => true,
+            'link' => $catalogLevelTwoItemData['linkFull'],
+            'title' => $catalogLevelTwoItemData['title'],
+        ]
+    ];
 }

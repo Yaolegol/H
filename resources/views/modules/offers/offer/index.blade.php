@@ -1,5 +1,5 @@
 <div class="offer">
-    test
+    @include('modules.breadcrumbs.index')
 </div>
 
 
