@@ -4,7 +4,7 @@ function getCatalogLevelTwoBreadcrumbs($catalogFull, $catalogLevelOneLink)
 {
     $breadcrumbs = [
         [
-            'active' => false,
+            'isLink' => true,
             'link' => '/',
             'title' => 'Каталог',
         ],
@@ -13,7 +13,7 @@ function getCatalogLevelTwoBreadcrumbs($catalogFull, $catalogLevelOneLink)
     $catalogLevelOneItem = getCatalogLevelOneItem($catalogFull, $catalogLevelOneLink);
 
     array_push($breadcrumbs, [
-        'active' => true,
+        'isLink' => false,
         'title' => $catalogLevelOneItem['title'],
     ]);
 
@@ -24,7 +24,7 @@ function getCatalogOffersBreadcrumbs($catalogFull, $catalogLevelOneLink, $produc
 {
     $breadcrumbs = [
         [
-            'active' => false,
+            'isLink' => true,
             'link' => '/',
             'title' => 'Каталог',
         ],
@@ -35,12 +35,12 @@ function getCatalogOffersBreadcrumbs($catalogFull, $catalogLevelOneLink, $produc
 
     array_push($breadcrumbs,
         [
-            'active' => false,
+            'isLink' => true,
             'link' => $catalogLevelOneItem['linkFull'],
             'title' => $catalogLevelOneItem['title'],
         ],
         [
-            'active' => true,
+            'isLink' => false,
             'link' => $catalogLevelTwoItem['linkFull'],
             'title' => $catalogLevelTwoItem['title'],
         ]
@@ -65,17 +65,17 @@ function getOfferBreadcrumbs($catalogFull, $offer)
 
     return [
         [
-            'active' => false,
+            'isLink' => true,
             'link' => '/',
             'title' => 'Каталог',
         ],
         [
-            'active' => false,
+            'isLink' => true,
             'link' => $catalogLevelOneItemData['linkFull'],
             'title' => $catalogLevelOneItemData['title'],
         ],
         [
-            'active' => true,
+            'isLink' => true,
             'link' => $catalogLevelTwoItemData['linkFull'],
             'title' => $catalogLevelTwoItemData['title'],
         ]
