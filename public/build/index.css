@@ -819,7 +819,8 @@ p {
 }
 
 .breadcrumbs-item {
-  display: inline-block;
+  align-items: center;
+  display: flex;
   margin-right: 15px;
 }
 .breadcrumbs-item__arrow {
@@ -830,6 +831,8 @@ p {
 }
 
 .breadcrumbs {
+  align-items: center;
+  display: flex;
   margin-top: 20px;
 }
 
