@@ -1578,14 +1578,11 @@ p {
 }
 
 .offers-item {
-  border-left: 1px solid #E9EDF6;
-  border-right: 1px solid #E9EDF6;
-  border-top: 1px solid #E9EDF6;
+  border: 1px solid #E9EDF6;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 1px rgba(242, 242, 242, 0.7);
   display: flex;
   padding: 20px;
-}
-.offers-item:last-child {
-  border-bottom: 1px solid #E9EDF6;
 }
 .offers-item__contacts-block {
   margin-top: 15px;
@@ -1613,8 +1610,14 @@ p {
 }
 
 .offers-list {
-  margin: 0 auto;
+  margin: 15px auto 0;
   max-width: 800px;
+}
+.offers-list__item-container {
+  margin-top: 15px;
+}
+.offers-list__item-container:first-child {
+  margin-top: 0;
 }
 
 
