@@ -25,9 +25,14 @@ function formatOffers($offers) {
 
 function getOffer($id)
 {
-    $offer = array_merge(...Offer::where('id', $id)->get()->toArray());
+    return Offer::where('id', $id)->get()->toArray();
+}
 
-    return setupOffer($offer);
+function getOfferFormatted($id)
+{
+    $offer = getOffer($id);
+
+    return array_merge(...$offer);
 }
 
 function getOffers($catalogFull, $catalogLevelOneLink, $productLink, $searchCountry, $searchRegion, $searchCity)
@@ -36,16 +41,4 @@ function getOffers($catalogFull, $catalogLevelOneLink, $productLink, $searchCoun
     $offers = Offer::where(['catalog_level_two_id' => $catalogLevelTwoItem['id'], 'country_id' => $searchCountry, 'region_id' => $searchRegion, 'city_id' => $searchCity],)->with('catalogLevelTwo', 'user', 'measure')->get()->toArray();
 
     return formatOffers($offers);
-}
-
-function setupOffer($offer)
-{
-    return [
-        'id' => $offer['id'],
-        "title" => $offer['title'],
-        "description" => $offer['description'],
-        "image" => $offer['image'],
-        "price" => $offer['price'],
-        "is_active" => $offer['is_active'],
-    ];
 }

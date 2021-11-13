@@ -31,7 +31,7 @@ class OffersController extends Controller
         $locationList = getLocationListFormatted();
         $locationSearch = getLocationSearchFormatted($locationList, $searchCountryId, $searchRegionId, $searchCityId);
 
-        return view('pages.offers.index', [
+        return view('pages.offers.index.index', [
             'breadcrumbs' => $breadcrumbs,
             'catalogHeader' => $catalogFull,
             'locationList' => $locationList,
@@ -64,17 +64,18 @@ class OffersController extends Controller
     /**
      * Display the specified resource.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
         $catalogFull = getCatalogFull();
-        $offer = getOffer($id);
+        $offer = getOfferFormatted($id);
         $breadcrumbs = getOfferBreadcrumbs();
         $locationList = getLocationListFormatted();
 
-        return view('pages.offers.item.index', [
+        return view('pages.offers.show.index', [
             'breadcrumbs' => $breadcrumbs,
             'catalogHeader' => $catalogFull,
             'locationList' => $locationList,

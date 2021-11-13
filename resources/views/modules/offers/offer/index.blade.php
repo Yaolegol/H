@@ -1,5 +1,5 @@
 <div class="offer">
-    {{$offer['title']}}
+    test
 </div>
 
 

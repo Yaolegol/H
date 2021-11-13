@@ -1,18 +1,16 @@
 @extends('modules.layout.index')
 
-@section('content')
+@section('layout-content')
     @include('modules.header.catalog.index')
-    @include('modules.offers.offer.index')
+    @include('modules.offers.index')
 @endsection
 
-@section('scripts')
+@section('layout-scripts')
     <script src="{{ asset('build/index.bundle.js') }}" defer></script>
     <script src="{{ asset('build/vendor.bundle.js') }}" defer></script>
 @endsection
 
-@section('styles')
+@section('layout-styles')
     <link href="{{ asset('build/index.css') }}" rel="stylesheet">
     <link href="{{ asset('build/vendor.css') }}" rel="stylesheet">
 @endsection
-
-
