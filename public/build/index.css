@@ -1605,6 +1605,15 @@ p {
   flex: 2 0 auto;
   position: relative;
 }
+.offers-item__image-link {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
 .offers-item__rating-section {
   margin-top: 20px;
 }

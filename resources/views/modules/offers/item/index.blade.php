@@ -1,6 +1,7 @@
 <div class="offers-item">
     <div class="offers-item__image-block">
         <img alt="{{$offer['title']}}" class="offers-item__image" src="{{$offer['photo_1']}}">
+        <a class="offers-item__image-link" href="{{$offer['offerLink']}}"></a>
     </div>
     <div class="offers-item__content-block">
         <div class="offers-item__info-section">
