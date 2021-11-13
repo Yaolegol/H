@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\controllers\authorization\register;
+namespace App\Http\Controllers\controllers\web\authorization\login;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 
 require_once('app/Http/Controllers/helpers/catalog/index.php');
 require_once('app/Http/Controllers/helpers/location/index.php');
-require_once('app/Http/Controllers/helpers/authorization/index.php');
 
-class RegisterController extends Controller
+class LoginController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,7 +23,7 @@ class RegisterController extends Controller
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
 
-        return view('pages.auth.register.index', [
+        return view('pages.auth.login.index', [
             'catalogHeader' => $catalogFull,
             'locationList' => $locationList,
         ]);
@@ -32,39 +32,42 @@ class RegisterController extends Controller
     /**
      * @return Response
      */
-    public function register(Request $request)
+    public function login(Request $request)
     {
+        $email = $request->input('registration_email');
+        $password = $request->input('password');
+
         $validator = Validator::make(
             $request->all(),
             [
-                'registration_email' => ['required', 'email', 'max:25', 'unique:users'],
+                'registration_email' => ['required', 'email', 'max:25'],
                 'password' => ['required', 'min:6'],
-                'password_confirmation' => ['required', 'same:password'],
             ],
             [
                 'email' => 'Поле должно содержать email',
                 'max' => 'Поле должно содержать максимум :max символов',
                 'min' => 'Поле должно содержать минимум :min символов',
                 'required' => 'Поле обязательно для заполнения',
-                'same' => 'Поля Password и Confirm Password не совпадают',
-                'unique' => 'Пользователь с таким Email уже зарегистрирован',
             ]
         );
 
-        if($validator->fails()) {
-            return redirect('/register')
+        if ($validator->fails()) {
+            return back()
                 ->withErrors($validator)
                 ->withInput();
         }
 
-        $isSaved = trySaveUserInDB($request);
+        if (Auth::attempt(
+            [
+                'registration_email' => $email,
+                'password' => $password,
+            ]
+        )) {
+            $request->session()->regenerate();
 
-        if($isSaved) {
-            return redirect('/');
-        } else {
-            return redirect('/register')->with(
-                ['commonError' => 'Что-то пошло не так. Попробуйте снова']
-            );
+            return redirect()->intended('/');
         }
+
+        return back()->with(['commonError' => 'Не верный email или пароль. Попробуйте снова']);
     }
 }

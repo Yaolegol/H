@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\controllers\catalog;
+namespace App\Http\Controllers\controllers\web\catalog;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\controllers\profile\index;
+namespace App\Http\Controllers\controllers\web\profile\index;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;

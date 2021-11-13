@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\controllers\profile\salePointsInfo;
+namespace App\Http\Controllers\controllers\web\profile\salePointsInfo;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;

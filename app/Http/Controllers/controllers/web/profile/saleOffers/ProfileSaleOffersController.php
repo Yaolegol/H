@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\controllers\profile\organizationData;
+namespace App\Http\Controllers\controllers\web\profile\saleOffers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -11,9 +11,9 @@ use App\Http\Controllers\Controller;
 
 require_once('app/Http/Controllers/helpers/catalog/index.php');
 require_once('app/Http/Controllers/helpers/location/index.php');
-require_once('app/Http/Controllers/helpers/profile/organizationData/index.php');
+require_once('app/Http/Controllers/helpers/profile/saleOffers/index.php');
 
-class ProfileOrganizationDataController extends Controller
+class ProfileSaleOffersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,12 +24,12 @@ class ProfileOrganizationDataController extends Controller
     {
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
-        $organizationList = getOrganizationDataFormatted();
+        $saleOffersList = getSaleOffersDataFormatted();
 
-        return view('pages.profile.organization-info.index.index', [
+        return view('pages.profile.sale-offers.index.index', [
             'catalogHeader' => $catalogFull,
             'locationList' => $locationList,
-            'organizationList' => $organizationList,
+            'saleOffersList' => $saleOffersList,
         ]);
     }
 
@@ -42,10 +42,23 @@ class ProfileOrganizationDataController extends Controller
     {
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
+        $organizationsList = getUserOrganizationsListFormatted();
+        $salePointsList = getUserSalePointsList();
+        $catalogCategoriesList = getCatalogCategoriesList($catalogFull);
+        $catalogSubCategoriesList = getCatalogSubCategoriesList($catalogFull);
+        $regionList = getRegionList($locationList);
+        $citiesList = getCitiesList($locationList);
 
-        return view('pages.profile.organization-info.create.index', [
+        return view('pages.profile.sale-offers.create.index', [
+            'catalogCategoriesList' => $catalogCategoriesList,
+            'catalogSubCategoriesList' => $catalogSubCategoriesList,
+            'catalogFull' => $catalogFull,
             'catalogHeader' => $catalogFull,
+            'citiesList' => $citiesList,
             'locationList' => $locationList,
+            'organizationsList' => $organizationsList,
+            'regionList' => $regionList,
+            'salePointsList' => $salePointsList,
         ]);
     }
 
@@ -57,10 +70,10 @@ class ProfileOrganizationDataController extends Controller
      */
     public function store(Request $request)
     {
-        $isSaved = tryStoreOrganizationDataDataInDB($request);
+        $isSaved = trySaveSaleOfferInDB($request);
 
         if($isSaved) {
-            return redirect('/profile/organization-info');
+            return redirect('/profile/sale-offers');
         } else {
             return back()->with(
                 ['commonError' => 'Что-то пошло не так. Попробуйте снова']
@@ -87,12 +100,25 @@ class ProfileOrganizationDataController extends Controller
     {
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
-        $organizationItemData = getOrganizationItemDataFormatted($id);
+        $saleOfferItemData = getSaleOfferItemDataFormatted($id);
+        $organizationsList = getUserOrganizationsWithSelectedList($saleOfferItemData);
+        $salePointsList = getSaleOfferSalePointsListFormatted($saleOfferItemData);
+        $catalogCategoriesList = getCatalogCategoriesWithSelectedList($catalogFull, $saleOfferItemData);
+        $catalogSubCategoriesList = getCatalogSubCategoriesWithSelectedList($catalogFull, $saleOfferItemData);
+        $regionList = getRegionWithSelectedList($locationList, $saleOfferItemData);
+        $citiesList = getCitiesWithSelectedList($locationList, $saleOfferItemData);
 
-        return view('pages.profile.organization-info.edit.index', [
+        return view('pages.profile.sale-offers.edit.index', [
+            'catalogCategoriesList' => $catalogCategoriesList,
+            'catalogSubCategoriesList' => $catalogSubCategoriesList,
+            'catalogFull' => $catalogFull,
             'catalogHeader' => $catalogFull,
+            'citiesList' => $citiesList,
             'locationList' => $locationList,
-            'organizationItemData' => $organizationItemData,
+            'organizationsList' => $organizationsList,
+            'regionList' => $regionList,
+            'saleOfferItemData' => $saleOfferItemData,
+            'salePointsList' => $salePointsList,
         ]);
     }
 
@@ -105,10 +131,10 @@ class ProfileOrganizationDataController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $isSaved = tryUpdateOrganizationDataInDB($request, $id);
+        $isSaved = tryUpdateSaleOfferInDB($request, $id);
 
         if($isSaved) {
-            return redirect('/profile/organization-info');
+            return redirect('/profile/sale-offers');
         } else {
             return back()->with(
                 ['commonError' => 'Что-то пошло не так. Попробуйте снова']
@@ -124,10 +150,10 @@ class ProfileOrganizationDataController extends Controller
      */
     public function destroy($id)
     {
-        $isDestroyed = tryDestroyOrganizationDataInDB($id);
+        $isDestroyed = tryDestroySaleOfferDataInDB($id);
 
         if($isDestroyed) {
-            return redirect('/profile/organization-info');
+            return redirect('/profile/sale-offers');
         } else {
             return back()->with(
                 ['commonError' => 'Что-то пошло не так. Попробуйте снова']
