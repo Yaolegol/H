@@ -1577,8 +1577,21 @@ p {
   display: none;
 }
 
+.location-info {
+  display: flex;
+}
+.location-info__change-button {
+  color: green;
+}
+.location-info__change-button-container {
+  margin-left: 10px;
+}
+
 .location {
   display: flex;
+}
+.location__info-container {
+  margin-left: 10px;
 }
 
 .offers-item {
