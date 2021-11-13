@@ -27,7 +27,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [CatalogController::class, 'index']);
 Route::get('/catalog', [CatalogController::class, 'index']);
-Route::get('/catalog/{catalogLevelOneLink}/{productLink}', [OffersController::class, 'show']);
+Route::get('/catalog/{catalogLevelOneLink}/{productLink}', [OffersController::class, 'index']);
 Route::get('/catalog/{catalogLevelOneLink}', [CatalogController::class, 'show']);
 
 Route::get('/sellers/{id}', [SellersController::class, 'index']);
