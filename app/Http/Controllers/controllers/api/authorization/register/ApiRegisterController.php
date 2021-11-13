@@ -7,7 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 
-require_once('app/Http/Controllers/helpers/authorization/index.php');
+require_once('app/Http/Controllers/helpers/web/authorization/index.php');
 
 class ApiRegisterController extends Controller
 {

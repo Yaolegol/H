@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 
-require_once('app/Http/Controllers/helpers/profile/salePointsInfo/index.php');
+require_once('app/Http/Controllers/helpers/web/profile/salePointsInfo/index.php');
 
 class ApiProfileSalePointsController extends Controller
 {

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 
-require_once('app/Http/Controllers/helpers/profile/organizationData/index.php');
+require_once('app/Http/Controllers/helpers/web/profile/organizationData/index.php');
 
 class ApiProfileOrganizationDataController extends Controller
 {

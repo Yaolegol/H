@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 
-require_once('app/Http/Controllers/helpers/catalog/index.php');
-require_once('app/Http/Controllers/helpers/location/index.php');
+require_once('app/Http/Controllers/helpers/web/catalog/index.php');
+require_once('app/Http/Controllers/helpers/web/location/index.php');
 
 class LoginController extends Controller
 {
