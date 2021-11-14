@@ -26,7 +26,7 @@
             <span>Цена: </span>
             <span>{{$offer['price']}}</span>
         </div>
-        {{dd($offer)}}
+        <div>{{$offer['user']['name']}}</div>
     </div>
 </div>
 
