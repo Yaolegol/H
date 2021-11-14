@@ -1635,6 +1635,9 @@ p {
   top: 0;
   width: 100%;
 }
+.offers-item__price-container {
+  margin-top: 15px;
+}
 .offers-item__rating-section {
   margin-top: 20px;
 }

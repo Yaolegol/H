@@ -1,6 +1,7 @@
 <div class="offer">
     @include('modules.breadcrumbs.index')
     <div class="offer__content-area">
+        <div>{{$offer['title']}}</div>
         <div class="offer__slider-container">
             @component('components.sliders.base.index')
                 @component('components.sliders.base.slide.index')
@@ -20,6 +21,12 @@
                 @endcomponent
             @endcomponent
         </div>
+        <div>{{$offer['description']}}</div>
+        <div>
+            <span>Цена: </span>
+            <span>{{$offer['price']}}</span>
+        </div>
+        {{dd($offer)}}
     </div>
 </div>
 

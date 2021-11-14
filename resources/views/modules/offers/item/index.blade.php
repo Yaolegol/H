@@ -8,8 +8,11 @@
             <div>
                 <a href="{{$offer['offerLink']}}">{{$offer['title']}}</a>
             </div>
-            <div class="offers-item__product-description">
+            <div class="offers-item__description-container">
                 <span>{{$offer['description']}}</span>
+            </div>
+            <div class="offers-item__price-container">
+                <span>Цена: </span><span>{{$offer['price']}}</span>
             </div>
             <div class="offers-item__contacts-block">
                 <div>
