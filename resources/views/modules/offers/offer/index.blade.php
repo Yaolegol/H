@@ -27,19 +27,23 @@
             <span>{{$offer['price']}}</span>
         </div>
         <div>{{$offer['user']['name']}}</div>
-        <div>
-            <div>Организация: </div>
-            <div>{{$offer['organization']['title']}}</div>
-        </div>
-        <div>
-            <div>Торговые точки: </div>
-            @foreach($offer['sale_points'] as $salePointItem)
-                <div>
-                    <span>Название: </span>
-                    <span>{{$salePointItem['title']}}</span>
-                </div>
-            @endforeach
-        </div>
+        @isset($offer['organization'])
+            <div>
+                <div>Организация: </div>
+                <div>{{$offer['organization']['title']}}</div>
+            </div>
+        @endisset
+        @if($offer['sale_points'])
+            <div>
+                <div>Торговые точки: </div>
+                @foreach($offer['sale_points'] as $salePointItem)
+                    <div>
+                        <span>Название: </span>
+                        <span>{{$salePointItem['title']}}</span>
+                    </div>
+                @endforeach
+            </div>
+        @endif
     </div>
 </div>
 
