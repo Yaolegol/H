@@ -29,6 +29,8 @@ function getOffer($id)
         'catalogLevelTwo',
         'catalogLevelTwo.catalogLevelOne',
         'measure',
+        'organization',
+        'salePoints',
         'user',
     ])->get()->toArray();
 }
