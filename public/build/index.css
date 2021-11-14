@@ -1888,6 +1888,12 @@ p {
   padding-bottom: 50px;
   position: relative;
 }
+.sliders-base__arrow_next {
+  right: -50px !important;
+}
+.sliders-base__arrow_prev {
+  left: -50px !important;
+}
 
 .offer__content-area {
   margin: 15px auto 0;

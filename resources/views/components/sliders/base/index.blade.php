@@ -6,6 +6,6 @@
     </div>
     <div class="swiper-pagination"></div>
 
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev sliders-base__arrow_prev"></div>
+    <div class="swiper-button-next sliders-base__arrow_next"></div>
 </div>
