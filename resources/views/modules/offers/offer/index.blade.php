@@ -33,7 +33,7 @@
                 <div>{{$offer['organization']['title']}}</div>
             </div>
         @endisset
-        @if($offer['sale_points'])
+        @isset($offer['sale_points'])
             <div>
                 <div>Торговые точки: </div>
                 @foreach($offer['sale_points'] as $salePointItem)
@@ -43,7 +43,7 @@
                     </div>
                 @endforeach
             </div>
-        @endif
+        @endisset
     </div>
 </div>
 
