@@ -1,7 +1,7 @@
 <div class="offer">
     @include('modules.breadcrumbs.index')
     <div class="offer__content-area">
-        <div>{{$offer['title']}}</div>
+        <div class="offer__title">{{$offer['title']}}</div>
         <div class="offer__slider-container">
             @component('components.sliders.base.index')
                 @component('components.sliders.base.slide.index')
@@ -21,29 +21,39 @@
                 @endcomponent
             @endcomponent
         </div>
-        <div>{{$offer['description']}}</div>
-        <div>
-            <span>Цена: </span>
-            <span>{{$offer['price']}}</span>
-        </div>
-        <div>{{$offer['user']['name']}}</div>
-        @isset($offer['organization'])
-            <div>
-                <div>Организация: </div>
-                <div>{{$offer['organization']['title']}}</div>
+        <div class="offer__info-section">
+            <div class="offer__info-item-container">
+                <div>{{$offer['description']}}</div>
             </div>
-        @endisset
-        @isset($offer['sale_points'])
-            <div>
-                <div>Торговые точки: </div>
-                @foreach($offer['sale_points'] as $salePointItem)
+            <div class="offer__info-item-container">
+                <span>Цена: </span>
+                <span>{{$offer['price']}}</span>
+            </div>
+            <div class="offer__info-item-container">
+                <div>{{$offer['user']['name']}}</div>
+            </div>
+            <div class="offer__info-item-container">
+                @isset($offer['organization'])
                     <div>
-                        <span>Название: </span>
-                        <span>{{$salePointItem['title']}}</span>
+                        <div>Организация: </div>
+                        <div>{{$offer['organization']['title']}}</div>
                     </div>
-                @endforeach
+                @endisset
             </div>
-        @endisset
+            <div class="offer__info-item-container">
+                @isset($offer['sale_points'])
+                    <div>
+                        <div>Торговые точки: </div>
+                        @foreach($offer['sale_points'] as $salePointItem)
+                            <div>
+                                <span>Название: </span>
+                                <span>{{$salePointItem['title']}}</span>
+                            </div>
+                        @endforeach
+                    </div>
+                @endisset
+            </div>
+        </div>
     </div>
 </div>
 

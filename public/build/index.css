@@ -1899,8 +1899,17 @@ p {
 }
 
 .offer__content-area {
-  margin: 15px auto 0;
+  margin: 50px auto 0;
   max-width: 800px;
+}
+.offer__info-item-container {
+  margin-top: 15px;
+}
+.offer__info-section {
+  margin-top: 20px;
+}
+.offer__slider-container {
+  margin-top: 50px;
 }
 .offer__slider-image {
   bottom: 0;
@@ -1915,6 +1924,9 @@ p {
 .offer__slider-image-container {
   padding-bottom: 50%;
   position: relative;
+}
+.offer__title {
+  text-align: center;
 }
 
 @font-face {
