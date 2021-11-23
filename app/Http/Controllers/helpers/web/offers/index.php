@@ -2,6 +2,28 @@
 
 use App\Models\Offer;
 
+function formatOfferItem($offerItem) {
+    $photoArray = [];
+
+    $iteration = 1;
+    while ($iteration <= 3) {
+        $currentPhotoName = 'photo_' . $iteration;
+        $currentPhotoValue = $offerItem[$currentPhotoName];
+
+        if($currentPhotoValue) {
+            array_push($photoArray, $currentPhotoValue);
+        }
+
+        $iteration++;
+    }
+
+    $offerItem['photoArray'] = $photoArray;
+
+//    dd($offerItem);
+
+    return $offerItem;
+}
+
 function formatOffers($offers) {
     return array_map(function ($item) {
         $item['offerLink'] = '/' . 'offers' . '/' . $item['id'];
@@ -38,8 +60,9 @@ function getOffer($id)
 function getOfferFormatted($id)
 {
     $offer = getOffer($id);
+    $offerItem = array_merge(...$offer);
 
-    return array_merge(...$offer);
+    return formatOfferItem($offerItem);
 }
 
 function getOffers($catalogFull, $catalogLevelOneLink, $productLink, $searchCountry, $searchRegion, $searchCity)
