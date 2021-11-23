@@ -5069,6 +5069,10 @@ p {
 .hidden {
   display: none;
 }
+.sellers-show__content-area {
+  margin: 50px auto 0;
+  max-width: 800px;
+}
 
 @font-face {
   font-family: 'Lato';
