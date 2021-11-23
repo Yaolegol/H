@@ -32,8 +32,16 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
+        'city_id',
+        'created_at',
+        'is_admin',
+        'lang_id',
         'password',
+        'registration_email',
+        'registration_email_verified_at',
         'remember_token',
+        'updated_at',
+        'visible_email_verified_at',
     ];
 
     /**
@@ -44,6 +52,11 @@ class User extends Authenticatable
     protected $casts = [
         'registration_email_verified_at' => 'datetime',
     ];
+
+    public function offers()
+    {
+        return $this->hasMany(Offer::class);
+    }
 
     public function salePoints()
     {
