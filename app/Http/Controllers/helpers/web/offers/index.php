@@ -20,7 +20,20 @@ function formatOfferItem($offerItem) {
     $offerItem['photoArray'] = $offerPhotoArray;
 
     if($offerItem['organization']) {
+        $organizationCertificateArray = [];
         $organizationPhotoArray = [];
+
+        $offerOrganizationCertificateIteration = 1;
+        while ($offerOrganizationCertificateIteration <= 5) {
+            $currentCertificateName = 'certificate_' . $offerOrganizationCertificateIteration;
+            $currentCertificateValue = $offerItem['organization'][$currentCertificateName];
+
+            if($currentCertificateValue) {
+                array_push($organizationCertificateArray, $currentCertificateValue);
+            }
+
+            $offerOrganizationCertificateIteration++;
+        }
 
         $offerOrganizationPhotoIteration = 1;
         while ($offerOrganizationPhotoIteration <= 3) {
@@ -34,6 +47,7 @@ function formatOfferItem($offerItem) {
             $offerOrganizationPhotoIteration++;
         }
 
+        $offerItem['organization']['certificateArray'] = $organizationCertificateArray;
         $offerItem['organization']['photoArray'] = $organizationPhotoArray;
     }
 
@@ -56,6 +70,8 @@ function formatOfferItem($offerItem) {
             $offerItem['sale_points'][$key]['photoArray'] = $salePointPhotoArray;
         }
     }
+
+    dd($offerItem);
 
     return $offerItem;
 }
