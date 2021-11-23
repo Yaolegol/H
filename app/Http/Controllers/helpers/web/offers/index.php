@@ -71,8 +71,6 @@ function formatOfferItem($offerItem) {
         }
     }
 
-    dd($offerItem);
-
     return $offerItem;
 }
 

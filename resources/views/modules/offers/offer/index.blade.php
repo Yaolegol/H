@@ -32,6 +32,19 @@
                         <div>Организация:</div>
                         <div>{{$offer['organization']['title']}}</div>
 
+                        @if(!empty($offer['organization']['certificateArray']))
+                            <div class="offer__slider-container">
+                                @component('components.sliders.base.index')
+                                    @foreach($offer['organization']['certificateArray'] as $certificateUrl)
+                                        @component('components.sliders.base.slide.index')
+                                            <div class="offer__slider-image-container">
+                                                <img alt="" class="offer__slider-image" src="{{$certificateUrl}}">
+                                            </div>
+                                        @endcomponent
+                                    @endforeach
+                                @endcomponent
+                            </div>
+                        @endif
                         @if(!empty($offer['organization']['photoArray']))
                             <div class="offer__slider-container">
                                 @component('components.sliders.base.index')
