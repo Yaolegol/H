@@ -12,6 +12,10 @@ function formatSellerData($seller) {
         $sellerData['avatar'] = $url;
     }
 
+    if($sellerData['offers']) {
+        $sellerData['offers'] = formatOffers($sellerData['offers']);
+    }
+
     return $sellerData;
 }
 

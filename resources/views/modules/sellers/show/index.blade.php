@@ -17,5 +17,13 @@
                 <div>{{$sellerData['visible_email']}}</div>
             </div>
         </div>
+        <div class="sellers-show__offers-block">
+            <div class="sellers-show__offers-title">Предложения продавца</div>
+            <div class="sellers-show__offers-container">
+                @include('modules.offers.list.index', [
+                    'offersList' => $sellerData['offers'],
+                ])
+            </div>
+        </div>
     </div>
 </div>

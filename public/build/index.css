@@ -5094,6 +5094,15 @@ p {
   margin-top: 20px;
   text-align: center;
 }
+.sellers-show__offers-block {
+  margin-top: 50px;
+}
+.sellers-show__offers-container {
+  margin-top: 20px;
+}
+.sellers-show__offers-title {
+  text-align: center;
+}
 
 @font-face {
   font-family: 'Lato';

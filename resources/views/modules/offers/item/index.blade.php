@@ -18,9 +18,11 @@
                 <div>
                     Телефон: <a href="tel:{{$offer['phone']}}">{{$offer['phone']}}</a>
                 </div>
-                <div class="offers-item__seller-info-container">
-                    <span>Продавец: </span><a href="/sellers/{{$offer['user']['id']}}">{{$offer['user']['name']}}</a>
-                </div>
+                @if($withSeller)
+                    <div class="offers-item__seller-info-container">
+                        <span>Продавец: </span><a href="/sellers/{{$offer['user']['id']}}">{{$offer['user']['name']}}</a>
+                    </div>
+                @endif
             </div>
         </div>
         <div class="offers-item__rating-section">
