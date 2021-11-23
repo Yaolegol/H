@@ -11,7 +11,10 @@ function formatOfferItem($offerItem) {
         $currentPhotoValue = $offerItem[$currentPhotoName];
 
         if($currentPhotoValue) {
-            array_push($offerPhotoArray, $currentPhotoValue);
+            $path = str_replace('public/', '', $currentPhotoValue);
+            $url = '/storage/' . $path;
+
+            array_push($offerPhotoArray, $url);
         }
 
         $offerPhotoIteration++;
@@ -29,7 +32,10 @@ function formatOfferItem($offerItem) {
             $currentCertificateValue = $offerItem['organization'][$currentCertificateName];
 
             if($currentCertificateValue) {
-                array_push($organizationCertificateArray, $currentCertificateValue);
+                $path = str_replace('public/', '', $currentCertificateValue);
+                $url = '/storage/' . $path;
+
+                array_push($organizationCertificateArray, $url);
             }
 
             $offerOrganizationCertificateIteration++;
@@ -41,7 +47,10 @@ function formatOfferItem($offerItem) {
             $currentPhotoValue = $offerItem['organization'][$currentPhotoName];
 
             if($currentPhotoValue) {
-                array_push($organizationPhotoArray, $currentPhotoValue);
+                $path = str_replace('public/', '', $currentPhotoValue);
+                $url = '/storage/' . $path;
+
+                array_push($organizationPhotoArray, $url);
             }
 
             $offerOrganizationPhotoIteration++;
@@ -61,7 +70,10 @@ function formatOfferItem($offerItem) {
                 $currentPhotoValue = $salePointItem[$currentPhotoName];
 
                 if($currentPhotoValue) {
-                    array_push($salePointPhotoArray, $currentPhotoValue);
+                    $path = str_replace('public/', '', $currentPhotoValue);
+                    $url = '/storage/' . $path;
+
+                    array_push($salePointPhotoArray, $url);
                 }
 
                 $salePointPhotoIteration++;
