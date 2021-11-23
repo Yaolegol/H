@@ -42,6 +42,20 @@
                             <div>
                                 <span>Название: </span>
                                 <span>{{$salePointItem['title']}}</span>
+
+                                @if(!empty($salePointItem['photoArray']))
+                                    <div class="offer__slider-container">
+                                        @component('components.sliders.base.index')
+                                            @foreach($salePointItem['photoArray'] as $photoUrl)
+                                                @component('components.sliders.base.slide.index')
+                                                    <div class="offer__slider-image-container">
+                                                        <img alt="" class="offer__slider-image" src="{{$photoUrl}}">
+                                                    </div>
+                                                @endcomponent
+                                            @endforeach
+                                        @endcomponent
+                                    </div>
+                                @endif
                             </div>
                         @endforeach
                     </div>
