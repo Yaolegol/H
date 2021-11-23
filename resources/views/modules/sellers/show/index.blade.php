@@ -1,5 +1,21 @@
 <div class="sellers-show">
     <div class="sellers-show__content-area">
-        {{$sellerData['name']}}
+        <div class="sellers-show__header-block">
+            <div class="sellers-show__avatar-container">
+                <img  alt="" class="sellers-show__avatar" src="{{$sellerData['avatar']}}">
+            </div>
+            <div class="sellers-show__header-info-container">
+                <div>Имя</div>
+                <div>{{$sellerData['name']}}</div>
+            </div>
+            <div class="sellers-show__header-info-container">
+                <div>Телефон</div>
+                <div>{{$sellerData['phone']}}</div>
+            </div>
+            <div class="sellers-show__header-info-container">
+                <div>Email</div>
+                <div>{{$sellerData['visible_email']}}</div>
+            </div>
+        </div>
     </div>
 </div>

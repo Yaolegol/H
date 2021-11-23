@@ -5069,9 +5069,30 @@ p {
 .hidden {
   display: none;
 }
+.sellers-show__avatar {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+.sellers-show__avatar-container {
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  height: 200px;
+  overflow: hidden;
+  width: 200px;
+}
 .sellers-show__content-area {
-  margin: 50px auto 0;
+  margin: 80px auto 0;
   max-width: 800px;
+}
+.sellers-show__header-block {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.sellers-show__header-info-container {
+  margin-top: 20px;
+  text-align: center;
 }
 
 @font-face {

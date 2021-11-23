@@ -3,7 +3,16 @@
 use App\Models\User;
 
 function formatSellerData($seller) {
-    return array_merge(...$seller);
+    $sellerData = array_merge(...$seller);
+
+    if($sellerData['avatar']) {
+        $path = str_replace('public/', '', $sellerData['avatar']);
+        $url = '/storage/' . $path;
+
+        $sellerData['avatar'] = $url;
+    }
+
+    return $sellerData;
 }
 
 function getSellerDataFormatted($id) {
