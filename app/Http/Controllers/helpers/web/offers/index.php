@@ -3,23 +3,59 @@
 use App\Models\Offer;
 
 function formatOfferItem($offerItem) {
-    $photoArray = [];
+    $offerPhotoArray = [];
 
-    $iteration = 1;
-    while ($iteration <= 3) {
-        $currentPhotoName = 'photo_' . $iteration;
+    $offerPhotoIteration = 1;
+    while ($offerPhotoIteration <= 3) {
+        $currentPhotoName = 'photo_' . $offerPhotoIteration;
         $currentPhotoValue = $offerItem[$currentPhotoName];
 
         if($currentPhotoValue) {
-            array_push($photoArray, $currentPhotoValue);
+            array_push($offerPhotoArray, $currentPhotoValue);
         }
 
-        $iteration++;
+        $offerPhotoIteration++;
     }
 
-    $offerItem['photoArray'] = $photoArray;
+    $offerItem['photoArray'] = $offerPhotoArray;
 
-//    dd($offerItem);
+    if($offerItem['organization']) {
+        $organizationPhotoArray = [];
+
+        $offerOrganizationPhotoIteration = 1;
+        while ($offerOrganizationPhotoIteration <= 3) {
+            $currentPhotoName = 'photo_' . $offerOrganizationPhotoIteration;
+            $currentPhotoValue = $offerItem['organization'][$currentPhotoName];
+
+            if($currentPhotoValue) {
+                array_push($organizationPhotoArray, $currentPhotoValue);
+            }
+
+            $offerOrganizationPhotoIteration++;
+        }
+
+        $offerItem['organization']['photoArray'] = $organizationPhotoArray;
+    }
+
+    if($offerItem['sale_points']) {
+        foreach ($offerItem['sale_points'] as $key => $salePointItem) {
+            $salePointPhotoArray = [];
+
+            $salePointPhotoIteration = 1;
+            while ($salePointPhotoIteration <= 3) {
+                $currentPhotoName = 'photo_' . $salePointPhotoIteration;
+                $currentPhotoValue = $salePointItem[$currentPhotoName];
+
+                if($currentPhotoValue) {
+                    array_push($salePointPhotoArray, $currentPhotoValue);
+                }
+
+                $salePointPhotoIteration++;
+            }
+
+            $offerItem['sale_points'][$key]['photoArray'] = $salePointPhotoArray;
+        }
+    }
 
     return $offerItem;
 }
