@@ -15,3 +15,4 @@ import 'views/pages/profile/sale-offers/index';
 import 'views/pages/profile/sale-points-info/create';
 import 'views/pages/profile/sale-points-info/edit';
 import 'views/pages/profile/sale-points-info/index';
+import 'views/pages/sellers/show/index';

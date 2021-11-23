@@ -18,17 +18,7 @@ class SellersController extends Controller
      */
     public function index()
     {
-        $catalogFull = getCatalogFull();
-        $offersList = getOffers($productLink);
-        $breadcrumbs = getCatalogOffersBreadcrumbs($catalogFull, $catalogLevel2Link, $productLink);
-        $locationList = getLocationListFormatted();
-
-        return view('pages.sellers.index', [
-            'breadcrumbs' => $breadcrumbs,
-            'catalogHeader' => $catalogFull,
-            'locationList' => $locationList,
-            'sellersList' => $offersList,
-        ]);
+        //
     }
 
     /**
@@ -60,7 +50,13 @@ class SellersController extends Controller
      */
     public function show($id)
     {
-        //
+        $catalogFull = getCatalogFull();
+        $locationList = getLocationListFormatted();
+
+        return view('pages.sellers.show.index', [
+            'catalogHeader' => $catalogFull,
+            'locationList' => $locationList,
+        ]);
     }
 
     /**

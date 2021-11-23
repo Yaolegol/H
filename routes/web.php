@@ -30,7 +30,7 @@ Route::get('/catalog', [CatalogController::class, 'index']);
 Route::get('/catalog/{catalogLevelOneLink}/{productLink}', [OffersController::class, 'index']);
 Route::get('/catalog/{catalogLevelOneLink}', [CatalogController::class, 'show']);
 
-Route::get('/sellers/{id}', [SellersController::class, 'index']);
+Route::get('/sellers/{id}', [SellersController::class, 'show']);
 
 Route::get('/offers/{id}', [OffersController::class, 'show']);
 
