@@ -8,7 +8,7 @@ class Map2gisComponentsView {
         this.offerId = Number(this.module.dataset.offerId);
 
         this.init();
-        this.bind();
+        // this.bind();
     }
 
     addInitialMarker = () => {
@@ -29,6 +29,10 @@ class Map2gisComponentsView {
         addEventListener(document, 'j-event__need-update-map-marker', this.handleUpdateMarker);
     }
 
+    fetchData = async () => {
+        const result = fetch();
+    }
+
     handleUpdateMarker = (e) => {
         const {detail} = e;
         const {coords, isChecked, value} = detail;
@@ -37,7 +41,8 @@ class Map2gisComponentsView {
 
     init = () => {
         this.initMap();
-        this.addInitialMarker();
+        this.fetchData();
+        // this.addInitialMarker();
     }
 
     initMap = () => {
