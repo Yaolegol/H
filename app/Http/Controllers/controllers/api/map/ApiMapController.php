@@ -18,10 +18,10 @@ class ApiMapController extends Controller
      */
     public function index()
     {
-//        $catalogLevelOne = getCatalogLevelOneFormatted();
+        $offersMapMarkersDataList = apiGetAllOffersMapMarkersDataFormatted();
 
         $data = [
-            'data' => '',
+            'data' => $offersMapMarkersDataList,
             'errors' => '',
         ];
 
