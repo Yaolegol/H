@@ -1921,6 +1921,9 @@ p {
   height: 300px;
   width: auto;
 }
+.map-2gis-components-view__marker-popup {
+  width: 100px;
+}
 
 
 .sliders-base {

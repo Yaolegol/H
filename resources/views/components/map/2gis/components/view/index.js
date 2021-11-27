@@ -10,39 +10,53 @@ class Map2gisComponentsView {
         this.init();
     }
 
-    addMarker = (lat, lng) => {
-        return this.mapInstance.addMarker({lat, lng});
+    addMarker = (lat, lng, {address, phone}) => {
+        const marker = this.mapInstance.addMarker({
+            lat,
+            lng,
+        });
+
+        marker.bindPopup(`
+            <div class="map-2gis-components-view__marker-popup">
+                <div>Адресс</div>
+                <div>${address}</div>
+                <div>Телефон</div>
+                <div>${phone}</div>
+            </div>
+        `);
     }
 
     addMarkers = () => {
         this.offerData.markersList.forEach((makerData) => {
-            const {markerCoords} = makerData;
+            const {data, markerCoords} = makerData;
             const {lat, lng} = markerCoords;
+            const {address, phone} = data;
 
-            this.addMarker(lat, lng);
+            this.addMarker(lat, lng, {
+                address,
+                phone
+            });
         });
     }
 
     fetchData = async () => {
-        const result = await fetch(`/api/map/${this.offerId}`, {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            method: 'GET',
-        });
+        try {
+            const result = await fetch(`/api/map/${this.offerId}`, {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                method: 'GET',
+            });
 
-        console.log('result')
-        console.log(result)
+            const {data, errors} = await result.json();
 
-        const {data, errors} = await result.json();
-
-        console.log('data')
-        console.log(data)
-
-        if(!errors) {
-            this.offerData = data;
-            this.addMarkers();
+            if(!errors) {
+                this.offerData = data;
+                this.addMarkers();
+            }
+        } catch(err) {
+            console.error(err);
         }
     }
 
