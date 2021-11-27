@@ -7,6 +7,9 @@ class SlidersBase {
     constructor(element) {
         this.module = element;
         this.swiperContainer = this.module.querySelector('.j-sliders-base__swiper-container');
+        this.swiperArrowNextContainer = this.module.querySelector('.j-sliders-base__arrow-next-container');
+        this.swiperArrowPrevContainer = this.module.querySelector('.j-sliders-base__arrow-prev-container');
+        this.swiperPaginationContainer = this.module.querySelector('.j-sliders-base__pagination-container');
 
         this.init();
     }
@@ -14,12 +17,12 @@ class SlidersBase {
     init = () => {
         this.swiper = new Swiper(this.swiperContainer, {
             navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
+                nextEl: this.swiperArrowNextContainer,
+                prevEl: this.swiperArrowPrevContainer,
             },
             pagination: {
                 clickable: true,
-                el: '.swiper-pagination',
+                el: this.swiperPaginationContainer,
             },
         });
     }
