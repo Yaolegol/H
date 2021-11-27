@@ -22,11 +22,7 @@ class Map2gisComponentsView {
     }
 
     addMarkerFromClick = (lat, lng) => {
-        this.removeMarkerFromClick();
-
         this.newMarkerFromClick = this.addMarker(lat, lng);
-
-        this.setLatLngInputsValues(lat, lng);
     }
 
     bind = () => {
