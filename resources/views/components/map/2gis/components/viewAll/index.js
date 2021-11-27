@@ -2,10 +2,9 @@ import {addEventListener} from "helpers/events";
 import {Map2gisCommonBase} from 'views/components/map/2gis/common/base';
 import './index.less';
 
-class Map2gisComponentsView {
+class Map2gisComponentsViewAll {
     constructor(element) {
         this.module = element;
-        this.offerId = this.module.dataset.offerId ? Number(this.module.dataset.offerId) : null;
 
         this.init();
     }
@@ -17,7 +16,7 @@ class Map2gisComponentsView {
         });
 
         marker.bindPopup(`
-            <div class="map-2gis-components-view__marker-popup">
+            <div class="map-2gis-components-view-all__marker-popup">
                 <div>Адресс</div>
                 <div>${address}</div>
                 <div>Телефон</div>
@@ -27,27 +26,23 @@ class Map2gisComponentsView {
     }
 
     addMarkers = () => {
-        this.offerData.markersList.forEach((makerData) => {
-            const {data, markerCoords} = makerData;
-            const {lat, lng} = markerCoords;
-            const {address, phone} = data;
+        this.offerData.forEach((offerDataItem) => {
+            offerDataItem.markersList.forEach((makerData) => {
+                const {data, markerCoords} = makerData;
+                const {lat, lng} = markerCoords;
+                const {address, phone} = data;
 
-            this.addMarker(lat, lng, {
-                address,
-                phone
+                this.addMarker(lat, lng, {
+                    address,
+                    phone
+                });
             });
         });
     }
 
     fetchData = async () => {
         try {
-            let url = '/api/map';
-
-            if(this.offerId) {
-                url += `/${this.offerId}`;
-            }
-
-            const result = await fetch(url, {
+            const result = await fetch('/api/map', {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
@@ -59,6 +54,10 @@ class Map2gisComponentsView {
 
             if(!errors) {
                 this.offerData = data;
+
+                console.log('this.offerData');
+                console.log(this.offerData);
+
                 this.addMarkers();
             }
         } catch(err) {
@@ -81,8 +80,8 @@ class Map2gisComponentsView {
     }
 }
 
-const list = [...document.querySelectorAll('.j-map-2gis-components-view')];
+const list = [...document.querySelectorAll('.j-map-2gis-components-view-all')];
 
 list.forEach((element) => {
-    new Map2gisComponentsView(element);
+    new Map2gisComponentsViewAll(element);
 })

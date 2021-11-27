@@ -32,7 +32,7 @@
             <div class="offer__info-item-container">
                 <div>Где купить?</div>
                 <div>
-                    @include('components.map.2gis.components.view.index', [
+                    @include('components.map.2gis.components.viewItem.index', [
                         'offerId' => $offer['id'],
                     ])
                 </div>

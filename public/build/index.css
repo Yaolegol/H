@@ -1605,6 +1605,49 @@ p {
   display: none;
 }
 
+.map-2gis-components-view-all__map-container {
+  height: 500px;
+  width: 500px;
+}
+.map-2gis-components-view-all__map-container_mobile-app {
+  height: 300px;
+  width: auto;
+}
+.map-2gis-components-view-all__marker-popup {
+  width: 100px;
+}
+
+.map-web-index__content-area {
+  margin: 50px auto 0;
+  max-width: 800px;
+}
+.map-web-index__info-item-container {
+  margin-top: 15px;
+}
+.map-web-index__info-section {
+  margin-top: 20px;
+}
+.map-web-index__slider-container {
+  margin-top: 50px;
+}
+.map-web-index__slider-image {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  object-fit: contain;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+.map-web-index__slider-image-container {
+  padding-bottom: 50%;
+  position: relative;
+}
+.map-web-index__title {
+  text-align: center;
+}
+
 @font-face {
   font-family: 'Lato';
   font-weight: 400;
@@ -2140,15 +2183,15 @@ p {
   display: none;
 }
 
-.map-2gis-components-view__map-container {
+.map-2gis-components-view-item__map-container {
   height: 500px;
   width: 500px;
 }
-.map-2gis-components-view__map-container_mobile-app {
+.map-2gis-components-view-item__map-container_mobile-app {
   height: 300px;
   width: auto;
 }
-.map-2gis-components-view__marker-popup {
+.map-2gis-components-view-item__marker-popup {
   width: 100px;
 }
 
