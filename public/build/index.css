@@ -1368,6 +1368,10 @@ p {
   display: none;
 }
 
+.map-2gis-common-base__marker-popup {
+  width: 100px;
+}
+
 .map-2gis-components-add-marker__map-container {
   height: 500px;
   width: 500px;

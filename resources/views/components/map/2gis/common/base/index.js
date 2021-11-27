@@ -2,6 +2,7 @@ import DG from '2gis-maps';
 import 'leaflet.markercluster';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
+import './index.less';
 
 export class Map2gisCommonBase {
     constructor({center, markerDataList, onMapClick, useMarkerCluster, zoom}) {
@@ -39,19 +40,30 @@ export class Map2gisCommonBase {
                 this.clusterGroup = DG.markerClusterGroup();
             }
 
-            markerDataList.forEach(({lat, lng, popupHtml}) => {
-                const coords = new DG.LatLng(lat, lng);
-                const marker = DG.marker(coords);
+            markerDataList.forEach((markerDataItem) => {
+                markerDataItem.markersList.forEach((makerData) => {
+                    const {data, markerCoords} = makerData;
+                    const {lat, lng} = markerCoords;
+                    const {address, phone} = data;
 
-                if(popupHtml) {
-                    marker.bindPopup(popupHtml);
-                }
+                    const coords = new DG.LatLng(lat, lng);
+                    const marker = DG.marker(coords);
 
-                if(useMarkerCluster) {
-                    this.clusterGroup.addLayer(marker);
-                } else {
-                    this.map.addLayer(marker);
-                }
+                    marker.bindPopup(`
+                        <div class="map-2gis-common-base__marker-popup">
+                            <div>Адресс</div>
+                            <div>${address}</div>
+                            <div>Телефон</div>
+                            <div>${phone}</div>
+                        </div>
+                    `);
+
+                    if(useMarkerCluster) {
+                        this.clusterGroup.addLayer(marker);
+                    } else {
+                        this.map.addLayer(marker);
+                    }
+                });
             });
 
             if(useMarkerCluster) {

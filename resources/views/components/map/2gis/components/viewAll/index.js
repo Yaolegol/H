@@ -9,37 +9,6 @@ class Map2gisComponentsViewAll {
         this.init();
     }
 
-    addMarker = (lat, lng, {address, phone}) => {
-        const marker = this.mapInstance.addMarker({
-            lat,
-            lng,
-        });
-
-        marker.bindPopup(`
-            <div class="map-2gis-components-view-all__marker-popup">
-                <div>Адресс</div>
-                <div>${address}</div>
-                <div>Телефон</div>
-                <div>${phone}</div>
-            </div>
-        `);
-    }
-
-    addMarkers = () => {
-        this.offerData.forEach((offerDataItem) => {
-            offerDataItem.markersList.forEach((makerData) => {
-                const {data, markerCoords} = makerData;
-                const {lat, lng} = markerCoords;
-                const {address, phone} = data;
-
-                this.addMarker(lat, lng, {
-                    address,
-                    phone
-                });
-            });
-        });
-    }
-
     fetchData = async () => {
         try {
             const result = await fetch('/api/map', {
@@ -55,10 +24,7 @@ class Map2gisComponentsViewAll {
             if(!errors) {
                 this.offerData = data;
 
-                console.log('this.offerData');
-                console.log(this.offerData);
-
-                this.addMarkers();
+                this.initMap();
             }
         } catch(err) {
             console.error(err);
@@ -66,15 +32,15 @@ class Map2gisComponentsViewAll {
     }
 
     init = () => {
-        this.initMap();
         this.fetchData();
     }
 
     initMap = () => {
         this.mapInstance = new Map2gisCommonBase({
             center: [62.395570, 104.432320],
-            markerDataList: [],
+            markerDataList: this.offerData,
             onMapClick: this.onMapClick,
+            useMarkerCluster: true,
             zoom: 2
         });
     }
