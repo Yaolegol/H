@@ -5,6 +5,7 @@ use App\Http\Controllers\controllers\web\authorization\login\LoginController;
 use App\Http\Controllers\controllers\web\authorization\logout\LogoutController;
 use App\Http\Controllers\controllers\web\authorization\register\RegisterController;
 use App\Http\Controllers\controllers\web\catalog\CatalogController;
+use App\Http\Controllers\controllers\web\map\MapController;
 use App\Http\Controllers\controllers\web\offers\OffersController;
 use App\Http\Controllers\controllers\web\profile\index\ProfileController;
 use App\Http\Controllers\controllers\web\profile\organizationData\ProfileOrganizationDataController;
@@ -43,7 +44,7 @@ Route::post('/register', [RegisterController::class, 'register']);
 Route::get('/logout', [LogoutController::class, 'index']);
 
 Route::get('/map/mobile-app/single-point', [MapMobileAppSinglePoint::class, 'singlePoint']);
-Route::get('/map/web/single-point', [MapMobileAppSinglePoint::class, 'singlePoint']);
+Route::get('/map', [MapController::class, 'index']);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'index']);

@@ -3,6 +3,7 @@ import 'views/pages/auth/register';
 import 'views/pages/catalog/secondLevel';
 import 'views/pages/home';
 import 'views/pages/map/mobileApp/singlePoint';
+import 'views/pages/map/web/index';
 import 'views/pages/offers/index';
 import 'views/pages/offers/show';
 import 'views/pages/profile/organization-info/create';

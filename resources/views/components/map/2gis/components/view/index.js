@@ -5,7 +5,7 @@ import './index.less';
 class Map2gisComponentsView {
     constructor(element) {
         this.module = element;
-        this.offerId = Number(this.module.dataset.offerId);
+        this.offerId = this.module.dataset.offerId ? Number(this.module.dataset.offerId) : null;
 
         this.init();
     }
@@ -41,7 +41,13 @@ class Map2gisComponentsView {
 
     fetchData = async () => {
         try {
-            const result = await fetch(`/api/map/${this.offerId}`, {
+            let url = '/api/map';
+
+            if(this.offerId) {
+                url += `/${this.offerId}`;
+            }
+
+            const result = await fetch(url, {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'

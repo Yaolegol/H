@@ -3,7 +3,7 @@
 <div class="header">
     <div class="header__map-block">
         <div class="header__map-container">
-            <a class="header__map-link" href="/">Карта</a>
+            <a class="header__map-link" href="/map">Карта</a>
         </div>
     </div>
     <div class="header__main">
