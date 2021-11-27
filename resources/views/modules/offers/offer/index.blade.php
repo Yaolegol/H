@@ -20,6 +20,9 @@
                 <div>{{$offer['description']}}</div>
             </div>
             <div class="offer__info-item-container">
+                <div>{{$offer['address']}}</div>
+            </div>
+            <div class="offer__info-item-container">
                 <span>Цена: </span>
                 <span>{{$offer['price']}}</span>
             </div>
@@ -27,7 +30,7 @@
                 <div>{{$offer['user']['name']}}</div>
             </div>
             <div class="offer__info-item-container">
-                <div>map</div>
+                <div>Где купить?</div>
                 <div>
                     @include('components.map.2gis.components.view.index', [
                         'offerId' => $offer['id'],
