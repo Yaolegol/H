@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 
+require_once('app/Http/Controllers/helpers/api/map/index.php');
+require_once('app/Http/Controllers/helpers/web/offers/index.php');
+
 class ApiMapController extends Controller
 {
     /**
@@ -15,10 +18,10 @@ class ApiMapController extends Controller
      */
     public function index()
     {
-        $catalogLevelOne = getCatalogLevelOneFormatted();
+//        $catalogLevelOne = getCatalogLevelOneFormatted();
 
         $data = [
-            'data' => $catalogLevelOne,
+            'data' => '',
             'errors' => '',
         ];
 
@@ -54,11 +57,10 @@ class ApiMapController extends Controller
      */
     public function show($offerId)
     {
-        $catalogFull = getCatalogFull();
-        $catalogLevelOneItemSubcategoriesList = getCatalogLevelOneItemSubcategoriesList($catalogFull, $catalogLevelOneLink);
+        $offerData = apiGetOfferMapMarkersDataFormatted($offerId);
 
         $data = [
-            'data' => $catalogLevelOneItemSubcategoriesList,
+            'data' => $offerData,
             'errors' => '',
         ];
 
