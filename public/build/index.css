@@ -1913,6 +1913,15 @@ p {
   display: none;
 }
 
+.map-2gis-components-view__map-container {
+  height: 500px;
+  width: 500px;
+}
+.map-2gis-components-view__map-container_mobile-app {
+  height: 300px;
+  width: auto;
+}
+
 
 .sliders-base {
   padding-bottom: 50px;

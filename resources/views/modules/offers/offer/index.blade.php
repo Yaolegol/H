@@ -27,6 +27,12 @@
                 <div>{{$offer['user']['name']}}</div>
             </div>
             <div class="offer__info-item-container">
+                <div>map</div>
+                <div>
+                    @include('components.map.2gis.components.view.index')
+                </div>
+            </div>
+            <div class="offer__info-item-container">
                 @isset($offer['organization'])
                     <div>
                         <div>Организация:</div>
