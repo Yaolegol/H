@@ -16,7 +16,15 @@ module.exports = {
                 use: {
                     loader: "babel-loader",
                     options: {
-                        plugins: ["@babel/plugin-proposal-class-properties"],
+                        plugins: [
+                            "@babel/plugin-proposal-class-properties",
+                            [
+                                "@babel/plugin-transform-runtime",
+                                {
+                                    "regenerator": true,
+                                }
+                            ]
+                        ],
                         presets: ["@babel/preset-env"]
                     },
                 },

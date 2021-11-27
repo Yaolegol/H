@@ -37,7 +37,7 @@ function apiGetOfferMapMarkersDataFormatted($offerId) {
     }, []);
 
     $offerMapMarkersData = [
-        'markersData' => array_merge([$offerMarkerData], $salePointsMarkerDataList),
+        'markersList' => array_merge([$offerMarkerData], $salePointsMarkerDataList),
         'price' => $offer['price'],
         'title' => $offer['title'],
     ];

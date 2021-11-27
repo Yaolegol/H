@@ -8,41 +8,47 @@ class Map2gisComponentsView {
         this.offerId = Number(this.module.dataset.offerId);
 
         this.init();
-        // this.bind();
-    }
-
-    addInitialMarker = () => {
-        if(this.markerLat && this.markerLng) {
-            this.addMarkerFromClick(this.markerLat, this.markerLng);
-        }
     }
 
     addMarker = (lat, lng) => {
         return this.mapInstance.addMarker({lat, lng});
     }
 
-    addMarkerFromClick = (lat, lng) => {
-        this.newMarkerFromClick = this.addMarker(lat, lng);
-    }
+    addMarkers = () => {
+        this.offerData.markersList.forEach((makerData) => {
+            const {markerCoords} = makerData;
+            const {lat, lng} = markerCoords;
 
-    bind = () => {
-        addEventListener(document, 'j-event__need-update-map-marker', this.handleUpdateMarker);
+            this.addMarker(lat, lng);
+        });
     }
 
     fetchData = async () => {
-        const result = fetch();
-    }
+        const result = await fetch(`/api/map/${this.offerId}`, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: 'GET',
+        });
 
-    handleUpdateMarker = (e) => {
-        const {detail} = e;
-        const {coords, isChecked, value} = detail;
-        const {lat, lng} = coords;
+        console.log('result')
+        console.log(result)
+
+        const {data, errors} = await result.json();
+
+        console.log('data')
+        console.log(data)
+
+        if(!errors) {
+            this.offerData = data;
+            this.addMarkers();
+        }
     }
 
     init = () => {
         this.initMap();
         this.fetchData();
-        // this.addInitialMarker();
     }
 
     initMap = () => {
@@ -52,13 +58,6 @@ class Map2gisComponentsView {
             onMapClick: this.onMapClick,
             zoom: 2
         });
-    }
-
-    onMapClick = (e) => {
-        const {latlng, originalEvent} = e;
-        const {lat, lng} = latlng;
-
-        const isClickOnMap = originalEvent.target.classList.contains('j-map-2gis-components-view__map-container');
     }
 }
 

@@ -29,7 +29,9 @@
             <div class="offer__info-item-container">
                 <div>map</div>
                 <div>
-                    @include('components.map.2gis.components.view.index')
+                    @include('components.map.2gis.components.view.index', [
+                        'offerId' => $offer['id'],
+                    ])
                 </div>
             </div>
             <div class="offer__info-item-container">
