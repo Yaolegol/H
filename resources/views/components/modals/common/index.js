@@ -30,8 +30,6 @@ class ModalsCommon {
     }
 
     handleOpen = (e) => {
-        console.log('e')
-        console.log(e)
         const {detail} = e;
 
         if(!detail) {

@@ -11,5 +11,9 @@ const {
 } = EVENTS_NAMES;
 
 export const locationOpenModal = () => {
-    document.dispatchEvent(new CustomEvent(OPEN));
+    document.dispatchEvent(new CustomEvent(OPEN, {
+        detail: {
+            name: 'location'
+        }
+    }));
 }
