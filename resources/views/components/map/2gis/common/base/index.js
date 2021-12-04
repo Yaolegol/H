@@ -23,6 +23,12 @@ export class Map2gisCommonBase {
         return marker;
     }
 
+    clearClusterGroup = () => {
+        if(this.clusterGroup) {
+            this.map.removeLayer(this.clusterGroup);
+        }
+    }
+
     initMap = ({center, onMapClick, zoom}) => {
         this.map = DG.map('map-2gis', {
             center,

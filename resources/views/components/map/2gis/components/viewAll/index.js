@@ -1,3 +1,4 @@
+import {getCookieData} from "helpers/cookie";
 import {addEventListener} from "helpers/events";
 import {Map2gisCommonBase} from 'views/components/map/2gis/common/base';
 import './index.less';
@@ -11,6 +12,11 @@ class Map2gisComponentsViewAll {
 
     fetchData = async () => {
         try {
+            const cookieData = getCookieData();
+
+            console.log('cookieData!!!')
+            console.log(cookieData)
+
             const result = await fetch('/api/map', {
                 headers: {
                     'Accept': 'application/json',
@@ -36,7 +42,7 @@ class Map2gisComponentsViewAll {
     }
 
     initMap = () => {
-        this.mapInstance = new Map2gisCommonBase({
+        this.instanceOfMap2gisCommonBase = new Map2gisCommonBase({
             center: [62.395570, 104.432320],
             markerDataList: this.offerData,
             onMapClick: this.onMapClick,
