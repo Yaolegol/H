@@ -1,5 +1,6 @@
 import {getCookieData} from "helpers/cookie";
 import {addEventListener} from "helpers/events";
+import {getQueryData} from "helpers/query";
 import {Map2gisCommonBase} from 'views/components/map/2gis/common/base';
 import './index.less';
 
@@ -13,16 +14,40 @@ class Map2gisComponentsViewAll {
     fetchData = async () => {
         try {
             const cookieData = getCookieData();
+            const queryData = getQueryData();
 
-            console.log('cookieData!!!')
+            console.log('cookieData')
             console.log(cookieData)
 
+            console.log('queryData')
+            console.log(queryData)
+
+            const bodyData = {
+                filter: {
+                    catalog: {
+                        levelOneId: 1,
+                        levelTwoId: 1,
+                    },
+                    location: {
+                        city: cookieData['search-city-id'],
+                        country: cookieData['search-country-id'],
+                        region: cookieData['search-region-id'],
+                    },
+                }
+            };
+
+            console.log('bodyData')
+            console.log(bodyData)
+
+            const body = JSON.stringify(bodyData);
+
             const result = await fetch('/api/map', {
+                body,
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                method: 'GET',
+                method: 'POST',
             });
 
             const {data, errors} = await result.json();
