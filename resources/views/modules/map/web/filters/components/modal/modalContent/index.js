@@ -1,5 +1,6 @@
 import {addEventListener} from "helpers/events";
 import {getUrlWithNewQueryData} from "helpers/query";
+import 'views/components/catalog';
 import './index.less';
 
 class LocationModalContent {
