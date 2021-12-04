@@ -1,7 +1,4 @@
 import {addEventListener} from 'helpers/events';
-import "views/components/catalog/category-item";
-import "views/components/catalog/content-item";
-import "views/components/catalog/navigation-item";
 import './index.less';
 
 class Catalog {
