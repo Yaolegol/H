@@ -1,10 +1,22 @@
 import {addEventListener} from "helpers/events";
+import {getUrlWithNewQueryData} from "helpers/query";
 import './index.less';
 
 class LocationModalContent {
     constructor(item) {
         this.module = item;
         addEventListener(this.module, 'click', this.handleModuleClick);
+    }
+
+    handleModuleClick = (e) => {
+        const target = e.target;
+        const isLocationButton = target.classList.contains('j-location-modal-content__location-button');
+
+        if(isLocationButton) {
+            this.setLocationCookie(target);
+            this.setLocationQuery(target);
+            document.location.reload();
+        }
     }
 
     setLocationCookie = (target) => {
@@ -22,14 +34,31 @@ class LocationModalContent {
         }
     }
 
-    handleModuleClick = (e) => {
-        const target = e.target;
-        const isLocationButton = target.classList.contains('j-location-modal-content__location-button');
+    setLocationQuery = (target) => {
+        const {searchCountryId, searchRegionId, searchCityId} = target.dataset;
 
-        if(isLocationButton) {
-            this.setLocationCookie(target);
-            document.location.reload();
-        }
+        const queryDataArray = [
+            {
+                key: 'searchCountryId',
+                value: searchCountryId,
+            },
+            {
+                key: 'searchRegionId',
+                value: searchRegionId,
+            },
+            {
+                key: 'searchCityId',
+                value: searchCityId,
+            }
+        ];
+
+        const newUrl = getUrlWithNewQueryData({
+            queryDataArray,
+            removeQueryWithoutValue: true,
+        });
+        const newUrlString = newUrl.toString();
+
+        history.pushState({}, null, newUrlString);
     }
 }
 
