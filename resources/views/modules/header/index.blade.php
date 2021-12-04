@@ -42,5 +42,5 @@
 </div>
 
 @section('modals-common-content')
-    @include('modules.header.location.modalContent.index')
+    @include('modules.modals.location.modalContent.index')
 @endsection
