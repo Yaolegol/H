@@ -9,10 +9,10 @@ class Catalog {
         this.module = item;
         this.initialSelectedItemId = this.module.dataset.initialSelectedItemId;
         this.contentItemList = [
-            ...this.module.querySelectorAll('[data-item-role="components-catalog-content-item"]')
+            ...this.module.querySelectorAll('.j-components-catalog-content-item')
         ];
         this.navigationItemList = [
-            ...this.module.querySelectorAll('[data-item-role="components-catalog-navigation-item"]')
+            ...this.module.querySelectorAll('.j-components-catalog-navigation-item')
         ];
 
         this.selectedContentItem = null;
@@ -24,9 +24,12 @@ class Catalog {
     }
 
     handleMouseOver = (e) => {
-        const {itemId, itemRole} = e.target.dataset;
+        const {target} = e;
+        const isNavigationItem = target.classList.contains('j-components-catalog-navigation-item');
 
-        if ('components-catalog-navigation-item' === itemRole) {
+        if (isNavigationItem) {
+            const {itemId} = target.dataset;
+
             this.unselectNavigationItem();
             this.selectNavigationItem(itemId);
 
