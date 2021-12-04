@@ -4,7 +4,7 @@
             @include('modules.location.components.choose.infoBlock.block.index')
         </div>
         <div class="map-web-index__filters-container">
-            <button class="map-web-index__filter-button">Фильтры</button>
+            @include('modules.map.web.filters.components.button.index')
         </div>
         <div class="map-web-index__info-item-container">
             <div>Где купить?</div>
@@ -15,4 +15,4 @@
     </div>
 </div>
 
-
+@include('modules.map.web.filters.components.modal.index')
