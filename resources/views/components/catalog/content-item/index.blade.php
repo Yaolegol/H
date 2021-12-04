@@ -1,5 +1,6 @@
-<div class="components-catalog-content-item j-components-catalog-content-item"
-     data-item-id="{{ $itemId }}"
+<div
+    class="components-catalog-content-item j-components-catalog-content-item"
+    data-item-id="{{ $itemId }}"
 >
     <div>{{ $catalogItem['title'] }}</div>
 
