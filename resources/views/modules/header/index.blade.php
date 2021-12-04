@@ -1,5 +1,3 @@
-@extends('components.modals.common.index')
-
 <div class="header">
     <div class="header__map-block">
         <div class="header__map-container">
@@ -17,7 +15,7 @@
             @include('components.inputs.search.index')
         </div>
         <div class="header__location-container">
-            @include('components.buttons.location.index')
+            @include('modules.location.components.choose.iconButton.index')
         </div>
         <div class="header__favorites-container">
             @include('icons.favorite')
@@ -41,6 +39,4 @@
     </div>
 </div>
 
-@section('modals-common-content')
-    @include('modules.modals.location.modalContent.index')
-@endsection
+@include('modules.location.components.modal.index')

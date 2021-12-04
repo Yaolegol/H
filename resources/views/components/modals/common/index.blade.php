@@ -1,8 +1,11 @@
-<div class="modals-common j-components-modals-common">
+<div
+    class="modals-common j-components-modals-common"
+    data-name="{{$name}}"
+>
     <div class="modals-common__body-block">
         <div class="modals-common__body-container">
             <div class="modals-common__body">
-                @yield('modals-common-content')
+                {{$slot}}
             </div>
         </div>
     </div>

@@ -20,7 +20,11 @@ class Location {
     }
 
     handleClick = (e) => {
-        document.dispatchEvent(new CustomEvent(OPEN));
+        document.dispatchEvent(new CustomEvent(OPEN, {
+            detail: {
+                name: 'location'
+            }
+        }));
     }
 }
 

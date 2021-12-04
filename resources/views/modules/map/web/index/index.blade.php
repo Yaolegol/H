@@ -1,7 +1,7 @@
 <div class="map-web-index">
     <div class="map-web-index__content-area">
         <div class="map-web-index__location-container">
-            @include('modules.location.index')
+            @include('modules.location.components.choose.infoBlock.block.index')
         </div>
         <div class="map-web-index__filters-container">
             <button class="map-web-index__filter-button">Фильтры</button>

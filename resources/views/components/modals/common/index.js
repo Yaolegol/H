@@ -15,6 +15,7 @@ const {
 class ModalsCommon {
     constructor(item) {
         this.module = item;
+        this.name = this.module.dataset.name
 
         addEventListener(document, OPEN, this.handleOpen);
         addEventListener(this.module, 'click', this.handleBackdropClick);
@@ -29,7 +30,19 @@ class ModalsCommon {
     }
 
     handleOpen = (e) => {
-        this.module.classList.add('modals-common_show');
+        console.log('e')
+        console.log(e)
+        const {detail} = e;
+
+        if(!detail) {
+            return;
+        }
+
+        const {name} = detail;
+
+        if(this.name === name) {
+            this.module.classList.add('modals-common_show');
+        }
     }
 }
 
