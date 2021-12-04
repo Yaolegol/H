@@ -1631,6 +1631,11 @@ p {
 .map-web-index__info-section {
   margin-top: 20px;
 }
+.map-web-index__location-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
 .map-web-index__slider-container {
   margin-top: 50px;
 }
