@@ -1669,6 +1669,16 @@ p {
   background-color: rgba(76, 187, 23, 0.8);
 }
 
+.map-web-filters-components-navigation-content-button {
+  display: block;
+  padding: 20px;
+  text-align: left;
+  width: 100%;
+}
+.map-web-filters-components-navigation-content-button:hover {
+  background-color: #E9EDF6;
+}
+
 .map-web-filters-components-modal-modal-content__content-container {
   margin-top: 20px;
 }

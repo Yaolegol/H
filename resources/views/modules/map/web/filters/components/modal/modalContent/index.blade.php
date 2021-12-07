@@ -20,7 +20,9 @@
                             <div class="components-catalog__categories-container">
                                 @foreach( $catalogItem['catalog_level_two'] as $category )
                                     @component('components.catalog.category-item.index')
-                                        {{ $category['title'] }}
+                                        @component('modules.map.web.filters.components.navigationContentButton.index')
+                                            {{ $category['title'] }}
+                                        @endcomponent
                                     @endcomponent
                                 @endforeach
                             </div>

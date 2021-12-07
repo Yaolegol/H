@@ -6,6 +6,7 @@ import "views/components/catalog/content-item";
 import "views/components/catalog/content-item-container";
 import "views/components/catalog/navigation-item";
 import "views/components/catalog/navigation-item-container";
+import "views/modules/map/web/filters/components/navigationContentButton";
 import './index.less';
 
 class LocationModalContent {
