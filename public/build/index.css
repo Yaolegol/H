@@ -1667,19 +1667,22 @@ p {
   background-color: rgba(76, 187, 23, 0.8);
 }
 
-.header-location-modal-content__content-container {
+.map-web-filters-components-modal-modal-content__content-container {
   margin-top: 20px;
 }
-.header-location-modal-content__cities-container {
+.map-web-filters-components-modal-modal-content__cities-container {
   margin-top: 10px;
 }
-.header-location-modal-content__city-title {
+.map-web-filters-components-modal-modal-content__city-title {
   margin-top: 5px;
 }
-.header-location-modal-content__location-item {
+.map-web-filters-components-modal-modal-content__filter-item-container {
+  margin-top: 25px;
+}
+.map-web-filters-components-modal-modal-content__location-item {
   margin-top: 50px;
 }
-.header-location-modal-content__title {
+.map-web-filters-components-modal-modal-content__title {
   text-align: center;
 }
 
