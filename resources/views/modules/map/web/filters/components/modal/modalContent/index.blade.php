@@ -1,4 +1,6 @@
-<div class="map-web-filters-components-modal-modal-content j-location-modal-content">
+<div
+    class="map-web-filters-components-modal-modal-content j-map-web-filters-components-modal-modal-content"
+>
     <h2 class="map-web-filters-components-modal-modal-content__title">Фильтры</h2>
     <div class="map-web-filters-components-modal-modal-content__filter-item-container">
         <div class="map-web-filters-components-modal-modal-content__filter-item-title">Категория:</div>

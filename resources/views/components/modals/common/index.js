@@ -6,6 +6,7 @@ const {
     COMMON: {
         MODALS: {
             COMMON: {
+                CLOSE,
                 OPEN,
             }
         }
@@ -17,7 +18,8 @@ class ModalsCommon {
         this.module = item;
         this.name = this.module.dataset.name
 
-        addEventListener(document, OPEN, this.handleOpen);
+        addEventListener(document, CLOSE, this.handleToggle);
+        addEventListener(document, OPEN, this.handleToggle);
         addEventListener(this.module, 'click', this.handleBackdropClick);
     }
 
@@ -29,8 +31,8 @@ class ModalsCommon {
         }
     }
 
-    handleOpen = (e) => {
-        const {detail} = e;
+    handleToggle = (e) => {
+        const {detail, type} = e;
 
         if(!detail) {
             return;
@@ -39,7 +41,11 @@ class ModalsCommon {
         const {name} = detail;
 
         if(this.name === name) {
-            this.module.classList.add('modals-common_show');
+            if(type === OPEN) {
+                this.module.classList.add('modals-common_show');
+            } else if(type === CLOSE) {
+                this.module.classList.remove('modals-common_show');
+            }
         }
     }
 }

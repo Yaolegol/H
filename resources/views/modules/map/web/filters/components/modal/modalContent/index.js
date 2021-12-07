@@ -1,3 +1,4 @@
+import {EVENTS_NAMES} from 'events/index';
 import {addEventListener} from "helpers/events";
 import {getUrlWithNewQueryData} from "helpers/query";
 import 'views/components/catalog';
@@ -9,20 +10,40 @@ import "views/components/catalog/navigation-item-container";
 import "views/modules/map/web/filters/components/navigationContentButton";
 import './index.less';
 
-class LocationModalContent {
+const {
+    COMMON: {
+        MODALS: {
+            COMMON: {
+                CLOSE,
+            }
+        }
+    }
+} = EVENTS_NAMES;
+
+class MapFiltersModalContent {
     constructor(item) {
-        // this.module = item;
+        this.module = item;
+        addEventListener(this.module, 'click', this.handleModuleClick);
         // addEventListener(this.module, 'click', this.handleModuleClick);
+    }
+
+    closeModal = () => {
+        document.dispatchEvent(new CustomEvent(CLOSE, {
+            detail: {
+                name: 'categories'
+            }
+        }));
     }
 
     handleModuleClick = (e) => {
         const target = e.target;
-        const isLocationButton = target.classList.contains('j-location-modal-content__location-button');
+        const isNavigationContentButton = target.classList.contains('j-map-web-filters-components-navigation-content-button');
 
-        if(isLocationButton) {
-            this.setLocationCookie(target);
-            this.setLocationQuery(target);
-            document.location.reload();
+        if(isNavigationContentButton) {
+            this.closeModal();
+            // this.setLocationCookie(target);
+            // this.setLocationQuery(target);
+            // document.location.reload();
         }
     }
 
@@ -69,8 +90,8 @@ class LocationModalContent {
     }
 }
 
-const list = [...document.querySelectorAll('.j-location-modal-content')];
+const list = [...document.querySelectorAll('.j-map-web-filters-components-modal-modal-content')];
 
 list.forEach((item) => {
-    new LocationModalContent(item);
+    new MapFiltersModalContent(item);
 });
