@@ -1,5 +1,6 @@
 import {EVENTS_NAMES} from "events/index";
 import {addEventListener} from 'helpers/events';
+import "views/modules/header/catalog/catalogLink";
 import 'views/components/catalog';
 import "views/components/catalog/category-item";
 import "views/components/catalog/content-item";

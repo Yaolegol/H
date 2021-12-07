@@ -7,7 +7,9 @@
                 @component('components.catalog.navigation-item-container.index')
                     @foreach($catalogHeader as $catalogItem)
                         @component('components.catalog.navigation-item.index', [ 'itemId' => $loop->index ])
-                            {{ $catalogItem['title'] }}
+                            @component('modules.map.web.filters.components.navigationItem.index')
+                                {{ $catalogItem['title'] }}
+                            @endcomponent
                         @endcomponent
                     @endforeach
                 @endcomponent

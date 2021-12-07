@@ -133,6 +133,13 @@
   color: #FFFFFF;
 }
 
+.header-catalog-catalog-link {
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  padding: 20px;
+}
+
 .components-catalog {
   display: flex;
   width: 100%;
@@ -158,11 +165,6 @@
   padding: 20px;
 }
 
-.components-catalog-navigation-item {
-  border-radius: 5px;
-  cursor: pointer;
-  padding: 20px;
-}
 .components-catalog-navigation-item_active {
   background-color: #E9EDF6;
 }
@@ -1684,6 +1686,12 @@ p {
 }
 .map-web-filters-components-modal-modal-content__title {
   text-align: center;
+}
+
+.map-web-filters-components-navigation-item {
+  border-radius: 5px;
+  display: block;
+  padding: 20px;
 }
 
 .map-web-index__content-area {

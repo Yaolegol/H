@@ -22,10 +22,10 @@ class Catalog {
 
     handleMouseOver = (e) => {
         const {target} = e;
-        const isNavigationItem = target.classList.contains('j-components-catalog-navigation-item');
+        const navigationItem = target.closest('.j-components-catalog-navigation-item');
 
-        if (isNavigationItem) {
-            const {itemId} = target.dataset;
+        if (navigationItem) {
+            const {itemId} = navigationItem.dataset;
 
             this.unselectNavigationItem();
             this.selectNavigationItem(itemId);
