@@ -40,7 +40,13 @@ class MapFiltersModalContent {
         const isNavigationContentButton = target.classList.contains('j-map-web-filters-components-navigation-content-button');
 
         if(isNavigationContentButton) {
+            const id = target.dataset.id;
+
+            console.log('id')
+            console.log(id)
+
             this.closeModal();
+
             // this.setLocationCookie(target);
             // this.setLocationQuery(target);
             // document.location.reload();
