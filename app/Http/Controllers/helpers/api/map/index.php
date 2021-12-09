@@ -2,8 +2,9 @@
 
 use App\Models\Offer;
 
-function apiGetAllOffers() {
-    return Offer::with([
+function apiGetAllOffers($filter) {
+    return Offer::where($filter)
+        ->with([
         'catalogLevelTwo',
         'catalogLevelTwo.catalogLevelOne',
         'measure',
@@ -13,8 +14,9 @@ function apiGetAllOffers() {
     ])->get()->toArray();
 }
 
-function apiGetAllOffersMapMarkersDataFormatted() {
-    $offers = apiGetAllOffers();
+function apiGetAllOffersMapMarkersDataFormatted($request) {
+    $filter = $request->input('filter') ?? [];
+    $offers = apiGetAllOffers($filter);
 
     $offersMapMarkersDataList = [];
 

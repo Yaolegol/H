@@ -18,8 +18,7 @@ class ApiMapController extends Controller
      */
     public function index(Request $request)
     {
-        dd($request->input('filter'));
-        $offersMapMarkersDataList = apiGetAllOffersMapMarkersDataFormatted();
+        $offersMapMarkersDataList = apiGetAllOffersMapMarkersDataFormatted($request);
 
         $data = [
             'data' => $offersMapMarkersDataList,
