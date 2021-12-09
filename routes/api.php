@@ -26,7 +26,7 @@ Route::get('/catalog', [ApiCatalogController::class, 'index']);
 Route::get('/catalog/{id}', [ApiCatalogController::class, 'show']);
 
 Route::get('/map/{id}', [ApiMapController::class, 'show']);
-Route::get('/map', [ApiMapController::class, 'index']);
+Route::post('/map', [ApiMapController::class, 'index']);
 
 Route::post('/register', [ApiRegisterController::class, 'register']);
 Route::post('/login', [ApiLoginController::class, 'login']);

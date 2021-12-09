@@ -7,6 +7,15 @@ import './index.less';
 class Map2gisComponentsViewAll {
     constructor(element) {
         this.module = element;
+        this.tokenCSRFInput = this.module.querySelector('input[name="_token"]');
+        this.tokenCSRFValue = this.tokenCSRFInput.value;
+
+        if(!this.tokenCSRFValue) {
+            console.error('no csrf token found');
+
+            return;
+        }
+
 
         this.init();
         this.bind();
@@ -50,7 +59,8 @@ class Map2gisComponentsViewAll {
                 body,
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': this.tokenCSRFValue,
                 },
                 method: 'POST',
             });
