@@ -9,7 +9,7 @@
         <div class="map-web-index__info-item-container">
             <div>Где купить?</div>
             <div>
-{{--                @include('components.map.2gis.components.viewAll.index')--}}
+                @include('components.map.2gis.components.viewAll.index')
             </div>
         </div>
     </div>

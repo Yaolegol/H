@@ -46,11 +46,20 @@ class MapFiltersModalContent {
             console.log(id)
 
             this.closeModal();
+            this.sendCategoryLevelTwoId(id);
 
             // this.setLocationCookie(target);
             // this.setLocationQuery(target);
             // document.location.reload();
         }
+    }
+
+    sendCategoryLevelTwoId = (id) => {
+        document.dispatchEvent(new CustomEvent('j-event--select-map-filter', {
+            detail: {
+                'categoryLevelTwoId': id,
+            }
+        }));
     }
 
     setLocationCookie = (target) => {

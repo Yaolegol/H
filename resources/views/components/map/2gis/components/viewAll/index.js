@@ -9,6 +9,11 @@ class Map2gisComponentsViewAll {
         this.module = element;
 
         this.init();
+        this.bind();
+    }
+
+    bind = () => {
+        addEventListener(document, 'j-event--select-map-filter', this.handleSelectMapFilter)
     }
 
     fetchData = async () => {
@@ -55,11 +60,19 @@ class Map2gisComponentsViewAll {
             if(!errors) {
                 this.offerData = data;
 
-                this.initMap();
+                // this.initMap();
             }
         } catch(err) {
             console.error(err);
         }
+    }
+
+    handleSelectMapFilter = (e) => {
+        const {detail} = e;
+        const {categoryLevelTwoId} = detail;
+
+        console.log('!!! handleSelectMapFilter categoryLevelTwoId')
+        console.log(categoryLevelTwoId)
     }
 
     init = () => {
