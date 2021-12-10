@@ -1,6 +1,6 @@
 import {EVENTS_NAMES} from 'events/index';
 import {addEventListener} from "helpers/events";
-import {getUrlWithNewQueryData} from "helpers/query";
+import {getUrlWithNewQueryData, setUrlQuery} from "helpers/query";
 import 'views/components/catalog';
 import "views/components/catalog/category-item";
 import "views/components/catalog/content-item";
@@ -41,12 +41,19 @@ class MapFiltersModalContent {
 
         if(isNavigationContentButton) {
             const id = target.dataset.id;
+            const query = [
+                {
+                    key: 'catalogLevelTwoId',
+                    value: id,
+                }
+            ];
 
             console.log('id')
             console.log(id)
 
             this.closeModal();
-            this.sendCategoryLevelTwoId(id);
+            setUrlQuery(query);
+            this.sendMapFilterUpdateMessage();
 
             // this.setLocationCookie(target);
             // this.setLocationQuery(target);
@@ -54,12 +61,8 @@ class MapFiltersModalContent {
         }
     }
 
-    sendCategoryLevelTwoId = (id) => {
-        document.dispatchEvent(new CustomEvent('j-event--select-map-filter', {
-            detail: {
-                'categoryLevelTwoId': id,
-            }
-        }));
+    sendMapFilterUpdateMessage = () => {
+        document.dispatchEvent(new CustomEvent('j-event--map-filter-update'));
     }
 
     setLocationCookie = (target) => {

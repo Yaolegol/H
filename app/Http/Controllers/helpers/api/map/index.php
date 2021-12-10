@@ -16,7 +16,9 @@ function apiGetAllOffers($filter) {
 
 function apiGetAllOffersMapMarkersDataFormatted($request) {
     $filter = $request->input('filter') ?? [];
-    $offers = apiGetAllOffers($filter);
+
+    // TEST TEST TEST
+    $offers = apiGetAllOffers([]);
 
     $offersMapMarkersDataList = [];
 

@@ -22,36 +22,30 @@ class Map2gisComponentsViewAll {
     }
 
     bind = () => {
-        addEventListener(document, 'j-event--select-map-filter', this.handleSelectMapFilter)
+        addEventListener(document, 'j-event--map-filter-update', this.handleUpdateMapFilter)
     }
 
     fetchData = async () => {
+        console.log('fetchData {{{')
         try {
             const cookieData = getCookieData();
-            const queryData = getQueryData();
+            const {catalogLevelTwoId} = getQueryData();
 
             console.log('cookieData')
             console.log(cookieData)
 
-            console.log('queryData')
-            console.log(queryData)
-
             const bodyData = {
                 filter: {
                     catalog: {
-                        levelOneId: 1,
-                        levelTwoId: 1,
+                        levelTwoId: catalogLevelTwoId ?? null,
                     },
                     location: {
-                        city: cookieData['search-city-id'],
-                        country: cookieData['search-country-id'],
-                        region: cookieData['search-region-id'],
+                        city: cookieData['search-city-id'] ?? null,
+                        country: cookieData['search-country-id'] ?? null,
+                        region: cookieData['search-region-id'] ?? null,
                     },
                 }
             };
-
-            console.log('bodyData')
-            console.log(bodyData)
 
             const body = JSON.stringify(bodyData);
 
@@ -65,28 +59,46 @@ class Map2gisComponentsViewAll {
                 method: 'POST',
             });
 
-            const {data, errors} = await result.json();
+            const data = await result.json();
 
-            if(!errors) {
-                this.offerData = data;
+            console.log('}}} fetchData')
 
-                // this.initMap();
-            }
+            return data;
         } catch(err) {
             console.error(err);
         }
     }
 
-    handleSelectMapFilter = (e) => {
-        const {detail} = e;
-        const {categoryLevelTwoId} = detail;
+    handleUpdateMapFilter = async (e) => {
+        const {data, errors} = await this.fetchData();
 
-        console.log('!!! handleSelectMapFilter categoryLevelTwoId')
-        console.log(categoryLevelTwoId)
+        console.log('handleUpdateMapFilter {{{')
+        console.log('data')
+        console.log(data)
+        console.log('errors')
+        console.log(errors)
+        console.log('}}} handleUpdateMapFilter')
+
+        if(!errors) {
+            this.offerData = data;
+        }
     }
 
-    init = () => {
-        this.fetchData();
+    init = async () => {
+        const {data, errors} = await this.fetchData();
+
+        console.log('init {{{')
+        console.log('data')
+        console.log(data)
+        console.log('errors')
+        console.log(errors)
+        console.log('}}} init')
+
+        if(!errors) {
+            this.offerData = data;
+
+            this.initMap();
+        }
     }
 
     initMap = () => {

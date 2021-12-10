@@ -2,7 +2,7 @@ export const getQueryData = () => {
     const queryString = window.location.search;
 
     if(!queryString) {
-        return null;
+        return {};
     }
 
     const urlSearchParams = new URLSearchParams(queryString);
@@ -18,7 +18,7 @@ export const getQueryData = () => {
     }, {});
 }
 
-export const getUrlWithNewQueryData = ({queryDataArray, removeQueryWithoutValue}) => {
+export const getUrlWithNewQueryData = ({queryDataArray, removeQueryWithoutValue = true}) => {
     const url = new URL(window.location);
     const queryString = window.location.search;
     const urlSearchParams = new URLSearchParams(queryString);
@@ -38,4 +38,11 @@ export const getUrlWithNewQueryData = ({queryDataArray, removeQueryWithoutValue}
     url.search = urlSearchParams.toString();
 
     return url;
+}
+
+export const setUrlQuery = (queryDataArray) => {
+    const newUrl = getUrlWithNewQueryData({queryDataArray});
+    const newUrlString = newUrl.toString();
+
+    history.pushState({}, null, newUrlString);
 }

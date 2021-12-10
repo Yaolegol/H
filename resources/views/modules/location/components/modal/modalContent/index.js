@@ -1,5 +1,5 @@
 import {addEventListener} from "helpers/events";
-import {getUrlWithNewQueryData} from "helpers/query";
+import {setUrlQuery} from "helpers/query";
 import './index.less';
 
 class LocationModalContent {
@@ -52,13 +52,7 @@ class LocationModalContent {
             }
         ];
 
-        const newUrl = getUrlWithNewQueryData({
-            queryDataArray,
-            removeQueryWithoutValue: true,
-        });
-        const newUrlString = newUrl.toString();
-
-        history.pushState({}, null, newUrlString);
+        setUrlQuery(queryDataArray);
     }
 }
 
