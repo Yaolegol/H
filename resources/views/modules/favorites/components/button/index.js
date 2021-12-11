@@ -5,6 +5,7 @@ class FavoritesButton {
     constructor(element) {
         this.module = element;
         this.id = this.module.dataset.id;
+        this.isUserLoggedIn = document.querySelector('.j-user__auth');
         this.button = this.module.querySelector('.j-favorites-components-button__button');
 
         addEventListener(this.button, 'click', this.handleClick);
@@ -14,12 +15,14 @@ class FavoritesButton {
         console.log('this.id');
         console.log(this.id);
 
-        const isActive = this.button.classList.contains('active');
+        if(this.isUserLoggedIn) {
+            const isActive = this.button.classList.contains('active');
 
-        if(isActive) {
-            this.sendRequest('add');
-        } else {
-            this.sendRequest('remove');
+            if(isActive) {
+                this.sendRequest('add');
+            } else {
+                this.sendRequest('remove');
+            }
         }
     }
 

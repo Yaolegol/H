@@ -13,6 +13,9 @@
         @yield('layout-styles')
     </head>
     <body>
+        @auth
+            <div class="j-user__auth"></div>
+        @endauth
         <div class="layout">
             @include('modules.header.index')
 
