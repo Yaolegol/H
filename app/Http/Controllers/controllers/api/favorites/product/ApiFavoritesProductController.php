@@ -32,9 +32,9 @@ class ApiFavoritesProductController extends Controller
      *
      * @return Response
      */
-    public function add(Request $request)
+    public function add(Request $request, $id)
     {
-        $result = apiAddOfferToUserFavorites($request);
+        $result = apiAddOfferToUserFavorites($id);
 
         $data = [
             'data' => [
@@ -51,9 +51,9 @@ class ApiFavoritesProductController extends Controller
      *
      * @return Response
      */
-    public function remove(Request $request)
+    public function remove(Request $request, $id)
     {
-        $result = apiRemoveOfferFromUserFavorites($request);
+        $result = apiRemoveOfferFromUserFavorites($id);
 
         $data = [
             'data' => [

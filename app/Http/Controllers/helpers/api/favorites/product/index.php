@@ -34,20 +34,14 @@ function apiRemoveOfferFromUserFavoritesInDB($productId) {
     }
 }
 
-function apiAddOfferToUserFavorites($request) {
-    $requestData = $request->input('data');
-    $productId = $requestData['productId'];
-
-    $result = apiAddOfferToUserFavoritesInDB($productId);
+function apiAddOfferToUserFavorites($id) {
+    $result = apiAddOfferToUserFavoritesInDB($id);
 
     return $result;
 }
 
-function apiRemoveOfferFromUserFavorites($request) {
-    $requestData = $request->input('data');
-    $productId = $requestData['productId'];
-
-    $result = apiRemoveOfferFromUserFavoritesInDB($productId);
+function apiRemoveOfferFromUserFavorites($id) {
+    $result = apiRemoveOfferFromUserFavoritesInDB($id);
 
     return $result;
 }

@@ -17,9 +17,37 @@ class FavoritesButton {
         const isActive = this.button.classList.contains('active');
 
         if(isActive) {
-            this.button.classList.remove('active');
+            this.sendRequest('add');
         } else {
-            this.button.classList.add('active');
+            this.sendRequest('remove');
+        }
+    }
+
+    sendRequest = async (action) => {
+        try {
+            const response = await fetch(`/api/favorites/product/${action}/${this.id}`, {
+                headers: {
+                    'Accept': 'application/json',
+                },
+                method: 'GET',
+            });
+
+            const {data, errors} = await response.json();
+
+            if(!errors) {
+                if(action === 'add') {
+                    this.button.classList.remove('active');
+                } else {
+                    this.button.classList.add('active');
+                }
+            }
+
+            console.log('data');
+            console.log(data);
+            console.log('errors');
+            console.log(errors);
+        } catch(err) {
+            console.error(err);
         }
     }
 }
