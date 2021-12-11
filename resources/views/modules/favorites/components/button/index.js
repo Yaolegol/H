@@ -8,6 +8,10 @@ class FavoritesButton {
         this.isUserLoggedIn = document.querySelector('.j-user__auth');
         this.button = this.module.querySelector('.j-favorites-components-button__button');
 
+        if(!this.isUserLoggedIn) {
+            return;
+        }
+
         this.bind();
     }
 
@@ -21,20 +25,12 @@ class FavoritesButton {
     }
 
     handleClick = (e) => {
-        console.log('this.id');
-        console.log(this.id);
+        const isActive = this.button.classList.contains('active');
 
-        if(this.isUserLoggedIn) {
-            const isActive = this.button.classList.contains('active');
-
-            console.log('isActive');
-            console.log(isActive);
-
-            if(isActive) {
-                this.sendRequest('remove');
-            } else {
-                this.sendRequest('add');
-            }
+        if(isActive) {
+            this.sendRequest('remove');
+        } else {
+            this.sendRequest('add');
         }
     }
 
@@ -69,11 +65,6 @@ class FavoritesButton {
                     this.button.classList.remove('active');
                 }
             }
-
-            console.log('data');
-            console.log(data);
-            console.log('errors');
-            console.log(errors);
         } catch(err) {
             console.error(err);
         }
