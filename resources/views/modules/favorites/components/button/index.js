@@ -13,6 +13,14 @@ class FavoritesButton {
     handleClick = (e) => {
         console.log('this.id');
         console.log(this.id);
+
+        const isActive = this.button.classList.contains('active');
+
+        if(isActive) {
+            this.button.classList.remove('active');
+        } else {
+            this.button.classList.add('active');
+        }
     }
 }
 
