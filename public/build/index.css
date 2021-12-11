@@ -2002,9 +2002,12 @@ p {
   width: 20px;
 }
 .offers-item__favorite-icon-container:hover {
-  color: yellow;
+  color: #ffff00;
   cursor: pointer;
   stroke: #000000;
+}
+.offers-item__favorite-icon-container:hover svg {
+  filter: drop-shadow(0 0 10px #ffff00);
 }
 .offers-item__image {
   bottom: 0;
