@@ -30,9 +30,9 @@
         </div>
     </div>
     <div class="offers-item__service-block">
-        <button class="offers-item__favorite-button">
-            @include('icons.favorite')
-        </button>
+        @include('modules.favorites.components.button.index', [
+            'id' => $offer['id'],
+        ])
     </div>
 </div>
 

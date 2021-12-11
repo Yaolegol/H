@@ -1983,6 +1983,19 @@ p {
   display: none;
 }
 
+.favorites-components-button__button {
+  color: rgba(0, 0, 0, 0.15);
+  width: 20px;
+}
+.favorites-components-button__button:hover {
+  color: #ffff00;
+  cursor: pointer;
+  stroke: #000000;
+}
+.favorites-components-button__button:hover svg {
+  filter: drop-shadow(0 0 10px #ffff00);
+}
+
 .offers-item {
   border: 1px solid #E9EDF6;
   border-radius: 10px;
@@ -1996,18 +2009,6 @@ p {
 .offers-item__content-block {
   flex: 3 0 auto;
   padding: 0 0 0 20px;
-}
-.offers-item__favorite-button {
-  color: rgba(0, 0, 0, 0.15);
-  width: 20px;
-}
-.offers-item__favorite-button:hover {
-  color: #ffff00;
-  cursor: pointer;
-  stroke: #000000;
-}
-.offers-item__favorite-button:hover svg {
-  filter: drop-shadow(0 0 10px #ffff00);
 }
 .offers-item__image {
   bottom: 0;
