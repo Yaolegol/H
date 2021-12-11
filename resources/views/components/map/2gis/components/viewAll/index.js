@@ -81,6 +81,12 @@ class Map2gisComponentsViewAll {
 
         if(!errors) {
             this.offerData = data;
+
+            this.instanceOfMap2gisCommonBase.clearClusterGroup();
+            this.instanceOfMap2gisCommonBase.initMarkers({
+                markerDataList: this.offerData,
+                useMarkerCluster: true,
+            });
         }
     }
 

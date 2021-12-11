@@ -15,10 +15,31 @@ function apiGetAllOffers($filter) {
 }
 
 function apiGetAllOffersMapMarkersDataFormatted($request) {
-    $filter = $request->input('filter') ?? [];
+    $requestFilter = $request->input('filter') ?? [];
+    $DBFilter = [];
 
-    // TEST TEST TEST
-    $offers = apiGetAllOffers([]);
+    $catalogLevelTwoId = $requestFilter['catalog']['levelTwoId'] ?? null;
+    $countryId = $requestFilter['location']['country'] ?? null;
+    $regionId = $requestFilter['location']['region'] ?? null;
+    $cityId = $requestFilter['location']['city'] ?? null;
+
+    if($catalogLevelTwoId) {
+        array_push($DBFilter, ['catalog_level_two_id', $catalogLevelTwoId]);
+    }
+
+    if($countryId) {
+        array_push($DBFilter, ['country_id', $countryId]);
+    }
+
+    if($regionId) {
+        array_push($DBFilter, ['region_id', $regionId]);
+    }
+
+    if($cityId) {
+        array_push($DBFilter, ['city_id', $cityId]);
+    }
+
+    $offers = apiGetAllOffers($DBFilter);
 
     $offersMapMarkersDataList = [];
 
@@ -80,9 +101,22 @@ function apiGetOfferMapMarkersData($offer) {
 
     $offerMapMarkersData = [];
 
-    if(!empty($offerMarkerData) || !empty($salePointsMarkerDataList)) {
+    $isOfferMarkerDataExists = !empty($offerMarkerData);
+    $isSalePointsMarkerDataListExists = !empty($salePointsMarkerDataList);
+
+    if($isOfferMarkerDataExists || $isSalePointsMarkerDataListExists) {
+        $markersList = [];
+
+        if($isOfferMarkerDataExists) {
+            array_push($markersList, [$offerMarkerData]);
+        }
+
+        if($isSalePointsMarkerDataListExists) {
+            array_push($markersList, $salePointsMarkerDataList);
+        }
+
         $offerMapMarkersData = [
-            'markersList' => array_merge([$offerMarkerData], $salePointsMarkerDataList),
+            'markersList' => array_merge(...$markersList),
             'price' => $offer['price'],
             'title' => $offer['title'],
         ];
