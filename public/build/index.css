@@ -1997,16 +1997,16 @@ p {
   flex: 3 0 auto;
   padding: 0 0 0 20px;
 }
-.offers-item__favorite-icon-container {
+.offers-item__favorite-buttob {
   color: rgba(0, 0, 0, 0.15);
   width: 20px;
 }
-.offers-item__favorite-icon-container:hover {
+.offers-item__favorite-buttob:hover {
   color: #ffff00;
   cursor: pointer;
   stroke: #000000;
 }
-.offers-item__favorite-icon-container:hover svg {
+.offers-item__favorite-buttob:hover svg {
   filter: drop-shadow(0 0 10px #ffff00);
 }
 .offers-item__image {

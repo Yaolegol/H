@@ -30,7 +30,7 @@
         </div>
     </div>
     <div class="offers-item__service-block">
-        <button class="offers-item__favorite-icon-container">
+        <button class="offers-item__favorite-button">
             @include('icons.favorite')
         </button>
     </div>
