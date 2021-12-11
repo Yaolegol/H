@@ -17,10 +17,10 @@ class ApiFavoritesProductController extends Controller
      */
     public function index(Request $request)
     {
-        $offersMapMarkersDataList = apiGetAllUserFavoritesProductsFormatted();
+        $userFavoritesProductsList = apiGetAllUserFavoritesProductsFormatted();
 
         $data = [
-            'data' => $offersMapMarkersDataList,
+            'data' => $userFavoritesProductsList,
             'errors' => '',
         ];
 
@@ -32,12 +32,14 @@ class ApiFavoritesProductController extends Controller
      *
      * @return Response
      */
-    public function add()
+    public function add(Request $request)
     {
-        $result = apiAddOfferToUserFavorites();
+        $result = apiAddOfferToUserFavorites($request);
 
         $data = [
-            'data' => $result,
+            'data' => [
+                'success' => $result,
+            ],
             'errors' => '',
         ];
 
@@ -49,12 +51,14 @@ class ApiFavoritesProductController extends Controller
      *
      * @return Response
      */
-    public function remove()
+    public function remove(Request $request)
     {
-        $result = apiRemoveOfferFromUserFavorites();
+        $result = apiRemoveOfferFromUserFavorites($request);
 
         $data = [
-            'data' => $result,
+            'data' => [
+                'success' => $result,
+            ],
             'errors' => '',
         ];
 

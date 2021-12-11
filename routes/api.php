@@ -33,6 +33,7 @@ Route::post('/register', [ApiRegisterController::class, 'register']);
 Route::post('/login', [ApiLoginController::class, 'login']);
 
 Route::group(['middleware' => ['auth:sanctum']], function() {
+    Route::get('/favorites', [ApiFavoritesProductController::class, 'index']);
     Route::post('/favorites/add', [ApiFavoritesProductController::class, 'add']);
     Route::post('/favorites/remove', [ApiFavoritesProductController::class, 'remove']);
 

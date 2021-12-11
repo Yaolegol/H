@@ -2,10 +2,10 @@
 
 use Illuminate\Support\Facades\Auth;
 
-function apiAddOfferToUserFavoritesInDB() {
+function apiAddOfferToUserFavoritesInDB($productId) {
     try {
         $authUser = Auth::user();
-        $authUser->favoritesOffers()->attach(1);
+        $authUser->favoritesOffers()->attach($productId);
 
         return true;
     } catch(\Exception $err) {
@@ -13,10 +13,20 @@ function apiAddOfferToUserFavoritesInDB() {
     }
 }
 
-function apiRemoveOfferFromUserFavoritesInDB() {
+function apiGetAllUserFavoritesOffersFromDB() {
     try {
         $authUser = Auth::user();
-        $authUser->favoritesOffers()->detach(1);
+
+        return $authUser->favoritesOffers()->get()->toArray();
+    } catch(\Exception $err) {
+        return false;
+    }
+}
+
+function apiRemoveOfferFromUserFavoritesInDB($productId) {
+    try {
+        $authUser = Auth::user();
+        $authUser->favoritesOffers()->detach($productId);
 
         return true;
     } catch(\Exception $err) {
@@ -24,18 +34,30 @@ function apiRemoveOfferFromUserFavoritesInDB() {
     }
 }
 
-function apiAddOfferToUserFavorites() {
-    $result = apiAddOfferToUserFavoritesInDB();
+function apiAddOfferToUserFavorites($request) {
+    $requestData = $request->input('data');
+    $productId = $requestData['productId'];
 
-    dd($result);
+    $result = apiAddOfferToUserFavoritesInDB($productId);
+
+    return $result;
 }
 
-function apiRemoveOfferFromUserFavorites() {
-    $result = apiRemoveOfferFromUserFavoritesInDB();
+function apiRemoveOfferFromUserFavorites($request) {
+    $requestData = $request->input('data');
+    $productId = $requestData['productId'];
 
-    dd($result);
+    $result = apiRemoveOfferFromUserFavoritesInDB($productId);
+
+    return $result;
 }
 
 function apiGetAllUserFavoritesProductsFormatted() {
+    $result = apiGetAllUserFavoritesOffersFromDB();
 
+    if($result) {
+        return $result;
+    } else {
+        return [];
+    }
 }
