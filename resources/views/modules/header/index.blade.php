@@ -17,8 +17,8 @@
         <div class="header__location-container">
             @include('modules.location.components.choose.iconButton.index')
         </div>
-        <div class="header__favorites-container">
-            <div class="header__favorites-count-container"></div>
+        <div class="header__favorites-container j-favorites-components-header-counter">
+            <div class="header__favorites-count-container j-favorites-components-header-counter__count"></div>
             @include('icons.favorite')
         </div>
         <div class="header__profile-container">
