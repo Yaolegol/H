@@ -1997,6 +1997,15 @@ p {
   flex: 3 0 auto;
   padding: 0 0 0 20px;
 }
+.offers-item__favorite-icon-container {
+  color: rgba(0, 0, 0, 0.15);
+  width: 20px;
+}
+.offers-item__favorite-icon-container:hover {
+  color: yellow;
+  cursor: pointer;
+  stroke: #000000;
+}
 .offers-item__image {
   bottom: 0;
   height: 100%;
@@ -2025,6 +2034,9 @@ p {
 }
 .offers-item__rating-section {
   margin-top: 20px;
+}
+.offers-item__service-block {
+  flex: 0 1 auto;
 }
 
 .offers-list {

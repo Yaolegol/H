@@ -29,6 +29,11 @@
             <span>Товар: 4.5</span> <span>Продавец: 4.0</span>
         </div>
     </div>
+    <div class="offers-item__service-block">
+        <button class="offers-item__favorite-icon-container">
+            @include('icons.favorite')
+        </button>
+    </div>
 </div>
 
 
