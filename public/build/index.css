@@ -261,7 +261,7 @@
   justify-content: center;
   position: absolute;
   right: -8px;
-  top: -10px;
+  top: -11px;
   width: 20px;
 }
 .header__favorites-container.active .header__favorites-count-container {
