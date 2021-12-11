@@ -28,38 +28,16 @@ class ApiFavoritesProductController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Add
      *
      * @return Response
      */
-    public function create()
+    public function add()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  Request  $request
-     * @return Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  string  $offerId
-     * @return Response
-     */
-    public function show($offerId)
-    {
-        $offerData = apiGetOfferMapMarkersDataFormatted($offerId);
+        $result = apiAddOfferToUserFavorites();
 
         $data = [
-            'data' => $offerData,
+            'data' => $result,
             'errors' => '',
         ];
 
@@ -67,36 +45,19 @@ class ApiFavoritesProductController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Remove
      *
-     * @param  int  $id
      * @return Response
      */
-    public function edit($id)
+    public function remove()
     {
-        //
-    }
+        $result = apiRemoveOfferFromUserFavorites();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  Request  $request
-     * @param  int  $id
-     * @return Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+        $data = [
+            'data' => $result,
+            'errors' => '',
+        ];
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
+        return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
     }
 }

@@ -53,6 +53,11 @@ class User extends Authenticatable
         'registration_email_verified_at' => 'datetime',
     ];
 
+    public function favoritesOffers()
+    {
+        return $this->belongsToMany(Offer::class, 'users_favorites_offers', 'user_id', 'offer_id');
+    }
+
     public function offers()
     {
         return $this->hasMany(Offer::class);

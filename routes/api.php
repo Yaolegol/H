@@ -4,7 +4,8 @@ use App\Http\Controllers\controllers\api\authorization\register\ApiRegisterContr
 use App\Http\Controllers\controllers\api\authorization\login\ApiLoginController;
 use App\Http\Controllers\controllers\api\authorization\logout\ApiLogoutController;
 use App\Http\Controllers\controllers\api\catalog\ApiCatalogController;
-use App\Http\Controllers\controllers\api\map\ApiFavoritesController;
+use App\Http\Controllers\controllers\api\favorites\product\ApiFavoritesProductController;
+use App\Http\Controllers\controllers\api\map\ApiMapController;
 use App\Http\Controllers\controllers\api\profile\personalData\ApiProfilePersonalDataController;
 use App\Http\Controllers\controllers\api\profile\organizationData\ApiProfileOrganizationDataController;
 use App\Http\Controllers\controllers\api\profile\salePointsInfo\ApiProfileSalePointsController;
@@ -25,13 +26,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/catalog', [ApiCatalogController::class, 'index']);
 Route::get('/catalog/{id}', [ApiCatalogController::class, 'show']);
 
-Route::get('/map/{id}', [ApiFavoritesController::class, 'show']);
-Route::post('/map', [ApiFavoritesController::class, 'index']);
+Route::get('/map/{id}', [ApiMapController::class, 'show']);
+Route::post('/map', [ApiMapController::class, 'index']);
 
 Route::post('/register', [ApiRegisterController::class, 'register']);
 Route::post('/login', [ApiLoginController::class, 'login']);
 
 Route::group(['middleware' => ['auth:sanctum']], function() {
+    Route::post('/favorites/add', [ApiFavoritesProductController::class, 'add']);
+    Route::post('/favorites/remove', [ApiFavoritesProductController::class, 'remove']);
+
     Route::get('/profile/personal-info', [ApiProfilePersonalDataController::class, 'index']);
     Route::post('/profile/personal-info', [ApiProfilePersonalDataController::class, 'updatePersonalData']);
     Route::post('/profile/add-avatar', [ApiProfilePersonalDataController::class, 'addAvatar']);
