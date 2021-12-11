@@ -61,13 +61,23 @@ class FavoritesButton {
             if(!errors) {
                 if(action === 'add') {
                     this.activateButton();
+                    this.sendUpdateMessage('add');
                 } else {
                     this.button.classList.remove('active');
+                    this.sendUpdateMessage('remove');
                 }
             }
         } catch(err) {
             console.error(err);
         }
+    }
+
+    sendUpdateMessage = (action) => {
+        document.dispatchEvent(new CustomEvent('j-event-happened-update-favorites', {
+            detail: {
+                action,
+            }
+        }))
     }
 }
 

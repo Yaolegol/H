@@ -250,8 +250,6 @@
 }
 .header__favorites-container.active svg {
   color: #FFFFFF;
-  stroke: #FFFFFF;
-  stroke-width: 2px;
 }
 .header__favorites-count-container {
   align-items: center;
