@@ -4,10 +4,19 @@ import './index.less';
 class FavoritesButton {
     constructor(element) {
         this.module = element;
-        this.id = this.module.dataset.id;
+        this.id = Number(this.module.dataset.id);
         this.isUserLoggedIn = document.querySelector('.j-user__auth');
         this.button = this.module.querySelector('.j-favorites-components-button__button');
 
+        this.bind();
+    }
+
+    activateButton = () => {
+        this.button.classList.add('active');
+    }
+
+    bind = () => {
+        addEventListener(document, 'j-event-happened-get-favorites', this.handleGetFavorites);
         addEventListener(this.button, 'click', this.handleClick);
     }
 
@@ -18,12 +27,28 @@ class FavoritesButton {
         if(this.isUserLoggedIn) {
             const isActive = this.button.classList.contains('active');
 
+            console.log('isActive');
+            console.log(isActive);
+
             if(isActive) {
-                this.sendRequest('add');
-            } else {
                 this.sendRequest('remove');
+            } else {
+                this.sendRequest('add');
             }
         }
+    }
+
+    handleGetFavorites = (e) => {
+        const {detail} = e;
+        const {list} = detail;
+
+        list.forEach((offer) => {
+            const {id} = offer;
+
+            if(id === this.id) {
+                this.activateButton();
+            }
+        })
     }
 
     sendRequest = async (action) => {
@@ -39,9 +64,9 @@ class FavoritesButton {
 
             if(!errors) {
                 if(action === 'add') {
-                    this.button.classList.remove('active');
+                    this.activateButton();
                 } else {
-                    this.button.classList.add('active');
+                    this.button.classList.remove('active');
                 }
             }
 

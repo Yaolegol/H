@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Auth;
 function apiAddOfferToUserFavoritesInDB($productId) {
     try {
         $authUser = Auth::user();
-        $authUser->favoritesOffers()->attach($productId);
+        $authUser->favoritesOffers()->syncWithoutDetaching([$productId]);
 
         return true;
     } catch(\Exception $err) {
