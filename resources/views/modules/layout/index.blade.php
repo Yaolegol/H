@@ -41,7 +41,7 @@
         </script>
 
         <script data-id="11" src="/build/test_header_medium.js"></script>
-        <script data-id="4" src="/build/test_header.js"></script>
+{{--        <script data-id="4" src="/build/test_header.js"></script>--}}
         <script data-id="10" src="/build/test_header_small.js"></script>
     </head>
     <body>
@@ -50,11 +50,11 @@
             console.log('document.readyState')
             console.log(document.readyState)
 
-            let scriptTag = document.createElement('script');
-            scriptTag.src = '/build/test_header_0.js';
-            scriptTag.async = false;
-            scriptTag.defer = true;
-            document.head.append(scriptTag);
+            // let scriptTag = document.createElement('script');
+            // scriptTag.src = '/build/test_header_0.js';
+            // scriptTag.async = false;
+            // scriptTag.defer = true;
+            // document.head.append(scriptTag);
         </script>
         @auth
             <div class="j-user__auth"></div>
@@ -96,7 +96,7 @@
         <script data-id="2">
             test_script_1();
         </script>
-        <script data-id="5" src="/build/test_body_bottom.js"></script>
+{{--        <script data-id="5" src="/build/test_body_bottom.js"></script>--}}
 
         <div class="j-test-2">test 2</div>
         <script data-id="8">

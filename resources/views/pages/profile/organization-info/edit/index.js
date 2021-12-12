@@ -3,3 +3,5 @@ import 'views/modules/layout';
 import 'views/modules/profile/common/header';
 import 'views/modules/profile/components/organization-info/edit';
 import './index.less';
+
+console.log('>>>>> views/pages/profile/organization-info/edit')

@@ -3,3 +3,5 @@ import 'views/modules/header';
 import 'views/modules/layout';
 import 'views/modules/offers/offer';
 import './index.less';
+
+console.log('>>>>> resources/views/pages/offers/show/index.js')
