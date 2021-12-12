@@ -7,4 +7,9 @@ console.log('>>>>> views/pages/auth/login')
 
 const a = document.querySelector('.testtestestetestset');
 
-a.classList.add('test');
+try {
+    a.classList.add('test');
+} catch(err) {
+    console.log('err')
+    console.log(err)
+}
