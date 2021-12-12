@@ -5,11 +5,14 @@ import './index.less';
 
 console.log('>>>>> views/pages/auth/login')
 
-const a = document.querySelector('.testtestestetestset');
+const a = 'test';
 
-try {
-    a.classList.add('test');
-} catch(err) {
-    console.log('err')
-    console.log(err)
-}
+console.log('a')
+console.log(a)
+
+// try {
+//     a.classList.add('test');
+// } catch(err) {
+//     console.log('err')
+//     console.log(err)
+// }

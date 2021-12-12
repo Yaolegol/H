@@ -5,3 +5,8 @@ import 'views/modules/layout';
 import './index.less';
 
 console.log('>>>>> views/pages/catalog/secondLevel')
+
+const a = 'test';
+
+console.log('a')
+console.log(a)

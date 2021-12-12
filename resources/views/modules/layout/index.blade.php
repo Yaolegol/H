@@ -104,6 +104,25 @@
             console.log('!!! test2');
             console.log(newTest2);
         </script>
+
+        <script data-id="module" type="module">
+            console.log('!!! MODULE TEST')
+            const test = document.querySelector('.j-test-2');
+            console.log('test');
+            console.log(test);
+        </script>
+        <script data-id="module" type="module">
+            console.log('!!! MODULE TEST')
+            const test = document.querySelector('.j-test-2');
+            console.log('test');
+            console.log(test);
+        </script>
+        <script data-id="module" type="module">
+            console.log('!!! MODULE TEST')
+            const test = document.querySelector('.j-test-2');
+            console.log('test');
+            console.log(test);
+        </script>
         <div>test</div>
         <div>test</div>
 
