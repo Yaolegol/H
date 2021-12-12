@@ -6,7 +6,7 @@ import './index.less';
 
 console.log('>>>>> views/pages/home')
 
-const a = 'test';
+var a = 'test';
 
 console.log('a')
 console.log(a)

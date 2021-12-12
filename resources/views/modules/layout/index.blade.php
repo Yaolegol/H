@@ -107,18 +107,30 @@
 
         <script data-id="module" type="module">
             console.log('!!! MODULE TEST')
+            var a = 'test';
+            console.log('a');
+            console.log(a);
+
             const test = document.querySelector('.j-test-2');
             console.log('test');
             console.log(test);
         </script>
         <script data-id="module" type="module">
             console.log('!!! MODULE TEST')
+            var a = 'test';
+            console.log('a');
+            console.log(a);
+
             const test = document.querySelector('.j-test-2');
             console.log('test');
             console.log(test);
         </script>
         <script data-id="module" type="module">
             console.log('!!! MODULE TEST')
+            var a = 'test';
+            console.log('a');
+            console.log(a);
+
             const test = document.querySelector('.j-test-2');
             console.log('test');
             console.log(test);

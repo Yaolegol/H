@@ -5,7 +5,7 @@ import './index.less';
 
 console.log('>>>>> views/pages/auth/login')
 
-const a = 'test';
+var a = 'test';
 
 console.log('a')
 console.log(a)

@@ -3,7 +3,7 @@ import './index.less';
 
 console.log('>>>>> views/pages/map/mobileApp/singlePoint')
 
-const a = 'test';
+var a = 'test';
 
 console.log('a')
 console.log(a)

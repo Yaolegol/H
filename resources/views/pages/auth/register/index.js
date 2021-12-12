@@ -5,7 +5,7 @@ import './index.less';
 
 console.log('>>>>> resources/views/pages/auth/register/index.js')
 
-const a = 'test';
+var a = 'test';
 
 console.log('a')
 console.log(a)
