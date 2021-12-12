@@ -5,10 +5,9 @@ import './index.less';
 
 console.log('>>>>> views/pages/auth/login')
 
-var a = 'test';
+const a = document.querySelector('.testtestestetestset');
 
-console.log('a')
-console.log(a)
+a.classList.add('test');
 
 // try {
 //     a.classList.add('test');
