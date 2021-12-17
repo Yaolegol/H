@@ -135,6 +135,29 @@
             console.log('test');
             console.log(test);
         </script>
+
+        <script data-id="module" type="module">
+            console.log('!!!NEW TEST')
+            function test() {
+                console.log('function test body start');
+                try {
+                    abc + 5;
+                } catch(err) {
+                    console.log(err);
+                }
+
+                console.log('function test body end')
+            }
+
+            const intervalId = setInterval(() => {
+                test();
+            }, 1000);
+
+            setTimeout(()=> {
+                clearInterval(intervalId);
+            }, 10000)
+        </script>
+
         <div>test</div>
         <div>test</div>
 
