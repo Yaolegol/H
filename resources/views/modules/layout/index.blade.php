@@ -22,7 +22,7 @@
         </script>
 
         <script data-id="11" src="/build/test_header_medium.js" async></script>
-        <script data-id="10" src="/build/test_header_small.js" defer></script>
+        <script data-id="10" src="/build/test_header_small.js"></script>
         <script>
             console.log('HEADER LAST SCRIPT START COUNT')
 
@@ -33,13 +33,18 @@
 
             console.log(countSecond);
         </script>
+        <script>
+            let scriptElementHead = document.createElement('script');
+            scriptElementHead.src = '/build/test_header.js';
+            document.head.appendChild(scriptElementHead);
+        </script>
     </head>
     <body>
         <script>
             console.log('BODY FIRST SCRIPT START COUNT')
 
             let count3 = 0;
-            while(count3 < 2000000000) {
+            while(count3 < 0) {
                 count3++;
             }
 
@@ -57,7 +62,7 @@
                 </div>
             </div>
         </div>
-        @yield('layout-scripts')
+{{--        @yield('layout-scripts')--}}
 {{--        <script data-id="4" src="/build/test_header.js"></script>--}}
         <script>
             console.log('BODY LAST SCRIPT')
@@ -75,9 +80,22 @@
                 console.log('DOMContentLoaded document')
             })
 
-            let scriptElement = document.createElement('script');
-            scriptElement.src = '/build/test_header.js';
-            document.head.appendChild(scriptElement);
+            console.log('BODY LAST SCRIPT START COUNT')
+
+            let count5 = 0;
+            while(count5 < 2000000000) {
+                count5++;
+            }
+
+            console.log(count5);
+
+            // let scriptElement = document.createElement('script');
+            // scriptElement.src = '/build/test_header.js';
+            // scriptElement.setAttribute('async', 'false');
+            // document.body.appendChild(scriptElement);
+
+
+
         </script>
     </body>
 </html>
