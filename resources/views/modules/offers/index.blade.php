@@ -4,10 +4,9 @@
         @include('modules.location.components.choose.infoBlock.block.index')
     </div>
     @include('modules.offers.list.index', [
-        'offersList' => $offersList,
+        'offersList' => $offersPaginatedData['data'],
         'withSeller' => true
     ])
-    {{$offersPaginatedInstance->links()}}
 </div>
 
 

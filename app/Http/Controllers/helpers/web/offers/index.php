@@ -130,7 +130,7 @@ function getOfferFormatted($id)
 function getOffersPaginatedData($catalogFull, $catalogLevelOneLink, $productLink, $searchCountry, $searchRegion, $searchCity)
 {
     $catalogLevelTwoItem = getCatalogLevelTwoItem($catalogFull, $catalogLevelOneLink, $productLink);
-    $offersPaginatedInstance = Offer::where([
+    $offersPaginatedData = Offer::where([
         'catalog_level_two_id' => $catalogLevelTwoItem['id'],
         'country_id' => $searchCountry,
         'region_id' => $searchRegion,
@@ -139,14 +139,9 @@ function getOffersPaginatedData($catalogFull, $catalogLevelOneLink, $productLink
         'catalogLevelTwo',
         'measure',
         'user',
-    ])->paginate(1);
+    ])->paginate(1)->toArray();
 
-    $offersPaginatedData = $offersPaginatedInstance->toArray();
-    $offersList = $offersPaginatedData['data'];
-    $offersListFormatted = formatOffers($offersList);
+    $offersPaginatedData['data'] = formatOffers($offersPaginatedData['data']);
 
-    return [
-        'offersListFormatted' => $offersListFormatted,
-        'offersPaginatedInstance' => $offersPaginatedInstance,
-    ];
+    return $offersPaginatedData;
 }

@@ -31,15 +31,14 @@ class OffersController extends Controller
         $locationList = getLocationListFormatted();
         $locationSearch = getLocationSearchFormatted($locationList, $searchCountryId, $searchRegionId, $searchCityId);
 
-        dd($offersPaginatedData['offersPaginatedInstance']->toArray());
+//        dd($offersPaginatedData);
 
         return view('pages.offers.index.index', [
             'breadcrumbs' => $breadcrumbs,
             'catalogHeader' => $catalogFull,
             'locationList' => $locationList,
             'locationSearch' => $locationSearch,
-            'offersList' => $offersPaginatedData['offersListFormatted'],
-            'offersPaginatedInstance' => $offersPaginatedData['offersPaginatedInstance'],
+            'offersPaginatedData' => $offersPaginatedData,
         ]);
     }
 
