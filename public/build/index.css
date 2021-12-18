@@ -280,6 +280,7 @@
 }
 .header__favorites-icon-container {
   line-height: 0;
+  position: relative;
   width: 30px;
 }
 .header__favorites-icon-container svg {
@@ -289,6 +290,15 @@
 }
 .header__favorites-icon-container.active svg {
   color: #FFFFFF;
+}
+.header__favorites-link {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
 }
 .header__location-container {
   line-height: 0;

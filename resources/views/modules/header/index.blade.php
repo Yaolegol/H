@@ -21,6 +21,9 @@
             <div class="header__favorites-count-container j-favorites-components-header-counter__count"></div>
             <div class="header__favorites-icon-container j-favorites-components-header-counter">
                 @include('icons.favorite')
+                @auth
+                    <a class="header__favorites-link" href="/favorites"></a>
+                @endauth
             </div>
 
             @guest
