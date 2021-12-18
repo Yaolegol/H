@@ -58,6 +58,10 @@ class User extends Authenticatable
         return $this->belongsToMany(Offer::class, 'users_favorites_offers', 'user_id', 'offer_id');
     }
 
+    public function getUserData() {
+        return $this->toArray();
+    }
+
     public function offers()
     {
         return $this->hasMany(Offer::class);

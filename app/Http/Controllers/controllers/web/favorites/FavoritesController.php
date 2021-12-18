@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 require_once('app/Http/Controllers/helpers/web/catalog/index.php');
+require_once('app/Http/Controllers/helpers/web/favorites/index.php');
 require_once('app/Http/Controllers/helpers/web/location/index.php');
 
 class FavoritesController extends Controller
@@ -19,10 +20,12 @@ class FavoritesController extends Controller
     {
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
+        $favoritesList = getUserFavoritesFormatted();
 
         return view('pages.favorites.index.index', [
             'catalogHeader' => $catalogFull,
             'locationList' => $locationList,
+            'cardDataList' => $favoritesList,
         ]);
     }
 }
