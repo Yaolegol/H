@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Http\Controllers\controllers\web\favorites;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+require_once('app/Http/Controllers/helpers/web/catalog/index.php');
+require_once('app/Http/Controllers/helpers/web/location/index.php');
+
+class FavoritesController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
+        $catalogFull = getCatalogFull();
+        $locationList = getLocationListFormatted();
+
+        return view('pages.favorites.index.index', [
+            'catalogHeader' => $catalogFull,
+            'locationList' => $locationList,
+        ]);
+    }
+}

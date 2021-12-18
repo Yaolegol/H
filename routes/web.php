@@ -5,6 +5,7 @@ use App\Http\Controllers\controllers\web\authorization\login\LoginController;
 use App\Http\Controllers\controllers\web\authorization\logout\LogoutController;
 use App\Http\Controllers\controllers\web\authorization\register\RegisterController;
 use App\Http\Controllers\controllers\web\catalog\CatalogController;
+use App\Http\Controllers\controllers\web\favorites\FavoritesController;
 use App\Http\Controllers\controllers\web\map\MapController;
 use App\Http\Controllers\controllers\web\offers\OffersController;
 use App\Http\Controllers\controllers\web\profile\index\ProfileController;
@@ -47,6 +48,8 @@ Route::get('/map/mobile-app/single-point', [MapMobileAppSinglePoint::class, 'sin
 Route::get('/map', [MapController::class, 'index']);
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/favorites', [FavoritesController::class, 'index']);
+
     Route::get('/profile', [ProfileController::class, 'index']);
 
     Route::get('/profile/personal-info', [ProfilePersonalDataController::class, 'index']);

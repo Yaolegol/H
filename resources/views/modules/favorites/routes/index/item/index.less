@@ -1,0 +1,59 @@
+@import (reference) '~styles/colors';
+
+.offers-item {
+    border: 1px solid @white_100;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 1px rgba(242, 242, 242, 0.70);
+    display: flex;
+    padding: 20px;
+
+    &__contacts-block {
+        margin-top: 15px;
+    }
+
+    &__content-block {
+        flex: 3 0 auto;
+        padding: 0 0 0 20px;
+    }
+
+    &__image {
+        bottom: 0;
+        height: 100%;
+        left: 0;
+        object-fit: cover;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+    }
+
+    &__image-block {
+        flex: 2 0 auto;
+        position: relative;
+    }
+
+    &__image-link {
+        bottom: 0;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+    }
+
+    &__price-container {
+        margin-top: 15px;
+    }
+
+    &__rating-section {
+        margin-top: 20px;
+    }
+
+    &__seller-info-container {
+    }
+
+    &__service-block {
+        flex: 0 1 auto;
+    }
+}
