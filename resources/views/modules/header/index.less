@@ -4,21 +4,7 @@
     position: relative;
 
     &__favorites-container {
-        line-height: 0;
         position: relative;
-        width: 30px;
-
-        svg {
-            color: transparent;
-            stroke: @white;
-            stroke-width: 2px;
-        }
-
-        &.active {
-            svg {
-                color: @white;
-            }
-        }
     }
 
     &__favorites-count-container {
@@ -36,6 +22,48 @@
 
         .header__favorites-container.active & {
             display: flex;
+        }
+    }
+
+    &__favorites-hint-block {
+        align-items: center;
+        background-color: @primary;
+        border-radius: 10px;
+        color: @white;
+        display: none;
+        flex-direction: column;
+        padding: 10px;
+        position: absolute;
+        right: 0;
+        text-align: center;
+
+        .header__favorites-container:hover & {
+            display: flex;
+        }
+    }
+
+    &__favorites-hint-link {
+        color: @white;
+    }
+
+    &__favorites-hint-text-container {
+        margin-top: 5px;
+    }
+
+    &__favorites-icon-container {
+        line-height: 0;
+        width: 30px;
+
+        svg {
+            color: transparent;
+            stroke: @white;
+            stroke-width: 2px;
+        }
+
+        &.active {
+            svg {
+                color: @white;
+            }
         }
     }
 

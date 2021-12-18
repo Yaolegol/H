@@ -19,7 +19,24 @@
         </div>
         <div class="header__favorites-container j-favorites-components-header-counter">
             <div class="header__favorites-count-container j-favorites-components-header-counter__count"></div>
-            @include('icons.favorite')
+            <div class="header__favorites-icon-container j-favorites-components-header-counter">
+                @include('icons.favorite')
+            </div>
+
+            @guest
+                <div class="header__favorites-hint-block">
+                    <div class="header__favorites-hint-title">Чтобы просмотреть "Избранное" нужно</div>
+                    <div class="header__favorites-hint-text-container">
+                        <a class="header__favorites-hint-link" href="/login">Войти</a>
+                    </div>
+                    <div class="header__favorites-hint-text-container">
+                        <div class="header__favorites-hint-text">или</div>
+                    </div>
+                    <div class="header__favorites-hint-text-container">
+                        <a class="header__favorites-hint-link" href="/register">Зарегистрироваться</a>
+                    </div>
+                </div>
+            @endguest
         </div>
         <div class="header__profile-container">
             <a class="header__profile-link" href="/profile">
