@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 require_once('app/Http/Controllers/helpers/web/catalog/index.php');
 require_once('app/Http/Controllers/helpers/web/favorites/index.php');
 require_once('app/Http/Controllers/helpers/web/location/index.php');
+require_once('app/Http/Controllers/helpers/web/offers/index.php');
 
 class FavoritesController extends Controller
 {
