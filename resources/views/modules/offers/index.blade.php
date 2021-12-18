@@ -7,6 +7,7 @@
         'offersList' => $offersList,
         'withSeller' => true
     ])
+    {{$offersPaginatedInstance->links()}}
 </div>
 
 

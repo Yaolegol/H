@@ -26,17 +26,20 @@ class OffersController extends Controller
         $searchCityId = $request->cookie('search-city-id');
 
         $catalogFull = getCatalogFull();
-        $offersList = getOffers($catalogFull, $catalogLevelOneLink, $productLink, $searchCountryId, $searchRegionId, $searchCityId);
+        $offersPaginatedData = getOffersPaginatedData($catalogFull, $catalogLevelOneLink, $productLink, $searchCountryId, $searchRegionId, $searchCityId);
         $breadcrumbs = getCatalogOffersBreadcrumbs($catalogFull, $catalogLevelOneLink, $productLink);
         $locationList = getLocationListFormatted();
         $locationSearch = getLocationSearchFormatted($locationList, $searchCountryId, $searchRegionId, $searchCityId);
+
+        dd($offersPaginatedData['offersPaginatedInstance']->toArray());
 
         return view('pages.offers.index.index', [
             'breadcrumbs' => $breadcrumbs,
             'catalogHeader' => $catalogFull,
             'locationList' => $locationList,
             'locationSearch' => $locationSearch,
-            'offersList' => $offersList,
+            'offersList' => $offersPaginatedData['offersListFormatted'],
+            'offersPaginatedInstance' => $offersPaginatedData['offersPaginatedInstance'],
         ]);
     }
 
