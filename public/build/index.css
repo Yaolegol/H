@@ -2007,6 +2007,9 @@ p {
   display: none;
 }
 
+.favorites-components-button {
+  position: relative;
+}
 .favorites-components-button__button {
   color: rgba(0, 0, 0, 0.15);
   width: 20px;
@@ -2019,6 +2022,24 @@ p {
 .favorites-components-button__button:hover svg,
 .favorites-components-button__button.active svg {
   filter: drop-shadow(0 0 10px #ffff00);
+}
+.favorites-components-button__hint-block {
+  align-items: center;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  display: none;
+  flex-direction: column;
+  padding: 10px;
+  position: absolute;
+  right: 0;
+  text-align: center;
+}
+.favorites-components-button:hover .favorites-components-button__hint-block {
+  display: flex;
+}
+.favorites-components-button__hint-text-container {
+  margin-top: 5px;
 }
 
 .offers-item {

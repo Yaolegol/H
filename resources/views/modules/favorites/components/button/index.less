@@ -1,6 +1,8 @@
 @import (reference) '~styles/colors';
 
 .favorites-components-button {
+    position: relative;
+
     &__button {
         color: @black_15;
         width: 20px;
@@ -14,5 +16,26 @@
                 filter: drop-shadow(0 0 10px #ffff00);
             }
         }
+    }
+
+    &__hint-block {
+        align-items: center;
+        background-color: @white;
+        border: 1px solid @black_15;
+        border-radius: 10px;
+        display: none;
+        flex-direction: column;
+        padding: 10px;
+        position: absolute;
+        right: 0;
+        text-align: center;
+
+        .favorites-components-button:hover & {
+            display: flex;
+        }
+    }
+
+    &__hint-text-container {
+        margin-top: 5px;
     }
 }
