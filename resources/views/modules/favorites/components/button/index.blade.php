@@ -6,7 +6,17 @@
         @include('icons.favorite')
     </button>
     @guest
-        <div class="favorites-components-button__hint-block">
+        <div
+            class="
+                favorites-components-button__hint-block
+                @isset($hintPosition)
+                    {{$hintPosition === 'left' ?
+                    'favorites-components-button__hint-block_left' :
+                    ''
+                    }}
+                @endisset
+            "
+        >
             <div class="favorites-components-button__hint-title">Чтобы добавить товар в избранное нужно</div>
             <div class="favorites-components-button__hint-text-container">
                 <a class="favorites-components-button__hint-link" href="/login">Войти</a>

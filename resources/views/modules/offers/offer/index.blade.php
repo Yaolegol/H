@@ -15,6 +15,12 @@
                 @endcomponent
             </div>
         @endif
+        <div class="offer__favorites-section">
+            @include('modules.favorites.components.button.index', [
+                'id' => $offer['id'],
+                'hintPosition' => 'left'
+            ])
+        </div>
         <div class="offer__info-section">
             <div class="offer__info-item-container">
                 <div>{{$offer['description']}}</div>
