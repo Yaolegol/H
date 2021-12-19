@@ -4,7 +4,7 @@
         @include('modules.location.components.choose.infoBlock.block.index')
     </div>
     @include('modules.offers.list.index', [
-        'offersList' => $offersPaginatedData['data'],
+        'paginationData' => $offersPaginatedData,
         'withSeller' => true
     ])
 </div>

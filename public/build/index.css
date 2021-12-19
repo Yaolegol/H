@@ -2366,6 +2366,19 @@ p {
   display: none;
 }
 
+.pagination__link.disabled {
+  pointer-events: none;
+}
+.pagination__main-block {
+  display: flex;
+}
+.pagination__main-block-item {
+  margin-left: 10px;
+}
+.pagination__main-block-item:first-child {
+  margin-left: 0;
+}
+
 .offers-item {
   border: 1px solid #E9EDF6;
   border-radius: 10px;

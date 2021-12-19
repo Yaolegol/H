@@ -1,5 +1,5 @@
 <div class="offers-list">
-    @foreach($offersList as $offerItem)
+    @foreach($offersPaginatedData['data'] as $offerItem)
         <div class="offers-list__item-container">
             @include('modules.offers.item.index', [
                 'offer' => $offerItem,
@@ -7,6 +7,10 @@
             ])
         </div>
     @endforeach
+
+   @include('components.pagination.common.index', [
+       'data' => $offersPaginatedData,
+   ])
 </div>
 
 

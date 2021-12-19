@@ -1,0 +1,21 @@
+@import (reference) '~styles/colors';
+
+.pagination {
+    &__link {
+        &.disabled {
+            pointer-events: none;
+        }
+    }
+
+    &__main-block {
+        display: flex;
+    }
+
+    &__main-block-item {
+        margin-left: 10px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+}
