@@ -2366,16 +2366,30 @@ p {
   display: none;
 }
 
-.pagination__link.disabled {
+.pagination-common-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.pagination-common-main__current-page {
+  color: #000000;
+}
+.pagination-common-main__link {
+  color: #4CBB17;
+}
+.pagination-common-main__link.disabled {
+  color: #000000;
   pointer-events: none;
 }
-.pagination__main-block {
+.pagination-common-main__main-block {
   display: flex;
+  margin-top: 15px;
 }
-.pagination__main-block-item {
+.pagination-common-main__main-block-item {
   margin-left: 10px;
 }
-.pagination__main-block-item:first-child {
+.pagination-common-main__main-block-item:first-child {
   margin-left: 0;
 }
 

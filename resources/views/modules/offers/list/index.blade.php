@@ -8,9 +8,11 @@
         </div>
     @endforeach
 
-   @include('components.pagination.common.index', [
-       'data' => $offersPaginatedData,
-   ])
+    @component('components.pagination.common.container.index')
+        @include('components.pagination.common.main.index', [
+            'data' => $offersPaginatedData,
+        ])
+    @endcomponent
 </div>
 
 
