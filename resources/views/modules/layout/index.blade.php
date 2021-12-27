@@ -10,45 +10,52 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Styles -->
-        @yield('layout-styles')
-        <script data-id="3">
-            console.log('START COUNTING');
-            let count = 0;
-            while(count < 1000000000) {
-                count++;
-            }
+{{--        @yield('layout-styles')--}}
+        <link as="style" href="{{ asset('build/index_prefetch.css') }}" rel="prefetch">
+        <link href="{{ asset('build/index.css') }}" rel="stylesheet">
+        <link href="{{ asset('build/vendor.css') }}" rel="stylesheet">
+{{--        <script data-id="3">--}}
+{{--            console.log('START COUNTING');--}}
+{{--            let count = 0;--}}
+{{--            while(count < 1000000000) {--}}
+{{--                count++;--}}
+{{--            }--}}
 
-            console.log(count);
-        </script>
+{{--            console.log(count);--}}
+{{--        </script>--}}
 
-        <script data-id="11" src="/build/test_header_medium.js" async></script>
+{{--        <script data-id="11" src="/build/test_header_medium.js" async></script>--}}
         <script data-id="10" src="/build/test_header_small.js"></script>
-        <script>
-            console.log('HEADER LAST SCRIPT START COUNT')
+{{--        <script>--}}
+{{--            console.log('HEADER LAST SCRIPT START COUNT')--}}
 
-            let countSecond = 0;
-            while(countSecond < 1000000000) {
-                countSecond++;
-            }
+{{--            let countSecond = 0;--}}
+{{--            while(countSecond < 1000000000) {--}}
+{{--                countSecond++;--}}
+{{--            }--}}
 
-            console.log(countSecond);
-        </script>
-        <script>
-            let scriptElementHead = document.createElement('script');
-            scriptElementHead.src = '/build/test_header.js';
-            document.head.appendChild(scriptElementHead);
-        </script>
+{{--            console.log(countSecond);--}}
+{{--        </script>--}}
+{{--        <script>--}}
+{{--            let scriptElementHead = document.createElement('script');--}}
+{{--            scriptElementHead.src = '/build/test_header.js';--}}
+{{--            document.head.appendChild(scriptElementHead);--}}
+{{--        </script>--}}
+        <link as="style" href="{{ asset('build/index_preload.css') }}" rel="preload">
+
     </head>
     <body>
         <script>
-            console.log('BODY FIRST SCRIPT START COUNT')
+            console.log('BODY FIRST SCRIPT')
 
-            let count3 = 0;
-            while(count3 < 0) {
-                count3++;
-            }
+            // console.log('BODY FIRST SCRIPT START COUNT')
 
-            console.log(count3);
+            // let count3 = 0;
+            // while(count3 < 0) {
+            //     count3++;
+            // }
+            //
+            // console.log(count3);
         </script>
         @auth
             <div class="j-user__auth"></div>
@@ -59,6 +66,10 @@
             <div class="layout__content-block">
                 <div class="layout__content-container">
                     @yield('layout-content')
+                    <link href="{{ asset('build/index_body.css') }}" rel="stylesheet">
+                    <div style="color: red; margin-top: 50px">
+                        TEST TEST TEST
+                    </div>
                 </div>
             </div>
         </div>
