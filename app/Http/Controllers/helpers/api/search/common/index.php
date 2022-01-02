@@ -3,7 +3,7 @@
 use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 
-function apiGetUserListFromDB($title) {
+function apiGetUserListWithOrganizationsByTitleFromDB($title) {
     if(!$title) {
         return [];
     }
@@ -22,5 +22,5 @@ function apiGetUserListFromDB($title) {
 function apiGetSearchCommonResultFormatted($request) {
     $title = $request->query('title');
 
-    return apiGetUserListFromDB($title);
+    return apiGetUserListWithOrganizationsByTitleFromDB($title);
 }
