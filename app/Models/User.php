@@ -76,6 +76,11 @@ class User extends Authenticatable
         return $this->hasMany(Offer::class);
     }
 
+    public function organizations()
+    {
+        return $this->hasMany(Organization::class);
+    }
+
     public function salePoints()
     {
         return $this->hasMany(SalePoint::class);

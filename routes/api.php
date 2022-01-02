@@ -9,6 +9,7 @@ use App\Http\Controllers\controllers\api\map\ApiMapController;
 use App\Http\Controllers\controllers\api\profile\personalData\ApiProfilePersonalDataController;
 use App\Http\Controllers\controllers\api\profile\organizationData\ApiProfileOrganizationDataController;
 use App\Http\Controllers\controllers\api\profile\salePointsInfo\ApiProfileSalePointsController;
+use App\Http\Controllers\controllers\api\search\common\ApiSearchCommonController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,8 @@ Route::post('/map', [ApiMapController::class, 'index']);
 
 Route::post('/register', [ApiRegisterController::class, 'register']);
 Route::post('/login', [ApiLoginController::class, 'login']);
+
+Route::get('/search/common', [ApiSearchCommonController::class, 'index']);
 
 Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::get('/favorites/products', [ApiFavoritesProductController::class, 'index']);
