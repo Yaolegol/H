@@ -1,8 +1,7 @@
 @import (reference) '~styles/colors';
 
 .inputs-search {
-    display: flex;
-    height: 55px;
+    position: relative;
 
     &__button {
         background-color: @white;
@@ -43,5 +42,30 @@
         &::placeholder {
             color: @white;
         }
+    }
+
+    &__input-container {
+        display: flex;
+        height: 55px;
+    }
+
+    &__search-results-block {
+        background-color: @white;
+        border: 1px solid @black_10;
+        border-radius: 15px;
+        left: 0;
+        padding: 20px;
+        position: absolute;
+        right: 0;
+        top: 65px;
+    }
+
+    &__search-results-container {
+        max-height: 300px;
+        overflow-y: auto;
+    }
+
+    &__search-results-sellers-container {
+        margin-top: 25px;
     }
 }
