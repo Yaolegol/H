@@ -20,7 +20,8 @@ function apiGetUserListWithOrganizationsByTitleFromDB($title) {
 }
 
 function apiGetSearchCommonResultFormatted($request) {
-    $title = $request->query('title');
+    $data = $request->input('data');
+    $title = $data['title'];
 
     return apiGetUserListWithOrganizationsByTitleFromDB($title);
 }

@@ -12,7 +12,7 @@
             @include('components.buttons.burger.index')
         </div>
         <div>
-            @include('components.inputs.search.index')
+            @include('modules.header.search.index')
         </div>
         <div class="header__location-container">
             @include('modules.location.components.choose.iconButton.index')

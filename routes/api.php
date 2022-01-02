@@ -33,7 +33,7 @@ Route::post('/map', [ApiMapController::class, 'index']);
 Route::post('/register', [ApiRegisterController::class, 'register']);
 Route::post('/login', [ApiLoginController::class, 'login']);
 
-Route::get('/search/common', [ApiSearchCommonController::class, 'index']);
+Route::post('/search/common', [ApiSearchCommonController::class, 'index']);
 
 Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::get('/favorites/products', [ApiFavoritesProductController::class, 'index']);
