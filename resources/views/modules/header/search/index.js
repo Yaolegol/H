@@ -25,16 +25,86 @@ class Search {
         addEventListener(this.clearButton, 'click', this.handleClearButtonClick);
     }
 
+    checkSearchCategory = (searchValue) => {
+        const catalogSearchDataList = this.getCatalogSearchDataList(searchValue);
+        const catalogSearchLayout = this.getCatalogSearchLayout(catalogSearchDataList);
+
+        return this.toggleShowSearchCategory(catalogSearchLayout);
+    }
+
+    checkSearchSellers = (data) => {
+        const sellersLayout = this.getSearchSellersLayout(data);
+
+        return this.toggleShowSearchSellers(sellersLayout);
+    }
+
+    getCatalogSearchDataList = (searchValue) => {
+        const regexp = new RegExp(searchValue, 'gi');
+
+        return this.searchElementsList.reduce((acc, element, arr) => {
+            const {href, textContent} = element;
+            const isMatch = regexp.test(textContent);
+
+            if(isMatch) {
+                return [
+                    ...acc,
+                    {
+                        href,
+                        textContent,
+                    }
+                ];
+            } else {
+                return acc;
+            }
+        }, []);
+    }
+
+    getCatalogSearchLayout = (catalogSearchDataList) => {
+        const layoutArray = catalogSearchDataList.map((catalogData) => {
+            const {href, textContent} = catalogData;
+
+            return `<div>
+                       <a href="${href}">${textContent}</a>
+                    </div>`;
+        });
+
+        return layoutArray.join('');
+    }
+
+    getSearchSellersLayout = (data) => {
+        const layoutArray = data.map((responseUserData) => {
+            const {organizationsList, userData} = responseUserData;
+            const {link, title} = userData;
+
+            const userLink = `<div>
+                                 <a href="${link}">${title}</a>
+                              </div>`;
+
+            const linksArray = [userLink];
+
+            organizationsList.forEach((organizationData) => {
+                const organizationLink = `<div>
+                                             <a href="${link}">${organizationData.title}</a>
+                                          </div>`;
+
+                linksArray.push(organizationLink);
+            });
+
+            return linksArray.join('');
+        });
+
+        return layoutArray.join('');
+    }
+
     handleClearButtonClick = (e) => {
         this.searchInput.value = '';
         this.searchInput.focus();
         this.searchResultsArea.classList.add('hidden');
         this.searchResultsCategoriesContainer.classList.add('hidden');
         this.searchResultsSellersContainer.classList.add('hidden');
-        this.searchResultsNonContainer.classList.add('hidden');
+        this.hideNonResultsMessage();
         this.searchResultsCategoriesResultContainer.innerHTML = '';
         this.searchResultsSellersResultContainer.innerHTML = '';
-
         this.clearButton.classList.add('inputs-search__clear-button_hidden');
     }
 
@@ -42,29 +112,38 @@ class Search {
         const value = this.searchInput.value;
 
         if(value) {
-            debounce(this.sendRequest, 1000);
-            this.clearButton.classList.remove('inputs-search__clear-button_hidden');
+            this.showClearButton();
+            this.hideNonResultsMessage();
+            debounce(this.inputDebounce, 1000);
         } else {
             this.handleClearButtonClick();
         }
     }
 
-    sendRequest = async () => {
-        console.log('SEND');
+    hideNonResultsMessage = () => {
+        this.searchResultsNonContainer.classList.add('hidden');
+    }
 
+    inputDebounce = async () => {
         const searchValue = this.searchInput.value;
 
         if(!searchValue) {
             return;
         }
 
-        console.log('searchValue')
-        console.log(searchValue)
+        const {data, errors} = await this.sendRequest(searchValue);
 
-        this.searchResultsNonContainer.classList.add('hidden');
-        let isCategoryShow = false;
-        let isSellersShow = false;
+        if(!errors) {
+            const isCategoryShow = this.checkSearchCategory(searchValue);
+            const isSellersShow = this.checkSearchSellers(data);
 
+            if(!isCategoryShow && !isSellersShow) {
+                this.showNonResultsMessage();
+            }
+        }
+    }
+
+    sendRequest = async (searchValue) => {
         const bodyData = {
             data: {
                 title: searchValue,
@@ -72,42 +151,6 @@ class Search {
         }
 
         const body = JSON.stringify(bodyData);
-
-        const catalogDataList = [];
-        const regexp = new RegExp(searchValue, 'gi');
-
-        this.searchElementsList.forEach((element) => {
-            const {href, textContent} = element;
-            const isMatch = regexp.test(textContent);
-
-            if(isMatch) {
-                catalogDataList.push({
-                    href,
-                    textContent,
-                });
-            }
-        });
-
-        if(this.searchResultsCategoriesResultContainer) {
-            const layoutArray = catalogDataList.map((catalogData) => {
-                const {href, textContent} = catalogData;
-
-                return `<div>
-                            <a href="${href}">${textContent}</a>
-                        </div>`;
-            });
-
-            const categoriesLayout = layoutArray.join('');
-
-            if(categoriesLayout) {
-                this.searchResultsCategoriesResultContainer.innerHTML = categoriesLayout;
-                this.searchResultsCategoriesContainer.classList.remove('hidden');
-                this.searchResultsArea.classList.remove('hidden');
-                isCategoryShow = true;
-            } else {
-                this.searchResultsCategoriesContainer.classList.add('hidden');
-            }
-        }
 
         const response = await fetch('/api/search/common', {
             body,
@@ -119,53 +162,44 @@ class Search {
             method: 'POST',
         });
 
-        const {data, errors} = await response.json();
+        return await response.json();
+    }
 
-        console.log('data')
-        console.log(data)
+    showClearButton = () => {
+        this.clearButton.classList.remove('inputs-search__clear-button_hidden');
+    }
 
-        if(!errors) {
-            const layoutArray = data.map((responseUserData) => {
-                const {organizationsList, userData} = responseUserData;
-                const {link, title} = userData;
+    showNonResultsMessage = () => {
+        this.searchResultsArea.classList.remove('hidden');
+        this.searchResultsNonContainer.classList.remove('hidden');
+    }
 
-                const userLink = `<div>
-                                      <a href="${link}">${title}</a>
-                                  </div>`;
-
-                const linksArray = [userLink];
-
-                organizationsList.forEach((organizationData) => {
-                    const organizationLink = `<div>
-                                                  <a href="${link}">${organizationData.title}</a>
-                                              </div>`;
-
-                    linksArray.push(organizationLink);
-                });
-
-                return linksArray.join('');
-            });
-
-            if(this.searchResultsSellersResultContainer) {
-                const sellersLayout = layoutArray.join('');
-
-                if(sellersLayout) {
-                    this.searchResultsSellersResultContainer.innerHTML = sellersLayout;
-                    this.searchResultsSellersContainer.classList.remove('hidden');
-                    this.searchResultsArea.classList.remove('hidden');
-                    isSellersShow = true;
-                } else {
-                    this.searchResultsSellersContainer.classList.add('hidden');
-                }
-            }
-
-            this.clearButton.classList.remove('inputs-search__clear-button_hidden');
-        }
-
-        if(!isCategoryShow && !isSellersShow) {
+    toggleShowSearchCategory = (catalogSearchLayout) => {
+        if(catalogSearchLayout) {
+            this.searchResultsCategoriesResultContainer.innerHTML = catalogSearchLayout;
+            this.searchResultsCategoriesContainer.classList.remove('hidden');
             this.searchResultsArea.classList.remove('hidden');
-            this.searchResultsNonContainer.classList.remove('hidden');
+
+            return true;
         }
+
+        this.searchResultsCategoriesContainer.classList.add('hidden');
+
+        return false;
+    }
+
+    toggleShowSearchSellers = (sellersLayout) => {
+        if(sellersLayout) {
+            this.searchResultsSellersResultContainer.innerHTML = sellersLayout;
+            this.searchResultsSellersContainer.classList.remove('hidden');
+            this.searchResultsArea.classList.remove('hidden');
+
+            return true;
+        }
+
+        this.searchResultsSellersContainer.classList.add('hidden');
+
+        return false;
     }
 }
 
