@@ -1,22 +1,34 @@
 @import (reference) '~styles/colors';
 
 .inputs-search {
+    border: 1px solid @white;
+    border-radius: 30px;
+    height: 55px;
+    padding: 0 15px 0 30px;
     position: relative;
 
     &__clear-button {
+        align-items: center;
+        align-self: center;
         background-color: @white;
-        margin-right: 10px;
-        padding: 5px;
+        border-radius: 50%;
+        display: flex;
+        height: 20px;
+        justify-content: center;
+        line-height: 0;
+        margin-left: 10px;
+        overflow: hidden;
+        width: 20px;
+
+        &_hidden {
+            visibility: hidden;
+        }
     }
 
     &__input {
-        border: 1px solid @white;
-        border-right: none;
-        border-radius: 30px 0 0 30px;
         color: @white;
         height: 100%;
         min-width: 0;
-        padding: 0 30px;
         width: 270px;
 
         &::placeholder {
@@ -24,9 +36,9 @@
         }
     }
 
-    &__input-container {
+    &__search-container {
         display: flex;
-        height: 55px;
+        height: 100%;
     }
 
     &__search-results-area {
@@ -37,7 +49,7 @@
         padding: 20px;
         position: absolute;
         right: 0;
-        top: 65px;
+        top: 55px;
     }
 
     &__search-results-block {
@@ -48,34 +60,12 @@
     &__search-results-container {
         margin-top: 25px;
 
-        &.hidden + & {
+        &:first-child {
             margin-top: 0;
         }
-    }
 
-    &__send-button {
-        background-color: @white;
-        border-radius: 0 30px 30px 0;
-        color: @white;
-        cursor: pointer;
-        height: 100%;
-        padding-right: 5px;
-        width: 95px;
-
-        &:hover {
-            background-color: @white_100;
-        }
-    }
-
-    &__send-button-icon {
-        color: @primary;
-        display: inline-block;
-        height: 20px;
-        line-height: 0;
-        width: 20px;
-
-        .inputs-search__button:hover & {
-            color: @white;
+        &.hidden + & {
+            margin-top: 0;
         }
     }
 }

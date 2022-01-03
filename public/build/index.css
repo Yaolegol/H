@@ -175,29 +175,40 @@
 }
 
 .inputs-search {
+  border: 1px solid #FFFFFF;
+  border-radius: 30px;
+  height: 55px;
+  padding: 0 15px 0 30px;
   position: relative;
 }
 .inputs-search__clear-button {
+  align-items: center;
+  align-self: center;
   background-color: #FFFFFF;
-  margin-right: 10px;
-  padding: 5px;
+  border-radius: 50%;
+  display: flex;
+  height: 20px;
+  justify-content: center;
+  line-height: 0;
+  margin-left: 10px;
+  overflow: hidden;
+  width: 20px;
+}
+.inputs-search__clear-button_hidden {
+  visibility: hidden;
 }
 .inputs-search__input {
-  border: 1px solid #FFFFFF;
-  border-right: none;
-  border-radius: 30px 0 0 30px;
   color: #FFFFFF;
   height: 100%;
   min-width: 0;
-  padding: 0 30px;
   width: 270px;
 }
 .inputs-search__input::placeholder {
   color: #FFFFFF;
 }
-.inputs-search__input-container {
+.inputs-search__search-container {
   display: flex;
-  height: 55px;
+  height: 100%;
 }
 .inputs-search__search-results-area {
   background-color: #FFFFFF;
@@ -207,7 +218,7 @@
   padding: 20px;
   position: absolute;
   right: 0;
-  top: 65px;
+  top: 55px;
 }
 .inputs-search__search-results-block {
   max-height: 300px;
@@ -216,30 +227,11 @@
 .inputs-search__search-results-container {
   margin-top: 25px;
 }
-.inputs-search__search-results-container.hidden + .inputs-search__search-results-container {
+.inputs-search__search-results-container:first-child {
   margin-top: 0;
 }
-.inputs-search__send-button {
-  background-color: #FFFFFF;
-  border-radius: 0 30px 30px 0;
-  color: #FFFFFF;
-  cursor: pointer;
-  height: 100%;
-  padding-right: 5px;
-  width: 95px;
-}
-.inputs-search__send-button:hover {
-  background-color: #E9EDF6;
-}
-.inputs-search__send-button-icon {
-  color: #4CBB17;
-  display: inline-block;
-  height: 20px;
-  line-height: 0;
-  width: 20px;
-}
-.inputs-search__button:hover .inputs-search__send-button-icon {
-  color: #FFFFFF;
+.inputs-search__search-results-container.hidden + .inputs-search__search-results-container {
+  margin-top: 0;
 }
 
 .buttons-location {

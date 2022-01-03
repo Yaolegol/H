@@ -6,7 +6,8 @@ class Search {
     constructor(element) {
         this.module = element;
         this.searchInput = this.module.querySelector('.j-header-search__input');
-        this.sendButton = this.module.querySelector('.j-header-search__send-button');
+        this.clearButton = this.module.querySelector('.j-header-search__clear-button');
+        this.searchResultsNonContainer = this.module.querySelector('.j-header-search__search-results-non-container');
         this.CSRFContainer = document.querySelector('.j-csrf-token');
         this.CSRFValue = this.CSRFContainer?.dataset.value;
         this.searchElementsList = [...document.querySelectorAll('.j-header-catalog__search-element')];
@@ -21,22 +22,30 @@ class Search {
 
     bind = () => {
         addEventListener(this.searchInput, 'input', this.handleSearchInputInput);
-        addEventListener(this.sendButton, 'blur', this.handleSendButtonBlur);
+        addEventListener(this.clearButton, 'click', this.handleClearButtonClick);
+    }
+
+    handleClearButtonClick = (e) => {
+        this.searchInput.value = '';
+        this.searchInput.focus();
+        this.searchResultsArea.classList.add('hidden');
+        this.searchResultsCategoriesContainer.classList.add('hidden');
+        this.searchResultsSellersContainer.classList.add('hidden');
+        this.searchResultsNonContainer.classList.add('hidden');
+        this.searchResultsCategoriesResultContainer.innerHTML = '';
+        this.searchResultsSellersResultContainer.innerHTML = '';
+
+        this.clearButton.classList.add('inputs-search__clear-button_hidden');
     }
 
     handleSearchInputInput = (e) => {
-        debounce(this.sendRequest, 1000);
-    }
+        const value = this.searchInput.value;
 
-    handleSendButtonBlur = (e) => {
-        if(this.searchResultsArea) {
-            this.searchResultsArea.classList.add('hidden');
-        }
-        if(this.searchResultsCategoriesContainer) {
-            this.searchResultsCategoriesContainer.classList.add('hidden');
-        }
-        if(this.searchResultsSellersContainer) {
-            this.searchResultsSellersContainer.classList.add('hidden');
+        if(value) {
+            debounce(this.sendRequest, 1000);
+            this.clearButton.classList.remove('inputs-search__clear-button_hidden');
+        } else {
+            this.handleClearButtonClick();
         }
     }
 
@@ -45,8 +54,16 @@ class Search {
 
         const searchValue = this.searchInput.value;
 
+        if(!searchValue) {
+            return;
+        }
+
         console.log('searchValue')
         console.log(searchValue)
+
+        this.searchResultsNonContainer.classList.add('hidden');
+        let isCategoryShow = false;
+        let isSellersShow = false;
 
         const bodyData = {
             data: {
@@ -86,6 +103,9 @@ class Search {
                 this.searchResultsCategoriesResultContainer.innerHTML = categoriesLayout;
                 this.searchResultsCategoriesContainer.classList.remove('hidden');
                 this.searchResultsArea.classList.remove('hidden');
+                isCategoryShow = true;
+            } else {
+                this.searchResultsCategoriesContainer.classList.add('hidden');
             }
         }
 
@@ -133,8 +153,18 @@ class Search {
                     this.searchResultsSellersResultContainer.innerHTML = sellersLayout;
                     this.searchResultsSellersContainer.classList.remove('hidden');
                     this.searchResultsArea.classList.remove('hidden');
+                    isSellersShow = true;
+                } else {
+                    this.searchResultsSellersContainer.classList.add('hidden');
                 }
             }
+
+            this.clearButton.classList.remove('inputs-search__clear-button_hidden');
+        }
+
+        if(!isCategoryShow && !isSellersShow) {
+            this.searchResultsArea.classList.remove('hidden');
+            this.searchResultsNonContainer.classList.remove('hidden');
         }
     }
 }
