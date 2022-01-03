@@ -8,6 +8,7 @@ class Search {
         this.sendButton = this.module.querySelector('.j-header-search__send-button');
         this.CSRFContainer = document.querySelector('.j-csrf-token');
         this.CSRFValue = this.CSRFContainer?.dataset.value;
+        this.searchElementsList = [...document.querySelectorAll('.j-header-catalog__search-element')];
 
         this.bind();
     }
@@ -48,6 +49,19 @@ class Search {
 
         console.log('data')
         console.log(data)
+        const catalogElementsList = [];
+
+        console.log('this.searchElementsList');
+        console.log(this.searchElementsList);
+        const regexp = new RegExp(searchValue, 'gi');
+
+        this.searchElementsList.forEach((element) => {
+            const isMatch = regexp.test(element.textContent);
+
+            if(isMatch) {
+                catalogElementsList.push(element);
+            }
+        });
     }
 }
 

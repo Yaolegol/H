@@ -16,11 +16,11 @@
             @component('components.catalog.content-item-container.index')
                 @foreach($catalogHeader as $catalogItem)
                     @component('components.catalog.content-item.index', [ 'itemId' => $loop->index ])
-                        <div>{{ $catalogItem['title'] }}</div>
+                        <div class="j-header-catalog__search-element">{{ $catalogItem['title'] }}</div>
                         <div class="components-catalog__categories-container">
                             @foreach( $catalogItem['catalog_level_two'] as $category )
                                 @component('components.catalog.category-item.index')
-                                    <a class="header-catalog__link" href="{{ $category['linkFull'] }}">
+                                    <a class="header-catalog__link j-header-catalog__search-element" href="{{ $category['linkFull'] }}">
                                         {{ $category['title'] }}
                                     </a>
                                 @endcomponent
