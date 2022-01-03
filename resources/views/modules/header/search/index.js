@@ -9,6 +9,8 @@ class Search {
         this.CSRFContainer = document.querySelector('.j-csrf-token');
         this.CSRFValue = this.CSRFContainer?.dataset.value;
         this.searchElementsList = [...document.querySelectorAll('.j-header-catalog__search-element')];
+        this.searchResultsCategoriesContainer = this.module.querySelector('.j-header-search__search-results-categories-container');
+        this.searchResultsSellersContainer = this.module.querySelector('.j-header-search__search-results-sellers-container');
 
         this.bind();
     }
@@ -49,16 +51,32 @@ class Search {
 
         console.log('data')
         console.log(data)
-        const catalogElementsList = [];
+        const catalogDataList = [];
         const regexp = new RegExp(searchValue, 'gi');
 
         this.searchElementsList.forEach((element) => {
-            const isMatch = regexp.test(element.textContent);
+            const {href, textContent} = element;
+            const isMatch = regexp.test(textContent);
 
             if(isMatch) {
-                catalogElementsList.push(element);
+                catalogDataList.push({
+                    href,
+                    textContent,
+                });
             }
         });
+
+        if(this.searchResultsCategoriesContainer) {
+            const layoutArray = catalogDataList.map((catalogData) => {
+                const {href, textContent} = catalogData;
+
+                return `<div>
+                            <a href="${href}">${textContent}</a>
+                        </div>`;
+            });
+
+            this.searchResultsCategoriesContainer.innerHTML = layoutArray.join('');
+        }
     }
 }
 

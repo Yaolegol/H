@@ -15,11 +15,15 @@
         <div class="inputs-search__search-results-container">
             <div class="inputs-search__search-results-categories-container">
                 <div>Категории</div>
-                <div>test</div>
+                <div class="j-header-search__search-results-categories-container">
+
+                </div>
             </div>
             <div class="inputs-search__search-results-sellers-container">
                 <div>Продавцы</div>
-                <div>test</div>
+                <div class="j-header-search__search-results-sellers-container">
+
+                </div>
             </div>
         </div>
     </div>
