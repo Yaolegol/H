@@ -162,7 +162,7 @@ class Search {
             method: 'POST',
         });
 
-        return await response.json();
+        return response.json();
     }
 
     showClearButton = () => {
