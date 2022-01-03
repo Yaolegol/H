@@ -3,30 +3,10 @@
 .inputs-search {
     position: relative;
 
-    &__button {
+    &__clear-button {
         background-color: @white;
-        border-radius: 0 30px 30px 0;
-        color: @white;
-        cursor: pointer;
-        height: 100%;
-        padding-right: 5px;
-        width: 95px;
-
-        &:hover {
-            background-color: @white_100;
-        }
-    }
-
-    &__button-icon {
-        color: @primary;
-        display: inline-block;
-        height: 20px;
-        line-height: 0;
-        width: 20px;
-
-        .inputs-search__button:hover & {
-            color: @white;
-        }
+        margin-right: 10px;
+        padding: 5px;
     }
 
     &__input {
@@ -49,7 +29,7 @@
         height: 55px;
     }
 
-    &__search-results-block {
+    &__search-results-area {
         background-color: @white;
         border: 1px solid @black_10;
         border-radius: 15px;
@@ -60,12 +40,42 @@
         top: 65px;
     }
 
-    &__search-results-container {
+    &__search-results-block {
         max-height: 300px;
         overflow-y: auto;
     }
 
-    &__search-results-sellers-container {
+    &__search-results-container {
         margin-top: 25px;
+
+        &.hidden + & {
+            margin-top: 0;
+        }
+    }
+
+    &__send-button {
+        background-color: @white;
+        border-radius: 0 30px 30px 0;
+        color: @white;
+        cursor: pointer;
+        height: 100%;
+        padding-right: 5px;
+        width: 95px;
+
+        &:hover {
+            background-color: @white_100;
+        }
+    }
+
+    &__send-button-icon {
+        color: @primary;
+        display: inline-block;
+        height: 20px;
+        line-height: 0;
+        width: 20px;
+
+        .inputs-search__button:hover & {
+            color: @white;
+        }
     }
 }

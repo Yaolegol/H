@@ -5,25 +5,17 @@
             placeholder="Search"
             type="text"
         >
-        <button class="inputs-search__button j-header-search__send-button" type="button">
-        <span class="inputs-search__button-icon">
-            @include('icons.search')
-        </span>
-        </button>
+        <button class="inputs-search__clear-button j-header-search__clear-button" type="button">X</button>
     </div>
-    <div class="inputs-search__search-results-block">
-        <div class="inputs-search__search-results-container">
-            <div class="inputs-search__search-results-categories-container">
+    <div class="inputs-search__search-results-area hidden j-header-search__search-results-area">
+        <div class="inputs-search__search-results-block">
+            <div class="inputs-search__search-results-container hidden j-header-search__search-results-categories-container">
                 <div>Категории</div>
-                <div class="j-header-search__search-results-categories-container">
-
-                </div>
+                <div class="j-header-search__search-results-categories-result-container"></div>
             </div>
-            <div class="inputs-search__search-results-sellers-container">
+            <div class="inputs-search__search-results-container hidden j-header-search__search-results-sellers-container">
                 <div>Продавцы</div>
-                <div class="j-header-search__search-results-sellers-container">
-
-                </div>
+                <div class="j-header-search__search-results-sellers-result-container"></div>
             </div>
         </div>
     </div>
