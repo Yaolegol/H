@@ -50,9 +50,6 @@ class Search {
         console.log('data')
         console.log(data)
         const catalogElementsList = [];
-
-        console.log('this.searchElementsList');
-        console.log(this.searchElementsList);
         const regexp = new RegExp(searchValue, 'gi');
 
         this.searchElementsList.forEach((element) => {
