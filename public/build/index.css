@@ -206,6 +206,9 @@
 .inputs-search__input::placeholder {
   color: #FFFFFF;
 }
+.inputs-search__result-container {
+  margin-top: 10px;
+}
 .inputs-search__search-container {
   display: flex;
   height: 100%;
