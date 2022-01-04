@@ -1100,6 +1100,7 @@ p {
 }
 @media (max-width: 767px) {
   .catalog__item {
+    margin-top: 25px;
     width: 160px;
   }
 }
