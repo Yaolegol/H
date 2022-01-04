@@ -5,7 +5,13 @@
     border-radius: 10px;
     box-shadow: 0 0 10px 1px rgba(242, 242, 242, 0.70);
     display: flex;
-    padding: 20px;
+    padding: 20px 40px 20px 20px;
+    position: relative;
+
+    @media (max-width: 767px) {
+        flex-direction: column;
+        padding: 20px;
+    }
 
     &__contacts-block {
         margin-top: 15px;
@@ -14,6 +20,11 @@
     &__content-block {
         flex: 3 1 auto;
         padding: 0 0 0 20px;
+
+        @media (max-width: 767px) {
+            margin-top: 15px;
+            padding: 0;
+        }
     }
 
     &__image {
@@ -29,8 +40,16 @@
 
     &__image-block {
         flex: 2 0 auto;
-        min-width: 150px;
+    }
+
+    &__image-container {
+        height: 100%;
         position: relative;
+
+        @media (max-width: 767px) {
+            height: auto;
+            padding-bottom: 100%;
+        }
     }
 
     &__image-link {
@@ -55,6 +74,8 @@
     }
 
     &__service-block {
-        flex: 0 1 auto;
+        position: absolute;
+        top: 15px;
+        right: 15px;
     }
 }
