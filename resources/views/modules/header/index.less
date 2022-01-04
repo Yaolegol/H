@@ -53,12 +53,12 @@
     &__favorites-icon-container {
         line-height: 0;
         position: relative;
-        width: 30px;
 
         svg {
             color: transparent;
             stroke: @white;
             stroke-width: 2px;
+            height: 30px;
         }
 
         &.active {
@@ -79,16 +79,24 @@
     }
 
     &__item-container {
+        flex: 0 0 auto;
         margin-left: 10px;
 
         &:first-child {
             margin-left: 60px;
+
+            @media (max-width: 767px) {
+                margin-left: 0;
+            }
         }
     }
 
     &__location-container {
         line-height: 0;
-        width: 30px;
+
+        svg {
+            height: 30px;
+        }
     }
 
     &__login-link {
@@ -112,7 +120,7 @@
 
     &__map-block {
         bottom: 0;
-        display: flex;
+        display: none;
         position: absolute;
         width: 100%;
     }
@@ -137,8 +145,11 @@
     }
 
     &__profile-container {
-        height: 30px;
-        width: 30px;
+        line-height: 0;
+
+        svg {
+            height: 30px;
+        }
     }
 
     &__profile-link {
