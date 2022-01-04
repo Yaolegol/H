@@ -11,7 +11,7 @@
         <div class="header__item-container header__item-container_mobile-full-width">
             @include('components.buttons.burger.index')
         </div>
-        <div class="header__item-container header__item-container_mobile-hidden">
+        <div class="header__item-container header__item-container_search-container header__item-container_mobile-hidden">
             @include('modules.header.search.index')
         </div>
         <div class="header__item-container header__location-container">

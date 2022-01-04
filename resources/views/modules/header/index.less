@@ -91,15 +91,21 @@
         }
 
         &_mobile-full-width {
-            @media (max-width: 767px) {
+            @media (max-width: 499px) {
                 flex: 1 0 auto;
             }
         }
 
         &_mobile-hidden {
-            @media (max-width: 767px) {
+            @media (max-width: 499px) {
                 display: none;
             }
+        }
+
+        &_search-container {
+            flex: 1 1 auto;
+            max-width: 270px;
+            min-width: 0;
         }
     }
 
