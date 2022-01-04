@@ -26,6 +26,72 @@ class CatalogLevelOneSeeder extends Seeder
             'order' => 3,
             'title' => 'Яйца',
         ],
+        [
+            'image' => 'https://picsum.photos/200/300',
+            'link' => 'eggs',
+            'order' => 3,
+            'title' => 'Яйца',
+        ],
+        [
+            'image' => 'https://picsum.photos/200/300',
+            'link' => 'eggs',
+            'order' => 3,
+            'title' => 'Яйца',
+        ],
+        [
+            'image' => 'https://picsum.photos/200/300',
+            'link' => 'eggs',
+            'order' => 3,
+            'title' => 'Яйца',
+        ],
+        [
+            'image' => 'https://picsum.photos/200/300',
+            'link' => 'eggs',
+            'order' => 3,
+            'title' => 'Яйца',
+        ],
+        [
+            'image' => 'https://picsum.photos/200/300',
+            'link' => 'eggs',
+            'order' => 3,
+            'title' => 'Яйца',
+        ],
+        [
+            'image' => 'https://picsum.photos/200/300',
+            'link' => 'eggs',
+            'order' => 3,
+            'title' => 'Яйца',
+        ],
+        [
+            'image' => 'https://picsum.photos/200/300',
+            'link' => 'eggs',
+            'order' => 3,
+            'title' => 'Яйца',
+        ],
+        [
+            'image' => 'https://picsum.photos/200/300',
+            'link' => 'eggs',
+            'order' => 3,
+            'title' => 'Яйца',
+        ],
+        [
+            'image' => 'https://picsum.photos/200/300',
+            'link' => 'eggs',
+            'order' => 3,
+            'title' => 'Яйца',
+        ],
+        [
+            'image' => 'https://picsum.photos/200/300',
+            'link' => 'eggs',
+            'order' => 3,
+            'title' => 'Яйца',
+        ],
+        [
+            'image' => 'https://picsum.photos/200/300',
+            'link' => 'eggs',
+            'order' => 3,
+            'title' => 'Яйца',
+        ],
     ];
 
     /**
