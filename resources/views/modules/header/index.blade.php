@@ -8,10 +8,10 @@
         <div class="header__item-container header__logo-container">
             @include('icons.logo')
         </div>
-        <div class="header__item-container">
+        <div class="header__item-container header__item-container_mobile-full-width">
             @include('components.buttons.burger.index')
         </div>
-        <div class="header__item-container">
+        <div class="header__item-container header__item-container_mobile-hidden">
             @include('modules.header.search.index')
         </div>
         <div class="header__item-container header__location-container">
