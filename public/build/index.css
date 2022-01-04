@@ -511,6 +511,11 @@
     margin-top: 50px;
   }
 }
+@media (max-width: 374px) {
+  .layout__content-block {
+    margin-top: 40px;
+  }
+}
 .layout__content-container {
   display: flex;
   flex: 1 1 auto;
