@@ -1092,15 +1092,15 @@ p {
   color: #FF0000;
 }
 
-.catalog {
-  margin-top: 50px;
-}
 .catalog__item {
-  flex-basis: 15%;
+  flex: 0 0 auto;
+  margin-top: 50px;
   padding: 0 25px;
+  width: 187px;
 }
 .catalog__items-container {
   display: flex;
+  flex-wrap: wrap;
   margin: 0 -25px;
 }
 
