@@ -323,11 +323,13 @@
   top: 0;
   width: 100%;
 }
-.header__location-container {
-  line-height: 0;
-  width: 30px;
+.header__item-container {
+  margin-left: 10px;
 }
-.header__login-container {
+.header__item-container:first-child {
+  margin-left: 60px;
+}
+.header__location-container {
   line-height: 0;
   width: 30px;
 }

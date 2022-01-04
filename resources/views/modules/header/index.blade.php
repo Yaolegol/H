@@ -5,19 +5,19 @@
         </div>
     </div>
     <div class="header__main">
-        <div class="header__logo-container">
+        <div class="header__item-container header__logo-container">
             @include('icons.logo')
         </div>
-        <div>
+        <div class="header__item-container">
             @include('components.buttons.burger.index')
         </div>
-        <div>
+        <div class="header__item-container">
             @include('modules.header.search.index')
         </div>
-        <div class="header__location-container">
+        <div class="header__item-container header__location-container">
             @include('modules.location.components.choose.iconButton.index')
         </div>
-        <div class="header__favorites-container j-favorites-components-header-counter">
+        <div class="header__item-container header__favorites-container j-favorites-components-header-counter">
             <div class="header__favorites-count-container j-favorites-components-header-counter__count"></div>
             <div class="header__favorites-icon-container j-favorites-components-header-counter">
                 @include('icons.favorite')
@@ -41,19 +41,19 @@
                 </div>
             @endguest
         </div>
-        <div class="header__profile-container">
+        <div class="header__item-container header__profile-container">
             <a class="header__profile-link" href="/profile">
                 @include('icons.profile')
             </a>
         </div>
         @auth
-            <div class="header__login-container">
+            <div class="header__item-container">
                 <a class="header__login-link" href="/logout">Выйти</a>
             </div>
         @endauth
 
         @guest
-            <div class="header__login-container">
+            <div class="header__item-container">
                 <a class="header__login-link" href="/login">Войти</a>
             </div>
         @endguest
