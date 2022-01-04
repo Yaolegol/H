@@ -7,5 +7,13 @@
     &__categories-container {
         columns: 3;
         margin-top: 50px;
+
+        @media (max-width: 767px) {
+            columns: 2;
+        }
+
+        @media (max-width: 374px) {
+            columns: 1;
+        }
     }
 }
