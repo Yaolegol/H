@@ -1,3 +1,31 @@
+.page-common-container {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  margin: 60px auto 0;
+  max-width: 1920px;
+  overflow: auto;
+  padding: 0 50px;
+}
+@media (max-width: 499px) {
+  .page-common-container {
+    padding: 0 10px;
+  }
+}
+@media (max-width: 767px) {
+  .page-common-container {
+    margin-top: 50px;
+  }
+}
+@media (max-width: 374px) {
+  .page-common-container {
+    margin-top: 40px;
+  }
+}
+.page-common-container_without-offset {
+  margin-top: 0;
+}
+
 .form-error {
   color: #FF0000;
   font-size: 14px;
@@ -8,6 +36,7 @@
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 25px;
   height: 55px;
+  overflow: hidden;
 }
 .inputs-form__input {
   border: 1px solid #FFFFFF;
@@ -28,9 +57,26 @@
 .auth-login__content-block {
   border-radius: 20px;
   box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.15);
-  margin: 0 auto;
+  margin: 60px auto 0;
+  min-width: 500px;
   padding: 50px;
-  width: 50%;
+}
+@media (max-width: 767px) {
+  .auth-login__content-block {
+    margin-top: 50px;
+    min-width: auto;
+    width: 100%;
+  }
+}
+@media (max-width: 375px) {
+  .auth-login__content-block {
+    padding: 20px;
+  }
+}
+@media (max-width: 374px) {
+  .auth-login__content-block {
+    margin-top: 40px;
+  }
 }
 .auth-login__content-container {
   margin-top: 50px;
@@ -47,6 +93,8 @@
   text-align: center;
 }
 .auth-login__send-button-container {
+  display: flex;
+  justify-content: flex-end;
   margin-top: 50px;
 }
 .auth-login__tab-button {
@@ -69,10 +117,20 @@
   font-weight: 900;
 }
 .auth-login__tab-button_with-offset {
-  margin-left: 20px;
+  margin: 0 0 0 20px;
+}
+@media (max-width: 767px) {
+  .auth-login__tab-button_with-offset {
+    margin: 20px 0 0 0;
+  }
 }
 .auth-login__tabs-container {
   display: flex;
+}
+@media (max-width: 767px) {
+  .auth-login__tabs-container {
+    flex-direction: column;
+  }
 }
 
 .buttons-burger {
@@ -510,26 +568,6 @@
 .layout__content-block {
   display: flex;
   flex: 1 1 auto;
-  margin-top: 60px;
-}
-@media (max-width: 767px) {
-  .layout__content-block {
-    margin-top: 50px;
-  }
-}
-@media (max-width: 374px) {
-  .layout__content-block {
-    margin-top: 40px;
-  }
-}
-.layout__content-container {
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  margin: 0 auto;
-  max-width: 1920px;
-  overflow: auto;
-  padding: 0 50px;
 }
 
 @font-face {
@@ -759,26 +797,25 @@ p {
   display: none;
 }
 
-.auth-login {
+.auth-register {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
   justify-content: center;
 }
-.auth-login__content-block {
+.auth-register__content-block {
   border-radius: 20px;
   box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.15);
   margin: 0 auto;
   padding: 50px;
-  width: 50%;
 }
-.auth-login__content-container {
+.auth-register__content-container {
   margin-top: 50px;
 }
-.auth-login__form-item-container {
+.auth-register__form-item-container {
   margin-top: 30px;
 }
-.auth-login__send-button {
+.auth-register__send-button {
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 25px;
   color: rgba(0, 0, 0, 0.5);
@@ -786,10 +823,10 @@ p {
   padding: 20px;
   text-align: center;
 }
-.auth-login__send-button-container {
+.auth-register__send-button-container {
   margin-top: 50px;
 }
-.auth-login__tab-button {
+.auth-register__tab-button {
   border-radius: 10px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
   color: rgba(0, 0, 0, 0.5);
@@ -798,20 +835,25 @@ p {
   padding: 20px;
   text-align: center;
 }
-.auth-login__tab-button:hover:not(.auth-login__tab-button_active) {
+.auth-register__tab-button:hover:not(.auth-login__tab-button_active) {
   background-color: rgba(76, 187, 23, 0.5);
   color: #FFFFFF;
 }
-.auth-login__tab-button_active {
+.auth-register__tab-button_active {
   background-color: #4CBB17;
   color: #FFFFFF;
   cursor: auto;
   font-weight: 900;
 }
-.auth-login__tab-button_with-offset {
-  margin-left: 20px;
+.auth-register__tab-button_with-offset {
+  margin: 0 0 0 20px;
 }
-.auth-login__tabs-container {
+@media (max-width: 767px) {
+  .auth-register__tab-button_with-offset {
+    margin: 20px 0 0 0;
+  }
+}
+.auth-register__tabs-container {
   display: flex;
 }
 

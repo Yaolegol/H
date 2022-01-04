@@ -1,0 +1,10 @@
+<div
+    class="
+        page-common-container
+        @isset($withoutOffset)
+            page-common-container_without-offset
+        @endisset
+    "
+>
+    {{$slot}}
+</div>

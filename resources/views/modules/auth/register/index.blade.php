@@ -1,13 +1,13 @@
-<div class="auth-login">
-    <div class="auth-login__content-block">
-        <div class="auth-login__tabs-container">
-            <a class="auth-login__tab-button" href="/login">Вход</a>
-            <div class="auth-login__tab-button auth-login__tab-button_with-offset auth-login__tab-button_active">Регистрация</div>
+<div class="auth-register">
+    <div class="auth-register__content-block">
+        <div class="auth-register__tabs-container">
+            <a class="auth-register__tab-button" href="/login">Вход</a>
+            <div class="auth-register__tab-button auth-register__tab-button_with-offset auth-register__tab-button_active">Регистрация</div>
         </div>
-        <div class="auth-login__content-container">
+        <div class="auth-register__content-container">
             <form action="/register" method="POST">
                 @csrf
-                <div class="auth-login__form-item-container">
+                <div class="auth-register__form-item-container">
                     @include('components.inputs.form.index', [
                         'name' => 'registration_email',
                         'placeholder' => 'Email',
@@ -18,7 +18,7 @@
                         'message' => $errors->first('registration_email'),
                     ])
                 </div>
-                <div class="auth-login__form-item-container">
+                <div class="auth-register__form-item-container">
                     @include('components.inputs.form.index', [
                         'name' => 'password',
                         'placeholder' => 'Password',
@@ -28,7 +28,7 @@
                         'message' => $errors->first('password'),
                     ])
                 </div>
-                <div class="auth-login__form-item-container">
+                <div class="auth-register__form-item-container">
                     @include('components.inputs.form.index', [
                         'name' => 'password_confirmation',
                         'placeholder' => 'Confirm password',
@@ -38,8 +38,8 @@
                         'message' => $errors->first('password_confirmation'),
                     ])
                 </div>
-                <div class="auth-login__send-button-container">
-                    <button class="auth-login__send-button">Отправить</button>
+                <div class="auth-register__send-button-container">
+                    <button class="auth-register__send-button">Отправить</button>
                 </div>
                 @include('components.form.error.index', [
                     'message' => session('commonError'),

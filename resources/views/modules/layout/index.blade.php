@@ -21,9 +21,7 @@
             @include('modules.header.index')
 
             <div class="layout__content-block">
-                <div class="layout__content-container">
-                    @yield('layout-content')
-                </div>
+                @yield('layout-content')
             </div>
 
             @yield('layout-scripts')
