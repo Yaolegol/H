@@ -114,7 +114,7 @@ function getCatalogFullWithFullLinks($catalog)
         }
     }
 
-    return $catalog;
+    return array_merge($catalog, $catalog, $catalog, $catalog, $catalog, $catalog, $catalog, $catalog);
 }
 
 function getCatalogLevelOneItem($catalogFull, $catalogLevelOneLink)

@@ -122,6 +122,9 @@
 
 .components-catalog-content-item-container {
   flex: 2 1 66%;
+  height: 100%;
+  margin-right: 10px;
+  overflow: auto;
   padding: 20px;
 }
 
@@ -131,10 +134,19 @@
 
 .components-catalog-navigation-item-container {
   flex: 1 1 33%;
+  height: 100%;
+  overflow: auto;
 }
 
 .header-catalog {
+  bottom: 0;
   display: none;
+  left: 0;
+  overflow: auto;
+  padding: 90px 0;
+  position: fixed;
+  right: 0;
+  top: 0;
 }
 .header-catalog.show {
   display: block;
@@ -143,7 +155,7 @@
   background-color: rgba(0, 0, 0, 0.8);
   bottom: 0;
   left: 0;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   z-index: 8;
@@ -152,11 +164,12 @@
   background-color: #FFFFFF;
   border-radius: 20px;
   display: flex;
+  height: 100%;
   left: 0;
   margin: 0 auto;
   max-width: 1920px;
   overflow: hidden;
-  position: absolute;
+  position: relative;
   right: 0;
   z-index: 9;
 }
