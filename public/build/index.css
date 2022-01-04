@@ -1098,10 +1098,25 @@ p {
   padding: 0 25px;
   width: 187px;
 }
+@media (max-width: 767px) {
+  .catalog__item {
+    width: 160px;
+  }
+}
+@media (max-width: 374px) {
+  .catalog__item {
+    width: 135px;
+  }
+}
 .catalog__items-container {
   display: flex;
   flex-wrap: wrap;
   margin: 0 -25px;
+}
+@media (max-width: 1023px) {
+  .catalog__items-container {
+    justify-content: center;
+  }
 }
 
 

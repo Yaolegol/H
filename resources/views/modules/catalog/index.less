@@ -4,11 +4,23 @@
         margin-top: 50px;
         padding: 0 25px;
         width: 187px;
+
+        @media (max-width: 767px) {
+            width: 160px;
+        }
+
+        @media (max-width: 374px) {
+            width: 135px;
+        }
     }
 
     &__items-container {
         display: flex;
         flex-wrap: wrap;
         margin: 0 -25px;
+
+        @media (max-width: 1023px) {
+            justify-content: center;
+        }
     }
 }
