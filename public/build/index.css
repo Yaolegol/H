@@ -2402,12 +2402,8 @@ p {
 .pagination-common-main__current-page {
   color: #000000;
 }
-.pagination-common-main__link {
-  color: #4CBB17;
-}
 .pagination-common-main__link.disabled {
-  color: #000000;
-  pointer-events: none;
+  visibility: hidden;
 }
 .pagination-common-main__main-block {
   display: flex;
