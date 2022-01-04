@@ -123,9 +123,13 @@
 .components-catalog-content-item-container {
   flex: 2 1 66%;
   height: 100%;
-  margin-right: 10px;
   overflow: auto;
   padding: 20px;
+}
+@media (min-width: 1024px) {
+  .components-catalog-content-item-container {
+    margin-right: 10px;
+  }
 }
 
 .components-catalog-navigation-item_active {
@@ -136,6 +140,11 @@
   flex: 1 1 33%;
   height: 100%;
   overflow: auto;
+}
+@media (max-width: 1023px) {
+  .components-catalog-navigation-item-container {
+    padding-right: 5px;
+  }
 }
 
 .header-catalog {
