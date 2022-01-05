@@ -8,7 +8,9 @@
         </a>
     </div>
     <div class="profile-common-body-index__content-container">
-        <h2>{{$title}}</h2>
+        <div class="profile-common-body-index__title-container">
+            <h2>{{$title}}</h2>
+        </div>
         {{$slot}}
     </div>
 </div>
