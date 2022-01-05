@@ -3210,6 +3210,10 @@ p {
   display: none;
 }
 
+.profile-common-header {
+  margin: 0 auto;
+  max-width: 1000px;
+}
 .profile-common-header__info-container {
   margin-top: 50px;
 }
@@ -4139,6 +4143,7 @@ p {
 }
 .profile-components-personal-info__image-block {
   flex: 1 0 auto;
+  min-width: 350px;
 }
 .profile-components-personal-info__image-container {
   border-radius: 50%;

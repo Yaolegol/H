@@ -18,7 +18,7 @@
                     class="profile-common-header__tab-button {{$activeTab === 'organization-info' ? 'profile-common-header__tab-button_active' : ''}}"
                     href="/profile/organization-info"
                 >
-                    Информация об организации
+                    Организации
                 </a>
             </div>
             <div
@@ -27,7 +27,7 @@
                     class="profile-common-header__tab-button {{$activeTab === 'sale-points-info' ? 'profile-common-header__tab-button_active' : ''}}"
                     href="/profile/sale-points-info"
                 >
-                    Информация о торговых точках
+                    Торговые точки
                 </a>
             </div>
             <div
@@ -36,7 +36,7 @@
                     class="profile-common-header__tab-button {{$activeTab === 'sale-offers' ? 'profile-common-header__tab-button_active' : ''}}"
                     href="/profile/sale-offers"
                 >
-                    Мои торговые предложения
+                    Торговые предложения
                 </a>
             </div>
         </div>
