@@ -3855,6 +3855,11 @@ p {
 .profile-common-body-index__create-link:hover {
   background-color: #FF0000;
 }
+@media (max-width: 1023px) {
+  .profile-common-body-index__create-link-container {
+    text-align: center;
+  }
+}
 
 .profile-common-container-card {
   margin-top: 50px;

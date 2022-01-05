@@ -1,5 +1,5 @@
 <div class="profile-common-body-index">
-    <div>
+    <div class="profile-common-body-index__create-link-container">
         <a
             class="profile-common-body-index__create-link"
             href="{{$createLink}}"
