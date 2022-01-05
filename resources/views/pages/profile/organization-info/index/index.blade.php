@@ -3,8 +3,8 @@
 @section('layout-content')
     @include('modules.common.header.catalog.index')
     @component('components.page.common.container.index')
-        @component('modules.pages.profile.common.header.index', ['activeTab' => 'organization-info'])
-            @include('modules.pages.profile.components.organization-info.index.index')
+        @component('modules.pages.profile.common.components.header.index', ['activeTab' => 'organization-info'])
+            @include('modules.pages.profile.routes.organization-info.index.index')
         @endcomponent
     @endcomponent
 @endsection

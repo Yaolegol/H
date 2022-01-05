@@ -1,6 +1,6 @@
 import 'views/components/page/common/container';
 import 'views/modules/common/header';
 import 'views/modules/common/layout';
-import 'views/modules/pages/profile/common/header';
-import 'views/modules/pages/profile/components/personal-info';
+import 'views/modules/pages/profile/common/components/header';
+import 'views/modules/pages/profile/routes/personal-info/index';
 import './index.less';

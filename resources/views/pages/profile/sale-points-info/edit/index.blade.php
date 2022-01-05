@@ -3,8 +3,8 @@
 @section('layout-content')
     @include('modules.common.header.catalog.index')
     @component('components.page.common.container.index')
-        @component('modules.pages.profile.common.header.index', ['activeTab' => 'sale-points-info'])
-            @include('modules.pages.profile.components.sale-points-info.edit.index')
+        @component('modules.pages.profile.common.components.header.index', ['activeTab' => 'sale-points-info'])
+            @include('modules.pages.profile.routes.sale-points-info.edit.index')
         @endcomponent
     @endcomponent
 @endsection

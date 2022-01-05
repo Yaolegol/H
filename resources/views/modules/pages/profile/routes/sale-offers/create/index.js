@@ -1,0 +1,8 @@
+import 'views/components/inputs/radio/group-first-level';
+import 'views/components/map/2gis/components/add-marker';
+import 'views/modules/pages/profile/common/components/body/create';
+import 'views/modules/pages/profile/common/components/container/file-field';
+import 'views/modules/pages/profile/common/components/container/form-field';
+import 'views/modules/pages/profile/common/components/container/section';
+import 'views/modules/pages/profile/common/components/footer';
+import 'views/components/checkboxes/map';
