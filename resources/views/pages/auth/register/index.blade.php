@@ -2,7 +2,11 @@
 
 @section('layout-content')
     @include('modules.header.catalog.index')
-    @include('modules.auth.register.index')
+    @component('components.page.common.container.index', [
+        'withoutOffset' => true,
+    ])
+        @include('modules.auth.register.index')
+    @endcomponent
 @endsection
 
 @section('layout-scripts')
