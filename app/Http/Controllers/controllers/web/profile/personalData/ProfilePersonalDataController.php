@@ -26,7 +26,7 @@ class ProfilePersonalDataController extends Controller
         $locationList = getLocationListFormatted();
         $userData = getUserDataFormatted();
 
-        return view('pages.profile.personal-info.index', [
+        return view('pages.profile.personal-info.index.index', [
             'catalogHeader' => $catalogFull,
             'locationList' => $locationList,
             'userData' => $userData
