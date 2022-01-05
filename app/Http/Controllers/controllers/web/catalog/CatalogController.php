@@ -22,7 +22,7 @@ class CatalogController extends Controller
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
 
-        return view('pages.home.index', [
+        return view('pages.catalog.firstLevel.index.index', [
             'catalogHeader' => $catalogFull,
             'catalogPage' => $catalogFull,
             'locationList' => $locationList,
