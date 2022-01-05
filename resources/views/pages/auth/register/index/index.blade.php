@@ -1,11 +1,11 @@
-@extends('modules.layout.index')
+@extends('modules.common.layout.index')
 
 @section('layout-content')
-    @include('modules.header.catalog.index')
+    @include('modules.common.header.catalog.index')
     @component('components.page.common.container.index', [
         'withoutOffset' => true,
     ])
-        @include('modules.auth.register.index')
+        @include('modules.pages.auth.register.index')
     @endcomponent
 @endsection
 

@@ -1,9 +1,9 @@
 <div class="offers">
-    @include('modules.breadcrumbs.index')
+    @include('modules.common.breadcrumbs.index')
     <div class="offers__location-container">
-        @include('modules.location.components.choose.infoBlock.block.index')
+        @include('modules.common.location.components.choose.infoBlock.block.index')
     </div>
-    @include('modules.offers.paginatedList.index', [
+    @include('modules.pages.offers.paginatedList.index', [
         'paginationData' => $offersPaginatedData,
         'withSeller' => true
     ])

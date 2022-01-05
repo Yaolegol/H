@@ -1,4 +1,4 @@
-@component('modules.profile.common.body.create.index', [
+@component('modules.pages.profile.common.body.create.index', [
         'backLink' => '/profile/sale-points-info',
         'backTitle' => 'Смотреть все мои торговые точки',
         'title' => 'Добавить торговую точку'
@@ -10,7 +10,7 @@
     >
         @csrf
 
-        @component('modules.profile.common.container.form-field.index', ['title' => 'Название:'])
+        @component('modules.pages.profile.common.container.form-field.index', ['title' => 'Название:'])
             @include('components.inputs.form.index', [
                             'name' => 'title',
                             'placeholder' => 'Title',
@@ -21,7 +21,7 @@
             ])
         @endcomponent
 
-        @component('modules.profile.common.container.form-field.index', ['title' => 'Адрес:'])
+        @component('modules.pages.profile.common.container.form-field.index', ['title' => 'Адрес:'])
             @include('components.inputs.form.index', [
                             'name' => 'address',
                             'placeholder' => 'Address',
@@ -32,11 +32,11 @@
             ])
         @endcomponent
 
-        @component('modules.profile.common.container.form-field.index', ['title' => 'Карта:'])
+        @component('modules.pages.profile.common.container.form-field.index', ['title' => 'Карта:'])
             @include('components.map.2gis.components.add-marker.index')
         @endcomponent
 
-        @component('modules.profile.common.container.form-field.index', ['title' => 'Режим работы:'])
+        @component('modules.pages.profile.common.container.form-field.index', ['title' => 'Режим работы:'])
             @include('components.inputs.form.index', [
                             'name' => 'working_hours',
                             'placeholder' => 'Working hours',
@@ -47,7 +47,7 @@
             ])
         @endcomponent
 
-        @component('modules.profile.common.container.form-field.index', ['title' => 'Контактное лицо:'])
+        @component('modules.pages.profile.common.container.form-field.index', ['title' => 'Контактное лицо:'])
             @include('components.inputs.form.index', [
                             'name' => 'contact_person',
                             'placeholder' => 'Contact person',
@@ -58,7 +58,7 @@
             ])
         @endcomponent
 
-        @component('modules.profile.common.container.form-field.index', ['title' => 'Телефон:'])
+        @component('modules.pages.profile.common.container.form-field.index', ['title' => 'Телефон:'])
             @include('components.inputs.form.index', [
                             'name' => 'phone',
                             'placeholder' => 'Phone',
@@ -69,8 +69,8 @@
             ])
         @endcomponent
 
-        @component('modules.profile.common.container.section.index', ['title' => 'Фотографии торговой точки'])
-            @component('modules.profile.common.container.file-field.index')
+        @component('modules.pages.profile.common.container.section.index', ['title' => 'Фотографии торговой точки'])
+            @component('modules.pages.profile.common.container.file-field.index')
                 @include('components.inputs.file.item.index', [
                                     'imageSrc' => '',
                                     'name' => 'photo_1',
@@ -82,7 +82,7 @@
                 ])
             @endcomponent
 
-            @component('modules.profile.common.container.file-field.index')
+            @component('modules.pages.profile.common.container.file-field.index')
                     @include('components.inputs.file.item.index', [
                                         'imageSrc' => '',
                                         'name' => 'photo_2',
@@ -94,7 +94,7 @@
                     ])
             @endcomponent
 
-            @component('modules.profile.common.container.file-field.index')
+            @component('modules.pages.profile.common.container.file-field.index')
                     @include('components.inputs.file.item.index', [
                                         'imageSrc' => '',
                                         'name' => 'photo_3',
@@ -107,6 +107,6 @@
             @endcomponent
         @endcomponent
 
-        @include('modules.profile.common.footer.index')
+        @include('modules.pages.profile.common.footer.index')
     </form>
 @endcomponent

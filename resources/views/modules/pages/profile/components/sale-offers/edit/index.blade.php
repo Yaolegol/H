@@ -1,4 +1,4 @@
-@component('modules.profile.common.body.create.index', [
+@component('modules.pages.profile.common.body.create.index', [
         'backLink' => '/profile/sale-offers',
         'backTitle' => 'Смотреть все мои торговые предложения',
         'title' => 'Редактировать торговое предложение'
@@ -11,7 +11,7 @@
         @csrf
         @method('PUT')
 
-        @component('modules.profile.common.container.form-field.index', ['title' => 'Категория:'])
+        @component('modules.pages.profile.common.container.form-field.index', ['title' => 'Категория:'])
             @include('components.inputs.radio.group-first-level.index', [
                         'groupName' => 'radio-group__catalog_level_one',
                         'itemsList' => $catalogCategoriesList,
@@ -19,7 +19,7 @@
                     ])
         @endcomponent
 
-        @component('modules.profile.common.container.form-field.index')
+        @component('modules.pages.profile.common.container.form-field.index')
             @include('components.inputs.radio.group-second-level.index', [
                         'contentList' => $catalogSubCategoriesList,
                         'inputsName' => 'catalog_level_two_id',
@@ -28,7 +28,7 @@
                     ])
         @endcomponent
 
-        @component('modules.profile.common.container.form-field.index', ['title' => 'Регион:'])
+        @component('modules.pages.profile.common.container.form-field.index', ['title' => 'Регион:'])
             @include('components.inputs.radio.group-first-level.index', [
                         'groupName' => 'radio-group__region',
                         'itemsList' => $regionList,
@@ -36,7 +36,7 @@
                     ])
         @endcomponent
 
-        @component('modules.profile.common.container.form-field.index')
+        @component('modules.pages.profile.common.container.form-field.index')
             @include('components.inputs.radio.group-second-level.index', [
                     'contentList' => $citiesList,
                     'inputsName' => 'city_id',
@@ -45,7 +45,7 @@
                 ])
         @endcomponent
 
-        @component('modules.profile.common.container.form-field.index', ['title' => 'Заголовок:'])
+        @component('modules.pages.profile.common.container.form-field.index', ['title' => 'Заголовок:'])
             @include('components.inputs.form.index', [
                             'name' => 'title',
                             'placeholder' => 'Title',
@@ -57,7 +57,7 @@
             ])
         @endcomponent
 
-        @component('modules.profile.common.container.form-field.index', ['title' => 'Описание:'])
+        @component('modules.pages.profile.common.container.form-field.index', ['title' => 'Описание:'])
             @include('components.inputs.form.index', [
                             'name' => 'description',
                             'placeholder' => 'Description',
@@ -69,7 +69,7 @@
             ])
         @endcomponent
 
-        @component('modules.profile.common.container.form-field.index', ['title' => 'Адрес (где можно купить Вашу продукцию):'])
+        @component('modules.pages.profile.common.container.form-field.index', ['title' => 'Адрес (где можно купить Вашу продукцию):'])
             @include('components.inputs.form.index', [
                             'name' => 'address',
                             'placeholder' => 'Address',
@@ -81,7 +81,7 @@
             ])
         @endcomponent
 
-        @component('modules.profile.common.container.form-field.index', ['title' => 'Торговые точки (информацию о торговых точках можно добавить в соответствующем разделе Вашего профиля):'])
+        @component('modules.pages.profile.common.container.form-field.index', ['title' => 'Торговые точки (информацию о торговых точках можно добавить в соответствующем разделе Вашего профиля):'])
             @foreach($salePointsList as $salePointItem)
                 @include('components.checkboxes.map.index', [
                     'isChecked' => $salePointItem['active'],
@@ -94,14 +94,14 @@
             @endforeach
         @endcomponent
 
-        @component('modules.profile.common.container.form-field.index', ['title' => 'Карта:'])
+        @component('modules.pages.profile.common.container.form-field.index', ['title' => 'Карта:'])
             @include('components.map.2gis.components.add-marker.index', [
                 'markerLat' => $saleOfferItemData['map_marker_lat'],
                 'markerLng' => $saleOfferItemData['map_marker_lng'],
             ])
         @endcomponent
 
-        @component('modules.profile.common.container.form-field.index', ['title' => 'Телефон:'])
+        @component('modules.pages.profile.common.container.form-field.index', ['title' => 'Телефон:'])
             @include('components.inputs.form.index', [
                             'name' => 'phone',
                             'placeholder' => 'Organization-phone',
@@ -113,7 +113,7 @@
             ])
         @endcomponent
 
-        @component('modules.profile.common.container.form-field.index', ['title' => 'Цена:'])
+        @component('modules.pages.profile.common.container.form-field.index', ['title' => 'Цена:'])
             @include('components.inputs.form.index', [
                             'name' => 'price',
                             'placeholder' => 'Price',
@@ -125,7 +125,7 @@
             ])
         @endcomponent
 
-        @component('modules.profile.common.container.form-field.index', ['title' => 'Организация:'])
+        @component('modules.pages.profile.common.container.form-field.index', ['title' => 'Организация:'])
             @foreach($organizationsList as $organizationItem)
                 @include('components.inputs.radio.item.index', [
                         'isChecked' => $organizationItem['isChecked'] ?? false,
@@ -136,8 +136,8 @@
             @endforeach
         @endcomponent
 
-        @component('modules.profile.common.container.section.index', ['title' => 'Фотографии товара'])
-            @component('modules.profile.common.container.file-field.index')
+        @component('modules.pages.profile.common.container.section.index', ['title' => 'Фотографии товара'])
+            @component('modules.pages.profile.common.container.file-field.index')
                 @include('components.inputs.file.item.index', [
                                     'imageSrc' => $saleOfferItemData['photo_1'],
                                     'name' => 'photo_1',
@@ -149,7 +149,7 @@
                 ])
             @endcomponent
 
-            @component('modules.profile.common.container.file-field.index')
+            @component('modules.pages.profile.common.container.file-field.index')
                     @include('components.inputs.file.item.index', [
                                         'imageSrc' => $saleOfferItemData['photo_2'],
                                         'name' => 'photo_2',
@@ -161,7 +161,7 @@
                     ])
             @endcomponent
 
-            @component('modules.profile.common.container.file-field.index')
+            @component('modules.pages.profile.common.container.file-field.index')
                     @include('components.inputs.file.item.index', [
                                         'imageSrc' => $saleOfferItemData['photo_3'],
                                         'name' => 'photo_3',
@@ -174,6 +174,6 @@
             @endcomponent
         @endcomponent
 
-        @include('modules.profile.common.footer.index')
+        @include('modules.pages.profile.common.footer.index')
     </form>
 @endcomponent

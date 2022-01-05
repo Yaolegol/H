@@ -1,10 +1,10 @@
-@extends('modules.layout.index')
+@extends('modules.common.layout.index')
 
 @section('layout-content')
-    @include('modules.header.catalog.index')
+    @include('modules.common.header.catalog.index')
     @component('components.page.common.container.index')
-        @component('modules.profile.common.header.index', ['activeTab' => 'sale-offers'])
-            @include('modules.profile.components.sale-offers.edit.index')
+        @component('modules.pages.profile.common.header.index', ['activeTab' => 'sale-offers'])
+            @include('modules.pages.profile.components.sale-offers.edit.index')
         @endcomponent
     @endcomponent
 @endsection

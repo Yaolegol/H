@@ -1,4 +1,4 @@
-@component('modules.profile.common.body.create.index', [
+@component('modules.pages.profile.common.body.create.index', [
         'backLink' => '/profile/organization-info',
         'backTitle' => 'Смотреть все мои организации',
         'title' => 'Изменить данные об организации'
@@ -11,7 +11,7 @@
         @csrf
         @method('PUT')
 
-        @component('modules.profile.common.container.form-field.index', ['title' => 'Наименование:'])
+        @component('modules.pages.profile.common.container.form-field.index', ['title' => 'Наименование:'])
             @include('components.inputs.form.index', [
                             'name' => 'title',
                             'placeholder' => 'Organization name',
@@ -23,7 +23,7 @@
             ])
         @endcomponent
 
-        @component('modules.profile.common.container.form-field.index', ['title' => 'ИНН:'])
+        @component('modules.pages.profile.common.container.form-field.index', ['title' => 'ИНН:'])
             @include('components.inputs.form.index', [
                         'name' => 'inn',
                         'placeholder' => 'Inn',
@@ -35,7 +35,7 @@
             ])
         @endcomponent
 
-        @component('modules.profile.common.container.form-field.index', ['title' => 'Юридический адрес:'])
+        @component('modules.pages.profile.common.container.form-field.index', ['title' => 'Юридический адрес:'])
             @include('components.inputs.form.index', [
                         'name' => 'legal_address',
                         'placeholder' => 'Legal address',
@@ -47,7 +47,7 @@
             ])
         @endcomponent
 
-        @component('modules.profile.common.container.form-field.index', ['title' => 'Фактический адрес:'])
+        @component('modules.pages.profile.common.container.form-field.index', ['title' => 'Фактический адрес:'])
             @include('components.inputs.form.index', [
                         'name' => 'real_address',
                         'placeholder' => 'Real address',
@@ -59,7 +59,7 @@
             ])
         @endcomponent
 
-        @component('modules.profile.common.container.form-field.index', ['title' => 'Email:'])
+        @component('modules.pages.profile.common.container.form-field.index', ['title' => 'Email:'])
             @include('components.inputs.form.index', [
                         'name' => 'email',
                         'placeholder' => 'Organization email',
@@ -71,7 +71,7 @@
             ])
         @endcomponent
 
-        @component('modules.profile.common.container.form-field.index', ['title' => 'Телефон:'])
+        @component('modules.pages.profile.common.container.form-field.index', ['title' => 'Телефон:'])
             @include('components.inputs.form.index', [
                         'name' => 'phone',
                         'placeholder' => 'Organization-phone',
@@ -83,8 +83,8 @@
             ])
         @endcomponent
 
-        @component('modules.profile.common.container.section.index', ['title' => 'Свидетельтва, выданные организации'])
-            @component('modules.profile.common.container.file-field.index')
+        @component('modules.pages.profile.common.container.section.index', ['title' => 'Свидетельтва, выданные организации'])
+            @component('modules.pages.profile.common.container.file-field.index')
                 @include('components.inputs.file.item.index', [
                                     'imageSrc' => $organizationItemData['certificate_1'],
                                     'name' => 'certificate_1',
@@ -96,7 +96,7 @@
                 ])
             @endcomponent
 
-            @component('modules.profile.common.container.file-field.index')
+            @component('modules.pages.profile.common.container.file-field.index')
                     @include('components.inputs.file.item.index', [
                                         'imageSrc' => $organizationItemData['certificate_2'],
                                         'name' => 'certificate_2',
@@ -108,7 +108,7 @@
                     ])
             @endcomponent
 
-            @component('modules.profile.common.container.file-field.index')
+            @component('modules.pages.profile.common.container.file-field.index')
                     @include('components.inputs.file.item.index', [
                                         'imageSrc' => $organizationItemData['certificate_3'],
                                         'name' => 'certificate_3',
@@ -120,7 +120,7 @@
                     ])
             @endcomponent
 
-            @component('modules.profile.common.container.file-field.index')
+            @component('modules.pages.profile.common.container.file-field.index')
                     @include('components.inputs.file.item.index', [
                                         'imageSrc' => $organizationItemData['certificate_4'],
                                         'name' => 'certificate_4',
@@ -132,7 +132,7 @@
                     ])
             @endcomponent
 
-            @component('modules.profile.common.container.file-field.index')
+            @component('modules.pages.profile.common.container.file-field.index')
                     @include('components.inputs.file.item.index', [
                                         'imageSrc' => $organizationItemData['certificate_5'],
                                         'name' => 'certificate_5',
@@ -145,8 +145,8 @@
             @endcomponent
         @endcomponent
 
-        @component('modules.profile.common.container.section.index', ['title' => 'Фотографии организации'])
-            @component('modules.profile.common.container.file-field.index')
+        @component('modules.pages.profile.common.container.section.index', ['title' => 'Фотографии организации'])
+            @component('modules.pages.profile.common.container.file-field.index')
                 @include('components.inputs.file.item.index', [
                                     'imageSrc' => $organizationItemData['photo_1'],
                                     'name' => 'photo_1',
@@ -158,7 +158,7 @@
                 ])
             @endcomponent
 
-            @component('modules.profile.common.container.file-field.index')
+            @component('modules.pages.profile.common.container.file-field.index')
                     @include('components.inputs.file.item.index', [
                                         'imageSrc' => $organizationItemData['photo_2'],
                                         'name' => 'photo_2',
@@ -170,7 +170,7 @@
                     ])
             @endcomponent
 
-            @component('modules.profile.common.container.file-field.index')
+            @component('modules.pages.profile.common.container.file-field.index')
                     @include('components.inputs.file.item.index', [
                                         'imageSrc' => $organizationItemData['photo_3'],
                                         'name' => 'photo_3',
@@ -183,6 +183,6 @@
             @endcomponent
         @endcomponent
 
-        @include('modules.profile.common.footer.index')
+        @include('modules.pages.profile.common.footer.index')
     </form>
 @endcomponent

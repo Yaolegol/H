@@ -1,8 +1,8 @@
 <div class="home">
     @isset($breadcrumbs)
-        @include('modules.breadcrumbs.index')
+        @include('modules.common.breadcrumbs.index')
     @endisset
-    @include('modules.catalog.index')
+    @include('modules.pages.catalog.index')
 </div>
 
 

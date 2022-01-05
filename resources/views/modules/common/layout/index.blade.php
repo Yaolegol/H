@@ -18,7 +18,7 @@
             <div class="j-user__auth"></div>
         @endauth
         <div class="layout">
-            @include('modules.header.index')
+            @include('modules.common.header.index')
 
             <div class="layout__content-block">
                 @yield('layout-content')

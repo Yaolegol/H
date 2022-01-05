@@ -12,10 +12,10 @@
             @include('components.buttons.burger.index')
         </div>
         <div class="header__item-container header__item-container_search-container header__item-container_mobile-hidden">
-            @include('modules.header.search.index')
+            @include('modules.common.header.search.index')
         </div>
         <div class="header__item-container header__location-container">
-            @include('modules.location.components.choose.iconButton.index')
+            @include('modules.common.location.components.choose.iconButton.index')
         </div>
         <div class="header__item-container header__favorites-container j-favorites-components-header-counter">
             <div class="header__favorites-count-container j-favorites-components-header-counter__count"></div>
@@ -60,4 +60,4 @@
     </div>
 </div>
 
-@include('modules.location.components.modal.index')
+@include('modules.common.location.components.modal.index')

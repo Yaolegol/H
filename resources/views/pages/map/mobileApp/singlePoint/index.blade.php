@@ -1,7 +1,7 @@
-@extends('modules.layout.mobileApp.map.index')
+@extends('modules.common.layout.mobileApp.map.index')
 
 @section('layout-content')
-    @include('modules.map.mobileApp.singlePoint.index')
+    @include('modules.pages.map.mobileApp.singlePoint.index')
 @endsection
 
 @section('layout-scripts')

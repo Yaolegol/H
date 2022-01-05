@@ -21,7 +21,7 @@
         <div class="sellers-show__offers-block">
             <div class="sellers-show__offers-title">Предложения продавца</div>
             <div class="sellers-show__offers-container">
-                @include('modules.offers.list.index', [
+                @include('modules.pages.offers.list.index', [
                     'offersList' => $sellerData['offers'],
                 ])
             </div>

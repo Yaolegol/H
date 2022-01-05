@@ -1,5 +1,5 @@
 <div class="offers-paginated-list">
-    @include('modules.offers.list.index', [
+    @include('modules.pages.offers.list.index', [
         'offersList' => $offersPaginatedData['data']
     ])
 

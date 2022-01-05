@@ -9,7 +9,7 @@
                 @component('components.catalog.navigation-item-container.index')
                     @foreach($catalogHeader as $catalogItem)
                         @component('components.catalog.navigation-item.index', [ 'itemId' => $loop->index ])
-                            @component('modules.map.web.filters.components.navigationItem.index')
+                            @component('modules.pages.map.web.filters.components.navigationItem.index')
                                 {{ $catalogItem['title'] }}
                             @endcomponent
                         @endcomponent
@@ -22,7 +22,7 @@
                             <div class="components-catalog__categories-container">
                                 @foreach( $catalogItem['catalog_level_two'] as $category )
                                     @component('components.catalog.category-item.index')
-                                        @component('modules.map.web.filters.components.navigationContentButton.index', [
+                                        @component('modules.pages.map.web.filters.components.navigationContentButton.index', [
                                             'id' => $category['id']
                                         ])
                                             {{ $category['title'] }}

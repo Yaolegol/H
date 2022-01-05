@@ -1,9 +1,9 @@
-@extends('modules.layout.index')
+@extends('modules.common.layout.index')
 
 @section('layout-content')
-    @include('modules.header.catalog.index')
+    @include('modules.common.header.catalog.index')
     @component('components.page.common.container.index')
-        @include('modules.offers.offer.index')
+        @include('modules.pages.offers.offer.index')
     @endcomponent
 @endsection
 

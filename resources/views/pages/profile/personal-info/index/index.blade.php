@@ -1,10 +1,10 @@
-@extends('modules.layout.index')
+@extends('modules.common.layout.index')
 
 @section('layout-content')
-    @include('modules.header.catalog.index')
+    @include('modules.common.header.catalog.index')
     @component('components.page.common.container.index')
-        @component('modules.profile.common.header.index', ['activeTab' => 'personal-info'])
-            @include('modules.profile.components.personal-info.index')
+        @component('modules.pages.profile.common.header.index', ['activeTab' => 'personal-info'])
+            @include('modules.pages.profile.components.personal-info.index')
         @endcomponent
     @endcomponent
 @endsection

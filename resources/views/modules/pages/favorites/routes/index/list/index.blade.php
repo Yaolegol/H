@@ -1,7 +1,7 @@
 <div class="offers-list">
     @foreach($offersList as $offerItem)
         <div class="offers-list__item-container">
-            @include('modules.favorites.routes.index.item.index', [
+            @include('modules.pages.favorites.routes.index.item.index', [
                 'offer' => $offerItem,
                 'withSeller' => true,
             ])

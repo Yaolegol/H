@@ -5,7 +5,7 @@
             @component('components.catalog.navigation-item-container.index')
                 @foreach($catalogHeader as $catalogItem)
                     @component('components.catalog.navigation-item.index', [ 'itemId' => $loop->index ])
-                        @component('modules.header.catalog.catalogLink.index', [
+                        @component('modules.common.header.catalog.catalogLink.index', [
                             'link' => $catalogItem['linkFull']
                         ])
                             {{ $catalogItem['title'] }}

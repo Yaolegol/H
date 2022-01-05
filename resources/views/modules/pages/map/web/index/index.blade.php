@@ -2,10 +2,10 @@
     <h2 class="map-web-index__title">Карта</h2>
     <div class="map-web-index__content-area">
         <div class="map-web-index__location-container">
-            @include('modules.location.components.choose.infoBlock.block.index')
+            @include('modules.common.location.components.choose.infoBlock.block.index')
         </div>
         <div class="map-web-index__filters-container">
-            @include('modules.map.web.filters.components.button.index')
+            @include('modules.pages.map.web.filters.components.button.index')
         </div>
         <div class="map-web-index__info-item-container">
             <div>Где купить?</div>
@@ -16,4 +16,4 @@
     </div>
 </div>
 
-@include('modules.map.web.filters.components.modal.index')
+@include('modules.pages.map.web.filters.components.modal.index')
