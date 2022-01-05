@@ -2,7 +2,9 @@
 
 @section('layout-content')
     @include('modules.header.catalog.index')
-    @include('modules.map.web.index.index')
+    @component('components.page.common.container.index')
+        @include('modules.map.web.index.index')
+    @endcomponent
 @endsection
 
 @section('layout-scripts')

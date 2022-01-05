@@ -2235,9 +2235,16 @@ p {
   display: none;
 }
 
+.map-2gis-components-view-all {
+  padding-bottom: 100%;
+  position: relative;
+}
 .map-2gis-components-view-all__map-container {
-  height: 500px;
-  width: 500px;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 .map-2gis-components-view-all__map-container_mobile-app {
   height: 300px;
@@ -2343,7 +2350,6 @@ p {
 .map-web-index__location-container {
   display: flex;
   justify-content: center;
-  margin-top: 100px;
 }
 .map-web-index__slider-container {
   margin-top: 50px;

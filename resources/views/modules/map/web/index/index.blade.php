@@ -1,4 +1,5 @@
 <div class="map-web-index">
+    <h2 class="map-web-index__title">Карта</h2>
     <div class="map-web-index__content-area">
         <div class="map-web-index__location-container">
             @include('modules.location.components.choose.infoBlock.block.index')
