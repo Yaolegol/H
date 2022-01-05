@@ -5,6 +5,10 @@
     position: relative;
 
     &__arrow {
+        @media (max-width: 1023px) {
+            display: none !important;
+        }
+
         &_next {
             right: -50px !important;
         }

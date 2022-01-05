@@ -2937,9 +2937,16 @@ p {
   display: none;
 }
 
+.map-2gis-components-view-item {
+  padding-bottom: 100%;
+  position: relative;
+}
 .map-2gis-components-view-item__map-container {
-  height: 500px;
-  width: 500px;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 .map-2gis-components-view-item__map-container_mobile-app {
   height: 300px;
@@ -2954,6 +2961,11 @@ p {
   padding-bottom: 50px;
   position: relative;
 }
+@media (max-width: 1023px) {
+  .sliders-base__arrow {
+    display: none !important;
+  }
+}
 .sliders-base__arrow_next {
   right: -50px !important;
 }
@@ -2964,9 +2976,18 @@ p {
 .offer__content-area {
   margin: 50px auto 0;
   max-width: 800px;
+  position: relative;
+}
+@media (max-width: 1023px) {
+  .offer__content-area {
+    margin: 25px auto 0;
+  }
 }
 .offer__favorites-section {
   display: flex;
+  position: absolute;
+  right: 0;
+  top: -15px;
 }
 .offer__info-item-container {
   margin-top: 15px;
@@ -2974,8 +2995,16 @@ p {
 .offer__info-section {
   margin-top: 20px;
 }
+.offer__map-container {
+  max-width: 500px;
+}
 .offer__slider-container {
   margin-top: 50px;
+}
+@media (max-width: 1023px) {
+  .offer__slider-container {
+    margin-top: 25px;
+  }
 }
 .offer__slider-image {
   bottom: 0;

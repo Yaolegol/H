@@ -1,7 +1,13 @@
 <div class="offer">
     @include('modules.breadcrumbs.index')
     <div class="offer__content-area">
-        <div class="offer__title">{{$offer['title']}}</div>
+        <div class="offer__favorites-section">
+            @include('modules.favorites.components.button.index', [
+                'id' => $offer['id'],
+                'hintPosition' => 'left'
+            ])
+        </div>
+        <h2 class="offer__title">{{$offer['title']}}</h2>
         @if(!empty($offer['photoArray']))
             <div class="offer__slider-container">
                 @component('components.sliders.base.index')
@@ -15,12 +21,6 @@
                 @endcomponent
             </div>
         @endif
-        <div class="offer__favorites-section">
-            @include('modules.favorites.components.button.index', [
-                'id' => $offer['id'],
-                'hintPosition' => 'left'
-            ])
-        </div>
         <div class="offer__info-section">
             <div class="offer__info-item-container">
                 <div>{{$offer['description']}}</div>
@@ -37,7 +37,7 @@
             </div>
             <div class="offer__info-item-container">
                 <div>Где купить?</div>
-                <div>
+                <div class="offer__map-container">
                     @include('components.map.2gis.components.viewItem.index', [
                         'offerId' => $offer['id'],
                     ])
