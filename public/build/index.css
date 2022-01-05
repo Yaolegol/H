@@ -3242,6 +3242,11 @@ p {
 .profile-common-header__tabs-block {
   margin-top: 50px;
 }
+@media (max-width: 1023px) {
+  .profile-common-header__tabs-block {
+    margin-top: 25px;
+  }
+}
 .profile-common-header__tabs-container {
   display: flex;
 }
@@ -3256,6 +3261,11 @@ p {
 }
 .profile-common-header__title-container {
   margin-top: 50px;
+}
+@media (max-width: 1023px) {
+  .profile-common-header__title-container {
+    margin-top: 25px;
+  }
 }
 
 .inputs-file-item_with-image {
@@ -4170,6 +4180,11 @@ p {
     min-width: 350px;
   }
 }
+@media (max-width: 767px) {
+  .profile-components-personal-info__image-block {
+    min-width: 150px;
+  }
+}
 .profile-components-personal-info__image-container {
   border-radius: 50%;
   overflow: hidden;
@@ -4198,6 +4213,8 @@ p {
   text-align: center;
 }
 .profile-components-personal-info__send-button-container {
+  display: flex;
+  justify-content: flex-end;
   margin-top: 50px;
 }
 @media (max-width: 1023px) {
