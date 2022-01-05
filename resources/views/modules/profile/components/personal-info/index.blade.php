@@ -7,8 +7,10 @@
     <div class="profile-components-personal-info__content-block">
         <div class="profile-components-personal-info__content-container">
             <div class="profile-components-personal-info__personal-data-container">
-                <h2>Личные данные</h2>
-                <div>(отображаются для других пользователей)</div>
+                <div class="profile-components-personal-info__title-container">
+                    <h2>Личные данные</h2>
+                    <div>(отображаются для других пользователей)</div>
+                </div>
                 <form
                     action="/profile/personal-info"
                     enctype="multipart/form-data"
@@ -78,9 +80,13 @@
                 </form>
             </div>
             <div class="profile-components-personal-info__section-container">
-                <h2>Регистрационные данные</h2>
+                <div class="profile-components-personal-info__title-container">
+                    <h2>Регистрационные данные</h2>
+                </div>
                 <div class="profile-components-personal-info__change-email-container">
-                    <h3>Изменить email</h3>
+                    <div class="profile-components-personal-info__title-container">
+                        <h3>Изменить email</h3>
+                    </div>
                     <form action="/profile/personal-info" method="POST">
                         @csrf
                         <input name="form-section" type="hidden" value="change-email">
@@ -120,7 +126,9 @@
                     </form>
                 </div>
                 <div class="profile-components-personal-info__change-password-container">
-                    <h3>Изменить пароль</h3>
+                    <div class="profile-components-personal-info__title-container">
+                        <h3>Изменить пароль</h3>
+                    </div>
                     <form action="/profile/personal-info" method="POST">
                         @csrf
                         <input name="form-section" type="hidden" value="change-password">

@@ -3,6 +3,11 @@
 .profile-components-personal-info {
     display: flex;
 
+    @media (max-width: 1023px) {
+        align-items: center;
+        flex-direction: column;
+    }
+
     &__change-email-container {
         margin-top: 15px;
     }
@@ -13,11 +18,19 @@
 
     &__content-block {
         flex: 3 1 auto;
+
+        @media (max-width: 1023px) {
+            margin-top: 25px;
+        }
     }
 
     &__content-container {
         max-width: 500px;
         padding-left: 50px;
+
+        @media (max-width: 1023px) {
+            padding-left: 0;
+        }
     }
 
     &__image {
@@ -34,6 +47,10 @@
     &__image-block {
         flex: 1 0 auto;
         min-width: 350px;
+
+        @media (max-width: 1023px) {
+            min-width: 350px;
+        }
     }
 
     &__image-container {
@@ -74,5 +91,11 @@
 
     &__send-button-container {
         margin-top: 50px;
+    }
+
+    &__title-container {
+        @media (max-width: 1023px) {
+            text-align: center;
+        }
     }
 }
