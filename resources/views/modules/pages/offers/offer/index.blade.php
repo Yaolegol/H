@@ -2,7 +2,7 @@
     @include('modules.common.breadcrumbs.index')
     <div class="offer__content-area">
         <div class="offer__favorites-section">
-            @include('modules.pages.favorites.components.button.index', [
+            @include('modules.pages.favorites.shared.components.button.index', [
                 'id' => $offer['id'],
                 'hintPosition' => 'left'
             ])

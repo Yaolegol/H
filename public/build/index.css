@@ -1570,6 +1570,29 @@ p {
   display: none;
 }
 
+.pagination-common-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.pagination-common-main__current-page {
+  color: #000000;
+}
+.pagination-common-main__link.disabled {
+  visibility: hidden;
+}
+.pagination-common-main__main-block {
+  display: flex;
+  margin-top: 15px;
+}
+.pagination-common-main__main-block-item {
+  margin-left: 10px;
+}
+.pagination-common-main__main-block-item:first-child {
+  margin-left: 0;
+}
+
 .favorites-components-button {
   position: relative;
 }
@@ -1614,14 +1637,27 @@ p {
   border-radius: 10px;
   box-shadow: 0 0 10px 1px rgba(242, 242, 242, 0.7);
   display: flex;
-  padding: 20px;
+  padding: 20px 40px 20px 20px;
+  position: relative;
+}
+@media (max-width: 767px) {
+  .offers-item {
+    flex-direction: column;
+    padding: 20px;
+  }
 }
 .offers-item__contacts-block {
   margin-top: 15px;
 }
 .offers-item__content-block {
-  flex: 3 0 auto;
+  flex: 3 1 auto;
   padding: 0 0 0 20px;
+}
+@media (max-width: 767px) {
+  .offers-item__content-block {
+    margin-top: 15px;
+    padding: 0;
+  }
 }
 .offers-item__image {
   bottom: 0;
@@ -1635,7 +1671,16 @@ p {
 }
 .offers-item__image-block {
   flex: 2 0 auto;
+}
+.offers-item__image-container {
+  height: 100%;
   position: relative;
+}
+@media (max-width: 767px) {
+  .offers-item__image-container {
+    height: auto;
+    padding-bottom: 100%;
+  }
 }
 .offers-item__image-link {
   bottom: 0;
@@ -1653,26 +1698,29 @@ p {
   margin-top: 20px;
 }
 .offers-item__service-block {
-  flex: 0 1 auto;
+  position: absolute;
+  top: 15px;
+  right: 15px;
 }
 
-.offers-list {
-  margin: 15px auto 0;
-  max-width: 800px;
-}
 .offers-list__item-container {
-  margin-top: 15px;
+  margin: 15px 0 0;
 }
 .offers-list__item-container:first-child {
   margin-top: 0;
 }
-
-.offers__location-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
+@media (max-width: 767px) {
+  .offers-list__item-container {
+    margin: 15px auto 0;
+    max-width: 400px;
+  }
 }
-.offers__title {
+
+.modules-pages-favorites-routes-index__list-container {
+  margin: 15px auto 0;
+  max-width: 800px;
+}
+.modules-pages-favorites-routes-index__title {
   text-align: center;
 }
 
@@ -2515,100 +2563,6 @@ p {
 }
 .hidden {
   display: none;
-}
-
-.pagination-common-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
-}
-
-.pagination-common-main__current-page {
-  color: #000000;
-}
-.pagination-common-main__link.disabled {
-  visibility: hidden;
-}
-.pagination-common-main__main-block {
-  display: flex;
-  margin-top: 15px;
-}
-.pagination-common-main__main-block-item {
-  margin-left: 10px;
-}
-.pagination-common-main__main-block-item:first-child {
-  margin-left: 0;
-}
-
-.offers-item {
-  border: 1px solid #E9EDF6;
-  border-radius: 10px;
-  box-shadow: 0 0 10px 1px rgba(242, 242, 242, 0.7);
-  display: flex;
-  padding: 20px 40px 20px 20px;
-  position: relative;
-}
-@media (max-width: 767px) {
-  .offers-item {
-    flex-direction: column;
-    padding: 20px;
-  }
-}
-.offers-item__contacts-block {
-  margin-top: 15px;
-}
-.offers-item__content-block {
-  flex: 3 1 auto;
-  padding: 0 0 0 20px;
-}
-@media (max-width: 767px) {
-  .offers-item__content-block {
-    margin-top: 15px;
-    padding: 0;
-  }
-}
-.offers-item__image {
-  bottom: 0;
-  height: 100%;
-  left: 0;
-  object-fit: cover;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100%;
-}
-.offers-item__image-block {
-  flex: 2 0 auto;
-}
-.offers-item__image-container {
-  height: 100%;
-  position: relative;
-}
-@media (max-width: 767px) {
-  .offers-item__image-container {
-    height: auto;
-    padding-bottom: 100%;
-  }
-}
-.offers-item__image-link {
-  bottom: 0;
-  height: 100%;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100%;
-}
-.offers-item__price-container {
-  margin-top: 15px;
-}
-.offers-item__rating-section {
-  margin-top: 20px;
-}
-.offers-item__service-block {
-  position: absolute;
-  top: 15px;
-  right: 15px;
 }
 
 .offers-list__item-container {

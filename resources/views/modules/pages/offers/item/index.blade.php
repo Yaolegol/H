@@ -32,7 +32,7 @@
         </div>
     </div>
     <div class="offers-item__service-block">
-        @include('modules.pages.favorites.components.button.index', [
+        @include('modules.pages.favorites.shared.components.button.index', [
             'id' => $offer['id'],
         ])
     </div>

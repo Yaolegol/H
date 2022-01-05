@@ -1,7 +1,9 @@
 <div class="offers-item">
     <div class="offers-item__image-block">
-        <img alt="{{$offer['title']}}" class="offers-item__image" src="{{$offer['photo_1']}}">
-        <a class="offers-item__image-link" href="{{$offer['offerLink']}}"></a>
+        <div class="offers-item__image-container">
+            <img alt="{{$offer['title']}}" class="offers-item__image" src="{{$offer['photo_1']}}">
+            <a class="offers-item__image-link" href="{{$offer['offerLink']}}"></a>
+        </div>
     </div>
     <div class="offers-item__content-block">
         <div class="offers-item__info-section">
@@ -30,7 +32,7 @@
         </div>
     </div>
     <div class="offers-item__service-block">
-        @include('modules.pages.favorites.components.button.index', [
+        @include('modules.pages.favorites.shared.components.button.index', [
             'id' => $offer['id'],
         ])
     </div>
