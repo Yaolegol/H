@@ -27,11 +27,23 @@
         &:first-child {
             margin-left: 0;
         }
+
+        @media (max-width: 1023px) {
+            margin: 15px 0 0;
+
+            &:first-child {
+                margin: 0;
+            }
+        }
     }
 
     &__image-list-container {
         display: flex;
         margin-top: 20px;
+
+        @media (max-width: 1023px) {
+            flex-direction: column;
+        }
     }
 
     &__item-container {

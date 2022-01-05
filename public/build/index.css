@@ -4970,9 +4970,22 @@ p {
 .cards--sale-offer__image-item-container:first-child {
   margin-left: 0;
 }
+@media (max-width: 1023px) {
+  .cards--sale-offer__image-item-container {
+    margin: 15px 0 0;
+  }
+  .cards--sale-offer__image-item-container:first-child {
+    margin: 0;
+  }
+}
 .cards--sale-offer__image-list-container {
   display: flex;
   margin-top: 20px;
+}
+@media (max-width: 1023px) {
+  .cards--sale-offer__image-list-container {
+    flex-direction: column;
+  }
 }
 .cards--sale-offer__item-container {
   margin-top: 20px;
