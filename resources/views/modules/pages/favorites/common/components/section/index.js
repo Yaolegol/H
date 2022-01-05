@@ -1,5 +1,3 @@
-import {addEventListener} from 'helpers/events';
-
 class FavoritesSection {
     constructor(element) {
         this.module = element;
@@ -28,11 +26,6 @@ class FavoritesSection {
                     }
                 }))
             }
-
-            console.log('data');
-            console.log(data);
-            console.log('errors');
-            console.log(errors);
         } catch(err) {
             console.error(err);
         }
