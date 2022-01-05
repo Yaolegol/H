@@ -1,7 +1,7 @@
 import 'views/pages/auth/login';
 import 'views/pages/auth/register';
 import 'views/pages/catalog/firstLevel/index';
-import 'views/pages/catalog/secondLevel';
+import 'views/pages/catalog/secondLevel/index';
 import 'views/pages/favorites/index';
 import 'views/pages/map/mobileApp/singlePoint';
 import 'views/pages/map/web/index';

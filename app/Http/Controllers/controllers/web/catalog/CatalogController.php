@@ -63,7 +63,7 @@ class CatalogController extends Controller
         $breadcrumbs = getCatalogLevelTwoBreadcrumbs($catalogFull, $catalogLevelOneLink);
         $locationList = getLocationListFormatted();
 
-        return view('pages.catalog.secondLevel.index', [
+        return view('pages.catalog.secondLevel.index.index', [
             'breadcrumbs' => $breadcrumbs,
             'catalogHeader' => $catalogFull,
             'catalogPage' => $catalogLevelOneItemSubcategoriesList,
