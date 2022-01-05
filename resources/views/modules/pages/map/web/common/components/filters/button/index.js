@@ -1,5 +1,16 @@
+import {EVENTS_NAMES} from 'events/index';
 import {addEventListener} from 'helpers/events';
-import {mapFiltersOpenModal} from 'views/modules/pages/map/web/filters/helpers';
+import './index.less';
+
+const {
+    COMMON: {
+        MODALS: {
+            COMMON: {
+                OPEN,
+            }
+        }
+    }
+} = EVENTS_NAMES;
 
 class MapWebFiltersOpenModalButton {
     constructor(item) {
@@ -9,7 +20,11 @@ class MapWebFiltersOpenModalButton {
     }
 
     handleClick = (e) => {
-        mapFiltersOpenModal();
+        document.dispatchEvent(new CustomEvent(OPEN, {
+            detail: {
+                name: 'categories'
+            }
+        }));
     }
 }
 

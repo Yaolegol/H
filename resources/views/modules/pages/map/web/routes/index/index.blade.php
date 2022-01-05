@@ -5,7 +5,7 @@
             @include('modules.common.location.components.choose.infoBlock.block.index')
         </div>
         <div class="map-web-index__filters-container">
-            @include('modules.pages.map.web.filters.components.button.index')
+            @include('modules.pages.map.web.common.components.filters.button.index')
         </div>
         <div class="map-web-index__info-item-container">
             <div>Где купить?</div>
@@ -16,4 +16,4 @@
     </div>
 </div>
 
-@include('modules.pages.map.web.filters.components.modal.index')
+@include('modules.pages.map.web.common.components.filters.modal.index')

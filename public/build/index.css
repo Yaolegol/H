@@ -2262,6 +2262,12 @@ p {
   background-color: #E9EDF6;
 }
 
+.map-web-filters-components-navigation-item {
+  border-radius: 5px;
+  display: block;
+  padding: 20px;
+}
+
 .map-web-filters-components-modal-modal-content__content-container {
   margin-top: 20px;
 }
@@ -2279,12 +2285,6 @@ p {
 }
 .map-web-filters-components-modal-modal-content__title {
   text-align: center;
-}
-
-.map-web-filters-components-navigation-item {
-  border-radius: 5px;
-  display: block;
-  padding: 20px;
 }
 
 .map-web-index__content-area {

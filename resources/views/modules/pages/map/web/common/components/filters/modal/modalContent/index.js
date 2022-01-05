@@ -7,7 +7,8 @@ import "views/components/catalog/content-item";
 import "views/components/catalog/content-item-container";
 import "views/components/catalog/navigation-item";
 import "views/components/catalog/navigation-item-container";
-import "views/modules/pages/map/web/filters/components/navigationContentButton";
+import "views/modules/pages/map/web/common/components/filters/modal/modalContent/navigationContentButton";
+import 'views/modules/pages/map/web/common/components/filters/modal/modalContent/navigationItem';
 import './index.less';
 
 const {
