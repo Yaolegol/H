@@ -2,7 +2,9 @@
 
 @section('layout-content')
     @include('modules.header.catalog.index')
-    @include('modules.favorites.routes.index.index')
+    @component('components.page.common.container.index')
+        @include('modules.favorites.routes.index.index')
+    @endcomponent
 @endsection
 
 @section('layout-scripts')

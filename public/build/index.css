@@ -1527,6 +1527,9 @@ p {
   justify-content: center;
   margin-top: 50px;
 }
+.offers__title {
+  text-align: center;
+}
 
 @font-face {
   font-family: 'Lato';
