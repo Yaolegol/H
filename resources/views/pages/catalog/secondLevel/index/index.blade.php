@@ -3,7 +3,7 @@
 @section('layout-content')
     @include('modules.common.header.catalog.index')
     @component('components.page.common.container.index')
-        @include('modules.pages.home.index')
+        @include('modules.pages.catalog.common.components.layout.index')
     @endcomponent
 @endsection
 

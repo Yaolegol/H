@@ -5,7 +5,7 @@
     @component('components.page.common.container.index', [
         'withoutOffset' => true,
     ])
-        @include('modules.pages.auth.login.index')
+        @include('modules.pages.auth.routes.login.index.index')
     @endcomponent
 @endsection
 

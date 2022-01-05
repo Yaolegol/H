@@ -1,6 +1,6 @@
 @import (reference) '~styles/colors';
 
-.auth-register {
+.modules-pages-auth-common-components-layout {
     display: flex;
     flex: 1 1 auto;
     flex-direction: column;
@@ -32,10 +32,6 @@
         margin-top: 50px;
     }
 
-    &__form-item-container {
-        margin-top: 30px;
-    }
-
     &__send-button {
         border: 1px solid @black_15;
         border-radius: 25px;
@@ -49,43 +45,5 @@
         display: flex;
         justify-content: flex-end;
         margin-top: 50px;
-    }
-
-    &__tab-button {
-        border-radius: 10px;
-        box-shadow: 0 0 5px 0 @black_15;
-        color: @black_50;
-        display: inline-block;
-        flex: 1 0 0;
-        padding: 20px;
-        text-align: center;
-
-        &:hover:not(.auth-login__tab-button_active) {
-            background-color: @primary_50;
-            color: @white;
-        }
-
-        &_active {
-            background-color: @primary;
-            color: @white;
-            cursor: auto;
-            font-weight: 900;
-        }
-
-        &_with-offset {
-            margin: 0 0 0 20px;
-
-            @media (max-width: 767px) {
-                margin: 20px 0 0 0;
-            }
-        }
-    }
-
-    &__tabs-container {
-        display: flex;
-
-        @media (max-width: 767px) {
-            flex-direction: column;
-        }
     }
 }
