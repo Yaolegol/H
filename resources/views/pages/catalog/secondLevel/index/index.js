@@ -1,6 +1,6 @@
 import 'views/components/page/common/container';
-import 'views/modules/breadcrumbs';
-import 'views/modules/header';
-import 'views/modules/home';
-import 'views/modules/layout';
+import 'views/modules/common/breadcrumbs';
+import 'views/modules/common/header';
+import 'views/modules/pages/home';
+import 'views/modules/common/layout';
 import './index.less';

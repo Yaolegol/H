@@ -1,2 +1,2 @@
-import 'views/modules/map/mobileApp/singlePoint';
+import 'views/modules/pages/map/mobileApp/singlePoint';
 import './index.less';

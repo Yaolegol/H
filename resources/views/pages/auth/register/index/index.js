@@ -1,4 +1,4 @@
-import 'views/modules/auth/register';
-import 'views/modules/header';
-import 'views/modules/layout';
+import 'views/modules/pages/auth/register';
+import 'views/modules/common/header';
+import 'views/modules/common/layout';
 import './index.less';
