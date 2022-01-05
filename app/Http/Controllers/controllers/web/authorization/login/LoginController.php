@@ -23,7 +23,7 @@ class LoginController extends Controller
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
 
-        return view('pages.auth.login.index', [
+        return view('pages.auth.login.index.index', [
             'catalogHeader' => $catalogFull,
             'locationList' => $locationList,
         ]);

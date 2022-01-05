@@ -1,5 +1,5 @@
-import 'views/pages/auth/login';
-import 'views/pages/auth/register';
+import 'views/pages/auth/login/index';
+import 'views/pages/auth/register/index';
 import 'views/pages/catalog/firstLevel/index';
 import 'views/pages/catalog/secondLevel/index';
 import 'views/pages/favorites/index';

@@ -23,7 +23,7 @@ class RegisterController extends Controller
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
 
-        return view('pages.auth.register.index', [
+        return view('pages.auth.register.index.index', [
             'catalogHeader' => $catalogFull,
             'locationList' => $locationList,
         ]);
