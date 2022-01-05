@@ -16,7 +16,7 @@
     }
 
     &__content-area {
-        margin: 80px auto 0;
+        margin: 0 auto;
         max-width: 800px;
     }
 
@@ -24,6 +24,11 @@
         align-items: center;
         display: flex;
         flex-direction: column;
+        margin-top: 50px;
+
+        @media (max-width: 1023px) {
+            margin-top: 25px;
+        }
     }
 
     &__header-info-container {
@@ -40,6 +45,10 @@
     }
 
     &__offers-title {
+        text-align: center;
+    }
+
+    &__title {
         text-align: center;
     }
 }

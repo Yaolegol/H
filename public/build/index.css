@@ -6226,13 +6226,19 @@ p {
   width: 200px;
 }
 .sellers-show__content-area {
-  margin: 80px auto 0;
+  margin: 0 auto;
   max-width: 800px;
 }
 .sellers-show__header-block {
   align-items: center;
   display: flex;
   flex-direction: column;
+  margin-top: 50px;
+}
+@media (max-width: 1023px) {
+  .sellers-show__header-block {
+    margin-top: 25px;
+  }
 }
 .sellers-show__header-info-container {
   margin-top: 20px;
@@ -6245,6 +6251,9 @@ p {
   margin-top: 20px;
 }
 .sellers-show__offers-title {
+  text-align: center;
+}
+.sellers-show__title {
   text-align: center;
 }
 

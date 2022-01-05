@@ -1,5 +1,6 @@
 <div class="sellers-show">
     <div class="sellers-show__content-area">
+        <h2 class="sellers-show__title">Продавец</h2>
         <div class="sellers-show__header-block">
             <div class="sellers-show__avatar-container">
                 <img  alt="" class="sellers-show__avatar" src="{{$sellerData['avatar']}}">
