@@ -1,2 +1,2 @@
-import 'views/modules/pages/offers/list';
+import 'views/modules/pages/offers/shared/components/list';
 import './index.less';

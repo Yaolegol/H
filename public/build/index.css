@@ -2565,19 +2565,6 @@ p {
   display: none;
 }
 
-.offers-list__item-container {
-  margin: 15px 0 0;
-}
-.offers-list__item-container:first-child {
-  margin-top: 0;
-}
-@media (max-width: 767px) {
-  .offers-list__item-container {
-    margin: 15px auto 0;
-    max-width: 400px;
-  }
-}
-
 .offers-paginated-list {
   margin: 15px auto 0;
   max-width: 800px;
