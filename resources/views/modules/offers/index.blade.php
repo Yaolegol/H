@@ -3,7 +3,7 @@
     <div class="offers__location-container">
         @include('modules.location.components.choose.infoBlock.block.index')
     </div>
-    @include('modules.offers.list.index', [
+    @include('modules.offers.paginatedList.index', [
         'paginationData' => $offersPaginatedData,
         'withSeller' => true
     ])
