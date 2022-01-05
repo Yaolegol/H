@@ -2,8 +2,10 @@
 
 @section('layout-content')
     @include('modules.header.catalog.index')
-    @component('modules.profile.common.header.index', ['activeTab' => 'personal-info'])
-        @include('modules.profile.components.personal-info.index')
+    @component('components.page.common.container.index')
+        @component('modules.profile.common.header.index', ['activeTab' => 'personal-info'])
+            @include('modules.profile.components.personal-info.index')
+        @endcomponent
     @endcomponent
 @endsection
 

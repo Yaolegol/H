@@ -2,8 +2,10 @@
 
 @section('layout-content')
     @include('modules.header.catalog.index')
-    @component('modules.profile.common.header.index', ['activeTab' => 'sale-points-info'])
-        @include('modules.profile.components.sale-points-info.create.index')
+    @component('components.page.common.container.index')
+        @component('modules.profile.common.header.index', ['activeTab' => 'sale-points-info'])
+            @include('modules.profile.components.sale-points-info.create.index')
+        @endcomponent
     @endcomponent
 @endsection
 
