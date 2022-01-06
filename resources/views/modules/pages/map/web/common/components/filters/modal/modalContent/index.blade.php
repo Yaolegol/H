@@ -1,10 +1,10 @@
 <div
-    class="map-web-filters-components-modal-modal-content j-map-web-filters-components-modal-modal-content"
+    class="modules-pages-map-web-common-components-filters-modal-modal-content j-map-web-filters-components-modal-modal-content"
 >
-    <h2 class="map-web-filters-components-modal-modal-content__title">Фильтры</h2>
-    <div class="map-web-filters-components-modal-modal-content__filter-item-container">
-        <div class="map-web-filters-components-modal-modal-content__filter-item-title">Категория:</div>
-        <div class="map-web-filters-components-modal-modal-content__content-container">
+    <h2 class="modules-pages-map-web-common-components-filters-modal-modal-content__title">Фильтры</h2>
+    <div class="modules-pages-map-web-common-components-filters-modal-modal-content__filter-item-container">
+        <div class="modules-pages-map-web-common-components-filters-modal-modal-content__filter-item-title">Категория:</div>
+        <div class="modules-pages-map-web-common-components-filters-modal-modal-content__content-container">
             @component('components.catalog.index')
                 @component('components.catalog.navigation-item-container.index')
                     @foreach($catalogHeader as $catalogItem)
