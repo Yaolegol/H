@@ -481,14 +481,14 @@
   margin-top: 0;
 }
 
-.catalog-item {
+.modules-pages-catalog-common-components-item {
   position: relative;
 }
-.catalog-item__content-container {
+.modules-pages-catalog-common-components-item__content-container {
   margin-top: 15px;
   text-align: center;
 }
-.catalog-item__image {
+.modules-pages-catalog-common-components-item__image {
   bottom: 0;
   height: 100%;
   object-fit: cover;
@@ -498,13 +498,13 @@
   top: 0;
   width: 100%;
 }
-.catalog-item__image-container {
+.modules-pages-catalog-common-components-item__image-container {
   border-radius: 15px;
   overflow: hidden;
   padding-bottom: 100%;
   position: relative;
 }
-.catalog-item__link {
+.modules-pages-catalog-common-components-item__link {
   bottom: 0;
   height: 100%;
   object-fit: cover;
@@ -514,7 +514,7 @@
   top: 0;
   width: 100%;
 }
-.catalog-item:hover .catalog-item__title {
+.modules-pages-catalog-common-components-item:hover .modules-pages-catalog-common-components-item__title {
   color: #FF0000;
 }
 
