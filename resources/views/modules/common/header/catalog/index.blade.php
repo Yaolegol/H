@@ -1,6 +1,6 @@
-<div class="header-catalog j-header-catalog">
-    <div class="header-catalog__backdrop j-header-catalog__backdrop"></div>
-    <div class="header-catalog__catalog-container">
+<div class="modules-common-header-catalog j-header-catalog">
+    <div class="modules-common-header-catalog__backdrop j-header-catalog__backdrop"></div>
+    <div class="modules-common-header-catalog__catalog-container">
         @component('components.catalog.index')
             @component('components.catalog.navigation-item-container.index')
                 @foreach($catalogHeader as $catalogItem)
@@ -20,7 +20,7 @@
                         <div class="components-catalog__categories-container">
                             @foreach( $catalogItem['catalog_level_two'] as $category )
                                 @component('components.catalog.category-item.index')
-                                    <a class="header-catalog__link j-header-catalog__search-element" href="{{ $category['linkFull'] }}">
+                                    <a class="modules-common-header-catalog__link j-header-catalog__search-element" href="{{ $category['linkFull'] }}">
                                         {{ $category['title'] }}
                                     </a>
                                 @endcomponent
