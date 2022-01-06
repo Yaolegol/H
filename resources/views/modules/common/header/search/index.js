@@ -105,7 +105,7 @@ class Search {
         this.hideNonResultsMessage();
         this.searchResultsCategoriesResultContainer.innerHTML = '';
         this.searchResultsSellersResultContainer.innerHTML = '';
-        this.clearButton.classList.add('inputs-search__clear-button_hidden');
+        this.clearButton.classList.add('modules-common-header-search__clear-button_hidden');
     }
 
     handleSearchInputInput = (e) => {
@@ -166,7 +166,7 @@ class Search {
     }
 
     showClearButton = () => {
-        this.clearButton.classList.remove('inputs-search__clear-button_hidden');
+        this.clearButton.classList.remove('modules-common-header-search__clear-button_hidden');
     }
 
     showNonResultsMessage = () => {
