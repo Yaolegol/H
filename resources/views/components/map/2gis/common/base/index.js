@@ -56,7 +56,7 @@ export class Map2gisCommonBase {
                     const marker = DG.marker(coords);
 
                     marker.bindPopup(`
-                        <div class="map-2gis-common-base__marker-popup">
+                        <div class="components-map-2gis-common-base__marker-popup">
                             <div>Адресс</div>
                             <div>${address}</div>
                             <div>Телефон</div>

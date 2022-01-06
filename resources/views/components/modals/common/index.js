@@ -27,7 +27,7 @@ class ModalsCommon {
         const isClickedBackdrop = e.target.classList.contains('j-components-modals-common');
 
         if(isClickedBackdrop) {
-            this.module.classList.remove('modals-common_show');
+            this.module.classList.remove('components-modals-common_show');
         }
     }
 
@@ -42,9 +42,9 @@ class ModalsCommon {
 
         if(this.name === name) {
             if(type === OPEN) {
-                this.module.classList.add('modals-common_show');
+                this.module.classList.add('components-modals-common_show');
             } else if(type === CLOSE) {
-                this.module.classList.remove('modals-common_show');
+                this.module.classList.remove('components-modals-common_show');
             }
         }
     }

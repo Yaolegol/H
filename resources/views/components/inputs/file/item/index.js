@@ -18,7 +18,7 @@ class InputsFileItem {
         const image = `
             <img
                 alt=""
-                class="inputs-file-item__image"
+                class="components-inputs-file-item__image"
                 src="${src}"
             >
         `;
@@ -67,11 +67,11 @@ class InputsFileItem {
     }
 
     hideContent = () => {
-        this.module.classList.remove('inputs-file-item_with-image');
+        this.module.classList.remove('components-inputs-file-item_with-image');
     }
 
     showContent = () => {
-        this.module.classList.add('inputs-file-item_with-image');
+        this.module.classList.add('components-inputs-file-item_with-image');
     }
 }
 

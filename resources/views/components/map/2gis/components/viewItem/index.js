@@ -17,7 +17,7 @@ class Map2gisComponentsViewItem {
         });
 
         marker.bindPopup(`
-            <div class="map-2gis-components-view-item__marker-popup">
+            <div class="components-map-2gis-components-view-item__marker-popup">
                 <div>Адресс</div>
                 <div>${address}</div>
                 <div>Телефон</div>

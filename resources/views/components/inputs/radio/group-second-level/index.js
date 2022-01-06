@@ -40,10 +40,10 @@ class InputsRadioGroupSecondLevel {
         const {groupName, value} = detail;
 
         if(groupName === this.listenGroupName) {
-            this.module.classList.remove('inputs-radio-group-second-level_hidden');
+            this.module.classList.remove('components-inputs-radio-group-second-level_hidden');
 
             if(this.activeContentContainer) {
-                this.activeContentContainer.classList.remove('inputs-radio-group-second-level__content-container_active');
+                this.activeContentContainer.classList.remove('components-inputs-radio-group-second-level__content-container_active');
                 const checkedInput = this.activeContentContainer.querySelector('input:checked');
 
                 if(checkedInput) {
@@ -52,7 +52,7 @@ class InputsRadioGroupSecondLevel {
             }
 
             this.activeContentContainer = this.contentContainersMap[value];
-            this.activeContentContainer.classList.add('inputs-radio-group-second-level__content-container_active');
+            this.activeContentContainer.classList.add('components-inputs-radio-group-second-level__content-container_active');
         }
     }
 }
