@@ -33,8 +33,7 @@
                     @yield('layout-content')
                 </div>
             </div>
-
-            @yield('layout-scripts')
         </div>
+        @yield('layout-scripts')
     </body>
 </html>
