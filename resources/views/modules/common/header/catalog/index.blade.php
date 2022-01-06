@@ -1,7 +1,7 @@
 <div class="modules-common-header-catalog j-header-catalog">
     <div class="modules-common-header-catalog__backdrop j-header-catalog__backdrop"></div>
     <div class="modules-common-header-catalog__catalog-container">
-        @component('components.catalog.index')
+        @component('components.catalog.container.index')
             @component('components.catalog.navigation-item-container.index')
                 @foreach($catalogHeader as $catalogItem)
                     @component('components.catalog.navigation-item.index', [ 'itemId' => $loop->index ])

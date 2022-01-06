@@ -1,4 +1,4 @@
-<div class="pagination-common-container">
+<div class="components-pagination-common-container">
     {{$slot}}
 </div>
 

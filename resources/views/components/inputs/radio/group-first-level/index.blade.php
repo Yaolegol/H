@@ -1,5 +1,5 @@
 <div
-    class="inputs-radio-group-first-level j-inputs-radio-group-first-level"
+    class="components-inputs-radio-group-first-level j-inputs-radio-group-first-level"
     data-group-name="{{$groupName}}"
 >
     @foreach($itemsList as $item)

@@ -1,12 +1,12 @@
-<div class="inputs-radio-item">
+<div class="components-inputs-radio-item">
     <label
-        class="inputs-radio-item__category-input-label"
+        class="components-inputs-radio-item__category-input-label"
     >
         <input
             @if($isChecked ?? false)
                 checked
             @endif
-            class="inputs-radio-item__category-input"
+            class="components-inputs-radio-item__category-input"
             name="{{$name}}"
             type="radio"
             value="{{$value}}"

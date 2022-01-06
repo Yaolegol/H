@@ -5,7 +5,7 @@
     <div class="modules-pages-map-web-common-components-filters-modal-modal-content__filter-item-container">
         <div class="modules-pages-map-web-common-components-filters-modal-modal-content__filter-item-title">Категория:</div>
         <div class="modules-pages-map-web-common-components-filters-modal-modal-content__content-container">
-            @component('components.catalog.index')
+            @component('components.catalog.container.index')
                 @component('components.catalog.navigation-item-container.index')
                     @foreach($catalogHeader as $catalogItem)
                         @component('components.catalog.navigation-item.index', [ 'itemId' => $loop->index ])

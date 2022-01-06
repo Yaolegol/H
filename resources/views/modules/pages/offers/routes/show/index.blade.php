@@ -10,7 +10,7 @@
         <h2 class="modules-pages-offers-routes-show__title">{{$offer['title']}}</h2>
         @if(!empty($offer['photoArray']))
             <div class="modules-pages-offers-routes-show__slider-container">
-                @component('components.sliders.base.index')
+                @component('components.sliders.base.slider.index')
                     @foreach($offer['photoArray'] as $photoUrl)
                         @component('components.sliders.base.slide.index')
                             <div class="modules-pages-offers-routes-show__slider-image-container">
@@ -51,7 +51,7 @@
 
                         @if(!empty($offer['organization']['certificateArray']))
                             <div class="modules-pages-offers-routes-show__slider-container">
-                                @component('components.sliders.base.index')
+                                @component('components.sliders.base.slider.index')
                                     @foreach($offer['organization']['certificateArray'] as $certificateUrl)
                                         @component('components.sliders.base.slide.index')
                                             <div class="modules-pages-offers-routes-show__slider-image-container">
@@ -64,7 +64,7 @@
                         @endif
                         @if(!empty($offer['organization']['photoArray']))
                             <div class="modules-pages-offers-routes-show__slider-container">
-                                @component('components.sliders.base.index')
+                                @component('components.sliders.base.slider.index')
                                     @foreach($offer['organization']['photoArray'] as $photoUrl)
                                         @component('components.sliders.base.slide.index')
                                             <div class="modules-pages-offers-routes-show__slider-image-container">
@@ -89,7 +89,7 @@
 
                                 @if(!empty($salePointItem['photoArray']))
                                     <div class="modules-pages-offers-routes-show__slider-container">
-                                        @component('components.sliders.base.index')
+                                        @component('components.sliders.base.slider.index')
                                             @foreach($salePointItem['photoArray'] as $photoUrl)
                                                 @component('components.sliders.base.slide.index')
                                                     <div class="modules-pages-offers-routes-show__slider-image-container">

@@ -1,17 +1,17 @@
 <div
     class="
-        inputs-radio-group-second-level
-        inputs-radio-group-second-level_hidden
+        components-inputs-radio-group-second-level
+        components-inputs-radio-group-second-level_hidden
         j-inputs-radio-group-second-level
     "
     data-listen-group-name="{{$listenGroupName}}"
 >
-    <div class="inputs-radio-group-second-level__title">{{$title}}:</div>
-    <div class="inputs-radio-group-second-level__content-block">
+    <div class="components-inputs-radio-group-second-level__title">{{$title}}:</div>
+    <div class="components-inputs-radio-group-second-level__content-block">
         @foreach($contentList as $contentItem)
             <div
                 class="
-                    inputs-radio-group-second-level__content-container
+                    components-inputs-radio-group-second-level__content-container
                     j-inputs-radio-group-second-level__content-container
                 "
                 data-listen-id="{{$contentItem['listenId']}}"

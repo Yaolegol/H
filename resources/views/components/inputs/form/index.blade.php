@@ -1,6 +1,6 @@
-<div class="inputs-form">
+<div class="components-inputs-form">
     <input
-            class="inputs-form__input"
+            class="components-inputs-form__input"
             name="{{$name}}"
             placeholder="{{$placeholder}}"
             type="{{$type}}"

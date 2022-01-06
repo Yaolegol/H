@@ -1,5 +1,5 @@
 <div
-    class="map-2gis-components-add-marker j-map-2gis-components-add-marker"
+    class="components-map-2gis-components-add-marker j-map-2gis-components-add-marker"
     data-marker-lat="{{$markerLat ?? ''}}"
     data-marker-lng="{{$markerLng ?? ''}}"
 >
@@ -15,11 +15,11 @@
     >
     <div
         class="
-        map-2gis-components-add-marker__map-container
-        @if($isMobileApp ?? false)
-            map-2gis-components-add-marker__map-container_mobile-app
-        @endif
-        j-map-2gis-components-add-marker__map-container
+            components-map-2gis-components-add-marker__map-container
+            @if($isMobileApp ?? false)
+                components-map-2gis-components-add-marker__map-container_mobile-app
+            @endif
+            j-map-2gis-components-add-marker__map-container
         "
         id="map-2gis"
     ></div>

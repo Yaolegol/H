@@ -1,5 +1,5 @@
 <div
-    class="checkboxes-map j-checkboxes-map"
+    class="components-checkboxes-map j-checkboxes-map"
     data-marker-lat="{{$map_marker_lat ?? ''}}"
     data-marker-lng="{{$map_marker_lng ?? ''}}"
 >
