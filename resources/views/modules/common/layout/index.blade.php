@@ -21,7 +21,17 @@
             @include('modules.common.header.index')
 
             <div class="layout__content-block">
-                @yield('layout-content')
+                @include('modules.common.header.catalog.index')
+                <div
+                    class="
+                        layout__content-container
+                        @isset($withoutOffset)
+                            layout__content-container_without-offset
+                        @endisset
+                    "
+                >
+                    @yield('layout-content')
+                </div>
             </div>
 
             @yield('layout-scripts')

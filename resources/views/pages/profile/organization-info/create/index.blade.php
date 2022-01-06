@@ -1,11 +1,8 @@
 @extends('modules.common.layout.index')
 
 @section('layout-content')
-    @include('modules.common.header.catalog.index')
-    @component('components.page.common.container.index')
-        @component('modules.pages.profile.common.components.header.index', ['activeTab' => 'organization-info'])
-            @include('modules.pages.profile.routes.organization-info.create.index')
-        @endcomponent
+    @component('modules.pages.profile.common.components.header.index', ['activeTab' => 'organization-info'])
+        @include('modules.pages.profile.routes.organization-info.create.index')
     @endcomponent
 @endsection
 

@@ -1,10 +1,7 @@
 @extends('modules.common.layout.index')
 
 @section('layout-content')
-    @include('modules.common.header.catalog.index')
-    @component('components.page.common.container.index')
-        @include('modules.pages.catalog.common.routes.index.index')
-    @endcomponent
+    @include('modules.pages.catalog.common.routes.index.index')
 @endsection
 
 @section('layout-scripts')

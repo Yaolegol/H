@@ -1,12 +1,9 @@
-@extends('modules.common.layout.index')
+@extends('modules.common.layout.index', [
+    'withoutOffset' => true
+])
 
 @section('layout-content')
-    @include('modules.common.header.catalog.index')
-    @component('components.page.common.container.index', [
-        'withoutOffset' => true,
-    ])
-        @include('modules.pages.auth.routes.register.index.index')
-    @endcomponent
+    @include('modules.pages.auth.routes.register.index.index')
 @endsection
 
 @section('layout-scripts')
