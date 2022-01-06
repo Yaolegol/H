@@ -3,8 +3,14 @@
 ])
 
 @section('layout-styles')
-    <link href="{{ asset('build/auth_login_index.css') }}" rel="stylesheet">
-    <link href="{{ asset('build/vendors.css') }}" rel="stylesheet">
+    <link
+        href="{{ custom_getBuildFilePath('auth_login_index', 'css') }}"
+        rel="stylesheet"
+    >
+    <link
+        href="{{ custom_getBuildFilePath('vendors', 'css') }}"
+        rel="stylesheet"
+    >
 @endsection
 
 @section('layout-content')
@@ -12,6 +18,12 @@
 @endsection
 
 @section('layout-scripts')
-    <script src="{{ asset('build/auth_login_index.bundle.js') }}" defer></script>
-    <script src="{{ asset('build/vendors.bundle.js') }}" defer></script>
+    <script
+        defer
+        src="{{ custom_getBuildFilePath('auth_login_index', 'js') }}"
+    ></script>
+    <script
+        defer
+        src="{{ custom_getBuildFilePath('vendors', 'js') }}"
+    ></script>
 @endsection

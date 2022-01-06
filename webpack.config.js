@@ -126,12 +126,15 @@ module.exports = {
         },
     },
     output: {
-        filename: "[name].bundle.js",
+        filename: "[name].[hash].bundle.js",
         path: appDirectoriesData.path_build,
     },
     plugins: [
         new CleanWebpackPlugin(),
-        new MiniCssExtractPlugin(),
+        new MiniCssExtractPlugin({
+            chunkFilename: "[name].[hash].css",
+            filename: "[name].[hash].css",
+        }),
         new CopyPlugin({
             patterns: [
                 {

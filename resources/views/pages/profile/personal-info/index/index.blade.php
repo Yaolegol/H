@@ -1,8 +1,14 @@
 @extends('modules.common.layout.index')
 
 @section('layout-styles')
-    <link href="{{ asset('build/profile_personalInfo_index.css') }}" rel="stylesheet">
-    <link href="{{ asset('build/vendors.css') }}" rel="stylesheet">
+    <link
+        href="{{ custom_getBuildFilePath('profile_personalInfo_index', 'css') }}"
+        rel="stylesheet"
+    >
+    <link
+        href="{{ custom_getBuildFilePath('vendors', 'css') }}"
+        rel="stylesheet"
+    >
 @endsection
 
 @section('layout-content')
@@ -10,6 +16,12 @@
 @endsection
 
 @section('layout-scripts')
-    <script src="{{ asset('build/profile_personalInfo_index.bundle.js') }}" defer></script>
-    <script src="{{ asset('build/vendors.bundle.js') }}" defer></script>
+    <script
+        defer
+        src="{{ custom_getBuildFilePath('profile_personalInfo_index', 'js') }}"
+    ></script>
+    <script
+        defer
+        src="{{ custom_getBuildFilePath('vendors', 'js') }}"
+    ></script>
 @endsection
