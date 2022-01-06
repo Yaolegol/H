@@ -1,6 +1,6 @@
-<div class="offers">
+<div class="modules-pages-offers-routes-index">
     @include('modules.common.breadcrumbs.list.index')
-    <div class="offers__location-container">
+    <div class="modules-pages-offers-routes-index__location-container">
         @include('modules.common.location.components.choose.infoBlock.block.index')
     </div>
     @include('modules.pages.offers.common.components.paginatedList.index', [

@@ -1,6 +1,6 @@
-<div class="offers-list">
+<div class="modules-pages-offers-shared-components-list">
     @foreach($offersList as $offerItem)
-        <div class="offers-list__item-container">
+        <div class="modules-pages-offers-shared-components-list__item-container">
             @include('modules.pages.offers.shared.components.item.index', [
                 'offer' => $offerItem,
                 'withSeller' => $withSeller ?? false,

@@ -1,4 +1,4 @@
-<div class="offers-paginated-list">
+<div class="modules-pages-offers-common-components-paginated-list">
     @include('modules.pages.offers.shared.components.list.index', [
         'offersList' => $offersPaginatedData['data']
     ])
