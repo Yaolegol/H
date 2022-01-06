@@ -116,12 +116,18 @@ module.exports = {
     },
     optimization: {
         splitChunks: {
-            chunks: 'all',
+            cacheGroups: {
+                commons: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    chunks: 'all'
+                }
+            }
         },
     },
     output: {
         filename: "[name].bundle.js",
-        path: appDirectoriesData.build,
+        path: appDirectoriesData.path_build,
     },
     plugins: [
         new CleanWebpackPlugin(),
