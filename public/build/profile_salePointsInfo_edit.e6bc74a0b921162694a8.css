@@ -1,4 +1,4 @@
-.buttons-burger {
+.components-buttons-burger {
   align-items: center;
   cursor: pointer;
   display: flex;
@@ -6,13 +6,13 @@
   justify-content: center;
   width: 48px;
 }
-.buttons-burger__line {
+.components-buttons-burger__line {
   background-color: #FFFFFF;
   height: 5px;
   margin-top: 5px;
   width: 100%;
 }
-.buttons-burger__line:first-child {
+.components-buttons-burger__line:first-child {
   margin-top: 0;
 }
 

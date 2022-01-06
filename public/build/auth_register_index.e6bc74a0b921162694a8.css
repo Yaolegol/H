@@ -1,23 +1,114 @@
-.modules-common-breadcrumbs-item {
-  align-items: center;
-  display: flex;
-  margin-right: 15px;
-  white-space: nowrap;
-}
-.modules-common-breadcrumbs-item__arrow {
-  margin-left: 15px;
-}
-.modules-common-breadcrumbs-item__link:hover {
+.form-error {
   color: #FF0000;
+  font-size: 14px;
+  margin-top: 5px;
 }
 
-.modules-common-breadcrumbs-list {
-  align-items: center;
+.inputs-form {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  height: 55px;
+  overflow: hidden;
+}
+.inputs-form__input {
+  border: 1px solid #FFFFFF;
+  border-right: none;
+  border-radius: 30px 0 0 30px;
+  height: 100%;
+  min-width: 0;
+  padding: 0 30px;
+  width: 100%;
+}
+
+.modules-pages-auth-common-components-form-item-container {
+  margin-top: 30px;
+}
+
+.modules-pages-auth-common-components-tabs {
   display: flex;
-  flex-wrap: wrap;
+}
+@media (max-width: 767px) {
+  .modules-pages-auth-common-components-tabs {
+    flex-direction: column;
+  }
+}
+.modules-pages-auth-common-components-tabs__link {
+  border-radius: 10px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+  color: rgba(0, 0, 0, 0.5);
+  display: inline-block;
+  flex: 1 0 0;
+  padding: 20px;
+  text-align: center;
+}
+.modules-pages-auth-common-components-tabs__link:hover:not(.auth-login__tab-link_active) {
+  background-color: rgba(76, 187, 23, 0.5);
+  color: #FFFFFF;
+}
+.modules-pages-auth-common-components-tabs__link_active {
+  background-color: #4CBB17;
+  color: #FFFFFF;
+  cursor: auto;
+  font-weight: 900;
+  pointer-events: none;
+}
+.modules-pages-auth-common-components-tabs__link_with-offset {
+  margin: 0 0 0 20px;
+}
+@media (max-width: 767px) {
+  .modules-pages-auth-common-components-tabs__link_with-offset {
+    margin: 20px 0 0 0;
+  }
 }
 
-.buttons-burger {
+.modules-pages-auth-common-components-layout {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: center;
+}
+.modules-pages-auth-common-components-layout__content-block {
+  border-radius: 20px;
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.15);
+  margin: 60px auto 0;
+  min-width: 500px;
+  padding: 50px;
+}
+@media (max-width: 767px) {
+  .modules-pages-auth-common-components-layout__content-block {
+    margin-top: 50px;
+    min-width: auto;
+    width: 100%;
+  }
+}
+@media (max-width: 375px) {
+  .modules-pages-auth-common-components-layout__content-block {
+    padding: 20px;
+  }
+}
+@media (max-width: 374px) {
+  .modules-pages-auth-common-components-layout__content-block {
+    margin-top: 40px;
+  }
+}
+.modules-pages-auth-common-components-layout__content-container {
+  margin-top: 50px;
+}
+.modules-pages-auth-common-components-layout__send-button {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  padding: 20px;
+  text-align: center;
+}
+.modules-pages-auth-common-components-layout__send-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 50px;
+}
+
+.components-buttons-burger {
   align-items: center;
   cursor: pointer;
   display: flex;
@@ -25,13 +116,13 @@
   justify-content: center;
   width: 48px;
 }
-.buttons-burger__line {
+.components-buttons-burger__line {
   background-color: #FFFFFF;
   height: 5px;
   margin-top: 5px;
   width: 100%;
 }
-.buttons-burger__line:first-child {
+.components-buttons-burger__line:first-child {
   margin-top: 0;
 }
 
@@ -479,147 +570,6 @@
 }
 .modules-common-layout-web__content-container_without-offset {
   margin-top: 0;
-}
-
-.map-2gis-common-base__marker-popup {
-  width: 100px;
-}
-
-.map-2gis-components-view-all {
-  padding-bottom: 100%;
-  position: relative;
-}
-.map-2gis-components-view-all__map-container {
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-.map-2gis-components-view-all__map-container_mobile-app {
-  height: 300px;
-  width: auto;
-}
-.map-2gis-components-view-all__marker-popup {
-  width: 100px;
-}
-
-.modules-common-location-components-choose-info-block-item {
-  display: flex;
-}
-.modules-common-location-components-choose-info-block-item__change-button {
-  color: green;
-}
-.modules-common-location-components-choose-info-block-item__change-button-container {
-  margin-left: 10px;
-}
-.modules-common-location-components-choose-info-block-item__title {
-  font-weight: bold;
-}
-
-.location-choose-infoBlock-block {
-  display: flex;
-}
-.location-choose-infoBlock-block__info-container {
-  margin-left: 10px;
-}
-
-.modules-pages-map-web-common-components-filters-button__filter-button {
-  background-color: #4CBB17;
-  border-radius: 25px;
-  color: #FFFFFF;
-  cursor: pointer;
-  padding: 20px;
-  text-align: center;
-}
-.modules-pages-map-web-common-components-filters-button__filter-button:hover {
-  background-color: rgba(76, 187, 23, 0.8);
-}
-
-.modules-pages-map-web-common-components-filters-modal-modal-content-navigation-content-button {
-  display: block;
-  padding: 20px;
-  text-align: left;
-  width: 100%;
-}
-.modules-pages-map-web-common-components-filters-modal-modal-content-navigation-content-button:hover {
-  background-color: #E9EDF6;
-}
-
-.modules-pages-map-web-common-components-filters-modal-modal-content-navigation-item {
-  border-radius: 5px;
-  display: block;
-  padding: 20px;
-}
-
-.modules-pages-map-web-common-components-filters-modal-modal-content__content-container {
-  margin-top: 20px;
-}
-.modules-pages-map-web-common-components-filters-modal-modal-content__cities-container {
-  margin-top: 10px;
-}
-.modules-pages-map-web-common-components-filters-modal-modal-content__city-title {
-  margin-top: 5px;
-}
-.modules-pages-map-web-common-components-filters-modal-modal-content__filter-item-container {
-  margin-top: 25px;
-}
-.modules-pages-map-web-common-components-filters-modal-modal-content__location-item {
-  margin-top: 50px;
-}
-.modules-pages-map-web-common-components-filters-modal-modal-content__title {
-  text-align: center;
-}
-
-.modules-pages-map-web-routes-index__content-area {
-  margin: 50px auto 0;
-  max-width: 800px;
-}
-.modules-pages-map-web-routes-index__filter-button {
-  background-color: #4CBB17;
-  border-radius: 25px;
-  color: #FFFFFF;
-  cursor: pointer;
-  padding: 20px;
-  text-align: center;
-}
-.modules-pages-map-web-routes-index__filter-button:hover {
-  background-color: rgba(76, 187, 23, 0.8);
-}
-.modules-pages-map-web-routes-index__filters-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-.modules-pages-map-web-routes-index__info-item-container {
-  margin-top: 15px;
-}
-.modules-pages-map-web-routes-index__info-section {
-  margin-top: 20px;
-}
-.modules-pages-map-web-routes-index__location-container {
-  display: flex;
-  justify-content: center;
-}
-.modules-pages-map-web-routes-index__slider-container {
-  margin-top: 50px;
-}
-.modules-pages-map-web-routes-index__slider-image {
-  bottom: 0;
-  height: 100%;
-  left: 0;
-  object-fit: contain;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100%;
-}
-.modules-pages-map-web-routes-index__slider-image-container {
-  padding-bottom: 50%;
-  position: relative;
-}
-.modules-pages-map-web-routes-index__title {
-  text-align: center;
 }
 
 @font-face {
