@@ -212,24 +212,24 @@
   margin-top: 0;
 }
 
-.buttons-location {
+.modules-common-location-components-choose-icon-button {
   color: #FFFFFF;
   line-height: 0;
 }
 
-.header-location-modal-content__content-container {
+.modules-common-location-components-modal-modal-content__content-container {
   margin-top: 20px;
 }
-.header-location-modal-content__cities-container {
+.modules-common-location-components-modal-modal-content__cities-container {
   margin-top: 10px;
 }
-.header-location-modal-content__city-title {
+.modules-common-location-components-modal-modal-content__city-title {
   margin-top: 5px;
 }
-.header-location-modal-content__location-item {
+.modules-common-location-components-modal-modal-content__location-item {
   margin-top: 50px;
 }
-.header-location-modal-content__title {
+.modules-common-location-components-modal-modal-content__title {
   text-align: center;
 }
 
@@ -444,16 +444,16 @@
   width: 100%;
 }
 
-.layout {
+.modules-common-layout-web {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
-.layout__content-block {
+.modules-common-layout-web__content-block {
   display: flex;
   flex: 1 1 auto;
 }
-.layout__content-container {
+.modules-common-layout-web__content-container {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
@@ -463,164 +463,93 @@
   padding: 0 50px;
 }
 @media (max-width: 499px) {
-  .layout__content-container {
+  .modules-common-layout-web__content-container {
     padding: 0 10px;
   }
 }
 @media (max-width: 767px) {
-  .layout__content-container {
+  .modules-common-layout-web__content-container {
     margin-top: 50px;
   }
 }
 @media (max-width: 374px) {
-  .layout__content-container {
+  .modules-common-layout-web__content-container {
     margin-top: 40px;
   }
 }
-.layout__content-container_without-offset {
+.modules-common-layout-web__content-container_without-offset {
   margin-top: 0;
 }
 
-.map-2gis-common-base__marker-popup {
-  width: 100px;
+.catalog-item {
+  position: relative;
 }
-
-.map-2gis-components-view-all {
+.catalog-item__content-container {
+  margin-top: 15px;
+  text-align: center;
+}
+.catalog-item__image {
+  bottom: 0;
+  height: 100%;
+  object-fit: cover;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+.catalog-item__image-container {
+  border-radius: 15px;
+  overflow: hidden;
   padding-bottom: 100%;
   position: relative;
 }
-.map-2gis-components-view-all__map-container {
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-.map-2gis-components-view-all__map-container_mobile-app {
-  height: 300px;
-  width: auto;
-}
-.map-2gis-components-view-all__marker-popup {
-  width: 100px;
-}
-
-.location-choose-infoBlock-item {
-  display: flex;
-}
-.location-choose-infoBlock-item__change-button {
-  color: green;
-}
-.location-choose-infoBlock-item__change-button-container {
-  margin-left: 10px;
-}
-.location-choose-infoBlock-item__title {
-  font-weight: bold;
-}
-
-.location-choose-infoBlock-block {
-  display: flex;
-}
-.location-choose-infoBlock-block__info-container {
-  margin-left: 10px;
-}
-
-.map-web-filters-components-button__filter-button {
-  background-color: #4CBB17;
-  border-radius: 25px;
-  color: #FFFFFF;
-  cursor: pointer;
-  padding: 20px;
-  text-align: center;
-}
-.map-web-filters-components-button__filter-button:hover {
-  background-color: rgba(76, 187, 23, 0.8);
-}
-
-.map-web-filters-components-navigation-content-button {
-  display: block;
-  padding: 20px;
-  text-align: left;
-  width: 100%;
-}
-.map-web-filters-components-navigation-content-button:hover {
-  background-color: #E9EDF6;
-}
-
-.map-web-filters-components-navigation-item {
-  border-radius: 5px;
-  display: block;
-  padding: 20px;
-}
-
-.map-web-filters-components-modal-modal-content__content-container {
-  margin-top: 20px;
-}
-.map-web-filters-components-modal-modal-content__cities-container {
-  margin-top: 10px;
-}
-.map-web-filters-components-modal-modal-content__city-title {
-  margin-top: 5px;
-}
-.map-web-filters-components-modal-modal-content__filter-item-container {
-  margin-top: 25px;
-}
-.map-web-filters-components-modal-modal-content__location-item {
-  margin-top: 50px;
-}
-.map-web-filters-components-modal-modal-content__title {
-  text-align: center;
-}
-
-.map-web-index__content-area {
-  margin: 50px auto 0;
-  max-width: 800px;
-}
-.map-web-index__filter-button {
-  background-color: #4CBB17;
-  border-radius: 25px;
-  color: #FFFFFF;
-  cursor: pointer;
-  padding: 20px;
-  text-align: center;
-}
-.map-web-index__filter-button:hover {
-  background-color: rgba(76, 187, 23, 0.8);
-}
-.map-web-index__filters-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-.map-web-index__info-item-container {
-  margin-top: 15px;
-}
-.map-web-index__info-section {
-  margin-top: 20px;
-}
-.map-web-index__location-container {
-  display: flex;
-  justify-content: center;
-}
-.map-web-index__slider-container {
-  margin-top: 50px;
-}
-.map-web-index__slider-image {
+.catalog-item__link {
   bottom: 0;
   height: 100%;
+  object-fit: cover;
   left: 0;
-  object-fit: contain;
   position: absolute;
   right: 0;
   top: 0;
   width: 100%;
 }
-.map-web-index__slider-image-container {
-  padding-bottom: 50%;
-  position: relative;
+.catalog-item:hover .catalog-item__title {
+  color: #FF0000;
 }
-.map-web-index__title {
-  text-align: center;
+
+.catalog {
+  margin: 0 auto;
+  max-width: 1000px;
 }
+.catalog__item {
+  flex: 0 0 auto;
+  margin-top: 50px;
+  padding: 0 25px;
+  width: 187px;
+}
+@media (max-width: 767px) {
+  .catalog__item {
+    margin-top: 25px;
+    width: 160px;
+  }
+}
+@media (max-width: 374px) {
+  .catalog__item {
+    width: 135px;
+  }
+}
+.catalog__items-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -25px;
+}
+@media (max-width: 1023px) {
+  .catalog__items-container {
+    justify-content: center;
+  }
+}
+
 
 @font-face {
   font-family: 'Lato';

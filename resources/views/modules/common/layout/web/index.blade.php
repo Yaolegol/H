@@ -17,16 +17,16 @@
         @auth
             <div class="j-user__auth"></div>
         @endauth
-        <div class="layout">
+        <div class="modules-common-layout-web">
             @include('modules.common.header.index.index')
 
-            <div class="layout__content-block">
+            <div class="modules-common-layout-web__content-block">
                 @include('modules.common.header.catalog.index')
                 <div
                     class="
-                        layout__content-container
+                        modules-common-layout-web__content-container
                         @isset($withoutOffset)
-                            layout__content-container_without-offset
+                            modules-common-layout-web__content-container_without-offset
                         @endisset
                     "
                 >

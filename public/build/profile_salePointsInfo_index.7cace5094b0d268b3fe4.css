@@ -193,24 +193,24 @@
   margin-top: 0;
 }
 
-.buttons-location {
+.modules-common-location-components-choose-icon-button {
   color: #FFFFFF;
   line-height: 0;
 }
 
-.header-location-modal-content__content-container {
+.modules-common-location-components-modal-modal-content__content-container {
   margin-top: 20px;
 }
-.header-location-modal-content__cities-container {
+.modules-common-location-components-modal-modal-content__cities-container {
   margin-top: 10px;
 }
-.header-location-modal-content__city-title {
+.modules-common-location-components-modal-modal-content__city-title {
   margin-top: 5px;
 }
-.header-location-modal-content__location-item {
+.modules-common-location-components-modal-modal-content__location-item {
   margin-top: 50px;
 }
-.header-location-modal-content__title {
+.modules-common-location-components-modal-modal-content__title {
   text-align: center;
 }
 
@@ -425,16 +425,16 @@
   width: 100%;
 }
 
-.layout {
+.modules-common-layout-web {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
-.layout__content-block {
+.modules-common-layout-web__content-block {
   display: flex;
   flex: 1 1 auto;
 }
-.layout__content-container {
+.modules-common-layout-web__content-container {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
@@ -444,21 +444,21 @@
   padding: 0 50px;
 }
 @media (max-width: 499px) {
-  .layout__content-container {
+  .modules-common-layout-web__content-container {
     padding: 0 10px;
   }
 }
 @media (max-width: 767px) {
-  .layout__content-container {
+  .modules-common-layout-web__content-container {
     margin-top: 50px;
   }
 }
 @media (max-width: 374px) {
-  .layout__content-container {
+  .modules-common-layout-web__content-container {
     margin-top: 40px;
   }
 }
-.layout__content-container_without-offset {
+.modules-common-layout-web__content-container_without-offset {
   margin-top: 0;
 }
 
