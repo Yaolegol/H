@@ -1,5 +1,5 @@
 <div class="offers">
-    @include('modules.common.breadcrumbs.index')
+    @include('modules.common.breadcrumbs.list.index')
     <div class="offers__location-container">
         @include('modules.common.location.components.choose.infoBlock.block.index')
     </div>

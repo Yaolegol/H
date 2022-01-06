@@ -1,5 +1,5 @@
 <div class="offer">
-    @include('modules.common.breadcrumbs.index')
+    @include('modules.common.breadcrumbs.list.index')
     <div class="offer__content-area">
         <div class="offer__favorites-section">
             @include('modules.pages.favorites.shared.components.button.index', [
