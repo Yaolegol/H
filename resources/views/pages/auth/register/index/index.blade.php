@@ -1,4 +1,4 @@
-@extends('modules.common.layout.index', [
+@extends('modules.common.layout.web.index', [
     'withoutOffset' => true
 ])
 
