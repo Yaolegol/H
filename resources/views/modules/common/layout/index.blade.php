@@ -18,7 +18,7 @@
             <div class="j-user__auth"></div>
         @endauth
         <div class="layout">
-            @include('modules.common.header.index')
+            @include('modules.common.header.index.index')
 
             <div class="layout__content-block">
                 @include('modules.common.header.catalog.index')
