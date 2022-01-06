@@ -1,9 +1,7 @@
 @extends('modules.common.layout.index')
 
 @section('layout-content')
-    @component('modules.pages.profile.common.components.header.index', ['activeTab' => 'sale-points-info'])
-        @include('modules.pages.profile.routes.sale-points-info.edit.index')
-    @endcomponent
+    @include('modules.pages.profile.routes.sale-points-info.edit.index')
 @endsection
 
 @section('layout-scripts')

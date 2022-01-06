@@ -6,3 +6,4 @@ import 'views/modules/pages/profile/common/components/container/file-field';
 import 'views/modules/pages/profile/common/components/container/form-field';
 import 'views/modules/pages/profile/common/components/container/section';
 import 'views/modules/pages/profile/common/components/footer';
+import 'views/modules/pages/profile/common/components/header';

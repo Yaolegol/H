@@ -1,9 +1,7 @@
 @extends('modules.common.layout.index')
 
 @section('layout-content')
-    @component('modules.pages.profile.common.components.header.index', ['activeTab' => 'organization-info'])
-        @include('modules.pages.profile.routes.organization-info.create.index')
-    @endcomponent
+    @include('modules.pages.profile.routes.organization-info.create.index')
 @endsection
 
 @section('layout-scripts')
