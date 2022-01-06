@@ -518,34 +518,34 @@
   color: #FF0000;
 }
 
-.catalog {
+.modules-pages-catalog-common-components-list {
   margin: 0 auto;
   max-width: 1000px;
 }
-.catalog__item {
+.modules-pages-catalog-common-components-list__item {
   flex: 0 0 auto;
   margin-top: 50px;
   padding: 0 25px;
   width: 187px;
 }
 @media (max-width: 767px) {
-  .catalog__item {
+  .modules-pages-catalog-common-components-list__item {
     margin-top: 25px;
     width: 160px;
   }
 }
 @media (max-width: 374px) {
-  .catalog__item {
+  .modules-pages-catalog-common-components-list__item {
     width: 135px;
   }
 }
-.catalog__items-container {
+.modules-pages-catalog-common-components-list__items-container {
   display: flex;
   flex-wrap: wrap;
   margin: 0 -25px;
 }
 @media (max-width: 1023px) {
-  .catalog__items-container {
+  .modules-pages-catalog-common-components-list__items-container {
     justify-content: center;
   }
 }
