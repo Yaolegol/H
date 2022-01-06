@@ -1,4 +1,4 @@
-<div class="profile-common-container-file-field">
+<div class="modules-pages-profile-common-components-container-file-field">
     {{$slot}}
 </div>
 

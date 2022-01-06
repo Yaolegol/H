@@ -1,4 +1,4 @@
-<div class="profile-common-container-card">
+<div class="modules-pages-profile-common-components-container-card">
     {{$slot}}
 </div>
 

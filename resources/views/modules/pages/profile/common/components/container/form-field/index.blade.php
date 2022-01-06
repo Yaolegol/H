@@ -1,7 +1,7 @@
-<div class="profile-common-container-form-field">
+<div class="modules-pages-profile-common-components-container-form-field">
     @isset($title)
-        <div class="profile-common-container-form-field__title">{{$title}}</div>
-        <div class="profile-common-container-form-field__content-container">
+        <div class="modules-pages-profile-common-components-container-form-field__title">{{$title}}</div>
+        <div class="modules-pages-profile-common-components-container-form-field__content-container">
             {{$slot}}
         </div>
     @else

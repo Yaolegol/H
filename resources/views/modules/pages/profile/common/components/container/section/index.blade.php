@@ -1,4 +1,4 @@
-<div class="profile-common-container-section">
+<div class="modules-pages-profile-common-components-container-section">
     @isset($title)
         <h2>{{$title}}</h2>
     @endisset

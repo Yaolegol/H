@@ -1,14 +1,14 @@
 @component('modules.pages.profile.common.components.header.index', ['activeTab' => 'personal-info'])
-    <div class="profile-components-personal-info">
-        <div class="profile-components-personal-info__image-block">
-            <div class="profile-components-personal-info__image-container">
-                <img alt="Photo" class="profile-components-personal-info__image" src="{{$userData['avatar'] ? $userData['avatar'] : 'https://picsum.photos/200/300'}}">
+    <div class="modules-pages-profile-routes-personal-info-index">
+        <div class="modules-pages-profile-routes-personal-info-index__image-block">
+            <div class="modules-pages-profile-routes-personal-info-index__image-container">
+                <img alt="Photo" class="modules-pages-profile-routes-personal-info-index__image" src="{{$userData['avatar'] ? $userData['avatar'] : 'https://picsum.photos/200/300'}}">
             </div>
         </div>
-        <div class="profile-components-personal-info__content-block">
-            <div class="profile-components-personal-info__content-container">
-                <div class="profile-components-personal-info__personal-data-container">
-                    <div class="profile-components-personal-info__title-container">
+        <div class="modules-pages-profile-routes-personal-info-index__content-block">
+            <div class="modules-pages-profile-routes-personal-info-index__content-container">
+                <div class="modules-pages-profile-routes-personal-info-index__personal-data-container">
+                    <div class="modules-pages-profile-routes-personal-info-index__title-container">
                         <h2>Личные данные</h2>
                         <div>(отображаются для других пользователей)</div>
                     </div>
@@ -19,8 +19,8 @@
                     >
                         @csrf
                         <input name="form-section" type="hidden" value="change-personal-data">
-                        <div class="profile-components-personal-info__info-title">Ваше имя:</div>
-                        <div class="profile-components-personal-info__input-container">
+                        <div class="modules-pages-profile-routes-personal-info-index__info-title">Ваше имя:</div>
+                        <div class="modules-pages-profile-routes-personal-info-index__input-container">
                             @include('components.inputs.form.index', [
                                         'name' => 'name',
                                         'placeholder' => 'Name',
@@ -31,8 +31,8 @@
                                 'message' => $errors->first('name'),
                             ])
                         </div>
-                        <div class="profile-components-personal-info__info-title">Телефон:</div>
-                        <div class="profile-components-personal-info__input-container">
+                        <div class="modules-pages-profile-routes-personal-info-index__info-title">Телефон:</div>
+                        <div class="modules-pages-profile-routes-personal-info-index__input-container">
                             @include('components.inputs.form.index', [
                                         'name' => 'phone',
                                         'placeholder' => 'Phone',
@@ -43,9 +43,9 @@
                                 'message' => $errors->first('phone'),
                             ])
                         </div>
-                        <div class="profile-components-personal-info__info-title">Email (отображаемый для других пользователей):</div>
-                        <div class="profile-components-personal-info__info-description">
-                            <div class="profile-components-personal-info__input-container">
+                        <div class="modules-pages-profile-routes-personal-info-index__info-title">Email (отображаемый для других пользователей):</div>
+                        <div class="modules-pages-profile-routes-personal-info-index__info-description">
+                            <div class="modules-pages-profile-routes-personal-info-index__input-container">
                                 @include('components.inputs.form.index', [
                                             'name' => 'visible_email',
                                             'placeholder' => 'Email',
@@ -57,9 +57,9 @@
                                 ])
                             </div>
                         </div>
-                        <div class="profile-components-personal-info__photo-block">
-                            <div class="profile-components-personal-info__info-description">
-                                <div class="profile-components-personal-info__input-container">
+                        <div class="modules-pages-profile-routes-personal-info-index__photo-block">
+                            <div class="modules-pages-profile-routes-personal-info-index__info-description">
+                                <div class="modules-pages-profile-routes-personal-info-index__input-container">
                                     @include('components.inputs.file.item.index', [
                                         'imageSrc' => $userData['avatar'],
                                         'name' => 'avatar',
@@ -72,28 +72,28 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="profile-components-personal-info__send-button-container">
-                            <button class="profile-components-personal-info__send-button">Сохранить</button>
+                        <div class="modules-pages-profile-routes-personal-info-index__send-button-container">
+                            <button class="modules-pages-profile-routes-personal-info-index__send-button">Сохранить</button>
                         </div>
                         @include('components.form.error.index', [
                             'message' => session('commonError'),
                         ])
                     </form>
                 </div>
-                <div class="profile-components-personal-info__section-container">
-                    <div class="profile-components-personal-info__title-container">
+                <div class="modules-pages-profile-routes-personal-info-index__section-container">
+                    <div class="modules-pages-profile-routes-personal-info-index__title-container">
                         <h2>Регистрационные данные</h2>
                     </div>
-                    <div class="profile-components-personal-info__change-email-container">
-                        <div class="profile-components-personal-info__title-container">
+                    <div class="modules-pages-profile-routes-personal-info-index__change-email-container">
+                        <div class="modules-pages-profile-routes-personal-info-index__title-container">
                             <h3>Изменить email</h3>
                         </div>
                         <form action="/profile/personal-info" method="POST">
                             @csrf
                             <input name="form-section" type="hidden" value="change-email">
-                            <div class="profile-components-personal-info__info-title">Новый email:</div>
-                            <div class="profile-components-personal-info__info-description">
-                                <div class="profile-components-personal-info__input-container">
+                            <div class="modules-pages-profile-routes-personal-info-index__info-title">Новый email:</div>
+                            <div class="modules-pages-profile-routes-personal-info-index__info-description">
+                                <div class="modules-pages-profile-routes-personal-info-index__input-container">
                                     @include('components.inputs.form.index', [
                                                 'name' => 'registration_email',
                                                 'placeholder' => 'Email',
@@ -105,9 +105,9 @@
                                     ])
                                 </div>
                             </div>
-                            <div class="profile-components-personal-info__info-title">Текущий пароль:</div>
-                            <div class="profile-components-personal-info__info-description">
-                                <div class="profile-components-personal-info__input-container">
+                            <div class="modules-pages-profile-routes-personal-info-index__info-title">Текущий пароль:</div>
+                            <div class="modules-pages-profile-routes-personal-info-index__info-description">
+                                <div class="modules-pages-profile-routes-personal-info-index__input-container">
                                     @include('components.inputs.form.index', [
                                     'name' => 'password',
                                     'placeholder' => 'Current password',
@@ -118,24 +118,24 @@
                                     ])
                                 </div>
                             </div>
-                            <div class="profile-components-personal-info__send-button-container">
-                                <button class="profile-components-personal-info__send-button">Сохранить</button>
+                            <div class="modules-pages-profile-routes-personal-info-index__send-button-container">
+                                <button class="modules-pages-profile-routes-personal-info-index__send-button">Сохранить</button>
                             </div>
                             @include('components.form.error.index', [
                                 'message' => session('commonChangeEmailError'),
                             ])
                         </form>
                     </div>
-                    <div class="profile-components-personal-info__change-password-container">
-                        <div class="profile-components-personal-info__title-container">
+                    <div class="modules-pages-profile-routes-personal-info-index__change-password-container">
+                        <div class="modules-pages-profile-routes-personal-info-index__title-container">
                             <h3>Изменить пароль</h3>
                         </div>
                         <form action="/profile/personal-info" method="POST">
                             @csrf
                             <input name="form-section" type="hidden" value="change-password">
-                            <div class="profile-components-personal-info__info-title">Текущий пароль:</div>
-                            <div class="profile-components-personal-info__info-description">
-                                <div class="profile-components-personal-info__input-container">
+                            <div class="modules-pages-profile-routes-personal-info-index__info-title">Текущий пароль:</div>
+                            <div class="modules-pages-profile-routes-personal-info-index__info-description">
+                                <div class="modules-pages-profile-routes-personal-info-index__input-container">
                                     @include('components.inputs.form.index', [
                                     'name' => 'current_password',
                                     'placeholder' => 'Current password',
@@ -146,9 +146,9 @@
                                     ])
                                 </div>
                             </div>
-                            <div class="profile-components-personal-info__info-title">Новый пароль:</div>
-                            <div class="profile-components-personal-info__info-description">
-                                <div class="profile-components-personal-info__input-container">
+                            <div class="modules-pages-profile-routes-personal-info-index__info-title">Новый пароль:</div>
+                            <div class="modules-pages-profile-routes-personal-info-index__info-description">
+                                <div class="modules-pages-profile-routes-personal-info-index__input-container">
                                     @include('components.inputs.form.index', [
                                     'name' => 'password',
                                     'placeholder' => 'New password',
@@ -159,9 +159,9 @@
                                     ])
                                 </div>
                             </div>
-                            <div class="profile-components-personal-info__info-title">Подтверждение нового пароля:</div>
-                            <div class="profile-components-personal-info__info-description">
-                                <div class="profile-components-personal-info__input-container">
+                            <div class="modules-pages-profile-routes-personal-info-index__info-title">Подтверждение нового пароля:</div>
+                            <div class="modules-pages-profile-routes-personal-info-index__info-description">
+                                <div class="modules-pages-profile-routes-personal-info-index__input-container">
                                     @include('components.inputs.form.index', [
                                     'name' => 'password_confirmation',
                                     'placeholder' => 'Confirm new password',
@@ -172,8 +172,8 @@
                                     ])
                                 </div>
                             </div>
-                            <div class="profile-components-personal-info__send-button-container">
-                                <button class="profile-components-personal-info__send-button">Сохранить</button>
+                            <div class="modules-pages-profile-routes-personal-info-index__send-button-container">
+                                <button class="modules-pages-profile-routes-personal-info-index__send-button">Сохранить</button>
                             </div>
                             @include('components.form.error.index', [
                                 'message' => session('commonChangePasswordError'),
