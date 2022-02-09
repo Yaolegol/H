@@ -5,10 +5,15 @@
             placeholder="Search"
             type="text"
         >
-        <button class="modules-common-header-search__clear-button modules-common-header-search__clear-button_hidden j-header-search__clear-button" type="button">x</button>
+        <button
+            class="modules-common-header-search__clear-button modules-common-header-search__clear-button_hidden j-header-search__clear-button"
+            type="button"
+        >
+            @include('icons.close')
+        </button>
     </div>
     <div class="modules-common-header-search__search-results-area hidden j-header-search__search-results-area">
-        <div class="modules-common-header-search__search-results-block">
+        <div class="modules-common-header-search__search-results-block j-header-search__search-results-block">
             <div class="modules-common-header-search__search-results-container hidden j-header-search__search-results-categories-container">
                 <div>Категории</div>
                 <div class="modules-common-header-search__result-container j-header-search__search-results-categories-result-container"></div>

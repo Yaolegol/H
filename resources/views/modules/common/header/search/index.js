@@ -15,7 +15,7 @@ class Search {
         this.searchResultsSellersContainer = this.module.querySelector('.j-header-search__search-results-sellers-container');
         this.searchResultsCategoriesResultContainer = this.module.querySelector('.j-header-search__search-results-categories-result-container');
         this.searchResultsSellersResultContainer = this.module.querySelector('.j-header-search__search-results-sellers-result-container');
-        this.searchResultsArea= this.module.querySelector('.j-header-search__search-results-area');
+        this.searchResultsArea = this.module.querySelector('.j-header-search__search-results-area');
 
         this.bind();
     }
@@ -36,6 +36,11 @@ class Search {
         const sellersLayout = this.getSearchSellersLayout(data);
 
         return this.toggleShowSearchSellers(sellersLayout);
+    }
+
+    clearSearchResults = () => {
+        this.searchResultsCategoriesResultContainer.innerHTML = '';
+        this.searchResultsSellersResultContainer.innerHTML = '';
     }
 
     getCatalogSearchDataList = (searchValue) => {
@@ -99,28 +104,29 @@ class Search {
     handleClearButtonClick = (e) => {
         this.searchInput.value = '';
         this.searchInput.focus();
-        this.searchResultsArea.classList.add('hidden');
-        this.searchResultsCategoriesContainer.classList.add('hidden');
-        this.searchResultsSellersContainer.classList.add('hidden');
-        this.hideNonResultsMessage();
-        this.searchResultsCategoriesResultContainer.innerHTML = '';
-        this.searchResultsSellersResultContainer.innerHTML = '';
-        this.clearButton.classList.add('modules-common-header-search__clear-button_hidden');
+        this.hideSearchResults();
+        this.clearSearchResults();
+        this.toggleShowClearButton();
     }
 
     handleSearchInputInput = (e) => {
         const value = this.searchInput.value;
 
         if(value) {
-            this.showClearButton();
-            this.hideNonResultsMessage();
+            this.toggleShowClearButton(true);
+            this.hideSearchResults();
             debounce(this.inputDebounce, 1000);
         } else {
             this.handleClearButtonClick();
         }
     }
 
-    hideNonResultsMessage = () => {
+    hideSearchResults = () => {
+        console.log('--- hideSearchResults')
+
+        this.searchResultsArea.classList.add('hidden');
+        this.searchResultsCategoriesContainer.classList.add('hidden');
+        this.searchResultsSellersContainer.classList.add('hidden');
         this.searchResultsNonContainer.classList.add('hidden');
     }
 
@@ -165,13 +171,17 @@ class Search {
         return response.json();
     }
 
-    showClearButton = () => {
-        this.clearButton.classList.remove('modules-common-header-search__clear-button_hidden');
-    }
-
     showNonResultsMessage = () => {
         this.searchResultsArea.classList.remove('hidden');
         this.searchResultsNonContainer.classList.remove('hidden');
+    }
+
+    toggleShowClearButton = (isShow) => {
+        if(isShow) {
+            this.clearButton.classList.remove('modules-common-header-search__clear-button_hidden');
+        } else {
+            this.clearButton.classList.add('modules-common-header-search__clear-button_hidden');
+        }
     }
 
     toggleShowSearchCategory = (catalogSearchLayout) => {
