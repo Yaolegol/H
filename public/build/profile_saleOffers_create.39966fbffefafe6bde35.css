@@ -243,9 +243,9 @@
 }
 .modules-common-header-index__favorites-hint-block {
   align-items: center;
-  background-color: #4CBB17;
+  background-color: transparent;
   border-radius: 10px;
-  color: #FFFFFF;
+  color: #000000;
   display: none;
   flex-direction: column;
   padding: 10px;
@@ -257,7 +257,7 @@
   display: flex;
 }
 .modules-common-header-index__favorites-hint-link {
-  color: #FFFFFF;
+  color: #000000;
 }
 .modules-common-header-index__favorites-hint-text-container {
   margin-top: 5px;
@@ -467,73 +467,30 @@
   margin-top: 0;
 }
 
-.components-form-error {
-  color: #FF0000;
-  font-size: 14px;
-  margin-top: 5px;
+.components-inputs-radio-item__category-input {
+  cursor: pointer;
+}
+.components-inputs-radio-item__category-input-label {
+  cursor: pointer;
 }
 
-.components-inputs-file-item_with-image {
-  display: flex;
-}
-.components-inputs-file-item__buttons-section {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 5px;
-}
-.components-inputs-file-item__content-section {
+.components-inputs-radio-group-second-level_hidden {
   display: none;
 }
-.components-inputs-file-item_with-image .components-inputs-file-item__content-section {
+.components-inputs-radio-group-second-level__content-block {
+  margin-top: 10px;
+  max-height: 500px;
+}
+.components-inputs-radio-group-second-level__content-container {
+  display: none;
+}
+.components-inputs-radio-group-second-level__content-container_active {
   display: block;
 }
-.components-inputs-file-item__image {
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  height: 200px;
-  object-fit: contain;
-  width: 200px;
-}
-.components-inputs-file-item__image-container {
-  line-height: 0;
-}
-.components-inputs-file-item__input {
-  display: none;
-}
-.components-inputs-file-item_with-image .components-inputs-file-item__input-section {
-  display: none;
-}
-.components-inputs-file-item__label {
-  align-items: center;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 25px;
-  cursor: pointer;
-  display: flex;
-  height: 55px;
-  justify-content: center;
-  padding: 0 25px;
-  text-align: center;
-  white-space: nowrap;
-  width: 100%;
-}
-.components-inputs-file-item__remove-button {
-  color: #FF0000;
+.components-inputs-radio-group-second-level__title {
+  margin-left: 30px;
 }
 
-.components-inputs-form {
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 25px;
-  height: 55px;
-  overflow: hidden;
-}
-.components-inputs-form__input {
-  border: 1px solid #FFFFFF;
-  border-right: none;
-  border-radius: 30px 0 0 30px;
-  height: 100%;
-  min-width: 0;
-  padding: 0 30px;
-  width: 100%;
-}
 
 .components-map-2gis-common-base__marker-popup {
   width: 100px;
@@ -683,6 +640,7 @@
     margin-top: 25px;
   }
 }
+
 
 @font-face {
   font-family: 'Lato';
