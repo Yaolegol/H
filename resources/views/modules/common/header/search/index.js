@@ -2,6 +2,8 @@ import {debounce} from "helpers/debounce";
 import {addEventListener} from "helpers/events";
 import './index.less';
 
+console.log('--- search file root');
+
 class Search {
     constructor(element) {
         this.module = element;

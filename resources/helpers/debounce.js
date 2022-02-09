@@ -1,5 +1,7 @@
 const debounceMap = new Map();
 
+console.log('--- debounce file root');
+
 export const debounce = (callback, wait) => {
     const data = debounceMap.get(callback);
 
