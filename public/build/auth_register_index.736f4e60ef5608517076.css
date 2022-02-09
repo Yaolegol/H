@@ -137,6 +137,20 @@
   display: flex;
   width: 100%;
 }
+.components-catalog-container__categories-container {
+  columns: 3;
+  margin-top: 50px;
+}
+@media (max-width: 767px) {
+  .components-catalog-container__categories-container {
+    columns: 2;
+  }
+}
+@media (max-width: 374px) {
+  .components-catalog-container__categories-container {
+    columns: 1;
+  }
+}
 
 .components-catalog-category-item {
   margin-bottom: 20px;

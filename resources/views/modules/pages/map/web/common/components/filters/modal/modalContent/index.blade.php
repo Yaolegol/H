@@ -19,7 +19,7 @@
                     @foreach($catalogHeader as $catalogItem)
                         @component('components.catalog.content-item.index', [ 'itemId' => $loop->index ])
                             <div>{{ $catalogItem['title'] }}</div>
-                            <div class="components-catalog__categories-container">
+                            <div class="modules-pages-map-web-common-components-filters-modal-modal-content__categories-container">
                                 @foreach( $catalogItem['catalog_level_two'] as $category )
                                     @component('components.catalog.category-item.index')
                                         @component('modules.pages.map.web.common.components.filters.modal.modalContent.navigationContentButton.index', [
