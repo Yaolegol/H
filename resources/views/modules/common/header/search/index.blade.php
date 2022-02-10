@@ -1,12 +1,12 @@
 <div class="modules-common-header-search j-header-search">
     <button
-        class="modules-common-header-search__mobile-search-button"
+        class="modules-common-header-search__mobile-search-button j-header-search__mobile-search-button"
         type="button"
     >
         @include('icons.search')
     </button>
-    <div class="modules-common-header-search__search-block">
-        <div class="modules-common-header-search__search-container">
+    <div class="modules-common-header-search__search-block j-header-search__search-block">
+        <div class="modules-common-header-search__search-container j-header-search__search-container">
             <input
                 class="modules-common-header-search__input j-header-search__input"
                 placeholder="Search"

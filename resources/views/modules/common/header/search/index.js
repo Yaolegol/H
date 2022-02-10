@@ -7,6 +7,9 @@ class Search {
         this.module = element;
         this.searchInput = this.module.querySelector('.j-header-search__input');
         this.clearButton = this.module.querySelector('.j-header-search__clear-button');
+        this.searchBlock = this.module.querySelector('.j-header-search__search-block');
+        this.searchContainer = this.module.querySelector('.j-header-search__search-container');
+        this.mobileSearchButton = this.module.querySelector('.j-header-search__mobile-search-button');
         this.searchResultsNonContainer = this.module.querySelector('.j-header-search__search-results-non-container');
         this.CSRFContainer = document.querySelector('.j-csrf-token');
         this.CSRFValue = this.CSRFContainer?.dataset.value;
@@ -23,6 +26,7 @@ class Search {
     bind = () => {
         addEventListener(this.searchInput, 'input', this.handleSearchInputInput);
         addEventListener(this.clearButton, 'click', this.handleClearButtonClick);
+        addEventListener(this.mobileSearchButton, 'click', this.handleMobileSearchButtonClick);
     }
 
     checkSearchCategory = (searchValue) => {
@@ -107,6 +111,10 @@ class Search {
         this.hideSearchResults();
         this.clearSearchResults();
         this.toggleShowClearButton();
+    }
+
+    handleMobileSearchButtonClick = (e) => {
+        this.module.classList.add('j-style-header-search__search-block_mobile-show');
     }
 
     handleSearchInputInput = (e) => {
