@@ -1,3 +1,22 @@
+.modules-common-breadcrumbs-item {
+  align-items: center;
+  display: flex;
+  margin-right: 15px;
+  white-space: nowrap;
+}
+.modules-common-breadcrumbs-item__arrow {
+  margin-left: 15px;
+}
+.modules-common-breadcrumbs-item__link:hover {
+  color: #FF0000;
+}
+
+.modules-common-breadcrumbs-list {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .components-buttons-burger {
   align-items: center;
   cursor: pointer;
@@ -339,13 +358,12 @@
   }
 }
 .modules-common-header-index__item-container_search-container {
-  flex: 1 1 auto;
-  min-width: 0;
+  flex: 0 1 auto;
 }
 .modules-common-header-index__items-block {
   align-items: center;
   display: flex;
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   position: relative;
 }
 .modules-common-header-index__location-container {
@@ -380,7 +398,7 @@
 .modules-common-header-index__main-menu-container {
   align-items: center;
   display: flex;
-  max-width: 550px;
+  justify-content: center;
   width: 100%;
 }
 .modules-common-header-index__map-block {
@@ -514,137 +532,145 @@
   margin-top: 0;
 }
 
-.modules-pages-profile-common-components-body-index__content-container {
-  margin-top: 50px;
-}
-.modules-pages-profile-common-components-body-index__create-link {
-  background-color: #e34132;
-  border-radius: 10px;
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
-  color: #FFFFFF;
-  cursor: pointer;
-  display: inline-block;
-  flex: 1 0 0;
-  font-weight: 900;
-  padding: 20px;
-  text-align: center;
-}
-.modules-pages-profile-common-components-body-index__create-link:hover {
-  background-color: #FF0000;
-}
-@media (max-width: 1023px) {
-  .modules-pages-profile-common-components-body-index__create-link-container {
-    text-align: center;
-  }
-}
-@media (max-width: 1023px) {
-  .modules-pages-profile-common-components-body-index__title-container {
-    text-align: center;
-  }
+.components-map-2gis-common-base__marker-popup {
+  width: 100px;
 }
 
-.modules-pages-profile-common-components-container-card {
-  margin-top: 50px;
+.components-map-2gis-components-view-all {
+  padding-bottom: 100%;
+  position: relative;
+}
+.components-map-2gis-components-view-all__map-container {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.components-map-2gis-components-view-all__map-container_mobile-app {
+  height: 300px;
+  width: auto;
+}
+.components-map-2gis-components-view-all__marker-popup {
+  width: 100px;
 }
 
-.modules-pages-profile-common-components-container-header {
-  margin: 0 auto;
-  max-width: 1000px;
+.modules-common-location-components-choose-info-block-item {
+  display: flex;
 }
-.modules-pages-profile-common-components-container-header__info-container {
-  margin-top: 50px;
+.modules-common-location-components-choose-info-block-item__change-button {
+  color: green;
 }
-.modules-pages-profile-common-components-container-header__tab-button {
-  border-radius: 10px;
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
-  color: rgba(0, 0, 0, 0.8);
-  cursor: pointer;
-  display: inline-block;
-  flex: 1 0 0;
-  padding: 20px;
-  text-align: center;
+.modules-common-location-components-choose-info-block-item__change-button-container {
+  margin-left: 10px;
 }
-.modules-pages-profile-common-components-container-header__tab-button:hover:not(.modules-pages-profile-common-components-container-header__tab-button_active) {
-  background-color: rgba(76, 187, 23, 0.5);
-  color: #FFFFFF;
+.modules-common-location-components-choose-info-block-item__title {
+  font-weight: bold;
 }
-.modules-pages-profile-common-components-container-header__tab-button_active {
+
+.location-choose-infoBlock-block {
+  display: flex;
+}
+.location-choose-infoBlock-block__info-container {
+  margin-left: 10px;
+}
+
+.modules-pages-map-web-common-components-filters-button__filter-button {
   background-color: #4CBB17;
+  border-radius: 25px;
   color: #FFFFFF;
-  font-weight: 900;
-}
-.modules-pages-profile-common-components-container-header__tab-item-container {
-  padding: 10px;
-}
-.modules-pages-profile-common-components-container-header__tabs-block {
-  margin-top: 50px;
-}
-@media (max-width: 1023px) {
-  .modules-pages-profile-common-components-container-header__tabs-block {
-    margin-top: 25px;
-  }
-}
-.modules-pages-profile-common-components-container-header__tabs-container {
-  display: flex;
-}
-@media (max-width: 1023px) {
-  .modules-pages-profile-common-components-container-header__tabs-container {
-    align-items: center;
-    flex-direction: column;
-  }
-}
-.modules-pages-profile-common-components-container-header__title {
+  cursor: pointer;
+  padding: 20px;
   text-align: center;
 }
-.modules-pages-profile-common-components-container-header__title-container {
-  margin-top: 50px;
-}
-@media (max-width: 1023px) {
-  .modules-pages-profile-common-components-container-header__title-container {
-    margin-top: 25px;
-  }
+.modules-pages-map-web-common-components-filters-button__filter-button:hover {
+  background-color: rgba(76, 187, 23, 0.8);
 }
 
-.components-cards-organization {
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 20px;
-  max-width: 500px;
+.modules-pages-map-web-common-components-filters-modal-modal-content-navigation-content-button {
+  display: block;
+  padding: 20px;
+  text-align: left;
+  width: 100%;
+}
+.modules-pages-map-web-common-components-filters-modal-modal-content-navigation-content-button:hover {
+  background-color: #E9EDF6;
+}
+
+.modules-pages-map-web-common-components-filters-modal-modal-content-navigation-item {
+  border-radius: 5px;
+  display: block;
   padding: 20px;
 }
-.components-cards-organization__remove-button-container {
-  margin-left: 15px;
-}
-.components-cards-organization__image {
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 20px;
-  height: 200px;
-  width: 200px;
-}
-.components-cards-organization__image-item-container {
-  margin-left: 20px;
-}
-.components-cards-organization__image-item-container:first-child {
-  margin-left: 0;
-}
-.components-cards-organization__image-list-container {
-  display: flex;
+
+.modules-pages-map-web-common-components-filters-modal-modal-content__content-container {
   margin-top: 20px;
 }
-.components-cards-organization__item-container {
-  margin-top: 20px;
+.modules-pages-map-web-common-components-filters-modal-modal-content__cities-container {
+  margin-top: 10px;
 }
-.components-cards-organization__item-container_service {
-  display: flex;
-  justify-content: flex-end;
-}
-.components-cards-organization__item-container_without-offset {
-  margin-top: 0;
-}
-.components-cards-organization__link_remove {
-  color: #FF0000;
-}
-.components-cards-organization__value {
+.modules-pages-map-web-common-components-filters-modal-modal-content__city-title {
   margin-top: 5px;
+}
+.modules-pages-map-web-common-components-filters-modal-modal-content__filter-item-container {
+  margin-top: 25px;
+}
+.modules-pages-map-web-common-components-filters-modal-modal-content__location-item {
+  margin-top: 50px;
+}
+.modules-pages-map-web-common-components-filters-modal-modal-content__title {
+  text-align: center;
+}
+
+.modules-pages-map-web-routes-index__content-area {
+  margin: 50px auto 0;
+  max-width: 800px;
+}
+.modules-pages-map-web-routes-index__filter-button {
+  background-color: #4CBB17;
+  border-radius: 25px;
+  color: #FFFFFF;
+  cursor: pointer;
+  padding: 20px;
+  text-align: center;
+}
+.modules-pages-map-web-routes-index__filter-button:hover {
+  background-color: rgba(76, 187, 23, 0.8);
+}
+.modules-pages-map-web-routes-index__filters-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.modules-pages-map-web-routes-index__info-item-container {
+  margin-top: 15px;
+}
+.modules-pages-map-web-routes-index__info-section {
+  margin-top: 20px;
+}
+.modules-pages-map-web-routes-index__location-container {
+  display: flex;
+  justify-content: center;
+}
+.modules-pages-map-web-routes-index__slider-container {
+  margin-top: 50px;
+}
+.modules-pages-map-web-routes-index__slider-image {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  object-fit: contain;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+.modules-pages-map-web-routes-index__slider-image-container {
+  padding-bottom: 50%;
+  position: relative;
+}
+.modules-pages-map-web-routes-index__title {
+  text-align: center;
 }
 
 @font-face {

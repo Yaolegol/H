@@ -339,13 +339,12 @@
   }
 }
 .modules-common-header-index__item-container_search-container {
-  flex: 1 1 auto;
-  min-width: 0;
+  flex: 0 1 auto;
 }
 .modules-common-header-index__items-block {
   align-items: center;
   display: flex;
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   position: relative;
 }
 .modules-common-header-index__location-container {
@@ -380,7 +379,7 @@
 .modules-common-header-index__main-menu-container {
   align-items: center;
   display: flex;
-  max-width: 550px;
+  justify-content: center;
   width: 100%;
 }
 .modules-common-header-index__map-block {
