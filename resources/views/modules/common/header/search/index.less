@@ -1,12 +1,8 @@
 @import (reference) '~styles/colors';
 
 .modules-common-header-search {
-    border: 1px solid @white;
-    border-radius: 30px;
-    height: 55px;
-    padding: 0 15px 0 30px;
-    position: relative;
-    width: 100%;
+    align-items: center;
+    display: flex;
 
     &__clear-button {
         align-items: center;
@@ -41,8 +37,35 @@
         }
     }
 
+    &__mobile-search-button {
+        color: white;
+        line-height: 0;
+
+        @media (min-width: 500px) {
+            display: none;
+        }
+
+        svg {
+            height: 30px;
+            width: 30px;
+        }
+    }
+
     &__result-container {
         margin-top: 10px;
+    }
+
+    &__search-block {
+        border: 1px solid @white;
+        border-radius: 30px;
+        height: 55px;
+        padding: 0 15px 0 30px;
+        position: relative;
+        width: 100%;
+
+        @media (max-width: 499px) {
+            display: none;
+        }
     }
 
     &__search-container {

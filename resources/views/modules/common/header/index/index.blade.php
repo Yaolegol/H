@@ -8,10 +8,10 @@
         <div class="modules-common-header-index__item-container modules-common-header-index__logo-container">
             @include('icons.logo')
         </div>
-        <div class="modules-common-header-index__item-container modules-common-header-index__item-container_mobile-full-width">
+        <div class="modules-common-header-index__item-container">
             @include('components.buttons.burger.index')
         </div>
-        <div class="modules-common-header-index__item-container modules-common-header-index__item-container_search-container modules-common-header-index__item-container_mobile-hidden">
+        <div class="modules-common-header-index__item-container modules-common-header-index__item-container_search-container">
             @include('modules.common.header.search.index')
         </div>
         <div class="modules-common-header-index__item-container modules-common-header-index__location-container">
@@ -47,13 +47,13 @@
             </a>
         </div>
         @auth
-            <div class="modules-common-header-index__item-container">
+            <div class="modules-common-header-index__item-container modules-common-header-index__item-container_mobile-hidden">
                 <a class="modules-common-header-index__login-link" href="/logout">Выйти</a>
             </div>
         @endauth
 
         @guest
-            <div class="modules-common-header-index__item-container">
+            <div class="modules-common-header-index__item-container modules-common-header-index__item-container_mobile-hidden">
                 <a class="modules-common-header-index__login-link" href="/login">Войти</a>
             </div>
         @endguest
