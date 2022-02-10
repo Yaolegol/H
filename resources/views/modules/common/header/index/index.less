@@ -104,6 +104,11 @@
         display: flex;
         flex: 0 1 auto;
         position: relative;
+
+        @media (max-width: 499px) {
+            flex: 1 1 auto;
+            justify-content: flex-end;
+        }
     }
 
     &__location-container {
