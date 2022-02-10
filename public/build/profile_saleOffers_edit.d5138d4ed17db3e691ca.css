@@ -221,7 +221,7 @@
   padding: 20px;
   position: absolute;
   right: 0;
-  top: 40px;
+  top: 55px;
   z-index: 9;
 }
 .modules-common-header-search__search-results-block {
@@ -519,78 +519,120 @@
   margin-top: 0;
 }
 
-.components-cards-sale-point {
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 20px;
-  max-width: 500px;
-  padding: 20px;
+
+.components-inputs-radio-item__category-input {
+  cursor: pointer;
 }
-.components-cards-sale-point__remove-button-container {
-  margin-left: 15px;
-}
-.components-cards-sale-point__image {
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 20px;
-  height: 200px;
-  width: 200px;
-}
-.components-cards-sale-point__image-item-container {
-  margin-left: 20px;
-}
-.components-cards-sale-point__image-item-container:first-child {
-  margin-left: 0;
-}
-.components-cards-sale-point__image-list-container {
-  display: flex;
-  margin-top: 20px;
-}
-.components-cards-sale-point__item-container {
-  margin-top: 20px;
-}
-.components-cards-sale-point__item-container_service {
-  display: flex;
-  justify-content: flex-end;
-}
-.components-cards-sale-point__item-container_without-offset {
-  margin-top: 0;
-}
-.components-cards-sale-point__link_remove {
-  color: #FF0000;
-}
-.components-cards-sale-point__value {
-  margin-top: 5px;
+.components-inputs-radio-item__category-input-label {
+  cursor: pointer;
 }
 
-.modules-pages-profile-common-components-body-index__content-container {
-  margin-top: 50px;
+.components-inputs-radio-group-second-level_hidden {
+  display: none;
 }
-.modules-pages-profile-common-components-body-index__create-link {
-  background-color: #e34132;
+.components-inputs-radio-group-second-level__content-block {
+  margin-top: 10px;
+  max-height: 500px;
+}
+.components-inputs-radio-group-second-level__content-container {
+  display: none;
+}
+.components-inputs-radio-group-second-level__content-container_active {
+  display: block;
+}
+.components-inputs-radio-group-second-level__title {
+  margin-left: 30px;
+}
+
+
+.components-map-2gis-common-base__marker-popup {
+  width: 100px;
+}
+
+.components-map-2gis-components-add-marker {
+  padding-bottom: 100%;
+  position: relative;
+}
+.components-map-2gis-components-add-marker__map-container {
+  bottom: 0;
+  left: 0;
+  max-height: 500px;
+  max-width: 500px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.components-map-2gis-components-add-marker__map-container_mobile-app {
+  height: 300px;
+  width: auto;
+}
+
+.modules-pages-profile-common-components-body-create__all-points-link {
   border-radius: 10px;
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
-  color: #FFFFFF;
-  cursor: pointer;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+  color: rgba(0, 0, 0, 0.8);
   display: inline-block;
   flex: 1 0 0;
-  font-weight: 900;
   padding: 20px;
   text-align: center;
 }
-.modules-pages-profile-common-components-body-index__create-link:hover {
-  background-color: #FF0000;
+.modules-pages-profile-common-components-body-create__all-points-link:hover:not(.modules-pages-profile-common-components-body-create__tab-button_active) {
+  background-color: rgba(76, 187, 23, 0.5);
+  color: #FFFFFF;
 }
-@media (max-width: 1023px) {
-  .modules-pages-profile-common-components-body-index__create-link-container {
-    text-align: center;
-  }
+.modules-pages-profile-common-components-body-create__all-points-link_active {
+  background-color: #4CBB17;
+  color: #FFFFFF;
+  cursor: auto;
+  font-weight: 900;
 }
-@media (max-width: 1023px) {
-  .modules-pages-profile-common-components-body-index__title-container {
-    text-align: center;
-  }
+.modules-pages-profile-common-components-body-create__all-points-link-container {
+  margin-top: 10px;
+}
+.modules-pages-profile-common-components-body-create__form-container {
+  margin-top: 50px;
+}
+.modules-pages-profile-common-components-body-create__info-title {
+  margin-top: 25px;
+  margin-left: 30px;
+}
+.modules-pages-profile-common-components-body-create__input-container {
+  margin-top: 5px;
+  max-width: 500px;
+}
+.modules-pages-profile-common-components-body-create__title-container {
+  margin-top: 50px;
 }
 
-.modules-pages-profile-common-components-container-card {
+.modules-pages-profile-common-components-container-file-field {
+  margin-top: 15px;
+  max-width: 500px;
+}
+
+.modules-pages-profile-common-components-container-form-field {
+  margin-top: 25px;
+}
+.modules-pages-profile-common-components-container-form-field__content-container {
+  margin-top: 5px;
+  max-width: 500px;
+}
+.modules-pages-profile-common-components-container-form-field__title {
+  margin-left: 30px;
+}
+
+.modules-pages-profile-common-components-container-section {
+  margin-top: 50px;
+}
+
+.modules-pages-profile-common-components-container-footer__send-button {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  padding: 20px;
+  text-align: center;
+}
+.modules-pages-profile-common-components-container-footer__send-button-container {
   margin-top: 50px;
 }
 
