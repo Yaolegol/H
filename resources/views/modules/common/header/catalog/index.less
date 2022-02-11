@@ -39,6 +39,19 @@
         z-index: 9;
     }
 
+    &__categories-container {
+        columns: 3;
+        margin-top: 50px;
+
+        @media (max-width: 767px) {
+            columns: 2;
+        }
+
+        @media (max-width: 374px) {
+            columns: 1;
+        }
+    }
+
     &__content-container {
         flex: 2 1 66%;
         padding: 20px;
