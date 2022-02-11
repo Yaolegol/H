@@ -8,6 +8,7 @@
             <div class="modules-pages-sellers-show__header-info-container">
                 <div>Имя</div>
                 <div>{{$sellerData['name']}}</div>
+                <div>{{$sellerData['description']}}</div>
             </div>
             <div class="modules-pages-sellers-show__header-info-container">
                 <div>Телефон</div>
