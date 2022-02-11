@@ -279,10 +279,16 @@
   margin-top: 10px;
 }
 .modules-common-location-components-modal-modal-content__city-title {
-  margin-top: 5px;
+  margin: 5px 10px 0 0;
+}
+.modules-common-location-components-modal-modal-content__city-title:hover {
+  color: #FF0000;
 }
 .modules-common-location-components-modal-modal-content__location-item {
   margin-top: 50px;
+}
+.modules-common-location-components-modal-modal-content__region-title:hover {
+  color: #FF0000;
 }
 .modules-common-location-components-modal-modal-content__title {
   text-align: center;
