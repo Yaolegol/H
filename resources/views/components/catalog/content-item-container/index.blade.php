@@ -1,3 +1,10 @@
-<div class="components-catalog-content-item-container">
+<div
+    class="
+        components-catalog-content-item-container
+        @isset($withoutPadding)
+            components-catalog-content-item-container_without-padding
+        @endisset
+    "
+>
     {{$slot}}
 </div>

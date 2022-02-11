@@ -1,9 +1,11 @@
 <div
     class="modules-pages-map-web-common-components-filters-modal-modal-content j-map-web-filters-components-modal-modal-content"
 >
-    <h2 class="modules-pages-map-web-common-components-filters-modal-modal-content__title">Фильтры</h2>
+    <h2 class="modules-pages-map-web-common-components-filters-modal-modal-content__title">Фильтр</h2>
+    <div class="modules-pages-map-web-common-components-filters-modal-modal-content__description">
+        (выберите интересующий продукт для фильтрации по нему)
+    </div>
     <div class="modules-pages-map-web-common-components-filters-modal-modal-content__filter-item-container">
-        <div class="modules-pages-map-web-common-components-filters-modal-modal-content__filter-item-title">Категория:</div>
         <div class="modules-pages-map-web-common-components-filters-modal-modal-content__content-container">
             @component('components.catalog.container.index')
                 @component('components.catalog.navigation-item-container.index')
@@ -15,10 +17,13 @@
                         @endcomponent
                     @endforeach
                 @endcomponent
-                @component('components.catalog.content-item-container.index')
+                @component('components.catalog.content-item-container.index', [
+                    'withoutPadding' => true,
+                ])
                     @foreach($catalogHeader as $catalogItem)
-                        @component('components.catalog.content-item.index', [ 'itemId' => $loop->index ])
-                            <div>{{ $catalogItem['title'] }}</div>
+                        @component('components.catalog.content-item.index', [
+                            'itemId' => $loop->index,
+                        ])
                             <div class="modules-pages-map-web-common-components-filters-modal-modal-content__categories-container">
                                 @foreach( $catalogItem['catalog_level_two'] as $category )
                                     @component('components.catalog.category-item.index')
