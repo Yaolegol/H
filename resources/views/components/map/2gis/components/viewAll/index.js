@@ -113,7 +113,7 @@ class Map2gisComponentsViewAll {
             markerDataList: this.offerData,
             onMapClick: this.onMapClick,
             useMarkerCluster: true,
-            zoom: 2
+            zoom: 3,
         });
     }
 }
