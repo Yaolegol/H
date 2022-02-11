@@ -2,6 +2,9 @@
     <div class="modules-pages-profile-common-components-container-header__title-container">
         <h1 class="modules-pages-profile-common-components-container-header__title">Ваш профиль</h1>
     </div>
+    <div class="modules-pages-profile-common-components-container-header__mobile-container">
+        <a href="/logout">Выйти</a>
+    </div>
     <div class="modules-pages-profile-common-components-container-header__tabs-block">
         <div class="modules-pages-profile-common-components-container-header__tabs-container">
             <div class="modules-pages-profile-common-components-container-header__tab-item-container">

@@ -519,6 +519,7 @@
   margin-top: 0;
 }
 
+
 .components-inputs-radio-item__category-input {
   cursor: pointer;
 }
@@ -642,6 +643,16 @@
 .modules-pages-profile-common-components-container-header__info-container {
   margin-top: 50px;
 }
+.modules-pages-profile-common-components-container-header__mobile-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+@media (min-width: 500px) {
+  .modules-pages-profile-common-components-container-header__mobile-container {
+    display: none;
+  }
+}
 .modules-pages-profile-common-components-container-header__tab-button {
   border-radius: 10px;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
@@ -692,7 +703,6 @@
     margin-top: 25px;
   }
 }
-
 
 @font-face {
   font-family: 'Lato';

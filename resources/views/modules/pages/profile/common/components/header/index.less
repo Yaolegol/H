@@ -8,6 +8,16 @@
         margin-top: 50px;
     }
 
+    &__mobile-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+
+        @media (min-width: 500px) {
+            display: none;
+        }
+    }
+
     &__tab-button {
         border-radius: 10px;
         box-shadow: 0 0 10px 1px @black_10;
