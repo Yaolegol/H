@@ -16,6 +16,7 @@ function getUserDataFormatted()
     $userDataFiltered = array_filter($userData, function ($key) {
         return $key === 'avatar'
             || $key === 'name'
+            || $key === 'description'
             || $key === 'visible_email'
             || $key === 'registration_email'
             || $key === 'phone';
@@ -84,11 +85,13 @@ function tryChangeUserPersonalDataInDB($request)
 {
     try {
         $name = $request->input('name');
+        $description = $request->input('description');
         $phone = $request->input('phone');
         $visible_email = $request->input('visible_email');
 
         $authUser = Auth::user();
         $authUser->name = $name;
+        $authUser->description = $description;
         $authUser->phone = $phone;
         $authUser->visible_email = $visible_email;
 

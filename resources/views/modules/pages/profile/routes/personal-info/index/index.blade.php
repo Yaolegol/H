@@ -31,6 +31,18 @@
                                 'message' => $errors->first('name'),
                             ])
                         </div>
+                        <div class="modules-pages-profile-routes-personal-info-index__info-title">О себе:</div>
+                        <div class="modules-pages-profile-routes-personal-info-index__input-container">
+                            @include('components.inputs.form.index', [
+                                        'name' => 'description',
+                                        'placeholder' => 'О себе',
+                                        'type' => 'text',
+                                        'value' => $userData['description']
+                                    ])
+                            @include('components.form.error.index', [
+                                'message' => $errors->first('description'),
+                            ])
+                        </div>
                         <div class="modules-pages-profile-routes-personal-info-index__info-title">Телефон:</div>
                         <div class="modules-pages-profile-routes-personal-info-index__input-container">
                             @include('components.inputs.form.index', [
