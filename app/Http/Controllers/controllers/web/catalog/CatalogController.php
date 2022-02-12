@@ -56,7 +56,7 @@ class CatalogController extends Controller
      * @param  string  $catalogLevelOneLink
      * @return Response
      */
-    public function show($catalogLevelOneLink)
+    public function show(Request $request, $searchRegion, $catalogLevelOneLink)
     {
         $catalogFull = getCatalogFull();
         $catalogLevelOneItemSubcategoriesList = getCatalogLevelOneItemSubcategoriesList($catalogFull, $catalogLevelOneLink);

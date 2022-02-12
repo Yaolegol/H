@@ -10,12 +10,12 @@ class RegionSeeder extends Seeder
     public $data = [
         [
             'country_id' => 1,
-            'link' => 'region_tomsk',
+            'link' => 'tomsk',
             'title' => 'Томская область',
         ],
         [
             'country_id' => 1,
-            'link' => 'region_novosibirsk',
+            'link' => 'novosibirsk',
             'title' => 'Новосибирская область',
         ],
     ];

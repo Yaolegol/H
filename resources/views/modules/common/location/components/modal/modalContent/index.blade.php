@@ -5,7 +5,7 @@
             <div class="modules-common-location-components-modal-modal-content__location-item">
                 <button
                     class="modules-common-location-components-modal-modal-content__region-title j-location-modal-content__location-button"
-                    data-link="{{$locationItem['link']}}"
+                    data-link="{{$locationItem['linkFull']}}"
                 >
                     {{$locationItem['title']}}
                 </button>

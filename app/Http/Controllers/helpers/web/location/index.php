@@ -1,11 +1,15 @@
 <?php
 
+use App\Models\City;
 use App\Models\Region;
 
 function formatLocationList($locationList) {
     return array_map(function($regionItem) {
+        $regionItem['linkFull'] = 'region' . '_' . $regionItem['link'];
+
         $formattedCities = array_map(function($city) use ($regionItem) {
-            $city['linkFull'] = $regionItem['link'] . '-' . $city['link'];
+            $cityLink = 'city' . '_' . $city['link'];
+            $city['linkFull'] = $regionItem['linkFull'] . '-' . $cityLink;
 
             return $city;
         }, $regionItem['cities']);
@@ -67,7 +71,7 @@ function getLocationListFormatted()
     return $formattedLocationList;
 }
 
-function getLocationSearchFormatted($locationList, $searchCountryId, $searchRegionId, $searchCityId)
+function getLocationSearchFormatted($locationList, $searchRegion)
 {
     $locationData = [
         'city' => null,
@@ -75,12 +79,14 @@ function getLocationSearchFormatted($locationList, $searchCountryId, $searchRegi
         'region' => null,
     ];
 
+    $searchLocationData = getSearchLocationData($searchRegion);
+
     foreach ($locationList as $regionItem) {
-        if($regionItem['id'] == $searchRegionId) {
+        if($regionItem['id'] == $searchLocationData['regionData']['id']) {
             $locationData['region'] = $regionItem;
 
             foreach ($regionItem['cities'] as $cityItem) {
-                if($cityItem['id'] == $searchCityId) {
+                if($cityItem['id'] == $searchLocationData['cityData']['id']) {
                     $locationData['city'] = $cityItem;
                 }
             }
@@ -110,4 +116,99 @@ function getRegionWithSelectedList($locationList, $saleOfferItemData) {
             'value' => $regionItemId,
         ];
     }, $locationList);
+}
+
+function getSearchLocationCityData($searchCity) {
+    $searchCityData = [
+        'id' => '',
+        'link' => '',
+        'title' => '',
+    ];
+    $searchCityArray = explode('_', $searchCity);
+    $searchCityArrayLength = count($searchCityArray);
+
+    if($searchCityArrayLength === 2) {
+        $searchCityLink = $searchCityArray[1];
+        $searchCityDataDB = getSearchLocationCityDataFromDB($searchCityLink);
+        $searchCityDataDBFormatted = array_merge(...$searchCityDataDB);
+
+        $searchCityData = [
+            'id' => $searchCityDataDBFormatted['id'],
+            'link' => $searchCityDataDBFormatted['link'],
+            'title' => $searchCityDataDBFormatted['title'],
+        ];
+    }
+
+    return $searchCityData;
+}
+
+function getSearchLocationCityDataFromDB($searchCityLink) {
+    return City::where([
+        'link' => $searchCityLink,
+    ])->get()->toArray();
+}
+
+function getSearchLocationData($searchLocation) {
+    $searchLocationArray = explode('-', $searchLocation);
+    $searchLocationArrayLength = count($searchLocationArray);
+
+    $searchCountryData = [
+        'id' => '1',
+        'link' => '',
+        'title' => 'Россия'
+    ];
+    $searchRegionData = [
+        'id' => '',
+        'link' => '',
+        'title' => ''
+    ];
+    $searchCityData = [
+        'id' => '',
+        'link' => '',
+        'title' => ''
+    ];
+
+    if($searchLocationArrayLength > 0) {
+        $searchRegionData = getSearchLocationRegionData($searchLocationArray[0]);
+    }
+
+    if($searchLocationArrayLength > 1) {
+        $searchCityData = getSearchLocationCityData($searchLocationArray[1]);
+    }
+
+    return [
+        'countryData' => $searchCountryData,
+        'regionData' => $searchRegionData,
+        'cityData' => $searchCityData,
+    ];
+}
+
+function getSearchLocationRegionData($searchRegion) {
+    $searchRegionData = [
+        'id' => '',
+        'link' => '',
+        'title' => '',
+    ];
+    $searchRegionArray = explode('_', $searchRegion);
+    $searchRegionArrayLength = count($searchRegionArray);
+
+    if($searchRegionArrayLength === 2) {
+        $searchRegionLink = $searchRegionArray[1];
+        $searchRegionDataDB = getSearchLocationRegionDataFromDB($searchRegionLink);
+        $searchRegionDataDBFormatted = array_merge(...$searchRegionDataDB);
+
+        $searchRegionData = [
+            'id' => $searchRegionDataDBFormatted['id'],
+            'link' => $searchRegionDataDBFormatted['link'],
+            'title' => $searchRegionDataDBFormatted['title'],
+        ];
+    }
+
+    return $searchRegionData;
+}
+
+function getSearchLocationRegionDataFromDB($searchRegionLink) {
+    return Region::where([
+        'link' => $searchRegionLink,
+    ])->get()->toArray();
 }

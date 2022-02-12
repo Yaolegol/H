@@ -2,6 +2,8 @@
 
 use App\Models\Offer;
 
+require_once('app/Http/Controllers/helpers/web/location/index.php');
+
 function formatOfferItem($offerItem) {
     $offerPhotoArray = [];
 
@@ -127,14 +129,15 @@ function getOfferFormatted($id)
     return formatOfferItem($offerItem);
 }
 
-function getOffersPaginatedData($catalogFull, $catalogLevelOneLink, $productLink, $searchCountry, $searchRegion, $searchCity)
+function getOffersPaginatedData($catalogFull, $catalogLevelOneLink, $productLink, $searchRegion)
 {
+    $searchLocationData = getSearchLocationData($searchRegion);
     $catalogLevelTwoItem = getCatalogLevelTwoItem($catalogFull, $catalogLevelOneLink, $productLink);
     $offersPaginatedData = Offer::where([
         'catalog_level_two_id' => $catalogLevelTwoItem['id'],
-        'country_id' => $searchCountry,
-        'region_id' => $searchRegion,
-        'city_id' => $searchCity
+        'country_id' => $searchLocationData['countryData']['id'],
+        'region_id' => $searchLocationData['regionData']['id'],
+        'city_id' => $searchLocationData['cityData']['id'],
     ])->with([
         'catalogLevelTwo',
         'measure',
