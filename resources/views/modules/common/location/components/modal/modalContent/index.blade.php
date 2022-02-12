@@ -5,8 +5,7 @@
             <div class="modules-common-location-components-modal-modal-content__location-item">
                 <button
                     class="modules-common-location-components-modal-modal-content__region-title j-location-modal-content__location-button"
-                    data-search-country-id="1"
-                    data-search-region-id="{{$locationItem['id']}}"
+                    data-link="{{$locationItem['link']}}"
                 >
                     {{$locationItem['title']}}
                 </button>
@@ -14,9 +13,7 @@
                     @foreach($locationItem['cities'] as $cityItem)
                         <button
                             class="modules-common-location-components-modal-modal-content__city-title j-location-modal-content__location-button"
-                            data-search-country-id="1"
-                            data-search-region-id="{{$locationItem['id']}}"
-                            data-search-city-id="{{$cityItem['id']}}"
+                            data-link="{{$cityItem['linkFull']}}"
                         >
                             {{$cityItem['title']}}
                         </button>

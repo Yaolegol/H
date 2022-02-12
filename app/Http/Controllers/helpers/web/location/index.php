@@ -2,6 +2,20 @@
 
 use App\Models\Region;
 
+function formatLocationList($locationList) {
+    return array_map(function($regionItem) {
+        $formattedCities = array_map(function($city) use ($regionItem) {
+            $city['linkFull'] = $regionItem['link'] . '-' . $city['link'];
+
+            return $city;
+        }, $regionItem['cities']);
+
+        $regionItem['cities'] = $formattedCities;
+
+        return $regionItem;
+    }, $locationList);
+}
+
 function getCitiesList($locationList) {
     return array_map(function($regionItem) {
         $regionItemCitiesList = array_map(function($cityItem) {
@@ -47,7 +61,10 @@ function getLocationList()
 
 function getLocationListFormatted()
 {
-    return getLocationList();
+    $locationList = getLocationList();
+    $formattedLocationList = formatLocationList($locationList);
+
+    return $formattedLocationList;
 }
 
 function getLocationSearchFormatted($locationList, $searchCountryId, $searchRegionId, $searchCityId)
