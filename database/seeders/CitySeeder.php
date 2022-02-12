@@ -9,22 +9,27 @@ class CitySeeder extends Seeder
 {
     public $data = [
         [
+            'link' => 'tomsk_city',
             'region_id' => 1,
             'title' => 'Томск',
         ],
         [
+            'link' => 'asino_city',
             'region_id' => 1,
             'title' => 'Асино',
         ],
         [
+            'link' => 'strezhevoy_city',
             'region_id' => 1,
             'title' => 'Стрежевой',
         ],
         [
+            'link' => 'novosibirsk_city',
             'region_id' => 2,
             'title' => 'Новосибирск',
         ],
         [
+            'link' => 'berdsk_city',
             'region_id' => 2,
             'title' => 'Бердск',
         ],
