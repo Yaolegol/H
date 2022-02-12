@@ -17,15 +17,11 @@ class MapController extends Controller
      *
      * @return Response
      */
-    public function index(Request $request)
+    public function index(Request $request, $searchRegion)
     {
-        $searchCountryId = $request->cookie('search-country-id');
-        $searchRegionId = $request->cookie('search-region-id');
-        $searchCityId = $request->cookie('search-city-id');
-
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
-        $locationSearch = getLocationSearchFormatted($locationList, $searchCountryId, $searchRegionId, $searchCityId);
+        $locationSearch = getLocationSearchFormatted($locationList, $searchRegion);
 
         return view('pages.map.web.index.index', [
             'catalogHeader' => $catalogFull,

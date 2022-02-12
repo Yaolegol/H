@@ -7,7 +7,6 @@ const getPathArray = () => {
 
 export const setLocationWithNewRegion = (link, isReload = true) => {
     const currentPathArray = getPathArray();
-    const currentQuery = window.location.search;
     const isContainsSearch = currentPathArray[0] === 'search';
     let newPathNamesArray = [...currentPathArray];
 
@@ -17,8 +16,5 @@ export const setLocationWithNewRegion = (link, isReload = true) => {
         newPathNamesArray = ['search', link, ...newPathNamesArray];
     }
 
-    const newPath = newPathNamesArray.join('/');
-    const newQuery = currentQuery ? '?' + currentQuery : '';
-
-    window.location.href = '/' + newPath + newQuery;
+    window.location.href = '/' + newPathNamesArray.join('/') + window.location.search;
 }

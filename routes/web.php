@@ -45,7 +45,7 @@ Route::post('/register', [RegisterController::class, 'register']);
 Route::get('/logout', [LogoutController::class, 'index']);
 
 Route::get('/map/mobile-app/single-point', [MapMobileAppSinglePoint::class, 'singlePoint']);
-Route::get('/map', [MapController::class, 'index']);
+Route::get('/search/{searchRegion}/map', [MapController::class, 'index']);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/favorites', [FavoritesController::class, 'index']);
