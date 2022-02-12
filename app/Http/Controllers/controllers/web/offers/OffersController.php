@@ -20,7 +20,7 @@ class OffersController extends Controller
      * @param  string  $productLink
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, $searchRegion, $catalogLevelOneLink, $productLink)
+    public function index(Request $request, $catalogLevelOneLink, $productLink, $searchRegion = '')
     {
         $catalogFull = getCatalogFull();
         $offersPaginatedData = getOffersPaginatedData($catalogFull, $catalogLevelOneLink, $productLink, $searchRegion);
@@ -35,6 +35,31 @@ class OffersController extends Controller
             'locationSearch' => $locationSearch,
             'offersPaginatedData' => $offersPaginatedData,
         ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param  string  $searchRegion
+     * @param  string  $catalogLevelOneLink
+     * @param  string  $productLink
+     * @return \Illuminate\Http\Response
+     */
+    public function index_withLocation(Request $request, $searchRegion, $catalogLevelOneLink, $productLink)
+    {
+        return $this->index($request, $catalogLevelOneLink, $productLink, $searchRegion);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param  string  $catalogLevelOneLink
+     * @param  string  $productLink
+     * @return \Illuminate\Http\Response
+     */
+    public function index_withOutLocation(Request $request, $catalogLevelOneLink, $productLink)
+    {
+        return $this->index($request, $catalogLevelOneLink, $productLink);
     }
 
     /**

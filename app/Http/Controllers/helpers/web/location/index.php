@@ -122,6 +122,7 @@ function getSearchLocationCityData($searchCity) {
     $searchCityData = [
         'id' => '',
         'link' => '',
+        'name' => 'city',
         'title' => '',
     ];
     $searchCityArray = explode('_', $searchCity);
@@ -135,6 +136,7 @@ function getSearchLocationCityData($searchCity) {
         $searchCityData = [
             'id' => $searchCityDataDBFormatted['id'],
             'link' => $searchCityDataDBFormatted['link'],
+            'name' => 'city',
             'title' => $searchCityDataDBFormatted['title'],
         ];
     }
@@ -149,31 +151,36 @@ function getSearchLocationCityDataFromDB($searchCityLink) {
 }
 
 function getSearchLocationData($searchLocation) {
-    $searchLocationArray = explode('-', $searchLocation);
-    $searchLocationArrayLength = count($searchLocationArray);
-
     $searchCountryData = [
         'id' => '1',
         'link' => '',
+        'name' => 'country',
         'title' => 'Россия'
     ];
     $searchRegionData = [
         'id' => '',
         'link' => '',
+        'name' => 'region',
         'title' => ''
     ];
     $searchCityData = [
         'id' => '',
         'link' => '',
+        'name' => 'city',
         'title' => ''
     ];
 
-    if($searchLocationArrayLength > 0) {
-        $searchRegionData = getSearchLocationRegionData($searchLocationArray[0]);
-    }
+    if($searchLocation !== '') {
+        $searchLocationArray = explode('-', $searchLocation);
+        $searchLocationArrayLength = count($searchLocationArray);
 
-    if($searchLocationArrayLength > 1) {
-        $searchCityData = getSearchLocationCityData($searchLocationArray[1]);
+        if($searchLocationArrayLength > 0) {
+            $searchRegionData = getSearchLocationRegionData($searchLocationArray[0]);
+        }
+
+        if($searchLocationArrayLength > 1) {
+            $searchCityData = getSearchLocationCityData($searchLocationArray[1]);
+        }
     }
 
     return [
@@ -187,6 +194,7 @@ function getSearchLocationRegionData($searchRegion) {
     $searchRegionData = [
         'id' => '',
         'link' => '',
+        'name' => 'region',
         'title' => '',
     ];
     $searchRegionArray = explode('_', $searchRegion);
@@ -200,6 +208,7 @@ function getSearchLocationRegionData($searchRegion) {
         $searchRegionData = [
             'id' => $searchRegionDataDBFormatted['id'],
             'link' => $searchRegionDataDBFormatted['link'],
+            'name' => 'region',
             'title' => $searchRegionDataDBFormatted['title'],
         ];
     }

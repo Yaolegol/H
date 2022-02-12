@@ -29,7 +29,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [CatalogController::class, 'index']);
 Route::get('/search/{searchRegion}/catalog', [CatalogController::class, 'index']);
-Route::get('/search/{searchRegion}/catalog/{catalogLevelOneLink}/{productLink}', [OffersController::class, 'index']);
+Route::get('/search/{searchRegion}/catalog/{catalogLevelOneLink}/{productLink}', [OffersController::class, 'index_withLocation']);
+Route::get('/catalog/{catalogLevelOneLink}/{productLink}', [OffersController::class, 'index_withOutLocation']);
 Route::get('/search/{searchRegion}/catalog/{catalogLevelOneLink}', [CatalogController::class, 'show']);
 
 Route::get('/sellers/{id}', [SellersController::class, 'show']);
