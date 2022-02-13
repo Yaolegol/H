@@ -39,15 +39,15 @@ class LocationModalContent {
 
         const queryDataArray = [
             {
-                key: 'searchCountryId',
+                key: 'search-country-id',
                 value: searchCountryId,
             },
             {
-                key: 'searchRegionId',
+                key: 'search-region-id',
                 value: searchRegionId,
             },
             {
-                key: 'searchCityId',
+                key: 'search-city-id',
                 value: searchCityId,
             }
         ];

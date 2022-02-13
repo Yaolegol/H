@@ -107,6 +107,30 @@ function formatOffers($offers) {
     }, $offers);
 }
 
+function getLocationFilters($searchCountryId, $searchRegionId, $searchCityId) {
+    $locationFilters = [];
+
+    if($searchCountryId) {
+        array_push($locationFilters, [
+            'country_id' => $searchCountryId,
+        ]);
+    }
+
+    if($searchRegionId) {
+        array_push($locationFilters, [
+            'region_id' => $searchRegionId,
+        ]);
+    }
+
+    if($searchCityId) {
+        array_push($locationFilters, [
+            'city_id' => $searchCityId,
+        ]);
+    }
+
+    return $locationFilters;
+}
+
 function getOffer($id)
 {
     return Offer::where('id', $id)->with([
@@ -130,12 +154,13 @@ function getOfferFormatted($id)
 function getOffersPaginatedData($catalogFull, $catalogLevelOneLink, $productLink, $searchCountry, $searchRegion, $searchCity)
 {
     $catalogLevelTwoItem = getCatalogLevelTwoItem($catalogFull, $catalogLevelOneLink, $productLink);
-    $offersPaginatedData = Offer::where([
+    $filters = [
         'catalog_level_two_id' => $catalogLevelTwoItem['id'],
-        'country_id' => $searchCountry,
-        'region_id' => $searchRegion,
-        'city_id' => $searchCity
-    ])->with([
+    ];
+    $locationFilters = getLocationFilters($searchCountry, $searchRegion, $searchCity);
+    $resultFilters = array_merge($filters, ...$locationFilters);
+
+    $offersPaginatedData = Offer::where($resultFilters)->with([
         'catalogLevelTwo',
         'measure',
         'user',
