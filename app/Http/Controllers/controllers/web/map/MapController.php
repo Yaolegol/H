@@ -19,9 +19,9 @@ class MapController extends Controller
      */
     public function index(Request $request)
     {
-        $searchCountryId = $request->cookie('search-country-id');
-        $searchRegionId = $request->cookie('search-region-id');
-        $searchCityId = $request->cookie('search-city-id');
+        $searchCountryId = $request->query('search-country-id');
+        $searchRegionId = $request->query('search-region-id');
+        $searchCityId = $request->query('search-city-id');
 
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
