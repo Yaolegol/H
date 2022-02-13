@@ -1,5 +1,6 @@
 import {debounce} from "helpers/debounce";
 import {addEventListener} from "helpers/events";
+import {toggleClass} from "helpers/toggle";
 import './index.less';
 
 class Search {
@@ -8,37 +9,30 @@ class Search {
         this.searchInput = this.module.querySelector('.j-header-search__input');
         this.clearButton = this.module.querySelector('.j-header-search__clear-button');
         this.mobileSearchButton = this.module.querySelector('.j-header-search__mobile-search-button');
-        this.searchResultsNonContainer = this.module.querySelector('.j-header-search__search-results-non-container');
         this.CSRFContainer = document.querySelector('.j-csrf-token');
         this.CSRFValue = this.CSRFContainer?.dataset.value;
         this.searchElementsList = [...document.querySelectorAll('.j-header-catalog__search-element')];
-        this.searchResultsCategoriesContainer = this.module.querySelector('.j-header-search__search-results-categories-container');
-        this.searchResultsSellersContainer = this.module.querySelector('.j-header-search__search-results-sellers-container');
         this.searchResultsCategoriesResultContainer = this.module.querySelector('.j-header-search__search-results-categories-result-container');
         this.searchResultsSellersResultContainer = this.module.querySelector('.j-header-search__search-results-sellers-result-container');
-        this.searchResultsArea = this.module.querySelector('.j-header-search__search-results-area');
 
         this.bind();
     }
 
     bind = () => {
         addEventListener(this.searchInput, 'input', this.handleSearchInputInput);
+        addEventListener(this.searchInput, 'focus', this.handleSearchInputFocus);
         addEventListener(this.searchInput, 'blur', this.handleSearchInputBlur);
+        addEventListener(this.clearButton, 'mousedown', this.handleClearButtonMouseDown);
         addEventListener(this.clearButton, 'click', this.handleClearButtonClick);
         addEventListener(this.mobileSearchButton, 'click', this.handleMobileSearchButtonClick);
     }
 
-    checkSearchCategory = (searchValue) => {
-        const catalogSearchDataList = this.getCatalogSearchDataList(searchValue);
-        const catalogSearchLayout = this.getCatalogSearchLayout(catalogSearchDataList);
-
-        return this.toggleShowSearchCategory(catalogSearchLayout);
-    }
-
-    checkSearchSellers = (data) => {
-        const sellersLayout = this.getSearchSellersLayout(data);
-
-        return this.toggleShowSearchSellers(sellersLayout);
+    clearModuleClasses = () => {
+        this.module.classList.remove('j-style-header-search__has-value');
+        this.module.classList.remove('j-style-header-search__has-results');
+        this.module.classList.remove('j-style-header-search__no-results');
+        this.module.classList.remove('j-style-header-search__has-categories-results');
+        this.module.classList.remove('j-style-header-search__has-sellers-results');
     }
 
     clearSearchResults = () => {
@@ -106,41 +100,36 @@ class Search {
 
     handleClearButtonClick = (e) => {
         this.searchInput.value = '';
-        this.searchInput.focus();
-        this.hideSearchResults();
         this.clearSearchResults();
-        this.toggleShowClearButton();
+        this.clearModuleClasses();
+    }
+
+    handleClearButtonMouseDown = (e) => {
+        e.preventDefault();
     }
 
     handleMobileSearchButtonClick = (e) => {
-        this.module.classList.add('j-style-header-search__search-block_mobile-show');
+        this.module.classList.add('j-style-header-search__mobile-show');
         this.searchInput.focus();
     }
 
     handleSearchInputBlur = (e) => {
-        this.module.classList.remove('j-style-header-search__search-block_mobile-show');
-        this.handleClearButtonClick();
+        this.module.classList.remove('j-style-header-search__focus');
+        this.module.classList.remove('j-style-header-search__mobile-show');
+    }
+
+    handleSearchInputFocus = (e) => {
+        this.module.classList.add('j-style-header-search__focus');
     }
 
     handleSearchInputInput = (e) => {
         const value = this.searchInput.value;
 
         if(value) {
-            this.toggleShowClearButton(true);
-            this.hideSearchResults();
             debounce(this.inputDebounce, 1000);
-        } else {
-            this.handleClearButtonClick();
         }
-    }
 
-    hideSearchResults = () => {
-        console.log('--- hideSearchResults')
-
-        this.searchResultsArea.classList.add('hidden');
-        this.searchResultsCategoriesContainer.classList.add('hidden');
-        this.searchResultsSellersContainer.classList.add('hidden');
-        this.searchResultsNonContainer.classList.add('hidden');
+        toggleClass(this.module, 'j-style-header-search__has-value', value);
     }
 
     inputDebounce = async () => {
@@ -153,12 +142,13 @@ class Search {
         const {data, errors} = await this.sendRequest(searchValue);
 
         if(!errors) {
-            const isCategoryShow = this.checkSearchCategory(searchValue);
-            const isSellersShow = this.checkSearchSellers(data);
+            const isCategorySet = this.setSearchCategory(searchValue);
+            const isSellersSet = this.setSearchSellers(data);
 
-            if(!isCategoryShow && !isSellersShow) {
-                this.showNonResultsMessage();
-            }
+            toggleClass(this.module, 'j-style-header-search__no-results', !isCategorySet && !isSellersSet);
+            toggleClass(this.module, 'j-style-header-search__has-results', isCategorySet || isSellersSet);
+            toggleClass(this.module, 'j-style-header-search__has-categories-results', isCategorySet);
+            toggleClass(this.module, 'j-style-header-search__has-sellers-results', isSellersSet);
         }
     }
 
@@ -184,43 +174,27 @@ class Search {
         return response.json();
     }
 
-    showNonResultsMessage = () => {
-        this.searchResultsArea.classList.remove('hidden');
-        this.searchResultsNonContainer.classList.remove('hidden');
-    }
+    setSearchCategory = (searchValue) => {
+        const catalogSearchDataList = this.getCatalogSearchDataList(searchValue);
+        const catalogSearchLayout = this.getCatalogSearchLayout(catalogSearchDataList);
 
-    toggleShowClearButton = (isShow) => {
-        if(isShow) {
-            this.clearButton.classList.remove('modules-common-header-search__clear-button_hidden');
-        } else {
-            this.clearButton.classList.add('modules-common-header-search__clear-button_hidden');
-        }
-    }
-
-    toggleShowSearchCategory = (catalogSearchLayout) => {
         if(catalogSearchLayout) {
             this.searchResultsCategoriesResultContainer.innerHTML = catalogSearchLayout;
-            this.searchResultsCategoriesContainer.classList.remove('hidden');
-            this.searchResultsArea.classList.remove('hidden');
 
             return true;
         }
-
-        this.searchResultsCategoriesContainer.classList.add('hidden');
 
         return false;
     }
 
-    toggleShowSearchSellers = (sellersLayout) => {
+    setSearchSellers = (data) => {
+        const sellersLayout = this.getSearchSellersLayout(data);
+
         if(sellersLayout) {
             this.searchResultsSellersResultContainer.innerHTML = sellersLayout;
-            this.searchResultsSellersContainer.classList.remove('hidden');
-            this.searchResultsArea.classList.remove('hidden');
 
             return true;
         }
-
-        this.searchResultsSellersContainer.classList.add('hidden');
 
         return false;
     }

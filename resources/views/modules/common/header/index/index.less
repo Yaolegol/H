@@ -209,6 +209,14 @@
     }
 
     &__search-container {
-        max-width: 270px;
+        min-width: 270px;
+
+        @media (max-width: 767px) {
+            min-width: 180px;
+        }
+
+        @media (max-width: 499px) {
+            min-width: 0;
+        }
     }
 }

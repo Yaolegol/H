@@ -6,30 +6,30 @@
         @include('icons.search')
     </button>
     <div class="modules-common-header-search__search-block j-header-search__search-block">
-        <div class="modules-common-header-search__search-container j-header-search__search-container">
+        <label class="modules-common-header-search__search-container j-header-search__search-container">
             <input
                 class="modules-common-header-search__input j-header-search__input"
                 placeholder="Search"
                 type="text"
-            >
+            />
             <button
-                class="modules-common-header-search__clear-button modules-common-header-search__clear-button_hidden j-header-search__clear-button"
+                class="modules-common-header-search__clear-button j-header-search__clear-button"
                 type="button"
             >
                 @include('icons.close')
             </button>
-        </div>
-        <div class="modules-common-header-search__search-results-area hidden j-header-search__search-results-area">
-            <div class="modules-common-header-search__search-results-block j-header-search__search-results-block">
-                <div class="modules-common-header-search__search-results-container hidden j-header-search__search-results-categories-container">
+        </label>
+        <div class="modules-common-header-search__search-results-area">
+            <div class="modules-common-header-search__search-results-block">
+                <div class="modules-common-header-search__search-results-container modules-common-header-search__search-results-container_categories-results">
                     <div>Категории</div>
                     <div class="modules-common-header-search__result-container j-header-search__search-results-categories-result-container"></div>
                 </div>
-                <div class="modules-common-header-search__search-results-container hidden j-header-search__search-results-sellers-container">
+                <div class="modules-common-header-search__search-results-container modules-common-header-search__search-results-container_sellers-results">
                     <div>Продавцы</div>
                     <div class="modules-common-header-search__result-container j-header-search__search-results-sellers-result-container"></div>
                 </div>
-                <div class="modules-common-header-search__search-results-container hidden j-header-search__search-results-non-container">
+                <div class="modules-common-header-search__search-results-container modules-common-header-search__search-results-container_no-results">
                     <div>Найдено 0 результатов</div>
                 </div>
             </div>
