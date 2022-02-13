@@ -323,7 +323,7 @@
   align-items: center;
   background-color: transparent;
   border-radius: 10px;
-  color: #000000;
+  color: rgba(0, 0, 0, 0.8);
   display: none;
   flex-direction: column;
   padding: 10px;
@@ -335,7 +335,7 @@
   display: flex;
 }
 .modules-common-header-index__favorites-hint-link {
-  color: #000000;
+  color: rgba(0, 0, 0, 0.8);
 }
 .modules-common-header-index__favorites-hint-text-container {
   margin-top: 5px;
@@ -557,6 +557,7 @@
   margin-top: 0;
 }
 
+
 .components-form-error {
   color: #FF0000;
   font-size: 14px;
@@ -623,6 +624,53 @@
   min-width: 0;
   padding: 0 30px;
   width: 100%;
+}
+
+.components-inputs-radio-item__category-input {
+  cursor: pointer;
+}
+.components-inputs-radio-item__category-input-label {
+  cursor: pointer;
+}
+
+.components-inputs-radio-group-second-level_hidden {
+  display: none;
+}
+.components-inputs-radio-group-second-level__content-block {
+  margin-top: 10px;
+  max-height: 500px;
+}
+.components-inputs-radio-group-second-level__content-container {
+  display: none;
+}
+.components-inputs-radio-group-second-level__content-container_active {
+  display: block;
+}
+.components-inputs-radio-group-second-level__title {
+  margin-left: 30px;
+}
+
+
+.components-map-2gis-common-base__marker-popup {
+  width: 100px;
+}
+
+.components-map-2gis-components-add-marker {
+  padding-bottom: 100%;
+  position: relative;
+}
+.components-map-2gis-components-add-marker__map-container {
+  bottom: 0;
+  left: 0;
+  max-height: 500px;
+  max-width: 500px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.components-map-2gis-components-add-marker__map-container_mobile-app {
+  height: 300px;
+  width: auto;
 }
 
 .modules-pages-profile-common-components-body-create__all-points-link {
