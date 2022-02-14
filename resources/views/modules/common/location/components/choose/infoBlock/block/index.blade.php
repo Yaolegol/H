@@ -18,7 +18,7 @@
         <div class="location-choose-infoBlock-block__info-container">
             @include('modules.common.location.components.choose.infoBlock.item.index', [
                 'buttonText' => 'Выбрать',
-                'title' => 'Не выбрано',
+                'title' => 'Все регионы',
             ])
         </div>
     @endif
