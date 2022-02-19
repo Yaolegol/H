@@ -31,18 +31,6 @@ class ApiProfileOrganizationDataController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-
-        return view('pages.profile.organization-info.create.index', [
-        ]);
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  Request  $request
@@ -69,30 +57,6 @@ class ApiProfileOrganizationDataController extends Controller
 
             return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @return Response
-     */
-    public function show($section)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @return Response
-     */
-    public function edit(Request $request, $id)
-    {
-        $organizationItemData = getOrganizationItemDataFormatted($id);
-
-        return view('pages.profile.organization-info.edit.index', [
-            'organizationItemData' => $organizationItemData,
-        ]);
     }
 
     /**

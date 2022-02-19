@@ -82,16 +82,6 @@ class ProfileSaleOffersController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @return Response
-     */
-    public function show($section)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @return Response
