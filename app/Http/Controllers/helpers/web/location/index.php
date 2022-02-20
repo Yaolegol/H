@@ -40,14 +40,14 @@ function getCitiesWithSelectedList($locationList, $saleOfferItemData) {
     }, $locationList);
 }
 
-function getLocationList()
+function DB_getLocationList()
 {
     return Region::with('cities')->get()->toArray();
 }
 
 function getLocationListFormatted()
 {
-    return getLocationList();
+    return DB_getLocationList();
 }
 
 function getLocationSearchFormatted($locationList, $searchCountryId, $searchRegionId, $searchCityId)

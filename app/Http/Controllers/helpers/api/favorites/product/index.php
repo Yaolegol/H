@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 
-function apiAddOfferToUserFavoritesInDB($productId) {
+function api_DB_addOfferToUserFavorites($productId) {
     try {
         $authUser = Auth::user();
         $authUser->favoritesOffers()->syncWithoutDetaching([$productId]);
@@ -13,7 +13,7 @@ function apiAddOfferToUserFavoritesInDB($productId) {
     }
 }
 
-function apiGetAllUserFavoritesOffersFromDB() {
+function api_DB_getAllUserFavoritesOffers() {
     try {
         $authUser = Auth::user();
 
@@ -23,7 +23,7 @@ function apiGetAllUserFavoritesOffersFromDB() {
     }
 }
 
-function apiRemoveOfferFromUserFavoritesInDB($productId) {
+function api_DB_removeOfferFromUserFavorites($productId) {
     try {
         $authUser = Auth::user();
         $authUser->favoritesOffers()->detach($productId);
@@ -35,23 +35,23 @@ function apiRemoveOfferFromUserFavoritesInDB($productId) {
 }
 
 function apiAddOfferToUserFavorites($id) {
-    $result = apiAddOfferToUserFavoritesInDB($id);
-
-    return $result;
-}
-
-function apiRemoveOfferFromUserFavorites($id) {
-    $result = apiRemoveOfferFromUserFavoritesInDB($id);
+    $result = api_DB_addOfferToUserFavorites($id);
 
     return $result;
 }
 
 function apiGetAllUserFavoritesProductsFormatted() {
-    $result = apiGetAllUserFavoritesOffersFromDB();
+    $result = api_DB_getAllUserFavoritesOffers();
 
     if($result) {
         return $result;
     } else {
         return [];
     }
+}
+
+function apiRemoveOfferFromUserFavorites($id) {
+    $result = api_DB_removeOfferFromUserFavorites($id);
+
+    return $result;
 }
