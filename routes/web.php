@@ -28,9 +28,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [CatalogController::class, 'index']);
-Route::get('/catalog', [CatalogController::class, 'index']);
+
 Route::get('/catalog/{catalogLevelOneLink}/{productLink}', [OffersController::class, 'index']);
+
 Route::get('/catalog/{catalogLevelOneLink}', [CatalogController::class, 'show']);
+Route::get('/catalog', [CatalogController::class, 'index']);
 
 Route::get('/sellers/{id}', [SellersController::class, 'show']);
 
@@ -55,24 +57,24 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile/personal-info', [ProfilePersonalDataController::class, 'index']);
     Route::post('/profile/personal-info', [ProfilePersonalDataController::class, 'edit']);
 
-    Route::get('/profile/organization-info', [ProfileOrganizationDataController::class, 'index']);
     Route::get('/profile/organization-info/create', [ProfileOrganizationDataController::class, 'create']);
-    Route::get('/profile/organization-info/edit/{id}', [ProfileOrganizationDataController::class, 'edit']);
     Route::get('/profile/organization-info/destroy/{id}', [ProfileOrganizationDataController::class, 'destroy']);
-    Route::post('/profile/organization-info', [ProfileOrganizationDataController::class, 'store']);
+    Route::get('/profile/organization-info/edit/{id}', [ProfileOrganizationDataController::class, 'edit']);
     Route::put('/profile/organization-info/{id}', [ProfileOrganizationDataController::class, 'update']);
+    Route::get('/profile/organization-info', [ProfileOrganizationDataController::class, 'index']);
+    Route::post('/profile/organization-info', [ProfileOrganizationDataController::class, 'store']);
 
-    Route::get('/profile/sale-points-info', [ProfileSalePointsController::class, 'index']);
     Route::get('/profile/sale-points-info/create', [ProfileSalePointsController::class, 'create']);
-    Route::get('/profile/sale-points-info/edit/{id}', [ProfileSalePointsController::class, 'edit']);
     Route::get('/profile/sale-points-info/destroy/{id}', [ProfileSalePointsController::class, 'destroy']);
-    Route::post('/profile/sale-points-info', [ProfileSalePointsController::class, 'store']);
+    Route::get('/profile/sale-points-info/edit/{id}', [ProfileSalePointsController::class, 'edit']);
     Route::put('/profile/sale-points-info/{id}', [ProfileSalePointsController::class, 'update']);
+    Route::get('/profile/sale-points-info', [ProfileSalePointsController::class, 'index']);
+    Route::post('/profile/sale-points-info', [ProfileSalePointsController::class, 'store']);
 
-    Route::get('/profile/sale-offers', [ProfileSaleOffersController::class, 'index']);
     Route::get('/profile/sale-offers/create', [ProfileSaleOffersController::class, 'create']);
-    Route::get('/profile/sale-offers/edit/{id}', [ProfileSaleOffersController::class, 'edit']);
     Route::get('/profile/sale-offers/destroy/{id}', [ProfileSaleOffersController::class, 'destroy']);
-    Route::post('/profile/sale-offers', [ProfileSaleOffersController::class, 'store']);
+    Route::get('/profile/sale-offers/edit/{id}', [ProfileSaleOffersController::class, 'edit']);
     Route::put('/profile/sale-offers/{id}', [ProfileSaleOffersController::class, 'update']);
+    Route::get('/profile/sale-offers', [ProfileSaleOffersController::class, 'index']);
+    Route::post('/profile/sale-offers', [ProfileSaleOffersController::class, 'store']);
 });
