@@ -119,12 +119,9 @@ function getCatalogLevelTwoItem($catalogFull, $catalogLevelOneLink, $catalogLeve
     }));
 }
 
-function getCatalogLevelOneItemSubcategoriesList($catalogFull, $catalogLevelOneLink)
+function getCatalogLevelOneItemSubcategoriesList($catalogLevelOneItem)
 {
-    $catalogLevelOneItem = getCatalogLevelOneItem($catalogFull, $catalogLevelOneLink);
-    $isCatalogExists = array_key_exists('catalog_level_two', $catalogLevelOneItem);
-
-    return $isCatalogExists ? $catalogLevelOneItem['catalog_level_two'] : abort(404);
+    return $catalogLevelOneItem['catalog_level_two'];
 }
 
 function setCatalogFullLinks($catalog)

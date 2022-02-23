@@ -38,8 +38,15 @@ class CatalogController extends Controller
     public function show($catalogLevelOneLink)
     {
         $catalogFull = getCatalogFull();
-        $catalogLevelOneItemSubcategoriesList = getCatalogLevelOneItemSubcategoriesList($catalogFull, $catalogLevelOneLink);
-        $breadcrumbs = getCatalogLevelTwoBreadcrumbs($catalogFull, $catalogLevelOneLink);
+        $catalogLevelOneItem = getCatalogLevelOneItem($catalogFull, $catalogLevelOneLink);
+        $isCatalogEmpty = empty($catalogLevelOneItem);
+
+        if($isCatalogEmpty) {
+            abort(404);
+        }
+
+        $catalogLevelOneItemSubcategoriesList = getCatalogLevelOneItemSubcategoriesList($catalogLevelOneItem);
+        $breadcrumbs = getCatalogLevelTwoBreadcrumbs($catalogLevelOneItem);
         $locationList = getLocationListFormatted();
 
         return view('pages.catalog.secondLevel.index.index', [

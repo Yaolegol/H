@@ -1,6 +1,6 @@
 <?php
 
-function getCatalogLevelTwoBreadcrumbs($catalogFull, $catalogLevelOneLink)
+function getCatalogLevelTwoBreadcrumbs($catalogLevelOneItem)
 {
     $breadcrumbs = [
         [
@@ -9,8 +9,6 @@ function getCatalogLevelTwoBreadcrumbs($catalogFull, $catalogLevelOneLink)
             'title' => 'Каталог',
         ],
     ];
-
-    $catalogLevelOneItem = getCatalogLevelOneItem($catalogFull, $catalogLevelOneLink);
 
     array_push($breadcrumbs, [
         'isLink' => false,
