@@ -2,6 +2,16 @@
 
 use App\Models\CatalogLevelOne;
 
+function DB_getCatalogLevelOne($withLevelTwo = true)
+{
+    $withArray = $withLevelTwo ? ['catalogLevelTwo'] : [];
+
+    return CatalogLevelOne::query()
+        ->with($withArray)
+        ->get()
+        ->toArray();
+}
+
 function getCatalogCategoriesList($catalogFull) {
     return array_map(function($catalogItem) {
         return [
@@ -73,25 +83,14 @@ function getCatalogSubCategoriesWithSelectedList($catalogFull, $saleOfferItemDat
 
 function getCatalogFull()
 {
-    $catalog = getCatalogLevelOne();
+    $catalog = DB_getCatalogLevelOne();
 
-    return getCatalogFullWithFullLinks($catalog);
-}
-
-function getCatalogLevelOne($withLevelTwo = true)
-{
-    $withLevelTwoArray = ['catalogLevelTwo'];
-    $withoutLevelTwoArray = [];
-
-    return CatalogLevelOne::query()
-        ->with($withLevelTwo ? $withLevelTwoArray : $withoutLevelTwoArray)
-        ->get()
-        ->toArray();
+    return setCatalogFullLinks($catalog);
 }
 
 function getCatalogLevelOneFormatted()
 {
-    $catalog = getCatalogLevelOne(false);
+    $catalog = DB_getCatalogLevelOne(false);
 
     return getCatalogLevelOneWithFullLinks($catalog);
 }
@@ -99,19 +98,6 @@ function getCatalogLevelOneFormatted()
 function getCatalogLevelOneWithFullLinks($catalog) {
     foreach ($catalog as &$catalogLevelOneItem) {
         $catalogLevelOneItem['linkFull'] = '/catalog/' . $catalogLevelOneItem['link'];
-    }
-
-    return $catalog;
-}
-
-function getCatalogFullWithFullLinks($catalog)
-{
-    foreach ($catalog as &$catalogLevelOneItem) {
-        $catalogLevelOneItem['linkFull'] = '/catalog/' . $catalogLevelOneItem['link'];
-
-        foreach ($catalogLevelOneItem['catalog_level_two'] as &$catalogLevelTwoItem) {
-            $catalogLevelTwoItem['linkFull'] = $catalogLevelOneItem['linkFull'] . '/' . $catalogLevelTwoItem['link'];
-        }
     }
 
     return $catalog;
@@ -138,4 +124,17 @@ function getCatalogLevelOneItemSubcategoriesList($catalogFull, $catalogLevelOneL
     $catalogLevelOneItem = getCatalogLevelOneItem($catalogFull, $catalogLevelOneLink);
 
     return $catalogLevelOneItem['catalog_level_two'];
+}
+
+function setCatalogFullLinks($catalog)
+{
+    foreach ($catalog as &$catalogLevelOneItem) {
+        $catalogLevelOneItem['linkFull'] = '/catalog/' . $catalogLevelOneItem['link'];
+
+        foreach ($catalogLevelOneItem['catalog_level_two'] as &$catalogLevelTwoItem) {
+            $catalogLevelTwoItem['linkFull'] = $catalogLevelOneItem['linkFull'] . '/' . $catalogLevelTwoItem['link'];
+        }
+    }
+
+    return $catalog;
 }
