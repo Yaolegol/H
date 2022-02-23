@@ -4,8 +4,6 @@ namespace App\Http\Controllers\controllers\web\authorization\login;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 
 require_once('app/Http/Controllers/helpers/web/catalog/index.php');
@@ -34,22 +32,7 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
-        $email = $request->input('registration_email');
-        $password = $request->input('password');
-
-        $validator = Validator::make(
-            $request->all(),
-            [
-                'password' => ['required', 'min:12'],
-                'registration_email' => ['required', 'email', 'max:25'],
-            ],
-            [
-                'email' => 'Поле должно содержать email',
-                'max' => 'Поле должно содержать максимум :max символов',
-                'min' => 'Поле должно содержать минимум :min символов',
-                'required' => 'Поле обязательно для заполнения',
-            ]
-        );
+        $validator = getLoginValidator($request);
 
         if ($validator->fails()) {
             return back()
@@ -57,12 +40,9 @@ class LoginController extends Controller
                 ->withInput();
         }
 
-        if (Auth::attempt(
-            [
-                'registration_email' => $email,
-                'password' => $password,
-            ]
-        )) {
+        $isUserAuth = tryAuthUser($request);
+
+        if ($isUserAuth) {
             $request->session()->regenerate();
 
             return redirect()->intended('/');
