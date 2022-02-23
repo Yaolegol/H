@@ -21,6 +21,25 @@ function getLoginValidator($request) {
     );
 }
 
+function getRegistrationValidator($request) {
+    return Validator::make(
+        $request->all(),
+        [
+            'registration_email' => ['required', 'email', 'max:25', 'unique:users'],
+            'password' => ['required', 'min:6'],
+            'password_confirmation' => ['required', 'same:password'],
+        ],
+        [
+            'email' => 'Поле должно содержать Email',
+            'max' => 'Поле должно содержать максимум :max символов',
+            'min' => 'Поле должно содержать минимум :min символов',
+            'required' => 'Поле обязательно для заполнения',
+            'same' => 'Поле должно совпадать с паролем',
+            'unique' => 'Пользователь с таким Email уже зарегистрирован',
+        ]
+    );
+}
+
 function tryAuthUser($request) {
     $email = $request->input('registration_email');
     $password = $request->input('password');
