@@ -2,6 +2,8 @@
 
 use App\Models\Offer;
 
+require_once('app/Http/Controllers/helpers/common/assets/index.php');
+
 function formatOfferItem($offerItem) {
     $offerPhotoArray = [];
 
@@ -86,24 +88,26 @@ function formatOfferItem($offerItem) {
     return $offerItem;
 }
 
-function formatOffers($offers) {
-    return array_map(function ($item) {
-        $item['offerLink'] = '/' . 'offers' . '/' . $item['id'];
+function formatOfferPhotoPath(&$offerItem) {
+    $photoIteration = 1;
+    while ($photoIteration < 4) {
+        $currentPhotoName = 'photo_' . $photoIteration;
+        $currentPhotoValue = $offerItem[$currentPhotoName];
 
-        $photoIteration = 1;
-        while ($photoIteration <= 3) {
-            $currentPhotoName = 'photo_' . $photoIteration;
-            $currentPhotoValue = $item[$currentPhotoName];
-
-            if ($currentPhotoValue) {
-                $path = str_replace('public/', '', $currentPhotoValue);
-                $item[$currentPhotoName] = '/storage/' . $path;
-            }
-
-            $photoIteration++;
+        if ($currentPhotoValue) {
+            $offerItem[$currentPhotoName] = formatAssetPath($currentPhotoValue);
         }
 
-        return $item;
+        $photoIteration++;
+    }
+}
+
+function formatOffers($offers) {
+    return array_map(function ($offerItem) {
+        $offerItem['offerLink'] = getOfferLink($offerItem['id']);
+        formatOfferPhotoPath($offerItem);
+
+        return $offerItem;
     }, $offers);
 }
 
@@ -149,6 +153,10 @@ function getOfferFormatted($id)
     $offerItem = array_merge(...$offer);
 
     return formatOfferItem($offerItem);
+}
+
+function getOfferLink($id) {
+    return '/' . 'offers' . '/' . $id;
 }
 
 function getOffersPaginatedData($catalogFull, $catalogLevelOneLink, $productLink, $searchCountry, $searchRegion, $searchCity)
