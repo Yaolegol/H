@@ -41,7 +41,7 @@ class LoginController extends Controller
                 ->withInput();
         }
 
-        $isUserAuth = tryAuthUser($request);
+        $isUserAuth = DB_tryAuthUser($request);
 
         if ($isUserAuth) {
             $request->session()->regenerate();

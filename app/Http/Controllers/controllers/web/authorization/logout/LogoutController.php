@@ -16,11 +16,12 @@ class LogoutController extends Controller
      */
     public function index(Request $request)
     {
-        Auth::logout();
+        $isLogout = DB_tryLogoutUser($request);
 
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        if($isLogout) {
+            return redirect('/');
+        }
 
-        return redirect('/');
+        return abort(500);
     }
 }

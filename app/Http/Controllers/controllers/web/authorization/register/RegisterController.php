@@ -41,7 +41,7 @@ class RegisterController extends Controller
                 ->withInput();
         }
 
-        $isSaved = trySaveUserInDB($request);
+        $isSaved = DB_trySaveUserInDB($request);
 
         if($isSaved) {
             return redirect('/');
