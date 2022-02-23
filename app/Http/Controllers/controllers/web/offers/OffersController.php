@@ -5,8 +5,8 @@ namespace App\Http\Controllers\controllers\web\offers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+require_once('app/Http/Controllers/helpers/common/catalog/index.php');
 require_once('app/Http/Controllers/helpers/web/breadcrumbs/index.php');
-require_once('app/Http/Controllers/helpers/web/catalog/index.php');
 require_once('app/Http/Controllers/helpers/web/location/index.php');
 require_once('app/Http/Controllers/helpers/web/offers/index.php');
 
