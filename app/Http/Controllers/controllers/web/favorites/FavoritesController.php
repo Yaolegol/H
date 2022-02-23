@@ -8,7 +8,6 @@ use App\Http\Controllers\Controller;
 require_once('app/Http/Controllers/helpers/common/catalog/index.php');
 require_once('app/Http/Controllers/helpers/web/favorites/index.php');
 require_once('app/Http/Controllers/helpers/web/location/index.php');
-require_once('app/Http/Controllers/helpers/web/offers/index.php');
 
 class FavoritesController extends Controller
 {
@@ -21,7 +20,7 @@ class FavoritesController extends Controller
     {
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
-        $favoritesList = getUserFavoritesFormatted();
+        $favoritesList = getUserFavoritesOffersFormatted();
 
         return view('pages.favorites.index.index', [
             'catalogHeader' => $catalogFull,

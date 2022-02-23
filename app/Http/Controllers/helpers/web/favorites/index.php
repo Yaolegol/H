@@ -2,18 +2,20 @@
 
 use Illuminate\Support\Facades\Auth;
 
-function getUserFavorites() {
+require_once('app/Http/Controllers/helpers/web/offers/index.php');
+
+function DB_getUserFavoritesOffers() {
     try {
         $authUser = Auth::user();
 
         return $authUser->favoritesOffers()->get()->toArray();
     } catch(\Exception $err) {
-        return false;
+        return abort(500);
     }
 }
 
-function getUserFavoritesFormatted() {
-    $favoritesList = getUserFavorites();
+function getUserFavoritesOffersFormatted() {
+    $favoritesOffersList = DB_getUserFavoritesOffers();
 
-    return formatOffers($favoritesList);
+    return formatOffers($favoritesOffersList);
 }
