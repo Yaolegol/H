@@ -44,19 +44,10 @@ function getCatalogOffersBreadcrumbs($catalogLevelOneItem, $catalogLevelTwoItem)
     return $breadcrumbs;
 }
 
-function getOfferBreadcrumbs($catalogFull, $offer)
+function getOfferBreadcrumbs($offer)
 {
-    $offerCatalogLevelTwoId = $offer['catalog_level_two']['id'];
-    $offerCatalogLevelOneId = $offer['catalog_level_two']['catalog_level_one_id'];
-
-    $catalogLevelOneItemData = array_merge(...array_filter($catalogFull, function ($catalogLevelOneItem) use ($offerCatalogLevelOneId) {
-        return $catalogLevelOneItem['id'] == $offerCatalogLevelOneId;
-    }));
-
-    $catalogLevelTwoItemData = array_merge(...array_filter($catalogLevelOneItemData['catalog_level_two'], function ($catalogLevelTwoItem) use ($offerCatalogLevelTwoId) {
-        return $catalogLevelTwoItem['id'] == $offerCatalogLevelTwoId;
-    }));
-
+    $offerCatalogLevelTwoData = $offer['catalog_level_two'];
+    $offerCatalogLevelOneData = $offerCatalogLevelTwoData['catalog_level_one'];
 
     return [
         [
@@ -66,13 +57,13 @@ function getOfferBreadcrumbs($catalogFull, $offer)
         ],
         [
             'isLink' => true,
-            'link' => $catalogLevelOneItemData['linkFull'],
-            'title' => $catalogLevelOneItemData['title'],
+            'link' => $offerCatalogLevelOneData['linkFull'],
+            'title' => $offerCatalogLevelOneData['title'],
         ],
         [
             'isLink' => true,
-            'link' => $catalogLevelTwoItemData['linkFull'],
-            'title' => $catalogLevelTwoItemData['title'],
+            'link' => $offerCatalogLevelTwoData['linkFull'],
+            'title' => $offerCatalogLevelTwoData['title'],
         ]
     ];
 }

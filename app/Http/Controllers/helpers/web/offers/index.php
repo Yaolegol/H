@@ -7,7 +7,7 @@ require_once('app/Http/Controllers/helpers/common/assets/index.php');
 function DB_getOffer($id)
 {
     try {
-        return Offer::where('id', $id)->with([
+        $offerData = Offer::where('id', $id)->with([
             'catalogLevelTwo',
             'catalogLevelTwo.catalogLevelOne',
             'measure',
@@ -15,6 +15,12 @@ function DB_getOffer($id)
             'salePoints',
             'user',
         ])->get()->toArray();
+
+        if(empty($offerData)) {
+            return abort(400);
+        }
+
+        return $offerData;
     } catch(\Exception $err) {
         return abort(500);
     }
@@ -37,6 +43,7 @@ function formatOffer($offerItem) {
     setOfferPhotoArray($offerItem);
     setOfferOrganizationData($offerItem);
     setOfferSalePointsData($offerItem);
+    setOfferCatalogLinks($offerItem);
 
     return $offerItem;
 }
@@ -104,6 +111,16 @@ function getOffersPaginatedData($catalogLevelTwoItem, $searchCountry, $searchReg
     $offersPaginatedData = DB_getOffers($filters);
 
     return formatOffersPaginatedData($offersPaginatedData);
+}
+
+function setOfferCatalogLinks(&$offerItem) {
+    $offerItemCatalogLevelTwo = &$offerItem['catalog_level_two'];
+    $offerItemCatalogLevelOne = &$offerItemCatalogLevelTwo['catalog_level_one'];
+    $offerItemCatalogLevelTwoLink = $offerItemCatalogLevelTwo['link'];
+    $offerItemCatalogLevelOneLink = $offerItemCatalogLevelOne['link'];
+
+    $offerItemCatalogLevelTwo['linkFull'] = getCatalogLevelOneLink($offerItemCatalogLevelOneLink);
+    $offerItemCatalogLevelOne['linkFull'] = getCatalogLevelTwoLink($offerItemCatalogLevelOneLink, $offerItemCatalogLevelTwoLink);
 }
 
 function setOfferLink(&$offerItem) {

@@ -53,7 +53,7 @@ class OffersController extends Controller
     {
         $catalogFull = getCatalogFull();
         $offer = getOfferFormatted($id);
-        $breadcrumbs = getOfferBreadcrumbs($catalogFull, $offer);
+        $breadcrumbs = getOfferBreadcrumbs($offer);
         $locationList = getLocationListFormatted();
 
         return view('pages.offers.show.index', [

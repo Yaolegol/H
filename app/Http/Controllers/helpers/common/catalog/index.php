@@ -101,6 +101,10 @@ function getCatalogLevelOneFormatted()
     return getCatalogLevelOneWithFullLinks($catalog);
 }
 
+function getCatalogLevelOneLink($link) {
+    return '/catalog/' . $link;
+}
+
 function getCatalogLevelOneWithFullLinks($catalog) {
     foreach ($catalog as &$catalogLevelOneItem) {
         $catalogLevelOneItem['linkFull'] = '/catalog/' . $catalogLevelOneItem['link'];
@@ -136,13 +140,19 @@ function getCatalogLevelOneItemSubcategoriesList($catalogLevelOneItem)
     return $catalogLevelOneItem['catalog_level_two'];
 }
 
+function getCatalogLevelTwoLink($catalogLevelOneLink, $catalogLevelTwoLink) {
+    $catalogLevelOneFullLink = getCatalogLevelOneLink($catalogLevelOneLink);
+
+    return $catalogLevelOneFullLink . '/' . $catalogLevelTwoLink;
+}
+
 function setCatalogFullLinks($catalog)
 {
     foreach ($catalog as &$catalogLevelOneItem) {
-        $catalogLevelOneItem['linkFull'] = '/catalog/' . $catalogLevelOneItem['link'];
+        $catalogLevelOneItem['linkFull'] = getCatalogLevelOneLink($catalogLevelOneItem['link']);
 
         foreach ($catalogLevelOneItem['catalog_level_two'] as &$catalogLevelTwoItem) {
-            $catalogLevelTwoItem['linkFull'] = $catalogLevelOneItem['linkFull'] . '/' . $catalogLevelTwoItem['link'];
+            $catalogLevelTwoItem['linkFull'] = getCatalogLevelTwoLink($catalogLevelOneItem['link'], $catalogLevelTwoItem['link']);
         }
     }
 
