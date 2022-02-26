@@ -26,8 +26,10 @@ class OffersController extends Controller
         $searchCityId = $request->query('search-city-id');
 
         $catalogFull = getCatalogFull();
-        $offersPaginatedData = getOffersPaginatedData($catalogFull, $catalogLevelOneLink, $productLink, $searchCountryId, $searchRegionId, $searchCityId);
-        $breadcrumbs = getCatalogOffersBreadcrumbs($catalogFull, $catalogLevelOneLink, $productLink);
+        $catalogLevelOneItem = getCatalogLevelOneItem($catalogFull, $catalogLevelOneLink);
+        $catalogLevelTwoItem = getCatalogLevelTwoItem($catalogLevelOneItem, $productLink);
+        $offersPaginatedData = getOffersPaginatedData($catalogLevelTwoItem, $searchCountryId, $searchRegionId, $searchCityId);
+        $breadcrumbs = getCatalogOffersBreadcrumbs($catalogLevelOneItem, $catalogLevelTwoItem);
         $locationList = getLocationListFormatted();
         $locationSearchData = getLocationSearchDataFormatted($locationList, $searchCountryId, $searchRegionId, $searchCityId);
 

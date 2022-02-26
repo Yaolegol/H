@@ -182,9 +182,8 @@ function getOffersFilters($catalogLevelTwoItemId, $searchCountry, $searchRegion,
     return array_merge($filters, ...$locationFilters);
 }
 
-function getOffersPaginatedData($catalogFull, $catalogLevelOneLink, $productLink, $searchCountry, $searchRegion, $searchCity)
+function getOffersPaginatedData($catalogLevelTwoItem, $searchCountry, $searchRegion, $searchCity)
 {
-    $catalogLevelTwoItem = getCatalogLevelTwoItem($catalogFull, $catalogLevelOneLink, $productLink);
     $filters = getOffersFilters($catalogLevelTwoItem['id'], $searchCountry, $searchRegion, $searchCity);
     $offersPaginatedData = getOffers($filters);
 

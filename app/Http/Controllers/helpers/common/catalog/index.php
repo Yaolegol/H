@@ -120,10 +120,8 @@ function getCatalogLevelOneItem($catalogFull, $catalogLevelOneLink)
     return $catalogLevelOneItem;
 }
 
-function getCatalogLevelTwoItem($catalogFull, $catalogLevelOneLink, $catalogLevelTwoLink)
+function getCatalogLevelTwoItem($catalogLevelOneItem, $catalogLevelTwoLink)
 {
-    $catalogLevelOneItem = getCatalogLevelOneItem($catalogFull, $catalogLevelOneLink);
-
     $catalogLevelTwoItem = array_merge(...array_filter($catalogLevelOneItem['catalog_level_two'], function ($catalogLevelTwoItem) use ($catalogLevelTwoLink) {
         return $catalogLevelTwoItem['link'] === $catalogLevelTwoLink;
     }));
