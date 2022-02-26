@@ -43,15 +43,19 @@ function DB_getUserOrganizationsList()
     }
 }
 
-function DB_updateOrganizationImages($userId, $organizationId, $imagesArray) {
+function DB_updateOrganizationData($userId, $organizationId, $data) {
     try {
         Organization::where([
             ['user_id', $userId],
             ['id', $organizationId]
-        ])->update($imagesArray);
+        ])->update($data);
     } catch(\Exception $err) {
         abort(500);
     }
+}
+
+function getOrganizationAssetPath($organizationId, $pathName) {
+    return $path = 'organization/' . $organizationId . '/' . $pathName;
 }
 
 function getOrganizationDataFormatted()
@@ -71,14 +75,14 @@ function getOrganizationImagesData($request, $userId, $organizationId) {
     $newPhotos = [];
 
     if(!empty($requestPhotoArray)) {
-        $newPhotos = STORE_saveOrganizationAssets($userId, $organizationId, $requestPhotoArray, 'photo');
+        $newPhotos = STORAGE_saveOrganizationAssets($userId, $organizationId, $requestPhotoArray, 'photo');
     }
 
     $requestCertificateArray = getFilesArray($request, 'certificate', 5);
     $newCertificates = [];
 
     if(!empty($requestCertificateArray)) {
-        $newCertificates = STORE_saveOrganizationAssets($userId, $organizationId, $requestCertificateArray, 'certificate');
+        $newCertificates = STORAGE_saveOrganizationAssets($userId, $organizationId, $requestCertificateArray, 'certificate');
     }
 
     return array_merge(
@@ -99,11 +103,18 @@ function getOrganizationItemDataFormatted($organizationId)
     return $userOrganizationItemData;
 }
 
-function STORE_saveOrganizationAssets($userId, $createdOrganizationId, $requestAssetsArray, $pathName)
+function STORAGE_saveOrganizationAssets($userId, $createdOrganizationId, $requestAssetsArray, $pathName)
 {
-    $path = 'organization/' . $createdOrganizationId . '/' . $pathName;
+    $path = getOrganizationAssetPath($createdOrganizationId, $pathName);
 
-    return STORE_assetList($userId, $requestAssetsArray, $path, $pathName);
+    return STORAGE_saveAssetList($userId, $requestAssetsArray, $path, $pathName);
+}
+
+function STORAGE_updateOrganizationAssets($userId, $organizationId, $request, $name, $count)
+{
+    $path = getOrganizationAssetPath($organizationId, $name);
+
+    return STORAGE_updateAssetList($userId, $request, $name, $count, $path);
 }
 
 function tryChangeOrganizationDataInDB($request)
@@ -155,129 +166,9 @@ function tryStoreOrganizationData($request) {
     $createdOrganizationId = $createdOrganizationData['id'];
     $imagesArray = getOrganizationImagesData($request, $authUserId, $createdOrganizationId);
 
-    DB_updateOrganizationImages($authUserId, $createdOrganizationId, $imagesArray);
+    DB_updateOrganizationData($authUserId, $createdOrganizationId, $imagesArray);
 
     return true;
-}
-
-function updateOrganizationCertificates($request, $updatingOrganizationId)
-{
-    $authUser = Auth::user();
-    $user_id = $authUser->id;
-    $certificatesArray = [];
-
-    $certificateInputsIteration = 1;
-    while ($certificateInputsIteration <= 3) {
-        $certificateDBColumn = 'certificate_' . $certificateInputsIteration;
-        $certificate = $request->file('certificate' . '_' . $certificateInputsIteration) ?? '';
-        if ($certificate) {
-            $oldCertificate = File::glob(
-                storage_path() .
-                '/app/public/users/' .
-                $user_id .
-                '/organization/' .
-                $updatingOrganizationId .
-                '/certificate/' .
-                $certificateInputsIteration .
-                '*'
-            );
-            File::delete($oldCertificate);
-
-            $certificateName = $certificateInputsIteration . '.' . $certificate->extension();
-
-            $certificatePath = $certificate->storeAs(
-                '/public/users/1/organization/' . $updatingOrganizationId . '/certificate', $certificateName
-            );
-
-            array_push($certificatesArray, [
-                $certificateDBColumn => $certificatePath
-            ]);
-        } else {
-            $isRemoveCertificate = $request->has('remove_certificate_' . $certificateInputsIteration);
-
-            if ($isRemoveCertificate) {
-                $olCertificate = File::glob(
-                    storage_path() .
-                    '/app/public/users/' .
-                    $user_id .
-                    '/organization/' .
-                    $updatingOrganizationId .
-                    '/certificate/' .
-                    $certificateInputsIteration .
-                    '*'
-                );
-                File::delete($olCertificate);
-
-                array_push($certificatesArray, [
-                    $certificateDBColumn => ''
-                ]);
-            }
-        }
-
-        $certificateInputsIteration++;
-    }
-
-    return $certificatesArray;
-}
-
-function updateOrganizationPhotos($request, $updatingOrganizationId)
-{
-    $authUser = Auth::user();
-    $user_id = $authUser->id;
-    $photosArray = [];
-
-    $photoInputsIteration = 1;
-    while ($photoInputsIteration <= 3) {
-        $photoDBColumn = 'photo_' . $photoInputsIteration;
-        $photo = $request->file('photo' . '_' . $photoInputsIteration) ?? '';
-        if ($photo) {
-            $oldPhoto = File::glob(
-                storage_path() .
-                '/app/public/users/' .
-                $user_id .
-                '/organization/' .
-                $updatingOrganizationId .
-                '/photo/' .
-                $photoInputsIteration .
-                '*'
-            );
-            File::delete($oldPhoto);
-
-            $photoName = $photoInputsIteration . '.' . $photo->extension();
-
-            $photoPath = $photo->storeAs(
-                '/public/users/1/organization/' . $updatingOrganizationId . '/photo', $photoName
-            );
-
-            array_push($photosArray, [
-                $photoDBColumn => $photoPath
-            ]);
-        } else {
-            $isRemovePhoto = $request->has('remove_photo_' . $photoInputsIteration);
-
-            if ($isRemovePhoto) {
-                $oldPhoto = File::glob(
-                    storage_path() .
-                    '/app/public/users/' .
-                    $user_id .
-                    '/organization/' .
-                    $updatingOrganizationId .
-                    '/photo/' .
-                    $photoInputsIteration .
-                    '*'
-                );
-                File::delete($oldPhoto);
-
-                array_push($photosArray, [
-                    $photoDBColumn => ''
-                ]);
-            }
-        }
-
-        $photoInputsIteration++;
-    }
-
-    return $photosArray;
 }
 
 function tryDestroyOrganizationDataInDB($id)
@@ -307,42 +198,30 @@ function tryDestroyOrganizationDataInDB($id)
     }
 }
 
-function tryUpdateOrganizationDataInDB($request, $id) {
-    try {
-        $authUser = Auth::user();
-        $authUserId = $authUser->id;
+function tryUpdateOrganizationDataInDB($request, $organizationId) {
+    $authUser = Auth::user();
+    $authUserId = $authUser->id;
 
-        $title = $request->input('title') ?? '';
-        $inn = $request->input('inn') ?? '';
-        $legal_address = $request->input('legal_address') ?? '';
-        $real_address = $request->input('real_address') ?? '';
-        $email = $request->input('email') ?? '';
-        $phone = $request->input('phone') ?? '';
+    $data = [
+        'title' => $request->input('title') ?? '',
+        'inn' => $request->input('inn') ?? '',
+        'legal_address' => $request->input('legal_address') ?? '',
+        'real_address' => $request->input('real_address') ?? '',
+        'email' => $request->input('email') ?? '',
+        'phone' => $request->input('phone') ?? '',
+        'user_id' => $authUserId,
+    ];
 
-        $newCertificates = updateOrganizationCertificates($request, $id);
-        $newPhotos = updateOrganizationPhotos($request, $id);
+    $updatedPhotoList = STORAGE_updateOrganizationAssets($authUserId, $organizationId, $request, 'photo', 3);
+    $updatedCertificateList = STORAGE_updateOrganizationAssets($authUserId, $organizationId, $request, 'certificate', 5);
 
-        $newOrganizationData = array_merge(
-            [
-                'title' => $title,
-                'inn' => $inn,
-                'legal_address' => $legal_address,
-                'real_address' => $real_address,
-                'email' => $email,
-                'phone' => $phone,
-                'user_id' => $authUserId,
-            ],
-            ...$newCertificates,
-            ...$newPhotos,
-        );
+    $newOrganizationData = array_merge(
+        $data,
+        $updatedPhotoList,
+        $updatedCertificateList,
+    );
 
-        Organization::where([
-            ['user_id', $authUserId],
-            ['id', $id]
-        ])->update($newOrganizationData);
+    DB_updateOrganizationData($authUserId, $organizationId, $newOrganizationData);
 
-        return true;
-    } catch (\Exception $error) {
-        return false;
-    }
+    return true;
 }

@@ -9,7 +9,7 @@ function getFilesArray($request, $name, $count) {
         $currentFile = $request->file($currentName);
 
         if ($currentFile) {
-            array_push($filesArray, $currentFile);
+            $filesArray[$currentName] = $currentFile;
         }
 
         $iteration++;

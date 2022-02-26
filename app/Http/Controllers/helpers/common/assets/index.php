@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\File;
+
 function formatAssetPath($path) {
     return str_replace('public/', '/storage/', $path);
 }
@@ -24,7 +26,7 @@ function getAssetArrayFormatted($item, $name, $count) {
     return $assetArray;
 }
 
-function STORE_asset($asset, $userId, $path, $name) {
+function STORAGE_saveAsset($asset, $userId, $path, $name) {
     try {
         return $asset->storeAs(
             '/public/users/' . $userId . '/' . $path,
@@ -35,14 +37,14 @@ function STORE_asset($asset, $userId, $path, $name) {
     }
 }
 
-function STORE_assetList($userId, $assetList, $path, $pathKey) {
+function STORAGE_saveAssetList($userId, $assetList, $path, $pathKey) {
     try {
         $pathArray = [];
         $iteration = 1;
 
         foreach ($assetList as $assetItem) {
             $assetName = $iteration . '.' . $assetItem->extension();
-            $assetPath = STORE_asset($assetItem, $userId, $path, $assetName);
+            $assetPath = STORAGE_saveAsset($assetItem, $userId, $path, $assetName);
 
             $pathKeyName = $pathKey . '_' . $iteration;
             array_push($pathArray, [$pathKeyName => $assetPath]);
@@ -51,6 +53,47 @@ function STORE_assetList($userId, $assetList, $path, $pathKey) {
         }
 
         return $pathArray;
+    } catch(\Exception $err) {
+        return abort(500);
+    }
+}
+
+function STORAGE_updateAssetList($userId, $request, $name, $count, $path) {
+    try {
+        $assetPathArray = [];
+        $iteration = 1;
+
+        while ($iteration <= $count) {
+            $currentName = $name . '_' . $iteration;
+            $currentFile = $request->file($currentName);
+
+            if ($currentFile) {
+                $oldAssetPath = File::glob(
+                    storage_path() . '/app/public/users/' . $userId . '/' . $path . '/' . $iteration . '*'
+                );
+                File::delete($oldAssetPath);
+
+                $assetName = $iteration . '.' . $currentFile->extension();
+                $assetPath = STORAGE_saveAsset($currentFile, $userId, $path, $assetName);
+
+                $assetPathArray[$currentName] = $assetPath;
+            } else {
+                $isRemoveAsset = $request->has('remove' . '_' . $name . '_' . $iteration);
+
+                if ($isRemoveAsset) {
+                    $oldAssetPath = File::glob(
+                        storage_path() . '/app/public/users/' . $userId . '/' . $path . '/' . $iteration . '*'
+                    );
+                    File::delete($oldAssetPath);
+
+                    $assetPathArray[$currentName] = '';
+                }
+            }
+
+            $iteration++;
+        }
+
+        return $assetPathArray;
     } catch(\Exception $err) {
         return abort(500);
     }
