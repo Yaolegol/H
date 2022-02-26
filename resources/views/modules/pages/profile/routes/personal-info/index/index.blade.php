@@ -13,12 +13,11 @@
                         <div>(отображаются для других пользователей)</div>
                     </div>
                     <form
-                        action="/profile/personal-info"
+                        action="/profile/personal-info/edit-personal-data"
                         enctype="multipart/form-data"
                         method="POST"
                     >
                         @csrf
-                        <input name="form-section" type="hidden" value="change-personal-data">
                         <div class="modules-pages-profile-routes-personal-info-index__info-title">Ваше имя:</div>
                         <div class="modules-pages-profile-routes-personal-info-index__input-container">
                             @include('components.inputs.form.index', [
@@ -100,9 +99,11 @@
                         <div class="modules-pages-profile-routes-personal-info-index__title-container">
                             <h3>Изменить email</h3>
                         </div>
-                        <form action="/profile/personal-info" method="POST">
+                        <form
+                            action="/profile/personal-info/edit-email"
+                            method="POST"
+                        >
                             @csrf
-                            <input name="form-section" type="hidden" value="change-email">
                             <div class="modules-pages-profile-routes-personal-info-index__info-title">Новый email:</div>
                             <div class="modules-pages-profile-routes-personal-info-index__info-description">
                                 <div class="modules-pages-profile-routes-personal-info-index__input-container">
@@ -142,9 +143,11 @@
                         <div class="modules-pages-profile-routes-personal-info-index__title-container">
                             <h3>Изменить пароль</h3>
                         </div>
-                        <form action="/profile/personal-info" method="POST">
+                        <form
+                            action="/profile/personal-info/edit-password"
+                            method="POST"
+                        >
                             @csrf
-                            <input name="form-section" type="hidden" value="change-password">
                             <div class="modules-pages-profile-routes-personal-info-index__info-title">Текущий пароль:</div>
                             <div class="modules-pages-profile-routes-personal-info-index__info-description">
                                 <div class="modules-pages-profile-routes-personal-info-index__input-container">

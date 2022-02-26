@@ -55,7 +55,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'index']);
 
     Route::get('/profile/personal-info', [ProfilePersonalDataController::class, 'index']);
-    Route::post('/profile/personal-info', [ProfilePersonalDataController::class, 'edit']);
+    Route::post('/profile/personal-info/edit-personal-data', [ProfilePersonalDataController::class, 'editPersonalData']);
+    Route::post('/profile/personal-info/edit-email', [ProfilePersonalDataController::class, 'editEmail']);
+    Route::post('/profile/personal-info/edit-password', [ProfilePersonalDataController::class, 'editPassword']);
 
     Route::get('/profile/organization-info/create', [ProfileOrganizationDataController::class, 'create']);
     Route::get('/profile/organization-info/destroy/{id}', [ProfileOrganizationDataController::class, 'destroy']);
