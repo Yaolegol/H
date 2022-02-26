@@ -22,7 +22,19 @@ function DB_createOrganization($request, $authUserId) {
     }
 }
 
-function DB_getUserOrganization()
+function DB_getUserOrganizationItem($userId, $organizationId)
+{
+    try {
+        return Organization::where([
+            ['user_id', $userId],
+            ['id', $organizationId],
+        ])->first()->toArray();
+    } catch(\Exception $err) {
+        return abort(500);
+    }
+}
+
+function DB_getUserOrganizationsList()
 {
     try {
         return Organization::where('user_id', Auth::user()->id)->get()->toArray();
@@ -44,7 +56,7 @@ function DB_updateOrganizationImages($userId, $organizationId, $imagesArray) {
 
 function getOrganizationDataFormatted()
 {
-    $userOrganizationList = DB_getUserOrganization();
+    $userOrganizationList = DB_getUserOrganizationsList();
 
     foreach ($userOrganizationList as &$userOrganizationItem) {
         $userOrganizationItem['certificateArray'] = getAssetArrayFormatted($userOrganizationItem, 'certificate', 5);
@@ -75,48 +87,16 @@ function getOrganizationImagesData($request, $userId, $organizationId) {
     );
 }
 
-function getOrganizationItemDataFormatted($id)
-{
-    $userOrganizationItemData = getUserOrganizationItem($id);
-
-    $photoIteration = 1;
-    while ($photoIteration <= 3) {
-        $currentPhotoName = 'photo_' . $photoIteration;
-        $currentPhotoValue = $userOrganizationItemData[$currentPhotoName];
-
-        if ($currentPhotoValue) {
-            $path = str_replace('public/', '', $currentPhotoValue);
-            $userOrganizationItemData[$currentPhotoName] = '/storage/' . $path;
-        }
-
-        $photoIteration++;
-    }
-
-    $certificateIteration = 1;
-    while ($certificateIteration <= 5) {
-        $currentPhotoName = 'certificate_' . $certificateIteration;
-        $currentPhotoValue = $userOrganizationItemData[$currentPhotoName];
-
-        if ($currentPhotoValue) {
-            $path = str_replace('public/', '', $currentPhotoValue);
-            $userOrganizationItemData[$currentPhotoName] = '/storage/' . $path;
-        }
-
-        $certificateIteration++;
-    }
-
-    return $userOrganizationItemData;
-}
-
-function getUserOrganizationItem($id)
+function getOrganizationItemDataFormatted($organizationId)
 {
     $authUser = Auth::user();
-    $user_id = $authUser->id;
+    $userId = $authUser->id;
 
-    return Organization::where([
-        ['user_id', $user_id],
-        ['id', $id],
-    ])->first()->toArray();
+    $userOrganizationItemData = DB_getUserOrganizationItem($userId, $organizationId);
+    $userOrganizationItemData['photoArray'] = getAssetArrayFormatted($userOrganizationItemData, 'photo', 3);
+    $userOrganizationItemData['certificateArray'] = getAssetArrayFormatted($userOrganizationItemData, 'certificate', 5);
+
+    return $userOrganizationItemData;
 }
 
 function STORE_saveOrganizationAssets($userId, $createdOrganizationId, $requestAssetsArray, $pathName)
