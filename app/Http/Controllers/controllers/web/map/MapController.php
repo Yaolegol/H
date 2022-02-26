@@ -25,13 +25,13 @@ class MapController extends Controller
 
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
-        $locationSearch = getLocationSearchFormatted($locationList, $searchCountryId, $searchRegionId, $searchCityId);
+        $locationSearchData = getLocationSearchDataFormatted($locationList, $searchCountryId, $searchRegionId, $searchCityId);
 
         return view('pages.map.web.index.index', [
             'catalogHeader' => $catalogFull,
             'catalogPage' => $catalogFull,
             'locationList' => $locationList,
-            'locationSearch' => $locationSearch,
+            'locationSearchData' => $locationSearchData,
         ]);
     }
 

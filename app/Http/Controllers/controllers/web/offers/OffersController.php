@@ -29,13 +29,13 @@ class OffersController extends Controller
         $offersPaginatedData = getOffersPaginatedData($catalogFull, $catalogLevelOneLink, $productLink, $searchCountryId, $searchRegionId, $searchCityId);
         $breadcrumbs = getCatalogOffersBreadcrumbs($catalogFull, $catalogLevelOneLink, $productLink);
         $locationList = getLocationListFormatted();
-        $locationSearch = getLocationSearchFormatted($locationList, $searchCountryId, $searchRegionId, $searchCityId);
+        $locationSearchData = getLocationSearchDataFormatted($locationList, $searchCountryId, $searchRegionId, $searchCityId);
 
         return view('pages.offers.index.index', [
             'breadcrumbs' => $breadcrumbs,
             'catalogHeader' => $catalogFull,
             'locationList' => $locationList,
-            'locationSearch' => $locationSearch,
+            'locationSearchData' => $locationSearchData,
             'offersPaginatedData' => $offersPaginatedData,
         ]);
     }

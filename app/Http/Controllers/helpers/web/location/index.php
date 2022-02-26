@@ -50,8 +50,12 @@ function getLocationListFormatted()
     return DB_getLocationList();
 }
 
-function getLocationSearchFormatted($locationList, $searchCountryId, $searchRegionId, $searchCityId)
+function getLocationSearchDataFormatted($locationList, $searchCountryId, $searchRegionId, $searchCityId)
 {
+    $_searchCountryId = (int)$searchCountryId;
+    $_searchRegionId = (int)$searchRegionId;
+    $_searchCityId = (int)$searchCityId;
+
     $locationData = [
         'city' => null,
         'country' => null,
@@ -59,11 +63,11 @@ function getLocationSearchFormatted($locationList, $searchCountryId, $searchRegi
     ];
 
     foreach ($locationList as $regionItem) {
-        if($regionItem['id'] == $searchRegionId) {
+        if($regionItem['id'] === $_searchRegionId) {
             $locationData['region'] = $regionItem;
 
             foreach ($regionItem['cities'] as $cityItem) {
-                if($cityItem['id'] == $searchCityId) {
+                if($cityItem['id'] === $_searchCityId) {
                     $locationData['city'] = $cityItem;
                 }
             }
