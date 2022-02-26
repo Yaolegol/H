@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 
 require_once('app/Http/Controllers/helpers/common/assets/index.php');
 require_once('app/Http/Controllers/helpers/common/catalog/index.php');
+require_once('app/Http/Controllers/helpers/common/user/index.php');
 require_once('app/Http/Controllers/helpers/web/location/index.php');
 require_once('app/Http/Controllers/helpers/web/profile/personalData/index.php');
 
@@ -59,25 +60,8 @@ class ProfilePersonalDataController extends Controller
      */
     public function editEmail(Request $request)
     {
-        $catalogFull = getCatalogFull();
-        $locationList = getLocationListFormatted();
-
         $currentPassword = $request->input('password');
-
-        $validator = Validator::make(
-            $request->all(),
-            [
-                'registration_email' => ['required', 'email', 'max:25', 'unique:users'],
-                'password' => ['required', 'min:6'],
-            ],
-            [
-                'email' => 'Поле должно содержать email',
-                'max' => 'Поле должно содержать максимум :max символов',
-                'min' => 'Поле должно содержать минимум :min символов',
-                'required' => 'Поле обязательно для заполнения',
-                'unique' => 'Пользователь с таким Email уже зарегистрирован',
-            ]
-        );
+        $validator = getEmailValidator($request);
 
         if($validator->fails()) {
             return back()
@@ -85,27 +69,19 @@ class ProfilePersonalDataController extends Controller
                 ->withInput();
         }
 
-        if(Hash::check($currentPassword, Auth::user()->password)) {
+        $isAuth = checkAuthUserPassword($currentPassword);
+
+        if($isAuth) {
             $isSaved = tryChangeUserEmailInDB($request);
 
             if($isSaved) {
-                $userData = getUserDataFormatted();
-
-                return view('pages.profile.personal-info.index.index', [
-                    'catalogHeader' => $catalogFull,
-                    'locationList' => $locationList,
-                    'userData' => $userData
-                ]);
-            } else {
-                return back()->with(
-                    ['commonChangeEmailError' => 'Что-то пошло не так. Попробуйте снова']
-                );
+                return back();
             }
-        } else {
-            return back()->with(
-                ['commonChangeEmailError' => 'Неверный пароль']
-            );
         }
+
+        return back()->with(
+            ['commonChangeEmailError' => 'Неверный пароль']
+        );
     }
 
     /**

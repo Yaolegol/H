@@ -2,6 +2,24 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Validator;
+
+function getEmailValidator($request) {
+    return Validator::make(
+        $request->all(),
+        [
+            'registration_email' => ['required', 'email', 'max:25', 'unique:users'],
+            'password' => ['required', 'min:6'],
+        ],
+        [
+            'email' => 'Поле должно содержать email',
+            'max' => 'Поле должно содержать максимум :max символов',
+            'min' => 'Поле должно содержать минимум :min символов',
+            'required' => 'Поле обязательно для заполнения',
+            'unique' => 'Пользователь с таким email уже зарегистрирован',
+        ]
+    );
+}
 
 function getUserDataFormatted()
 {
@@ -64,7 +82,7 @@ function tryChangeUserEmailInDB($request)
 
         return true;
     } catch (\Exception $error) {
-        return false;
+        return abort(500);
     }
 }
 
