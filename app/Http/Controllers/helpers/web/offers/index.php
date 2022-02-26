@@ -4,6 +4,18 @@ use App\Models\Offer;
 
 require_once('app/Http/Controllers/helpers/common/assets/index.php');
 
+function DB_getOffers($filters) {
+    try {
+        return Offer::where($filters)->with([
+            'catalogLevelTwo',
+            'measure',
+            'user',
+        ])->paginate(25)->toArray();
+    } catch(\Exception $err) {
+        return abort(500);
+    }
+}
+
 function formatOfferItem($offerItem) {
     $offerPhotoArray = [];
 
@@ -165,14 +177,6 @@ function getOfferLink($id) {
     return '/' . 'offers' . '/' . $id;
 }
 
-function getOffers($filters) {
-    return Offer::where($filters)->with([
-        'catalogLevelTwo',
-        'measure',
-        'user',
-    ])->paginate(25)->toArray();
-}
-
 function getOffersFilters($catalogLevelTwoItemId, $searchCountry, $searchRegion, $searchCity) {
     $filters = [
         'catalog_level_two_id' => $catalogLevelTwoItemId,
@@ -185,7 +189,7 @@ function getOffersFilters($catalogLevelTwoItemId, $searchCountry, $searchRegion,
 function getOffersPaginatedData($catalogLevelTwoItem, $searchCountry, $searchRegion, $searchCity)
 {
     $filters = getOffersFilters($catalogLevelTwoItem['id'], $searchCountry, $searchRegion, $searchCity);
-    $offersPaginatedData = getOffers($filters);
+    $offersPaginatedData = DB_getOffers($filters);
 
     return formatOffersPaginatedData($offersPaginatedData);
 }
