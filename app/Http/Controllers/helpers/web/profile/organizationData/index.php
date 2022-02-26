@@ -56,42 +56,25 @@ function createOrganizationPhotos($request, $createdOrganizationId)
     return array_merge(...$photosArray);
 }
 
+function DB_getUserOrganization()
+{
+    try {
+        return Organization::where('user_id', Auth::user()->id)->get()->toArray();
+    } catch(\Exception $err) {
+        return abort(500);
+    }
+}
+
 function getOrganizationDataFormatted()
 {
-    $userOrganizationList = getUserOrganization();
-    $userOrganizationListFormatted = [];
+    $userOrganizationList = DB_getUserOrganization();
 
-    foreach ($userOrganizationList as $userOrganizationItem) {
-        $photoIteration = 1;
-        while ($photoIteration <= 3) {
-            $currentPhotoName = 'photo_' . $photoIteration;
-            $currentPhotoValue = $userOrganizationItem[$currentPhotoName];
-
-            if ($currentPhotoValue) {
-                $path = str_replace('public/', '', $currentPhotoValue);
-                $userOrganizationItem[$currentPhotoName] = '/storage/' . $path;
-            }
-
-            $photoIteration++;
-        }
-
-        $certificateIteration = 1;
-        while ($certificateIteration <= 5) {
-            $currentCertificateName = 'certificate_' . $certificateIteration;
-            $currentCertificateValue = $userOrganizationItem[$currentCertificateName];
-
-            if ($currentCertificateValue) {
-                $path = str_replace('public/', '', $currentCertificateValue);
-                $userOrganizationItem[$currentCertificateName] = '/storage/' . $path;
-            }
-
-            $certificateIteration++;
-        }
-
-        array_push($userOrganizationListFormatted, $userOrganizationItem);
+    foreach ($userOrganizationList as &$userOrganizationItem) {
+        $userOrganizationItem['certificateArray'] = getAssetArrayFormatted($userOrganizationItem, 'certificate', 5);
+        $userOrganizationItem['photoArray'] = getAssetArrayFormatted($userOrganizationItem, 'photo', 3);
     }
 
-    return $userOrganizationListFormatted;
+    return $userOrganizationList;
 }
 
 function getOrganizationItemDataFormatted($id)
@@ -125,14 +108,6 @@ function getOrganizationItemDataFormatted($id)
     }
 
     return $userOrganizationItemData;
-}
-
-function getUserOrganization()
-{
-    $authUser = Auth::user();
-    $user_id = $authUser->id;
-
-    return Organization::where('user_id', $user_id)->get()->toArray();
 }
 
 function getUserOrganizationItem($id)
