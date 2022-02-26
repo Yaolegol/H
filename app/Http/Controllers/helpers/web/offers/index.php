@@ -32,39 +32,13 @@ function DB_getOffers($filters) {
     }
 }
 
-function formatOfferItem($offerItem) {
-    if($offerItem['sale_points']) {
-        foreach ($offerItem['sale_points'] as $key => $salePointItem) {
-            $salePointPhotoArray = [];
-
-            $salePointPhotoIteration = 1;
-            while ($salePointPhotoIteration <= 3) {
-                $currentPhotoName = 'photo_' . $salePointPhotoIteration;
-                $currentPhotoValue = $salePointItem[$currentPhotoName];
-
-                if($currentPhotoValue) {
-                    $path = str_replace('public/', '', $currentPhotoValue);
-                    $url = '/storage/' . $path;
-
-                    array_push($salePointPhotoArray, $url);
-                }
-
-                $salePointPhotoIteration++;
-            }
-
-            $offerItem['sale_points'][$key]['photoArray'] = $salePointPhotoArray;
-        }
-    }
+function formatOffer($offerItem) {
+    setOfferLink($offerItem);
+    setOfferPhotoArray($offerItem);
+    setOfferOrganizationData($offerItem);
+    setOfferSalePointsData($offerItem);
 
     return $offerItem;
-}
-
-function formatOffer($offer) {
-    setOfferLink($offer);
-    setOfferPhotoArray($offer);
-    setOfferOrganizationData($offer);
-
-    return $offer;
 }
 
 function formatOffers($offers) {
@@ -108,7 +82,7 @@ function getOfferFormatted($id)
     $offer = DB_getOffer($id);
     $offerItem = array_merge(...$offer);
 
-    return formatOfferItem($offerItem);
+    return formatOffer($offerItem);
 }
 
 function getOfferLink($id) {
@@ -149,4 +123,14 @@ function setOfferOrganizationData(&$offerItem) {
 
 function setOfferPhotoArray(&$offerItem) {
     $offerItem['photoArray'] = getAssetArrayFormatted($offerItem, 'photo', 3);
+}
+
+function setOfferSalePointsData(&$offerItem) {
+    if(!isset($offerItem['sale_points'])) {
+        return;
+    }
+
+    foreach ($offerItem['sale_points'] as $salePointItem) {
+        $salePointItem['photoArray'] = getAssetArrayFormatted($salePointItem, 'photo', 3);
+    }
 }
