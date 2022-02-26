@@ -23,3 +23,35 @@ function getAssetArrayFormatted($item, $name, $count) {
 
     return $assetArray;
 }
+
+function STORE_asset($asset, $userId, $path, $name) {
+    try {
+        return $asset->storeAs(
+            '/public/users/' . $userId . '/' . $path,
+            $name
+        );
+    } catch(\Exception $err) {
+        return abort(500);
+    }
+}
+
+function STORE_assetList($userId, $assetList, $path, $pathKey) {
+    try {
+        $pathArray = [];
+        $iteration = 1;
+
+        foreach ($assetList as $assetItem) {
+            $assetName = $iteration . '.' . $assetItem->extension();
+            $assetPath = STORE_asset($assetItem, $userId, $path, $assetName);
+
+            $pathKeyName = $pathKey . '_' . $iteration;
+            array_push($pathArray, [$pathKeyName => $assetPath]);
+
+            $iteration++;
+        }
+
+        return $pathArray;
+    } catch(\Exception $err) {
+        return abort(500);
+    }
+}
