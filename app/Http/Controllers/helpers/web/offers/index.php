@@ -4,6 +4,22 @@ use App\Models\Offer;
 
 require_once('app/Http/Controllers/helpers/common/assets/index.php');
 
+function DB_getOffer($id)
+{
+    try {
+        return Offer::where('id', $id)->with([
+            'catalogLevelTwo',
+            'catalogLevelTwo.catalogLevelOne',
+            'measure',
+            'organization',
+            'salePoints',
+            'user',
+        ])->get()->toArray();
+    } catch(\Exception $err) {
+        return abort(500);
+    }
+}
+
 function DB_getOffers($filters) {
     try {
         return Offer::where($filters)->with([
@@ -153,21 +169,9 @@ function getLocationFilters($searchCountryId, $searchRegionId, $searchCityId) {
     return $locationFilters;
 }
 
-function getOffer($id)
-{
-    return Offer::where('id', $id)->with([
-        'catalogLevelTwo',
-        'catalogLevelTwo.catalogLevelOne',
-        'measure',
-        'organization',
-        'salePoints',
-        'user',
-    ])->get()->toArray();
-}
-
 function getOfferFormatted($id)
 {
-    $offer = getOffer($id);
+    $offer = DB_getOffer($id);
     $offerItem = array_merge(...$offer);
 
     return formatOfferItem($offerItem);
