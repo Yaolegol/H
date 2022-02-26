@@ -44,11 +44,11 @@ class ProfilePersonalDataController extends Controller
 
         if($isSaved) {
             return back();
-        } else {
-            return back()->with(
-                ['commonError' => 'Что-то пошло не так. Попробуйте снова']
-            );
         }
+
+        return back()->with(
+            ['commonError' => 'Что-то пошло не так. Попробуйте снова']
+        );
     }
 
     /**
