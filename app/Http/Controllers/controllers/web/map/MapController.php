@@ -34,25 +34,4 @@ class MapController extends Controller
             'locationSearchData' => $locationSearchData,
         ]);
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  string  $catalogLevelOneLink
-     * @return Response
-     */
-    public function show($catalogLevelOneLink)
-    {
-        $catalogFull = getCatalogFull();
-        $catalogLevelOneItemSubcategoriesList = getCatalogLevelOneItemSubcategoriesList($catalogFull, $catalogLevelOneLink);
-        $breadcrumbs = getCatalogLevelTwoBreadcrumbs($catalogFull, $catalogLevelOneLink);
-        $locationList = getLocationListFormatted();
-
-        return view('pages.catalog.secondLevel.index', [
-            'breadcrumbs' => $breadcrumbs,
-            'catalogHeader' => $catalogFull,
-            'catalogPage' => $catalogLevelOneItemSubcategoriesList,
-            'locationList' => $locationList,
-        ]);
-    }
 }
