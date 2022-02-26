@@ -19,6 +19,21 @@ function DB_tryChangeUserEmail($request)
     }
 }
 
+function DB_tryChangeUserPassword($request)
+{
+    try {
+        $newPassword = $request->input('password');
+
+        $authUser = Auth::user();
+        $authUser->password = Hash::make($newPassword);
+        $authUser->save();
+
+        return true;
+    } catch (\Exception $error) {
+        return abort(500);
+    }
+}
+
 function DB_tryChangeUserPersonalDataInDB($request)
 {
     try {
@@ -56,6 +71,22 @@ function getEmailValidator($request) {
             'min' => 'Поле должно содержать минимум :min символов',
             'required' => 'Поле обязательно для заполнения',
             'unique' => 'Пользователь с таким email уже зарегистрирован',
+        ]
+    );
+}
+
+function getPasswordValidator($request) {
+    return Validator::make(
+        $request->all(),
+        [
+            'current_password' => ['required', 'min:6'],
+            'password' => ['required', 'min:6'],
+            'password_confirmation' => ['required', 'same:password'],
+        ],
+        [
+            'min' => 'Поле должно содержать минимум :min символов',
+            'required' => 'Поле обязательно для заполнения',
+            'same' => 'Поля Password и Confirm Password не совпадают',
         ]
     );
 }
@@ -107,21 +138,6 @@ function STORAGE_saveAuthUserAvatar($authUserId, $avatar)
         );
     } catch(\Exception $err) {
         return abort(500);
-    }
-}
-
-function tryChangeUserPasswordInDB($request)
-{
-    try {
-        $newPassword = $request->input('password');
-
-        $authUser = Auth::user();
-        $authUser->password = Hash::make($newPassword);
-        $authUser->save();
-
-        return true;
-    } catch (\Exception $error) {
-        return false;
     }
 }
 

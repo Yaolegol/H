@@ -91,23 +91,8 @@ class ProfilePersonalDataController extends Controller
      */
     public function editPassword(Request $request)
     {
-        $catalogFull = getCatalogFull();
-        $locationList = getLocationListFormatted();
         $currentPassword = $request->input('current_password');
-
-        $validator = Validator::make(
-            $request->all(),
-            [
-                'current_password' => ['required', 'min:6'],
-                'password' => ['required', 'min:6'],
-                'password_confirmation' => ['required', 'same:password'],
-            ],
-            [
-                'min' => 'Поле должно содержать минимум :min символов',
-                'required' => 'Поле обязательно для заполнения',
-                'same' => 'Поля Password и Confirm Password не совпадают',
-            ]
-        );
+        $validator = getPasswordValidator($request);
 
         if($validator->fails()) {
             return back()
@@ -115,26 +100,18 @@ class ProfilePersonalDataController extends Controller
                 ->withInput();
         }
 
-        if(Hash::check($currentPassword, Auth::user()->password)) {
-            $isSaved = tryChangeUserPasswordInDB($request);
+        $isAuth = checkAuthUserPassword($currentPassword);
+
+        if($isAuth) {
+            $isSaved = DB_tryChangeUserPassword($request);
 
             if($isSaved) {
-                $userData = getUserDataFormatted();
-
-                return view('pages.profile.personal-info.index.index', [
-                    'catalogHeader' => $catalogFull,
-                    'locationList' => $locationList,
-                    'userData' => $userData
-                ]);
-            } else {
-                return back()->with(
-                    ['commonChangePasswordError' => 'Что-то пошло не так. Попробуйте снова']
-                );
+                return back();
             }
-        } else {
-            return back()->with(
-                ['commonChangePasswordError' => 'Неверный пароль']
-            );
         }
+
+        return back()->with(
+            ['commonChangePasswordError' => 'Неверный пароль']
+        );
     }
 }
