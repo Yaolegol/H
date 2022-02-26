@@ -151,7 +151,7 @@ class ApiProfilePersonalDataController extends Controller
         }
 
         if(Hash::check($currentPassword, Auth::user()->password)) {
-            $isSaved = tryChangeUserEmailInDB($request);
+            $isSaved = DB_tryChangeUserEmail($request);
 
             if($isSaved) {
                 $data = [

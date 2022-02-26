@@ -42,7 +42,7 @@ class ProfilePersonalDataController extends Controller
      */
     public function editPersonalData(Request $request)
     {
-        $isSaved = tryChangeUserPersonalDataInDB($request);
+        $isSaved = DB_tryChangeUserPersonalDataInDB($request);
 
         if($isSaved) {
             return back();
@@ -72,7 +72,7 @@ class ProfilePersonalDataController extends Controller
         $isAuth = checkAuthUserPassword($currentPassword);
 
         if($isAuth) {
-            $isSaved = tryChangeUserEmailInDB($request);
+            $isSaved = DB_tryChangeUserEmail($request);
 
             if($isSaved) {
                 return back();

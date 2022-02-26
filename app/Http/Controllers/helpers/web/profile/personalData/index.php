@@ -4,6 +4,45 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
+function DB_tryChangeUserEmail($request)
+{
+    try {
+        $newRegistrationEmail = $request->input('registration_email');
+
+        $authUser = Auth::user();
+        $authUser->registration_email = $newRegistrationEmail;
+        $authUser->save();
+
+        return true;
+    } catch (\Exception $error) {
+        return abort(500);
+    }
+}
+
+function DB_tryChangeUserPersonalDataInDB($request)
+{
+    try {
+        $name = $request->input('name');
+        $description = $request->input('description');
+        $phone = $request->input('phone');
+        $visible_email = $request->input('visible_email');
+
+        $authUser = Auth::user();
+        $authUser->name = $name;
+        $authUser->description = $description;
+        $authUser->phone = $phone;
+        $authUser->visible_email = $visible_email;
+
+        updateUserAvatar($authUser, $request);
+
+        $authUser->save();
+
+        return true;
+    } catch (\Exception $error) {
+        return false;
+    }
+}
+
 function getEmailValidator($request) {
     return Validator::make(
         $request->all(),
@@ -71,21 +110,6 @@ function STORAGE_saveAuthUserAvatar($authUserId, $avatar)
     }
 }
 
-function tryChangeUserEmailInDB($request)
-{
-    try {
-        $newRegistrationEmail = $request->input('registration_email');
-
-        $authUser = Auth::user();
-        $authUser->registration_email = $newRegistrationEmail;
-        $authUser->save();
-
-        return true;
-    } catch (\Exception $error) {
-        return abort(500);
-    }
-}
-
 function tryChangeUserPasswordInDB($request)
 {
     try {
@@ -93,30 +117,6 @@ function tryChangeUserPasswordInDB($request)
 
         $authUser = Auth::user();
         $authUser->password = Hash::make($newPassword);
-        $authUser->save();
-
-        return true;
-    } catch (\Exception $error) {
-        return false;
-    }
-}
-
-function tryChangeUserPersonalDataInDB($request)
-{
-    try {
-        $name = $request->input('name');
-        $description = $request->input('description');
-        $phone = $request->input('phone');
-        $visible_email = $request->input('visible_email');
-
-        $authUser = Auth::user();
-        $authUser->name = $name;
-        $authUser->description = $description;
-        $authUser->phone = $phone;
-        $authUser->visible_email = $visible_email;
-
-        updateUserAvatar($authUser, $request);
-
         $authUser->save();
 
         return true;
