@@ -12,6 +12,12 @@ function DB_getCatalogLevelOne($withLevelTwo = true)
         ->toArray();
 }
 
+function checkIsCatalogItemEmpty($catalogItem) {
+    if(empty($catalogItem)) {
+        abort(404);
+    }
+}
+
 function getCatalogCategoriesList($catalogFull) {
     return array_map(function($catalogItem) {
         return [
@@ -105,18 +111,26 @@ function getCatalogLevelOneWithFullLinks($catalog) {
 
 function getCatalogLevelOneItem($catalogFull, $catalogLevelOneLink)
 {
-    return array_merge(...array_filter($catalogFull, function ($catalogLevelOneItem) use ($catalogLevelOneLink) {
+    $catalogLevelOneItem = array_merge(...array_filter($catalogFull, function ($catalogLevelOneItem) use ($catalogLevelOneLink) {
         return $catalogLevelOneItem['link'] === $catalogLevelOneLink;
     }));
+
+    checkIsCatalogItemEmpty($catalogLevelOneItem);
+
+    return $catalogLevelOneItem;
 }
 
 function getCatalogLevelTwoItem($catalogFull, $catalogLevelOneLink, $catalogLevelTwoLink)
 {
     $catalogLevelOneItem = getCatalogLevelOneItem($catalogFull, $catalogLevelOneLink);
 
-    return array_merge(...array_filter($catalogLevelOneItem['catalog_level_two'], function ($catalogLevelTwoItem) use ($catalogLevelTwoLink) {
+    $catalogLevelTwoItem = array_merge(...array_filter($catalogLevelOneItem['catalog_level_two'], function ($catalogLevelTwoItem) use ($catalogLevelTwoLink) {
         return $catalogLevelTwoItem['link'] === $catalogLevelTwoLink;
     }));
+
+    checkIsCatalogItemEmpty($catalogLevelTwoItem);
+
+    return $catalogLevelTwoItem;
 }
 
 function getCatalogLevelOneItemSubcategoriesList($catalogLevelOneItem)

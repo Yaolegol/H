@@ -111,6 +111,12 @@ function formatOffers($offers) {
     }, $offers);
 }
 
+function formatOffersPaginatedData($offersPaginatedData) {
+    $offersPaginatedData['data'] = formatOffers($offersPaginatedData['data']);
+
+    return $offersPaginatedData;
+}
+
 function getLocationFilters($searchCountryId, $searchRegionId, $searchCityId) {
     $locationFilters = [];
 
@@ -159,22 +165,28 @@ function getOfferLink($id) {
     return '/' . 'offers' . '/' . $id;
 }
 
-function getOffersPaginatedData($catalogFull, $catalogLevelOneLink, $productLink, $searchCountry, $searchRegion, $searchCity)
-{
-    $catalogLevelTwoItem = getCatalogLevelTwoItem($catalogFull, $catalogLevelOneLink, $productLink);
-    $filters = [
-        'catalog_level_two_id' => $catalogLevelTwoItem['id'],
-    ];
-    $locationFilters = getLocationFilters($searchCountry, $searchRegion, $searchCity);
-    $resultFilters = array_merge($filters, ...$locationFilters);
-
-    $offersPaginatedData = Offer::where($resultFilters)->with([
+function getOffers($filters) {
+    return Offer::where($filters)->with([
         'catalogLevelTwo',
         'measure',
         'user',
-    ])->paginate(1)->toArray();
+    ])->paginate(25)->toArray();
+}
 
-    $offersPaginatedData['data'] = formatOffers($offersPaginatedData['data']);
+function getOffersFilters($catalogLevelTwoItemId, $searchCountry, $searchRegion, $searchCity) {
+    $filters = [
+        'catalog_level_two_id' => $catalogLevelTwoItemId,
+    ];
+    $locationFilters = getLocationFilters($searchCountry, $searchRegion, $searchCity);
 
-    return $offersPaginatedData;
+    return array_merge($filters, ...$locationFilters);
+}
+
+function getOffersPaginatedData($catalogFull, $catalogLevelOneLink, $productLink, $searchCountry, $searchRegion, $searchCity)
+{
+    $catalogLevelTwoItem = getCatalogLevelTwoItem($catalogFull, $catalogLevelOneLink, $productLink);
+    $filters = getOffersFilters($catalogLevelTwoItem['id'], $searchCountry, $searchRegion, $searchCity);
+    $offersPaginatedData = getOffers($filters);
+
+    return formatOffersPaginatedData($offersPaginatedData);
 }

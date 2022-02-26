@@ -39,12 +39,6 @@ class CatalogController extends Controller
     {
         $catalogFull = getCatalogFull();
         $catalogLevelOneItem = getCatalogLevelOneItem($catalogFull, $catalogLevelOneLink);
-        $isCatalogEmpty = empty($catalogLevelOneItem);
-
-        if($isCatalogEmpty) {
-            abort(404);
-        }
-
         $catalogLevelOneItemSubcategoriesList = getCatalogLevelOneItemSubcategoriesList($catalogLevelOneItem);
         $breadcrumbs = getCatalogLevelTwoBreadcrumbs($catalogLevelOneItem);
         $locationList = getLocationListFormatted();
