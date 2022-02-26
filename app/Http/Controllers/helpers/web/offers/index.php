@@ -33,63 +33,6 @@ function DB_getOffers($filters) {
 }
 
 function formatOfferItem($offerItem) {
-    $offerPhotoArray = [];
-
-    $offerPhotoIteration = 1;
-    while ($offerPhotoIteration <= 3) {
-        $currentPhotoName = 'photo_' . $offerPhotoIteration;
-        $currentPhotoValue = $offerItem[$currentPhotoName];
-
-        if($currentPhotoValue) {
-            $path = str_replace('public/', '', $currentPhotoValue);
-            $url = '/storage/' . $path;
-
-            array_push($offerPhotoArray, $url);
-        }
-
-        $offerPhotoIteration++;
-    }
-
-    $offerItem['photoArray'] = $offerPhotoArray;
-
-    if($offerItem['organization']) {
-        $organizationCertificateArray = [];
-        $organizationPhotoArray = [];
-
-        $offerOrganizationCertificateIteration = 1;
-        while ($offerOrganizationCertificateIteration <= 5) {
-            $currentCertificateName = 'certificate_' . $offerOrganizationCertificateIteration;
-            $currentCertificateValue = $offerItem['organization'][$currentCertificateName];
-
-            if($currentCertificateValue) {
-                $path = str_replace('public/', '', $currentCertificateValue);
-                $url = '/storage/' . $path;
-
-                array_push($organizationCertificateArray, $url);
-            }
-
-            $offerOrganizationCertificateIteration++;
-        }
-
-        $offerOrganizationPhotoIteration = 1;
-        while ($offerOrganizationPhotoIteration <= 3) {
-            $currentPhotoName = 'photo_' . $offerOrganizationPhotoIteration;
-            $currentPhotoValue = $offerItem['organization'][$currentPhotoName];
-
-            if($currentPhotoValue) {
-                $path = str_replace('public/', '', $currentPhotoValue);
-                $url = '/storage/' . $path;
-
-                array_push($organizationPhotoArray, $url);
-            }
-
-            $offerOrganizationPhotoIteration++;
-        }
-
-        $offerItem['organization']['certificateArray'] = $organizationCertificateArray;
-        $offerItem['organization']['photoArray'] = $organizationPhotoArray;
-    }
-
     if($offerItem['sale_points']) {
         foreach ($offerItem['sale_points'] as $key => $salePointItem) {
             $salePointPhotoArray = [];
@@ -116,26 +59,17 @@ function formatOfferItem($offerItem) {
     return $offerItem;
 }
 
-function formatOfferPhotoPath(&$offerItem) {
-    $photoIteration = 1;
-    while ($photoIteration < 4) {
-        $currentPhotoName = 'photo_' . $photoIteration;
-        $currentPhotoValue = $offerItem[$currentPhotoName];
+function formatOffer($offer) {
+    setOfferLink($offer);
+    setOfferPhotoArray($offer);
+    setOfferOrganizationData($offer);
 
-        if ($currentPhotoValue) {
-            $offerItem[$currentPhotoName] = formatAssetPath($currentPhotoValue);
-        }
-
-        $photoIteration++;
-    }
+    return $offer;
 }
 
 function formatOffers($offers) {
     return array_map(function ($offerItem) {
-        $offerItem['offerLink'] = getOfferLink($offerItem['id']);
-        formatOfferPhotoPath($offerItem);
-
-        return $offerItem;
+        return formatOffer($offerItem);
     }, $offers);
 }
 
@@ -196,4 +130,23 @@ function getOffersPaginatedData($catalogLevelTwoItem, $searchCountry, $searchReg
     $offersPaginatedData = DB_getOffers($filters);
 
     return formatOffersPaginatedData($offersPaginatedData);
+}
+
+function setOfferLink(&$offerItem) {
+    $offerItem['offerLink'] = getOfferLink($offerItem['id']);
+}
+
+function setOfferOrganizationData(&$offerItem) {
+    if(!isset($offerItem['organization'])) {
+        return;
+    }
+
+    $offerOrganization = &$offerItem['organization'];
+
+    $offerItem['certificateArray'] = getAssetArrayFormatted($offerOrganization, 'certificate', 5);
+    $offerItem['photoArray'] = getAssetArrayFormatted($offerOrganization, 'photo', 3);
+}
+
+function setOfferPhotoArray(&$offerItem) {
+    $offerItem['photoArray'] = getAssetArrayFormatted($offerItem, 'photo', 3);
 }
