@@ -143,8 +143,8 @@ function setOfferOrganizationData(&$offerItem) {
 
     $offerOrganization = &$offerItem['organization'];
 
-    $offerItem['certificateArray'] = getAssetArrayFormatted($offerOrganization, 'certificate', 5);
-    $offerItem['photoArray'] = getAssetArrayFormatted($offerOrganization, 'photo', 3);
+    $offerOrganization['certificateArray'] = getAssetArrayFormatted($offerOrganization, 'certificate', 5);
+    $offerOrganization['photoArray'] = getAssetArrayFormatted($offerOrganization, 'photo', 3);
 }
 
 function setOfferPhotoArray(&$offerItem) {
