@@ -13,7 +13,15 @@ function clearAuthUserAvatarInDB()
 function getUserDataFormatted()
 {
     $userData = Auth::user()->getAttributes();
-    $userDataFiltered = array_filter($userData, function ($key) {
+    $userDataFiltered = filterUserData($userData);
+
+    setUserAvatar($userDataFiltered);
+
+    return $userDataFiltered;
+}
+
+function filterUserData($userData) {
+    return array_filter($userData, function ($key) {
         return $key === 'avatar'
             || $key === 'name'
             || $key === 'description'
@@ -21,14 +29,6 @@ function getUserDataFormatted()
             || $key === 'registration_email'
             || $key === 'phone';
     }, ARRAY_FILTER_USE_KEY);
-
-    if ($userDataFiltered['avatar'] !== '') {
-        $path = str_replace('public/', '', $userDataFiltered['avatar']);
-
-        $userDataFiltered['avatar'] = '/storage/' . $path;
-    }
-
-    return $userDataFiltered;
 }
 
 function removeUserAvatarFromStorage($userId)
@@ -49,6 +49,12 @@ function saveAuthUserAvatarInDB($avatar)
     $authUser->avatar = $avatarPath;
 
     return $avatarPath;
+}
+
+function setUserAvatar(&$userData) {
+    if ($userData['avatar'] !== '') {
+        $userData['avatar'] = formatAssetPath($userData['avatar']);
+    }
 }
 
 function tryChangeUserEmailInDB($request)
