@@ -43,7 +43,7 @@ function apiTryDeleteUserAvatarInDB() {
         $authUser = Auth::user();
         $authUserId = $authUser->id;
 
-        removeUserAvatarFromStorage($authUserId);
+        STORAGE_removeUserAvatar($authUserId);
 
         $authUser->avatar = '';
         $authUser->save();
@@ -61,8 +61,8 @@ function apiUpdateUserAvatar($request)
     $avatar = $request->file('avatar');
 
     if ($avatar) {
-        removeUserAvatarFromStorage($authUserId);
-        $avatarPath = saveAuthUserAvatarInDB($avatar);
+        STORAGE_removeUserAvatar($authUserId);
+        $avatarPath = STORAGE_saveAuthUserAvatar($avatar);
 
         return str_replace('public/', '/storage/', $avatarPath);
     } else {

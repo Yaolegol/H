@@ -3,13 +3,6 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
-function clearAuthUserAvatarInDB()
-{
-    $authUser = Auth::user();
-
-    $authUser->avatar = '';
-}
-
 function getUserDataFormatted()
 {
     $userData = Auth::user()->getAttributes();
@@ -31,29 +24,32 @@ function filterUserData($userData) {
     }, ARRAY_FILTER_USE_KEY);
 }
 
-function removeUserAvatarFromStorage($userId)
-{
-    File::deleteDirectory(storage_path() . '/app/public/users/' . $userId . '/avatar');
-}
-
-function saveAuthUserAvatarInDB($avatar)
-{
-    $authUser = Auth::user();
-    $authUserId = $authUser->id;
-    $date = new DateTime();
-
-    $avatarName = $authUserId . '_' . $date->getTimestamp() . '.' . $avatar->extension();
-    $avatarPath = $avatar->storeAs(
-        '/public/users/'. $authUserId . '/avatar', $avatarName
-    );
-    $authUser->avatar = $avatarPath;
-
-    return $avatarPath;
-}
-
 function setUserAvatar(&$userData) {
     if ($userData['avatar'] !== '') {
         $userData['avatar'] = formatAssetPath($userData['avatar']);
+    }
+}
+
+function STORAGE_removeUserAvatar($userId)
+{
+    try {
+        File::deleteDirectory(storage_path() . '/app/public/users/' . $userId . '/avatar');
+    } catch(\Exception $err) {
+        abort(500);
+    }
+}
+
+function STORAGE_saveAuthUserAvatar($authUserId, $avatar)
+{
+    try {
+        $date = new DateTime();
+        $avatarName = $authUserId . '_' . $date->getTimestamp() . '.' . $avatar->extension();
+
+        return $avatar->storeAs(
+            '/public/users/'. $authUserId . '/avatar', $avatarName
+        );
+    } catch(\Exception $err) {
+        return abort(500);
     }
 }
 
@@ -101,7 +97,7 @@ function tryChangeUserPersonalDataInDB($request)
         $authUser->phone = $phone;
         $authUser->visible_email = $visible_email;
 
-        updateUserAvatar($request);
+        updateUserAvatar($authUser, $request);
 
         $authUser->save();
 
@@ -111,21 +107,23 @@ function tryChangeUserPersonalDataInDB($request)
     }
 }
 
-function updateUserAvatar($request)
+function updateUserAvatar($authUser, $request)
 {
-    $authUser = Auth::user();
     $authUserId = $authUser->id;
     $avatar = $request->file('avatar');
 
     if ($avatar) {
-        removeUserAvatarFromStorage($authUserId);
-        saveAuthUserAvatarInDB($avatar);
+        STORAGE_removeUserAvatar($authUserId);
+        $avatarPath = STORAGE_saveAuthUserAvatar($authUserId, $avatar);
+
+        $authUser->avatar = $avatarPath;
     } else {
         $isRemoveAvatar = $request->has('remove_avatar');
 
         if ($isRemoveAvatar) {
-            removeUserAvatarFromStorage($authUserId);
-            clearAuthUserAvatarInDB();
+            STORAGE_removeUserAvatar($authUserId);
+
+            $authUser->avatar = '';
         }
     }
 }
