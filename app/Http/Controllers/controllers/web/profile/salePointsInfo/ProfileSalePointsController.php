@@ -40,12 +40,10 @@ class ProfileSalePointsController extends Controller
     {
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
-        $salePointsList = getSalePointsDataFormatted();
 
         return view('pages.profile.sale-points-info.create.index', [
             'catalogHeader' => $catalogFull,
             'locationList' => $locationList,
-            'salePointsList' => $salePointsList,
         ]);
     }
 
