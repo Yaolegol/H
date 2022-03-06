@@ -75,7 +75,7 @@ function formatOrganizationListItemsAssetsPath(&$organizationList) {
 }
 
 function getOrganizationAssetPath($organizationId, $pathName) {
-    return $path = 'organization/' . $organizationId . '/' . $pathName;
+    return 'organization/' . $organizationId . '/' . $pathName;
 }
 
 function getOrganizationDataFormatted()
@@ -88,10 +88,10 @@ function getOrganizationDataFormatted()
 
 function getOrganizationImagesData($request, $userId, $organizationId) {
     $requestPhotoArray = getFilesArray($request, 'photo', 3);
-    $newPhotos = [];
+    $storedPhotos = [];
 
     if(!empty($requestPhotoArray)) {
-        $newPhotos = STORAGE_saveOrganizationAssets($userId, $organizationId, $requestPhotoArray, 'photo');
+        $storedPhotos = STORAGE_saveOrganizationAssets($userId, $organizationId, $requestPhotoArray, 'photo');
     }
 
     $requestCertificateArray = getFilesArray($request, 'certificate', 5);
@@ -103,7 +103,7 @@ function getOrganizationImagesData($request, $userId, $organizationId) {
 
     return array_merge(
         ...$newCertificates,
-        ...$newPhotos,
+        ...$storedPhotos,
     );
 }
 

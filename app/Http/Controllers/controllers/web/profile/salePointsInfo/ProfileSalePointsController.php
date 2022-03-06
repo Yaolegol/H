@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 
 require_once('app/Http/Controllers/helpers/common/assets/index.php');
 require_once('app/Http/Controllers/helpers/common/catalog/index.php');
+require_once('app/Http/Controllers/helpers/common/request/index.php');
 require_once('app/Http/Controllers/helpers/web/location/index.php');
 require_once('app/Http/Controllers/helpers/web/profile/salePointsInfo/index.php');
 
@@ -59,11 +60,9 @@ class ProfileSalePointsController extends Controller
 
         if($isSaved) {
             return redirect('/profile/sale-points-info');
-        } else {
-            return back()->with(
-                ['commonError' => 'Что-то пошло не так. Попробуйте снова']
-            );
         }
+
+        return abort(500);
     }
 
     /**
