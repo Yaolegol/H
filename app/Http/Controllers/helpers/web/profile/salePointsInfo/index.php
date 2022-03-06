@@ -143,102 +143,34 @@ function tryStoreSalePointDataInDB($request)
     return true;
 }
 
-function tryUpdateSalePointDataInDB($request, $id) {
+function tryUpdateSalePointDataInDB($request, $salePointId) {
     try {
         $authUser = Auth::user();
         $user_id = $authUser->id;
 
-        $title = $request->input('title') ?? '';
-        $address = $request->input('address') ?? '';
-        $working_hours = $request->input('working_hours') ?? '';
-        $contact_person = $request->input('contact_person') ?? '';
-        $phone = $request->input('phone') ?? '';
-        $mapMarkerLat = $request->input('map_marker_lat');
-        $mapMarkerLng = $request->input('map_marker_lng');
+        $data = [
+            'title' => $request->input('title') ?? '',
+            'address' => $request->input('address') ?? '',
+            'working_hours' => $request->input('working_hours') ?? '',
+            'contact_person' => $request->input('contact_person') ?? '',
+            'phone' => $request->input('phone') ?? '',
+            'map_marker_lat' => $request->input('map_marker_lat'),
+            'map_marker_lng' => $request->input('map_marker_lng'),
+            'user_id' => $user_id,
+        ];
 
-        $newPhotos = updateSalePointPhotos($request, $id);
+        $path = getSalePointAssetPath($salePointId);
+        $updatedPhotoList = STORAGE_updateAssetList($user_id, $request, 'photo', 3, $path);
 
         $newSalePointData = array_merge(
-            [
-                'title' => $title,
-                'address' => $address,
-                'working_hours' => $working_hours,
-                'contact_person' => $contact_person,
-                'phone' => $phone,
-                'map_marker_lat' => $mapMarkerLat,
-                'map_marker_lng' => $mapMarkerLng,
-                'user_id' => $user_id,
-            ],
-            ...$newPhotos,
+            $data,
+            ...$updatedPhotoList,
         );
 
-        SalePoint::where([
-            ['user_id', $user_id],
-            ['id', $id]
-        ])->update($newSalePointData);
+        DB_updateSalePointData($user_id, $salePointId, $newSalePointData);
 
         return true;
     } catch (\Exception $error) {
         return false;
     }
-}
-
-function updateSalePointPhotos($request, $updatingSalePointId)
-{
-    $authUser = Auth::user();
-    $user_id = $authUser->id;
-    $photosArray = [];
-
-    $photoInputsIteration = 1;
-    while ($photoInputsIteration <= 3) {
-        $photoDBColumn = 'photo_' . $photoInputsIteration;
-        $photo = $request->file('photo' . '_' . $photoInputsIteration) ?? '';
-        if ($photo) {
-            $oldPhoto = File::glob(
-                storage_path() .
-                '/app/public/users/' .
-                $user_id .
-                '/sale-point/' .
-                $updatingSalePointId .
-                '/photo/' .
-                $photoInputsIteration .
-                '*'
-            );
-            File::delete($oldPhoto);
-
-            $photoName = $photoInputsIteration . '.' . $photo->extension();
-
-            $photoPath = $photo->storeAs(
-                '/public/users/1/sale-point/' . $updatingSalePointId . '/photo', $photoName
-            );
-
-            array_push($photosArray, [
-                $photoDBColumn => $photoPath
-            ]);
-        } else {
-            $isRemovePhoto = $request->has('remove_photo_' . $photoInputsIteration);
-
-            if ($isRemovePhoto) {
-                $oldPhoto = File::glob(
-                    storage_path() .
-                    '/app/public/users/' .
-                    $user_id .
-                    '/sale-point/' .
-                    $updatingSalePointId .
-                    '/photo/' .
-                    $photoInputsIteration .
-                    '*'
-                );
-                File::delete($oldPhoto);
-
-                array_push($photosArray, [
-                    $photoDBColumn => ''
-                ]);
-            }
-        }
-
-        $photoInputsIteration++;
-    }
-
-    return $photosArray;
 }

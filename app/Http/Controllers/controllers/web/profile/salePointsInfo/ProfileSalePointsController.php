@@ -96,11 +96,9 @@ class ProfileSalePointsController extends Controller
 
         if($isSaved) {
             return redirect('/profile/sale-points-info');
-        } else {
-            return back()->with(
-                ['commonError' => 'Что-то пошло не так. Попробуйте снова']
-            );
         }
+
+        return abort(500);
     }
 
     /**
