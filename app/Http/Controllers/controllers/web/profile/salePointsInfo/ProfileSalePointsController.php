@@ -24,8 +24,6 @@ class ProfileSalePointsController extends Controller
         $locationList = getLocationListFormatted();
         $salePointsList = getSalePointsDataFormatted();
 
-        dd($salePointsList);
-
         return view('pages.profile.sale-points-info.index.index', [
             'catalogHeader' => $catalogFull,
             'locationList' => $locationList,
