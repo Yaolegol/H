@@ -23,6 +23,19 @@ function DB_createSalePoint($request, $userId) {
     }
 }
 
+function DB_getUserSalePointItem($userId, $salePointId) {
+    try {
+        $salePoint = SalePoint::where([
+            ['user_id', $userId],
+            ['id', $salePointId],
+        ])->get()->toArray();
+
+        return array_merge(...$salePoint);
+    } catch(\Exception $error) {
+        return abort(500);
+    }
+}
+
 function DB_getUserSalePoints()
 {
     try {
@@ -69,25 +82,15 @@ function formatSalePointsListItemsAssetsPath(&$salePointList) {
     }
 }
 
-function getSalePointItemDataFormatted($id)
+function getSalePointItemDataFormatted($salePointId)
 {
-    $userSalePointItemData = getUserSalePointItem($id);
-    $userSalePointItemDataFormatted = array_merge($userSalePointItemData);
+    $authUser = Auth::user();
+    $userId = $authUser->id;
 
-    $photoIteration = 1;
-    while ($photoIteration <= 3) {
-        $currentPhotoName = 'photo_' . $photoIteration;
-        $currentPhotoValue = $userSalePointItemDataFormatted[$currentPhotoName];
+    $userSalePointItemData = DB_getUserSalePointItem($userId, $salePointId);
+    $userSalePointItemData['photoArray'] = getAssetArrayFormatted($userSalePointItemData, 'photo', 3);
 
-        if ($currentPhotoValue) {
-            $path = str_replace('public/', '', $currentPhotoValue);
-            $userSalePointItemDataFormatted[$currentPhotoName] = '/storage/' . $path;
-        }
-
-        $photoIteration++;
-    }
-
-    return $userSalePointItemDataFormatted;
+    return $userSalePointItemData;
 }
 
 function getSalePointsDataFormatted()
@@ -96,17 +99,6 @@ function getSalePointsDataFormatted()
     formatSalePointsListItemsAssetsPath($userSalePointsList);
 
     return $userSalePointsList;
-}
-
-function getUserSalePointItem($id)
-{
-    $authUser = Auth::user();
-    $user_id = $authUser->id;
-
-    return SalePoint::where([
-        ['user_id', $user_id],
-        ['id', $id],
-    ])->first()->toArray();
 }
 
 function tryDestroySalePointDataInDB($id)
