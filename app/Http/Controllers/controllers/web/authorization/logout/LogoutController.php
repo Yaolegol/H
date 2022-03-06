@@ -7,6 +7,8 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
+require_once('app/Http/Controllers/helpers/web/authorization/index.php');
+
 class LogoutController extends Controller
 {
     /**

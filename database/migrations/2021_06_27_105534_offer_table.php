@@ -30,7 +30,7 @@ class OfferTable extends Migration
             $table->bigInteger('user_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users');
             $table->bigInteger('organization_id')->unsigned()->index()->nullable();
-            $table->foreign('organization_id')->references('id')->on('organization');
+            $table->foreign('organization_id')->references('id')->on('organization')->nullOnDelete();
             $table->bigInteger('catalog_level_two_id')->unsigned()->index();
             $table->foreign('catalog_level_two_id')->references('id')->on('catalog_level_two');
             $table->bigInteger('measure_id')->unsigned()->index()->nullable();

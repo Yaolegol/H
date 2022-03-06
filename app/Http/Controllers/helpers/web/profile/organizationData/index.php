@@ -22,6 +22,19 @@ function DB_createOrganization($request, $authUserId) {
     }
 }
 
+function DB_destroyOrganizationItem($user_id, $organizationId) {
+    try {
+        $organization = Organization::where([
+            ['user_id', $user_id],
+            ['id', $organizationId]
+        ]);
+
+        $organization->delete();
+    } catch(\Exception $err) {
+        abort(500);
+    }
+}
+
 function DB_getUserOrganizationItem($userId, $organizationId)
 {
     try {
@@ -103,6 +116,20 @@ function getOrganizationItemDataFormatted($organizationId)
     return $userOrganizationItemData;
 }
 
+function STORAGE_destroyOrganizationData($userId, $organizationId) {
+    try {
+        File::deleteDirectory(
+            storage_path() .
+            '/app/public/users/' .
+            $userId .
+            '/organization/' .
+            $organizationId
+        );
+    } catch(\Exception $err) {
+        abort(500);
+    }
+}
+
 function STORAGE_saveOrganizationAssets($userId, $createdOrganizationId, $requestAssetsArray, $pathName)
 {
     $path = getOrganizationAssetPath($createdOrganizationId, $pathName);
@@ -171,31 +198,15 @@ function tryStoreOrganizationData($request) {
     return true;
 }
 
-function tryDestroyOrganizationDataInDB($id)
+function tryDestroyOrganizationDataInDB($organizationId)
 {
-    try {
-        $authUser = Auth::user();
-        $user_id = $authUser->id;
+    $authUser = Auth::user();
+    $user_id = $authUser->id;
 
-        File::deleteDirectory(
-            storage_path() .
-            '/app/public/users/' .
-            $user_id .
-            '/organization/' .
-            $id
-        );
+    STORAGE_destroyOrganizationData($user_id, $organizationId);
+    DB_destroyOrganizationItem($user_id, $organizationId);
 
-        $organization = Organization::where([
-            ['user_id', $user_id],
-            ['id', $id]
-        ]);
-
-        $organization->delete();
-
-        return true;
-    } catch (\Exception $error) {
-        return false;
-    }
+    return true;
 }
 
 function tryUpdateOrganizationDataInDB($request, $organizationId) {
