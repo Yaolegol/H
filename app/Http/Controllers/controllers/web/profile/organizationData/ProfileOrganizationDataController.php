@@ -97,6 +97,8 @@ class ProfileOrganizationDataController extends Controller
         if($isSaved) {
             return redirect('/profile/organization-info');
         }
+
+        return abort(500);
     }
 
     /**
