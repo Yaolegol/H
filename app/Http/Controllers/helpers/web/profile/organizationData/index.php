@@ -67,6 +67,13 @@ function DB_updateOrganizationData($userId, $organizationId, $data) {
     }
 }
 
+function formatOrganizationListItemsAssetsPath(&$organizationList) {
+    foreach ($organizationList as &$userOrganizationItem) {
+        $userOrganizationItem['certificateArray'] = getAssetArrayFormatted($userOrganizationItem, 'certificate', 5);
+        $userOrganizationItem['photoArray'] = getAssetArrayFormatted($userOrganizationItem, 'photo', 3);
+    }
+}
+
 function getOrganizationAssetPath($organizationId, $pathName) {
     return $path = 'organization/' . $organizationId . '/' . $pathName;
 }
@@ -74,11 +81,7 @@ function getOrganizationAssetPath($organizationId, $pathName) {
 function getOrganizationDataFormatted()
 {
     $userOrganizationList = DB_getUserOrganizationsList();
-
-    foreach ($userOrganizationList as &$userOrganizationItem) {
-        $userOrganizationItem['certificateArray'] = getAssetArrayFormatted($userOrganizationItem, 'certificate', 5);
-        $userOrganizationItem['photoArray'] = getAssetArrayFormatted($userOrganizationItem, 'photo', 3);
-    }
+    formatOrganizationListItemsAssetsPath($userOrganizationList);
 
     return $userOrganizationList;
 }

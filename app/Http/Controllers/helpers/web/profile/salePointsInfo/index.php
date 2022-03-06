@@ -4,6 +4,18 @@ use App\Models\SalePoint;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
+function DB_getUserSalePoints()
+{
+    try {
+        $authUser = Auth::user();
+        $authUserId = $authUser->id;
+
+        return SalePoint::where('user_id', $authUserId)->get()->toArray();
+    } catch(\Exception $error) {
+        return abort(500);
+    }
+}
+
 function createSalePointPhotos($request, $createdSalePointId)
 {
     $photosArray = [];
@@ -30,6 +42,12 @@ function createSalePointPhotos($request, $createdSalePointId)
     return array_merge(...$photosArray);
 }
 
+function formatSalePointsListItemsAssetsPath(&$salePointList) {
+    foreach ($salePointList as &$salePointItem) {
+        $salePointItem['photoArray'] = getAssetArrayFormatted($salePointItem, 'photo', 3);
+    }
+}
+
 function getSalePointItemDataFormatted($id)
 {
     $userSalePointItemData = getUserSalePointItem($id);
@@ -53,29 +71,10 @@ function getSalePointItemDataFormatted($id)
 
 function getSalePointsDataFormatted()
 {
-    $userSalePointsList = getUserSalePoints();
-    $userSalePointsListFormatted = [];
+    $userSalePointsList = DB_getUserSalePoints();
+    formatSalePointsListItemsAssetsPath($userSalePointsList);
 
-    foreach ($userSalePointsList as $userSalePointItem) {
-
-        $photoIteration = 1;
-        while ($photoIteration <= 3) {
-            $currentPhotoName = 'photo_' . $photoIteration;
-            $currentPhotoValue = $userSalePointItem[$currentPhotoName];
-
-            if ($currentPhotoValue) {
-                $path = str_replace('public/', '', $currentPhotoValue);
-                $userSalePointItem[$currentPhotoName] = '/storage/' . $path;
-            }
-
-            $photoIteration++;
-        }
-
-        array_push($userSalePointsListFormatted, $userSalePointItem);
-    }
-
-
-    return $userSalePointsListFormatted;
+    return $userSalePointsList;
 }
 
 function getUserSalePointItem($id)
@@ -87,14 +86,6 @@ function getUserSalePointItem($id)
         ['user_id', $user_id],
         ['id', $id],
     ])->first()->toArray();
-}
-
-function getUserSalePoints()
-{
-    $authUser = Auth::user();
-    $user_id = $authUser->id;
-
-    return SalePoint::where('user_id', $user_id)->get()->toArray();
 }
 
 function tryDestroySalePointDataInDB($id)
