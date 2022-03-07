@@ -32,6 +32,12 @@ function createSaleOfferPhotos($request, $createdSaleOfferId)
     return array_merge(...$photosArray);
 }
 
+function formatSaleOffersListItemsAssetsPath(&$saleOffersList) {
+    foreach ($saleOffersList as &$saleOffer) {
+        $saleOffer['photoArray'] = getAssetArrayFormatted($saleOffer, 'photo', 3);
+    }
+}
+
 function getSaleOfferItemDataFormatted($id)
 {
     $userSaleOfferItemData = getUserSaleOfferItem($id);
@@ -55,28 +61,10 @@ function getSaleOfferItemDataFormatted($id)
 
 function getSaleOffersDataFormatted()
 {
-    $userSaleOffersList = getUserSaleOffers();
-    $userSaleOffersListFormatted = [];
+    $userSaleOffersList = DB_getUserSaleOffers();
+    formatSaleOffersListItemsAssetsPath($userSaleOffersList);
 
-    foreach ($userSaleOffersList as $userOfferItem) {
-
-        $photoIteration = 1;
-        while ($photoIteration <= 3) {
-            $currentPhotoName = 'photo_' . $photoIteration;
-            $currentPhotoValue = $userOfferItem[$currentPhotoName];
-
-            if ($currentPhotoValue) {
-                $path = str_replace('public/', '', $currentPhotoValue);
-                $userOfferItem[$currentPhotoName] = '/storage/' . $path;
-            }
-
-            $photoIteration++;
-        }
-
-        array_push($userSaleOffersListFormatted, $userOfferItem);
-    }
-
-    return $userSaleOffersListFormatted;
+    return $userSaleOffersList;
 }
 
 function getSaleOfferSalePointsListFormatted($saleOfferItemData) {
@@ -146,12 +134,18 @@ function getUserSaleOfferItem($id)
     ])->with(['salePoints', 'organization'])->first()->toArray();
 }
 
-function getUserSaleOffers()
+function DB_getUserSaleOffers()
 {
-    $authUser = Auth::user();
-    $user_id = $authUser->id;
+    try {
+        $authUser = Auth::user();
+        $user_id = $authUser->id;
 
-    return Offer::where('user_id', $user_id)->with(['organization', 'salePoints'])->get()->toArray();
+        return Offer::where('user_id', $user_id)->with(
+            ['organization', 'salePoints']
+        )->get()->toArray();
+    } catch(\Exception $error) {
+        return abort(500);
+    }
 }
 
 function getUserSalePointsList() {
