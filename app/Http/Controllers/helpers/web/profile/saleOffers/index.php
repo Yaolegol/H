@@ -35,7 +35,7 @@ function DB_getUserSaleOfferItem($userId, $saleOfferId) {
         ['id', $saleOfferId],
     ])->with(['salePoints', 'organization'])->first()->toArray();
 
-    return array_merge(...$saleOfferItem);
+    return array_merge($saleOfferItem);
 }
 
 function DB_getUserSaleOffers()
@@ -100,7 +100,6 @@ function getSaleOfferItemDataFormatted($saleOfferId)
     $userSaleOfferItemData = DB_getUserSaleOfferItem($userId, $saleOfferId);
     $userSaleOfferItemData['photoArray'] = getAssetArrayFormatted($userSaleOfferItemData, 'photo', 3);
 
-
     return $userSaleOfferItemData;
 }
 
@@ -112,23 +111,17 @@ function getSaleOffersDataFormatted()
     return $userSaleOffersList;
 }
 
-function getSaleOfferSalePointsListFormatted($saleOfferItemData) {
-    $saleOfferItemSalePointsList = $saleOfferItemData['sale_points'];
-    $saleOfferItemSalePointsIdList = array_map(function($saleOfferItemSalePoint) {
+function getSaleOfferSalePointsIdsList($saleOfferItemData) {
+    $offerSalePointsList = $saleOfferItemData['sale_points'];
+
+    return array_map(function($saleOfferItemSalePoint) {
         return $saleOfferItemSalePoint['id'];
-    }, $saleOfferItemSalePointsList);
-    $userSalePointsList = getUserSalePointsList();
+    }, $offerSalePointsList);
+}
 
-    foreach ($userSalePointsList as $key=>$userSalePoint) {
-        $userSalePointId = $userSalePoint['id'];
-        $isActive = in_array($userSalePointId, $saleOfferItemSalePointsIdList);
-
-        if($isActive) {
-            $userSalePointsList[$key]['active'] = true;
-        } else {
-            $userSalePointsList[$key]['active'] = false;
-        }
-    }
+function getSaleOfferSalePointsListFormatted($saleOfferItemData) {
+    $userSalePointsList = DB_getUserSalePoints();
+    setCheckedPropertyForSalePointsList($userSalePointsList, $saleOfferItemData);
 
     return $userSalePointsList;
 }
@@ -161,6 +154,15 @@ function setCheckedPropertyForOrganizationsList(&$userOrganizationsList, $saleOf
         $saleOfferItemDataOrganizationId = $saleOfferItemData['organization_id'];
 
         $userOrganizationItem['isChecked'] = $userOrganizationItemId === $saleOfferItemDataOrganizationId;
+    }
+}
+
+function setCheckedPropertyForSalePointsList(&$userSalePointsList, $saleOfferItemData) {
+    $offerSalePointsIdList = getSaleOfferSalePointsIdsList($saleOfferItemData);
+
+    foreach ($userSalePointsList as &$userSalePoint) {
+        $isActive = in_array($userSalePoint['id'], $offerSalePointsIdList);
+        $userSalePoint['active'] = $isActive;
     }
 }
 
