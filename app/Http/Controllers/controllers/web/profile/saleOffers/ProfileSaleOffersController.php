@@ -85,11 +85,11 @@ class ProfileSaleOffersController extends Controller
      *
      * @return Response
      */
-    public function edit(Request $request, $id)
+    public function edit(Request $request, $saleOfferId)
     {
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
-        $saleOfferItemData = getSaleOfferItemDataFormatted($id);
+        $saleOfferItemData = getSaleOfferItemDataFormatted($saleOfferId);
         $organizationsList = getUserOrganizationsWithSelectedList($saleOfferItemData);
         $salePointsList = getSaleOfferSalePointsListFormatted($saleOfferItemData);
         $catalogCategoriesList = getCatalogCategoriesWithSelectedList($catalogFull, $saleOfferItemData);
