@@ -149,16 +149,19 @@ function getUserOrganizationsListFormatted() {
 }
 
 function getUserOrganizationsWithSelectedList($saleOfferItemData) {
-    $userOrganizations = getUserOrganizationsListFormatted();
+    $userOrganizationsList = getUserOrganizationsListFormatted();
+    setCheckedPropertyForOrganizationsList($userOrganizationsList, $saleOfferItemData);
 
-    foreach ($userOrganizations as &$userOrganizationItem) {
+    return $userOrganizationsList;
+}
+
+function setCheckedPropertyForOrganizationsList(&$userOrganizationsList, $saleOfferItemData) {
+    foreach ($userOrganizationsList as &$userOrganizationItem) {
         $userOrganizationItemId = $userOrganizationItem['id'];
         $saleOfferItemDataOrganizationId = $saleOfferItemData['organization_id'];
 
         $userOrganizationItem['isChecked'] = $userOrganizationItemId === $saleOfferItemDataOrganizationId;
     }
-
-    return $userOrganizations;
 }
 
 function tryDestroySaleOfferDataInDB($id)
