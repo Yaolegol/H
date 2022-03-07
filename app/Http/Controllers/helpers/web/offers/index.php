@@ -30,7 +30,10 @@ function DB_getOffers($filters) {
     try {
         return Offer::where($filters)->with([
             'catalogLevelTwo',
+            'catalogLevelTwo.catalogLevelOne',
             'measure',
+            'organization',
+            'salePoints',
             'user',
         ])->paginate(25)->toArray();
     } catch(\Exception $err) {
