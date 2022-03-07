@@ -28,17 +28,15 @@ function getCatalogCategoriesList($catalogFull) {
 }
 
 function getCatalogCategoriesWithSelectedList($catalogFull, $saleOfferItemData) {
-    return array_map(function($catalogLevelOneItem) use($saleOfferItemData) {
-        $catalogLevelOneItemId = $catalogLevelOneItem['id'];
-        $saleOfferItemDataCatalogId = $saleOfferItemData['catalog_level_two_id'];
-        $catalogLevelTwoItemsList = $catalogLevelOneItem['catalog_level_two'];
+    $offerCatalogId = $saleOfferItemData['catalog_level_two_id'];
+
+    return array_map(function($catalogLevelOneItem) use($offerCatalogId) {
+        $catalogLevelTwoList = $catalogLevelOneItem['catalog_level_two'];
 
         $isChecked = false;
 
-        foreach ($catalogLevelTwoItemsList as $catalogLevelTwoItem) {
-            $catalogLevelTwoItemId = $catalogLevelTwoItem['id'];
-
-            if($catalogLevelTwoItemId === $saleOfferItemDataCatalogId) {
+        foreach ($catalogLevelTwoList as $catalogLevelTwoItem) {
+            if($catalogLevelTwoItem['id'] === $offerCatalogId) {
                 $isChecked = true;
             }
         }
@@ -46,7 +44,7 @@ function getCatalogCategoriesWithSelectedList($catalogFull, $saleOfferItemData) 
         return [
             'isChecked' => $isChecked,
             'title' => $catalogLevelOneItem['title'],
-            'value' => $catalogLevelOneItemId,
+            'value' => $catalogLevelOneItem['id'],
         ];
     }, $catalogFull);
 }
@@ -72,21 +70,27 @@ function getCatalogSubCategoriesList($catalogFull) {
     }, $catalogFull);
 }
 
-function getCatalogSubCategoriesWithSelectedList($catalogFull, $saleOfferItemData) {
-    return array_map(function($catalogLevelOneItem) use($saleOfferItemData) {
-        $catalogLevelTwoItemsList = array_map(function($catalogLevelTwoItem) use($saleOfferItemData) {
-            $catalogLevelTwoItemId = $catalogLevelTwoItem['id'];
-            $saleOfferItemDataCatalogId = $saleOfferItemData['catalog_level_two_id'];
-
-            return [
-                'isChecked' => $catalogLevelTwoItemId === $saleOfferItemDataCatalogId,
-                'title' => $catalogLevelTwoItem['title'],
-                'value' => $catalogLevelTwoItemId,
-            ];
-        }, $catalogLevelOneItem['catalog_level_two']);
+function getCatalogLevelTwoListFormatted($catalogLevelTwoItemsList, $offerItemCatalogId) {
+    return array_map(function($catalogLevelTwoItem) use($offerItemCatalogId) {
+        $catalogLevelTwoItemId = $catalogLevelTwoItem['id'];
 
         return [
-            'content' => $catalogLevelTwoItemsList,
+            'isChecked' => $catalogLevelTwoItemId === $offerItemCatalogId,
+            'title' => $catalogLevelTwoItem['title'],
+            'value' => $catalogLevelTwoItemId,
+        ];
+    }, $catalogLevelTwoItemsList);
+}
+
+function getCatalogSubCategoriesWithSelectedList($catalogFull, $saleOfferItemData) {
+    $offerItemCatalogId = $saleOfferItemData['catalog_level_two_id'];
+
+    return array_map(function($catalogLevelOneItem) use($offerItemCatalogId) {
+        $catalogLevelTwoItemsList = $catalogLevelOneItem['catalog_level_two'];
+        $catalogLevelTwoItemsListFormatted = getCatalogLevelTwoListFormatted($catalogLevelTwoItemsList, $offerItemCatalogId);
+
+        return [
+            'content' => $catalogLevelTwoItemsListFormatted,
             'listenId' => $catalogLevelOneItem['id'],
         ];
     }, $catalogFull);
