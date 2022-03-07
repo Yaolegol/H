@@ -24,7 +24,7 @@ function getCitiesWithSelectedList($locationList, $saleOfferItemData) {
 
     return array_map(function($regionItem) use($offerCityId) {
         $regionItemCitiesList = $regionItem['cities'];
-        $regionItemCitiesListFormatted = getRegionItemCitiesListFormatted($regionItemCitiesList, $offerCityId)
+        $regionItemCitiesListFormatted = getRegionItemCitiesListFormatted($regionItemCitiesList, $offerCityId);
 
         return [
             'content' => $regionItemCitiesListFormatted,

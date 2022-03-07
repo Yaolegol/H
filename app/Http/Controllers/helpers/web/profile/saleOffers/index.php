@@ -64,10 +64,13 @@ function DB_syncSaleOfferSalePointsData($request, $createdSaleOffer) {
 
 function DB_updateSaleOfferData($userId, $saleOfferId, $imagesArray) {
     try {
-        Offer::where([
+        $offer = Offer::where([
             ['user_id', $userId],
             ['id', $saleOfferId]
-        ])->update($imagesArray);
+        ]);
+        $offer->update($imagesArray);
+
+        return $offer;
     } catch(\Exception $error) {
         abort(500);
     }
@@ -90,6 +93,10 @@ function getOfferImagesData($request, $userId, $saleOfferId) {
     }
 
     return array_merge(...$storedPhotos);
+}
+
+function getSaleOfferAssetPath($saleOfferId) {
+    return 'sale-offer/' . $saleOfferId;
 }
 
 function getSaleOfferItemDataFormatted($saleOfferId)
@@ -209,128 +216,36 @@ function trySaveSaleOfferInDB($request)
     return true;
 }
 
-function tryUpdateSaleOfferInDB($request, $id)
+function tryUpdateSaleOfferInDB($request, $saleOfferId)
 {
-    try {
-        $authUser = Auth::user();
-        $authUserId = $authUser->id;
-
-        $title = $request->input('title');
-        $description = $request->input('description');
-        $address = $request->input('address');
-        $phone = $request->input('phone');
-        $price = $request->input('price');
-        $catalog_level_two_id = $request->input('catalog_level_two_id');
-        $region_id = $request->input('region_id');
-        $city_id = $request->input('city_id');
-        $organization_id = $request->input('organization_id');
-        $mapMarkerLat = $request->input('map_marker_lat');
-        $mapMarkerLng = $request->input('map_marker_lng');
-
-        $newPhotos = updateSaleOfferPhotos($request, $id);
-
-        $newSaleOfferData = array_merge(
-            [
-                'title' => $title,
-                'description' => $description,
-                'address' => $address,
-                'phone' => $phone,
-                'price' => $price,
-                'user_id' => $authUserId,
-                'catalog_level_two_id' => $catalog_level_two_id,
-                'region_id' => $region_id,
-                'city_id' => $city_id,
-                'organization_id' => $organization_id,
-                'map_marker_lat' => $mapMarkerLat,
-                'map_marker_lng' => $mapMarkerLng,
-            ],
-            ...$newPhotos,
-        );
-
-        $currentOffer = Offer::where([
-            ['user_id', $authUserId],
-            ['id', $id]
-        ]);
-        $currentOffer->update($newSaleOfferData);
-
-        $salePointValuesArray = [];
-
-        $salePointInputIteration = 0;
-        while ($salePointInputIteration < 15) {
-            $salePointInputName = 'sale-point_' . $salePointInputIteration;
-            $salePointInputValue = $request->input($salePointInputName);
-
-            if($salePointInputValue) {
-                array_push($salePointValuesArray, $salePointInputValue);
-            }
-
-            $salePointInputIteration++;
-        }
-
-        $currentOffer->first()->salePoints()->sync($salePointValuesArray);
-
-        return true;
-    } catch (\Exception $error) {
-        dd($error);
-        return false;
-    }
-}
-
-function updateSaleOfferPhotos($request, $updatingSaleOfferId) {
     $authUser = Auth::user();
-    $user_id = $authUser->id;
-    $photosArray = [];
+    $authUserId = $authUser->id;
 
-    $photoInputsIteration = 1;
-    while ($photoInputsIteration <= 3) {
-        $photoDBColumn = 'photo_' . $photoInputsIteration;
-        $photo = $request->file('photo' . '_' . $photoInputsIteration) ?? '';
-        if ($photo) {
-            $oldPhoto = File::glob(
-                storage_path() .
-                '/app/public/users/' .
-                $user_id .
-                '/offer/' .
-                $updatingSaleOfferId .
-                '/photo/' .
-                $photoInputsIteration .
-                '*'
-            );
-            File::delete($oldPhoto);
+    $data = [
+        'address' => $request->input('address'),
+        'catalog_level_two_id' => $request->input('catalog_level_two_id'),
+        'city_id' => $request->input('city_id'),
+        'description' => $request->input('description'),
+        'map_marker_lat' => $request->input('map_marker_lat'),
+        'map_marker_lng' => $request->input('map_marker_lng'),
+        'organization_id' => $request->input('organization_id'),
+        'phone' => $request->input('phone'),
+        'price' => $request->input('price'),
+        'region_id' => $request->input('region_id'),
+        'title' => $request->input('title'),
+        'user_id' => $authUserId,
+    ];
 
-            $photoName = $photoInputsIteration . '.' . $photo->extension();
+    $path = getSaleOfferAssetPath($saleOfferId);
+    $updatedPhotoList = STORAGE_updateAssetList($authUserId, $request, 'photo', 3, $path);
 
-            $photoPath = $photo->storeAs(
-                '/public/users/1/offer/' . $updatingSaleOfferId . '/photo', $photoName
-            );
+    $newSaleOfferData = array_merge(
+        $data,
+        ...$updatedPhotoList,
+    );
 
-            array_push($photosArray, [
-                $photoDBColumn => $photoPath
-            ]);
-        } else {
-            $isRemovePhoto = $request->has('remove_photo_' . $photoInputsIteration);
+    $currentOffer = DB_updateSaleOfferData($authUserId, $saleOfferId, $newSaleOfferData);
+    DB_syncSaleOfferSalePointsData($request, $currentOffer);
 
-            if ($isRemovePhoto) {
-                $oldPhoto = File::glob(
-                    storage_path() .
-                    '/app/public/users/' .
-                    $user_id .
-                    '/offer/' .
-                    $updatingSaleOfferId .
-                    '/photo/' .
-                    $photoInputsIteration .
-                    '*'
-                );
-                File::delete($oldPhoto);
-
-                array_push($photosArray, [
-                    $photoDBColumn => ''
-                ]);
-            }
-        }
-
-        $photoInputsIteration++;
-    }
-
-    return $photosArray;
+    return true;
 }
