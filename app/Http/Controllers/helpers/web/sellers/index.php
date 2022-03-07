@@ -2,14 +2,25 @@
 
 use App\Models\User;
 
-function formatSellerData($seller) {
-    $sellerData = array_merge(...$seller);
+function DB_getSeller($id) {
+    try {
+        $seller = User::where([
+            ['id', $id],
+        ])->with(['offers'])->get()->toArray();
 
+        if(empty($seller)) {
+            return abort(404);
+        }
+
+        return array_merge(...$seller);
+    } catch(\Exception $error) {
+        return abort(500);
+    }
+}
+
+function formatSellerData($sellerData) {
     if($sellerData['avatar']) {
-        $path = str_replace('public/', '', $sellerData['avatar']);
-        $url = '/storage/' . $path;
-
-        $sellerData['avatar'] = $url;
+        $sellerData['avatar'] = formatAssetPath($sellerData['avatar']);
     }
 
     if($sellerData['offers']) {
@@ -19,17 +30,8 @@ function formatSellerData($seller) {
     return $sellerData;
 }
 
-function getSellerDataFormatted($id) {
-    $seller = getSellerFromDB($id);
+function getSellerDataFormatted($sellerId) {
+    $seller = DB_getSeller($sellerId);
 
     return formatSellerData($seller);
-}
-
-function getSellerFromDB($id) {
-    return User::where([
-        ['id', $id],
-    ])
-        ->with(['offers'])
-        ->get()
-        ->toArray();
 }
