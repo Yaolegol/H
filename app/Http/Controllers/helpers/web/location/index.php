@@ -20,20 +20,14 @@ function getCitiesList($locationList) {
 }
 
 function getCitiesWithSelectedList($locationList, $saleOfferItemData) {
-    return array_map(function($regionItem) use($saleOfferItemData) {
-        $regionItemCitiesList = array_map(function($cityItem) use($saleOfferItemData) {
-            $cityItemId = $cityItem['id'];
-            $saleOfferItemDataCityId = $saleOfferItemData['city_id'];
+    $offerCityId = $saleOfferItemData['city_id'];
 
-            return [
-                'isChecked' => $cityItemId === $saleOfferItemDataCityId,
-                'title' => $cityItem['title'],
-                'value' => $cityItemId,
-            ];
-        }, $regionItem['cities']);
+    return array_map(function($regionItem) use($offerCityId) {
+        $regionItemCitiesList = $regionItem['cities'];
+        $regionItemCitiesListFormatted = getRegionItemCitiesListFormatted($regionItemCitiesList, $offerCityId)
 
         return [
-            'content' => $regionItemCitiesList,
+            'content' => $regionItemCitiesListFormatted,
             'listenId' => $regionItem['id'],
         ];
     }, $locationList);
@@ -71,11 +65,12 @@ function getLocationSearchDataFormatted($locationList, $searchCountryId, $search
     return $locationData;
 }
 
-function getRegionItemCitiesListFormatted($regionItemCitiesList) {
-    return array_map(function($cityItem) {
+function getRegionItemCitiesListFormatted($regionItemCitiesList, $offerCityId = 0) {
+    return array_map(function($cityItem) use($offerCityId) {
         $cityItemId = $cityItem['id'];
 
         return [
+            'isChecked' => $cityItemId === $offerCityId,
             'title' => $cityItem['title'],
             'value' => $cityItemId,
         ];
@@ -92,12 +87,13 @@ function getRegionList($locationList) {
 }
 
 function getRegionWithSelectedList($locationList, $saleOfferItemData) {
-    return array_map(function($regionItem) use($saleOfferItemData) {
+    $offerRegionId = $saleOfferItemData['region_id'];
+
+    return array_map(function($regionItem) use($offerRegionId) {
         $regionItemId = $regionItem['id'];
-        $saleOfferItemDataRegionId = $saleOfferItemData['region_id'];
 
         return [
-            'isChecked' => $regionItemId === $saleOfferItemDataRegionId,
+            'isChecked' => $regionItemId === $offerRegionId,
             'title' => $regionItem['title'],
             'value' => $regionItemId,
         ];
