@@ -6,36 +6,81 @@ use App\Models\SalePoint;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
-function createSaleOfferPhotos($request, $createdSaleOfferId)
-{
-    $photosArray = [];
+function DB_createSaleOffer($request, $userId) {
+    try {
+        $data = [
+            'address' => $request->input('address'),
+            'catalog_level_two_id' => $request->input('catalog_level_two_id'),
+            'city_id' => $request->input('city_id'),
+            'description' => $request->input('description'),
+            'map_marker_lat' => $request->input('map_marker_lat'),
+            'map_marker_lng' => $request->input('map_marker_lng'),
+            'organization_id' => $request->input('organization_id') ?? null,
+            'phone' => $request->input('phone'),
+            'price' => $request->input('price'),
+            'region_id' => $request->input('region_id'),
+            'title' => $request->input('title'),
+            'user_id' => $userId,
+        ];
 
-    $photoInputsIteration = 1;
-    while ($photoInputsIteration <= 3) {
-        $photoDBColumn = 'photo_' . $photoInputsIteration;
-        $photo = $request->file('photo' . '_' . $photoInputsIteration) ?? '';
-        if ($photo) {
-            $photoName = $photoInputsIteration . '.' . $photo->extension();
-
-            $photoPath = $photo->storeAs(
-                '/public/users/1/offer/' . $createdSaleOfferId . '/photo', $photoName
-            );
-
-            array_push($photosArray, [
-                $photoDBColumn => $photoPath
-            ]);
-        }
-
-        $photoInputsIteration++;
+        return Offer::create($data);
+    } catch(\Exception $error) {
+        return abort(500);
     }
+}
 
-    return array_merge(...$photosArray);
+function DB_getUserSaleOffers()
+{
+    try {
+        $authUser = Auth::user();
+        $user_id = $authUser->id;
+
+        return Offer::where('user_id', $user_id)->with(
+            ['organization', 'salePoints']
+        )->get()->toArray();
+    } catch(\Exception $error) {
+        return abort(500);
+    }
+}
+
+function DB_syncSaleOfferSalePointsData($request, $createdSaleOffer) {
+    try {
+        $salePointValuesArray = getInputsValuesArray($request, 'sale-point', 15);
+
+        $createdSaleOffer->salePoints()->sync($salePointValuesArray);
+    } catch(\Exception $error) {
+        abort(500);
+    }
+}
+
+function DB_updateSaleOfferData($userId, $saleOfferId, $imagesArray) {
+    try {
+        Offer::where([
+            ['user_id', $userId],
+            ['id', $saleOfferId]
+        ])->update($imagesArray);
+    } catch(\Exception $error) {
+        abort(500);
+    }
 }
 
 function formatSaleOffersListItemsAssetsPath(&$saleOffersList) {
     foreach ($saleOffersList as &$saleOffer) {
         $saleOffer['photoArray'] = getAssetArrayFormatted($saleOffer, 'photo', 3);
     }
+}
+
+function getOfferImagesData($request, $userId, $saleOfferId) {
+    $requestPhotoArray = getFilesArray($request, 'photo', 3);
+    $storedPhotos = [];
+
+    if(!empty($requestPhotoArray)) {
+        $path = getSalePointAssetPath($saleOfferId);
+
+        $storedPhotos = STORAGE_saveAssetList($userId, $requestPhotoArray, $path, 'photo');
+    }
+
+    return array_merge(...$storedPhotos);
 }
 
 function getSaleOfferItemDataFormatted($id)
@@ -127,20 +172,6 @@ function getUserSaleOfferItem($id)
     ])->with(['salePoints', 'organization'])->first()->toArray();
 }
 
-function DB_getUserSaleOffers()
-{
-    try {
-        $authUser = Auth::user();
-        $user_id = $authUser->id;
-
-        return Offer::where('user_id', $user_id)->with(
-            ['organization', 'salePoints']
-        )->get()->toArray();
-    } catch(\Exception $error) {
-        return abort(500);
-    }
-}
-
 function tryDestroySaleOfferDataInDB($id)
 {
     try {
@@ -165,74 +196,23 @@ function tryDestroySaleOfferDataInDB($id)
 
         return true;
     } catch (\Exception $error) {
-        dd($error);
         return false;
     }
 }
 
 function trySaveSaleOfferInDB($request)
 {
-    try {
-        $authUser = Auth::user();
-        $authUserId = $authUser->id;
+    $authUser = Auth::user();
+    $user_id = $authUser->id;
 
-        $title = $request->input('title');
-        $description = $request->input('description');
-        $address = $request->input('address');
-        $phone = $request->input('phone');
-        $price = $request->input('price');
-        $catalog_level_two_id = $request->input('catalog_level_two_id');
-        $region_id = $request->input('region_id');
-        $city_id = $request->input('city_id');
-        $mapMarkerLat = $request->input('map_marker_lat');
-        $mapMarkerLng = $request->input('map_marker_lng');
-        $organization_id = $request->input('organization_id') ?? null;
+    $createdSalePoint = DB_createSaleOffer($request, $user_id);
+    $createdSalePointData = $createdSalePoint->toArray();
+    $createdSaleOfferId = $createdSalePointData['id'];
+    $imagesArray = getOfferImagesData($request, $user_id, $createdSaleOfferId);
+    DB_updateSaleOfferData($user_id, $createdSaleOfferId, $imagesArray);
+    DB_syncSaleOfferSalePointsData($request, $createdSalePoint);
 
-        $createdSaleOffer = Offer::create([
-            'title' => $title,
-            'description' => $description,
-            'address' => $address,
-            'phone' => $phone,
-            'price' => $price,
-            'user_id' => $authUserId,
-            'catalog_level_two_id' => $catalog_level_two_id,
-            'region_id' => $region_id,
-            'city_id' => $city_id,
-            'organization_id' => $organization_id,
-            'map_marker_lat' => $mapMarkerLat,
-            'map_marker_lng' => $mapMarkerLng,
-        ]);
-
-        $createdSaleOfferData = $createdSaleOffer->toArray();
-        $createdSaleOfferId = $createdSaleOfferData['id'];
-
-        $newPhotos = createSaleOfferPhotos($request, $createdSaleOfferId);
-
-        $newOffer = Offer::where([
-            ['user_id', $authUserId],
-            ['id', $createdSaleOfferId]
-        ])->update($newPhotos);
-
-        $salePointValuesArray = [];
-
-        $salePointInputIteration = 0;
-        while ($salePointInputIteration < 15) {
-            $salePointInputName = 'sale-point_' . $salePointInputIteration;
-            $salePointInputValue = $request->input($salePointInputName);
-
-            if($salePointInputValue) {
-                array_push($salePointValuesArray, $salePointInputValue);
-            }
-
-            $salePointInputIteration++;
-        }
-
-        $createdSaleOffer->salePoints()->sync($salePointValuesArray);
-
-        return true;
-    } catch (\Exception $error) {
-        return false;
-    }
+    return true;
 }
 
 function tryUpdateSaleOfferInDB($request, $id)
