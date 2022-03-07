@@ -52,11 +52,11 @@ function DB_getUserSaleOffers()
     }
 }
 
-function DB_syncSaleOfferSalePointsData($request, $createdSaleOffer) {
+function DB_syncSaleOfferSalePointsData($request, $saleOffer) {
     try {
         $salePointValuesArray = getInputsValuesArray($request, 'sale-point', 15);
 
-        $createdSaleOffer->salePoints()->sync($salePointValuesArray);
+        $saleOffer->salePoints()->sync($salePointValuesArray);
     } catch(\Exception $error) {
         abort(500);
     }
@@ -70,7 +70,7 @@ function DB_updateSaleOfferData($userId, $saleOfferId, $imagesArray) {
         ]);
         $offer->update($imagesArray);
 
-        return $offer;
+        return $offer->first();
     } catch(\Exception $error) {
         abort(500);
     }
