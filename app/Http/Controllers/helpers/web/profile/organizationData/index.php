@@ -50,7 +50,10 @@ function DB_getUserOrganizationItem($userId, $organizationId)
 function DB_getUserOrganizationsList()
 {
     try {
-        return Organization::where('user_id', Auth::user()->id)->get()->toArray();
+        $authUser = Auth::user();
+        $authUserId = $authUser->id;
+
+        return Organization::where('user_id', $authUserId)->get()->toArray();
     } catch(\Exception $err) {
         return abort(500);
     }

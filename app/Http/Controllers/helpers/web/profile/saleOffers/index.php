@@ -88,15 +88,8 @@ function getSaleOfferSalePointsListFormatted($saleOfferItemData) {
     return $userSalePointsList;
 }
 
-function getUserOrganizations() {
-    $authUser = Auth::user();
-    $user_id = $authUser->id;
-
-    return Organization::where('user_id', $user_id)->get()->toArray();
-}
-
 function getUserOrganizationsListFormatted() {
-    $userOrganizations = getUserOrganizations();
+    $userOrganizations = DB_getUserOrganizationsList();
 
     return array_map(function($userOrganizationItem) {
         $userOrganizationItemId = $userOrganizationItem['id'];
