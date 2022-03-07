@@ -29,6 +29,15 @@ function DB_createSaleOffer($request, $userId) {
     }
 }
 
+function DB_getUserSaleOfferItem($userId, $saleOfferId) {
+    $saleOfferItem = Offer::where([
+        ['user_id', $userId],
+        ['id', $saleOfferId],
+    ])->with(['salePoints', 'organization'])->first()->toArray();
+
+    return array_merge(...$saleOfferItem);
+}
+
 function DB_getUserSaleOffers()
 {
     try {
@@ -83,25 +92,16 @@ function getOfferImagesData($request, $userId, $saleOfferId) {
     return array_merge(...$storedPhotos);
 }
 
-function getSaleOfferItemDataFormatted($id)
+function getSaleOfferItemDataFormatted($saleOfferId)
 {
-    $userSaleOfferItemData = getUserSaleOfferItem($id);
-    $userSaleOfferItemDataFormatted = array_merge($userSaleOfferItemData);
+    $authUser = Auth::user();
+    $userId = $authUser->id;
 
-    $photoIteration = 1;
-    while ($photoIteration <= 3) {
-        $currentPhotoName = 'photo_' . $photoIteration;
-        $currentPhotoValue = $userSaleOfferItemDataFormatted[$currentPhotoName];
+    $userSaleOfferItemData = DB_getUserSaleOfferItem($userId, $saleOfferId);
+    $userSaleOfferItemData['photoArray'] = getAssetArrayFormatted($userSaleOfferItemData, 'photo', 3);
 
-        if ($currentPhotoValue) {
-            $path = str_replace('public/', '', $currentPhotoValue);
-            $userSaleOfferItemDataFormatted[$currentPhotoName] = '/storage/' . $path;
-        }
 
-        $photoIteration++;
-    }
-
-    return $userSaleOfferItemDataFormatted;
+    return $userSaleOfferItemData;
 }
 
 function getSaleOffersDataFormatted()
@@ -159,17 +159,6 @@ function getUserOrganizationsWithSelectedList($saleOfferItemData) {
     }
 
     return $userOrganizations;
-}
-
-function getUserSaleOfferItem($id)
-{
-    $authUser = Auth::user();
-    $user_id = $authUser->id;
-
-    return Offer::where([
-        ['user_id', $user_id],
-        ['id', $id],
-    ])->with(['salePoints', 'organization'])->first()->toArray();
 }
 
 function tryDestroySaleOfferDataInDB($id)
