@@ -29,6 +29,16 @@ function DB_createSaleOffer($request, $userId) {
     }
 }
 
+function DB_destroySaleOfferItem($user_id, $saleOfferId) {
+    $saleOffer = Offer::where([
+        ['user_id', $user_id],
+        ['id', $saleOfferId]
+    ])->with('salePoints');
+
+    $saleOffer->first()->salePoints()->detach();
+    $saleOffer->delete();
+}
+
 function DB_getUserSaleOfferItem($userId, $saleOfferId) {
     $saleOfferItem = Offer::where([
         ['user_id', $userId],
@@ -173,27 +183,28 @@ function setCheckedPropertyForSalePointsList(&$userSalePointsList, $saleOfferIte
     }
 }
 
-function tryDestroySaleOfferDataInDB($id)
-{
+function STORAGE_destroySaleOfferData($user_id, $saleOfferId) {
     try {
-        $authUser = Auth::user();
-        $user_id = $authUser->id;
-
         File::deleteDirectory(
             storage_path() .
             '/app/public/users/' .
             $user_id .
             '/offer/' .
-            $id
+            $saleOfferId
         );
+    } catch(\Exception $err) {
+        abort(500);
+    }
+}
 
-        $saleOffer = Offer::where([
-            ['user_id', $user_id],
-            ['id', $id]
-        ])->with('salePoints');
+function tryDestroySaleOfferDataInDB($saleOfferId)
+{
+    try {
+        $authUser = Auth::user();
+        $user_id = $authUser->id;
 
-        $saleOffer->first()->salePoints()->detach();
-        $saleOffer->delete();
+        STORAGE_destroySaleOfferData($user_id, $saleOfferId);
+        DB_destroySaleOfferItem($user_id, $saleOfferId);
 
         return true;
     } catch (\Exception $error) {

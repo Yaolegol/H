@@ -131,17 +131,13 @@ function STORAGE_destroySalePointData($userId, $salePointId) {
 
 function tryDestroySalePointDataInDB($salePointId)
 {
-    try {
-        $authUser = Auth::user();
-        $user_id = $authUser->id;
+    $authUser = Auth::user();
+    $user_id = $authUser->id;
 
-        STORAGE_destroySalePointData($user_id, $salePointId);
-        DB_destroySalePointItem($user_id, $salePointId);
+    STORAGE_destroySalePointData($user_id, $salePointId);
+    DB_destroySalePointItem($user_id, $salePointId);
 
-        return true;
-    } catch (\Exception $error) {
-        return false;
-    }
+    return true;
 }
 
 function tryStoreSalePointDataInDB($request)
