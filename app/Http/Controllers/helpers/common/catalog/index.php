@@ -51,17 +51,22 @@ function getCatalogCategoriesWithSelectedList($catalogFull, $saleOfferItemData) 
     }, $catalogFull);
 }
 
+function getCatalogLevelTwoItemsListFormatted($catalogLevelTwoList) {
+    return array_map(function($catalogLevelTwoItem) {
+        return [
+            'title' => $catalogLevelTwoItem['title'],
+            'value' => $catalogLevelTwoItem['id'],
+        ];
+    }, $catalogLevelTwoList);
+}
+
 function getCatalogSubCategoriesList($catalogFull) {
     return array_map(function($catalogItem) {
-        $catalogLevelTwoItemsList = array_map(function($catalogLevelTwoItem) {
-            return [
-                'title' => $catalogLevelTwoItem['title'],
-                'value' => $catalogLevelTwoItem['id'],
-            ];
-        }, $catalogItem['catalog_level_two']);
+        $catalogLevelTwoList = $catalogItem['catalog_level_two'];
+        $catalogLevelTwoListFormatted = getCatalogLevelTwoItemsListFormatted($catalogLevelTwoList);
 
         return [
-            'content' => $catalogLevelTwoItemsList,
+            'content' => $catalogLevelTwoListFormatted,
             'listenId' => $catalogItem['id'],
         ];
     }, $catalogFull);

@@ -141,13 +141,6 @@ function DB_getUserSaleOffers()
     }
 }
 
-function getUserSalePointsList() {
-    $authUser = Auth::user();
-    $user_id = $authUser->id;
-
-    return SalePoint::where('user_id', $user_id)->get()->toArray();
-}
-
 function tryDestroySaleOfferDataInDB($id)
 {
     try {

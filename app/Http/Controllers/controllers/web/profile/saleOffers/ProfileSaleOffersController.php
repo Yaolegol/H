@@ -11,6 +11,7 @@ require_once('app/Http/Controllers/helpers/common/catalog/index.php');
 require_once('app/Http/Controllers/helpers/web/location/index.php');
 require_once('app/Http/Controllers/helpers/web/profile/organizationData/index.php');
 require_once('app/Http/Controllers/helpers/web/profile/saleOffers/index.php');
+require_once('app/Http/Controllers/helpers/web/profile/salePointsInfo/index.php');
 
 class ProfileSaleOffersController extends Controller
 {
@@ -42,7 +43,7 @@ class ProfileSaleOffersController extends Controller
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
         $organizationsList = getUserOrganizationsListFormatted();
-        $salePointsList = getUserSalePointsList();
+        $salePointsList = DB_getUserSalePoints();
         $catalogCategoriesList = getCatalogCategoriesList($catalogFull);
         $catalogSubCategoriesList = getCatalogSubCategoriesList($catalogFull);
         $regionList = getRegionList($locationList);

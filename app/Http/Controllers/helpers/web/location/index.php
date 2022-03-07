@@ -2,19 +2,18 @@
 
 use App\Models\Region;
 
+function DB_getLocationList()
+{
+    return Region::with('cities')->get()->toArray();
+}
+
 function getCitiesList($locationList) {
     return array_map(function($regionItem) {
-        $regionItemCitiesList = array_map(function($cityItem) {
-            $cityItemId = $cityItem['id'];
-
-            return [
-                'title' => $cityItem['title'],
-                'value' => $cityItemId,
-            ];
-        }, $regionItem['cities']);
+        $regionItemCitiesList = $regionItem['cities'];
+        $regionItemCitiesListFormatted = getRegionItemCitiesListFormatted($regionItemCitiesList);
 
         return [
-            'content' => $regionItemCitiesList,
+            'content' => $regionItemCitiesListFormatted,
             'listenId' => $regionItem['id'],
         ];
     }, $locationList);
@@ -38,11 +37,6 @@ function getCitiesWithSelectedList($locationList, $saleOfferItemData) {
             'listenId' => $regionItem['id'],
         ];
     }, $locationList);
-}
-
-function DB_getLocationList()
-{
-    return Region::with('cities')->get()->toArray();
 }
 
 function getLocationListFormatted()
@@ -75,6 +69,17 @@ function getLocationSearchDataFormatted($locationList, $searchCountryId, $search
     }
 
     return $locationData;
+}
+
+function getRegionItemCitiesListFormatted($regionItemCitiesList) {
+    return array_map(function($cityItem) {
+        $cityItemId = $cityItem['id'];
+
+        return [
+            'title' => $cityItem['title'],
+            'value' => $cityItemId,
+        ];
+    }, $regionItemCitiesList);
 }
 
 function getRegionList($locationList) {
