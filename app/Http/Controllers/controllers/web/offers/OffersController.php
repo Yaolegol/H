@@ -21,9 +21,11 @@ class OffersController extends Controller
      */
     public function index(Request $request, $catalogLevelOneLink, $productLink)
     {
-        $searchCountryId = $request->query('search-country-id');
-        $searchRegionId = $request->query('search-region-id');
-        $searchCityId = $request->query('search-city-id');
+        $searchLocationData = getSearchLocationData($request);
+
+        $searchCountryId = $searchLocationData['searchCountryId'];
+        $searchRegionId = $searchLocationData['searchRegionId'];
+        $searchCityId = $searchLocationData['searchCityId'];
 
         $catalogFull = getCatalogFull();
         $catalogLevelOneItem = getCatalogLevelOneItem($catalogFull, $catalogLevelOneLink);
@@ -39,7 +41,7 @@ class OffersController extends Controller
             'locationList' => $locationList,
             'locationSearchData' => $locationSearchData,
             'offersPaginatedData' => $offersPaginatedData,
-        ]);
+        ])->with(['a' => 'b']);
     }
 
     /**

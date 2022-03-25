@@ -99,3 +99,23 @@ function getRegionWithSelectedList($locationList, $saleOfferItemData) {
         ];
     }, $locationList);
 }
+
+function getSearchLocationData($request) {
+    $querySearchCountryId = $request->query('search-country-id');
+    $querySearchRegionId = $request->query('search-region-id');
+    $querySearchCityId = $request->query('search-city-id');
+
+    $cookieSearchCountryId = $request->cookie('search-country-id');
+    $cookieSearchRegionId = $request->cookie('search-region-id');
+    $cookieSearchCityId = $request->cookie('search-city-id');
+
+    $searchCountryId = $cookieSearchCountryId ? $cookieSearchCountryId : $querySearchCountryId;
+    $searchRegionId = $cookieSearchRegionId ? $cookieSearchRegionId : $querySearchRegionId;
+    $searchCityId = $cookieSearchCityId ? $cookieSearchCityId : $querySearchCityId;
+
+    return [
+        'searchCountryId' => $searchCountryId,
+        'searchRegionId' => $searchRegionId,
+        'searchCityId' => $searchCityId,
+    ];
+}
