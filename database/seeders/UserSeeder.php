@@ -10,36 +10,50 @@ class UserSeeder extends Seeder
 {
     public $data = [
         [
-            'registration_email' => 'test@test.com',
+            'avatar' => 'public/users/1/avatar/1_1648916228.jpg',
+            'description' => 'test1',
             'lang_id' => 1,
-            'name' => 'Test',
-            'password' => 'dynamic value',
+            'name' => 'test1',
+            'password' => '',
+            'phone' => '11111111111',
+            'registration_email' => 'test1@test1.com',
+            'visible_email' => 'visible_test1@test1.com',
         ],
         [
-            'registration_email' => 'user1@yandex.ru',
-            'is_admin' => true,
-            'name' => 'User name 1',
+            'description' => 'test2',
             'lang_id' => 1,
-            'password' => '1234561',
-            'city_id' => 1,
+            'name' => 'test2',
+            'password' => '',
+            'phone' => '22222222222',
+            'registration_email' => 'test2@test2.com',
+            'visible_email' => 'visible_test2@test2.com',
         ],
         [
-            'registration_email' => 'user2@yandex.ru',
+            'description' => 'test3',
             'lang_id' => 1,
-            'name' => 'User name 2',
-            'password' => '1234562',
-            'city_id' => 2,
+            'name' => 'test3',
+            'password' => '',
+            'phone' => '33333333333',
+            'registration_email' => 'test3@test3.com',
+            'visible_email' => 'visible_test3@test3.com',
         ],
         [
-            'registration_email' => 'user3@yandex.ru',
-            'name' => 'User name 3',
-            'password' => '1234563',
+            'description' => 'test4',
+            'lang_id' => 1,
+            'name' => 'test4',
+            'password' => '',
+            'phone' => '44444444444',
+            'registration_email' => 'test4@test4.com',
+            'visible_email' => 'visible_test4@test4.com',
         ],
         [
-            'registration_email' => 'user4@yandex.ru',
-            'lang_id' => 2,
-            'name' => 'User name 4',
-            'password' => '1234564',
+            'description' => 'test5',
+            'lang_id' => 1,
+            'name' => 'test5',
+            'password' => '',
+            'phone' => '55555555555',
+            'registration_email' => 'test5@test5.com',
+            'visible_email' => 'visible_test5@test5.com',
         ],
     ];
 
@@ -51,11 +65,8 @@ class UserSeeder extends Seeder
     public function run()
     {
         foreach ($this->data as $dataItem) {
-            $adminUserPassword = Hash::make('123123');
-
-            if($dataItem['registration_email'] === 'test@test.com') {
-                $dataItem['password'] = $adminUserPassword;
-            }
+            $hashPassword = Hash::make('123123');
+            $dataItem['password'] = $hashPassword;
 
             DB::table('users')->insert($dataItem);
         }
