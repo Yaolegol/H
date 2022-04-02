@@ -16,6 +16,7 @@ class OrganizationTable extends Migration
         Schema::create('organization', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
+            $table->string('description')->nullable();
             $table->string('inn')->nullable();
             $table->string('legal_address')->nullable();
             $table->string('real_address')->nullable();
