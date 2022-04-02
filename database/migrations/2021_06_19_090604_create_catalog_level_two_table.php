@@ -21,7 +21,6 @@ class CreateCatalogLevelTwoTable extends Migration
             $table->integer('order');
             $table->bigInteger('catalog_level_one_id')->unsigned()->index();
             $table->foreign('catalog_level_one_id')->references('id')->on('catalog_level_one');
-            $table->integer('order')->default(1);
             $table->timestamps();
         });
     }
