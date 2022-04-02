@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->foreign('lang_id')->references('id')->on('lang');
             $table->bigInteger('city_id')->unsigned()->nullable();
             $table->foreign('city_id')->references('id')->on('city');
+            $table->integer('order')->default(1);
             $table->rememberToken();
             $table->timestamps();
         });
