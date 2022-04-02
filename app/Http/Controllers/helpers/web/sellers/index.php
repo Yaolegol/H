@@ -6,7 +6,15 @@ function DB_getSeller($id) {
     try {
         $seller = User::where([
             ['id', $id],
-        ])->with(['offers'])->get()->toArray();
+        ])->with([
+            'offers',
+            'offers.catalogLevelTwo',
+            'offers.catalogLevelTwo.catalogLevelOne',
+            'offers.measure',
+            'offers.organization',
+            'offers.salePoints',
+            'offers.user',
+        ])->get()->toArray();
 
         if(empty($seller)) {
             return abort(404);
