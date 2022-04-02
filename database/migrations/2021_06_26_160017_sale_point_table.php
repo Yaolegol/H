@@ -16,6 +16,7 @@ class SalePointTable extends Migration
         Schema::create('sale_point', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
+            $table->string('description')->nullable();
             $table->string('address')->nullable();
             $table->string('working_hours')->nullable();
             $table->string('contact_person')->nullable();
