@@ -37,24 +37,6 @@ class UserSeeder extends Seeder
             'registration_email' => 'test3@test3.com',
             'visible_email' => 'visible_test3@test3.com',
         ],
-        [
-            'description' => 'test4',
-            'lang_id' => 1,
-            'name' => 'test4',
-            'password' => '',
-            'phone' => '44444444444',
-            'registration_email' => 'test4@test4.com',
-            'visible_email' => 'visible_test4@test4.com',
-        ],
-        [
-            'description' => 'test5',
-            'lang_id' => 1,
-            'name' => 'test5',
-            'password' => '',
-            'phone' => '55555555555',
-            'registration_email' => 'test5@test5.com',
-            'visible_email' => 'visible_test5@test5.com',
-        ],
     ];
 
     /**
