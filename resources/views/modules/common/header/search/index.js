@@ -114,8 +114,10 @@ class Search {
     }
 
     handleSearchInputBlur = (e) => {
-        this.module.classList.remove('j-style-header-search__focus');
-        this.module.classList.remove('j-style-header-search__mobile-show');
+        setTimeout(() => {
+            this.module.classList.remove('j-style-header-search__focus');
+            this.module.classList.remove('j-style-header-search__mobile-show');
+        });
     }
 
     handleSearchInputFocus = (e) => {
