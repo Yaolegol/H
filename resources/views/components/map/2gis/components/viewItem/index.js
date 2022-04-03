@@ -78,6 +78,5 @@ class Map2gisComponentsViewItem {
 const list = [...document.querySelectorAll('.j-map-2gis-components-view-item')];
 
 list.forEach((element) => {
-    return;
     new Map2gisComponentsViewItem(element);
 })

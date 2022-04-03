@@ -645,22 +645,22 @@
   width: 100px;
 }
 
-.map-2gis-components-view-item {
+.components-map-2gis-components-view-item {
   padding-bottom: 100%;
   position: relative;
 }
-.map-2gis-components-view-item__map-container {
+.components-map-2gis-components-view-item__map-container {
   bottom: 0;
   left: 0;
   position: absolute;
   right: 0;
   top: 0;
 }
-.map-2gis-components-view-item__map-container_mobile-app {
+.components-map-2gis-components-view-item__map-container_mobile-app {
   height: 300px;
   width: auto;
 }
-.map-2gis-components-view-item__marker-popup {
+.components-map-2gis-components-view-item__marker-popup {
   width: 100px;
 }
 
