@@ -107,5 +107,6 @@ class Map2gisComponentsAddMarker {
 const list = [...document.querySelectorAll('.j-map-2gis-components-add-marker')];
 
 list.forEach((element) => {
+    return;
     new Map2gisComponentsAddMarker(element);
 })
