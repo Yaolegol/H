@@ -22,9 +22,9 @@ class DatabaseSeeder extends Seeder
             CatalogLevelOneSeeder::class,
             CatalogLevelTwoSeeder::class,
             MeasureSeeder::class,
-            OfferSeeder::class,
             OrganizationSeeder::class,
             SalePointSeeder::class,
+            OfferSeeder::class,
         ]);
     }
 }
