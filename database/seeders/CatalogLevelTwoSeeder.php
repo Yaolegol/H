@@ -9,42 +9,42 @@ class CatalogLevelTwoSeeder extends Seeder
 {
     public $data = [
         [
-            'image' => 'https://picsum.photos/200/300',
+            'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
             'link' => 'beef',
             'order' => 1,
             'catalog_level_one_id' => 1,
             'title' => 'Говядина',
         ],
         [
-            'image' => 'https://picsum.photos/200/300',
+            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
             'link' => 'chicken',
             'order' => 2,
             'catalog_level_one_id' => 1,
             'title' => 'Курица',
         ],
         [
-            'image' => 'https://picsum.photos/200/300',
+            'image' => 'public/catalog/levelTwo/items/3/images/main/1.jpg',
             'link' => 'milk',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Молоко',
         ],
         [
-            'image' => 'https://picsum.photos/200/300',
+            'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
             'link' => 'kefir',
             'order' => 3,
             'catalog_level_one_id' => 2,
             'title' => 'Кефир',
         ],
         [
-            'image' => 'https://picsum.photos/200/300',
+            'image' => 'public/catalog/levelTwo/items/5/images/main/1.jpg',
             'link' => 'chicken-eggs',
             'order' => 1,
             'catalog_level_one_id' => 3,
             'title' => 'Куринные яйца',
         ],
         [
-            'image' => 'https://picsum.photos/200/300',
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
             'link' => 'quail',
             'order' => 2,
             'catalog_level_one_id' => 3,

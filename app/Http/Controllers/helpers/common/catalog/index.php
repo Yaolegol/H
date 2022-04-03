@@ -2,6 +2,8 @@
 
 use App\Models\CatalogLevelOne;
 
+require_once('app/Http/Controllers/helpers/common/assets/index.php');
+
 function DB_getCatalogLevelOne($withLevelTwo = true)
 {
     $withArray = $withLevelTwo ? ['catalogLevelTwo'] : [];
@@ -16,6 +18,11 @@ function checkIsCatalogItemEmpty($catalogItem) {
     if(empty($catalogItem)) {
         abort(404);
     }
+}
+
+function formatCatalogFull(&$catalog) {
+    setCatalogFullLinks($catalog);
+    setCatalogFullImages($catalog);
 }
 
 function getCatalogCategoriesList($catalogFull) {
@@ -100,7 +107,9 @@ function getCatalogFull()
 {
     $catalog = DB_getCatalogLevelOne();
 
-    return setCatalogFullLinks($catalog);
+    formatCatalogFull($catalog);
+
+    return $catalog;
 }
 
 function getCatalogLevelOneFormatted()
@@ -155,7 +164,17 @@ function getCatalogLevelTwoLink($catalogLevelOneLink, $catalogLevelTwoLink) {
     return $catalogLevelOneFullLink . '/' . $catalogLevelTwoLink;
 }
 
-function setCatalogFullLinks($catalog)
+function setCatalogFullImages(&$catalog) {
+    foreach ($catalog as &$catalogLevelOneItem) {
+        $catalogLevelOneItem['image'] = formatAssetPath($catalogLevelOneItem['image']);
+
+        foreach ($catalogLevelOneItem['catalog_level_two'] as &$catalogLevelTwoItem) {
+            $catalogLevelTwoItem['image'] = formatAssetPath($catalogLevelTwoItem['image']);
+        }
+    }
+}
+
+function setCatalogFullLinks(&$catalog)
 {
     foreach ($catalog as &$catalogLevelOneItem) {
         $catalogLevelOneItem['linkFull'] = getCatalogLevelOneLink($catalogLevelOneItem['link']);
@@ -164,6 +183,4 @@ function setCatalogFullLinks($catalog)
             $catalogLevelTwoItem['linkFull'] = getCatalogLevelTwoLink($catalogLevelOneItem['link'], $catalogLevelTwoItem['link']);
         }
     }
-
-    return $catalog;
 }

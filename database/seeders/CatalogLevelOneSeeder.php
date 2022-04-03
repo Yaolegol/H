@@ -9,19 +9,19 @@ class CatalogLevelOneSeeder extends Seeder
 {
     public $data = [
         [
-            'image' => 'https://picsum.photos/200/300',
+            'image' => 'public/catalog/levelOne/items/1/images/main/1.jpg',
             'link' => 'meat',
             'order' => 1,
             'title' => 'Мясная продукция',
         ],
         [
-            'image' => 'https://picsum.photos/200/300',
+            'image' => 'public/catalog/levelOne/items/2/images/main/1.jpg',
             'link' => 'milk',
             'order' => 2,
             'title' => 'Молочная продукция',
         ],
         [
-            'image' => 'https://picsum.photos/200/300',
+            'image' => 'public/catalog/levelOne/items/3/images/main/1.jpg',
             'link' => 'eggs',
             'order' => 3,
             'title' => 'Яйца',
