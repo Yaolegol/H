@@ -126,7 +126,7 @@ function apiGetOfferMapMarkersData($offer) {
 }
 
 function apiGetOfferMapMarkersDataFormatted($offerId) {
-    $offer = array_merge(...getOffer($offerId));
+    $offer = array_merge(...apiGetAllOffers(['id' => $offerId]));
 
     return apiGetOfferMapMarkersData($offer);
 }
