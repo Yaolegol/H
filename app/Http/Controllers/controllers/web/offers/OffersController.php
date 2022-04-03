@@ -41,7 +41,7 @@ class OffersController extends Controller
             'locationList' => $locationList,
             'locationSearchData' => $locationSearchData,
             'offersPaginatedData' => $offersPaginatedData,
-        ])->with(['a' => 'b']);
+        ]);
     }
 
     /**
