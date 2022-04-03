@@ -67,7 +67,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №4 Курица Новосибирск',
             'catalog_level_two_id' => 2,
-            'city_id' => 2,
+            'city_id' => 4,
             'country_id' => 1,
             'description' => 'Описание Предложение №4 Курица Новосибирск',
             'is_active' => true,
