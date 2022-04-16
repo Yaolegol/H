@@ -681,6 +681,9 @@
   left: -50px !important;
 }
 
+.modules-pages-offers-routes-show {
+  text-align: center;
+}
 .modules-pages-offers-routes-show__content-area {
   margin: 50px auto 0;
   max-width: 800px;
@@ -700,19 +703,18 @@
 .modules-pages-offers-routes-show__info-item-container {
   margin-top: 15px;
 }
+.modules-pages-offers-routes-show__info-item-title {
+  font-weight: 800;
+}
 .modules-pages-offers-routes-show__info-section {
   margin-top: 20px;
 }
 .modules-pages-offers-routes-show__map-container {
+  margin: 0 auto;
   max-width: 500px;
 }
 .modules-pages-offers-routes-show__slider-container {
-  margin-top: 50px;
-}
-@media (max-width: 1023px) {
-  .modules-pages-offers-routes-show__slider-container {
-    margin-top: 25px;
-  }
+  margin-top: 15px;
 }
 .modules-pages-offers-routes-show__slider-image {
   bottom: 0;
