@@ -7,6 +7,5 @@
             components-map-2gis-components-view-item__map-container
             j-map-2gis-components-view-item__map-container
         "
-        id="map-2gis"
     ></div>
 </div>

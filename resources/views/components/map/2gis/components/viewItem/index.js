@@ -5,6 +5,7 @@ import './index.less';
 class Map2gisComponentsViewItem {
     constructor(element) {
         this.module = element;
+        this.mapContainer = this.module.querySelector('.j-map-2gis-components-view-item__map-container');
         this.offerId = Number(this.module.dataset.offerId);
 
         this.init();
@@ -68,6 +69,7 @@ class Map2gisComponentsViewItem {
     initMap = () => {
         this.mapInstance = new Map2gisCommonBase({
             center: [62.395570, 104.432320],
+            mapContainer: this.mapContainer,
             markerDataList: [],
             onMapClick: this.onMapClick,
             zoom: 2

@@ -5,8 +5,8 @@ import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import './index.less';
 
 export class Map2gisCommonBase {
-    constructor({center, markerDataList, onMapClick, useMarkerCluster, zoom}) {
-        this.initMap({center, onMapClick, zoom});
+    constructor({center, mapContainer, markerDataList, onMapClick, useMarkerCluster, zoom}) {
+        this.initMap({center, mapContainer, onMapClick, zoom});
         this.initMarkers({markerDataList, useMarkerCluster});
     }
 
@@ -29,8 +29,8 @@ export class Map2gisCommonBase {
         }
     }
 
-    initMap = ({center, onMapClick, zoom}) => {
-        this.map = DG.map('map-2gis', {
+    initMap = ({center, mapContainer, onMapClick, zoom}) => {
+        this.map = DG.map(mapContainer, {
             center,
             zoom
         });

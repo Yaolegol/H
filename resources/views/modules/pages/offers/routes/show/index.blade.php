@@ -92,6 +92,13 @@
                             <div class="modules-pages-offers-routes-show__info-item-title">Название: </div>
                             <div>{{$salePointItem['title']}}</div>
 
+                            <div class="modules-pages-offers-routes-show__map-container">
+                                @include('components.map.2gis.components.showMarker.index', [
+                                    'markerLat' => $salePointItem['map_marker_lat'],
+                                    'markerLng' => $salePointItem['map_marker_lng'],
+                                ])
+                            </div>
+
                             @if(!empty($salePointItem['photoArray']))
                                 <div class="modules-pages-offers-routes-show__slider-container">
                                     @component('components.sliders.base.slider.index')
