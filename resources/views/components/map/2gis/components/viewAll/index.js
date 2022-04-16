@@ -121,6 +121,5 @@ class Map2gisComponentsViewAll {
 const list = [...document.querySelectorAll('.j-map-2gis-components-view-all')];
 
 list.forEach((element) => {
-    return;
     new Map2gisComponentsViewAll(element);
 })

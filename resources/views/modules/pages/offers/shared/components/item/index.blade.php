@@ -22,7 +22,7 @@
                 </div>
                 @if($withSeller)
                     <div class="modules-pages-offers-shared-components-item__seller-info-container">
-                        <span>Продавец: </span><a href="/sellers/{{$offer['user']['id']}}">{{$offer['user']['name']}}</a>
+                        <span>Продавец: </span><a href="{{$offer['user']['sellerLink']}}">{{$offer['user']['name']}}</a>
                     </div>
                 @endif
             </div>

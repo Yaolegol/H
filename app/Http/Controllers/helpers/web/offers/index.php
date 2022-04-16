@@ -47,6 +47,7 @@ function formatOffer($offerItem) {
     setOfferOrganizationData($offerItem);
     setOfferSalePointsData($offerItem);
     setOfferCatalogLinks($offerItem);
+    setSellerLink($offerItem);
 
     return $offerItem;
 }
@@ -153,4 +154,12 @@ function setOfferSalePointsData(&$offerItem) {
     foreach ($offerItem['sale_points'] as $salePointItem) {
         $salePointItem['photoArray'] = getAssetArrayFormatted($salePointItem, 'photo', 3);
     }
+}
+
+function setSellerLink(&$offerItem) {
+    if(!isset($offerItem['user'])) {
+        return;
+    }
+
+    $offerItem['user']['sellerLink'] = '/sellers/' . $offerItem['user']['id'];
 }

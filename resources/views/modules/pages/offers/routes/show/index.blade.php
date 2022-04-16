@@ -33,7 +33,8 @@
                 <span>{{$offer['price']}}</span>
             </div>
             <div class="modules-pages-offers-routes-show__info-item-container">
-                <div>{{$offer['user']['name']}}</div>
+                <div>Продавец:</div>
+                <a href="{{$offer['user']['sellerLink']}}">{{$offer['user']['name']}}</a>
             </div>
             <div class="modules-pages-offers-routes-show__info-item-container">
                 <div>Где купить?</div>
@@ -50,12 +51,13 @@
                         <div>{{$offer['organization']['title']}}</div>
 
                         @if(!empty($offer['organization']['certificateArray']))
+                            <div>Сертификаты организации:</div>
                             <div class="modules-pages-offers-routes-show__slider-container">
                                 @component('components.sliders.base.slider.index')
-                                    @foreach($offer['organization']['certificateArray'] as $certificateUrl)
+                                    @foreach($offer['organization']['certificateArray'] as $certificateImg)
                                         @component('components.sliders.base.slide.index')
                                             <div class="modules-pages-offers-routes-show__slider-image-container">
-                                                <img alt="" class="modules-pages-offers-routes-show__slider-image" src="{{$certificateUrl}}">
+                                                <img alt="" class="modules-pages-offers-routes-show__slider-image" src="{{$certificateImg}}">
                                             </div>
                                         @endcomponent
                                     @endforeach
@@ -63,12 +65,13 @@
                             </div>
                         @endif
                         @if(!empty($offer['organization']['photoArray']))
+                            <div>Фото оргинизации:</div>
                             <div class="modules-pages-offers-routes-show__slider-container">
                                 @component('components.sliders.base.slider.index')
-                                    @foreach($offer['organization']['photoArray'] as $photoUrl)
+                                    @foreach($offer['organization']['photoArray'] as $photoImg)
                                         @component('components.sliders.base.slide.index')
                                             <div class="modules-pages-offers-routes-show__slider-image-container">
-                                                <img alt="" class="modules-pages-offers-routes-show__slider-image" src="{{$photoUrl}}">
+                                                <img alt="" class="modules-pages-offers-routes-show__slider-image" src="{{$photoImg}}">
                                             </div>
                                         @endcomponent
                                     @endforeach
