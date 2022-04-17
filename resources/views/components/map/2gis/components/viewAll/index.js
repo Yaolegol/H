@@ -7,6 +7,7 @@ import './index.less';
 class Map2gisComponentsViewAll {
     constructor(element) {
         this.module = element;
+        this.mapContainer = this.module.querySelector('.j-map-2gis-components-view-all__map-container');
         this.tokenCSRFInput = this.module.querySelector('input[name="_token"]');
         this.tokenCSRFValue = this.tokenCSRFInput.value;
 
@@ -110,6 +111,7 @@ class Map2gisComponentsViewAll {
     initMap = () => {
         this.instanceOfMap2gisCommonBase = new Map2gisCommonBase({
             center: [62.395570, 104.432320],
+            mapContainer: this.mapContainer,
             markerDataList: this.offerData,
             onMapClick: this.onMapClick,
             useMarkerCluster: true,

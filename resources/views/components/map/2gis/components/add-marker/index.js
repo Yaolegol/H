@@ -5,6 +5,7 @@ import './index.less';
 class Map2gisComponentsAddMarker {
     constructor(element) {
         this.module = element;
+        this.mapContainer = this.module.querySelector('.j-map-2gis-components-add-marker__map-container');
         this.latInput = this.module.querySelector('.j-map-2gis-components-add-marker__lat-input');
         this.lngInput = this.module.querySelector('.j-map-2gis-components-add-marker__lng-input');
         this.markerLat = Number(this.module.dataset.markerLat);
@@ -64,6 +65,7 @@ class Map2gisComponentsAddMarker {
     initMap = () => {
         this.mapInstance = new Map2gisCommonBase({
             center: [62.395570, 104.432320],
+            mapContainer: this.mapContainer,
             markerDataList: [],
             onMapClick: this.onMapClick,
             zoom: 2
