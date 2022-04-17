@@ -72,6 +72,7 @@ class Map2gisComponentsViewItem {
             mapContainer: this.mapContainer,
             markerDataList: [],
             onMapClick: this.onMapClick,
+            useMarkerCluster: true,
             zoom: 2
         });
     }
