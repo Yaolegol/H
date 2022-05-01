@@ -85,38 +85,6 @@
                     @endif
                 </div>
             @endisset
-            @isset($offer['sale_points'])
-                <div class="modules-pages-offers-routes-show__info-item-container">
-                    <div class="modules-pages-offers-routes-show__info-item-title">Торговые точки:</div>
-                    @foreach($offer['sale_points'] as $salePointItem)
-                        <div class="modules-pages-offers-routes-show__info-item-container">
-                            <div class="modules-pages-offers-routes-show__info-item-title">Название: </div>
-                            <div>{{$salePointItem['title']}}</div>
-
-                            <div class="modules-pages-offers-routes-show__map-container">
-                                @include('components.map.2gis.components.showMarker.index', [
-                                    'markerLat' => $salePointItem['map_marker_lat'],
-                                    'markerLng' => $salePointItem['map_marker_lng'],
-                                ])
-                            </div>
-
-                            @if(!empty($salePointItem['photoArray']))
-                                <div class="modules-pages-offers-routes-show__slider-container">
-                                    @component('components.sliders.base.slider.index')
-                                        @foreach($salePointItem['photoArray'] as $photoUrl)
-                                            @component('components.sliders.base.slide.index')
-                                                <div class="modules-pages-offers-routes-show__slider-image-container">
-                                                    <img alt="" class="modules-pages-offers-routes-show__slider-image" src="{{$photoUrl}}">
-                                                </div>
-                                            @endcomponent
-                                        @endforeach
-                                    @endcomponent
-                                </div>
-                            @endif
-                        </div>
-                    @endforeach
-                </div>
-            @endisset
         </div>
     </div>
 </div>
