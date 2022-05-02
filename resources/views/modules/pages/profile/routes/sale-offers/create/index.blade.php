@@ -133,6 +133,14 @@
                 ])
             @endcomponent
 
+            @component('modules.pages.profile.common.components.container.form-field.index', [
+                'title' => 'Примечание к цене:'
+            ])
+                @include('components.inputs.textarea.base.index', [
+                    'name' => 'price_description',
+                ])
+            @endcomponent
+
             @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Организация:'])
                 @include('components.inputs.radio.group-first-level.index', [
                                     'groupName' => 'radio-group__organization',

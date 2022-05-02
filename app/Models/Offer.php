@@ -24,6 +24,7 @@ class Offer extends Model
         'photo_1',
         'photo_2',
         'photo_3',
+        'price_description',
         'map_marker_lat',
         'map_marker_lng',
         'is_active',

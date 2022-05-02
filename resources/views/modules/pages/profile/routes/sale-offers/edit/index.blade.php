@@ -136,6 +136,15 @@
                 ])
             @endcomponent
 
+            @component('modules.pages.profile.common.components.container.form-field.index', [
+                'title' => 'Примечание к цене:'
+            ])
+                @include('components.inputs.textarea.base.index', [
+                    'name' => 'price_description',
+                    'value' => $saleOfferItemData['price_description'],
+                ])
+            @endcomponent
+
             @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Организация:'])
                 @foreach($organizationsList as $organizationItem)
                     @include('components.inputs.radio.item.index', [

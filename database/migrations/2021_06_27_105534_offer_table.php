@@ -20,6 +20,7 @@ class OfferTable extends Migration
             $table->string('address');
             $table->string('phone');
             $table->double('price');
+            $table->text('price_description')->nullable();
             $table->string('photo_1')->nullable();
             $table->string('photo_2')->nullable();
             $table->string('photo_3')->nullable();

@@ -712,6 +712,16 @@
 }
 
 
+.components-inputs-textarea-base__textarea {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  height: 100px;
+  outline: none;
+  padding: 10px;
+  resize: none;
+  width: 100%;
+}
+
 .components-map-2gis-common-base__marker-popup {
   width: 100px;
 }
