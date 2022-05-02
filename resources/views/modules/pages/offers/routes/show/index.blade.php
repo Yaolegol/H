@@ -31,6 +31,13 @@
                 <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['price']}}</div>
             </div>
             <div class="modules-pages-offers-routes-show__info-item-container">
+                <div class="modules-pages-offers-routes-show__info-item-title">Телефон:</div>
+                <a
+                    class="modules-pages-offers-routes-show__info-item-description"
+                    href="tel:{{$offer['phone']}}"
+                >{{$offer['phone']}}</a>
+            </div>
+            <div class="modules-pages-offers-routes-show__info-item-container">
                 <div class="modules-pages-offers-routes-show__info-item-title">Где купить?</div>
                 <div class="modules-pages-offers-routes-show__map-container">
                     @include('components.map.2gis.components.viewItem.index', [
@@ -38,52 +45,55 @@
                     ])
                 </div>
             </div>
-            <div class="modules-pages-offers-routes-show__info-item-container">
-                <div class="modules-pages-offers-routes-show__info-item-title">Продавец:</div>
-                <a
-                    class="modules-pages-offers-routes-show__info-item-description"
-                    href="{{$offer['user']['sellerLink']}}"
-                >{{$offer['user']['name']}}</a>
-            </div>
-            @isset($offer['organization'])
+            <div class="modules-pages-offers-routes-show__additional-info-block">
+                <h4>Дополнительная информация</h4>
                 <div class="modules-pages-offers-routes-show__info-item-container">
-                    <div class="modules-pages-offers-routes-show__info-item-title">Организация:</div>
-                    <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['organization']['title']}}</div>
-
-                    @if(!empty($offer['organization']['certificateArray']))
-                        <div class="modules-pages-offers-routes-show__info-item-container">
-                            <div class="modules-pages-offers-routes-show__info-item-title">Сертификаты организации:</div>
-                            <div class="modules-pages-offers-routes-show__slider-container">
-                                @component('components.sliders.base.slider.index')
-                                    @foreach($offer['organization']['certificateArray'] as $certificateImg)
-                                        @component('components.sliders.base.slide.index')
-                                            <div class="modules-pages-offers-routes-show__slider-image-container">
-                                                <img alt="" class="modules-pages-offers-routes-show__slider-image" src="{{$certificateImg}}">
-                                            </div>
-                                        @endcomponent
-                                    @endforeach
-                                @endcomponent
-                            </div>
-                        </div>
-                    @endif
-                    @if(!empty($offer['organization']['photoArray']))
-                        <div class="modules-pages-offers-routes-show__info-item-container">
-                            <div class="modules-pages-offers-routes-show__info-item-title">Фото оргинизации:</div>
-                            <div class="modules-pages-offers-routes-show__slider-container">
-                                @component('components.sliders.base.slider.index')
-                                    @foreach($offer['organization']['photoArray'] as $photoImg)
-                                        @component('components.sliders.base.slide.index')
-                                            <div class="modules-pages-offers-routes-show__slider-image-container">
-                                                <img alt="" class="modules-pages-offers-routes-show__slider-image" src="{{$photoImg}}">
-                                            </div>
-                                        @endcomponent
-                                    @endforeach
-                                @endcomponent
-                            </div>
-                        </div>
-                    @endif
+                    <div class="modules-pages-offers-routes-show__info-item-title">Продавец:</div>
+                    <a
+                        class="modules-pages-offers-routes-show__info-item-description"
+                        href="{{$offer['user']['sellerLink']}}"
+                    >{{$offer['user']['name']}}</a>
                 </div>
-            @endisset
+                @isset($offer['organization'])
+                    <div class="modules-pages-offers-routes-show__info-item-container">
+                        <div class="modules-pages-offers-routes-show__info-item-title">Организация:</div>
+                        <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['organization']['title']}}</div>
+
+                        @if(!empty($offer['organization']['certificateArray']))
+                            <div class="modules-pages-offers-routes-show__info-item-container">
+                                <div class="modules-pages-offers-routes-show__info-item-title">Сертификаты организации:</div>
+                                <div class="modules-pages-offers-routes-show__slider-container">
+                                    @component('components.sliders.base.slider.index')
+                                        @foreach($offer['organization']['certificateArray'] as $certificateImg)
+                                            @component('components.sliders.base.slide.index')
+                                                <div class="modules-pages-offers-routes-show__slider-image-container">
+                                                    <img alt="" class="modules-pages-offers-routes-show__slider-image" src="{{$certificateImg}}">
+                                                </div>
+                                            @endcomponent
+                                        @endforeach
+                                    @endcomponent
+                                </div>
+                            </div>
+                        @endif
+                        @if(!empty($offer['organization']['photoArray']))
+                            <div class="modules-pages-offers-routes-show__info-item-container">
+                                <div class="modules-pages-offers-routes-show__info-item-title">Фото оргинизации:</div>
+                                <div class="modules-pages-offers-routes-show__slider-container">
+                                    @component('components.sliders.base.slider.index')
+                                        @foreach($offer['organization']['photoArray'] as $photoImg)
+                                            @component('components.sliders.base.slide.index')
+                                                <div class="modules-pages-offers-routes-show__slider-image-container">
+                                                    <img alt="" class="modules-pages-offers-routes-show__slider-image" src="{{$photoImg}}">
+                                                </div>
+                                            @endcomponent
+                                        @endforeach
+                                    @endcomponent
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                @endisset
+            </div>
         </div>
     </div>
 </div>

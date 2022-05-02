@@ -701,6 +701,9 @@
 .modules-pages-offers-routes-show {
   text-align: center;
 }
+.modules-pages-offers-routes-show__additional-info-block {
+  margin-top: 25px;
+}
 .modules-pages-offers-routes-show__content-area {
   margin: 50px auto 0;
   max-width: 800px;
@@ -721,6 +724,7 @@
   margin-top: 15px;
 }
 .modules-pages-offers-routes-show__info-item-description {
+  display: block;
   margin-top: 5px;
 }
 .modules-pages-offers-routes-show__info-item-title {
