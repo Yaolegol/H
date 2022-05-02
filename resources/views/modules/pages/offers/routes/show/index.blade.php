@@ -31,6 +31,14 @@
                 <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['price']}}</div>
             </div>
             <div class="modules-pages-offers-routes-show__info-item-container">
+                <div class="modules-pages-offers-routes-show__info-item-title">Цена за:</div>
+                <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['measure_id']}}</div>
+            </div>
+            <div class="modules-pages-offers-routes-show__info-item-container">
+                <div class="modules-pages-offers-routes-show__info-item-title">Комментарий к цене:</div>
+                <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['price_description']}}</div>
+            </div>
+            <div class="modules-pages-offers-routes-show__info-item-container">
                 <div class="modules-pages-offers-routes-show__info-item-title">Телефон:</div>
                 <a
                     class="modules-pages-offers-routes-show__info-item-description"
