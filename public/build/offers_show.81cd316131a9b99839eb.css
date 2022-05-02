@@ -720,6 +720,12 @@
   right: 0;
   top: -15px;
 }
+.modules-pages-offers-routes-show__info-block {
+  margin-top: 25px;
+}
+.modules-pages-offers-routes-show__info-block-content {
+  margin-top: 15px;
+}
 .modules-pages-offers-routes-show__info-item-container {
   margin-top: 15px;
 }
