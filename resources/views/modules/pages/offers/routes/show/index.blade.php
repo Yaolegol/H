@@ -24,15 +24,11 @@
         <div class="modules-pages-offers-routes-show__info-section">
             <div class="modules-pages-offers-routes-show__info-item-container">
                 <div class="modules-pages-offers-routes-show__info-item-title">Описание:</div>
-                <div>{{$offer['description']}}</div>
+                <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['description']}}</div>
             </div>
             <div class="modules-pages-offers-routes-show__info-item-container">
                 <div class="modules-pages-offers-routes-show__info-item-title">Цена:</div>
-                <div>{{$offer['price']}}</div>
-            </div>
-            <div class="modules-pages-offers-routes-show__info-item-container">
-                <div class="modules-pages-offers-routes-show__info-item-title">Адрес:</div>
-                <div>{{$offer['address']}}</div>
+                <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['price']}}</div>
             </div>
             <div class="modules-pages-offers-routes-show__info-item-container">
                 <div class="modules-pages-offers-routes-show__info-item-title">Где купить?</div>
@@ -44,12 +40,15 @@
             </div>
             <div class="modules-pages-offers-routes-show__info-item-container">
                 <div class="modules-pages-offers-routes-show__info-item-title">Продавец:</div>
-                <a href="{{$offer['user']['sellerLink']}}">{{$offer['user']['name']}}</a>
+                <a
+                    class="modules-pages-offers-routes-show__info-item-description"
+                    href="{{$offer['user']['sellerLink']}}"
+                >{{$offer['user']['name']}}</a>
             </div>
             @isset($offer['organization'])
                 <div class="modules-pages-offers-routes-show__info-item-container">
                     <div class="modules-pages-offers-routes-show__info-item-title">Организация:</div>
-                    <div>{{$offer['organization']['title']}}</div>
+                    <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['organization']['title']}}</div>
 
                     @if(!empty($offer['organization']['certificateArray']))
                         <div class="modules-pages-offers-routes-show__info-item-container">
