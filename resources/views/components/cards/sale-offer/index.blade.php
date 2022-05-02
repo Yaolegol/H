@@ -38,21 +38,11 @@
     <div class="components-cards-sale-offer__item-container">
         <div class="components-cards-sale-offer__title">Фото</div>
         <div class="components-cards-sale-offer__image-list-container">
-            @if($saleOffer['photo_1'])
+            @foreach($saleOffer['photoArray'] as $photoImg)
                 <div class="components-cards-sale-offer__image-item-container">
-                    <img alt="" class="components-cards-sale-offer__image" src="{{$saleOffer['photo_1']}}">
+                    <img alt="" class="components-cards-sale-offer__image" src="{{$photoImg}}">
                 </div>
-            @endif
-            @if($saleOffer['photo_2'])
-                <div class="components-cards-sale-offer__image-item-container">
-                    <img alt="" class="components-cards-sale-offer__image" src="{{$saleOffer['photo_2']}}">
-                </div>
-            @endif
-            @if($saleOffer['photo_3'])
-                <div class="components-cards-sale-offer__image-item-container">
-                    <img alt="" class="components-cards-sale-offer__image" src="{{$saleOffer['photo_3']}}">
-                </div>
-            @endif
+            @endforeach
         </div>
     </div>
     <div class="components-cards-sale-offer__item-container components-cards-sale-offer__item-container_service">

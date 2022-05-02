@@ -82,7 +82,7 @@
             @component('modules.pages.profile.common.components.container.section.index', ['title' => 'Фотографии торговой точки'])
                 @component('modules.pages.profile.common.components.container.file-field.index')
                     @include('components.inputs.file.item.index', [
-                                        'imageSrc' => $salePointItemData['photo_1'],
+                                        'imageSrc' => $salePointItemData['photoArray'][0] ?? '',
                                         'name' => 'photo_1',
                                         'title' => 'Добавить фото №1',
                                         'withPreviewFile' => true,
@@ -94,7 +94,7 @@
 
                 @component('modules.pages.profile.common.components.container.file-field.index')
                     @include('components.inputs.file.item.index', [
-                                        'imageSrc' => $salePointItemData['photo_2'],
+                                        'imageSrc' => $salePointItemData['photoArray'][1] ?? '',
                                         'name' => 'photo_2',
                                         'title' => 'Добавить фото №2',
                                         'withPreviewFile' => true,
@@ -106,7 +106,7 @@
 
                 @component('modules.pages.profile.common.components.container.file-field.index')
                     @include('components.inputs.file.item.index', [
-                                        'imageSrc' => $salePointItemData['photo_3'],
+                                        'imageSrc' => $salePointItemData['photoArray'][2] ?? '',
                                         'name' => 'photo_3',
                                         'title' => 'Добавить фото №3',
                                         'withPreviewFile' => true,

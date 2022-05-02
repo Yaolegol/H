@@ -26,51 +26,21 @@
     <div class="components-cards-organization__item-container">
         <div class="components-cards-organization__title">Сертификаты</div>
         <div class="components-cards-organization__image-list-container">
-            @if($organization['certificate_1'])
+            @foreach($organization['certificateArray'] as $photoImg)
                 <div class="components-cards-organization__image-item-container">
-                    <img alt="" class="components-cards-organization__image" src="{{$organization['certificate_1']}}">
+                    <img alt="" class="components-cards-organization__image" src="{{$photoImg}}">
                 </div>
-            @endif
-            @if($organization['certificate_2'])
-                <div class="components-cards-organization__image-item-container">
-                    <img alt="" class="components-cards-organization__image" src="{{$organization['certificate_2']}}">
-                </div>
-            @endif
-            @if($organization['certificate_3'])
-                <div class="components-cards-organization__image-item-container">
-                    <img alt="" class="components-cards-organization__image" src="{{$organization['certificate_3']}}">
-                </div>
-            @endif
-            @if($organization['certificate_4'])
-                <div class="components-cards-organization__image-item-container">
-                    <img alt="" class="components-cards-organization__image" src="{{$organization['certificate_4']}}">
-                </div>
-            @endif
-            @if($organization['certificate_5'])
-                <div class="components-cards-organization__image-item-container">
-                    <img alt="" class="components-cards-organization__image" src="{{$organization['certificate_5']}}">
-                </div>
-            @endif
+            @endforeach
         </div>
     </div>
     <div class="components-cards-organization__item-container">
         <div class="components-cards-organization__title">Фото</div>
         <div class="components-cards-organization__image-list-container">
-            @if($organization['photo_1'])
+            @foreach($organization['photoArray'] as $photoImg)
                 <div class="components-cards-organization__image-item-container">
-                    <img alt="" class="components-cards-organization__image" src="{{$organization['photo_1']}}">
+                    <img alt="" class="components-cards-organization__image" src="{{$photoImg}}">
                 </div>
-            @endif
-            @if($organization['photo_2'])
-                <div class="components-cards-organization__image-item-container">
-                    <img alt="" class="components-cards-organization__image" src="{{$organization['photo_2']}}">
-                </div>
-            @endif
-            @if($organization['photo_3'])
-                <div class="components-cards-organization__image-item-container">
-                    <img alt="" class="components-cards-organization__image" src="{{$organization['photo_3']}}">
-                </div>
-            @endif
+            @endforeach
         </div>
     </div>
     <div class="components-cards-organization__item-container components-cards-organization__item-container_service">

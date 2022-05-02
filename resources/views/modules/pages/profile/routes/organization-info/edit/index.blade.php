@@ -87,7 +87,7 @@
             @component('modules.pages.profile.common.components.container.section.index', ['title' => 'Свидетельтва, выданные организации'])
                 @component('modules.pages.profile.common.components.container.file-field.index')
                     @include('components.inputs.file.item.index', [
-                                        'imageSrc' => $organizationItemData['certificate_1'],
+                                        'imageSrc' => $organizationItemData['certificateArray'][0] ?? '',
                                         'name' => 'certificate_1',
                                         'title' => 'Добавить свидетельство №1',
                                         'withPreviewFile' => true,
@@ -99,7 +99,7 @@
 
                 @component('modules.pages.profile.common.components.container.file-field.index')
                     @include('components.inputs.file.item.index', [
-                                        'imageSrc' => $organizationItemData['certificate_2'],
+                                        'imageSrc' => $organizationItemData['certificateArray'][1] ?? '',
                                         'name' => 'certificate_2',
                                         'title' => 'Добавить свидетельство №2',
                                         'withPreviewFile' => true,
@@ -111,7 +111,7 @@
 
                 @component('modules.pages.profile.common.components.container.file-field.index')
                     @include('components.inputs.file.item.index', [
-                                        'imageSrc' => $organizationItemData['certificate_3'],
+                                        'imageSrc' => $organizationItemData['certificateArray'][2] ?? '',
                                         'name' => 'certificate_3',
                                         'title' => 'Добавить свидетельство №3',
                                         'withPreviewFile' => true,
@@ -123,7 +123,7 @@
 
                 @component('modules.pages.profile.common.components.container.file-field.index')
                     @include('components.inputs.file.item.index', [
-                                        'imageSrc' => $organizationItemData['certificate_4'],
+                                        'imageSrc' => $organizationItemData['certificateArray'][3] ?? '',
                                         'name' => 'certificate_4',
                                         'title' => 'Добавить свидетельство №4',
                                         'withPreviewFile' => true,
@@ -135,7 +135,7 @@
 
                 @component('modules.pages.profile.common.components.container.file-field.index')
                     @include('components.inputs.file.item.index', [
-                                        'imageSrc' => $organizationItemData['certificate_5'],
+                                        'imageSrc' => $organizationItemData['certificateArray'][4] ?? '',
                                         'name' => 'certificate_5',
                                         'title' => 'Добавить свидетельство №5',
                                         'withPreviewFile' => true,
@@ -149,7 +149,7 @@
             @component('modules.pages.profile.common.components.container.section.index', ['title' => 'Фотографии организации'])
                 @component('modules.pages.profile.common.components.container.file-field.index')
                     @include('components.inputs.file.item.index', [
-                                        'imageSrc' => $organizationItemData['photo_1'],
+                                        'imageSrc' => $organizationItemData['photoArray'][0] ?? '',
                                         'name' => 'photo_1',
                                         'title' => 'Добавить фото №1',
                                         'withPreviewFile' => true,
@@ -161,7 +161,7 @@
 
                 @component('modules.pages.profile.common.components.container.file-field.index')
                     @include('components.inputs.file.item.index', [
-                                        'imageSrc' => $organizationItemData['photo_2'],
+                                        'imageSrc' => $organizationItemData['photoArray'][1] ?? '',
                                         'name' => 'photo_2',
                                         'title' => 'Добавить фото №2',
                                         'withPreviewFile' => true,
@@ -173,7 +173,7 @@
 
                 @component('modules.pages.profile.common.components.container.file-field.index')
                     @include('components.inputs.file.item.index', [
-                                        'imageSrc' => $organizationItemData['photo_3'],
+                                        'imageSrc' => $organizationItemData['photoArray'][2] ?? '',
                                         'name' => 'photo_3',
                                         'title' => 'Добавить фото №3',
                                         'withPreviewFile' => true,

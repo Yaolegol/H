@@ -22,21 +22,11 @@
     <div class="components-cards-sale-point__item-container">
         <div class="components-cards-sale-point__title">Фото</div>
         <div class="components-cards-sale-point__image-list-container">
-            @if($salePoint['photo_1'])
+            @foreach($salePoint['photoArray'] as $photoImg)
                 <div class="components-cards-sale-point__image-item-container">
-                    <img alt="" class="components-cards-sale-point__image" src="{{$salePoint['photo_1']}}">
+                    <img alt="" class="components-cards-sale-point__image" src="{{$photoImg}}">
                 </div>
-            @endif
-            @if($salePoint['photo_2'])
-                <div class="components-cards-sale-point__image-item-container">
-                    <img alt="" class="components-cards-sale-point__image" src="{{$salePoint['photo_2']}}">
-                </div>
-            @endif
-            @if($salePoint['photo_3'])
-                <div class="components-cards-sale-point__image-item-container">
-                    <img alt="" class="components-cards-sale-point__image" src="{{$salePoint['photo_3']}}">
-                </div>
-            @endif
+            @endforeach
         </div>
     </div>
     <div class="components-cards-sale-point__item-container components-cards-sale-point__item-container_service">
