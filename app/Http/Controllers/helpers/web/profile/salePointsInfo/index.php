@@ -175,7 +175,7 @@ function tryUpdateSalePointDataInDB($request, $salePointId) {
 
         $newSalePointData = array_merge(
             $data,
-            ...$updatedPhotoList,
+            $updatedPhotoList,
         );
 
         DB_updateSalePointData($user_id, $salePointId, $newSalePointData);

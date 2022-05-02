@@ -256,7 +256,7 @@ function tryUpdateSaleOfferInDB($request, $saleOfferId)
 
     $newSaleOfferData = array_merge(
         $data,
-        ...$updatedPhotoList,
+        $updatedPhotoList,
     );
 
     $currentOffer = DB_updateSaleOfferData($authUserId, $saleOfferId, $newSaleOfferData);
