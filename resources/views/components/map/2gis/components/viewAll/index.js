@@ -17,7 +17,6 @@ class Map2gisComponentsViewAll {
             return;
         }
 
-
         this.init();
         this.bind();
     }
@@ -27,13 +26,9 @@ class Map2gisComponentsViewAll {
     }
 
     fetchData = async () => {
-        console.log('fetchData {{{')
         try {
             const cookieData = getCookieData();
             const {catalogLevelTwoId} = getQueryData();
-
-            console.log('cookieData')
-            console.log(cookieData)
 
             const bodyData = {
                 filter: {
@@ -62,8 +57,6 @@ class Map2gisComponentsViewAll {
 
             const data = await result.json();
 
-            console.log('}}} fetchData')
-
             return data;
         } catch(err) {
             console.error(err);
@@ -72,13 +65,6 @@ class Map2gisComponentsViewAll {
 
     handleUpdateMapFilter = async (e) => {
         const {data, errors} = await this.fetchData();
-
-        console.log('handleUpdateMapFilter {{{')
-        console.log('data')
-        console.log(data)
-        console.log('errors')
-        console.log(errors)
-        console.log('}}} handleUpdateMapFilter')
 
         if(!errors) {
             this.offerData = data;
@@ -94,13 +80,6 @@ class Map2gisComponentsViewAll {
     init = async () => {
         const {data, errors} = await this.fetchData();
 
-        console.log('init {{{')
-        console.log('data')
-        console.log(data)
-        console.log('errors')
-        console.log(errors)
-        console.log('}}} init')
-
         if(!errors) {
             this.offerData = data;
 
@@ -113,7 +92,6 @@ class Map2gisComponentsViewAll {
             center: [62.395570, 104.432320],
             mapContainer: this.mapContainer,
             markerDataList: this.offerData,
-            onMapClick: this.onMapClick,
             useMarkerCluster: true,
             zoom: 3,
         });

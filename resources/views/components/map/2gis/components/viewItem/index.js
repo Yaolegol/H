@@ -1,4 +1,3 @@
-import {addEventListener} from "helpers/events";
 import {Map2gisCommonBase} from 'views/components/map/2gis/common/base';
 import './index.less';
 
@@ -9,35 +8,6 @@ class Map2gisComponentsViewItem {
         this.offerId = Number(this.module.dataset.offerId);
 
         this.init();
-    }
-
-    addMarker = (lat, lng, {address, phone}) => {
-        const marker = this.mapInstance.addMarker({
-            lat,
-            lng,
-        });
-
-        marker.bindPopup(`
-            <div class="components-map-2gis-components-view-item__marker-popup">
-                <div>Адресс</div>
-                <div>${address}</div>
-                <div>Телефон</div>
-                <div>${phone}</div>
-            </div>
-        `);
-    }
-
-    addMarkers = () => {
-        this.offerData.markersList.forEach((makerData) => {
-            const {data, markerCoords} = makerData;
-            const {lat, lng} = markerCoords;
-            const {address, phone} = data;
-
-            this.addMarker(lat, lng, {
-                address,
-                phone
-            });
-        });
     }
 
     fetchData = async () => {
@@ -54,7 +24,8 @@ class Map2gisComponentsViewItem {
 
             if(!errors) {
                 this.offerData = data;
-                this.addMarkers();
+
+                this.initMap();
             }
         } catch(err) {
             console.error(err);
@@ -62,7 +33,6 @@ class Map2gisComponentsViewItem {
     }
 
     init = () => {
-        this.initMap();
         this.fetchData();
     }
 
@@ -70,8 +40,7 @@ class Map2gisComponentsViewItem {
         this.mapInstance = new Map2gisCommonBase({
             center: [62.395570, 104.432320],
             mapContainer: this.mapContainer,
-            markerDataList: [],
-            onMapClick: this.onMapClick,
+            markerDataList: [this.offerData],
             useMarkerCluster: true,
             zoom: 2
         });
