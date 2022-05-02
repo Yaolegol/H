@@ -47,6 +47,7 @@ function formatOffer($offerItem) {
     setOfferOrganizationData($offerItem);
     setOfferSalePointsData($offerItem);
     setOfferCatalogLinks($offerItem);
+    setOfferMeasure($offerItem);
     setSellerLink($offerItem);
 
     return $offerItem;
@@ -129,6 +130,10 @@ function setOfferCatalogLinks(&$offerItem) {
 
 function setOfferLink(&$offerItem) {
     $offerItem['offerLink'] = getOfferLink($offerItem['id']);
+}
+
+function setOfferMeasure(&$offerItem) {
+    $offerItem['measure'] = getMeasureById($offerItem['id']);
 }
 
 function setOfferOrganizationData(&$offerItem) {

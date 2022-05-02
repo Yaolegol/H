@@ -28,11 +28,12 @@
             </div>
             <div class="modules-pages-offers-routes-show__info-item-container">
                 <div class="modules-pages-offers-routes-show__info-item-title">Цена:</div>
-                <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['price']}}</div>
-            </div>
-            <div class="modules-pages-offers-routes-show__info-item-container">
-                <div class="modules-pages-offers-routes-show__info-item-title">Цена за:</div>
-                <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['measure_id']}}</div>
+                <div class="modules-pages-offers-routes-show__info-item-description">
+                    <div>{{$offer['price']}}</div>
+                    @if($offer['measure_id'] !== 4)
+                        <div>(за {{$offer['measure']}})</div>
+                    @endif
+                </div>
             </div>
             <div class="modules-pages-offers-routes-show__info-item-container">
                 <div class="modules-pages-offers-routes-show__info-item-title">Комментарий к цене:</div>

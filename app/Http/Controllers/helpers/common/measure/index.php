@@ -20,6 +20,16 @@ function formatMeasures($measuresList, $activeId) {
     }, $measuresList);
 }
 
+function getMeasureById($id) {
+    $measuresList = DB_getMeasures();
+
+    $key = array_search(function($measure) use($id) {
+        return $measure['id'] === (int)$id;
+    }, $measuresList);
+
+    return $measuresList[$key]['title'];
+}
+
 function getMeasures($activeId = null) {
     $measuresList = DB_getMeasures();
 
