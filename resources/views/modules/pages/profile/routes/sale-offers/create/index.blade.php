@@ -109,7 +109,9 @@
                 ])
             @endcomponent
 
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Цена:'])
+            @component('modules.pages.profile.common.components.container.form-field.index', [
+                'title' => 'Цена:'
+            ])
                 @include('components.inputs.form.index', [
                                 'name' => 'price',
                                 'placeholder' => 'Price',
@@ -118,6 +120,16 @@
                             ])
                 @include('components.form.error.index', [
                     'message' => $errors->first('price'),
+                ])
+            @endcomponent
+
+            @component('modules.pages.profile.common.components.container.form-field.index', [
+                'title' => 'Цена за:'
+            ])
+                @include('components.inputs.radio.group-first-level.index', [
+                    'groupName' => 'radio-group__price-measure',
+                    'itemsList' => $measureList,
+                    'inputName' => 'measure_id',
                 ])
             @endcomponent
 

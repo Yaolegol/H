@@ -126,6 +126,16 @@
                 ])
             @endcomponent
 
+            @component('modules.pages.profile.common.components.container.form-field.index', [
+                'title' => 'Цена за:'
+            ])
+                @include('components.inputs.radio.group-first-level.index', [
+                    'groupName' => 'radio-group__price-measure',
+                    'itemsList' => $measureList,
+                    'inputName' => 'measure_id',
+                ])
+            @endcomponent
+
             @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Организация:'])
                 @foreach($organizationsList as $organizationItem)
                     @include('components.inputs.radio.item.index', [

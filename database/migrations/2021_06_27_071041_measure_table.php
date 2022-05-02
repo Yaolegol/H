@@ -27,6 +27,6 @@ class MeasureTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('measure');
     }
 }

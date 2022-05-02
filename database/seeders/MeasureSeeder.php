@@ -14,6 +14,12 @@ class MeasureSeeder extends Seeder
         [
             'title' => 'литр'
         ],
+        [
+            'title' => 'штука'
+        ],
+        [
+            'title' => 'другое'
+        ],
     ];
 
     /**
