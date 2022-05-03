@@ -10,7 +10,7 @@
                 {{$slot}}
 
                 <div class="modules-pages-auth-common-components-layout__send-button-container">
-                    <button class="modules-pages-auth-common-components-layout__send-button">Отправить</button>
+                    <button class="button">Отправить</button>
                 </div>
                 @include('components.form.error.index', [
                     'message' => session('commonError'),

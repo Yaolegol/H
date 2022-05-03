@@ -737,6 +737,20 @@
   }
 }
 
+.button {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  padding: 20px;
+  text-align: center;
+}
+.button:hover {
+  background-color: #4CBB17;
+  border-color: #4CBB17;
+  color: #FFFFFF;
+}
 @font-face {
   font-family: 'Lato';
   font-weight: 400;

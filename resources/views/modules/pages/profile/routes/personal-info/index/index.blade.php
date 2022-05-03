@@ -84,7 +84,7 @@
                             </div>
                         </div>
                         <div class="modules-pages-profile-routes-personal-info-index__send-button-container">
-                            <button class="modules-pages-profile-routes-personal-info-index__send-button">Сохранить</button>
+                            <button class="button">Сохранить</button>
                         </div>
                         @include('components.form.error.index', [
                             'message' => session('commonError'),
@@ -132,7 +132,7 @@
                                 </div>
                             </div>
                             <div class="modules-pages-profile-routes-personal-info-index__send-button-container">
-                                <button class="modules-pages-profile-routes-personal-info-index__send-button">Сохранить</button>
+                                <button class="button">Сохранить</button>
                             </div>
                             @include('components.form.error.index', [
                                 'message' => session('commonChangeEmailError'),
@@ -188,7 +188,7 @@
                                 </div>
                             </div>
                             <div class="modules-pages-profile-routes-personal-info-index__send-button-container">
-                                <button class="modules-pages-profile-routes-personal-info-index__send-button">Сохранить</button>
+                                <button class="button">Сохранить</button>
                             </div>
                             @include('components.form.error.index', [
                                 'message' => session('commonChangePasswordError'),
