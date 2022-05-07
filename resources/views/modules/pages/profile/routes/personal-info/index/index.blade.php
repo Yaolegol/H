@@ -124,7 +124,7 @@
                                 <div class="modules-pages-profile-routes-personal-info-index__input-container">
                                     @include('components.inputs.form.index', [
                                     'name' => 'password',
-                                    'placeholder' => 'Current password',
+                                    'placeholder' => 'Текущий пароль',
                                     'type' => 'password'
                                 ])
                                     @include('components.form.error.index', [
@@ -154,7 +154,7 @@
                                 <div class="modules-pages-profile-routes-personal-info-index__input-container">
                                     @include('components.inputs.form.index', [
                                     'name' => 'current_password',
-                                    'placeholder' => 'Current password',
+                                    'placeholder' => 'Текущий пароль',
                                     'type' => 'password'
                                 ])
                                     @include('components.form.error.index', [
@@ -167,7 +167,7 @@
                                 <div class="modules-pages-profile-routes-personal-info-index__input-container">
                                     @include('components.inputs.form.index', [
                                     'name' => 'password',
-                                    'placeholder' => 'New password',
+                                    'placeholder' => 'Новый пароль',
                                     'type' => 'password'
                                 ])
                                     @include('components.form.error.index', [
@@ -180,7 +180,7 @@
                                 <div class="modules-pages-profile-routes-personal-info-index__input-container">
                                     @include('components.inputs.form.index', [
                                     'name' => 'password_confirmation',
-                                    'placeholder' => 'Confirm new password',
+                                    'placeholder' => 'Подтверждение нового пароля',
                                     'type' => 'password'
                                 ])
                                     @include('components.form.error.index', [

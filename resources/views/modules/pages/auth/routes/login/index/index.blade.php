@@ -16,7 +16,7 @@
     @component('modules.pages.auth.common.components.formItemContainer.index')
         @include('components.inputs.form.index', [
                 'name' => 'password',
-                'placeholder' => 'Password',
+                'placeholder' => 'Пароль',
                 'type' => 'password'
             ])
         @include('components.form.error.index', [

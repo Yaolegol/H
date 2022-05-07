@@ -49,7 +49,7 @@
             @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Заголовок:'])
                 @include('components.inputs.form.index', [
                                 'name' => 'title',
-                                'placeholder' => 'Title',
+                                'placeholder' => 'Название товара',
                                 'type' => 'text',
                                 'value' => $saleOfferItemData['title'],
                             ])
@@ -61,7 +61,7 @@
             @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Описание:'])
                 @include('components.inputs.form.index', [
                                 'name' => 'description',
-                                'placeholder' => 'Description',
+                                'placeholder' => 'Описание товара',
                                 'type' => 'text',
                                 'value' => $saleOfferItemData['description'],
                             ])
@@ -73,7 +73,7 @@
             @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Адрес (где можно купить Вашу продукцию):'])
                 @include('components.inputs.form.index', [
                                 'name' => 'address',
-                                'placeholder' => 'Address',
+                                'placeholder' => 'Адрес',
                                 'type' => 'text',
                                 'value' => $saleOfferItemData['address'],
                             ])
@@ -105,7 +105,7 @@
             @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Телефон:'])
                 @include('components.inputs.form.index', [
                                 'name' => 'phone',
-                                'placeholder' => 'Organization-phone',
+                                'placeholder' => 'Телефон',
                                 'type' => 'tel',
                                 'value' => $saleOfferItemData['phone'],
                             ])
@@ -117,7 +117,7 @@
             @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Цена:'])
                 @include('components.inputs.form.index', [
                                 'name' => 'price',
-                                'placeholder' => 'Price',
+                                'placeholder' => 'Цена',
                                 'type' => 'number',
                                 'value' => $saleOfferItemData['price'],
                             ])

@@ -2,5 +2,6 @@
     <textarea
         class="components-inputs-textarea-base__textarea"
         name="{{$name}}"
+        placeholder="{{$placeholder ?? ''}}"
     >{{$value ?? ''}}</textarea>
 </div>
