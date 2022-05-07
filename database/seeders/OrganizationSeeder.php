@@ -16,6 +16,7 @@ class OrganizationSeeder extends Seeder
             'legal_address' => 'Organization 1 legal address',
             'phone' => '+71111111111',
             'photo_1' => 'public/users/1/organization/1/photo/1.jpg',
+            'photo_2' => 'public/users/1/organization/1/photo/2.jpg',
             'real_address' => 'Organization 1 real address',
             'title' => 'Organization 1 title',
             'user_id' => '1',
