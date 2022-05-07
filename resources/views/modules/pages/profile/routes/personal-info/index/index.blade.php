@@ -22,7 +22,7 @@
                         <div class="modules-pages-profile-routes-personal-info-index__input-container">
                             @include('components.inputs.form.index', [
                                         'name' => 'name',
-                                        'placeholder' => 'Name',
+                                        'placeholder' => 'Имя',
                                         'type' => 'text',
                                         'value' => $userData['name']
                                     ])
@@ -46,7 +46,7 @@
                         <div class="modules-pages-profile-routes-personal-info-index__input-container">
                             @include('components.inputs.form.index', [
                                         'name' => 'phone',
-                                        'placeholder' => 'Phone',
+                                        'placeholder' => 'Телефон',
                                         'type' => 'tel',
                                         'value' => $userData['phone']
                                     ])

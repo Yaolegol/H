@@ -14,7 +14,7 @@
             @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Наименование:'])
                 @include('components.inputs.form.index', [
                                 'name' => 'title',
-                                'placeholder' => 'Organization name',
+                                'placeholder' => 'Наименование организации',
                                 'type' => 'text',
                             ])
                 @include('components.form.error.index', [
@@ -25,7 +25,7 @@
             @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'ИНН:'])
                 @include('components.inputs.form.index', [
                             'name' => 'inn',
-                            'placeholder' => 'Inn',
+                            'placeholder' => 'ИНН',
                             'type' => 'number',
                         ])
                 @include('components.form.error.index', [
@@ -36,7 +36,7 @@
             @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Юридический адрес:'])
                 @include('components.inputs.form.index', [
                             'name' => 'legal_address',
-                            'placeholder' => 'Legal address',
+                            'placeholder' => 'Юридический адрес',
                             'type' => 'text',
                         ])
                 @include('components.form.error.index', [
@@ -47,7 +47,7 @@
             @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Фактический адрес:'])
                 @include('components.inputs.form.index', [
                             'name' => 'real_address',
-                            'placeholder' => 'Real address',
+                            'placeholder' => 'Фактический адрес',
                             'type' => 'text',
                         ])
                 @include('components.form.error.index', [
@@ -58,7 +58,7 @@
             @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Email:'])
                 @include('components.inputs.form.index', [
                             'name' => 'email',
-                            'placeholder' => 'Organization email',
+                            'placeholder' => 'Email организации',
                             'type' => 'email',
                         ])
                 @include('components.form.error.index', [
@@ -69,7 +69,7 @@
             @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Телефон:'])
                 @include('components.inputs.form.index', [
                             'name' => 'phone',
-                            'placeholder' => 'Organization-phone',
+                            'placeholder' => 'Телефон организации',
                             'type' => 'tel',
                         ])
                 @include('components.form.error.index', [

@@ -9,7 +9,7 @@
         <label class="modules-common-header-search__search-container j-header-search__search-container">
             <input
                 class="modules-common-header-search__input j-header-search__input"
-                placeholder="Search"
+                placeholder="Найти категорию или продавца"
                 type="text"
             />
             <button

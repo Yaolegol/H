@@ -14,7 +14,7 @@
             @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Название:'])
                 @include('components.inputs.form.index', [
                                 'name' => 'title',
-                                'placeholder' => 'Title',
+                                'placeholder' => 'Название',
                                 'type' => 'text',
                             ])
                 @include('components.form.error.index', [
@@ -25,7 +25,7 @@
             @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Адрес:'])
                 @include('components.inputs.form.index', [
                                 'name' => 'address',
-                                'placeholder' => 'Address',
+                                'placeholder' => 'Адрес',
                                 'type' => 'text',
                             ])
                 @include('components.form.error.index', [
@@ -40,7 +40,7 @@
             @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Режим работы:'])
                 @include('components.inputs.form.index', [
                                 'name' => 'working_hours',
-                                'placeholder' => 'Working hours',
+                                'placeholder' => 'Рабочие часы',
                                 'type' => 'text',
                             ])
                 @include('components.form.error.index', [
@@ -51,7 +51,7 @@
             @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Контактное лицо:'])
                 @include('components.inputs.form.index', [
                                 'name' => 'contact_person',
-                                'placeholder' => 'Contact person',
+                                'placeholder' => 'Контактное лицо',
                                 'type' => 'text',
                             ])
                 @include('components.form.error.index', [
@@ -62,7 +62,7 @@
             @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Телефон:'])
                 @include('components.inputs.form.index', [
                                 'name' => 'phone',
-                                'placeholder' => 'Phone',
+                                'placeholder' => 'Телефон',
                                 'type' => 'tel',
                             ])
                 @include('components.form.error.index', [
