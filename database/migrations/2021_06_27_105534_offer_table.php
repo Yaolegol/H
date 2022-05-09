@@ -17,7 +17,7 @@ class OfferTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('description')->nullable();
-            $table->string('address');
+            $table->string('address')->nullable();
             $table->string('phone');
             $table->double('price');
             $table->text('price_description')->nullable();
@@ -34,9 +34,9 @@ class OfferTable extends Migration
             $table->foreign('organization_id')->references('id')->on('organization')->nullOnDelete();
             $table->bigInteger('catalog_level_two_id')->unsigned()->index();
             $table->foreign('catalog_level_two_id')->references('id')->on('catalog_level_two');
-            $table->bigInteger('measure_id')->unsigned()->index()->nullable();
+            $table->bigInteger('measure_id')->unsigned()->index();
             $table->foreign('measure_id')->references('id')->on('measure');
-            $table->bigInteger('country_id')->unsigned()->index()->nullable()->default(1);
+            $table->bigInteger('country_id')->unsigned()->index()->default(1)->nullable();
             $table->foreign('country_id')->references('id')->on('country');
             $table->bigInteger('region_id')->unsigned()->index();
             $table->foreign('region_id')->references('id')->on('region');
