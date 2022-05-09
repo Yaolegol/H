@@ -95,6 +95,7 @@
                 <div class="modules-pages-profile-routes-personal-info-index__section-container">
                     <div class="modules-pages-profile-routes-personal-info-index__title-container">
                         <h2>Регистрационные данные</h2>
+                        <div>* отмечены обязательные для заполнения поля</div>
                     </div>
                     <div class="modules-pages-profile-routes-personal-info-index__change-email-container">
                         <div class="modules-pages-profile-routes-personal-info-index__title-container">
@@ -105,7 +106,7 @@
                             method="POST"
                         >
                             @csrf
-                            <div class="modules-pages-profile-routes-personal-info-index__info-title">Новый email:</div>
+                            <div class="modules-pages-profile-routes-personal-info-index__info-title">Новый email: *</div>
                             <div class="modules-pages-profile-routes-personal-info-index__info-description">
                                 <div class="modules-pages-profile-routes-personal-info-index__input-container">
                                     @include('components.inputs.form.index', [
@@ -119,7 +120,7 @@
                                     ])
                                 </div>
                             </div>
-                            <div class="modules-pages-profile-routes-personal-info-index__info-title">Текущий пароль:</div>
+                            <div class="modules-pages-profile-routes-personal-info-index__info-title">Текущий пароль: *</div>
                             <div class="modules-pages-profile-routes-personal-info-index__info-description">
                                 <div class="modules-pages-profile-routes-personal-info-index__input-container">
                                     @include('components.inputs.form.index', [
@@ -143,13 +144,14 @@
                     <div class="modules-pages-profile-routes-personal-info-index__change-password-container">
                         <div class="modules-pages-profile-routes-personal-info-index__title-container">
                             <h3>Изменить пароль</h3>
+                            <div>* отмечены обязательные для заполнения поля</div>
                         </div>
                         <form
                             action="/profile/personal-info/edit-password"
                             method="POST"
                         >
                             @csrf
-                            <div class="modules-pages-profile-routes-personal-info-index__info-title">Текущий пароль:</div>
+                            <div class="modules-pages-profile-routes-personal-info-index__info-title">Текущий пароль: *</div>
                             <div class="modules-pages-profile-routes-personal-info-index__info-description">
                                 <div class="modules-pages-profile-routes-personal-info-index__input-container">
                                     @include('components.inputs.form.index', [
@@ -162,7 +164,7 @@
                                     ])
                                 </div>
                             </div>
-                            <div class="modules-pages-profile-routes-personal-info-index__info-title">Новый пароль:</div>
+                            <div class="modules-pages-profile-routes-personal-info-index__info-title">Новый пароль: *</div>
                             <div class="modules-pages-profile-routes-personal-info-index__info-description">
                                 <div class="modules-pages-profile-routes-personal-info-index__input-container">
                                     @include('components.inputs.form.index', [
@@ -175,7 +177,7 @@
                                     ])
                                 </div>
                             </div>
-                            <div class="modules-pages-profile-routes-personal-info-index__info-title">Подтверждение нового пароля:</div>
+                            <div class="modules-pages-profile-routes-personal-info-index__info-title">Подтверждение нового пароля: *</div>
                             <div class="modules-pages-profile-routes-personal-info-index__info-description">
                                 <div class="modules-pages-profile-routes-personal-info-index__input-container">
                                     @include('components.inputs.form.index', [
