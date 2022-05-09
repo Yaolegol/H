@@ -16,6 +16,7 @@
                             'groupName' => 'radio-group__catalog_level_one',
                             'itemsList' => $catalogCategoriesList,
                             'inputName' => 'catalog_level_one_id',
+                            'required' => true,
                         ])
             @endcomponent
 
@@ -24,7 +25,8 @@
                             'contentList' => $catalogSubCategoriesList,
                             'inputsName' => 'catalog_level_two_id',
                             'listenGroupName' => 'radio-group__catalog_level_one',
-                            'title' => 'Подкатегория'
+                            'required' => true,
+                            'title' => 'Подкатегория',
                         ])
             @endcomponent
 
@@ -33,6 +35,7 @@
                             'groupName' => 'radio-group__region',
                             'itemsList' => $regionList,
                             'inputName' => 'region_id',
+                            'required' => true,
                         ])
             @endcomponent
 
@@ -49,6 +52,7 @@
                 @include('components.inputs.form.index', [
                                 'name' => 'title',
                                 'placeholder' => 'Название товара',
+                                'required' => true,
                                 'type' => 'text',
                                 'value' => ''
                             ])
@@ -101,6 +105,7 @@
                 @include('components.inputs.form.index', [
                                 'name' => 'phone',
                                 'placeholder' => 'Телефон',
+                                'required' => true,
                                 'type' => 'tel',
                                 'value' => '',
                             ])
@@ -115,6 +120,7 @@
                 @include('components.inputs.form.index', [
                                 'name' => 'price',
                                 'placeholder' => 'Цена',
+                                'required' => true,
                                 'type' => 'number',
                                 'value' => '',
                             ])
@@ -130,6 +136,7 @@
                     'groupName' => 'radio-group__price-measure',
                     'itemsList' => $measureList,
                     'inputName' => 'measure_id',
+                    'required' => true,
                 ])
             @endcomponent
 

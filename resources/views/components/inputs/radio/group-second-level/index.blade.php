@@ -20,6 +20,7 @@
                     @include('components.inputs.radio.item.index', [
                         'isChecked' => $item['isChecked'] ?? false,
                         'name' => $inputsName,
+                        'required' => $required ?? false,
                         'title' => $item['title'],
                         'value' => $item['value'],
                     ])

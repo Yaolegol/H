@@ -8,6 +8,9 @@
             @endif
             class="components-inputs-radio-item__input"
             name="{{$name}}"
+            @if($required ?? false)
+                required
+            @endif
             type="radio"
             value="{{$value}}"
         >
