@@ -11,7 +11,9 @@
         >
             @csrf
 
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Наименование:'])
+            @component('modules.pages.profile.common.components.container.form-field.index', [
+                'required' => true,
+                'title' => 'Наименование:'])
                 @include('components.inputs.form.index', [
                                 'name' => 'title',
                                 'placeholder' => 'Наименование организации',
@@ -23,7 +25,9 @@
                 ])
             @endcomponent
 
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'ИНН:'])
+            @component('modules.pages.profile.common.components.container.form-field.index', [
+                'required' => true,
+                'title' => 'ИНН:'])
                 @include('components.inputs.form.index', [
                             'name' => 'inn',
                             'placeholder' => 'ИНН',
