@@ -11,13 +11,16 @@
         >
             @csrf
 
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Категория:'])
+            @component('modules.pages.profile.common.components.container.form-field.index', [
+                'required' => true,
+                'title' => 'Категория:',
+            ])
                 @include('components.inputs.radio.group-first-level.index', [
                             'groupName' => 'radio-group__catalog_level_one',
                             'itemsList' => $catalogCategoriesList,
                             'inputName' => 'catalog_level_one_id',
                             'required' => true,
-                        ])
+                    ])
             @endcomponent
 
             @component('modules.pages.profile.common.components.container.form-field.index')
@@ -30,7 +33,10 @@
                         ])
             @endcomponent
 
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Регион:'])
+            @component('modules.pages.profile.common.components.container.form-field.index', [
+                'required' => true,
+                'title' => 'Регион:'
+            ])
                 @include('components.inputs.radio.group-first-level.index', [
                             'groupName' => 'radio-group__region',
                             'itemsList' => $regionList,
@@ -48,7 +54,10 @@
                     ])
             @endcomponent
 
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Заголовок:'])
+            @component('modules.pages.profile.common.components.container.form-field.index', [
+                'required' => true,
+                'title' => 'Заголовок:'
+                ])
                 @include('components.inputs.form.index', [
                                 'name' => 'title',
                                 'placeholder' => 'Название товара',
@@ -101,7 +110,10 @@
                 @include('components.map.2gis.components.add-marker.index')
             @endcomponent
 
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Телефон:'])
+            @component('modules.pages.profile.common.components.container.form-field.index', [
+                'required' => true,
+                'title' => 'Телефон:'
+                ])
                 @include('components.inputs.form.index', [
                                 'name' => 'phone',
                                 'placeholder' => 'Телефон',
@@ -115,6 +127,7 @@
             @endcomponent
 
             @component('modules.pages.profile.common.components.container.form-field.index', [
+                'required' => true,
                 'title' => 'Цена:'
             ])
                 @include('components.inputs.form.index', [
@@ -130,6 +143,7 @@
             @endcomponent
 
             @component('modules.pages.profile.common.components.container.form-field.index', [
+                'required' => true,
                 'title' => 'Цена за:'
             ])
                 @include('components.inputs.radio.group-first-level.index', [

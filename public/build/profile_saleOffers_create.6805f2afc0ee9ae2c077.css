@@ -608,7 +608,6 @@
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 50%;
   height: 200px;
-  object-fit: contain;
   width: 200px;
 }
 .components-inputs-file-item__image-container {
@@ -709,6 +708,7 @@
   display: block;
 }
 .components-inputs-radio-group-second-level__title {
+  font-weight: 800;
   margin-left: 30px;
 }
 
@@ -795,6 +795,7 @@
   max-width: 500px;
 }
 .modules-pages-profile-common-components-container-form-field__title {
+  font-weight: 800;
   margin-left: 30px;
 }
 

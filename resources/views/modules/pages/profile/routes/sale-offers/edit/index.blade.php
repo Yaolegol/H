@@ -12,7 +12,9 @@
             @csrf
             @method('PUT')
 
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Категория:'])
+            @component('modules.pages.profile.common.components.container.form-field.index', [
+                'required' => true,
+                'title' => 'Категория:'])
                 @include('components.inputs.radio.group-first-level.index', [
                             'groupName' => 'radio-group__catalog_level_one',
                             'itemsList' => $catalogCategoriesList,
@@ -31,7 +33,9 @@
                         ])
             @endcomponent
 
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Регион:'])
+            @component('modules.pages.profile.common.components.container.form-field.index', [
+                'required' => true,
+                'title' => 'Регион:'])
                 @include('components.inputs.radio.group-first-level.index', [
                             'groupName' => 'radio-group__region',
                             'itemsList' => $regionList,
@@ -49,7 +53,9 @@
                     ])
             @endcomponent
 
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Заголовок:'])
+            @component('modules.pages.profile.common.components.container.form-field.index', [
+                'required' => true,
+                'title' => 'Заголовок:'])
                 @include('components.inputs.form.index', [
                                 'name' => 'title',
                                 'placeholder' => 'Название товара',
@@ -86,7 +92,8 @@
                 ])
             @endcomponent
 
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Торговые точки (информацию о торговых точках можно добавить в соответствующем разделе Вашего профиля):'])
+            @component('modules.pages.profile.common.components.container.form-field.index', [
+                    'title' => 'Торговые точки (информацию о торговых точках можно добавить в соответствующем разделе Вашего профиля):'])
                 @foreach($salePointsList as $salePointItem)
                     @include('components.checkboxes.map.index', [
                         'isChecked' => $salePointItem['active'],
@@ -106,7 +113,9 @@
                 ])
             @endcomponent
 
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Телефон:'])
+            @component('modules.pages.profile.common.components.container.form-field.index', [
+                'required' => true,
+                'title' => 'Телефон:'])
                 @include('components.inputs.form.index', [
                                 'name' => 'phone',
                                 'placeholder' => 'Телефон',
@@ -119,7 +128,9 @@
                 ])
             @endcomponent
 
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Цена:'])
+            @component('modules.pages.profile.common.components.container.form-field.index', [
+                'required' => true,
+                'title' => 'Цена:'])
                 @include('components.inputs.form.index', [
                                 'name' => 'price',
                                 'placeholder' => 'Цена',
@@ -133,6 +144,7 @@
             @endcomponent
 
             @component('modules.pages.profile.common.components.container.form-field.index', [
+                'required' => true,
                 'title' => 'Цена за:'
             ])
                 @include('components.inputs.radio.group-first-level.index', [

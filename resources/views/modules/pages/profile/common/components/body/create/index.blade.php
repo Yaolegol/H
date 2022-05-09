@@ -10,6 +10,9 @@
     <div class="modules-pages-profile-common-components-body-create__title-container">
         <h2>{{$title}}</h2>
     </div>
+    <div>
+        * отмечены поля, обязательные для заполнения
+    </div>
     <div class="modules-pages-profile-common-components-body-create__form-container">
         {{$slot}}
     </div>
