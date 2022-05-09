@@ -16,6 +16,7 @@
                 @include('components.inputs.form.index', [
                                 'name' => 'title',
                                 'placeholder' => 'Наименование организации',
+                                'required' => true,
                                 'type' => 'text',
                                 'value' => $organizationItemData['title'],
                             ])
@@ -28,6 +29,7 @@
                 @include('components.inputs.form.index', [
                             'name' => 'inn',
                             'placeholder' => 'ИНН',
+                            'required' => true,
                             'type' => 'number',
                             'value' => $organizationItemData['inn'],
                         ])

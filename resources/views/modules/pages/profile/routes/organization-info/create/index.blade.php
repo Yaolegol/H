@@ -15,6 +15,7 @@
                 @include('components.inputs.form.index', [
                                 'name' => 'title',
                                 'placeholder' => 'Наименование организации',
+                                'required' => true,
                                 'type' => 'text',
                             ])
                 @include('components.form.error.index', [
@@ -26,6 +27,7 @@
                 @include('components.inputs.form.index', [
                             'name' => 'inn',
                             'placeholder' => 'ИНН',
+                            'required' => true,
                             'type' => 'number',
                         ])
                 @include('components.form.error.index', [

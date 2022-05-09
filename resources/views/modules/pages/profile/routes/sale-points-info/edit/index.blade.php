@@ -16,6 +16,7 @@
                 @include('components.inputs.form.index', [
                                 'name' => 'title',
                                 'placeholder' => 'Название',
+                                'required' => true,
                                 'type' => 'text',
                                 'value' => $salePointItemData['title'],
                             ])
@@ -28,6 +29,7 @@
                 @include('components.inputs.form.index', [
                                 'name' => 'address',
                                 'placeholder' => 'Адрес',
+                                'required' => true,
                                 'type' => 'text',
                                 'value' => $salePointItemData['address'],
                             ])
