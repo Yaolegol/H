@@ -42,6 +42,14 @@ class ProfilePersonalDataController extends Controller
      */
     public function editPersonalData(Request $request)
     {
+        $validator = getPersonalDataValidator($request);
+
+        if($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $isSaved = DB_tryChangeUserPersonalDataInDB($request);
 
         if($isSaved) {

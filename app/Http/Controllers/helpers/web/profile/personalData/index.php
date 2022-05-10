@@ -80,13 +80,34 @@ function getPasswordValidator($request) {
         $request->all(),
         [
             'current_password' => ['required', 'min:6'],
-            'password' => ['required', 'min:6'],
+            'password' => ['required', 'max:25', 'min:6'],
             'password_confirmation' => ['required', 'same:password'],
         ],
         [
+            'max' => 'Поле должно содержать максимум :max символов',
             'min' => 'Поле должно содержать минимум :min символов',
             'required' => 'Поле обязательно для заполнения',
             'same' => 'Поля Password и Confirm Password не совпадают',
+        ]
+    );
+}
+
+function getPersonalDataValidator($request) {
+    return Validator::make(
+        $request->all(),
+        [
+            'avatar' => ['image', 'size:10240'],
+            'name' => ['max:50'],
+            'description' => ['max:100'],
+            'phone' => ['max:12'],
+            'visible_email' => ['email', 'max:25'],
+        ],
+        [
+            'email' => 'Поле должно содержать email',
+            'image' => 'Поле должно содержать картинку, размером не более 10Мб',
+            'max' => 'Поле должно содержать максимум :max символов',
+            'required' => 'Поле обязательно для заполнения',
+            'size' => 'Поле должно содержать картинку, размером не более 10Мб',
         ]
     );
 }
