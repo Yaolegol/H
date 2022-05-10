@@ -6,6 +6,7 @@
         ])
         <form
             action="/profile/organization-info/{{$organizationItemData['id']}}"
+            class="form"
             enctype="multipart/form-data"
             method="POST"
         >

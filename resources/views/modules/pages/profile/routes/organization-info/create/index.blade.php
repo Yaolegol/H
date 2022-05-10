@@ -6,6 +6,7 @@
         ])
         <form
             action="/profile/organization-info"
+            class="form"
             enctype="multipart/form-data"
             method="POST"
         >
