@@ -21,6 +21,9 @@
                             'inputName' => 'catalog_level_one_id',
                             'required' => true,
                         ])
+                @include('components.form.error.index', [
+                    'message' => $errors->first('catalog_level_one_id'),
+                ])
             @endcomponent
 
             @component('modules.pages.profile.common.components.container.form-field.index')
@@ -31,6 +34,9 @@
                             'title' => 'Подкатегория',
                             'required' => true,
                         ])
+                @include('components.form.error.index', [
+                    'message' => $errors->first('catalog_level_two_id'),
+                ])
             @endcomponent
 
             @component('modules.pages.profile.common.components.container.form-field.index', [
@@ -42,6 +48,9 @@
                             'inputName' => 'region_id',
                             'required' => true,
                         ])
+                @include('components.form.error.index', [
+                    'message' => $errors->first('region_id'),
+                ])
             @endcomponent
 
             @component('modules.pages.profile.common.components.container.form-field.index')
@@ -124,7 +133,7 @@
                                 'value' => $saleOfferItemData['phone'],
                             ])
                 @include('components.form.error.index', [
-                    'message' => $errors->first('phone-phone'),
+                    'message' => $errors->first('phone'),
                 ])
             @endcomponent
 
@@ -153,6 +162,9 @@
                     'inputName' => 'measure_id',
                     'required' => true,
                 ])
+                @include('components.form.error.index', [
+                    'message' => $errors->first('measure_id'),
+                ])
             @endcomponent
 
             @component('modules.pages.profile.common.components.container.form-field.index', [
@@ -161,6 +173,9 @@
                 @include('components.inputs.textarea.base.index', [
                     'name' => 'price_description',
                     'value' => $saleOfferItemData['price_description'],
+                ])
+                @include('components.form.error.index', [
+                    'message' => $errors->first('price_description'),
                 ])
             @endcomponent
 

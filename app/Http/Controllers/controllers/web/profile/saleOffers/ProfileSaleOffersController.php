@@ -133,6 +133,14 @@ class ProfileSaleOffersController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validator = getProfileSaleOffersValidator($request);
+
+        if($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $isSaved = tryUpdateSaleOfferInDB($request, $id);
 
         if($isSaved) {
