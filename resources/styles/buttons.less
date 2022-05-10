@@ -14,4 +14,10 @@
         border-color: @primary;
         color: @white
     }
+
+    &_form {
+        .form:invalid & {
+            pointer-events: none;
+        }
+    }
 }

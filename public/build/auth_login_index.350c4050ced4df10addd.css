@@ -707,6 +707,9 @@
   border-color: #4CBB17;
   color: #FFFFFF;
 }
+.form:invalid .button_form {
+  pointer-events: none;
+}
 @font-face {
   font-family: 'Lato';
   font-weight: 400;

@@ -6,6 +6,7 @@
         ])
         <form
             action="/profile/sale-offers/{{$saleOfferItemData['id']}}"
+            class="form"
             enctype="multipart/form-data"
             method="POST"
         >

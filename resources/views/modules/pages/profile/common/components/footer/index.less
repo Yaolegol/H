@@ -1,13 +1,13 @@
 @import (reference) '~styles/colors';
 
 .modules-pages-profile-common-components-container-footer {
-    &__send-button {
-        border: 1px solid @black_15;
-        border-radius: 25px;
+    &__info-container-required {
         color: @black_50;
-        cursor: pointer;
-        padding: 20px;
-        text-align: center;
+        display: none;
+
+        .form:invalid & {
+            display: block;
+        }
     }
 
     &__send-button-container {

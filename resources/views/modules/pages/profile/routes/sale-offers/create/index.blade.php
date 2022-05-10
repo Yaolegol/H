@@ -6,6 +6,7 @@
         ])
         <form
             action="/profile/sale-offers"
+            class="form"
             enctype="multipart/form-data"
             method="POST"
         >

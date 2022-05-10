@@ -803,13 +803,12 @@
   margin-top: 50px;
 }
 
-.modules-pages-profile-common-components-container-footer__send-button {
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 25px;
+.modules-pages-profile-common-components-container-footer__info-container-required {
   color: rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-  padding: 20px;
-  text-align: center;
+  display: none;
+}
+.form:invalid .modules-pages-profile-common-components-container-footer__info-container-required {
+  display: block;
 }
 .modules-pages-profile-common-components-container-footer__send-button-container {
   margin-top: 50px;
@@ -896,6 +895,9 @@
   background-color: #4CBB17;
   border-color: #4CBB17;
   color: #FFFFFF;
+}
+.form:invalid .button_form {
+  pointer-events: none;
 }
 @font-face {
   font-family: 'Lato';
