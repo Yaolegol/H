@@ -78,7 +78,7 @@ function getRegistrationValidator($request) {
         $request->all(),
         [
             'registration_email' => ['required', 'email', 'max:25', 'unique:users'],
-            'password' => ['required', 'min:6'],
+            'password' => ['required', 'max:25', 'min:6'],
             'password_confirmation' => ['required', 'same:password'],
         ],
         [
