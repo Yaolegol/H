@@ -56,6 +56,14 @@ class ProfileSalePointsController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = getProfileSalePointsValidator($request);
+
+        if($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $isSaved = tryStoreSalePointDataInDB($request);
 
         if($isSaved) {

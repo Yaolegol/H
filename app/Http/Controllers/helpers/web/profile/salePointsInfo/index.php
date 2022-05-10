@@ -73,6 +73,30 @@ function DB_updateSalePointData($userId, $salePointId, $imagesArray) {
     }
 }
 
+function getProfileSalePointsValidator($request) {
+    return Validator::make(
+        $request->all(),
+        [
+            'title' => ['required', 'max:50'],
+            'address' => ['required', 'max:100'],
+            'working_hours' => ['max:100'],
+            'contact_person' => ['max:100'],
+            'phone' => ['max:12'],
+            'photo_1' => ['image', 'size:10240'],
+            'photo_2' => ['image', 'size:10240'],
+            'photo_3' => ['image', 'size:10240'],
+            'map_marker_lat' => ['max:12'],
+            'map_marker_lng' => ['max:12'],
+        ],
+        [
+            'image' => 'Поле должно содержать картинку, размером не более 10Мб',
+            'max' => 'Поле должно содержать максимум :max символов',
+            'required' => 'Поле обязательно для заполнения',
+            'size' => 'Поле должно содержать картинку, размером не более 10Мб',
+        ]
+    );
+}
+
 function getSalePointAssetPath($salePointId) {
     return 'sale-point/' . $salePointId;
 }

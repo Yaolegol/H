@@ -22,7 +22,7 @@
                                 'type' => 'text',
                             ])
                 @include('components.form.error.index', [
-                    'message' => $errors->first('organization-name'),
+                    'message' => $errors->first('title'),
                 ])
             @endcomponent
 
