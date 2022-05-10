@@ -6,6 +6,7 @@
         ])
         <form
             action="/profile/sale-points-info/{{$salePointItemData['id']}}"
+            class="form"
             enctype="multipart/form-data"
             method="POST"
         >
