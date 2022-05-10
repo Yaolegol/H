@@ -80,7 +80,7 @@
                             'type' => 'tel',
                         ])
                 @include('components.form.error.index', [
-                    'message' => $errors->first('phone-phone'),
+                    'message' => $errors->first('phone'),
                 ])
             @endcomponent
 
