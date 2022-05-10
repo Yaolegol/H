@@ -74,6 +74,14 @@ class ProfileSaleOffersController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = getProfileSaleOffersValidator($request);
+
+        if($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $isSaved = trySaveSaleOfferInDB($request);
 
         if($isSaved) {

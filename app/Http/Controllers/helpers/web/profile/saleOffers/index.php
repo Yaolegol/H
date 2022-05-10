@@ -107,6 +107,27 @@ function getOfferImagesData($request, $userId, $saleOfferId) {
     return array_merge(...$storedPhotos);
 }
 
+function getProfileSaleOffersValidator($request) {
+    return Validator::make(
+        $request->all(),
+        [
+            'address' => ['max:100'],
+            'catalog_level_two_id' => ['required'],
+            'description' => ['max:250'],
+            'measure_id' => ['required'],
+            'phone' => ['required', 'max:12'],
+            'price' => ['required', 'max:10'],
+            'price_description' => ['max:250'],
+            'region_id' => ['required'],
+            'title' => ['required', 'max:50'],
+        ],
+        [
+            'max' => 'Поле должно содержать максимум :max символов',
+            'required' => 'Поле обязательно для заполнения',
+        ]
+    );
+}
+
 function getSaleOfferAssetPath($saleOfferId) {
     return 'sale-offer/' . $saleOfferId;
 }
