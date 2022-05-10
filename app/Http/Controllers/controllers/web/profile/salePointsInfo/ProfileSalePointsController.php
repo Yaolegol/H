@@ -100,6 +100,14 @@ class ProfileSalePointsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validator = getProfileSalePointsValidator($request);
+
+        if($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $isSaved = tryUpdateSalePointDataInDB($request, $id);
 
         if($isSaved) {

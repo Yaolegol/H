@@ -122,6 +122,33 @@ function getOrganizationItemDataFormatted($organizationId)
     return $userOrganizationItemData;
 }
 
+function getProfileOrganizationDataValidator($request) {
+    return Validator::make(
+        $request->all(),
+        [
+            'certificate_1' => ['image', 'size:10240'],
+            'certificate_2' => ['image', 'size:10240'],
+            'certificate_3' => ['image', 'size:10240'],
+            'email' => ['required', 'email', 'max:25'],
+            'inn' => ['required', 'max:25'],
+            'legal_address' => ['max:100'],
+            'phone' => ['max:12'],
+            'photo_1' => ['image', 'size:10240'],
+            'photo_2' => ['image', 'size:10240'],
+            'photo_3' => ['image', 'size:10240'],
+            'real_address' => ['max:100'],
+            'title' => ['max:50'],
+        ],
+        [
+            'email' => 'Поле должно содержать email',
+            'image' => 'Поле должно содержать картинку, размером не более 10Мб',
+            'max' => 'Поле должно содержать максимум :max символов',
+            'required' => 'Поле обязательно для заполнения',
+            'size' => 'Поле должно содержать картинку, размером не более 10Мб',
+        ]
+    );
+}
+
 function STORAGE_destroyOrganizationData($userId, $organizationId) {
     try {
         File::deleteDirectory(

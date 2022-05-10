@@ -56,6 +56,14 @@ class ProfileOrganizationDataController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = getProfileOrganizationDataValidator($request);
+
+        if($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $isSaved = tryStoreOrganizationData($request);
 
         if($isSaved) {
@@ -92,6 +100,14 @@ class ProfileOrganizationDataController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validator = getProfileOrganizationDataValidator($request);
+
+        if($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $isSaved = tryUpdateOrganizationDataInDB($request, $id);
 
         if($isSaved) {
