@@ -116,14 +116,19 @@ function getProfileSaleOffersValidator($request) {
             'description' => ['max:250'],
             'measure_id' => ['required'],
             'phone' => ['required', 'max:12'],
+            'photo_1' => ['image', 'size:10240'],
+            'photo_2' => ['image', 'size:10240'],
+            'photo_3' => ['image', 'size:10240'],
             'price' => ['required', 'max:10'],
             'price_description' => ['max:250'],
             'region_id' => ['required'],
             'title' => ['required', 'max:50'],
         ],
         [
+            'image' => 'Поле должно содержать картинку, размером не более 10Мб',
             'max' => 'Поле должно содержать максимум :max символов',
             'required' => 'Поле обязательно для заполнения',
+            'size' => 'Поле должно содержать картинку, размером не более 10Мб',
         ]
     );
 }
