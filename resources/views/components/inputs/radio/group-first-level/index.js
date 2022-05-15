@@ -21,13 +21,30 @@ class InputsRadioGroupFirstLevel {
         this.checkedInput = this.module.querySelector('input[checked]');
         this.value = this.checkedInput ? this.checkedInput.value : null;
 
-        addEventListener(this.module, 'change', this.handleChange);
+        addEventListener(this.module, 'click', this.handleClick);
 
         this.init();
     }
 
-    handleChange = (e) => {
-        this.value = e.target.value;
+    handleClick = (e) => {
+        const {target} = e;
+        const {tagName, value} = target;
+
+
+        const isInput = tagName === 'INPUT';
+
+        if(!isInput) {
+            return;
+        }
+
+        const isSameValue = this.value === value;
+
+        if(isSameValue) {
+            e.target.checked = false;
+            this.value = null;
+        } else {
+            this.value = value;
+        }
 
         this.sendMessage();
     }
