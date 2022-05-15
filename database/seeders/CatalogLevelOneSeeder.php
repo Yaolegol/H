@@ -17,14 +17,20 @@ class CatalogLevelOneSeeder extends Seeder
         [
             'image' => 'public/catalog/levelOne/items/2/images/main/1.jpg',
             'link' => 'milk',
-            'order' => 2,
+            'order' => 1,
             'title' => 'Молочная продукция',
         ],
         [
             'image' => 'public/catalog/levelOne/items/3/images/main/1.jpg',
             'link' => 'eggs',
-            'order' => 3,
+            'order' => 1,
             'title' => 'Яйца',
+        ],
+        [
+            'image' => 'public/catalog/levelOne/items/0/images/main/1.jpg',
+            'link' => 'other',
+            'order' => 999,
+            'title' => 'Другое',
         ],
     ];
 

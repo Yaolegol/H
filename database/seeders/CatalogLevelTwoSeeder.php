@@ -18,9 +18,16 @@ class CatalogLevelTwoSeeder extends Seeder
         [
             'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
             'link' => 'chicken',
-            'order' => 2,
+            'order' => 1,
             'catalog_level_one_id' => 1,
             'title' => 'Курица',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'link' => 'other',
+            'order' => 999,
+            'catalog_level_one_id' => 1,
+            'title' => 'Остальное',
         ],
         [
             'image' => 'public/catalog/levelTwo/items/3/images/main/1.jpg',
@@ -32,9 +39,16 @@ class CatalogLevelTwoSeeder extends Seeder
         [
             'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
             'link' => 'kefir',
-            'order' => 3,
+            'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Кефир',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'link' => 'other',
+            'order' => 999,
+            'catalog_level_one_id' => 2,
+            'title' => 'Остальное',
         ],
         [
             'image' => 'public/catalog/levelTwo/items/5/images/main/1.jpg',
@@ -46,9 +60,23 @@ class CatalogLevelTwoSeeder extends Seeder
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
             'link' => 'quail',
-            'order' => 2,
+            'order' => 1,
             'catalog_level_one_id' => 3,
             'title' => 'Перепелинные яйца',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'link' => 'other',
+            'order' => 999,
+            'catalog_level_one_id' => 3,
+            'title' => 'Остальное',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'link' => 'other',
+            'order' => 999,
+            'catalog_level_one_id' => 4,
+            'title' => 'Остальное',
         ],
     ];
 
