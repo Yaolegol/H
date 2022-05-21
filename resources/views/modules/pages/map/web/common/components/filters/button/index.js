@@ -15,17 +15,21 @@ const {
 class MapWebFiltersOpenModalButton {
     constructor(item) {
         this.module = item;
-        this.button = this.module.querySelector('.j-map-web-filters-open-modal-button__title');
+        this.defaultTitle = this.module.dataset.defaultTitle;
+        this.title = this.module.querySelector('.j-map-web-filters-open-modal-button__title');
+        this.button = this.module.querySelector('.j-map-web-filters-open-modal-button__button');
+        this.buttonReset = this.module.querySelector('.j-map-web-filters-open-modal-button__button-reset');
 
         this.bind();
     }
 
     bind = () => {
-        addEventListener(this.module, 'click', this.handleClick);
+        addEventListener(this.button, 'click', this.handleOpenModalClick);
+        addEventListener(this.buttonReset, 'click', this.handleResetClick);
         addEventListener(document, 'j-event--map-filter-update', this.handleUpdateMapFilter)
     }
 
-    handleClick = (e) => {
+    handleOpenModalClick = (e) => {
         document.dispatchEvent(new CustomEvent(OPEN, {
             detail: {
                 name: 'categories'
@@ -33,10 +37,14 @@ class MapWebFiltersOpenModalButton {
         }));
     }
 
+    handleResetClick = (e) => {
+        document.dispatchEvent(new CustomEvent('j-event--map-web-filters-open-modal-button__reset'));
+    }
+
     handleUpdateMapFilter = (e) => {
         const {title} = e.detail;
 
-        this.button.textContent = title;
+        this.title.textContent = title || this.defaultTitle;
     }
 }
 

@@ -631,6 +631,10 @@
 .modules-common-location-components-choose-info-block-item__change-button {
   color: green;
 }
+.modules-common-location-components-choose-info-block-item__reset-button {
+  color: orangered;
+  margin-left: 10px;
+}
 .modules-common-location-components-choose-info-block-item__title {
   font-weight: bold;
 }
@@ -641,6 +645,10 @@
 }
 .modules-pages-map-web-common-components-filters-button__change-button {
   color: green;
+}
+.modules-pages-map-web-common-components-filters-button__reset-button {
+  color: orangered;
+  margin-left: 10px;
 }
 .modules-pages-map-web-common-components-filters-button__title {
   font-weight: bold;

@@ -4,12 +4,24 @@ import {locationOpenModal} from 'views/modules/common/location/helpers';
 class LocationCommonOpenModalButton {
     constructor(item) {
         this.module = item;
+        this.button = this.module.querySelector('.j-location-common-open-modal-button__button');
+        this.buttonReset = this.module.querySelector('.j-location-common-open-modal-button__button-reset');
 
-        addEventListener(this.module, 'click', this.handleClick);
+        this.bind();
     }
 
-    handleClick = (e) => {
+    bind = () => {
+        addEventListener(this.button, 'click', this.handleOpenModalClick);
+        addEventListener(this.buttonReset, 'click', this.handleResetClick);
+
+    }
+
+    handleOpenModalClick = (e) => {
         locationOpenModal();
+    }
+
+    handleResetClick = (e) => {
+        document.dispatchEvent(new CustomEvent('j-event--location-common-open-modal-button__reset'));
     }
 }
 

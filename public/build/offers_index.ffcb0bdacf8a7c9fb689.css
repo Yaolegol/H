@@ -608,6 +608,10 @@
 .modules-common-location-components-choose-info-block-item__change-button {
   color: green;
 }
+.modules-common-location-components-choose-info-block-item__reset-button {
+  color: orangered;
+  margin-left: 10px;
+}
 .modules-common-location-components-choose-info-block-item__title {
   font-weight: bold;
 }

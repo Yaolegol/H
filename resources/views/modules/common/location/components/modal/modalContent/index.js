@@ -5,6 +5,12 @@ import './index.less';
 class LocationModalContent {
     constructor(item) {
         this.module = item;
+
+        this.bind();
+    }
+
+    bind = () => {
+        addEventListener(document, 'j-event--location-common-open-modal-button__reset', this.handleResetClick);
         addEventListener(this.module, 'click', this.handleModuleClick);
     }
 
@@ -17,6 +23,39 @@ class LocationModalContent {
             this.setLocationQuery(target);
             document.location.reload();
         }
+    }
+
+    handleResetClick = (e) => {
+        console.log('reset')
+        this.resetLocationCookie();
+        this.resetLocationQuery();
+        document.location.reload();
+    }
+
+    resetLocationCookie = () => {
+        const now = new Date();
+
+        document.cookie = `search-country-id=0;path=/;expires=${now};`;
+        document.cookie = `search-region-id=0;path=/;expires=${now};`;
+    }
+
+    resetLocationQuery = () => {
+        const queryDataArray = [
+            {
+                key: 'search-country-id',
+                value: null,
+            },
+            {
+                key: 'search-region-id',
+                value: null,
+            },
+            {
+                key: 'search-city-id',
+                value: null,
+            }
+        ];
+
+        setUrlQuery(queryDataArray);
     }
 
     setLocationCookie = (target) => {
