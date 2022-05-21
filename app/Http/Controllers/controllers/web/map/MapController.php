@@ -20,6 +20,7 @@ class MapController extends Controller
     public function index(Request $request)
     {
         $searchLocationData = getSearchLocationData($request);
+        $catalogLevelTwoId = $request->query('catalogLevelTwoId');
 
         $searchCountryId = $searchLocationData['searchCountryId'];
         $searchRegionId = $searchLocationData['searchRegionId'];
@@ -28,12 +29,14 @@ class MapController extends Controller
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
         $locationSearchData = getLocationSearchDataFormatted($locationList, $searchCountryId, $searchRegionId, $searchCityId);
+        $productFilterData = getProductFilterDataFormatted($catalogFull, $catalogLevelTwoId);
 
         return view('pages.map.web.index.index', [
             'catalogHeader' => $catalogFull,
             'catalogPage' => $catalogFull,
             'locationList' => $locationList,
             'locationSearchData' => $locationSearchData,
+            'productFilterData' => $productFilterData,
         ]);
     }
 }

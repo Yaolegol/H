@@ -65,6 +65,28 @@ function getLocationSearchDataFormatted($locationList, $searchCountryId, $search
     return $locationData;
 }
 
+function getProductFilterDataFormatted($catalogFull, $catalogLevelTwoId) {
+    $catalogLevelTwoIdFormatted = (int)$catalogLevelTwoId;
+
+    $productFilterData = [
+        'category' => [
+            'title' => '',
+        ],
+    ];
+
+    foreach ($catalogFull as $catalogLevelOneItem) {
+        $catalogLevelTwoList = $catalogLevelOneItem['catalog_level_two'];
+
+        foreach ($catalogLevelTwoList as $catalogLevelTwoItem) {
+            if($catalogLevelTwoItem['id'] === $catalogLevelTwoIdFormatted) {
+                $productFilterData['category']['title'] = $catalogLevelTwoItem['title'];
+            }
+        }
+    }
+
+    return $productFilterData;
+}
+
 function getRegionItemCitiesListFormatted($regionItemCitiesList, $offerCityId = 0) {
     return array_map(function($cityItem) use($offerCityId) {
         $cityItemId = $cityItem['id'];

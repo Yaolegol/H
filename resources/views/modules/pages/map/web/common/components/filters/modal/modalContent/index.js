@@ -24,8 +24,12 @@ const {
 class MapFiltersModalContent {
     constructor(item) {
         this.module = item;
+
+        this.bind();
+    }
+
+    bind = () => {
         addEventListener(this.module, 'click', this.handleModuleClick);
-        // addEventListener(this.module, 'click', this.handleModuleClick);
     }
 
     closeModal = () => {
@@ -49,12 +53,9 @@ class MapFiltersModalContent {
                 }
             ];
 
-            console.log('id')
-            console.log(id)
-
             this.closeModal();
             setUrlQuery(query);
-            this.sendMapFilterUpdateMessage();
+            this.sendMapFilterUpdateMessage(target);
 
             // this.setLocationCookie(target);
             // this.setLocationQuery(target);
@@ -62,8 +63,12 @@ class MapFiltersModalContent {
         }
     }
 
-    sendMapFilterUpdateMessage = () => {
-        document.dispatchEvent(new CustomEvent('j-event--map-filter-update'));
+    sendMapFilterUpdateMessage = (element) => {
+        document.dispatchEvent(new CustomEvent('j-event--map-filter-update', {
+            detail: {
+                title: element.innerHTML,
+            }
+        }));
     }
 
     setLocationCookie = (target) => {
