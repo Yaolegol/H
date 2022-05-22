@@ -3,7 +3,6 @@
     data-default-title="{{$defaultTitle}}"
 >
     <div class="modules-pages-map-web-common-components-filters-button__content-container">
-        <span>Продукт:</span>
         <span class="modules-pages-map-web-common-components-filters-button__title j-map-web-filters-open-modal-button__title">{{$title}}</span>
     </div>
     <div class="modules-pages-map-web-common-components-filters-button__buttons-container">

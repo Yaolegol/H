@@ -1,6 +1,5 @@
 <div class="modules-common-location-components-choose-info-block-item j-location-common-open-modal-button">
     <div class="modules-common-location-components-choose-info-block-item__content-container">
-        <span>Регион:</span>
         <span class="modules-common-location-components-choose-info-block-item__title">{{$title}}</span>
     </div>
     <div class="modules-common-location-components-choose-info-block-item__buttons-container">
