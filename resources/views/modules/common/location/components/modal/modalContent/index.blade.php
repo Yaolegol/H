@@ -1,5 +1,5 @@
 <div class="modules-common-location-components-modal-modal-content j-location-modal-content">
-    <h2 class="modules-common-location-components-modal-modal-content__title">Выберите город или регион:</h2>
+    <h2 class="modules-common-location-components-modal-modal-content__title">Город или регион для поиска:</h2>
     <div class="modules-common-location-components-modal-modal-content__content-container">
         @foreach($locationList as $locationItem)
             <div class="modules-common-location-components-modal-modal-content__location-item">
