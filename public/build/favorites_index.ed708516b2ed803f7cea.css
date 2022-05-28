@@ -176,6 +176,7 @@
   align-items: center;
   background-color: #FFFFFF;
   border-radius: 50%;
+  color: #FF0000;
   display: flex;
   flex: 0 0 auto;
   height: 20px;
@@ -987,5 +988,8 @@ p {
 }
 .hidden {
   display: none;
+}
+.visibility-hidden {
+  visibility: hidden;
 }
 

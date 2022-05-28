@@ -1,15 +1,6 @@
-<div class="modules-pages-map-web-common-components-filters-product">
-    @if($productFilterData['category']['title'])
-        @include('modules.pages.map.web.common.components.filters.button.index', [
-                'buttonText' => 'изменить',
+<div class="modules-pages-map-web-common-components-filters-product j-modules-pages-map-web-common-components-filters-product">
+    @include('components.buttons.filter.index', [
                 'defaultTitle' => 'Все продукты',
-                'title' => $productFilterData['category']['title'],
+                'title' => $productFilterData['category']['title'] ? $productFilterData['category']['title'] : 'Все продукты',
             ])
-    @else
-        @include('modules.pages.map.web.common.components.filters.button.index', [
-                'buttonText' => 'Выбрать',
-                'defaultTitle' => 'Все продукты',
-                'title' => 'Все продукты',
-            ])
-    @endif
 </div>
