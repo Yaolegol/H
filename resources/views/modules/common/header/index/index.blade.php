@@ -19,7 +19,7 @@
                     </div>
                 </div>
                 <div class="modules-common-header-index__item-container modules-common-header-index__location-container">
-                    @include('modules.common.location.components.choose.iconButton.index')
+                    @include('modules.common.location.components.buttons.iconButton.index')
                 </div>
                 <div class="modules-common-header-index__item-container modules-common-header-index__favorites-container j-favorites-components-header-counter">
                     <div class="modules-common-header-index__favorites-count-container j-favorites-components-header-counter__count"></div>

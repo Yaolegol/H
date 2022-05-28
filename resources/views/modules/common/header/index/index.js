@@ -3,6 +3,6 @@ import 'views/modules/pages/favorites/shared/components/header-counter';
 import 'views/modules/pages/favorites/shared/components/section';
 import 'views/modules/common/header/catalog';
 import 'views/modules/common/header/search';
-import 'views/modules/common/location/components/choose/iconButton';
+import 'views/modules/common/location/components/buttons/iconButton';
 import 'views/modules/common/location/components/modal';
 import './index.less';

@@ -35,8 +35,8 @@ class LocationModalContent {
     resetLocationCookie = () => {
         const now = new Date();
 
-        document.cookie = `search-country-id=0;path=/;expires=${now};`;
-        document.cookie = `search-region-id=0;path=/;expires=${now};`;
+        document.cookie = `search-region-id=0;expires=${now};`;
+        document.cookie = `search-city-id=0;expires=${now};`;
     }
 
     resetLocationQuery = () => {

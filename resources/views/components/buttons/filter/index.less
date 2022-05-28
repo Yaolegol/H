@@ -9,13 +9,23 @@
     min-height: 48px;
     padding: 10px 20px;
 
+    &:hover {
+        border-color: @primary;
+        color: @primary;
+    }
+
     &__reset-button {
         border: 1px solid @black_15;
         border-radius: 50%;
         display: inline-block;
-        color: @red;
+        color: @black;
         line-height: 0;
         margin-left: 10px;
+
+        &:hover {
+            border-color: @red;
+            color: @red;
+        }
 
         svg {
             height: 24px;
