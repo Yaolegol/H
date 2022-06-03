@@ -4,6 +4,7 @@
         @isset($withoutPadding)
             components-catalog-content-item-container_without-padding
         @endisset
+        {{$className}}
     "
 >
     {{$slot}}

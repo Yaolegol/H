@@ -7,6 +7,7 @@ import "views/components/catalog/content-item";
 import "views/components/catalog/content-item-container";
 import "views/components/catalog/navigation-item";
 import "views/components/catalog/navigation-item-container";
+import 'views/components/test';
 import './index.less';
 
 const {

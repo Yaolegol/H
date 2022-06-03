@@ -15,9 +15,44 @@ class Catalog {
         this.selectedContentItem = null;
         this.selectedNavigationItem = null;
 
-        addEventListener(this.module, 'mouseover', this.handleMouseOver);
-
         this.init();
+        this.bind();
+    }
+
+    bind = () => {
+        addEventListener(this.module, 'mouseover', this.handleMouseOver);
+        addEventListener(document, 'j-event-components-test__input', this.handleInput);
+    }
+
+    checkActiveItem = () => {
+        const isSelectedItemHidden = this.selectedNavigationItem.classList.contains('hidden');
+
+        if(!isSelectedItemHidden) {
+            return;
+        }
+
+        const navigationItem = this.navigationItemList.find((element) => {
+            return !element.classList.contains('hidden');
+        });
+
+        if (navigationItem) {
+            this.setActiveItem(navigationItem.dataset.itemId);
+        }
+    }
+
+    handleInput = (e) => {
+        const {detail} = e;
+        const {value} = detail;
+
+        if(!value) {
+            this.showAll();
+            this.setActiveItem(this.initialSelectedItemId);
+
+            return;
+        }
+
+        this.showSearchedItems(value);
+        this.checkActiveItem();
     }
 
     handleMouseOver = (e) => {
@@ -26,18 +61,15 @@ class Catalog {
 
         if (navigationItem) {
             const {itemId} = navigationItem.dataset;
-
-            this.unselectNavigationItem();
-            this.selectNavigationItem(itemId);
-
-            this.unselectContentItem();
-            this.selectContentItem(itemId);
+            this.setActiveItem(itemId);
         }
     }
 
     init = () => {
-        this.selectNavigationItem(this.initialSelectedItemId);
-        this.selectContentItem(this.initialSelectedItemId);
+        this.setContentItemsData();
+        this.setNavigationItemList();
+
+        this.setActiveItem(this.initialSelectedItemId);
     }
 
     selectContentItem = (id) => {
@@ -60,6 +92,110 @@ class Catalog {
             this.selectedNavigationItem = selectedItem;
             this.selectedNavigationItem.classList.add('components-catalog-navigation-item_active');
         }
+    }
+
+    setActiveItem = (id) => {
+        this.unselectNavigationItem();
+        this.selectNavigationItem(id);
+
+        this.unselectContentItem();
+        this.selectContentItem(id);
+    }
+
+    setContentItemsData = () => {
+        this.contentItemsData = this.contentItemList.reduce((acc, element) => {
+            const {itemId} = element.dataset;
+
+            const categoryList = [...element.querySelectorAll('.j-components-catalog-content-item__category')];
+            const formattedCategoryList = categoryList.map((element) => {
+                const {value} = element.dataset;
+
+                return {
+                    element,
+                    value,
+                }
+            });
+
+            return {
+                ...acc,
+                [itemId]: {
+                    element,
+                    list: formattedCategoryList,
+                }
+            }
+        }, {});
+    }
+
+    setNavigationItemList = () => {
+        this.catalogList = this.navigationItemList.reduce((acc, element) => {
+            const {itemId, itemValue} = element.dataset;
+
+            return [
+                ...acc,
+                {
+                    elements: {
+                        content: this.contentItemsData[itemId],
+                        navigation: {
+                            element,
+                            value: itemValue,
+                        },
+                    },
+                    id: itemId,
+                }
+            ]
+        }, []);
+    }
+
+    showAll = () => {
+        this.catalogList.forEach(({elements}) => {
+            const {content, navigation} = elements;
+            const {element: navigationElement} = navigation;
+            const {element: contentElement, list: categoryList} = content;
+
+            categoryList.forEach(({element}) => {
+                element.classList.remove('hidden');
+            });
+
+            navigationElement.classList.remove('hidden');
+            contentElement.classList.remove('hidden');
+        });
+    }
+
+    showSearchedItems = (searchValue) => {
+        const regexp = new RegExp(searchValue, 'giu');
+
+        this.catalogList.forEach(({elements}) => {
+            const {content, navigation} = elements;
+            const {element: navigationElement, value: navigationValue} = navigation;
+            const {element: contentElement, list: categoryList} = content;
+
+            let isCategoryExists = false;
+
+            categoryList.forEach(({element, value}) => {
+                if(value === 'Остальное') {
+                    return;
+                }
+
+                const isSuit = value.match(regexp);
+
+                if(isSuit) {
+                    element.classList.remove('hidden');
+                    isCategoryExists = true;
+                } else {
+                    element.classList.add('hidden');
+                }
+            });
+
+            const isSuit = navigationValue.match(regexp);
+
+            if(!isSuit && !isCategoryExists) {
+                navigationElement.classList.add('hidden');
+                contentElement.classList.add('hidden');
+            } else {
+                navigationElement.classList.remove('hidden');
+                contentElement.classList.remove('hidden');
+            }
+        });
     }
 
     unselectContentItem = () => {
