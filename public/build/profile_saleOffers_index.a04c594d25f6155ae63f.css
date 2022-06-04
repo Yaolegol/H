@@ -47,6 +47,9 @@
   }
 }
 
+.components-catalog-category-item {
+  break-inside: avoid-column;
+}
 
 .components-catalog-content-item {
   display: none;
@@ -59,7 +62,6 @@
   flex: 2 1 66%;
   height: 100%;
   overflow: auto;
-  padding: 20px;
 }
 .components-catalog-content-item-container_without-padding {
   padding: 0;
@@ -151,7 +153,6 @@
 }
 .modules-common-header-catalog__categories-container {
   columns: 3;
-  margin-top: 50px;
 }
 @media (max-width: 767px) {
   .modules-common-header-catalog__categories-container {
@@ -169,9 +170,10 @@
 }
 .modules-common-header-catalog__link {
   display: block;
+  padding: 20px;
 }
 .modules-common-header-catalog__link:hover {
-  color: #FF0000;
+  background-color: #E9EDF6;
 }
 .modules-common-header-catalog__navigation-container {
   flex: 1 1 33%;
