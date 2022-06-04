@@ -162,7 +162,7 @@ class Catalog {
     }
 
     showSearchedItems = (searchValue) => {
-        const regexp = new RegExp(searchValue, 'giu');
+        const regexp = new RegExp(searchValue, 'i');
 
         this.catalogList.forEach(({elements}) => {
             const {content, navigation} = elements;
@@ -176,7 +176,7 @@ class Catalog {
                     return;
                 }
 
-                const isSuit = value.match(regexp);
+                const isSuit = regexp.test(value);
 
                 if(isSuit) {
                     element.classList.remove('hidden');
@@ -186,7 +186,7 @@ class Catalog {
                 }
             });
 
-            const isSuit = navigationValue.match(regexp);
+            const isSuit = regexp.test(navigationValue);
 
             if(!isSuit && !isCategoryExists) {
                 navigationElement.classList.add('hidden');
