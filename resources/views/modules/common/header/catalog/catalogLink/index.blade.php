@@ -1,3 +1,3 @@
-<a class="modules-common-header-catalog-link {{$className}}" href="{{$link}}">
+<a class="modules-common-header-catalog-link" href="{{$link}}">
     {{$slot}}
 </a>

@@ -1,3 +1,3 @@
-<div class="components-catalog-navigation-item-container {{$className}}">
+<div class="components-catalog-navigation-item-container">
     {{$slot}}
 </div>

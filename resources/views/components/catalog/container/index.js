@@ -21,7 +21,7 @@ class Catalog {
 
     bind = () => {
         addEventListener(this.module, 'mouseover', this.handleMouseOver);
-        addEventListener(document, 'j-event-components-test__input', this.handleInput);
+        addEventListener(document, 'j-event-inputs-search__input', this.handleInput);
     }
 
     checkActiveItem = () => {
@@ -42,7 +42,11 @@ class Catalog {
 
     handleInput = (e) => {
         const {detail} = e;
-        const {value} = detail;
+        const {name, value} = detail;
+
+        if(name !== 'catalog') {
+            return;
+        }
 
         if(!value) {
             this.showAll();
