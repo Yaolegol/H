@@ -1,7 +1,7 @@
 <div class="modules-common-header-catalog j-header-catalog">
     <div class="modules-common-header-catalog__backdrop j-header-catalog__backdrop"></div>
     <div class="modules-common-header-catalog__catalog-container">
-        <div style="padding: 50px">
+        <div class="modules-common-header-catalog__catalog-search-container">
             @include('components.inputs.search.index', [
                 'name' => 'catalog'
             ])

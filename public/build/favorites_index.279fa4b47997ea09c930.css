@@ -146,6 +146,9 @@
   right: 0;
   z-index: 9;
 }
+.modules-common-header-catalog__catalog-search-container {
+  padding: 50px;
+}
 .modules-common-header-catalog__categories-container {
   columns: 3;
   margin-top: 50px;
