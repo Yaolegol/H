@@ -38,7 +38,7 @@
                             @foreach( $catalogItem['catalog_level_two'] as $category )
                                 @component('components.catalog.category-item.index', [
                                     'className' => 'j-components-catalog-content-item__category',
-                                    'value' => $category['title'] === 'Куринные яйца' ? 'Куринные яйца' : $category['title'],
+                                    'value' => $category['title'],
                                 ])
                                     <a
                                         class="modules-common-header-catalog__link j-header-catalog__search-element"
