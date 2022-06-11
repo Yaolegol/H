@@ -197,7 +197,7 @@
   background-color: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 50%;
-  color: #000000;
+  color: rgba(0, 0, 0, 0.5);
   display: flex;
   flex: 0 0 auto;
   height: 20px;
@@ -209,7 +209,7 @@
   width: 20px;
 }
 .modules-common-header-search__clear-button:hover {
-  color: #FF0000;
+  color: #000000;
 }
 .modules-common-header-search__clear-button svg {
   height: 24px;
