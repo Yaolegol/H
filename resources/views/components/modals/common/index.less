@@ -1,14 +1,13 @@
+@import (reference) '~styles/adaptive';
 @import (reference) '~styles/colors';
 
 .components-modals-common {
-    align-items: center;
     background-color: @black_80;
     bottom: 0;
     display: none;
     height: 100vh;
     justify-content: center;
     left: 0;
-    padding: 50px;
     position: fixed;
     right: 0;
     top: 0;
@@ -19,22 +18,64 @@
         display: flex;
     }
 
-    &__body {
+    @media @tablet {
+        flex-direction: column;
+        justify-content: flex-end;
         overflow: auto;
+        padding: 100px 0 0;
+    }
+
+    &__body {
         height: 100%;
+        overflow: auto;
+        padding: 50px;
+
+        @media @tablet {
+            overflow: visible;
+        }
     }
 
     &__body-block {
-        background-color: @white;
-        border-radius: 25px;
-        display: flex;
-        margin: auto;
+        margin: auto 50px;
         max-height: 100%;
+        max-width: 1920px;
         width: 100%;
+
+        @media @tablet {
+            margin: 0;
+        }
     }
 
     &__body-container {
-        padding: 50px;
+        background-color: @white;
+        border-radius: 25px;
         width: 100%;
+
+        @media @tablet {
+            border-radius: 25px 25px 0 0;
+        }
+    }
+
+    &__close-button {
+        background-color: @white;
+        border: 1px solid @black_15;
+        border-radius: 50%;
+        color: @black_50;
+        height: 50px;
+        pointer-events: all;
+        width: 50px;
+
+        svg {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    &__close-button-container {
+        line-height: 0;
+        pointer-events: none;
+        position: sticky;
+        text-align: right;
+        top: -50px;
     }
 }
