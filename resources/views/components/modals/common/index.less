@@ -29,6 +29,7 @@
         height: 100%;
         overflow: auto;
         padding: 50px;
+        position: relative;
 
         @media @tablet {
             overflow: visible;
@@ -62,7 +63,8 @@
         border-radius: 50%;
         color: @black_50;
         height: 50px;
-        pointer-events: all;
+        position: absolute;
+        right: 0;
         width: 50px;
 
         &:hover {
@@ -78,9 +80,7 @@
 
     &__close-button-container {
         line-height: 0;
-        pointer-events: none;
         position: sticky;
-        text-align: right;
         top: -50px;
     }
 }
