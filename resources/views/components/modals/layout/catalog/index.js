@@ -3,6 +3,7 @@ import {module} from "helpers/module";
 import 'views/components/inputs/search';
 import "views/components/modals/layout/catalog/content";
 import "views/components/modals/layout/catalog/navigation";
+import 'views/components/search/catalog';
 import './index.less';
 
 class Catalog {
@@ -25,42 +26,6 @@ class Catalog {
 
     bind = () => {
         addEventListener(this.module, 'mouseover', this.handleMouseOver);
-        addEventListener(document, 'j-event-inputs-search__input', this.handleInput);
-    }
-
-    checkActiveItem = () => {
-        const isSelectedItemHidden = this.selectedNavigationItem.classList.contains('hidden');
-
-        if(!isSelectedItemHidden) {
-            return;
-        }
-
-        const navigationItem = this.navigationItemList.find((element) => {
-            return !element.classList.contains('hidden');
-        });
-
-        if (navigationItem) {
-            this.setActiveItem(navigationItem.dataset.itemId);
-        }
-    }
-
-    handleInput = (e) => {
-        const {detail} = e;
-        const {name, value} = detail;
-
-        if(name !== 'catalog') {
-            return;
-        }
-
-        if(!value) {
-            this.showAll();
-            this.setActiveItem(this.initialSelectedItemId);
-
-            return;
-        }
-
-        this.showSearchedItems(value);
-        this.checkActiveItem();
     }
 
     handleMouseOver = (e) => {
@@ -152,58 +117,6 @@ class Catalog {
                 }
             ]
         }, []);
-    }
-
-    showAll = () => {
-        this.catalogList.forEach(({elements}) => {
-            const {content, navigation} = elements;
-            const {element: navigationElement} = navigation;
-            const {element: contentElement, list: categoryList} = content;
-
-            categoryList.forEach(({element}) => {
-                element.classList.remove('hidden');
-            });
-
-            navigationElement.classList.remove('hidden');
-            contentElement.classList.remove('hidden');
-        });
-    }
-
-    showSearchedItems = (searchValue) => {
-        const regexp = new RegExp(searchValue, 'i');
-
-        this.catalogList.forEach(({elements}) => {
-            const {content, navigation} = elements;
-            const {element: navigationElement, value: navigationValue} = navigation;
-            const {element: contentElement, list: categoryList} = content;
-
-            let isCategoryExists = false;
-
-            categoryList.forEach(({element, value}) => {
-                if(value === 'Остальное') {
-                    return;
-                }
-
-                const isSuit = regexp.test(value);
-
-                if(isSuit) {
-                    element.classList.remove('hidden');
-                    isCategoryExists = true;
-                } else {
-                    element.classList.add('hidden');
-                }
-            });
-
-            const isSuit = regexp.test(navigationValue);
-
-            if(!isSuit && !isCategoryExists) {
-                navigationElement.classList.add('hidden');
-                contentElement.classList.add('hidden');
-            } else {
-                navigationElement.classList.remove('hidden');
-                contentElement.classList.remove('hidden');
-            }
-        });
     }
 
     unselectContentItem = () => {
