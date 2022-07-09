@@ -1,2 +1,2 @@
-import 'views/components/modals/common';
+import 'views/components/modals/base/common';
 import './index.less';

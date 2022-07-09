@@ -7,6 +7,12 @@ function DB_getLocationList()
     return Region::with('cities')->get()->toArray();
 }
 
+function formatLocationList(&$locationList) {
+    foreach ($locationList as &$locationItem) {
+        $locationItem['catalog_level_two'] = $locationItem['cities'];
+    }
+}
+
 function getCitiesList($locationList) {
     return array_map(function($regionItem) {
         $regionItemCitiesList = $regionItem['cities'];
@@ -35,7 +41,11 @@ function getCitiesWithSelectedList($locationList, $saleOfferItemData) {
 
 function getLocationListFormatted()
 {
-    return DB_getLocationList();
+    $locationList = DB_getLocationList();
+
+    formatLocationList($locationList);
+
+    return $locationList;
 }
 
 function getLocationSearchDataFormatted($locationList, $searchCountryId, $searchRegionId, $searchCityId)

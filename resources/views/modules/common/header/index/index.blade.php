@@ -10,7 +10,15 @@
                 @include('icons.logo')
             </div>
             <div class="modules-common-header-index__item-container">
-                @include('components.buttons.burger.index')
+                @include('components.buttons.burger.index', [
+                    'className' => 'j-components-buttons-modal-open',
+                    'dataset' => [
+                        [
+                            'name' => 'data-template-id',
+                            'value' => 'catalog',
+                        ]
+                    ]
+                ])
             </div>
             <div class="modules-common-header-index__items-block">
                 <div class="modules-common-header-index__item-container modules-common-header-index__item-container_search-container">
@@ -66,4 +74,5 @@
     </div>
 </div>
 
+@include('modules.common.catalog.modal.index')
 @include('modules.common.location.components.modal.index')

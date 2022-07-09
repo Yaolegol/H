@@ -1,5 +1,11 @@
-@component('components.modals.common.index', [
-    'name' => 'location'
-])
-    @include('modules.common.location.components.modal.modalContent.index')
-@endcomponent
+<template
+    class="j-template"
+    data-template-id="location"
+>
+    @include('components.modals.layout.catalog.index', [
+        'catalog' => $locationList,
+        'contentItem' => 'modules.common.location.components.modal.components.buttons.content.index',
+        'navigationItem' => 'modules.common.location.components.modal.components.buttons.navigation.index',
+        'title' => 'Выберите город или регион',
+    ])
+</template>

@@ -1,0 +1,37 @@
+@import (reference) '~styles/colors';
+
+.modules-common-catalog-content {
+    &__categories-container {
+        columns: 3;
+
+        @media (max-width: 767px) {
+            columns: 2;
+        }
+
+        @media (max-width: 374px) {
+            columns: 1;
+        }
+    }
+
+    &__category-item {
+        &:hover {
+            background-color: #E9EDF6;
+        }
+    }
+
+    &__header-item {
+        display: inline-block;
+
+        &:hover {
+            background-color: #E9EDF6;
+        }
+    }
+
+    &__item {
+        display: none;
+
+        &.selected {
+            display: block;
+        }
+    }
+}

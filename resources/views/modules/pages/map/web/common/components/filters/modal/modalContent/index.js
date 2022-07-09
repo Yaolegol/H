@@ -1,12 +1,6 @@
 import {EVENTS_NAMES} from 'events/index';
 import {addEventListener} from "helpers/events";
 import {getUrlWithNewQueryData, setUrlQuery} from "helpers/query";
-import 'views/components/catalog/container';
-import "views/components/catalog/category-item";
-import "views/components/catalog/content-item";
-import "views/components/catalog/content-item-container";
-import "views/components/catalog/navigation-item";
-import "views/components/catalog/navigation-item-container";
 import "views/modules/pages/map/web/common/components/filters/modal/modalContent/navigationContentButton";
 import 'views/modules/pages/map/web/common/components/filters/modal/modalContent/navigationItem';
 import './index.less';

@@ -21,7 +21,6 @@
             @include('modules.common.header.index.index')
 
             <div class="modules-common-layout-web__content-block">
-                @include('modules.common.header.catalog.index')
                 <div
                     class="
                         modules-common-layout-web__content-container
@@ -34,6 +33,7 @@
                 </div>
             </div>
         </div>
+        @include('components.modals.base.common.index')
         @yield('layout-scripts')
     </body>
 </html>
