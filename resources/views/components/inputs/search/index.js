@@ -1,4 +1,5 @@
 import {addEventListener} from "helpers/events";
+import {module} from "helpers/module";
 import './index.less';
 
 class SearchInput {
@@ -24,8 +25,4 @@ class SearchInput {
     }
 }
 
-const list = [...document.querySelectorAll('.j-inputs-search')];
-
-list.forEach((element) => {
-    new SearchInput(element);
-});
+module.initModule('j-inputs-search', SearchInput);

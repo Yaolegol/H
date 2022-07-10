@@ -78,21 +78,18 @@ class SearchCatalog {
             }
         }, {});
 
-        this.searchData = this.navigationItemsList.reduce((acc, element) => {
+        this.searchDataList = this.navigationItemsList.map((element) => {
             const {itemId, value} = element.dataset;
             const content = contentBlockData[itemId];
 
             return {
-                ...acc,
-                [itemId]: {
-                    content,
-                    navigation: {
-                        element,
-                        value,
-                    }
+                content,
+                navigation: {
+                    element,
+                    value,
                 }
             }
-        }, {});
+        });
     }
 
     selectContentItem = (id) => {
@@ -126,31 +123,29 @@ class SearchCatalog {
     }
 
     showAll = () => {
-        this.navigationItemsList.forEach(({elements}) => {
-            const {content, navigation} = elements;
+        this.searchDataList.forEach(({content, navigation}) => {
             const {element: navigationElement} = navigation;
-            const {element: contentElement, list: categoryList} = content;
+            const {element: contentBlockElement, itemsList: contentItemsList} = content;
 
-            categoryList.forEach(({element}) => {
+            contentItemsList.forEach(({element}) => {
                 element.classList.remove('hidden');
             });
 
             navigationElement.classList.remove('hidden');
-            contentElement.classList.remove('hidden');
+            contentBlockElement.classList.remove('hidden');
         });
     }
 
     showSearchedItems = (searchValue) => {
         const regexp = new RegExp(searchValue, 'i');
 
-        this.searchData.forEach(({elements}) => {
-            const {content, navigation} = elements;
+        this.searchDataList.forEach(({content, navigation}) => {
             const {element: navigationElement, value: navigationValue} = navigation;
-            const {element: contentElement, list: categoryList} = content;
+            const {element: contentBlockElement, itemsList: contentItemsList, value: contentValue} = content;
 
-            let isCategoryExists = false;
+            let isContentExists = false;
 
-            categoryList.forEach(({element, value}) => {
+            contentItemsList.forEach(({element, value}) => {
                 if(value === 'Остальное') {
                     return;
                 }
@@ -158,21 +153,22 @@ class SearchCatalog {
                 const isSuit = regexp.test(value);
 
                 if(isSuit) {
+                    isContentExists = true;
                     element.classList.remove('hidden');
-                    isCategoryExists = true;
                 } else {
                     element.classList.add('hidden');
                 }
             });
 
-            const isSuit = regexp.test(navigationValue);
+            const isNavigationValueSuit = regexp.test(navigationValue) || navigationValue === 'Другое';
+            const isSuit = isNavigationValueSuit || isContentExists;
 
-            if(!isSuit && !isCategoryExists) {
+            if(!isSuit) {
                 navigationElement.classList.add('hidden');
-                contentElement.classList.add('hidden');
+                contentBlockElement.classList.add('hidden');
             } else {
                 navigationElement.classList.remove('hidden');
-                contentElement.classList.remove('hidden');
+                contentBlockElement.classList.remove('hidden');
             }
         });
     }
