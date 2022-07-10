@@ -26,6 +26,26 @@ class Catalog {
 
     bind = () => {
         addEventListener(this.module, 'mouseover', this.handleMouseOver);
+        addEventListener(document, 'j-event-modules-common-catalog__check-is-active-hidden', this.handleCheckIsActiveHidden);
+    }
+
+    getFirstVisibleNavigationItemId = () => {
+        const firstVisibleNavigationItem = this.navigationItemList.find((element) => {
+            return !element.classList.contains('hidden');
+        });
+
+        return firstVisibleNavigationItem.dataset.itemId;
+    }
+
+    handleCheckIsActiveHidden = () => {
+        const isNavigationItemHidden = this.isActiveNavigationItemHidden();
+
+        if(!isNavigationItemHidden) {
+            return;
+        }
+
+        const id = this.getFirstVisibleNavigationItemId();
+        this.setActiveItem(id);
     }
 
     handleMouseOver = (e) => {
@@ -43,6 +63,10 @@ class Catalog {
         this.setNavigationItemList();
 
         this.setActiveItem(this.initialSelectedItemId);
+    }
+
+    isActiveNavigationItemHidden = () => {
+        return this.selectedNavigationItem.classList.contains('hidden');
     }
 
     selectContentItem = (id) => {
@@ -63,7 +87,7 @@ class Catalog {
 
         if(selectedItem) {
             this.selectedNavigationItem = selectedItem;
-            this.selectedNavigationItem.classList.add('components-catalog-navigation-item_active');
+            this.selectedNavigationItem.classList.add('selected');
         }
     }
 
@@ -127,7 +151,7 @@ class Catalog {
 
     unselectNavigationItem = () => {
         if(this.selectedNavigationItem) {
-            this.selectedNavigationItem.classList.remove('components-catalog-navigation-item_active');
+            this.selectedNavigationItem.classList.remove('selected');
         }
     }
 }

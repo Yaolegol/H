@@ -24,19 +24,7 @@ class SearchCatalog {
     }
 
     checkActiveItem = () => {
-        const isSelectedItemHidden = this.selectedNavigationItem.classList.contains('hidden');
-
-        if(!isSelectedItemHidden) {
-            return;
-        }
-
-        const navigationItem = this.navigationItemsList.find((element) => {
-            return !element.classList.contains('hidden');
-        });
-
-        if (navigationItem) {
-            this.setActiveItem(navigationItem.dataset.itemId);
-        }
+        document.dispatchEvent(new CustomEvent('j-event-modules-common-catalog__check-is-active-hidden'));
     }
 
     handleInput = (e) => {
@@ -45,12 +33,10 @@ class SearchCatalog {
 
         if(!value) {
             this.showAll();
-            this.setActiveItem(this.initialSelectedItemId);
-
-            return;
+        } else {
+            this.showSearchedItems(value);
         }
 
-        this.showSearchedItems(value);
         this.checkActiveItem();
     }
 
@@ -90,36 +76,6 @@ class SearchCatalog {
                 }
             }
         });
-    }
-
-    selectContentItem = (id) => {
-        const selectedItem = this.contentItemsList.find((item) => {
-            return item.dataset.itemId === id;
-        });
-
-        if(selectedItem) {
-            this.selectedContentItem = selectedItem;
-            this.selectedContentItem.classList.add('selected');
-        }
-    }
-
-    selectNavigationItem = (id) => {
-        const selectedItem = this.navigationItemsList.find((item) => {
-            return item.dataset.itemId === id;
-        });
-
-        if(selectedItem) {
-            this.selectedNavigationItem = selectedItem;
-            this.selectedNavigationItem.classList.add('components-catalog-navigation-item_active');
-        }
-    }
-
-    setActiveItem = (id) => {
-        this.unselectNavigationItem();
-        this.selectNavigationItem(id);
-
-        this.unselectContentItem();
-        this.selectContentItem(id);
     }
 
     showAll = () => {
@@ -171,18 +127,6 @@ class SearchCatalog {
                 contentBlockElement.classList.remove('hidden');
             }
         });
-    }
-
-    unselectContentItem = () => {
-        if(this.selectedContentItem) {
-            this.selectedContentItem.classList.remove('selected');
-        }
-    }
-
-    unselectNavigationItem = () => {
-        if(this.selectedNavigationItem) {
-            this.selectedNavigationItem.classList.remove('components-catalog-navigation-item_active');
-        }
     }
 }
 
