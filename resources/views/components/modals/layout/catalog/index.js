@@ -1,3 +1,4 @@
+import {EVENTS_NAMES} from 'events/index';
 import {addEventListener} from "helpers/events";
 import {module} from "helpers/module";
 import 'views/components/inputs/search';
@@ -5,6 +6,16 @@ import "views/components/modals/layout/catalog/content";
 import "views/components/modals/layout/catalog/navigation";
 import 'views/components/search/catalog';
 import './index.less';
+
+const {
+    COMMON: {
+        MODALS: {
+            COMMON: {
+                CLOSE,
+            }
+        }
+    }
+} = EVENTS_NAMES;
 
 class Catalog {
     constructor(item) {
@@ -27,6 +38,7 @@ class Catalog {
     bind = () => {
         addEventListener(this.module, 'mouseover', this.handleMouseOver);
         addEventListener(document, 'j-event-modules-common-catalog__check-is-active-hidden', this.handleCheckIsActiveHidden);
+        addEventListener(document, CLOSE, this.handleModalClose);
     }
 
     getFirstVisibleNavigationItemId = () => {
@@ -46,6 +58,11 @@ class Catalog {
 
         const id = this.getFirstVisibleNavigationItemId();
         this.setActiveItem(id);
+    }
+
+    handleModalClose = () => {
+        document.removeEventListener('j-event-modules-common-catalog__check-is-active-hidden', this.handleCheckIsActiveHidden);
+        document.removeEventListener(CLOSE, this.handleModalClose);
     }
 
     handleMouseOver = (e) => {
