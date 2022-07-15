@@ -1,4 +1,7 @@
-<div class="modules-common-catalog j-modules-common-catalog j-components-search-catalog">
+<div
+    class="modules-common-catalog j-modules-common-catalog j-components-search-catalog"
+
+>
     <div>{{$title}}</div>
     <div class="modules-common-catalog__catalog-search-container">
         @include('components.inputs.search.index')

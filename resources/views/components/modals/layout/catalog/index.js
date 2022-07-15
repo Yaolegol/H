@@ -76,8 +76,7 @@ class Catalog {
     }
 
     init = () => {
-        this.setContentItemsData();
-        this.setNavigationItemList();
+        this.setCatalogData();
 
         this.setActiveItem(this.initialSelectedItemId);
     }
@@ -87,89 +86,53 @@ class Catalog {
     }
 
     selectContentItem = (id) => {
-        const selectedItem = this.contentItemList.find((item) => {
-            return item.dataset.itemId === id;
-        });
-
-        if(selectedItem) {
-            this.selectedContentItem = selectedItem;
-            this.selectedContentItem.classList.add('selected');
+        if(this.selectedContentItem) {
+            this.selectedContentItem.classList.remove('selected');
         }
+
+        this.selectedContentItem = this.catalogData[id].content.element;
+        this.selectedContentItem.classList.add('selected');
     }
 
     selectNavigationItem = (id) => {
-        const selectedItem = this.navigationItemList.find((item) => {
-            return item.dataset.itemId === id;
-        });
-
-        if(selectedItem) {
-            this.selectedNavigationItem = selectedItem;
-            this.selectedNavigationItem.classList.add('selected');
+        if(this.selectedNavigationItem) {
+            this.selectedNavigationItem.classList.remove('selected');
         }
+
+        this.selectedNavigationItem = this.catalogData[id].navigation.element;
+        this.selectedNavigationItem.classList.add('selected');
     }
 
     setActiveItem = (id) => {
-        this.unselectNavigationItem();
         this.selectNavigationItem(id);
-
-        this.unselectContentItem();
         this.selectContentItem(id);
     }
 
-    setContentItemsData = () => {
-        this.contentItemsData = this.contentItemList.reduce((acc, element) => {
+    setCatalogData = () => {
+        const contentData = this.contentItemList.reduce((acc, element) => {
             const {itemId} = element.dataset;
 
-            const categoryList = [...element.querySelectorAll('.j-components-catalog-content-item__category')];
-            const formattedCategoryList = categoryList.map((element) => {
-                const {value} = element.dataset;
+            return {
+                ...acc,
+                [itemId]: element,
+            }
+        }, {});
 
-                return {
-                    element,
-                    value,
-                }
-            });
+        this.catalogData = this.navigationItemList.reduce((acc, element) => {
+            const {itemId} = element.dataset;
 
             return {
                 ...acc,
                 [itemId]: {
-                    element,
-                    list: formattedCategoryList,
-                }
-            }
-        }, {});
-    }
-
-    setNavigationItemList = () => {
-        this.catalogList = this.navigationItemList.reduce((acc, element) => {
-            const {itemId, itemValue} = element.dataset;
-
-            return [
-                ...acc,
-                {
-                    elements: {
-                        content: this.contentItemsData[itemId],
-                        navigation: {
-                            element,
-                            value: itemValue,
-                        },
+                    content: {
+                        element: contentData[itemId],
                     },
-                    id: itemId,
+                    navigation: {
+                        element,
+                    }
                 }
-            ]
-        }, []);
-    }
-
-    unselectContentItem = () => {
-        if(this.selectedContentItem) {
-            this.selectedContentItem.classList.remove('selected');
-        }
-    }
-
-    unselectNavigationItem = () => {
-        if(this.selectedNavigationItem) {
-            this.selectedNavigationItem.classList.remove('selected');
-        }
+            };
+        }, {});
     }
 }
 

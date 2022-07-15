@@ -1,7 +1,7 @@
 <div class="modules-common-catalog-content">
     @foreach($catalog as $catalogItem)
         <div
-            class="modules-common-catalog-content__item j-components-catalog-content-item j-components-search-catalog__content-block"
+            class="modules-common-catalog-content__item j-components-catalog-content-item j-components-search-catalog__content-block {{ $loop->index === 0 ? 'selected' : '' }}"
             data-item-id="{{ $loop->index }}"
             data-value="{{ $catalogItem['title'] }}"
         >
