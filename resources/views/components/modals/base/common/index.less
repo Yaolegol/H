@@ -5,50 +5,68 @@
     background-color: @black_80;
     bottom: 0;
     display: none;
-    height: 100vh;
-    justify-content: center;
+    height: 100%;
     left: 0;
+    overflow: hidden;
+    padding: 50px;
     position: fixed;
     right: 0;
     top: 0;
     width: 100vw;
     z-index: 99999;
 
-    &_show {
-        display: flex;
+    @media @tablet {
+        padding: 0;
     }
 
-    @media @tablet {
+    &_show {
+        display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        overflow: auto;
-        padding: 100px 0 0;
     }
 
     &__body {
-        background-color: @white;
-        border-radius: 25px;
-        height: 100%;
-        overflow: auto;
+        display: flex;
+        flex-direction: column;
         padding: 50px;
         position: relative;
         width: 100%;
 
         @media @tablet {
-            border-radius: 25px 25px 0 0;
-            overflow: visible;
+            padding: 15px;
         }
     }
 
     &__body-block {
-        margin: auto 50px;
+        display: flex;
+        margin: auto;
         max-height: 100%;
         max-width: 1920px;
         width: 100%;
 
         @media @tablet {
             margin: 0;
+            overflow: auto;
         }
+    }
+
+    &__body-container {
+        background-color: @white;
+        border-radius: 25px;
+        display: flex;
+        width: 100%;
+
+        @media @tablet {
+            border-radius: 25px 25px 0 0;
+            margin-top: 50px;
+            overflow: visible;
+        }
+    }
+
+    &__content-container {
+        display: flex;
+        min-height: 0;
+        width: 100%;
     }
 
     &__close-button {
@@ -70,11 +88,20 @@
             height: 100%;
             width: 100%;
         }
+
+        @media @tablet {
+            position: static;
+        }
     }
 
     &__close-button-container {
         line-height: 0;
-        position: sticky;
-        top: -50px;
+        position: relative;
+        text-align: right;
+
+        @media @tablet {
+            position: sticky;
+            top: 25px;
+        }
     }
 }

@@ -1,14 +1,11 @@
+@import (reference) '~styles/adaptive';
 @import (reference) '~styles/colors';
 
 .modules-common-catalog-content {
     &__categories-container {
         columns: 3;
 
-        @media (max-width: 767px) {
-            columns: 2;
-        }
-
-        @media (max-width: 374px) {
+        @media @tablet {
             columns: 1;
         }
     }
