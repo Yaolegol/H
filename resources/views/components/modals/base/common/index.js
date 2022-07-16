@@ -32,9 +32,9 @@ class ModalsCommon {
     }
 
     handleBackdropClick = (e) => {
-        const isClickedBackdrop = e.target.classList.contains('j-components-modals-base-common');
+        const isBackdropClicked = this.isBackdropClicked(e.target);
 
-        if(isClickedBackdrop) {
+        if(isBackdropClicked) {
             this.sendCloseModalEvent();
         }
     }
@@ -64,6 +64,10 @@ class ModalsCommon {
 
         this.contentContainer.innerHTML = template.content.firstElementChild.outerHTML;
         module.updateModules();
+    }
+
+    isBackdropClicked = (target) => {
+        return target.classList.contains('j-components-modals-base-common') || target.classList.contains('j-components-modals-base-common__body-block');
     }
 
     sendCloseModalEvent = () => {

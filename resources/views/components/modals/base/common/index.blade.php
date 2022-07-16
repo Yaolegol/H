@@ -1,5 +1,5 @@
 <div class="components-modals-base-common j-components-modals-base-common">
-    <div class="components-modals-base-common__body-block">
+    <div class="components-modals-base-common__body-block j-components-modals-base-common__body-block">
         <div class="components-modals-base-common__body-container">
             <div class="components-modals-base-common__body">
                 <div class="components-modals-base-common__close-button-container">
