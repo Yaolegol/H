@@ -141,9 +141,9 @@ function getSearchLocationData($request) {
     $cookieSearchRegionId = $request->cookie('search-region-id');
     $cookieSearchCityId = $request->cookie('search-city-id');
 
-    $searchCountryId = $cookieSearchCountryId ? $cookieSearchCountryId : $querySearchCountryId;
-    $searchRegionId = $cookieSearchRegionId ? $cookieSearchRegionId : $querySearchRegionId;
-    $searchCityId = $cookieSearchCityId ? $cookieSearchCityId : $querySearchCityId;
+    $searchCountryId = $querySearchCountryId ? $querySearchCountryId : $cookieSearchCountryId;
+    $searchRegionId = $querySearchRegionId ? $querySearchRegionId : $cookieSearchRegionId;
+    $searchCityId = $querySearchCityId ? $querySearchCityId : $cookieSearchCityId;
 
     return [
         'searchCountryId' => $searchCountryId,

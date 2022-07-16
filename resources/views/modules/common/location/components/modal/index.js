@@ -21,6 +21,8 @@ class LocationModalContent {
     }
 
     handleModuleClick = (e) => {
+        console.log('--- LocationModalContent handleModuleClick')
+
         const target = e.target;
         const isLocationButton = target.classList.contains('j-location-modal-content__location-button');
 
@@ -80,7 +82,7 @@ class LocationModalContent {
     }
 
     setLocationQuery = (target) => {
-        const {searchCountryId, searchRegionId, searchCityId} = target.dataset;
+        const {searchCountryId = 1, searchRegionId, searchCityId} = target.dataset;
 
         const queryDataArray = [
             {

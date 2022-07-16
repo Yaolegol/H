@@ -7,7 +7,7 @@
         >
             <div class="modules-common-catalog-content__header j-header-catalog__search-element">
                 <div class="modules-common-catalog-content__header-item">
-                    @include($contentItem, [
+                    @include($navigationItem, [
                         'contentData' => $catalogItem,
                     ])
                 </div>
@@ -20,6 +20,7 @@
                     >
                         @include($contentItem, [
                             'contentData' => $contentData,
+                            'navigationData' => $catalogItem,
                         ])
                     </div>
                 @endforeach
