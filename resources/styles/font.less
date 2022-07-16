@@ -89,6 +89,10 @@
 
 .f_h2 {
     .create-font(@default_h; @font-size: 30px; @line-height: 46px;);
+
+    @media @tablet {
+        .create-font(@default_h; @font-size: 20px; @line-height: 26px;);
+    }
 }
 
 .f_h3 {
