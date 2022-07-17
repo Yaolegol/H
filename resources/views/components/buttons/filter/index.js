@@ -30,7 +30,8 @@ export class ButtonsFilter {
         this.onClick();
     }
 
-    handleResetButtonClick = () => {
+    handleResetButtonClick = (e) => {
+        e.stopPropagation();
         this.onReset();
         this.toggleButtonDefaultState(true);
     }

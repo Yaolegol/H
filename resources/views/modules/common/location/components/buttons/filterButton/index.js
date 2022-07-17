@@ -9,11 +9,11 @@ class LocationFilterButton {
         this.initButtonsFilter();
     }
 
-    handleOpenModalClick = (e) => {
+    handleOpenModalClick = () => {
         locationOpenModal();
     }
 
-    handleResetClick = (e) => {
+    handleResetClick = () => {
         document.dispatchEvent(new CustomEvent('j-event--location-common-open-modal-button__reset'));
     }
 

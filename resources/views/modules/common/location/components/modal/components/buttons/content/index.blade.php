@@ -1,5 +1,5 @@
 <button
-    class="modules-common-location-components-modal-components-buttons-content j-location-modal-content__location-button"
+    class="modules-common-location-components-modal-components-buttons-content j-location-controller__location-button"
     data-search-city-id="{{$contentData['id']}}"
     data-search-region-id="{{$navigationData['id']}}"
     type="button"
