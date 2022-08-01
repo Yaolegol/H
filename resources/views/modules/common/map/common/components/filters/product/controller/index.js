@@ -1,6 +1,17 @@
+import {EVENTS_NAMES} from 'events/index';
 import {addEventListener} from "helpers/events";
 import {module} from "helpers/module";
 import {setUrlQuery} from "helpers/query";
+
+const {
+    COMMON: {
+        MODALS: {
+            COMMON: {
+                CLOSE,
+            }
+        }
+    }
+} = EVENTS_NAMES;
 
 class MapProductFilterController {
     constructor(item) {
@@ -11,10 +22,10 @@ class MapProductFilterController {
 
     bind = () => {
         addEventListener(document, 'j-event--modules-pages-map-web-common-components-filters-product-filter-button__reset', this.handleReset);
-        addEventListener(this.module, 'click', this.handleModuleClick);
+        addEventListener(document, 'click', this.handleClick);
     }
 
-    handleModuleClick = (e) => {
+    handleClick = (e) => {
         const target = e.target;
         const isFilterButton = target.classList.contains('j-modules-common-filters-product-modal-components-buttons-content');
 
@@ -31,12 +42,12 @@ class MapProductFilterController {
         ];
 
         setUrlQuery(query);
-        window.location.reload();
+        this.setFilter(target.innerHTML);
     }
 
     handleReset = (e) => {
         this.resetUrlQuery();
-        window.location.reload();
+        this.setFilter();
     }
 
     resetUrlQuery = () => {
@@ -48,6 +59,16 @@ class MapProductFilterController {
         ];
 
         setUrlQuery(query);
+    }
+
+    setFilter = (value) => {
+        document.dispatchEvent(new CustomEvent(CLOSE));
+        document.dispatchEvent(new CustomEvent('j-event-modules-pages-map-web-common-components-filters-product-controller__set-filter', {
+            detail: {
+                value,
+            }
+        }));
+        document.dispatchEvent(new CustomEvent('j-event--map-filter-update'));
     }
 }
 
