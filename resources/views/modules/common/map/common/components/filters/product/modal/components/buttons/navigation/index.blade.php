@@ -1,4 +1,4 @@
 <button
-    class="map-common-components-filters-modal-components-buttons-navigation"
+    class="modules-common-filters-product-modal-components-buttons-navigation"
     type="button"
 >{{$catalogItem['title']}}</button>

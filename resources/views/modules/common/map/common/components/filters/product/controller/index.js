@@ -16,7 +16,7 @@ class MapProductFilterController {
 
     handleModuleClick = (e) => {
         const target = e.target;
-        const isFilterButton = target.classList.contains('j-map-common-components-filters-modal-components-buttons-content');
+        const isFilterButton = target.classList.contains('j-modules-common-filters-product-modal-components-buttons-content');
 
         if(!isFilterButton) {
             return;

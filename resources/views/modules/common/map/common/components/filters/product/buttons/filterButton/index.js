@@ -21,4 +21,4 @@ class ProductFilterButton {
     }
 }
 
-module.initModule('j-modules-pages-map-web-common-components-filters-product-filter-button', ProductFilterButton);
+module.initModule('j-modules-common-filters-product-filter-button', ProductFilterButton);

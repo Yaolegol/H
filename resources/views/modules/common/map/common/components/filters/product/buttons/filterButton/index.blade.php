@@ -1,4 +1,4 @@
-<div class="modules-pages-map-web-common-components-filters-product-filter-button j-modules-pages-map-web-common-components-filters-product-filter-button">
+<div class="modules-common-filters-product-filter-button j-modules-common-filters-product-filter-button">
     @include('components.buttons.filter.index', [
                 'className' => 'j-components-buttons-modal-open',
                 'dataset' => [
