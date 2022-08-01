@@ -34,8 +34,8 @@ class LocationController {
     resetLocationCookie = () => {
         const now = new Date();
 
-        document.cookie = `search-region-id=0;expires=${now};`;
-        document.cookie = `search-city-id=0;expires=${now};`;
+        document.cookie = `search-region-id=0;expires=${now};path=/;`;
+        document.cookie = `search-city-id=0;expires=${now};path=/;`;
     }
 
     resetLocationQuery = () => {
