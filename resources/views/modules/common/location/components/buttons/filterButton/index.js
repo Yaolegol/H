@@ -1,5 +1,4 @@
 import {ButtonsFilter} from "views/components/buttons/filter";
-import {locationOpenModal} from 'views/modules/common/location/helpers';
 import './index.less';
 
 class LocationFilterButton {
@@ -9,10 +8,6 @@ class LocationFilterButton {
         this.initButtonsFilter();
     }
 
-    handleOpenModalClick = () => {
-        locationOpenModal();
-    }
-
     handleResetClick = () => {
         document.dispatchEvent(new CustomEvent('j-event--location-common-open-modal-button__reset'));
     }
@@ -20,7 +15,6 @@ class LocationFilterButton {
     initButtonsFilter = () => {
         this.buttonsFilterInstance = new ButtonsFilter({
             container: this.module,
-            onClick: this.handleOpenModalClick,
             onReset: this.handleResetClick,
         });
     }

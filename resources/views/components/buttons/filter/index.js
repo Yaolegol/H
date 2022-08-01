@@ -23,7 +23,7 @@ export class ButtonsFilter {
     handleClick = (e) => {
         const isResetButton = this.isResetButtonPressed(e);
 
-        if(isResetButton) {
+        if(isResetButton || !this.onClick) {
             return;
         }
 
@@ -49,12 +49,6 @@ export class ButtonsFilter {
 
     isResetButtonPressed = (e) => {
         return e.target.classList.contains('j-buttons-filter__button-reset') || e.target.closest('.j-buttons-filter__button-reset');
-    }
-
-    setButtonText = (text) => {
-        this.title.textContent = text || this.defaultTitle;
-
-        this.checkResetButtonVisibility(text);
     }
 
     toggleButtonDefaultState = (isDefault = false) => {

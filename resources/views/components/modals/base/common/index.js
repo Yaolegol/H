@@ -39,7 +39,7 @@ class ModalsCommon {
         }
     }
 
-    handleClose = (e) => {
+    handleClose = () => {
         this.module.classList.remove('components-modals-base-common_show');
         document.body.classList.remove('j-style-overflow-hidden');
         this.contentContainer.innerHTML = '';

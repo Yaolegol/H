@@ -6,7 +6,7 @@
                 @include('modules.common.location.components.buttons.filterButton.index')
             </div>
             <div class="modules-pages-map-web-routes-index__filters-container">
-                @include('modules.pages.map.web.common.components.filters.product.index')
+                @include('modules.pages.map.web.common.components.filters.product.buttons.filterButton.index')
             </div>
         </div>
         <div class="modules-pages-map-web-routes-index__info-item-container">
@@ -14,3 +14,4 @@
         </div>
     </div>
 </div>
+@include('modules.pages.map.web.common.components.filters.product.modal.index')

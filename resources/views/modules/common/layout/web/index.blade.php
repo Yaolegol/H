@@ -12,7 +12,7 @@
         <!-- Styles -->
         @yield('layout-styles')
     </head>
-    <body class="j-location-controller">
+    <body class="j-location-controller j-modules-pages-map-web-common-components-filters-product-controller">
         <div class="j-csrf-token" data-value="{{ csrf_token() }}"></div>
         @auth
             <div class="j-user__auth"></div>

@@ -15,8 +15,6 @@ class LocationController {
     }
 
     handleModuleClick = (e) => {
-        console.log('--- LocationController handleModuleClick')
-
         const target = e.target;
         const isLocationButton = target.classList.contains('j-location-controller__location-button');
 
