@@ -99,7 +99,7 @@ function getPersonalDataValidator($request) {
             'avatar' => ['image', 'size:10240'],
             'name' => ['max:50'],
             'description' => ['max:100'],
-            'phone' => ['max:12'],
+            'phone' => ['max:16'],
             'visible_email' => ['email', 'max:25'],
         ],
         [

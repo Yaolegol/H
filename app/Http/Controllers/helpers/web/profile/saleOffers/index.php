@@ -115,7 +115,7 @@ function getProfileSaleOffersValidator($request) {
             'catalog_level_two_id' => ['required'],
             'description' => ['max:250'],
             'measure_id' => ['required'],
-            'phone' => ['required', 'max:12'],
+            'phone' => ['required', 'max:16'],
             'photo_1' => ['image', 'size:10240'],
             'photo_2' => ['image', 'size:10240'],
             'photo_3' => ['image', 'size:10240'],

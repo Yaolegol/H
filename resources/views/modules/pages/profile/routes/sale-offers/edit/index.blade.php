@@ -103,7 +103,7 @@
             @endcomponent
 
             @component('modules.pages.profile.common.components.container.form-field.index', [
-                    'title' => 'Торговые точки (информацию о торговых точках можно добавить в соответствующем разделе Вашего профиля):'])
+                    'title' => 'Торговые точки (информацию о торговых точках можно добавить в разделе Вашего профиля - "Торговые точки"):'])
                 @foreach($salePointsList as $salePointItem)
                     @include('components.checkboxes.map.index', [
                         'isChecked' => $salePointItem['active'],
