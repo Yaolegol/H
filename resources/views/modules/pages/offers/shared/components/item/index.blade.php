@@ -8,21 +8,24 @@
     <div class="modules-pages-offers-shared-components-item__content-block">
         <div class="modules-pages-offers-shared-components-item__info-section">
             <div>
-                <a href="{{$offer['offerLink']}}">{{$offer['title']}}</a>
+                <a
+                    class="modules-pages-offers-shared-components-item__product-link"
+                    href="{{$offer['offerLink']}}"
+                >{{$offer['title']}}</a>
             </div>
             <div class="modules-pages-offers-shared-components-item__description-container">
-                <span>{{$offer['description']}}</span>
+                {{$offer['description']}}
             </div>
             <div class="modules-pages-offers-shared-components-item__price-container">
                 <span>Цена: </span>
                 <span class="modules-pages-offers-shared-components-item__price">{{$offer['price']}}</span>
                 <span>₽</span>
                 @if($offer['measure_id'] !== 4)
-                    <span>(за {{$offer['measure']}})</span>
+                    <span class="modules-pages-offers-shared-components-item__measure">(за {{$offer['measure']}})</span>
                 @endif
             </div>
             <div class="modules-pages-offers-shared-components-item__contacts-block">
-                <div>
+                <div class="modules-pages-offers-shared-components-item__phone-container">
                     Телефон: <a href="tel:{{$offer['phone']}}">{{$offer['phone']}}</a>
                 </div>
                 @if($withSeller)
@@ -32,9 +35,9 @@
                 @endif
             </div>
         </div>
-        <div class="modules-pages-offers-shared-components-item__rating-section">
-            <span>Товар: 4.5</span> <span>Продавец: 4.0</span>
-        </div>
+{{--        <div class="modules-pages-offers-shared-components-item__rating-section">--}}
+{{--            <span>Товар: 4.5</span> <span>Продавец: 4.0</span>--}}
+{{--        </div>--}}
     </div>
     <div class="modules-pages-offers-shared-components-item__service-block">
         @include('modules.pages.favorites.shared.components.button.index', [
