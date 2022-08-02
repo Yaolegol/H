@@ -6,8 +6,10 @@
     color: @white;
     padding: 20px;
 
-    &__copyright-block {
-        margin-top: 50px;
+    &__copyright-container {
+        @media @mobile {
+            margin-top: 15px;
+        }
     }
 
     &__info-container {
@@ -22,11 +24,5 @@
 
     &__link {
         color: @white;
-    }
-
-    &__rules-container {
-        @media @mobile {
-            margin-top: 15px;
-        }
     }
 }
