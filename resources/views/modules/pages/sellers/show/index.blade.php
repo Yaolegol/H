@@ -6,21 +6,21 @@
                 <img  alt="" class="modules-pages-sellers-show__avatar" src="{{$sellerData['avatar']}}">
             </div>
             <div class="modules-pages-sellers-show__header-info-container">
-                <div>Имя</div>
+                <div class="modules-pages-sellers-show__header-info-title">Имя</div>
                 <div>{{$sellerData['name']}}</div>
                 <div>{{$sellerData['description']}}</div>
             </div>
             <div class="modules-pages-sellers-show__header-info-container">
-                <div>Телефон</div>
-                <div>{{$sellerData['phone']}}</div>
+                <div class="modules-pages-sellers-show__header-info-title">Телефон</div>
+                <a href="tel:{{$sellerData['phone']}}">{{$sellerData['phone']}}</a>
             </div>
             <div class="modules-pages-sellers-show__header-info-container">
-                <div>Email</div>
-                <div>{{$sellerData['visible_email']}}</div>
+                <div class="modules-pages-sellers-show__header-info-title">Email</div>
+                <a href="mail:{{$sellerData['visible_email']}}">{{$sellerData['visible_email']}}</a>
             </div>
         </div>
         <div class="modules-pages-sellers-show__offers-block">
-            <div class="modules-pages-sellers-show__offers-title">Предложения продавца</div>
+            <h3 class="modules-pages-sellers-show__offers-title">Предложения продавца</h3>
             <div class="modules-pages-sellers-show__offers-container">
                 @include('modules.pages.offers.shared.components.list.index', [
                     'offersList' => $sellerData['offers'],
