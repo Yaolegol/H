@@ -21,18 +21,11 @@
         </label>
         <div class="modules-common-header-search__search-results-area">
             <div class="modules-common-header-search__search-results-block">
-                <div class="modules-common-header-search__search-results-container modules-common-header-search__search-results-container_categories-results">
-                    <div>Категории</div>
-                    <div class="modules-common-header-search__result-container j-header-search__search-results-categories-result-container"></div>
-                </div>
-                <div class="modules-common-header-search__search-results-container modules-common-header-search__search-results-container_sellers-results">
-                    <div>Продавцы</div>
-                    <div class="modules-common-header-search__result-container j-header-search__search-results-sellers-result-container"></div>
-                </div>
-                <div class="modules-common-header-search__search-results-container modules-common-header-search__search-results-container_no-results">
-                    <div>Найдено 0 результатов</div>
-                </div>
+                <div class="j-header-search__search-results-output"></div>
+                <div class="hidden j-header-search__no-results-container">Результатов не найдено</div>
             </div>
         </div>
     </div>
+    @include('modules.common.header.search.templates.search-result-container.index')
+    @include('modules.common.header.search.templates.search-result-item.index')
 </div>

@@ -1,19 +1,21 @@
 import {debounce} from "helpers/debounce";
 import {addEventListener} from "helpers/events";
+import {module} from "helpers/module";
 import {toggleClass} from "helpers/toggle";
+import "views/modules/common/header/search/templates/search-result-container";
+import "views/modules/common/header/search/templates/search-result-item";
 import './index.less';
 
 class Search {
     constructor(element) {
         this.module = element;
+        this.searchResultsOutput = this.module.querySelector('.j-header-search__search-results-output');
+        this.noResultsContainer = this.module.querySelector('.j-header-search__no-results-container');
         this.searchInput = this.module.querySelector('.j-header-search__input');
         this.clearButton = this.module.querySelector('.j-header-search__clear-button');
         this.mobileSearchButton = this.module.querySelector('.j-header-search__mobile-search-button');
         this.CSRFContainer = document.querySelector('.j-csrf-token');
         this.CSRFValue = this.CSRFContainer?.dataset.value;
-        this.searchElementsList = [...document.querySelectorAll('.j-header-catalog__search-element')];
-        this.searchResultsCategoriesResultContainer = this.module.querySelector('.j-header-search__search-results-categories-result-container');
-        this.searchResultsSellersResultContainer = this.module.querySelector('.j-header-search__search-results-sellers-result-container');
 
         this.bind();
     }
@@ -27,81 +29,62 @@ class Search {
         addEventListener(this.mobileSearchButton, 'click', this.handleMobileSearchButtonClick);
     }
 
-    clearModuleClasses = () => {
-        this.module.classList.remove('j-style-header-search__has-value');
-        this.module.classList.remove('j-style-header-search__has-results');
-        this.module.classList.remove('j-style-header-search__no-results');
-        this.module.classList.remove('j-style-header-search__has-categories-results');
-        this.module.classList.remove('j-style-header-search__has-sellers-results');
+    clearResultsContainer = () => {
+        this.searchResultsOutput.innerHTML = '';
+        this.noResultsContainer.classList.add('hidden');
     }
 
-    clearSearchResults = () => {
-        this.searchResultsCategoriesResultContainer.innerHTML = '';
-        this.searchResultsSellersResultContainer.innerHTML = '';
+    createSearchResultBlock = ({dataList, title}) => {
+        if(!dataList.length) {
+            return;
+        }
+
+        const container = this.createSearchResultContainer(title);
+        const items = this.createSearchResultItems(dataList);
+
+        const itemsContainer = container.querySelector('.j-header-search__search-results-container');
+        itemsContainer.innerHTML = items;
+
+        return container;
     }
 
-    getCatalogSearchDataList = (searchValue) => {
-        const regexp = new RegExp(searchValue, 'gi');
+    createSearchResultContainer = (title) => {
+        const containerTemplate = this.getSearchContainerTemplateHTML();
 
-        return this.searchElementsList.reduce((acc, element, arr) => {
-            const {href, textContent} = element;
-            const isMatch = regexp.test(textContent);
+        const titleContainer = containerTemplate.querySelector('.j-header-search__search-results-container-title');
+        titleContainer.innerHTML = title;
 
-            if(isMatch) {
-                return [
-                    ...acc,
-                    {
-                        href,
-                        textContent,
-                    }
-                ];
-            } else {
-                return acc;
-            }
-        }, []);
+        return containerTemplate;
     }
 
-    getCatalogSearchLayout = (catalogSearchDataList) => {
-        const layoutArray = catalogSearchDataList.map((catalogData) => {
-            const {href, textContent} = catalogData;
+    createSearchResultItems = (dataList) => {
+        const itemsList = dataList.map(({link, title}) => {
+            const itemTemplate = this.getSearchItemTemplateHTML();
+            const linkElement = itemTemplate.querySelector('.j-header-search__search-result-item-link');
 
-            return `<div>
-                       <a href="${href}">${textContent}</a>
-                    </div>`;
+            linkElement.innerHTML = title;
+            linkElement.href = link;
+
+            return itemTemplate.outerHTML;
         });
 
-        return layoutArray.join('');
+        return itemsList.join('');
     }
 
-    getSearchSellersLayout = (data) => {
-        const layoutArray = data.map((responseUserData) => {
-            const {organizationsList, userData} = responseUserData;
-            const {link, title} = userData;
+    getSearchContainerTemplateHTML = () => {
+        const template = this.module.querySelector('.j-template[data-template-id="header-search-result-container"]');
 
-            const userLink = `<div>
-                                 <a href="${link}">${title}</a>
-                              </div>`;
+        return template.content.firstElementChild.cloneNode(true);
+    }
 
-            const linksArray = [userLink];
+    getSearchItemTemplateHTML = () => {
+        const template = this.module.querySelector('.j-template[data-template-id="header-search-result-item"]');
 
-            organizationsList.forEach((organizationData) => {
-                const organizationLink = `<div>
-                                             <a href="${link}">${organizationData.title}</a>
-                                          </div>`;
-
-                linksArray.push(organizationLink);
-            });
-
-            return linksArray.join('');
-        });
-
-        return layoutArray.join('');
+        return template.content.firstElementChild.cloneNode(true);
     }
 
     handleClearButtonClick = (e) => {
         this.searchInput.value = '';
-        this.clearSearchResults();
-        this.clearModuleClasses();
     }
 
     handleClearButtonMouseDown = (e) => {
@@ -125,6 +108,8 @@ class Search {
     }
 
     handleSearchInputInput = (e) => {
+        this.clearResultsContainer();
+
         const value = this.searchInput.value;
 
         if(value) {
@@ -143,15 +128,15 @@ class Search {
 
         const {data, errors} = await this.sendRequest(searchValue);
 
-        if(!errors) {
-            const isCategorySet = this.setSearchCategory(searchValue);
-            const isSellersSet = this.setSearchSellers(data);
-
-            toggleClass(this.module, 'j-style-header-search__no-results', !isCategorySet && !isSellersSet);
-            toggleClass(this.module, 'j-style-header-search__has-results', isCategorySet || isSellersSet);
-            toggleClass(this.module, 'j-style-header-search__has-categories-results', isCategorySet);
-            toggleClass(this.module, 'j-style-header-search__has-sellers-results', isSellersSet);
+        if(errors) {
+            return;
         }
+
+        this.setData(data);
+    }
+
+    isDataExists = (data) => {
+        return data.some(({dataList}) => dataList.length);
     }
 
     sendRequest = async (searchValue) => {
@@ -176,34 +161,20 @@ class Search {
         return response.json();
     }
 
-    setSearchCategory = (searchValue) => {
-        const catalogSearchDataList = this.getCatalogSearchDataList(searchValue);
-        const catalogSearchLayout = this.getCatalogSearchLayout(catalogSearchDataList);
+    setData = (data) => {
+        const isDataExists = this.isDataExists(data);
 
-        if(catalogSearchLayout) {
-            this.searchResultsCategoriesResultContainer.innerHTML = catalogSearchLayout;
+        if(!isDataExists) {
+            this.noResultsContainer.classList.remove('hidden');
 
-            return true;
+            return;
         }
 
-        return false;
-    }
+        const list = data.map(this.createSearchResultBlock);
+        const listFiltered = list.filter((item) => item);
 
-    setSearchSellers = (data) => {
-        const sellersLayout = this.getSearchSellersLayout(data);
-
-        if(sellersLayout) {
-            this.searchResultsSellersResultContainer.innerHTML = sellersLayout;
-
-            return true;
-        }
-
-        return false;
+        this.searchResultsOutput.prepend(...listFiltered);
     }
 }
 
-const list = [...document.querySelectorAll('.j-header-search')];
-
-list.forEach((element) => {
-    new Search(element);
-});
+module.initModule('j-header-search', Search);

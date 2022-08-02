@@ -1,7 +1,37 @@
 <?php
 
+use App\Models\CatalogLevelOne;
+use App\Models\CatalogLevelTwo;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
+
+function apiGetCatalogLevelOneListByTitleFromDB($title) {
+    if(!$title) {
+        return [];
+    }
+
+    $queryString = '%' . $title . '%';
+
+    return CatalogLevelOne::where([
+        ['title','like', $queryString],
+    ])
+        ->get(['title', 'link'])
+        ->toArray();
+}
+
+function apiGetCatalogLevelTwoListByTitleFromDB($title) {
+    if(!$title) {
+        return [];
+    }
+
+    $queryString = '%' . $title . '%';
+
+    return CatalogLevelTwo::where([
+        ['title','like', $queryString],
+    ])
+        ->get(['title', 'link'])
+        ->toArray();
+}
 
 function apiGetUserListByTitleFromDB($title) {
     if(!$title) {
@@ -28,26 +58,36 @@ function apiGetSearchCommonResultFormatted($request) {
     $title = $data['title'];
 
     $userList = apiGetUserListByTitleFromDB($title);
+    $catalogLevelOneList = apiGetCatalogLevelOneListByTitleFromDB($title);
+    $catalogLevelTwoList = apiGetCatalogLevelTwoListByTitleFromDB($title);
 
-    return apiGetUserLinks($userList);
+    $usersDataList = apiGetUserLinks($userList);
+
+    $data = [
+        [
+            'dataList' => $catalogLevelOneList,
+            'title' => 'Категории',
+        ],
+        [
+            'dataList' => $catalogLevelTwoList,
+            'title' => 'Товары',
+        ],
+        [
+            'dataList' => $usersDataList,
+            'title' => 'Продавцы',
+        ],
+    ];
+
+    return $data;
 }
 
 function apiGetUserLinks($userList) {
     return array_map(function($userData) {
         $userLink = '/sellers/' . $userData['id'];
 
-        $organizationsList = array_map(function($organizationData) {
-            return [
-                'title' => $organizationData['title'],
-            ];
-        }, $userData['organizations']);
-
         return [
-            'userData' => [
-                'link' => $userLink,
-                'title' => $userData['name'],
-            ],
-            'organizationsList' => $organizationsList,
+            'link' => $userLink,
+            'title' => $userData['name'],
         ];
     }, $userList);
 }

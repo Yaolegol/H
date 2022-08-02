@@ -73,10 +73,6 @@
         }
     }
 
-    &__result-container {
-        margin-top: 10px;
-    }
-
     &__search-block {
         border: 1px solid @white;
         border-radius: 30px;
@@ -113,46 +109,19 @@
         border-radius: 15px;
         display: none;
         left: 0;
-        padding: 20px;
         position: absolute;
         right: 0;
         top: 55px;
         z-index: 9;
 
-        .modules-common-header-search.j-style-header-search__focus.j-style-header-search__has-value.j-style-header-search__has-results &,
-        .modules-common-header-search.j-style-header-search__focus.j-style-header-search__has-value.j-style-header-search__no-results & {
+        .modules-common-header-search.j-style-header-search__focus.j-style-header-search__has-value & {
             display: block;
         }
     }
 
     &__search-results-block {
-        margin-top: -25px;
         max-height: 300px;
         overflow-y: auto;
-    }
-
-    &__search-results-container {
-        display: none;
-
-        &_categories-results {
-            .modules-common-header-search.j-style-header-search__focus.j-style-header-search__has-categories-results & {
-                display: block;
-                margin-top: 25px;
-            }
-        }
-
-        &_no-results {
-            .modules-common-header-search.j-style-header-search__focus.j-style-header-search__no-results & {
-                display: block;
-                margin-top: 25px;
-            }
-        }
-
-        &_sellers-results {
-            .modules-common-header-search.j-style-header-search__focus.j-style-header-search__has-sellers-results & {
-                display: block;
-                margin-top: 25px;
-            }
-        }
+        padding: 20px;
     }
 }
