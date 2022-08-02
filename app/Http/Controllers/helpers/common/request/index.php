@@ -19,19 +19,19 @@ function getFilesArray($request, $name, $count) {
 }
 
 function getInputsValuesArray($request, $name, $count) {
-    $filesArray = [];
+    $valuesArray = [];
 
-    $iteration = 1;
+    $iteration = 0;
     while ($iteration <= $count) {
         $currentName = $name . '_' . $iteration;
         $currentInputValue = $request->input($currentName);
 
         if ($currentInputValue) {
-            array_push($filesArray, $currentInputValue);
+            array_push($valuesArray, $currentInputValue);
         }
 
         $iteration++;
     }
 
-    return $filesArray;
+    return $valuesArray;
 }
