@@ -1,0 +1,32 @@
+@import (reference) '~styles/adaptive';
+@import (reference) '~styles/colors';
+
+.modules-common-footer-index {
+    background-color: @primary_200;
+    color: @white;
+    padding: 20px;
+
+    &__copyright-block {
+        margin-top: 50px;
+    }
+
+    &__info-container {
+        display: flex;
+        justify-content: space-between;
+
+        @media @mobile {
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+    }
+
+    &__link {
+        color: @white;
+    }
+
+    &__rules-container {
+        @media @mobile {
+            margin-top: 15px;
+        }
+    }
+}

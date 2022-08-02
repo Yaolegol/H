@@ -33,6 +33,9 @@
                 </div>
             </div>
         </div>
+        <div class="modules-common-layout-web__footer-container">
+            @include('modules.common.footer.index.index')
+        </div>
         @include('components.modals.base.common.index')
         @yield('layout-scripts')
     </body>
