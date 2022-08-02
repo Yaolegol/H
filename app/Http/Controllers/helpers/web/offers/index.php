@@ -3,6 +3,7 @@
 use App\Models\Offer;
 
 require_once('app/Http/Controllers/helpers/common/assets/index.php');
+require_once('app/Http/Controllers/helpers/common/measure/index.php');
 
 function DB_getOffer($id)
 {
