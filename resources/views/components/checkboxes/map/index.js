@@ -1,7 +1,6 @@
 import {addEventListener} from "helpers/events";
 import './index.less';
 
-
 class CheckboxesMap {
     constructor(element) {
         this.module = element;
