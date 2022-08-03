@@ -96,7 +96,7 @@ function getPersonalDataValidator($request) {
     return Validator::make(
         $request->all(),
         [
-            'avatar' => ['image', 'size:10240'],
+            'avatar' => ['image', 'max:10240'],
             'name' => ['max:50'],
             'description' => ['max:100'],
             'phone' => ['max:16'],
