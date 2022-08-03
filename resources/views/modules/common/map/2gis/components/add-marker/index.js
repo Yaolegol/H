@@ -11,8 +11,8 @@ class Map2gisComponentsAddMarker {
         this.markerLat = Number(this.module.dataset.markerLat);
         this.markerLng = Number(this.module.dataset.markerLng);
 
-        this.init();
         this.bind();
+        this.init();
     }
 
     addInitialMarker = () => {
@@ -41,6 +41,11 @@ class Map2gisComponentsAddMarker {
 
     bind = () => {
         addEventListener(document, 'j-event__need-update-map-marker', this.handleUpdateMarker);
+        addEventListener(document, 'j-event-map__check-ready-status', this.handleCheckMapReadyStatus);
+    }
+
+    handleCheckMapReadyStatus = () => {
+        this.sendInitMessage();
     }
 
     handleUpdateMarker = (e) => {
@@ -60,6 +65,7 @@ class Map2gisComponentsAddMarker {
 
         this.initMap();
         this.addInitialMarker();
+        this.sendInitMessage();
     }
 
     initMap = () => {
@@ -98,6 +104,10 @@ class Map2gisComponentsAddMarker {
             this.newMarkerFromClick.removeFrom(this.mapInstance.map);
             this.setLatLngInputsValues(0, 0);
         }
+    }
+
+    sendInitMessage = () => {
+        document.dispatchEvent(new CustomEvent('j-event-map__ready'));
     }
 
     setLatLngInputsValues = (lat, lng) => {

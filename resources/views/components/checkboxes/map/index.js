@@ -11,14 +11,25 @@ class CheckboxesMap {
         this.markerLng = this.module.dataset.markerLng;
         this.withCoords = Boolean(this.markerLat) && Boolean(this.markerLng);
 
-        this.sendInitialMessage();
         this.bind();
+        this.init();
     }
 
     bind = () => {
         if(this.withCoords) {
             addEventListener(this.module, 'change', this.handleChange);
         }
+
+        addEventListener(document, 'j-event-map__ready', this.handleCheckMapReadyStatus);
+        addEventListener(document, 'j-event-map__check-ready-status', this.handleCheckMapReadyStatus);
+    }
+
+    checkIsListenersReady = () => {
+        document.dispatchEvent(new CustomEvent('j-event-map__check-ready-status'));
+    }
+
+    handleCheckMapReadyStatus = () => {
+        this.sendInitialMessage();
     }
 
     handleChange = (e) => {
@@ -28,6 +39,10 @@ class CheckboxesMap {
         if(isInput) {
             this.sendMessage();
         }
+    }
+
+    init = () => {
+        this.checkIsListenersReady();
     }
 
     sendInitialMessage = () => {
