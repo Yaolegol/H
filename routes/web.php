@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\controllers\map\mobileApp\MapMobileAppSinglePoint;
+use App\Http\Controllers\controllers\web\admin\AdminController;
 use App\Http\Controllers\controllers\web\authorization\login\LoginController;
 use App\Http\Controllers\controllers\web\authorization\logout\LogoutController;
 use App\Http\Controllers\controllers\web\authorization\register\RegisterController;
@@ -50,6 +51,8 @@ Route::get('/map/mobile-app/single-point', [MapMobileAppSinglePoint::class, 'sin
 Route::get('/map', [MapController::class, 'index']);
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/admin', [AdminController::class, 'index']);
+
     Route::get('/favorites', [FavoritesController::class, 'index']);
 
     Route::get('/profile', [ProfileController::class, 'index']);

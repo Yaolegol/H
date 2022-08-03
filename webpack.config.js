@@ -34,6 +34,7 @@ const createConfig = (env, argv) => {
     return {
         devtool: production ? false : 'source-map',
         entry: {
+            admin_index: path.resolve(appDirectoriesData.path_pages, 'admin', 'index'),
             auth_login_index: path.resolve(appDirectoriesData.path_pages, 'auth', 'login', 'index'),
             auth_register_index: path.resolve(appDirectoriesData.path_pages, 'auth', 'register', 'index'),
             catalog_firstLevel_index: path.resolve(appDirectoriesData.path_pages, 'catalog', 'firstLevel', 'index'),
