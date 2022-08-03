@@ -1,5 +1,8 @@
+import {PATH} from "constants/path";
 import {addEventListener} from 'helpers/events';
 import './index.less';
+
+const {FAVORITES} = PATH;
 
 class FavoritesButton {
     constructor(element) {
@@ -22,6 +25,12 @@ class FavoritesButton {
     bind = () => {
         addEventListener(document, 'j-event-happened-get-favorites', this.handleGetFavorites);
         addEventListener(this.button, 'click', this.handleClick);
+    }
+
+    checkIsNeedReloadPage = () => {
+        if(window.location.pathname === FAVORITES) {
+            window.location.reload();
+        }
     }
 
     handleClick = (e) => {
@@ -66,6 +75,8 @@ class FavoritesButton {
                     this.button.classList.remove('active');
                     this.sendUpdateMessage('remove');
                 }
+
+                this.checkIsNeedReloadPage();
             }
         } catch(err) {
             console.error(err);
