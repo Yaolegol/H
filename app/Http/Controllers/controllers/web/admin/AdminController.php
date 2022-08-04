@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+require_once('app/Http/Controllers/helpers/web/admin/index.php');
+require_once('app/Http/Controllers/helpers/common/catalog/index.php');
+require_once('app/Http/Controllers/helpers/web/offers/index.php');
 
 class AdminController extends Controller
 {
@@ -20,8 +23,10 @@ class AdminController extends Controller
             abort(403);
         }
 
-        return view('pages.admin.index.index', [
+        $offersNotApprovedList = getOffersNotApproved();
 
+        return view('pages.admin.index.index', [
+            'offersNotApprovedList' => $offersNotApprovedList,
         ]);
     }
 }

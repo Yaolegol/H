@@ -42,6 +42,7 @@ class OfferTable extends Migration
             $table->foreign('region_id')->references('id')->on('region');
             $table->bigInteger('city_id')->unsigned()->index()->nullable();
             $table->foreign('city_id')->references('id')->on('city');
+            $table->integer('is_approved');
             $table->timestamps();
         });
     }

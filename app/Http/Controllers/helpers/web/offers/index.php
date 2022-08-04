@@ -29,7 +29,12 @@ function DB_getOffer($id)
 
 function DB_getOffers($filters) {
     try {
-        return Offer::where($filters)->with([
+        $filter = [
+            'is_approved' => 1,
+        ];
+        $filtersData = array_merge($filter, $filters);
+
+        return Offer::where($filtersData)->with([
             'catalogLevelTwo',
             'catalogLevelTwo.catalogLevelOne',
             'measure',

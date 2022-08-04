@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\controllers\api\admin\ApiAdminController;
 use App\Http\Controllers\controllers\api\authorization\register\ApiRegisterController;
 use App\Http\Controllers\controllers\api\authorization\login\ApiLoginController;
 use App\Http\Controllers\controllers\api\authorization\logout\ApiLogoutController;
@@ -56,6 +57,8 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
 
     Route::post('/logout', [ApiLogoutController::class, 'logout']);
 });
+
+Route::post('/admin/offer/approve/{id}', [ApiAdminController::class, 'approve']);
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

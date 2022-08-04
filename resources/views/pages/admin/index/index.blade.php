@@ -7,6 +7,8 @@
     rel="stylesheet"
 >
 
+<div class="j-csrf-token" data-value="{{ csrf_token() }}"></div>
+
 @include('modules.pages.admin.routes.index.index')
 
 <script
