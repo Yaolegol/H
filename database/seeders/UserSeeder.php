@@ -12,6 +12,7 @@ class UserSeeder extends Seeder
         [
             'avatar' => 'public/users/1/avatar/1_1648916228.jpg',
             'description' => 'test1',
+            'is_admin' => true,
             'lang_id' => 1,
             'name' => 'test1',
             'password' => '',
