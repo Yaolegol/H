@@ -48,6 +48,7 @@ function DB_getOffers($filters) {
 }
 
 function formatOffer($offerItem) {
+    setUserAvatar($offerItem);
     setOfferLink($offerItem);
     setOfferPhotoArray($offerItem);
     setOfferOrganizationData($offerItem);
@@ -158,11 +159,13 @@ function setOfferPhotoArray(&$offerItem) {
 }
 
 function setOfferSalePointsData(&$offerItem) {
-    if(!isset($offerItem['sale_points'])) {
+    $isSalePointsExists = isset($offerItem['sale_points']) && count($offerItem['sale_points']) > 0;
+
+    if(!$isSalePointsExists) {
         return;
     }
 
-    foreach ($offerItem['sale_points'] as $salePointItem) {
+    foreach ($offerItem['sale_points'] as &$salePointItem) {
         $salePointItem['photoArray'] = getAssetArrayFormatted($salePointItem, 'photo', 3);
     }
 }
@@ -173,4 +176,14 @@ function setSellerLink(&$offerItem) {
     }
 
     $offerItem['user']['sellerLink'] = '/sellers/' . $offerItem['user']['id'];
+}
+
+function setUserAvatar(&$offerItem) {
+    if(!isset($offerItem['user'])) {
+        return;
+    }
+
+    $url = formatAssetPath($offerItem['user']['avatar']);
+
+    $offerItem['user']['avatar_photo'] = $url;
 }
