@@ -64,6 +64,7 @@ function apiGetSearchCommonResultFormatted($request) {
     $catalogLevelTwoList = apiGetCatalogLevelTwoListByTitleFromDB($title);
     setCatalogLevelTwoWithOneLinks($catalogLevelTwoList);
     $usersDataList = apiGetUserLinks($userList);
+    setUserFullLinks($usersDataList);
 
     $data = [
         [
@@ -92,4 +93,10 @@ function apiGetUserLinks($userList) {
             'title' => $userData['name'],
         ];
     }, $userList);
+}
+
+function setUserFullLinks(&$userList) {
+    foreach($userList as &$userData) {
+        $userData['linkFull'] = $userData['link'];
+    }
 }
