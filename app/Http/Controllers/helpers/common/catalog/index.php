@@ -116,7 +116,11 @@ function getCatalogLevelOneFormatted()
 {
     $catalog = DB_getCatalogLevelOne(false);
 
-    return getCatalogLevelOneWithFullLinks($catalog);
+    $catalogWithFullLinks = getCatalogLevelOneWithFullLinks($catalog);
+
+    setCatalogLevelOneImages($catalogWithFullLinks);
+
+    return $catalogWithFullLinks;
 }
 
 function getCatalogLevelOneLink($link) {
@@ -183,4 +187,12 @@ function setCatalogFullLinks(&$catalog)
             $catalogLevelTwoItem['linkFull'] = getCatalogLevelTwoLink($catalogLevelOneItem['link'], $catalogLevelTwoItem['link']);
         }
     }
+}
+
+function setCatalogLevelOneImages(&$catalog) {
+    foreach ($catalog as &$catalogLevelOneItem) {
+        $catalogLevelOneItem['image'] = formatAssetPath($catalogLevelOneItem['image']);
+    }
+
+    return $catalog;
 }
