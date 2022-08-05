@@ -29,7 +29,8 @@ function apiGetCatalogLevelTwoListByTitleFromDB($title) {
     return CatalogLevelTwo::where([
         ['title','like', $queryString],
     ])
-        ->get(['title', 'link'])
+        ->with(['catalogLevelOne'])
+        ->get()
         ->toArray();
 }
 
@@ -59,13 +60,14 @@ function apiGetSearchCommonResultFormatted($request) {
 
     $userList = apiGetUserListByTitleFromDB($title);
     $catalogLevelOneList = apiGetCatalogLevelOneListByTitleFromDB($title);
+    $catalogLevelOneListFormatted = getCatalogLevelOneWithFullLinks($catalogLevelOneList);
     $catalogLevelTwoList = apiGetCatalogLevelTwoListByTitleFromDB($title);
-
+    setCatalogLevelTwoWithOneLinks($catalogLevelTwoList);
     $usersDataList = apiGetUserLinks($userList);
 
     $data = [
         [
-            'dataList' => $catalogLevelOneList,
+            'dataList' => $catalogLevelOneListFormatted,
             'title' => 'Категории',
         ],
         [

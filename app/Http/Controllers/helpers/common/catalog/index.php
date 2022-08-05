@@ -129,7 +129,7 @@ function getCatalogLevelOneLink($link) {
 
 function getCatalogLevelOneWithFullLinks($catalog) {
     foreach ($catalog as &$catalogLevelOneItem) {
-        $catalogLevelOneItem['linkFull'] = '/catalog/' . $catalogLevelOneItem['link'];
+        setCatalogLevelOneFullLink($catalogLevelOneItem);
     }
 
     return $catalog;
@@ -195,4 +195,16 @@ function setCatalogLevelOneImages(&$catalog) {
     }
 
     return $catalog;
+}
+
+function setCatalogLevelOneFullLink(&$catalogLevelOneItem) {
+    $catalogLevelOneItem['linkFull'] = getCatalogLevelOneLink($catalogLevelOneItem['link']);
+}
+
+function setCatalogLevelTwoWithOneLinks(&$catalog) {
+    foreach ($catalog as &$catalogLevelTwoItem) {
+        $catalogLevelOneItem = $catalogLevelTwoItem['catalog_level_one'];
+
+        $catalogLevelTwoItem['linkFull'] = getCatalogLevelTwoLink($catalogLevelOneItem['link'], $catalogLevelTwoItem['link']);
+    }
 }
