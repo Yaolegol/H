@@ -100,7 +100,7 @@ class Search {
         setTimeout(() => {
             this.module.classList.remove('j-style-header-search__focus');
             this.module.classList.remove('j-style-header-search__mobile-show');
-        }, 100);
+        }, 500);
     }
 
     handleSearchInputFocus = (e) => {
