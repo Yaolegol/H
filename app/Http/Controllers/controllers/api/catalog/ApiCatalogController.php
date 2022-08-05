@@ -36,7 +36,8 @@ class ApiCatalogController extends Controller
     public function show($catalogLevelOneLink)
     {
         $catalogFull = getCatalogFull();
-        $catalogLevelOneItemSubcategoriesList = getCatalogLevelOneItemSubcategoriesList($catalogFull, $catalogLevelOneLink);
+        $catalogLevelOneItem = getCatalogLevelOneItem($catalogFull, $catalogLevelOneLink);
+        $catalogLevelOneItemSubcategoriesList = getCatalogLevelOneItemSubcategoriesList($catalogLevelOneItem);
 
         $data = [
             'data' => $catalogLevelOneItemSubcategoriesList,
