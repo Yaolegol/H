@@ -181,14 +181,11 @@
             @endcomponent
 
             @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Организация:'])
-                @foreach($organizationsList as $organizationItem)
-                    @include('components.inputs.radio.item.index', [
-                            'isChecked' => $organizationItem['isChecked'] ?? false,
-                            'name' => 'organization_id',
-                            'title' => $organizationItem['title'],
-                            'value' => $organizationItem['value'],
-                        ])
-                @endforeach
+                @include('components.inputs.radio.group-first-level.index', [
+                                    'groupName' => 'radio-group__organization',
+                                    'itemsList' => $organizationsList,
+                                    'inputName' => 'organization_id',
+                                ])
             @endcomponent
 
             @component('modules.pages.profile.common.components.container.section.index', ['title' => 'Фотографии товара'])
