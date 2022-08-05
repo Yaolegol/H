@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 
+require_once('app/Http/Controllers/helpers/api/offers/index.php');
 require_once('app/Http/Controllers/helpers/common/catalog/index.php');
+require_once('app/Http/Controllers/helpers/web/offers/index.php');
 
 class ApiCatalogController extends Controller
 {
@@ -21,6 +23,24 @@ class ApiCatalogController extends Controller
 
         $data = [
             'data' => $catalogLevelOne,
+            'errors' => '',
+        ];
+
+        return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  string  $id
+     * @return Response
+     */
+    public function offers($id)
+    {
+        $offers = api_getOffers($id);
+
+        $data = [
+            'data' => $offers,
             'errors' => '',
         ];
 

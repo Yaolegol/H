@@ -28,6 +28,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/catalog', [ApiCatalogController::class, 'index']);
 Route::get('/catalog/{id}', [ApiCatalogController::class, 'show']);
 
+Route::get('/offers/{id}', [ApiCatalogController::class, 'offers']);
+
 Route::get('/map/{id}', [ApiMapController::class, 'show']);
 Route::post('/map', [ApiMapController::class, 'index']);
 
