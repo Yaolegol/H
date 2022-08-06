@@ -7,6 +7,7 @@ use App\Http\Controllers\controllers\api\authorization\logout\ApiLogoutControlle
 use App\Http\Controllers\controllers\api\catalog\ApiCatalogController;
 use App\Http\Controllers\controllers\api\favorites\product\ApiFavoritesProductController;
 use App\Http\Controllers\controllers\api\map\ApiMapController;
+use App\Http\Controllers\controllers\api\offers\ApiOffersController;
 use App\Http\Controllers\controllers\api\profile\personalData\ApiProfilePersonalDataController;
 use App\Http\Controllers\controllers\api\profile\organizationData\ApiProfileOrganizationDataController;
 use App\Http\Controllers\controllers\api\profile\salePointsInfo\ApiProfileSalePointsController;
@@ -28,7 +29,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/catalog', [ApiCatalogController::class, 'index']);
 Route::get('/catalog/{id}', [ApiCatalogController::class, 'show']);
 
-Route::get('/offers/{id}', [ApiCatalogController::class, 'offers']);
+Route::get('/offers/{id}', [ApiOffersController::class, 'index']);
+Route::get('/offer/{id}', [ApiOffersController::class, 'show']);
 
 Route::get('/map/{id}', [ApiMapController::class, 'show']);
 Route::post('/map', [ApiMapController::class, 'index']);
