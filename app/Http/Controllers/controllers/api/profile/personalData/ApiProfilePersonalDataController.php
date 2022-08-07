@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 
 require_once('app/Http/Controllers/helpers/api/profile/personalData/index.php');
 require_once('app/Http/Controllers/helpers/common/assets/index.php');
+require_once('app/Http/Controllers/helpers/common/errors/index.php');
 require_once('app/Http/Controllers/helpers/web/profile/personalData/index.php');
 
 class ApiProfilePersonalDataController extends Controller
@@ -40,9 +41,12 @@ class ApiProfilePersonalDataController extends Controller
         $validator = ApiGetProfileAvatarValidator($request);
 
         if($validator->fails()) {
-            return back()
-                ->withErrors($validator)
-                ->withInput();
+            $data = [
+                'data' => '',
+                'errors' => getValidatorErrorsList($validator),
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
         }
 
         $avatarPath = apiTryChangeUserAvatarInDB($request);
@@ -104,6 +108,17 @@ class ApiProfilePersonalDataController extends Controller
      */
     public function updatePersonalData(Request $request)
     {
+        $validator = getPersonalDataValidator($request);
+
+        if($validator->fails()) {
+            $data = [
+                'data' => '',
+                'errors' => getValidatorErrorsList($validator),
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+        }
+
         $isSaved = apiTryChangeUserPersonalDataInDB($request);
 
         if ($isSaved) {

@@ -7,7 +7,7 @@ function ApiGetProfileAvatarValidator($request) {
     return Validator::make(
         $request->all(),
         [
-            'avatar' => ['image', 'max:10240'],
+            'avatar' => ['required', 'image', 'max:10240'],
         ],
         [
             'image' => 'Поле должно содержать картинку, размером не более 10Мб',
