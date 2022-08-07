@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 
 require_once('app/Http/Controllers/helpers/api/profile/personalData/index.php');
+require_once('app/Http/Controllers/helpers/common/assets/index.php');
 require_once('app/Http/Controllers/helpers/web/profile/personalData/index.php');
 
 class ApiProfilePersonalDataController extends Controller
@@ -36,6 +37,14 @@ class ApiProfilePersonalDataController extends Controller
      */
     public function addAvatar(Request $request)
     {
+        $validator = ApiGetProfileAvatarValidator($request);
+
+        if($validator->fails()) {
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $avatarPath = apiTryChangeUserAvatarInDB($request);
 
         if ($avatarPath != '') {

@@ -1,20 +1,33 @@
 <?php
 
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Validator;
+
+function ApiGetProfileAvatarValidator($request) {
+    return Validator::make(
+        $request->all(),
+        [
+            'avatar' => ['image', 'max:10240'],
+        ],
+        [
+            'image' => 'Поле должно содержать картинку, размером не более 10Мб',
+            'size' => 'Поле должно содержать картинку, размером не более 10Мб',
+        ]
+    );
+}
 
 function apiTryChangeUserAvatarInDB($request)
 {
     try {
         $authUser = Auth::user();
 
-        $avatarPath = apiUpdateUserAvatar($request);
+        updateUserAvatar($authUser, $request);
 
         $authUser->save();
 
-        return $avatarPath;
+        return formatAssetPath($authUser->avatar);
     } catch (\Exception $error) {
-        return '';
+        return false;
     }
 }
 
