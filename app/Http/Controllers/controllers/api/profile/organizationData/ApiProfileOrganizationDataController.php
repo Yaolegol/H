@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 
+require_once('app/Http/Controllers/helpers/common/assets/index.php');
+require_once('app/Http/Controllers/helpers/common/errors/index.php');
+require_once('app/Http/Controllers/helpers/common/request/index.php');
 require_once('app/Http/Controllers/helpers/web/profile/organizationData/index.php');
 
 class ApiProfileOrganizationDataController extends Controller
@@ -38,25 +41,36 @@ class ApiProfileOrganizationDataController extends Controller
      */
     public function store(Request $request)
     {
-        $isSaved = tryStoreOrganizationDataDataInDB($request);
+        $validator = getProfileOrganizationDataValidator($request);
+
+        if($validator->fails()) {
+            $data = [
+                'data' => '',
+                'errors' => getValidatorErrorsList($validator),
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+        }
+
+        $isSaved = tryStoreOrganizationData($request);
 
         if($isSaved) {
             $data = [
                 'data' => '',
-                'errors' => '',
+                'errors' => [],
             ];
 
-            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
-        } else {
-            $data = [
-                'data' => '',
-                'errors' => [
-                    'common' => 'Что-то пошло не так. Попробуйте снова',
-                ],
-            ];
-
-            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+            return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
         }
+
+        $data = [
+            'data' => '',
+            'errors' => [
+                'common' => 'Что-то пошло не так. Попробуйте снова.',
+            ],
+        ];
+
+        return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
     }
 
     /**
@@ -68,25 +82,36 @@ class ApiProfileOrganizationDataController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validator = getProfileOrganizationDataValidator($request);
+
+        if($validator->fails()) {
+            $data = [
+                'data' => '',
+                'errors' => getValidatorErrorsList($validator),
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+        }
+
         $isSaved = tryUpdateOrganizationDataInDB($request, $id);
 
         if($isSaved) {
             $data = [
                 'data' => '',
-                'errors' => '',
+                'errors' => [],
             ];
 
-            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
-        } else {
-            $data = [
-                'data' => '',
-                'errors' => [
-                    'common' => 'Что-то пошло не так. Попробуйте снова',
-                ],
-            ];
-
-            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+            return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
         }
+
+        $data = [
+            'data' => '',
+            'errors' => [
+                'common' => 'Что-то пошло не так. Попробуйте снова.',
+            ],
+        ];
+
+        return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
     }
 
     /**
@@ -103,19 +128,20 @@ class ApiProfileOrganizationDataController extends Controller
         if($isDestroyed) {
             $data = [
                 'data' => '',
-                'errors' => '',
+                'errors' => [],
             ];
 
-            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
-        } else {
-            $data = [
-                'data' => '',
-                'errors' => [
-                    'common' => 'Что-то пошло не так. Попробуйте снова',
-                ],
-            ];
+            return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
 
-            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
         }
+
+        $data = [
+            'data' => '',
+            'errors' => [
+                'common' => 'Что-то пошло не так. Попробуйте снова.',
+            ],
+        ];
+
+        return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
     }
 }
