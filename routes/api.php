@@ -58,6 +58,9 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::post('/profile/organizations-info/destroy/{id}', [ApiProfileOrganizationDataController::class, 'destroy']);
 
     Route::get('/profile/sale-points-info', [ApiProfileSalePointsController::class, 'index']);
+    Route::post('/profile/sale-points-info', [ApiProfileSalePointsController::class, 'store']);
+    Route::post('/profile/sale-points-info/edit/{id}', [ApiProfileSalePointsController::class, 'update']);
+    Route::post('/profile/sale-points-info/destroy/{id}', [ApiProfileSalePointsController::class, 'destroy']);
 
     Route::post('/logout', [ApiLogoutController::class, 'logout']);
 });
