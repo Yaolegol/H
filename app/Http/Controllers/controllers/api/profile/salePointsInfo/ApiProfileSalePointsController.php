@@ -44,18 +44,33 @@ class ApiProfileSalePointsController extends Controller
         $validator = getProfileSalePointsValidator($request);
 
         if($validator->fails()) {
-            return back()
-                ->withErrors($validator)
-                ->withInput();
+            $data = [
+                'data' => '',
+                'errors' => getValidatorErrorsList($validator),
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
         }
 
         $isSaved = tryStoreSalePointDataInDB($request);
 
         if($isSaved) {
-            return redirect('/profile/sale-points-info');
+            $data = [
+                'data' => '',
+                'errors' => [],
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
         }
 
-        return abort(500);
+        $data = [
+            'data' => '',
+            'errors' => [
+                'common' => 'Что-то пошло не так. Попробуйте снова.',
+            ],
+        ];
+
+        return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
     }
 
     /**
@@ -110,9 +125,21 @@ class ApiProfileSalePointsController extends Controller
         $isDestroyed = tryDestroySalePointDataInDB($id);
 
         if($isDestroyed) {
-            return redirect('/profile/sale-points-info');
+            $data = [
+                'data' => '',
+                'errors' => [],
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
         }
 
-        return abort(500);
+        $data = [
+            'data' => '',
+            'errors' => [
+                'common' => 'Что-то пошло не так. Попробуйте снова.',
+            ],
+        ];
+
+        return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
     }
 }
