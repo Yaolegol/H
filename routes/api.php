@@ -10,6 +10,7 @@ use App\Http\Controllers\controllers\api\map\ApiMapController;
 use App\Http\Controllers\controllers\api\offers\ApiOffersController;
 use App\Http\Controllers\controllers\api\profile\personalData\ApiProfilePersonalDataController;
 use App\Http\Controllers\controllers\api\profile\organizationData\ApiProfileOrganizationDataController;
+use App\Http\Controllers\controllers\api\profile\saleOffers\ApiProfileSaleOffersController;
 use App\Http\Controllers\controllers\api\profile\salePointsInfo\ApiProfileSalePointsController;
 use App\Http\Controllers\controllers\api\search\common\ApiSearchCommonController;
 use Illuminate\Http\Request;
@@ -61,6 +62,11 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::post('/profile/sale-points-info', [ApiProfileSalePointsController::class, 'store']);
     Route::post('/profile/sale-points-info/edit/{id}', [ApiProfileSalePointsController::class, 'update']);
     Route::post('/profile/sale-points-info/destroy/{id}', [ApiProfileSalePointsController::class, 'destroy']);
+
+    Route::get('/profile/sale-offers', [ApiProfileSaleOffersController::class, 'index']);
+    Route::post('/profile/sale-offers', [ApiProfileSaleOffersController::class, 'store']);
+    Route::post('/profile/sale-offers/edit/{id}', [ApiProfileSaleOffersController::class, 'update']);
+    Route::post('/profile/sale-offers/destroy/{id}', [ApiProfileSaleOffersController::class, 'destroy']);
 
     Route::post('/logout', [ApiLogoutController::class, 'logout']);
 });
