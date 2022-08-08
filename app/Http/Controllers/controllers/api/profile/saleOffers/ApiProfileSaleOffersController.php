@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 
 require_once('app/Http/Controllers/helpers/common/assets/index.php');
 require_once('app/Http/Controllers/helpers/common/catalog/index.php');
+require_once('app/Http/Controllers/helpers/common/errors/index.php');
 require_once('app/Http/Controllers/helpers/common/measure/index.php');
 require_once('app/Http/Controllers/helpers/common/request/index.php');
 require_once('app/Http/Controllers/helpers/web/location/index.php');
@@ -45,7 +46,7 @@ class ApiProfileSaleOffersController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = getProfileSalePointsValidator($request);
+        $validator = getProfileSaleOffersValidator($request);
 
         if($validator->fails()) {
             $data = [
@@ -56,7 +57,7 @@ class ApiProfileSaleOffersController extends Controller
             return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
         }
 
-        $isSaved = tryStoreSalePointDataInDB($request);
+        $isSaved = trySaveSaleOfferInDB($request);
 
         if($isSaved) {
             $data = [
