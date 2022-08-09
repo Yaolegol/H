@@ -87,7 +87,7 @@ class ApiProfileSaleOffersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validator = getProfileSalePointsValidator($request);
+        $validator = getProfileSaleOffersValidator($request);
 
         if($validator->fails()) {
             $data = [
@@ -98,7 +98,7 @@ class ApiProfileSaleOffersController extends Controller
             return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
         }
 
-        $isSaved = tryUpdateSalePointDataInDB($request, $id);
+        $isSaved = tryUpdateSaleOfferInDB($request, $id);
 
         if($isSaved) {
             $data = [
@@ -127,7 +127,7 @@ class ApiProfileSaleOffersController extends Controller
      */
     public function destroy($id)
     {
-        $isDestroyed = tryDestroySalePointDataInDB($id);
+        $isDestroyed = tryDestroySaleOfferDataInDB($id);
 
         if($isDestroyed) {
             $data = [
