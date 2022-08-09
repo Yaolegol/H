@@ -9,6 +9,7 @@ use App\Http\Controllers\controllers\api\categories\ApiCategoriesController;
 use App\Http\Controllers\controllers\api\cities\ApiCitiesController;
 use App\Http\Controllers\controllers\api\favorites\product\ApiFavoritesProductController;
 use App\Http\Controllers\controllers\api\map\ApiMapController;
+use App\Http\Controllers\controllers\api\measures\ApiMeasuresController;
 use App\Http\Controllers\controllers\api\offers\ApiOffersController;
 use App\Http\Controllers\controllers\api\profile\personalData\ApiProfilePersonalDataController;
 use App\Http\Controllers\controllers\api\profile\organizationData\ApiProfileOrganizationDataController;
@@ -40,6 +41,8 @@ Route::get('/offer/{id}', [ApiOffersController::class, 'show']);
 
 Route::get('/map/{id}', [ApiMapController::class, 'show']);
 Route::post('/map', [ApiMapController::class, 'index']);
+
+Route::get('/measures', [ApiMeasuresController::class, 'index']);
 
 Route::post('/register', [ApiRegisterController::class, 'register']);
 Route::post('/login', [ApiLoginController::class, 'login']);
