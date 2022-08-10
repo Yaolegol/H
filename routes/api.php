@@ -16,6 +16,7 @@ use App\Http\Controllers\controllers\api\profile\organizationData\ApiProfileOrga
 use App\Http\Controllers\controllers\api\profile\saleOffers\ApiProfileSaleOffersController;
 use App\Http\Controllers\controllers\api\profile\salePointsInfo\ApiProfileSalePointsController;
 use App\Http\Controllers\controllers\api\search\common\ApiSearchCommonController;
+use App\Http\Controllers\controllers\api\sellers\ApiSellersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -48,6 +49,8 @@ Route::post('/register', [ApiRegisterController::class, 'register']);
 Route::post('/login', [ApiLoginController::class, 'login']);
 
 Route::post('/search/common', [ApiSearchCommonController::class, 'index']);
+
+Route::get('/sellers/{id}', [ApiSellersController::class, 'show']);
 
 Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::get('/favorites/products', [ApiFavoritesProductController::class, 'index']);
