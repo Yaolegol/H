@@ -44,8 +44,10 @@ function API_DB_getOffers($filters = []) {
     }
 }
 
-function api_getOffers($id) {
-    $offers = API_DB_getOffers(['catalog_level_two_id' => $id]);
+function api_getOffers($id, $searchCountryId = null, $searchRegionId = null, $searchCityId = null) {
+    $filters = getOffersFilters($id, $searchCountryId, $searchRegionId, $searchCityId);
+
+    $offers = API_DB_getOffers($filters);
 
     return formatOffersPaginatedData($offers);
 }

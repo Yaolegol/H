@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 
 require_once('app/Http/Controllers/helpers/api/offers/index.php');
 require_once('app/Http/Controllers/helpers/common/catalog/index.php');
+require_once('app/Http/Controllers/helpers/web/location/index.php');
 require_once('app/Http/Controllers/helpers/web/offers/index.php');
 
 class ApiOffersController extends Controller
@@ -18,9 +19,15 @@ class ApiOffersController extends Controller
      * @param  string  $id
      * @return Response
      */
-    public function index($id)
+    public function index(Request $request, $id)
     {
-        $offers = api_getOffers($id);
+        $searchLocationData = getSearchLocationData($request);
+
+        $searchCountryId = $searchLocationData['searchCountryId'];
+        $searchRegionId = $searchLocationData['searchRegionId'];
+        $searchCityId = $searchLocationData['searchCityId'];
+
+        $offers = api_getOffers($id, $searchCountryId, $searchRegionId, $searchCityId);
 
         $data = [
             'data' => $offers,
