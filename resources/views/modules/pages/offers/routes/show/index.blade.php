@@ -49,7 +49,7 @@
             <div class="modules-pages-offers-routes-show__info-item-container">
                 <div class="modules-pages-offers-routes-show__info-item-title">Где купить?</div>
                 <div class="modules-pages-offers-routes-show__map-container">
-                    @include('modules.common.map.2gis.components.viewItem.index', [
+                    @include('modules.common.map.yandex.components.viewItem.index', [
                         'offerId' => $offer['id'],
                     ])
                 </div>

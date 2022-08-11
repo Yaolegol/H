@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="modules-pages-map-web-routes-index__info-item-container">
-            @include('modules.common.map.2gis.components.viewAll.index')
+            @include('modules.common.map.yandex.components.viewAll.index')
         </div>
     </div>
 </div>

@@ -1,10 +1,9 @@
-import {Map2gisCommonBase} from 'views/modules/common/map/2gis/common/base';
 import './index.less';
 
-class Map2gisComponentsViewItem {
+class MapYandexComponentsViewItem {
     constructor(element) {
         this.module = element;
-        this.mapContainer = this.module.querySelector('.j-map-2gis-components-view-item__map-container');
+        this.mapContainer = this.module.querySelector('.j-map-yandex-components-view-item__map-container');
         this.offerId = Number(this.module.dataset.offerId);
 
         this.init();
@@ -25,7 +24,9 @@ class Map2gisComponentsViewItem {
             if(!errors) {
                 this.offerData = data;
 
-                this.initMap();
+                window.ymaps.ready(() => {
+                    this.initMap();
+                });
             }
         } catch(err) {
             console.error(err);
@@ -37,18 +38,42 @@ class Map2gisComponentsViewItem {
     }
 
     initMap = () => {
-        this.mapInstance = new Map2gisCommonBase({
+        const TestBalloonContentLayoutClass = ymaps.templateLayoutFactory.createClass(
+            '<div>Адрес:</div>' +
+            '<div>{{ properties.address }}</div>' +
+            '<div>Телефон:</div>' +
+            '<div>{{ properties.phone }}</div>'
+        );
+
+        this.mapInstance = new ymaps.Map(this.mapContainer, {
             center: [62.395570, 104.432320],
-            mapContainer: this.mapContainer,
-            markerDataList: [this.offerData],
-            useMarkerCluster: true,
-            zoom: 2
+            controls: ['zoomControl'],
+            zoom: 2,
+        });
+
+        this.mapInstance.options.set('dragCursor', 'arrow');
+
+        this.offerData.markersList.forEach(({data, markerCoords}) => {
+            const {address, phone} = data;
+            const {lat, lng} = markerCoords;
+
+            const markerInstance = new ymaps.Placemark(
+                [lat, lng],
+                {
+                    address,
+                    phone,
+                },
+                {
+                    balloonContentLayout: TestBalloonContentLayoutClass
+                },
+            );
+            this.mapInstance.geoObjects.add(markerInstance);
         });
     }
 }
 
-const list = [...document.querySelectorAll('.j-map-2gis-components-view-item')];
+const list = [...document.querySelectorAll('.j-map-yandex-components-view-item')];
 
 list.forEach((element) => {
-    new Map2gisComponentsViewItem(element);
+    new MapYandexComponentsViewItem(element);
 })

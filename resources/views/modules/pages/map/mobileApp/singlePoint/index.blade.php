@@ -1,5 +1,5 @@
 <div class="map-mobile-app-single-point">
-    @include('modules.common.map.2gis.components.add-marker.index', [
+    @include('modules.common.map.yandex.components.add-marker.index', [
         'isMobileApp' => true,
     ])
 </div>

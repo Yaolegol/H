@@ -1,7 +1,6 @@
 import {getCookieData} from "helpers/cookie";
 import {addEventListener} from "helpers/events";
 import {getQueryData} from "helpers/query";
-import {Map2gisCommonBase} from 'views/modules/common/map/2gis/common/base';
 import './index.less';
 
 class Map2gisComponentsViewAll {
