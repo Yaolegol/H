@@ -11,6 +11,11 @@
 
         <!-- Styles -->
         @yield('layout-styles')
+
+        <script
+            src="https://api-maps.yandex.ru/2.1/?apikey=b92366ae-3520-458e-bf9f-17db62817585&lang=ru_RU"
+            type="text/javascript"
+        ></script>
     </head>
     <body class="j-location-controller">
         <div class="j-csrf-token" data-value="{{ csrf_token() }}"></div>
