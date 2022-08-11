@@ -20,6 +20,36 @@ class MapYandexComponentsViewAll {
         this.bind();
     }
 
+    addMarkersToMap = () => {
+        this.mapCluster = new ymaps.Clusterer();
+        const placemarks = [];
+
+        this.offerData.forEach(({markersList, price, title}) => {
+            markersList.forEach(({data, markerCoords}) => {
+                const {address, phone} = data;
+                const {lat, lng} = markerCoords;
+
+                const markerInstance = new ymaps.Placemark(
+                    [lat, lng],
+                    {
+                        address,
+                        phone,
+                        price,
+                        title,
+                    },
+                    {
+                        balloonContentLayout: this.getBalloonContentLayoutClass(),
+                    },
+                );
+
+                placemarks.push(markerInstance);
+            });
+        });
+
+        this.mapCluster.add(placemarks);
+        this.mapInstance.geoObjects.add(this.mapCluster);
+    }
+
     bind = () => {
         addEventListener(document, 'j-event--map-filter-update', this.handleUpdateMapFilter)
     }
@@ -60,44 +90,26 @@ class MapYandexComponentsViewAll {
         }
     }
 
+    getBalloonContentLayoutClass = () => {
+        return ymaps.templateLayoutFactory.createClass(
+            '<div>{{ properties.title }}</div>' +
+            '<div>Адрес:</div>' +
+            '<div>{{ properties.address }}</div>' +
+            '<div>Телефон:</div>' +
+            '<div>{{ properties.phone }}</div>' +
+            '<div>Цена:</div>' +
+            '<div>{{ properties.price }}</div>'
+        );
+    }
+
     handleUpdateMapFilter = async (e) => {
         const {data, errors} = await this.fetchData();
 
         if(!errors) {
             this.offerData = data;
 
-            console.log('this.offerData');
-            console.log(this.offerData);
-
             this.mapInstance.geoObjects.remove(this.mapCluster);
-
-            this.mapCluster = new ymaps.Clusterer();
-            const placemarks = [];
-
-            this.offerData.forEach(({markersList, price, title}) => {
-                markersList.forEach(({data, markerCoords}) => {
-                    const {address, phone} = data;
-                    const {lat, lng} = markerCoords;
-
-                    const markerInstance = new ymaps.Placemark(
-                        [lat, lng],
-                        {
-                            address,
-                            phone,
-                            price,
-                            title,
-                        },
-                        {
-                            balloonContentLayout: this.testBalloonContentLayoutClass
-                        },
-                    );
-
-                    placemarks.push(markerInstance);
-                });
-            });
-
-            this.mapCluster.add(placemarks);
-            this.mapInstance.geoObjects.add(this.mapCluster);
+            this.addMarkersToMap();
         }
     }
 
@@ -114,19 +126,6 @@ class MapYandexComponentsViewAll {
     }
 
     initMap = () => {
-        console.log('this.offerData');
-        console.log(this.offerData);
-
-        this.testBalloonContentLayoutClass = ymaps.templateLayoutFactory.createClass(
-            '<div>{{ properties.title }}</div>' +
-            '<div>Адрес:</div>' +
-            '<div>{{ properties.address }}</div>' +
-            '<div>Телефон:</div>' +
-            '<div>{{ properties.phone }}</div>' +
-            '<div>Цена:</div>' +
-            '<div>{{ properties.price }}</div>'
-        );
-
         this.mapInstance = new ymaps.Map(this.mapContainer, {
             center: [62.395570, 104.432320],
             controls: ['zoomControl'],
@@ -135,33 +134,7 @@ class MapYandexComponentsViewAll {
 
         this.mapInstance.options.set('dragCursor', 'arrow');
 
-        this.mapCluster = new ymaps.Clusterer();
-        const placemarks = [];
-
-        this.offerData.forEach(({markersList, price, title}) => {
-            markersList.forEach(({data, markerCoords}) => {
-                const {address, phone} = data;
-                const {lat, lng} = markerCoords;
-
-                const markerInstance = new ymaps.Placemark(
-                    [lat, lng],
-                    {
-                        address,
-                        phone,
-                        price,
-                        title,
-                    },
-                    {
-                        balloonContentLayout: this.testBalloonContentLayoutClass
-                    },
-                );
-
-                placemarks.push(markerInstance);
-            });
-        });
-
-        this.mapCluster.add(placemarks);
-        this.mapInstance.geoObjects.add(this.mapCluster);
+        this.addMarkersToMap();
     }
 }
 

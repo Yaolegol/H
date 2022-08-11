@@ -9,6 +9,15 @@ class MapYandexComponentsViewItem {
         this.init();
     }
 
+    getBalloonContentLayoutClass = () => {
+        return ymaps.templateLayoutFactory.createClass(
+            '<div>Адрес:</div>' +
+            '<div>{{ properties.address }}</div>' +
+            '<div>Телефон:</div>' +
+            '<div>{{ properties.phone }}</div>'
+        );
+    }
+
     fetchData = async () => {
         try {
             const result = await fetch(`/api/map/${this.offerId}`, {
@@ -38,13 +47,6 @@ class MapYandexComponentsViewItem {
     }
 
     initMap = () => {
-        const TestBalloonContentLayoutClass = ymaps.templateLayoutFactory.createClass(
-            '<div>Адрес:</div>' +
-            '<div>{{ properties.address }}</div>' +
-            '<div>Телефон:</div>' +
-            '<div>{{ properties.phone }}</div>'
-        );
-
         this.mapInstance = new ymaps.Map(this.mapContainer, {
             center: [62.395570, 104.432320],
             controls: ['zoomControl'],
@@ -64,7 +66,7 @@ class MapYandexComponentsViewItem {
                     phone,
                 },
                 {
-                    balloonContentLayout: TestBalloonContentLayoutClass
+                    balloonContentLayout: this.getBalloonContentLayoutClass(),
                 },
             );
             this.mapInstance.geoObjects.add(markerInstance);
