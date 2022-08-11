@@ -7,6 +7,8 @@ use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 
 require_once('app/Http/Controllers/helpers/api/favorites/product/index.php');
+require_once('app/Http/Controllers/helpers/common/catalog/index.php');
+require_once('app/Http/Controllers/helpers/web/favorites/index.php');
 
 class ApiFavoritesProductController extends Controller
 {
@@ -17,7 +19,7 @@ class ApiFavoritesProductController extends Controller
      */
     public function index(Request $request)
     {
-        $userFavoritesProductsList = apiGetAllUserFavoritesProductsFormatted();
+        $userFavoritesProductsList = getUserFavoritesOffersFormatted();
 
         $data = [
             'data' => $userFavoritesProductsList,
