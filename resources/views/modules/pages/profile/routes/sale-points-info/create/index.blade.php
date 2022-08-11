@@ -41,7 +41,7 @@
             @endcomponent
 
             @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Карта:'])
-                @include('modules.common.map.2gis.components.add-marker.index')
+                @include('modules.common.map.yandex.components.add-marker.index')
             @endcomponent
 
             @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Режим работы:'])
