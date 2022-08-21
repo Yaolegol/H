@@ -1,7 +1,7 @@
 <div class="modules-pages-offers-shared-components-item">
     <div class="modules-pages-offers-shared-components-item__image-block">
         <div class="modules-pages-offers-shared-components-item__image-container">
-            <img alt="{{$offer['title']}}" class="modules-pages-offers-shared-components-item__image" src="{{$offer['photoArray'][0]}}">
+            <img alt="{{$offer['title']}}" class="modules-pages-offers-shared-components-item__image" src="{{$offer['photoArray'][0] ?? ''}}">
             <a class="modules-pages-offers-shared-components-item__image-link" href="{{$offer['offerLink']}}"></a>
         </div>
     </div>
