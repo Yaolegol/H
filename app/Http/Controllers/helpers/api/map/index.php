@@ -117,6 +117,7 @@ function apiGetOfferMapMarkersData($offer) {
 
         $offerMapMarkersData = [
             'markersList' => array_merge(...$markersList),
+            'offerId' => $offer['id'],
             'price' => $offer['price'],
             'title' => $offer['title'],
         ];
