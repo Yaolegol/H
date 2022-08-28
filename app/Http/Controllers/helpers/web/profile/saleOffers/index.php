@@ -112,6 +112,7 @@ function getProfileSaleOffersValidator($request) {
         $request->all(),
         [
             'address' => ['max:100'],
+            'catalog_level_one_id' => ['required'],
             'catalog_level_two_id' => ['required'],
             'description' => ['max:250'],
             'measure_id' => ['required'],
