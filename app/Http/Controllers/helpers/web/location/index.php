@@ -81,7 +81,7 @@ function getProductFilterDataFormatted($catalogFull, $catalogLevelOneId, $catalo
 
     $productFilterData = [
         'category' => [
-            'title' => 'Все товары',
+            'title' => 'Все продукты',
         ],
     ];
 
