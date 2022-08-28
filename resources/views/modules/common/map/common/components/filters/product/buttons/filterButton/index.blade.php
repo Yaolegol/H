@@ -10,6 +10,6 @@
                     ],
                 ],
                 'defaultTitle' => 'Все продукты',
-                'title' => $productFilterData['category']['title'] ? $productFilterData['category']['title'] : 'Все продукты',
+                'title' => $productFilterData['category']['title'],
             ])
 </div>
