@@ -24,12 +24,10 @@ function apiGetAllOffersMapMarkersDataFormatted($request) {
     $regionId = $requestFilter['location']['region'] ?? null;
     $cityId = $requestFilter['location']['city'] ?? null;
 
-    if($catalogLevelOneId) {
-        array_push($DBFilter, ['catalog_level_one_id', $catalogLevelOneId]);
-    }
-
     if($catalogLevelTwoId) {
         array_push($DBFilter, ['catalog_level_two_id', $catalogLevelTwoId]);
+    } elseif($catalogLevelOneId) {
+        array_push($DBFilter, ['catalog_level_one_id', $catalogLevelOneId]);
     }
 
     if($countryId) {
