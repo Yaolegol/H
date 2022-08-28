@@ -10,6 +10,7 @@ function DB_createSaleOffer($request, $userId) {
     try {
         $data = [
             'address' => $request->input('address'),
+            'catalog_level_one_id' => $request->input('catalog_level_one_id'),
             'catalog_level_two_id' => $request->input('catalog_level_two_id'),
             'city_id' => $request->input('city_id'),
             'description' => $request->input('description'),
@@ -263,6 +264,7 @@ function tryUpdateSaleOfferInDB($request, $saleOfferId)
 
     $data = [
         'address' => $request->input('address'),
+        'catalog_level_one_id' => $request->input('catalog_level_one_id'),
         'catalog_level_two_id' => $request->input('catalog_level_two_id'),
         'city_id' => $request->input('city_id'),
         'description' => $request->input('description'),
