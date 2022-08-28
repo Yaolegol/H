@@ -27,19 +27,33 @@ class MapProductFilterController {
 
     handleClick = (e) => {
         const target = e.target;
-        const isFilterButton = target.classList.contains('j-modules-common-filters-product-modal-components-buttons-content');
+        const isNavigationButton = target.classList.contains('j-modules-common-filters-product-modal-components-buttons-navigation');
+        const isContentButton = target.classList.contains('j-modules-common-filters-product-modal-components-buttons-content');
 
-        if(!isFilterButton) {
+        if(!isNavigationButton && !isContentButton) {
             return;
         }
 
         const id = target.dataset.id;
-        const query = [
-            {
-                key: 'catalogLevelTwoId',
-                value: id,
-            }
-        ];
+        const query = [];
+
+        if(isNavigationButton) {
+            query.push(
+                {
+                    key: 'catalogLevelOneId',
+                    value: id,
+                }
+            );
+        }
+
+        if(isContentButton) {
+            query.push(
+                {
+                    key: 'catalogLevelTwoId',
+                    value: id,
+                }
+            );
+        }
 
         setUrlQuery(query);
         this.setFilter(target.innerHTML);

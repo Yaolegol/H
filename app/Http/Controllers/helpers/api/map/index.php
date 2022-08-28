@@ -18,10 +18,15 @@ function apiGetAllOffersMapMarkersDataFormatted($request) {
     $requestFilter = $request->input('filter') ?? [];
     $DBFilter = [];
 
+    $catalogLevelOneId = $requestFilter['catalog']['levelOneId'] ?? null;
     $catalogLevelTwoId = $requestFilter['catalog']['levelTwoId'] ?? null;
     $countryId = $requestFilter['location']['country'] ?? null;
     $regionId = $requestFilter['location']['region'] ?? null;
     $cityId = $requestFilter['location']['city'] ?? null;
+
+    if($catalogLevelOneId) {
+        array_push($DBFilter, ['catalog_level_one_id', $catalogLevelOneId]);
+    }
 
     if($catalogLevelTwoId) {
         array_push($DBFilter, ['catalog_level_two_id', $catalogLevelTwoId]);

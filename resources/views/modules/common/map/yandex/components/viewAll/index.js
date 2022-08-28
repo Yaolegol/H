@@ -57,11 +57,12 @@ class MapYandexComponentsViewAll {
     fetchData = async () => {
         try {
             const cookieData = getCookieData();
-            const {catalogLevelTwoId} = getQueryData();
+            const {catalogLevelOneId, catalogLevelTwoId} = getQueryData();
 
             const bodyData = {
                 filter: {
                     catalog: {
+                        levelOneId: catalogLevelOneId ?? null,
                         levelTwoId: catalogLevelTwoId ?? null,
                     },
                     location: {
