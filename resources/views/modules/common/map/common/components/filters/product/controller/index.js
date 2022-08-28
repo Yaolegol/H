@@ -67,6 +67,10 @@ class MapProductFilterController {
     resetUrlQuery = () => {
         const query = [
             {
+                key: 'catalogLevelOneId',
+                value: null,
+            },
+            {
                 key: 'catalogLevelTwoId',
                 value: null,
             }
