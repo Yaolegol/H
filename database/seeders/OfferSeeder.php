@@ -11,6 +11,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -34,6 +35,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -57,6 +59,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -80,6 +83,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -103,6 +107,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -126,6 +131,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -149,6 +155,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -172,6 +179,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -195,6 +203,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -218,6 +227,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -241,6 +251,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -264,6 +275,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -287,6 +299,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -310,6 +323,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -333,6 +347,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -356,6 +371,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -379,6 +395,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -402,6 +419,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -425,6 +443,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -448,6 +467,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -471,6 +491,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -494,6 +515,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -517,6 +539,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -540,6 +563,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -563,6 +587,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -586,6 +611,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -609,6 +635,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -632,6 +659,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -655,6 +683,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -678,6 +707,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №1 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №1 Говядина Томск',
@@ -700,6 +730,7 @@ class OfferSeeder extends Seeder
         ],
         [
             'address' => 'адрес Предложение №2 Молоко ТО',
+            'catalog_level_one_id' => 2,
             'catalog_level_two_id' => 3,
             'country_id' => 1,
             'description' => 'Описание Предложение №2 Молоко ТО',
@@ -720,6 +751,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение Говядина №3 Томск',
             'description' => 'Описание Предложение №3 Говядина Томск',
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'city_id' => 1,
             'country_id' => 1,
@@ -738,6 +770,7 @@ class OfferSeeder extends Seeder
         ],
         [
             'address' => 'адрес Предложение №4 Курица Новосибирск',
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 2,
             'city_id' => 4,
             'country_id' => 1,
@@ -759,6 +792,7 @@ class OfferSeeder extends Seeder
         [
             'address' => 'адрес Предложение №111 Говядина Томск',
             'city_id' => 1,
+            'catalog_level_one_id' => 1,
             'catalog_level_two_id' => 1,
             'country_id' => 1,
             'description' => 'Описание Предложение №111 Говядина Томск',
