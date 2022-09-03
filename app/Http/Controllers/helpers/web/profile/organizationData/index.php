@@ -131,7 +131,7 @@ function getProfileOrganizationDataValidator($request) {
             'certificate_3' => ['image', 'max:10240'],
             'certificate_4' => ['image', 'max:10240'],
             'certificate_5' => ['image', 'max:10240'],
-            'email' => ['required', 'email', 'max:25'],
+            'email' => ['email', 'max:25', 'nullable'],
             'inn' => ['required', 'max:25'],
             'legal_address' => ['max:100'],
             'phone' => ['max:16'],
