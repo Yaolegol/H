@@ -6,10 +6,7 @@ function getValidatorErrorsList($validator) {
     $errorsList = [];
 
     foreach($errors as $key => $value) {
-        array_push($errorsList, [
-            'name' => $key,
-            'value' => $value,
-        ]);
+        array_push($errorsList, $value[0]);
     }
 
     return $errorsList;

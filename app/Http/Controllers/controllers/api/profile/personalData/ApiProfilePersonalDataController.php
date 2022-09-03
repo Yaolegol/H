@@ -170,7 +170,7 @@ class ApiProfilePersonalDataController extends Controller
             if($isSaved) {
                 $data = [
                     'data' => '',
-                    'errors' => [],
+                    'errors' => '',
                 ];
 
                 return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
@@ -214,7 +214,7 @@ class ApiProfilePersonalDataController extends Controller
             if($isSaved) {
                 $data = [
                     'data' => '',
-                    'errors' => [],
+                    'errors' => '',
                 ];
 
                 return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
