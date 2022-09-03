@@ -24,7 +24,10 @@ class MapYandexComponentsViewAll {
         this.mapCluster = new ymaps.Clusterer();
         const placemarks = [];
 
-        this.offerData.forEach(({markersList, price, title}) => {
+        console.log('this.offerData')
+        console.log(this.offerData)
+
+        this.offerData.forEach(({markersList, offerId, price, title}) => {
             markersList.forEach(({data, markerCoords}) => {
                 const {address, phone} = data;
                 const {lat, lng} = markerCoords;
@@ -33,6 +36,7 @@ class MapYandexComponentsViewAll {
                     [lat, lng],
                     {
                         address,
+                        offerId,
                         phone,
                         price,
                         title,
@@ -99,9 +103,10 @@ class MapYandexComponentsViewAll {
             '<div>Телефон:</div>' +
             '<div>{{ properties.phone }}</div>' +
             '<div>Цена:</div>' +
-            '<div>{{ properties.price }}</div>'
+            '<div>{{ properties.price }}</div>' +
+            '<div style="margin-top: 15px"><a href="/offers/{{properties.offerId}}">Подробнее</a></div>'
         );
-    }
+    };
 
     handleUpdateMapFilter = async (e) => {
         const {data, errors} = await this.fetchData();
