@@ -3,7 +3,10 @@
     'formAction' => '/register',
 ])
     @component('modules.pages.auth.common.components.formItemContainer.index')
-        @include('components.inputs.phone.index', [])
+        @include('components.inputs.phone.index', [
+                        'name' => 'phone',
+                        'required' => true,
+        ])
         @include('components.form.error.index', [
             'message' => $errors->first('phone'),
         ])

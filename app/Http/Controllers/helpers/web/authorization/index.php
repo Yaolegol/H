@@ -77,12 +77,12 @@ function getRegistrationValidator($request) {
     return Validator::make(
         $request->all(),
         [
-            'registration_email' => ['required', 'email', 'max:25', 'unique:users'],
             'password' => ['required', 'max:25', 'min:6'],
             'password_confirmation' => ['required', 'same:password'],
+            'phone' => ['digits:11', 'required', 'unique:users'],
         ],
         [
-            'email' => 'Поле должно содержать Email',
+            'digits' => 'Номер теефона должен содержать 11 цифр',
             'max' => 'Поле должно содержать максимум :max символов',
             'min' => 'Поле должно содержать минимум :min символов',
             'required' => 'Поле обязательно для заполнения',
