@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use App\Rules\StartWith;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -33,13 +34,12 @@ function DB_tryLogoutUser($request) {
 function DB_trySaveUserInDB($request, $isApi = false)
 {
     try {
-        $registration_email = $request->input('registration_email');
+        $phone = $request->input('phone');
         $password = $request->input('password');
 
         $newUser = new User([
-            'visible_email' => $registration_email,
-            'registration_email' => $registration_email,
             'password' => Hash::make($password),
+            'phone' => $phone,
         ]);
         $newUser->save();
 
@@ -79,7 +79,7 @@ function getRegistrationValidator($request) {
         [
             'password' => ['required', 'max:25', 'min:6'],
             'password_confirmation' => ['required', 'same:password'],
-            'phone' => ['digits:11', 'required', 'unique:users'],
+            'phone' => ['required', 'digits:11', new StartWith('7'), 'unique:users'],
         ],
         [
             'digits' => 'Номер теефона должен содержать 11 цифр',

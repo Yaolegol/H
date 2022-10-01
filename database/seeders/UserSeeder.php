@@ -16,8 +16,7 @@ class UserSeeder extends Seeder
             'lang_id' => 1,
             'name' => 'test1',
             'password' => '',
-            'phone' => '11111111111',
-            'registration_email' => 'test1@test1.com',
+            'phone' => '79069473139',
             'visible_email' => 'visible_test1@test1.com',
         ],
         [
@@ -25,8 +24,7 @@ class UserSeeder extends Seeder
             'lang_id' => 1,
             'name' => 'test2',
             'password' => '',
-            'phone' => '22222222222',
-            'registration_email' => 'test2@test2.com',
+            'phone' => '71231231111',
             'visible_email' => 'visible_test2@test2.com',
         ],
         [
@@ -34,8 +32,7 @@ class UserSeeder extends Seeder
             'lang_id' => 1,
             'name' => 'test3',
             'password' => '',
-            'phone' => '33333333333',
-            'registration_email' => 'test3@test3.com',
+            'phone' => '71231232222',
             'visible_email' => 'visible_test3@test3.com',
         ],
     ];

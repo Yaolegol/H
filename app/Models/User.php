@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -23,8 +22,8 @@ class User extends Authenticatable
         'description',
         'phone',
         'visible_email',
-        'registration_email',
         'password',
+        'phone',
     ];
 
     /**
@@ -38,8 +37,6 @@ class User extends Authenticatable
         'is_admin',
         'lang_id',
         'password',
-        'registration_email',
-        'registration_email_verified_at',
         'remember_token',
         'updated_at',
         'visible_email_verified_at',
@@ -50,9 +47,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $casts = [
-        'registration_email_verified_at' => 'datetime',
-    ];
+    protected $casts = [];
 
     public function favoritesOffers()
     {
