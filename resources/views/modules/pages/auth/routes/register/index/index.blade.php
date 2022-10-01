@@ -3,14 +3,9 @@
     'formAction' => '/register',
 ])
     @component('modules.pages.auth.common.components.formItemContainer.index')
-        @include('components.inputs.form.index', [
-                        'name' => 'registration_email',
-                        'placeholder' => 'Email',
-                        'type' => 'email',
-                        'value' => old('registration_email')
-                    ])
+        @include('components.inputs.phone.index', [])
         @include('components.form.error.index', [
-            'message' => $errors->first('registration_email'),
+            'message' => $errors->first('phone'),
         ])
     @endcomponent
     @component('modules.pages.auth.common.components.formItemContainer.index')
