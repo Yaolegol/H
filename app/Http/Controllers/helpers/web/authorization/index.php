@@ -7,13 +7,13 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 function DB_tryAuthUser($request) {
-    $email = $request->input('registration_email');
     $password = $request->input('password');
+    $phone = $request->input('phone');
 
     return Auth::attempt(
         [
-            'registration_email' => $email,
             'password' => $password,
+            'phone' => $phone,
         ]
     );
 }
@@ -62,10 +62,10 @@ function getLoginValidator($request) {
         $request->all(),
         [
             'password' => ['required', 'min:6'],
-            'registration_email' => ['required', 'email', 'max:25'],
+            'phone' => ['required', 'digits:11', new StartWith('7')],
         ],
         [
-            'email' => 'Поле должно содержать email',
+            'digits' => 'Номер теефона должен содержать 11 цифр',
             'max' => 'Поле должно содержать максимум :max символов',
             'min' => 'Поле должно содержать минимум :min символов',
             'required' => 'Поле обязательно для заполнения',
