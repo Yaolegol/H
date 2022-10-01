@@ -81,10 +81,6 @@
                     </form>
                 </div>
                 <div class="modules-pages-profile-routes-personal-info-index__section-container">
-                    <div class="modules-pages-profile-routes-personal-info-index__title-container">
-                        <h2>Регистрационные данные</h2>
-                        <div>* отмечены обязательные для заполнения поля</div>
-                    </div>
                     <div class="modules-pages-profile-routes-personal-info-index__change-password-container">
                         <div class="modules-pages-profile-routes-personal-info-index__title-container">
                             <h3>Изменить пароль</h3>
