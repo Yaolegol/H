@@ -42,19 +42,7 @@
                                 'message' => $errors->first('description'),
                             ])
                         </div>
-                        <div class="modules-pages-profile-routes-personal-info-index__info-title">Телефон:</div>
-                        <div class="modules-pages-profile-routes-personal-info-index__input-container">
-                            @include('components.inputs.form.index', [
-                                        'name' => 'phone',
-                                        'placeholder' => 'Телефон',
-                                        'type' => 'tel',
-                                        'value' => $userData['phone']
-                                    ])
-                            @include('components.form.error.index', [
-                                'message' => $errors->first('phone'),
-                            ])
-                        </div>
-                        <div class="modules-pages-profile-routes-personal-info-index__info-title">Email (отображаемый для других пользователей):</div>
+                        <div class="modules-pages-profile-routes-personal-info-index__info-title">Email:</div>
                         <div class="modules-pages-profile-routes-personal-info-index__info-description">
                             <div class="modules-pages-profile-routes-personal-info-index__input-container">
                                 @include('components.inputs.form.index', [
@@ -96,50 +84,6 @@
                     <div class="modules-pages-profile-routes-personal-info-index__title-container">
                         <h2>Регистрационные данные</h2>
                         <div>* отмечены обязательные для заполнения поля</div>
-                    </div>
-                    <div class="modules-pages-profile-routes-personal-info-index__change-email-container">
-                        <div class="modules-pages-profile-routes-personal-info-index__title-container">
-                            <h3>Изменить email</h3>
-                        </div>
-                        <form
-                            action="/profile/personal-info/edit-email"
-                            method="POST"
-                        >
-                            @csrf
-                            <div class="modules-pages-profile-routes-personal-info-index__info-title">Новый email: *</div>
-                            <div class="modules-pages-profile-routes-personal-info-index__info-description">
-                                <div class="modules-pages-profile-routes-personal-info-index__input-container">
-                                    @include('components.inputs.form.index', [
-                                                'name' => 'registration_email',
-                                                'placeholder' => 'Email',
-                                                'type' => 'email',
-                                                'value' => $userData['registration_email']
-                                            ])
-                                    @include('components.form.error.index', [
-                                        'message' => $errors->first('registration_email'),
-                                    ])
-                                </div>
-                            </div>
-                            <div class="modules-pages-profile-routes-personal-info-index__info-title">Текущий пароль: *</div>
-                            <div class="modules-pages-profile-routes-personal-info-index__info-description">
-                                <div class="modules-pages-profile-routes-personal-info-index__input-container">
-                                    @include('components.inputs.form.index', [
-                                    'name' => 'password',
-                                    'placeholder' => 'Текущий пароль',
-                                    'type' => 'password'
-                                ])
-                                    @include('components.form.error.index', [
-                                        'message' => $errors->first('password'),
-                                    ])
-                                </div>
-                            </div>
-                            <div class="modules-pages-profile-routes-personal-info-index__send-button-container">
-                                <button class="button">Сохранить</button>
-                            </div>
-                            @include('components.form.error.index', [
-                                'message' => session('commonChangeEmailError'),
-                            ])
-                        </form>
                     </div>
                     <div class="modules-pages-profile-routes-personal-info-index__change-password-container">
                         <div class="modules-pages-profile-routes-personal-info-index__title-container">
