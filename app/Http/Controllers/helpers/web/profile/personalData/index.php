@@ -39,13 +39,11 @@ function DB_tryChangeUserPersonalDataInDB($request)
     try {
         $name = $request->input('name');
         $description = $request->input('description');
-        $phone = $request->input('phone');
         $visible_email = $request->input('visible_email');
 
         $authUser = Auth::user();
         $authUser->name = $name;
         $authUser->description = $description;
-        $authUser->phone = $phone;
         $authUser->visible_email = $visible_email;
 
         updateUserAvatar($authUser, $request);
@@ -99,7 +97,6 @@ function getPersonalDataValidator($request) {
             'avatar' => ['image', 'max:10240'],
             'name' => ['max:50'],
             'description' => ['max:100'],
-            'phone' => ['max:16'],
             'visible_email' => ['email', 'max:25'],
         ],
         [

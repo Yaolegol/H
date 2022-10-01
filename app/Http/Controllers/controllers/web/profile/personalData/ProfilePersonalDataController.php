@@ -66,37 +66,6 @@ class ProfilePersonalDataController extends Controller
      *
      * @return Response
      */
-    public function editEmail(Request $request)
-    {
-        $currentPassword = $request->input('password');
-        $validator = getEmailValidator($request);
-
-        if($validator->fails()) {
-            return back()
-                ->withErrors($validator)
-                ->withInput();
-        }
-
-        $isAuth = checkAuthUserPassword($currentPassword);
-
-        if($isAuth) {
-            $isSaved = DB_tryChangeUserEmail($request);
-
-            if($isSaved) {
-                return back();
-            }
-        }
-
-        return back()->with(
-            ['commonChangeEmailError' => 'Неверный пароль']
-        );
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @return Response
-     */
     public function editPassword(Request $request)
     {
         $currentPassword = $request->input('current_password');
