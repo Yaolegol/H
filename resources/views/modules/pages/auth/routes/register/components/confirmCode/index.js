@@ -4,3 +4,4 @@ import 'views/components/inputs/form';
 import 'views/components/inputs/phone';
 import 'views/modules/pages/auth/common/components/formItemContainer';
 import 'views/modules/pages/auth/common/components/layout';
+import './index.less';
