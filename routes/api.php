@@ -45,7 +45,8 @@ Route::post('/map', [ApiMapController::class, 'index']);
 
 Route::get('/measures', [ApiMeasuresController::class, 'index']);
 
-Route::post('/register', [ApiRegisterController::class, 'register']);
+Route::post('/register/sendSms', [ApiRegisterController::class, 'sendSms']);
+Route::post('/register/confirmCode', [ApiRegisterController::class, 'confirmCode']);
 Route::post('/login', [ApiLoginController::class, 'login']);
 
 Route::post('/search/common', [ApiSearchCommonController::class, 'index']);

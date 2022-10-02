@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
             'lang_id' => 1,
             'name' => 'test1',
             'password' => '',
-            'phone' => '79069473139',
+            'phone' => '71231230000',
             'visible_email' => 'visible_test1@test1.com',
         ],
         [

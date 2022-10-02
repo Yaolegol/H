@@ -1,6 +1,7 @@
 @component('modules.pages.auth.common.components.layout.index', [
     'activeLink' => 'registration',
     'formAction' => '/register',
+    'formClass' => 'j-test',
 ])
     @component('modules.pages.auth.common.components.formItemContainer.index')
         @include('components.inputs.phone.index', [

@@ -33,7 +33,7 @@ class RegisterController extends Controller
      */
     public function register(Request $request)
     {
-        $validator = getRegistrationValidator($request);
+        $validator = getRegistrationSendSmsValidator($request);
 
         if($validator->fails()) {
             return redirect('/register')

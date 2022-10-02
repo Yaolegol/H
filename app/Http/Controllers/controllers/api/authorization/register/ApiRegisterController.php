@@ -4,9 +4,9 @@ namespace App\Http\Controllers\controllers\api\authorization\register;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 
+require_once('app/Http/Controllers/helpers/common/errors/index.php');
 require_once('app/Http/Controllers/helpers/web/authorization/index.php');
 
 class ApiRegisterController extends Controller
@@ -16,54 +16,87 @@ class ApiRegisterController extends Controller
      *
      * @return Response
      */
-    public function register(Request $request)
+    public function confirmCode(Request $request)
     {
-        $validator = Validator::make(
-            $request->all(),
-            [
-                'registration_email' => ['required', 'email', 'max:25', 'unique:users'],
-                'password' => ['required', 'min:6'],
-                'password_confirmation' => ['required', 'same:password'],
-            ],
-            [
-                'email' => 'Поле должно содержать email',
-                'max' => 'Поле должно содержать максимум :max символов',
-                'min' => 'Поле должно содержать минимум :min символов',
-                'required' => 'Поле обязательно для заполнения',
-                'same' => 'Поля Password и Confirm Password не совпадают',
-                'unique' => 'Пользователь с таким Email уже зарегистрирован',
-            ]
-        );
+        $validator = getRegistrationConfirmCodeValidator($request);
 
         if($validator->fails()) {
             $data = [
                 'data' => '',
-                'errors' => $validator->errors(),
+                'errors' => getValidatorErrorsList($validator),
             ];
 
             return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
         }
 
-        $newUser = trySaveUserInDB($request, true);
+        $checkSmsCodeData = registrationCheckSmsCode($request);
+
+        if($checkSmsCodeData['error'] !== '') {
+            $data = [
+                'data' => '',
+                'errors' => [$checkSmsCodeData['error']],
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+        }
+
+        $newUser = DB_trySaveUserInDB($request, true);
 
         if($newUser != null) {
             $data = [
                 'data' => [
-                    'token' => $newUser->createToken($request->input('registration_email'))->plainTextToken,
+                    'token' => $newUser->createToken($request->input('phone'))->plainTextToken,
                 ],
                 'errors' => '',
             ];
 
             return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
-        } else {
+        }
+
+        $data = [
+            'data' => '',
+            'errors' => [
+                'common' => 'Что-то пошло не так. Попробуйте снова',
+            ],
+        ];
+
+        return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function sendSms(Request $request)
+    {
+        $validator = getRegistrationSendSmsValidator($request);
+
+        if($validator->fails()) {
             $data = [
                 'data' => '',
-                'errors' => [
-                    'common' => 'Что-то пошло не так. Попробуйте снова',
-                ],
+                'errors' => getValidatorErrorsList($validator),
             ];
 
             return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
         }
+
+        $smsData = registrationSendSMS($request);
+
+        if($smsData['error'] != '') {
+            $data = [
+                'data' => '',
+                'errors' => [$smsData['error']],
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+        }
+
+        $data = [
+            'data' => '',
+            'errors' => '',
+        ];
+
+        return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
     }
 }

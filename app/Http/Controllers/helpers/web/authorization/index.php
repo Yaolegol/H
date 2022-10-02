@@ -1,10 +1,13 @@
 <?php
 
+use App\Models\SmsRegistration;
 use App\Models\User;
 use App\Rules\StartWith;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+
+require_once('app/Http/Controllers/helpers/common/sms/index.php');
 
 function DB_tryAuthUser($request) {
     $password = $request->input('password');
@@ -73,7 +76,27 @@ function getLoginValidator($request) {
     );
 }
 
-function getRegistrationValidator($request) {
+function getRegistrationConfirmCodeValidator($request) {
+    return Validator::make(
+        $request->all(),
+        [
+            'code' => ['required', 'digits:4'],
+            'password' => ['required', 'max:25', 'min:6'],
+            'password_confirmation' => ['required', 'same:password'],
+            'phone' => ['required', 'digits:11', new StartWith('7'), 'unique:users'],
+        ],
+        [
+            'digits' => 'Поле должно содержать :digits цифр',
+            'max' => 'Поле должно содержать максимум :max символов',
+            'min' => 'Поле должно содержать минимум :min символов',
+            'required' => 'Поле обязательно для заполнения',
+            'same' => 'Поле должно совпадать с паролем',
+            'unique' => 'Пользователь с таким телефоном уже зарегистрирован',
+        ]
+    );
+}
+
+function getRegistrationSendSmsValidator($request) {
     return Validator::make(
         $request->all(),
         [
@@ -90,4 +113,78 @@ function getRegistrationValidator($request) {
             'unique' => 'Пользователь с таким телефоном уже зарегистрирован',
         ]
     );
+}
+
+function registrationCheckSmsCode($request) {
+    $phone = $request->input('phone');
+    $codeFromRequest = $request->input('code');
+
+    $smsData = SmsRegistration::where([
+        'phone' => $phone,
+    ])->get()->last();
+
+    if($smsData === null) {
+        return [
+            'error' => 'Пользователь с указанным номером телефона не найден',
+        ];
+    }
+
+    $isActive = $smsData['isActive'];
+
+    if($isActive === 0) {
+        return [
+            'error' => 'Код недействителен',
+        ];
+    }
+
+    $isCodeMatch = (int)$codeFromRequest === $smsData['code'];
+
+    if(!$isCodeMatch) {
+        return [
+            'error' => 'Неверный код подтверждения',
+        ];
+    }
+
+    SmsRegistration::where([
+        'id' => $smsData['id'],
+    ])->update([
+        'isActive' => false,
+    ]);
+
+    return [
+        'error' => '',
+    ];
+}
+
+function registrationSendSMS($request) {
+    $phone = $request->input('phone');
+    $formattedPhone = '+' . $phone;
+    $code = mt_rand(1111, 9999);
+    $message = 'Компания, код подтверждения ' . $code;
+
+    $response = SMS_send($formattedPhone, $message);
+
+    if($response->failed()) {
+        return [
+            'error' => 'Не удалось отправить смс, попробуйте снова',
+        ];
+    }
+
+    $smsData = $response->json();
+
+    if(isset($smsData['error'])) {
+        return [
+            'error' => $smsData['error'],
+        ];
+    }
+
+    SmsRegistration::create([
+        'phone' => $phone,
+        'code' => $code,
+        'sms_id' => $smsData['id'],
+    ]);
+
+    return [
+        'error' => '',
+    ];
 }

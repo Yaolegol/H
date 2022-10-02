@@ -4,7 +4,11 @@
             'activeLink' => $activeLink
         ])
         <div class="modules-pages-auth-common-components-layout__content-container">
-            <form action="{{$formAction}}" method="POST">
+            <form
+                action="{{$formAction}}"
+                class="{{$formClass ?? ''}}"
+                method="POST"
+            >
                 @csrf
 
                 {{$slot}}
