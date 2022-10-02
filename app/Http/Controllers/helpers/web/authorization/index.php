@@ -9,10 +9,7 @@ use Illuminate\Support\Facades\Validator;
 
 require_once('app/Http/Controllers/helpers/common/sms/index.php');
 
-function DB_tryAuthUser($request) {
-    $password = $request->input('password');
-    $phone = $request->input('phone');
-
+function DB_tryAuthUser($phone, $password) {
     return Auth::attempt(
         [
             'password' => $password,

@@ -36,6 +36,7 @@ class Test {
     handleConfirmCode = async (code) => {
         const _data = {
             code,
+            fromBrowser: true,
             phone: this.phoneValue,
             password: this.passwordValue,
             password_confirmation: this.password_confirmationValue,

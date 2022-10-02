@@ -5,6 +5,7 @@ namespace App\Http\Controllers\controllers\api\authorization\register;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\controllers\web\authorization\login\LoginController;
 
 require_once('app/Http/Controllers/helpers/common/errors/index.php');
 require_once('app/Http/Controllers/helpers/web/authorization/index.php');
@@ -43,21 +44,39 @@ class ApiRegisterController extends Controller
         $newUser = DB_trySaveUserInDB($request, true);
 
         if($newUser != null) {
-            $data = [
-                'data' => [
-                    'token' => $newUser->createToken($request->input('phone'))->plainTextToken,
-                ],
-                'errors' => '',
-            ];
+            $isFromBrowser = $request->input('fromBrowser') === true;
 
-            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+            if(!$isFromBrowser) {
+                $data = [
+                    'data' => [
+                        'token' => $newUser->createToken($request->input('phone'))->plainTextToken,
+                    ],
+                    'errors' => '',
+                ];
+
+                return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+            }
+
+            $phone = $request->input('phone');
+            $password = $request->input('password');
+
+            $isUserAuth = DB_tryAuthUser($phone, $password);
+
+            if ($isUserAuth) {
+                $request->session()->regenerate();
+
+                $data = [
+                    'data' => '',
+                    'errors' => '',
+                ];
+
+                return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+            }
         }
 
         $data = [
             'data' => '',
-            'errors' => [
-                'common' => 'Что-то пошло не так. Попробуйте снова',
-            ],
+            'errors' => ['Что-то пошло не так. Попробуйте снова'],
         ];
 
         return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
