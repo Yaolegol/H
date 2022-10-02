@@ -11,8 +11,23 @@ class InputsCode {
     }
 
     bind = () => {
-        addEventListener(this.module, 'keydown', this.handleKeydown)
-        addEventListener(this.module, 'input', this.handleInput)
+        addEventListener(this.module, 'keydown', this.handleKeydown);
+        addEventListener(this.module, 'input', this.handleInput);
+        addEventListener(this.module, 'beforeinput', this.handleBeforeInput);
+    }
+
+    handleBeforeInput = (e) => {
+        const {data} = e;
+
+        if(!data) {
+            return;
+        }
+
+        const isAllow = /\d/.test(data);
+
+        if(!isAllow) {
+            e.preventDefault();
+        }
     }
 
     handleKeydown = (e) => {
