@@ -160,7 +160,7 @@ function registrationSendSMS($request) {
     $phone = $request->input('phone');
     $formattedPhone = '+' . $phone;
     $code = mt_rand(1111, 9999);
-    $message = 'Компания, код подтверждения ' . $code;
+    $message = 'Ваш код подтверждения ' . $code;
 
     $response = SMS_send($formattedPhone, $message);
 
