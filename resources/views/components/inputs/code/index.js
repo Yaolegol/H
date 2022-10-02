@@ -25,7 +25,15 @@ class InputsCode {
             return;
         }
 
-        this.module.dispatchEvent(new CustomEvent('j-event-components-inputs-code__complete'));
+        const code = this.inputsList.reduce((acc, input) => {
+            return acc + input.value;
+        }, '');
+
+        this.module.dispatchEvent(new CustomEvent('j-event-components-inputs-code__complete', {
+            detail: {
+                code
+            }
+        }));
     }
 
     handleBeforeInput = (e) => {

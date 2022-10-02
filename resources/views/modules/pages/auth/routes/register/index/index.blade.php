@@ -3,10 +3,10 @@
     'formAction' => '/register',
     'formClass' => 'j-test',
 ])
-    <div>
+    <div class="j-test__send-sms-container">
         @include('modules.pages.auth.routes.register.components.sendSms.index')
     </div>
-    <div>
+    <div class="hidden j-test__confirm-code-container">
         @include('modules.pages.auth.routes.register.components.confirmCode.index')
     </div>
 @endcomponent

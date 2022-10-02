@@ -137,7 +137,7 @@ function registrationCheckSmsCode($request) {
         ];
     }
 
-    $isCodeMatch = (int)$codeFromRequest === $smsData['code'];
+    $isCodeMatch = $codeFromRequest === $smsData['code'];
 
     if(!$isCodeMatch) {
         return [

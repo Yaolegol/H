@@ -6,6 +6,9 @@ import 'views/modules/pages/auth/routes/register/components/sendSms';
 class Test {
     constructor(element) {
         this.module = element;
+        this.sendSmsContainer = this.module.querySelector('.j-test__send-sms-container');
+        this.confirmCodeContainer = this.module.querySelector('.j-test__confirm-code-container');
+        this.inputsCodeModule = this.module.querySelector('.j-components-inputs-code');
         this.CSRFContainer = document.querySelector('.j-csrf-token');
         this.CSRFValue = this.CSRFContainer?.dataset.value;
 
@@ -13,31 +16,73 @@ class Test {
     }
 
     bind = () => {
-        addEventListener(this.module, 'submit', this.handleSubmit)
+        addEventListener(this.module, 'submit', this.handleSubmit);
+        addEventListener(this.inputsCodeModule, 'j-event-components-inputs-code__complete', this.handleCompleteCode);
     }
 
-    handleSubmit = async (e) => {
-        e.preventDefault();
+    handleCompleteCode = (e) => {
+        const {code} = e.detail;
 
-        const {phone, password, password_confirmation} = e.target.elements;
+        this.handleConfirmCode(Number(code));
+    }
 
-        const phoneValue = phone.value;
-        const passwordValue = password.value;
-        const password_confirmationValue = password_confirmation.value;
-
+    handleConfirmCode = async (code) => {
         const _data = {
-            phone: phoneValue,
-            password: passwordValue,
-            password_confirmation: password_confirmationValue,
+            code,
+            phone: this.phoneValue,
+            password: this.passwordValue,
+            password_confirmation: this.password_confirmationValue,
         }
 
-        const {data, errors} = await this.sendSms(_data);
+        const {errors} = await this.sendConfirmCode(_data);
 
         if(errors !== '') {
             return;
         }
 
+        window.location.href = '/'
+    }
 
+    handleSendSms = async (e) => {
+        const {phone, password, password_confirmation} = e.target.elements;
+
+        this.phoneValue = phone.value;
+        this.passwordValue = password.value;
+        this.password_confirmationValue = password_confirmation.value;
+
+        const _data = {
+            phone: this.phoneValue,
+            password: this.passwordValue,
+            password_confirmation: this.password_confirmationValue,
+        }
+
+        const {errors} = await this.sendSms(_data);
+
+        if(errors !== '') {
+            return;
+        }
+
+        this.switchToConfirmCode();
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+
+        this.handleSendSms(e);
+    }
+
+    sendConfirmCode = async (data) => {
+        const response = await fetch('/api/register/confirmCode', {
+            body: JSON.stringify(data),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': this.CSRFValue,
+            },
+            method: 'POST',
+        });
+
+        return response.json();
     }
 
     sendSms = async (data) => {
@@ -52,6 +97,11 @@ class Test {
         });
 
         return response.json();
+    }
+
+    switchToConfirmCode = () => {
+        this.sendSmsContainer.classList.add('hidden');
+        this.confirmCodeContainer.classList.remove('hidden');
     }
 }
 
