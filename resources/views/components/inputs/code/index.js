@@ -16,6 +16,18 @@ class InputsCode {
         addEventListener(this.module, 'beforeinput', this.handleBeforeInput);
     }
 
+    checkAllInputsHasValue = (e) => {
+        const isAllInputsHasValue = this.inputsList.every((input) => {
+            return Boolean(input.value);
+        });
+
+        if(!isAllInputsHasValue) {
+            return;
+        }
+
+        this.module.dispatchEvent(new CustomEvent('j-event-components-inputs-code__complete'));
+    }
+
     handleBeforeInput = (e) => {
         const {data} = e;
 
@@ -39,11 +51,14 @@ class InputsCode {
     }
 
     handleInput = (e) => {
-        if(!e.target.value) {
+        const {target} = e;
+
+        if(!target.value) {
             return;
         }
 
-        this.tryFocusInput(e.target);
+        this.tryFocusInput(target);
+        this.checkAllInputsHasValue();
     }
 
     tryFocusInput = (currentFocusedInput, isNeedFocusNextInput = true) => {
