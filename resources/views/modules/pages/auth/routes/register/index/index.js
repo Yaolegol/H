@@ -2,12 +2,14 @@ import {addEventListener} from "helpers/events";
 import {module} from "helpers/module";
 import 'views/modules/pages/auth/routes/register/components/confirmCode';
 import 'views/modules/pages/auth/routes/register/components/sendSms';
+import './index.less';
 
 class Test {
     constructor(element) {
         this.module = element;
         this.sendSmsContainer = this.module.querySelector('.j-test__send-sms-container');
         this.confirmCodeContainer = this.module.querySelector('.j-test__confirm-code-container');
+        this.errorContainer = this.module.querySelector('.j-test__error-container');
         this.inputsCodeModule = this.module.querySelector('.j-components-inputs-code');
         this.CSRFContainer = document.querySelector('.j-csrf-token');
         this.CSRFValue = this.CSRFContainer?.dataset.value;
@@ -23,6 +25,9 @@ class Test {
     handleCompleteCode = (e) => {
         const {code} = e.detail;
 
+        this.errorContainer.innerHTML = '';
+        this.errorContainer.classList.add('hidden');
+
         this.handleConfirmCode(Number(code));
     }
 
@@ -37,6 +42,9 @@ class Test {
         const {errors} = await this.sendConfirmCode(_data);
 
         if(errors !== '') {
+            this.errorContainer.innerHTML = errors[0];
+            this.errorContainer.classList.remove('hidden');
+
             return;
         }
 
@@ -59,6 +67,9 @@ class Test {
         const {errors} = await this.sendSms(_data);
 
         if(errors !== '') {
+            this.errorContainer.innerHTML = errors[0];
+            this.errorContainer.classList.remove('hidden');
+
             return;
         }
 
@@ -67,6 +78,9 @@ class Test {
 
     handleSubmit = (e) => {
         e.preventDefault();
+
+        this.errorContainer.innerHTML = '';
+        this.errorContainer.classList.add('hidden');
 
         this.handleSendSms(e);
     }
