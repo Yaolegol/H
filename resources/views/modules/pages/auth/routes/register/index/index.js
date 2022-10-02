@@ -1,10 +1,7 @@
 import {addEventListener} from "helpers/events";
 import {module} from "helpers/module";
-import 'views/components/form/error';
-import 'views/components/inputs/form';
-import 'views/components/inputs/phone';
-import 'views/modules/pages/auth/common/components/formItemContainer';
-import 'views/modules/pages/auth/common/components/layout';
+import 'views/modules/pages/auth/routes/register/components/confirmCode';
+import 'views/modules/pages/auth/routes/register/components/sendSms';
 
 class Test {
     constructor(element) {
@@ -28,20 +25,23 @@ class Test {
         const passwordValue = password.value;
         const password_confirmationValue = password_confirmation.value;
 
-        const data = {
+        const _data = {
             phone: phoneValue,
             password: passwordValue,
             password_confirmation: password_confirmationValue,
         }
 
-        const response = await this.sendData(data);
+        const {data, errors} = await this.sendSms(_data);
 
-        console.log('response');
-        console.log(response);
+        if(errors !== '') {
+            return;
+        }
+
+
     }
 
-    sendData = async (data) => {
-        const response = await fetch('/api/register', {
+    sendSms = async (data) => {
+        const response = await fetch('/api/register/sendSms', {
             body: JSON.stringify(data),
             headers: {
                 'Accept': 'application/json',
