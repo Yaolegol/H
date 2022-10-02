@@ -29,7 +29,8 @@ const appDirectoriesData = getAppDirectoriesData();
 
 const createConfig = (env, argv) => {
     const {mode} = argv;
-    const {production} = mode;
+
+    const production = mode === 'production';
 
     return {
         devtool: production ? false : 'source-map',
@@ -157,7 +158,7 @@ const createConfig = (env, argv) => {
                 "node_modules"
             ],
         },
-        watch: true,
+        watch: !production,
     };
 }
 

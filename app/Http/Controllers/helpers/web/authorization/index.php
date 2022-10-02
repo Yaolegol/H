@@ -129,6 +129,17 @@ function registrationCheckSmsCode($request) {
         ];
     }
 
+    $nowTimestamp = now()->timestamp;
+    $smsTimestamp = $smsData->created_at->timestamp;
+    $smsTimestampWithAddTime = $smsTimestamp + 120;
+    $isSmsFresh = $nowTimestamp < $smsTimestampWithAddTime;
+
+    if(!$isSmsFresh) {
+        return [
+            'error' => 'Срок действия кода истек',
+        ];
+    }
+
     $isActive = $smsData['isActive'];
 
     if($isActive === 0) {
@@ -158,6 +169,24 @@ function registrationCheckSmsCode($request) {
 
 function registrationSendSMS($request) {
     $phone = $request->input('phone');
+
+    $smsData = SmsRegistration::where([
+        'phone' => $phone,
+    ])->get()->last();
+
+    if($smsData !== null) {
+        $nowTimestamp = now()->timestamp;
+        $smsTimestamp = $smsData->created_at->timestamp;
+        $smsTimestampWithAddTime = $smsTimestamp + 120;
+        $isSmsFresh = $nowTimestamp < $smsTimestampWithAddTime;
+
+        if($isSmsFresh) {
+            return [
+                'error' => 'Смс уже отправлена. Для повторной отправки пожалуйста подождите несколько минут',
+            ];
+        }
+    }
+
     $formattedPhone = '+' . $phone;
     $code = mt_rand(1111, 9999);
     $message = 'Ваш код подтверждения ' . $code;
