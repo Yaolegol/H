@@ -7,7 +7,7 @@
         @endif
     >
     <input
-        class="components-inputs-phone__input-mask j-inputs-phone__input-mask"Z
+        class="components-inputs-phone__input-mask j-inputs-phone__input-mask"
         type="tel"
     />
 </label>
