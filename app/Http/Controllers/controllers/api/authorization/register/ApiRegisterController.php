@@ -5,7 +5,6 @@ namespace App\Http\Controllers\controllers\api\authorization\register;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\controllers\web\authorization\login\LoginController;
 
 require_once('app/Http/Controllers/helpers/common/errors/index.php');
 require_once('app/Http/Controllers/helpers/web/authorization/index.php');

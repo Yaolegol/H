@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 
+require_once('app/Http/Controllers/helpers/common/errors/index.php');
+
 class ApiLoginController extends Controller
 {
     /**
@@ -36,7 +38,7 @@ class ApiLoginController extends Controller
         if ($validator->fails()) {
             $data = [
                 'data' => '',
-                'errors' => $validator->errors(),
+                'errors' => getValidatorErrorsList($validator),
             ];
 
             return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
@@ -60,9 +62,7 @@ class ApiLoginController extends Controller
 
         $data = [
             'data' => '',
-            'errors' => [
-                'common' => 'Не верный номер телефона или пароль. Попробуйте снова'
-            ],
+            'errors' => ['Не верный номер телефона или пароль. Попробуйте снова'],
         ];
 
         return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
