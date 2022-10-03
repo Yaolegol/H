@@ -125,7 +125,6 @@ function filterUserData($userData) {
             || $key === 'name'
             || $key === 'description'
             || $key === 'visible_email'
-            || $key === 'registration_email'
             || $key === 'phone';
     }, ARRAY_FILTER_USE_KEY);
 }

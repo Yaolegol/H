@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\controllers\api\authorization\login;
 
+use App\Rules\StartWith;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -15,17 +16,17 @@ class ApiLoginController extends Controller
      */
     public function login(Request $request)
     {
-        $email = $request->input('registration_email');
+        $email = $request->input('phone');
         $password = $request->input('password');
 
         $validator = Validator::make(
             $request->all(),
             [
-                'registration_email' => ['required', 'email', 'max:25'],
                 'password' => ['required', 'min:6'],
+                'phone' => ['required', 'digits:11', new StartWith('7')],
             ],
             [
-                'email' => 'Поле должно содержать email',
+                'digits' => 'Поле должно содержать :digits цифр',
                 'max' => 'Поле должно содержать максимум :max символов',
                 'min' => 'Поле должно содержать минимум :min символов',
                 'required' => 'Поле обязательно для заполнения',
@@ -43,13 +44,13 @@ class ApiLoginController extends Controller
 
         if (Auth::attempt(
             [
-                'registration_email' => $email,
+                'phone' => $email,
                 'password' => $password,
             ]
         )) {
             $data = [
                 'data' => [
-                    'token' => $request->user()->createToken($request->input('registration_email'))->plainTextToken,
+                    'token' => $request->user()->createToken($request->input('phone'))->plainTextToken,
                 ],
                 'errors' => '',
             ];
@@ -60,7 +61,7 @@ class ApiLoginController extends Controller
         $data = [
             'data' => '',
             'errors' => [
-                'common' => 'Не верный email или пароль. Попробуйте снова'
+                'common' => 'Не верный номер телефона или пароль. Попробуйте снова'
             ],
         ];
 
