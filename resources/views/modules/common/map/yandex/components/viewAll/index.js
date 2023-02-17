@@ -35,11 +35,13 @@ class MapYandexComponentsViewAll {
                 const markerInstance = new ymaps.Placemark(
                     [lat, lng],
                     {
-                        address,
-                        offerId,
-                        phone,
-                        price,
-                        title,
+                        data: {
+                            address,
+                            offerId,
+                            phone,
+                            price,
+                            title,
+                        },
                     },
                     {
                         balloonContentLayout: this.getBalloonContentLayoutClass(),
@@ -52,6 +54,17 @@ class MapYandexComponentsViewAll {
 
         this.mapCluster.add(placemarks);
         this.mapInstance.geoObjects.add(this.mapCluster);
+
+        this.mapInstance.events.add(['boundschange','datachange','objecttypeschange'], () => {
+            const geoQueryResultInstance = ymaps.geoQuery(this.mapCluster.getGeoObjects()).searchInside(this.mapInstance);
+
+            console.log('geoQueryResultInstance.getLength()')
+            console.log(geoQueryResultInstance.getLength())
+            geoQueryResultInstance.each((placemark) => {
+                console.log('placemark.properties.get("data")')
+                console.log(placemark.properties.get('data'))
+            });
+        });
     }
 
     bind = () => {
@@ -97,14 +110,14 @@ class MapYandexComponentsViewAll {
 
     getBalloonContentLayoutClass = () => {
         return ymaps.templateLayoutFactory.createClass(
-            '<div>{{ properties.title }}</div>' +
+            '<div>{{ properties.data.title }}</div>' +
             '<div>Адрес:</div>' +
-            '<div>{{ properties.address }}</div>' +
+            '<div>{{ properties.data.address }}</div>' +
             '<div>Телефон:</div>' +
-            '<div>{{ properties.phone }}</div>' +
+            '<div>{{ properties.data.phone }}</div>' +
             '<div>Цена:</div>' +
-            '<div>{{ properties.price }}</div>' +
-            '<div style="margin-top: 15px"><a href="/offers/{{properties.offerId}}">Подробнее</a></div>'
+            '<div>{{ properties.data.price }}</div>' +
+            '<div style="margin-top: 15px"><a href="/offers/{{properties.data.offerId}}">Подробнее</a></div>'
         );
     };
 
