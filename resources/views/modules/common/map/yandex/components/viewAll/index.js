@@ -54,7 +54,13 @@ class MapYandexComponentsViewAll {
 
         this.mapCluster.add(placemarks);
         this.mapInstance.geoObjects.add(this.mapCluster);
+    }
 
+    bind = () => {
+        addEventListener(document, 'j-event--map-filter-update', this.handleUpdateMapFilter)
+    }
+
+    bindMapEvents = () => {
         this.mapInstance.events.add(['boundschange','datachange','objecttypeschange'], () => {
             const geoQueryResultInstance = ymaps.geoQuery(this.mapCluster.getGeoObjects()).searchInside(this.mapInstance);
 
@@ -65,10 +71,6 @@ class MapYandexComponentsViewAll {
                 console.log(placemark.properties.get('data'))
             });
         });
-    }
-
-    bind = () => {
-        addEventListener(document, 'j-event--map-filter-update', this.handleUpdateMapFilter)
     }
 
     fetchData = async () => {
@@ -154,6 +156,7 @@ class MapYandexComponentsViewAll {
         this.mapInstance.options.set('dragCursor', 'arrow');
 
         this.addMarkersToMap();
+        this.bindMapEvents();
     }
 }
 
