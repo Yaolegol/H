@@ -46,6 +46,12 @@ function apiGetAllOffersMapMarkersDataFormatted($request) {
 
     $offersMapMarkersDataList = [];
 
+//    foreach ($offers as $offerItem) {
+//        $offerItemMapMarkersData = apiGetOfferData($offerItem);
+//
+//        array_push($offersMapMarkersDataList, $offerItemMapMarkersData);
+//    }
+
     foreach ($offers as $offerItem) {
         $offerItemMapMarkersData = apiGetOfferMapMarkersData($offerItem);
 
@@ -57,6 +63,31 @@ function apiGetAllOffersMapMarkersDataFormatted($request) {
     return $offersMapMarkersDataList;
 }
 
+function apiGetOfferData($offerItem) {
+    return [
+        'product' => [
+            'address' => $offerItem['address'],
+            'description' => $offerItem['description'],
+            'id' => $offerItem['id'],
+            'img' => [
+                'src' => formatAssetPath($offerItem['photo_1']),
+            ],
+            'link' => '/offers/' . $offerItem['id'],
+            'map_marker_lat' => $offerItem['map_marker_lat'],
+            'map_marker_lng' => $offerItem['map_marker_lng'],
+            'measure' => $offerItem['measure'],
+            'price' => $offerItem['price'],
+            'price_description' => $offerItem['price_description'],
+            'title' => $offerItem['title'],
+        ],
+        'seller' => [
+            'link' => '/sellers/' . $offerItem['user']['id'],
+            'name' => $offerItem['user']['name'],
+            'phone' => $offerItem['user']['phone'],
+        ],
+    ];
+}
+
 function apiGetOfferMapMarkersData($offer) {
     $isLatSet = isset($offer['map_marker_lat']) && $offer['map_marker_lat'] != '';
     $isLngSet = isset($offer['map_marker_lng']) && $offer['map_marker_lng'] != '';
@@ -65,10 +96,6 @@ function apiGetOfferMapMarkersData($offer) {
 
     if($isLatSet && $isLngSet) {
         $offerMarkerData = [
-            'data' => [
-                'address' => $offer['address'],
-                'phone' => $offer['phone'],
-            ],
             'markerCoords' => [
                 'lat' => $offer['map_marker_lat'],
                 'lng' => $offer['map_marker_lng'],
@@ -79,16 +106,12 @@ function apiGetOfferMapMarkersData($offer) {
     $salePointsMarkerDataList = [];
 
     if(isset($offer['sale_points'])) {
-        $salePointsMarkerDataList = array_reduce($offer['sale_points'], function($acc, $salePointItem) {
+        $salePointsMarkerDataList = array_reduce($offer['sale_points'], function($acc, $salePointItem) use ($offer) {
             $isLatSet = isset($salePointItem['map_marker_lat']) && $salePointItem['map_marker_lat'] != '';
             $isLngSet = isset($salePointItem['map_marker_lng']) && $salePointItem['map_marker_lng'] != '';
 
             if($isLatSet && $isLngSet) {
                 $salePointData = [
-                    'data' => [
-                        'address' => $salePointItem['address'],
-                        'phone' => $salePointItem['phone'],
-                    ],
                     'markerCoords' => [
                         'lat' => $salePointItem['map_marker_lat'],
                         'lng' => $salePointItem['map_marker_lng'],
@@ -120,9 +143,7 @@ function apiGetOfferMapMarkersData($offer) {
 
         $offerMapMarkersData = [
             'markersList' => array_merge(...$markersList),
-            'offerId' => $offer['id'],
-            'price' => $offer['price'],
-            'title' => $offer['title'],
+            'offer' => apiGetOfferData($offer),
         ];
     }
 
