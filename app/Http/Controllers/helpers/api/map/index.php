@@ -80,12 +80,27 @@ function apiGetOfferData($offerItem) {
             'price_description' => $offerItem['price_description'],
             'title' => $offerItem['title'],
         ],
+        'salePoints' => apiGetSalePointsData($offerItem),
         'seller' => [
             'link' => '/sellers/' . $offerItem['user']['id'],
             'name' => $offerItem['user']['name'],
             'phone' => $offerItem['user']['phone'],
         ],
     ];
+}
+
+function apiGetSalePointsData($offerItem) {
+    return array_reduce($offerItem['sale_points'], function($acc, $salePointItem) {
+        $data = [
+            'address' => $salePointItem['address'],
+            'description' => $salePointItem['description'],
+            'phone' => $salePointItem['phone'],
+            'title' => $salePointItem['title'],
+            'working_hours' => $salePointItem['working_hours'],
+        ];
+
+        return array_merge($acc, [$data]);
+    }, []);
 }
 
 function apiGetOfferMapMarkersData($offer) {
