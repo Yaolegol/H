@@ -25,7 +25,7 @@ class MapYandexComponentsViewAll {
         const placemarks = [];
 
         this.offerData.forEach(({markersList, offer}) => {
-            markersList.forEach(({markerCoords}) => {
+            markersList.forEach(({id, markerCoords}) => {
                 const {lat, lng} = markerCoords;
 
                 const markerInstance = new ymaps.Placemark(
@@ -34,7 +34,7 @@ class MapYandexComponentsViewAll {
                         data: {
                             offer,
                         },
-                        id: offer.product.id,
+                        id,
                     },
                     {
                         balloonContentLayout: this.getBalloonContentLayoutClass(),
@@ -80,7 +80,7 @@ class MapYandexComponentsViewAll {
 
     handleShowPlacemark = (e) => {
         const geoQueryResult = ymaps.geoQuery(this.mapCluster.getGeoObjects());
-        const geoQueryResultPlacemarks = geoQueryResult.search(`properties.id = ${e.detail.placemarkId}`);
+        const geoQueryResultPlacemarks = geoQueryResult.search(`properties.id = "${e.detail.placemarkId}"`);
 
         this.mapInstance.setCenter(geoQueryResultPlacemarks.get(0).geometry.getCoordinates(), 17, {
             duration: 1000,

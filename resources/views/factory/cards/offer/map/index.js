@@ -3,27 +3,28 @@ import {addEventListener} from "helpers/events";
 export class MapOfferCard {
     constructor(element) {
         this.module = element;
-        this.address = this.module.querySelector('.j-factory-cards-offer-map__address');
 
         this.bind();
     }
 
     static createMapOfferCard = ({placemarkList, placemarkData}) => {
-        console.log('--- createMapOfferCard')
-        console.log('placemarkList')
-        console.log(placemarkList)
-
-        const {product, seller} = placemarkData.offer;
+        const {product, salePoints, seller} = placemarkData.offer;
         const {address, description, id, img, link: productLink, measure, price, price_description, title} = product;
         const {title: measureTitle} = measure;
         const {src} = img;
         const {link: sellerLink, name, phone} = seller;
 
+        const salePointsHtml = salePoints.map(({address, description, id: salePointId, phone, title, working_hours}) => {
+            return `
+                <div
+                    class="j-factory-cards-offer-map__placemark-link"
+                    data-placemark-id="${id}_${salePointId}"
+                >${address}</div>
+            `;
+        });
+
         return `
-            <div
-                class="modules-pages-offers-shared-components-item j-factory-cards-offer-map"
-                data-placemark-id="${placemarkList[0].id}"
-            >
+            <div class="modules-pages-offers-shared-components-item j-factory-cards-offer-map">
                 <div class="modules-pages-offers-shared-components-item__image-block">
                     <div class="modules-pages-offers-shared-components-item__image-container">
                         <img
@@ -45,9 +46,13 @@ export class MapOfferCard {
                                 href="${productLink}"
                             >${title}</a>
                         </div>
-                        <div class="modules-pages-offers-shared-components-item__address-container j-factory-cards-offer-map__address">
+                        <div
+                            class="modules-pages-offers-shared-components-item__address-container j-factory-cards-offer-map__placemark-link"
+                            data-placemark-id="${id}"
+                        >
                             ${address}
                         </div>
+                        ${salePointsHtml.join('')}
                         <div class="modules-pages-offers-shared-components-item__price-container">
                             <span>Цена: </span>
                             <span class="modules-pages-offers-shared-components-item__price">
@@ -81,13 +86,21 @@ export class MapOfferCard {
     }
 
     bind = () => {
-        addEventListener(this.address, 'click', this.showPlacemark);
+        addEventListener(this.module, 'click', this.handleModuleClick);
     }
 
-    showPlacemark = (e) => {
+    handleModuleClick = (e) => {
+        const {target} = e;
+
+        const element = target.classList.contains('j-factory-cards-offer-map__placemark-link') ? target : target.closest('.j-factory-cards-offer-map__placemark-link');
+
+        if(!element) {
+            return;
+        }
+
         document.dispatchEvent(new CustomEvent('j-event-map__show-placemark', {
             detail: {
-                placemarkId: this.module.dataset.placemarkId,
+                placemarkId: element.dataset.placemarkId,
             }
         }));
     }
