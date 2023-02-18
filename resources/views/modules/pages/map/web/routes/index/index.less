@@ -3,7 +3,7 @@
 .modules-pages-map-web-routes-index {
     &__content-area {
         margin: 50px auto 0;
-        max-width: 800px;
+        max-width: 1400px;
     }
 
     &__filter-button {
@@ -28,12 +28,43 @@
         margin-left: 15px;
     }
 
-    &__info-item-container {
+    &__info-section {
+        margin-top: 20px;
+    }
+
+    &__map-area {
+        display: flex;
         margin-top: 15px;
     }
 
-    &__info-section {
-        margin-top: 20px;
+    &__map-block {
+        flex: 1 1 60%;
+    }
+
+    &__offers-block {
+        flex: 1 1 40%;
+        margin-left: 20px;
+        position: relative;
+    }
+
+    &__offers-container {
+        &::-webkit-scrollbar {
+            background-color: lightgrey;
+            border-radius: 8px;
+            width: 8px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: darkgray;
+            border-radius: 8px;
+        }
+
+        bottom: 0;
+        left: 0;
+        overflow: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
     }
 
     &__slider-container {

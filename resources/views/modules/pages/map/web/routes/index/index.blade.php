@@ -9,8 +9,15 @@
                 @include('modules.common.map.common.components.filters.product.index')
             </div>
         </div>
-        <div class="modules-pages-map-web-routes-index__info-item-container">
-            @include('modules.common.map.yandex.components.viewAll.index')
+        <div class="modules-pages-map-web-routes-index__map-area">
+            <div class="modules-pages-map-web-routes-index__map-block">
+                @include('modules.common.map.yandex.components.viewAll.index')
+            </div>
+            <div class="modules-pages-map-web-routes-index__offers-block">
+                <div class="modules-pages-map-web-routes-index__offers-container">
+                    @include('modules.common.offers.list.index')
+                </div>
+            </div>
         </div>
     </div>
 </div>

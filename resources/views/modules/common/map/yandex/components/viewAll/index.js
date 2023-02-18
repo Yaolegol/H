@@ -64,12 +64,17 @@ class MapYandexComponentsViewAll {
         this.mapInstance.events.add(['boundschange','datachange','objecttypeschange'], () => {
             const geoQueryResultInstance = ymaps.geoQuery(this.mapCluster.getGeoObjects()).searchInside(this.mapInstance);
 
-            console.log('geoQueryResultInstance.getLength()')
-            console.log(geoQueryResultInstance.getLength())
+            const list = [];
             geoQueryResultInstance.each((placemark) => {
-                console.log('placemark.properties.get("data")')
-                console.log(placemark.properties.get('data'))
+                list.push(placemark.properties.get('data'));
             });
+
+            document.dispatchEvent(new CustomEvent('j-event-map-yandex-components-view-all__update-visible-markers-data', {
+                detail: {
+                    count: geoQueryResultInstance.getLength(),
+                    list,
+                }
+            }));
         });
     }
 
