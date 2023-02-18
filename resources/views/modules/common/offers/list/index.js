@@ -1,5 +1,5 @@
 import {addEventListener} from "helpers/events";
-import {createMapOfferCard} from "views/factory/cards/offer/map";
+import {MapOfferCard} from "views/factory/cards/offer/map";
 import './index.less';
 
 class OffersList {
@@ -15,7 +15,7 @@ class OffersList {
 
     getUniqueList = (list) => {
         return list.reduce((acc, item, i, arr) => {
-            const firstDataObject = arr.find(o => o.offer.product.id === item.offer.product.id);
+            const firstDataObject = arr.find(o => o.placemarkData.offer.product.id === item.placemarkData.offer.product.id);
 
             if(firstDataObject !== item) {
                 return acc;
@@ -30,10 +30,12 @@ class OffersList {
 
     handleUpdateVisibleMarkersData = (e) => {
         const {list} = e.detail;
+
         this.module.innerHTML = '';
         const uniqueList = this.getUniqueList(list);
-        const htmlList = uniqueList.map(({offer}) => createMapOfferCard(offer));
+        const htmlList = uniqueList.map((data) => MapOfferCard.createMapOfferCard(data));
         this.module.insertAdjacentHTML('beforeend', htmlList.join(''));
+        MapOfferCard.init();
     }
 }
 

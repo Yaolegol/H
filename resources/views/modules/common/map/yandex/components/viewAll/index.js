@@ -24,9 +24,6 @@ class MapYandexComponentsViewAll {
         this.mapCluster = new ymaps.Clusterer();
         const placemarks = [];
 
-        console.log('this.offerData')
-        console.log(this.offerData)
-
         this.offerData.forEach(({markersList, offer}) => {
             markersList.forEach(({markerCoords}) => {
                 const {lat, lng} = markerCoords;
@@ -37,6 +34,7 @@ class MapYandexComponentsViewAll {
                         data: {
                             offer,
                         },
+                        id: offer.product.id,
                     },
                     {
                         balloonContentLayout: this.getBalloonContentLayoutClass(),
@@ -56,13 +54,20 @@ class MapYandexComponentsViewAll {
     }
 
     bindMapEvents = () => {
+        addEventListener(document, 'j-event-map__show-placemark', this.handleShowPlacemark);
+
         this.mapInstance.events.add(['boundschange','datachange','objecttypeschange'], () => {
             const geoQueryResultInstance = ymaps.geoQuery(this.mapCluster.getGeoObjects()).searchInside(this.mapInstance);
 
             const list = [];
 
             geoQueryResultInstance.each((placemark) => {
-                list.push(placemark.properties.get('data'));
+                list.push({
+                    placemark: {
+                        id: placemark.properties.get('id'),
+                    },
+                    placemarkData: placemark.properties.get('data'),
+                });
             });
 
             document.dispatchEvent(new CustomEvent('j-event-map-yandex-components-view-all__update-visible-markers-data', {
@@ -70,6 +75,15 @@ class MapYandexComponentsViewAll {
                     list,
                 }
             }));
+        });
+    }
+
+    handleShowPlacemark = (e) => {
+        const geoQueryResult = ymaps.geoQuery(this.mapCluster.getGeoObjects());
+        const geoQueryResultPlacemarks = geoQueryResult.search(`properties.id = ${e.detail.placemarkId}`);
+
+        this.mapInstance.setCenter(geoQueryResultPlacemarks.get(0).geometry.getCoordinates(), 17, {
+            duration: 1000,
         });
     }
 
