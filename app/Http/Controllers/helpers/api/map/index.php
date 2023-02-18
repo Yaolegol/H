@@ -97,6 +97,7 @@ function apiGetOfferMapMarkersData($offer) {
     if($isLatSet && $isLngSet) {
         $offerMarkerData = [
             'markerCoords' => [
+                'id' => $offer['id'],
                 'lat' => $offer['map_marker_lat'],
                 'lng' => $offer['map_marker_lng'],
             ],
@@ -113,6 +114,7 @@ function apiGetOfferMapMarkersData($offer) {
             if($isLatSet && $isLngSet) {
                 $salePointData = [
                     'markerCoords' => [
+                        'id' => $offer['id'] . '_' . $salePointItem['id'],
                         'lat' => $salePointItem['map_marker_lat'],
                         'lng' => $salePointItem['map_marker_lng'],
                     ],

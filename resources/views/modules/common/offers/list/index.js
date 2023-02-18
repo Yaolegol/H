@@ -13,27 +13,32 @@ class OffersList {
         addEventListener(document,'j-event-map-yandex-components-view-all__update-visible-markers-data', this.handleUpdateVisibleMarkersData);
     }
 
-    getUniqueList = (list) => {
-        return list.reduce((acc, item, i, arr) => {
-            const firstDataObject = arr.find(o => o.placemarkData.offer.product.id === item.placemarkData.offer.product.id);
-
-            if(firstDataObject !== item) {
-                return acc;
-            }
-
-            return [
-                ...acc,
-                item,
-            ];
-        }, []);
-    }
-
     handleUpdateVisibleMarkersData = (e) => {
         const {list} = e.detail;
 
         this.module.innerHTML = '';
-        const uniqueList = this.getUniqueList(list);
-        const htmlList = uniqueList.map((data) => MapOfferCard.createMapOfferCard(data));
+
+        const formattedData = {};
+
+        list.forEach(({placemark, placemarkData}) => {
+            const productId = placemarkData.offer.product.id;
+
+            if(!formattedData[productId]) {
+                formattedData[productId] = {
+                    placemarkList: [placemark],
+                    placemarkData,
+                }
+
+                return;
+            }
+
+            formattedData[productId].placemarkList.push(placemark);
+        });
+
+        console.log('formattedData');
+        console.log(formattedData);
+
+        const htmlList = Object.values(formattedData).map((data) => MapOfferCard.createMapOfferCard(data));
         this.module.insertAdjacentHTML('beforeend', htmlList.join(''));
         MapOfferCard.init();
     }

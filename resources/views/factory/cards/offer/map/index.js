@@ -8,7 +8,11 @@ export class MapOfferCard {
         this.bind();
     }
 
-    static createMapOfferCard = ({placemark, placemarkData}) => {
+    static createMapOfferCard = ({placemarkList, placemarkData}) => {
+        console.log('--- createMapOfferCard')
+        console.log('placemarkList')
+        console.log(placemarkList)
+
         const {product, seller} = placemarkData.offer;
         const {address, description, id, img, link: productLink, measure, price, price_description, title} = product;
         const {title: measureTitle} = measure;
@@ -18,7 +22,7 @@ export class MapOfferCard {
         return `
             <div
                 class="modules-pages-offers-shared-components-item j-factory-cards-offer-map"
-                data-placemark-id="${placemark.id}"
+                data-placemark-id="${placemarkList[0].id}"
             >
                 <div class="modules-pages-offers-shared-components-item__image-block">
                     <div class="modules-pages-offers-shared-components-item__image-container">
