@@ -1,6 +1,6 @@
 export const createMapOfferCard = (data) => {
     const {product, seller} = data;
-    const {address, description, img, link: productLink, measure, price, price_description, title} = product;
+    const {address, description, id, img, link: productLink, measure, price, price_description, title} = product;
     const {title: measureTitle} = measure;
     const {src} = img;
     const {link: sellerLink, name, phone} = seller;

@@ -13,20 +13,27 @@ class OffersList {
         addEventListener(document,'j-event-map-yandex-components-view-all__update-visible-markers-data', this.handleUpdateVisibleMarkersData);
     }
 
+    getUniqueList = (list) => {
+        return list.reduce((acc, item, i, arr) => {
+            const firstDataObject = arr.find(o => o.offer.product.id === item.offer.product.id);
+
+            if(firstDataObject !== item) {
+                return acc;
+            }
+
+            return [
+                ...acc,
+                item,
+            ];
+        }, []);
+    }
+
     handleUpdateVisibleMarkersData = (e) => {
-        const {count, list} = e.detail;
-        console.log('count');
-        console.log(count);
-        console.log('list');
-        console.log(list);
-
+        const {list} = e.detail;
         this.module.innerHTML = '';
-
-        list.forEach((data) => {
-            const card = createMapOfferCard(data.offer);
-
-            this.module.insertAdjacentHTML('beforeend', card);
-        });
+        const uniqueList = this.getUniqueList(list);
+        const htmlList = uniqueList.map(({offer}) => createMapOfferCard(offer));
+        this.module.insertAdjacentHTML('beforeend', htmlList.join(''));
     }
 }
 

@@ -67,7 +67,6 @@ class MapYandexComponentsViewAll {
 
             document.dispatchEvent(new CustomEvent('j-event-map-yandex-components-view-all__update-visible-markers-data', {
                 detail: {
-                    count: geoQueryResultInstance.getLength(),
                     list,
                 }
             }));
