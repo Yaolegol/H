@@ -168,7 +168,7 @@ class MapYandexComponentsViewAll {
 
     initMap = () => {
         this.mapInstance = new ymaps.Map(this.mapContainer, {
-            center: [62.395570, 104.432320],
+            center: [33, 84],
             controls: ['zoomControl'],
             zoom: 2,
         });
