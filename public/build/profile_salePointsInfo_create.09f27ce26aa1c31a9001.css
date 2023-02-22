@@ -409,6 +409,29 @@
 .modules-common-header-index {
   position: relative;
 }
+.modules-common-header-index__area-center {
+  display: flex;
+  flex: 0 0 10%;
+  justify-content: center;
+  margin: 0 15px;
+}
+.modules-common-header-index__area-item {
+  margin-left: 15px;
+}
+.modules-common-header-index__area-item:first-child {
+  margin-left: 0;
+}
+.modules-common-header-index__area-left {
+  align-items: center;
+  display: flex;
+  flex: 1 1 45%;
+  justify-content: flex-end;
+}
+.modules-common-header-index__area-right {
+  align-items: center;
+  display: flex;
+  flex: 1 1 45%;
+}
 .modules-common-header-index__favorites-container {
   position: relative;
 }
@@ -476,7 +499,6 @@
 }
 .modules-common-header-index__item-container {
   flex: 0 0 auto;
-  margin-left: 10px;
 }
 @media (max-width: 499px) {
   .modules-common-header-index__item-container_mobile-full-width {
@@ -535,7 +557,6 @@
 .modules-common-header-index__main-menu-container {
   align-items: center;
   display: flex;
-  justify-content: center;
   width: 100%;
 }
 .modules-common-header-index__map-block {
@@ -713,6 +734,24 @@
   min-width: 0;
   padding: 0 30px;
   width: 100%;
+}
+
+.components-map-yandex-components-add-marker {
+  padding-bottom: 100%;
+  position: relative;
+}
+.components-map-yandex-components-add-marker__map-container {
+  bottom: 0;
+  left: 0;
+  max-height: 500px;
+  max-width: 500px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.components-map-yandex-components-add-marker__map-container_mobile-app {
+  height: 300px;
+  width: auto;
 }
 
 .modules-pages-profile-common-components-body-create__all-points-link {

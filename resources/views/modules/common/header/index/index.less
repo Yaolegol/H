@@ -3,6 +3,34 @@
 .modules-common-header-index {
     position: relative;
 
+    &__area-center {
+        display: flex;
+        flex: 0 0 10%;
+        justify-content: center;
+        margin: 0 15px;
+    }
+
+    &__area-item {
+        margin-left: 15px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+
+    &__area-left {
+        align-items: center;
+        display: flex;
+        flex: 1 1 45%;
+        justify-content: flex-end;
+    }
+
+    &__area-right {
+        align-items: center;
+        display: flex;
+        flex: 1 1 45%;
+    }
+
     &__favorites-container {
         position: relative;
     }
@@ -84,7 +112,6 @@
 
     &__item-container {
         flex: 0 0 auto;
-        margin-left: 10px;
 
         &_mobile-full-width {
             @media (max-width: 499px) {
@@ -151,7 +178,6 @@
     &__main-menu-container {
         align-items: center;
         display: flex;
-        justify-content: center;
         width: 100%;
     }
 
