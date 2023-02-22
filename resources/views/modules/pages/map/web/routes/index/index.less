@@ -41,13 +41,26 @@
         flex: 1 1 60%;
     }
 
-    &__offers-block {
+    &__offers-area {
         flex: 1 1 40%;
         margin-left: 20px;
         position: relative;
     }
 
+    &__offers-block {
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
     &__offers-container {
+        flex: 1 1 auto;
+        overflow: auto;
+
         &::-webkit-scrollbar {
             background-color: lightgrey;
             border-radius: 8px;
@@ -58,13 +71,15 @@
             background: darkgray;
             border-radius: 8px;
         }
+    }
 
-        bottom: 0;
-        left: 0;
-        overflow: auto;
-        position: absolute;
-        right: 0;
-        top: 0;
+    &__offers-header {
+        padding-bottom: 10px;
+    }
+
+    &__offers-header-description {
+        color: @black_80;
+        margin-top: 5px;
     }
 
     &__slider-container {

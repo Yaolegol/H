@@ -894,18 +894,23 @@
 .modules-pages-map-web-routes-index__map-block {
   flex: 1 1 60%;
 }
-.modules-pages-map-web-routes-index__offers-block {
+.modules-pages-map-web-routes-index__offers-area {
   flex: 1 1 40%;
   margin-left: 20px;
   position: relative;
 }
-.modules-pages-map-web-routes-index__offers-container {
+.modules-pages-map-web-routes-index__offers-block {
   bottom: 0;
+  display: flex;
+  flex-direction: column;
   left: 0;
-  overflow: auto;
   position: absolute;
   right: 0;
   top: 0;
+}
+.modules-pages-map-web-routes-index__offers-container {
+  flex: 1 1 auto;
+  overflow: auto;
 }
 .modules-pages-map-web-routes-index__offers-container::-webkit-scrollbar {
   background-color: lightgrey;
@@ -915,6 +920,13 @@
 .modules-pages-map-web-routes-index__offers-container::-webkit-scrollbar-thumb {
   background: darkgray;
   border-radius: 8px;
+}
+.modules-pages-map-web-routes-index__offers-header {
+  padding-bottom: 10px;
+}
+.modules-pages-map-web-routes-index__offers-header-description {
+  color: rgba(0, 0, 0, 0.8);
+  margin-top: 5px;
 }
 .modules-pages-map-web-routes-index__slider-container {
   margin-top: 50px;
