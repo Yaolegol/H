@@ -1,4 +1,5 @@
 import {addEventListener} from "helpers/events";
+import './index.less';
 
 export class MapOfferCard {
     constructor(element) {

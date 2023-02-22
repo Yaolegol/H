@@ -738,56 +738,8 @@
   width: 100px;
 }
 
-
-.modules-pages-favorites-shared-components-button {
-  position: relative;
-}
-.modules-pages-favorites-shared-components-button__button {
-  color: rgba(0, 0, 0, 0.15);
-  width: 20px;
-}
-.modules-pages-favorites-shared-components-button__button:hover,
-.modules-pages-favorites-shared-components-button__button.active {
-  color: #ffff00;
-  cursor: pointer;
-}
-.modules-pages-favorites-shared-components-button__button:hover svg,
-.modules-pages-favorites-shared-components-button__button.active svg {
-  filter: drop-shadow(0 0 10px #ffff00);
-}
-.modules-pages-favorites-shared-components-button__hint-block {
-  align-items: center;
-  background-color: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
-  display: none;
-  flex-direction: column;
-  padding: 10px;
-  position: absolute;
-  right: 0;
-  text-align: center;
-}
-.modules-pages-favorites-shared-components-button:hover .modules-pages-favorites-shared-components-button__hint-block {
-  display: flex;
-}
-.modules-pages-favorites-shared-components-button__hint-block_left {
-  left: 0;
-  right: auto;
-}
-.modules-pages-favorites-shared-components-button__hint-link {
-  font-weight: 800;
-}
-.modules-pages-favorites-shared-components-button__hint-link:hover {
-  text-decoration: underline;
-}
-.modules-pages-favorites-shared-components-button__hint-text-container {
-  margin-top: 5px;
-}
-
 .modules-pages-offers-shared-components-item {
-  border: 1px solid #E9EDF6;
-  border-radius: 10px;
-  box-shadow: 0 0 10px 1px rgba(242, 242, 242, 0.7);
+  box-shadow: 0 1px 2px rgba(32, 33, 36, 0.08);
   display: flex;
   padding: 20px 40px 20px 20px;
   position: relative;
@@ -908,6 +860,7 @@
     right: 35px;
   }
 }
+
 
 .modules-pages-map-web-routes-index__content-area {
   margin: 50px auto 0;
