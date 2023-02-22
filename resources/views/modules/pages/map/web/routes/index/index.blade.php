@@ -1,9 +1,7 @@
 <div class="modules-pages-map-web-routes-index">
     <div class="modules-pages-map-web-routes-index__content-area">
         <div class="modules-pages-map-web-routes-index__filters-block">
-            <div class="modules-pages-map-web-routes-index__filters-container">
-                @include('modules.common.location.components.buttons.filterButton.index')
-            </div>
+            <h4>Фильтры:</h4>
             <div class="modules-pages-map-web-routes-index__filters-container">
                 @include('modules.common.map.common.components.filters.product.index')
             </div>
