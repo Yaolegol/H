@@ -76,7 +76,7 @@ export class MapOfferCard {
                         >Показать на карте</button>
                         ${salePointsBlock}
                         <div class="modules-pages-offers-shared-components-item__price-container">
-                            <div class="modules-pages-offers-shared-components-item__price-title">Цена:</div>
+                            <span class="modules-pages-offers-shared-components-item__price-title">Цена:</span>
                             <span class="modules-pages-offers-shared-components-item__price">
                                 ${price} ₽
                             </span>
