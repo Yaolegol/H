@@ -178,7 +178,7 @@
 .modules-common-header-search.j-style-header-search__mobile-show {
   left: 20px;
   position: absolute;
-  right: 0;
+  right: 20px;
   top: 50%;
   transform: translateY(-50%);
   z-index: 9;
@@ -222,7 +222,7 @@
   color: white;
   line-height: 0;
 }
-@media (min-width: 500px) {
+@media (min-width: 767px) {
   .modules-common-header-search__mobile-search-button {
     display: none;
   }
@@ -241,7 +241,7 @@
   position: relative;
   width: 100%;
 }
-@media (max-width: 499px) {
+@media (max-width: 767px) {
   .modules-common-header-search__search-block {
     display: none;
   }
@@ -415,6 +415,12 @@
   justify-content: center;
   margin: 0 15px;
 }
+@media (max-width: 767px) {
+  .modules-common-header-index__area-center {
+    flex: 1 1 auto;
+    justify-content: flex-start;
+  }
+}
 .modules-common-header-index__area-item {
   margin-left: 15px;
 }
@@ -427,10 +433,21 @@
   flex: 1 1 45%;
   justify-content: flex-end;
 }
+@media (max-width: 767px) {
+  .modules-common-header-index__area-left {
+    flex: 0 0 20%;
+  }
+}
 .modules-common-header-index__area-right {
   align-items: center;
   display: flex;
   flex: 1 1 45%;
+}
+@media (max-width: 767px) {
+  .modules-common-header-index__area-right {
+    flex: 0 0 20%;
+    justify-content: flex-end;
+  }
 }
 .modules-common-header-index__favorites-container {
   position: relative;
@@ -500,12 +517,12 @@
 .modules-common-header-index__item-container {
   flex: 0 0 auto;
 }
-@media (max-width: 499px) {
+@media (max-width: 767px) {
   .modules-common-header-index__item-container_mobile-full-width {
     flex: 1 0 auto;
   }
 }
-@media (max-width: 499px) {
+@media (max-width: 767px) {
   .modules-common-header-index__item-container_mobile-hidden {
     display: none;
   }
@@ -519,7 +536,7 @@
   flex: 0 1 auto;
   position: relative;
 }
-@media (max-width: 499px) {
+@media (max-width: 767px) {
   .modules-common-header-index__items-block {
     flex: 1 1 auto;
     justify-content: flex-end;
@@ -618,11 +635,6 @@
   min-width: 270px;
 }
 @media (max-width: 767px) {
-  .modules-common-header-index__search-container {
-    min-width: 180px;
-  }
-}
-@media (max-width: 499px) {
   .modules-common-header-index__search-container {
     min-width: 0;
   }
@@ -734,24 +746,6 @@
   min-width: 0;
   padding: 0 30px;
   width: 100%;
-}
-
-.components-map-yandex-components-add-marker {
-  padding-bottom: 100%;
-  position: relative;
-}
-.components-map-yandex-components-add-marker__map-container {
-  bottom: 0;
-  left: 0;
-  max-height: 500px;
-  max-width: 500px;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-.components-map-yandex-components-add-marker__map-container_mobile-app {
-  height: 300px;
-  width: auto;
 }
 
 .modules-pages-profile-common-components-body-create__all-points-link {
