@@ -4,6 +4,8 @@ import './index.less';
 export class MapOfferCard {
     constructor(element) {
         this.module = element;
+        this.salePointsButton = this.module.querySelector('.j-factory-cards-offer-map__sale-points-button');
+        this.salePointsBlock = this.module.querySelector('.j-factory-cards-offer-map__sale-points-block');
 
         this.bind();
     }
@@ -17,12 +19,29 @@ export class MapOfferCard {
 
         const salePointsHtml = salePoints.map(({address, description, id: salePointId, phone, title, working_hours}) => {
             return `
-                <div
-                    class="j-factory-cards-offer-map__placemark-link"
+                <div class="modules-pages-offers-shared-components-item__sale-point-address-container">${address}</div>
+                <button
+                    class="modules-pages-offers-shared-components-item__show-on-map-button j-factory-cards-offer-map__placemark-link"
                     data-placemark-id="${id}_${salePointId}"
-                >${address}</div>
+                    type="button"
+                >Показать на карте</button>
             `;
         });
+
+        const salePontButton = salePointsHtml.length > 1 ? `
+            <button class="modules-pages-offers-shared-components-item__sale-points-button j-factory-cards-offer-map__sale-points-button" type="button">
+                <span class="modules-pages-offers-shared-components-item__sale-points-button-text modules-pages-offers-shared-components-item__sale-points-button-text_show">Свернуть</span>
+                <span class="modules-pages-offers-shared-components-item__sale-points-button-text modules-pages-offers-shared-components-item__sale-points-button-text_hide">Развернуть</span>
+            </button>
+        ` : '';
+
+        const salePointsBlock = salePointsHtml.length ? `
+            <div class="modules-pages-offers-shared-components-item__sale-points-block j-factory-cards-offer-map__sale-points-block">
+                <div class="modules-pages-offers-shared-components-item__sale-points-title">Торговые точки:</div>
+                <div class="modules-pages-offers-shared-components-item__sale-points-container">${salePointsHtml.join('')}</div>
+                ${salePontButton}
+            </div>
+        ` : '';
 
         return `
             <div class="modules-pages-offers-shared-components-item j-factory-cards-offer-map">
@@ -47,13 +66,15 @@ export class MapOfferCard {
                                 href="${productLink}"
                             >${title}</a>
                         </div>
-                        <div
-                            class="modules-pages-offers-shared-components-item__address-container j-factory-cards-offer-map__placemark-link"
-                            data-placemark-id="${id}"
-                        >
+                        <div class="modules-pages-offers-shared-components-item__address-container j-factory-cards-offer-map__placemark-link">
                             ${address}
                         </div>
-                        ${salePointsHtml.join('')}
+                        <button
+                            class="modules-pages-offers-shared-components-item__show-on-map-button j-factory-cards-offer-map__placemark-link"
+                            data-placemark-id="${id}"
+                            type="button"
+                        >Показать на карте</button>
+                        ${salePointsBlock}
                         <div class="modules-pages-offers-shared-components-item__price-container">
                             <span>Цена: </span>
                             <span class="modules-pages-offers-shared-components-item__price">
@@ -88,6 +109,7 @@ export class MapOfferCard {
 
     bind = () => {
         addEventListener(this.module, 'click', this.handleModuleClick);
+        addEventListener(this.salePointsButton, 'click', this.handleSalePointsButtonClick);
     }
 
     handleModuleClick = (e) => {
@@ -104,5 +126,13 @@ export class MapOfferCard {
                 placemarkId: element.dataset.placemarkId,
             }
         }));
+    }
+
+    handleSalePointsButtonClick = (e) => {
+        if(this.salePointsBlock.classList.contains('show')) {
+            this.salePointsBlock.classList.remove('show');
+        } else {
+            this.salePointsBlock.classList.add('show');
+        }
     }
 }

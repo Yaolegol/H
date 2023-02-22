@@ -1,5 +1,6 @@
 @import (reference) '~styles/adaptive';
 @import (reference) '~styles/colors';
+@import (reference) '~styles/font';
 @import (reference) '~styles/text';
 
 .modules-pages-offers-shared-components-item {
@@ -54,13 +55,8 @@
     }
 
     &__image-container {
-        height: 100%;
+        padding-bottom: 100%;
         position: relative;
-
-        @media (max-width: 767px) {
-            height: auto;
-            padding-bottom: 100%;
-        }
     }
 
     &__image-link {
@@ -97,6 +93,62 @@
         margin-top: 20px;
     }
 
+    &__sale-point-address-container {
+        margin-top: 5px;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    &__sale-points-block {
+        margin-top: 15px;
+    }
+
+    &__sale-points-button {
+        .f_badge();
+
+        color: @black_80;
+        cursor: pointer;
+
+        &:hover {
+            color: @black;
+        }
+    }
+
+    &__sale-points-button-text {
+        &_show {
+            display: none;
+
+            .modules-pages-offers-shared-components-item__sale-points-block.show & {
+                display: unset;
+            }
+        }
+
+        &_hide {
+            .modules-pages-offers-shared-components-item__sale-points-block.show & {
+                display: none;
+            }
+        }
+    }
+
+    &__sale-points-container {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        height: 34px;
+        overflow: hidden;
+
+        .modules-pages-offers-shared-components-item__sale-points-block.show & {
+            height: auto;
+        }
+    }
+
+    &__sale-points-title {
+        font-weight: 600;
+        margin-top: 5px;
+    }
+
     &__seller-info-container {
         .ellipsis(2);
     }
@@ -109,6 +161,17 @@
         @media @mobile {
             top: 35px;
             right: 35px;
+        }
+    }
+
+    &__show-on-map-button {
+        .f_badge();
+
+        color: @black_80;
+        cursor: pointer;
+
+        &:hover {
+            color: @black;
         }
     }
 }
