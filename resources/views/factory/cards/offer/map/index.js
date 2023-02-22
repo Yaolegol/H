@@ -28,7 +28,7 @@ export class MapOfferCard {
             `;
         });
 
-        const salePontButton = salePointsHtml.length > 1 ? `
+        const salePontButton = salePointsHtml.length ? `
             <button class="modules-pages-offers-shared-components-item__sale-points-button j-factory-cards-offer-map__sale-points-button" type="button">
                 <span class="modules-pages-offers-shared-components-item__sale-points-button-text modules-pages-offers-shared-components-item__sale-points-button-text_show">Свернуть</span>
                 <span class="modules-pages-offers-shared-components-item__sale-points-button-text modules-pages-offers-shared-components-item__sale-points-button-text_hide">Развернуть</span>
@@ -76,20 +76,22 @@ export class MapOfferCard {
                         >Показать на карте</button>
                         ${salePointsBlock}
                         <div class="modules-pages-offers-shared-components-item__price-container">
-                            <span>Цена: </span>
+                            <div class="modules-pages-offers-shared-components-item__price-title">Цена:</div>
                             <span class="modules-pages-offers-shared-components-item__price">
                                 ${price} ₽
                             </span>
-                            <span class="modules-pages-offers-shared-components-item__measure hidden">
+                            <span class="modules-pages-offers-shared-components-item__measure">
                                 (за ${measureTitle})
                             </span>
                         </div>
                         <div class="modules-pages-offers-shared-components-item__contacts-block">
                             <div class="modules-pages-offers-shared-components-item__phone-container">
-                                Телефон: <a class="j-modules-common-offers-list__phone-link" href="tel:+${phone}">+${phone}</a>
+                                <span class="modules-pages-offers-shared-components-item__phone-title">Телефон:</span>
+                                <a class="j-modules-common-offers-list__phone-link" href="tel:+${phone}">+${phone}</a>
                             </div>
                             <div class="modules-pages-offers-shared-components-item__seller-info-container">
-                                Продавец: <a href="${sellerLink}">${name}</a>
+                                <span class="modules-pages-offers-shared-components-item__seller-info-title">Продавец:</span>
+                                <a href="${sellerLink}">${name}</a>
                             </div>
                         </div>
                     </div>

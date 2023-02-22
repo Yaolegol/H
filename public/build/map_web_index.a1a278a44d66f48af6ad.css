@@ -751,11 +751,6 @@
   }
 }
 .modules-pages-offers-shared-components-item__contacts-block {
-  display: -webkit-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
   margin-top: 15px;
 }
 .modules-pages-offers-shared-components-item__content-block {
@@ -767,13 +762,6 @@
     margin-top: 15px;
     padding: 0;
   }
-}
-.modules-pages-offers-shared-components-item__description-container {
-  display: -webkit-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
 }
 .modules-pages-offers-shared-components-item__image {
   bottom: 0;
@@ -807,23 +795,17 @@
   top: 0;
   width: 100%;
 }
-.modules-pages-offers-shared-components-item__phone-container {
-  display: -webkit-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
+.modules-pages-offers-shared-components-item__phone-title {
+  font-weight: 600;
 }
 .modules-pages-offers-shared-components-item__price {
   font-weight: 800;
 }
 .modules-pages-offers-shared-components-item__price-container {
-  display: -webkit-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
   margin-top: 15px;
+}
+.modules-pages-offers-shared-components-item__price-title {
+  font-weight: 600;
 }
 .modules-pages-offers-shared-components-item__product-link {
   display: -webkit-box;
@@ -873,7 +855,7 @@
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  height: 34px;
+  height: 0;
   overflow: hidden;
 }
 .modules-pages-offers-shared-components-item__sale-points-block.show .modules-pages-offers-shared-components-item__sale-points-container {
@@ -884,11 +866,10 @@
   margin-top: 5px;
 }
 .modules-pages-offers-shared-components-item__seller-info-container {
-  display: -webkit-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  margin-top: 5px;
+}
+.modules-pages-offers-shared-components-item__seller-info-title {
+  font-weight: 600;
 }
 .modules-pages-offers-shared-components-item__service-block {
   position: absolute;
