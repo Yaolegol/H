@@ -50,32 +50,32 @@ class MapYandexComponentsViewAll {
     }
 
     bind = () => {
-        addEventListener(document, 'j-event--map-filter-update', this.handleUpdateMapFilter)
+        addEventListener(document, 'j-event--map-filter-update', this.handleUpdateMapFilter);
+        addEventListener(document, 'j-event-map__show-placemark', this.handleShowPlacemark);
     }
 
     bindMapEvents = () => {
-        addEventListener(document, 'j-event-map__show-placemark', this.handleShowPlacemark);
+        this.mapInstance.events.add(['boundschange'], this.handleMapBoundsChange);
+    }
 
-        this.mapInstance.events.add(['boundschange','datachange','objecttypeschange'], () => {
-            const geoQueryResultInstance = ymaps.geoQuery(this.mapCluster.getGeoObjects()).searchInside(this.mapInstance);
+    getPlacemarksDataList = () => {
+        const list = [];
+        const geoQueryResultInstance = ymaps.geoQuery(this.mapCluster.getGeoObjects()).searchInside(this.mapInstance);
 
-            const list = [];
-
-            geoQueryResultInstance.each((placemark) => {
-                list.push({
-                    placemark: {
-                        id: placemark.properties.get('id'),
-                    },
-                    placemarkData: placemark.properties.get('data'),
-                });
+        geoQueryResultInstance.each((placemark) => {
+            list.push({
+                placemark: {
+                    id: placemark.properties.get('id'),
+                },
+                placemarkData: placemark.properties.get('data'),
             });
-
-            document.dispatchEvent(new CustomEvent('j-event-map-yandex-components-view-all__update-visible-markers-data', {
-                detail: {
-                    list,
-                }
-            }));
         });
+
+        return list;
+    }
+
+    handleMapBoundsChange = () => {
+        this.updatePlacemarsDataList();
     }
 
     handleShowPlacemark = (e) => {
@@ -149,15 +149,20 @@ class MapYandexComponentsViewAll {
         }
     }
 
+    handleYMapsReady = () => {
+        this.initMap();
+        this.addMarkersToMap();
+        this.bindMapEvents();
+        this.updatePlacemarsDataList();
+    }
+
     init = async () => {
         const {data, errors} = await this.fetchData();
 
         if(!errors) {
             this.offerData = data;
 
-            window.ymaps.ready(() => {
-                this.initMap();
-            });
+            window.ymaps.ready(this.handleYMapsReady);
         }
     }
 
@@ -169,9 +174,20 @@ class MapYandexComponentsViewAll {
         });
 
         this.mapInstance.options.set('dragCursor', 'arrow');
+    }
 
-        this.addMarkersToMap();
-        this.bindMapEvents();
+    sendPlacemarksDataListUpdateEvent = ({list}) => {
+        document.dispatchEvent(new CustomEvent('j-event-map-yandex-components-view-all__update-visible-markers-data', {
+            detail: {
+                list,
+            }
+        }));
+    }
+
+    updatePlacemarsDataList = () => {
+        const list = this.getPlacemarksDataList();
+
+        this.sendPlacemarksDataListUpdateEvent({list});
     }
 }
 
