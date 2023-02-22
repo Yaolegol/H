@@ -49,6 +49,11 @@
   justify-content: center;
   width: 48px;
 }
+@media (max-width: 767px) {
+  .components-buttons-burger {
+    width: 40px;
+  }
+}
 .components-buttons-burger__line {
   background-color: #FFFFFF;
   height: 5px;
