@@ -1,5 +1,4 @@
 <div class="modules-pages-map-web-routes-index">
-    <h2 class="modules-pages-map-web-routes-index__title">Карта</h2>
     <div class="modules-pages-map-web-routes-index__content-area">
         <div class="modules-pages-map-web-routes-index__filters-block">
             <div class="modules-pages-map-web-routes-index__filters-container">
