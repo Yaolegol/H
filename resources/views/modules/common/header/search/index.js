@@ -85,6 +85,8 @@ class Search {
 
     handleClearButtonClick = (e) => {
         this.searchInput.value = '';
+
+        this.searchInput.blur();
     }
 
     handleClearButtonMouseDown = (e) => {
@@ -97,10 +99,8 @@ class Search {
     }
 
     handleSearchInputBlur = (e) => {
-        setTimeout(() => {
-            this.module.classList.remove('j-style-header-search__focus');
-            this.module.classList.remove('j-style-header-search__mobile-show');
-        }, 500);
+        this.module.classList.remove('j-style-header-search__focus');
+        this.module.classList.remove('j-style-header-search__mobile-show');
     }
 
     handleSearchInputFocus = (e) => {
