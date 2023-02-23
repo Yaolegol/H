@@ -1,6 +1,7 @@
 import {getCookieData} from "helpers/cookie";
 import {addEventListener} from "helpers/events";
 import {getQueryData} from "helpers/query";
+import {getOfferBalloon} from "views/modules/common/map/yandex/components/balloon/offer";
 import './index.less';
 
 class MapYandexComponentsViewAll {
@@ -146,18 +147,7 @@ class MapYandexComponentsViewAll {
     }
 
     getBalloonContentLayoutClass = () => {
-        return ymaps.templateLayoutFactory.createClass(
-            `
-                <div>{{ properties.data.offer.product.title }}</div>
-                <div>{{ properties.data.offer.product.address }}</div>
-                <div>{{ properties.data.offer.product.price }}</div>
-                <div>{{ properties.data.offer.seller.name }}</div>
-                <div>{{ properties.data.offer.seller.phone }}</div>
-                <div>
-                    <a href="/offers/{{properties.data.offer.product.id}}">Подробнее</a>
-                </div>
-            `
-        );
+        return ymaps.templateLayoutFactory.createClass(getOfferBalloon());
     };
 
     handleUpdateMapFilter = async (e) => {

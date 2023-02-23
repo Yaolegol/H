@@ -760,6 +760,31 @@
   width: 100%;
 }
 
+.modules-common-map-yandex-components-balloon-offer__price {
+  font-weight: 600;
+}
+.modules-common-map-yandex-components-balloon-offer__section-link {
+  margin-top: 15px;
+}
+.modules-common-map-yandex-components-balloon-offer__section-link-title {
+  font-weight: 600;
+}
+.modules-common-map-yandex-components-balloon-offer__section-price {
+  margin-top: 15px;
+}
+.modules-common-map-yandex-components-balloon-offer__section-price-title {
+  font-weight: 600;
+}
+.modules-common-map-yandex-components-balloon-offer__section-seller {
+  margin-top: 15px;
+}
+.modules-common-map-yandex-components-balloon-offer__section-seller-title {
+  font-weight: 600;
+}
+.modules-common-map-yandex-components-balloon-offer__title {
+  font-weight: 600;
+}
+
 .components-map-yandex-components-view-all {
   padding-bottom: 100%;
   position: relative;
