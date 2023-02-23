@@ -25,6 +25,9 @@ class MapYandexComponentsViewAll {
         const placemarks = [];
 
         this.offerData.forEach(({markersList, offer}) => {
+            console.log('offer')
+            console.log(offer)
+
             markersList.forEach(({id, markerCoords}) => {
                 const {lat, lng} = markerCoords;
 
@@ -144,15 +147,16 @@ class MapYandexComponentsViewAll {
 
     getBalloonContentLayoutClass = () => {
         return ymaps.templateLayoutFactory.createClass(
-            '<div>test</div>'
-            // '<div>{{ properties.data.title }}</div>' +
-            // '<div>Адрес:</div>' +
-            // '<div>{{ properties.data.address }}</div>' +
-            // '<div>Телефон:</div>' +
-            // '<div>{{ properties.data.phone }}</div>' +
-            // '<div>Цена:</div>' +
-            // '<div>{{ properties.data.price }}</div>' +
-            // '<div style="margin-top: 15px"><a href="/offers/{{properties.data.offerId}}">Подробнее</a></div>'
+            `
+                <div>{{ properties.data.offer.product.title }}</div>
+                <div>{{ properties.data.offer.product.address }}</div>
+                <div>{{ properties.data.offer.product.price }}</div>
+                <div>{{ properties.data.offer.seller.name }}</div>
+                <div>{{ properties.data.offer.seller.phone }}</div>
+                <div>
+                    <a href="/offers/{{properties.data.offer.product.id}}">Подробнее</a>
+                </div>
+            `
         );
     };
 
