@@ -1,5 +1,16 @@
+import {EVENTS_NAMES} from 'events/index';
 import {addEventListener} from "helpers/events";
 import './index.less';
+
+const {
+    COMMON: {
+        MODALS: {
+            COMMON: {
+                CLOSE,
+            }
+        }
+    }
+} = EVENTS_NAMES;
 
 export class MapOfferCard {
     constructor(element) {
@@ -123,6 +134,7 @@ export class MapOfferCard {
             return;
         }
 
+        document.dispatchEvent(new CustomEvent(CLOSE));
         document.dispatchEvent(new CustomEvent('j-event-map__show-placemark', {
             detail: {
                 placemarkId: element.dataset.placemarkId,
