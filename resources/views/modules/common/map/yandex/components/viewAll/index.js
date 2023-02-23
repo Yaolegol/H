@@ -158,6 +158,10 @@ class MapYandexComponentsViewAll {
 
             this.mapInstance.geoObjects.remove(this.mapCluster);
             this.addMarkersToMap();
+
+            const list = this.getPlacemarksDataList();
+
+            this.sendPlacemarksDataListUpdateEvent({list});
         }
     }
 
