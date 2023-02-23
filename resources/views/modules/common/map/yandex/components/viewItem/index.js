@@ -1,3 +1,4 @@
+import {getOfferBalloonProductPage} from "views/modules/common/map/yandex/components/balloon/offer";
 import './index.less';
 
 class MapYandexComponentsViewItem {
@@ -9,14 +10,9 @@ class MapYandexComponentsViewItem {
         this.init();
     }
 
-    getBalloonContentLayoutClass = () => {
-        return ymaps.templateLayoutFactory.createClass(
-            '<div>Адрес:</div>' +
-            '<div>{{ properties.address }}</div>' +
-            '<div>Телефон:</div>' +
-            '<div>{{ properties.phone }}</div>'
-        );
-    }
+    getBalloonContentLayoutClass = (offerData) => {
+        return ymaps.templateLayoutFactory.createClass(getOfferBalloonProductPage(offerData));
+    };
 
     fetchData = async () => {
         try {
@@ -33,13 +29,15 @@ class MapYandexComponentsViewItem {
             if(!errors) {
                 this.offerData = data;
 
-                window.ymaps.ready(() => {
-                    this.initMap();
-                });
+                window.ymaps.ready(this.handleYMapsReady);
             }
         } catch(err) {
             console.error(err);
         }
+    }
+
+    handleYMapsReady = () => {
+        this.initMap();
     }
 
     init = () => {
@@ -55,18 +53,24 @@ class MapYandexComponentsViewItem {
 
         this.mapInstance.options.set('dragCursor', 'arrow');
 
-        this.offerData.markersList.forEach(({data, markerCoords}) => {
-            const {address, phone} = data;
+        console.log('this.offerData')
+        console.log(this.offerData)
+
+        const {markersList, offer} = this.offerData;
+
+        markersList.forEach(({id, markerCoords}) => {
             const {lat, lng} = markerCoords;
 
             const markerInstance = new ymaps.Placemark(
                 [lat, lng],
                 {
-                    address,
-                    phone,
+                    data: {
+                        offer,
+                    },
+                    id,
                 },
                 {
-                    balloonContentLayout: this.getBalloonContentLayoutClass(),
+                    balloonContentLayout: this.getBalloonContentLayoutClass(offer),
                 },
             );
             this.mapInstance.geoObjects.add(markerInstance);
