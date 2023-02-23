@@ -38,8 +38,18 @@ class OffersModal {
         });
 
         const htmlList = Object.values(formattedData).map((data) => MapOfferCard.createMapOfferCard(data));
-        this.module.insertAdjacentHTML('beforeend', htmlList.join(''));
-        MapOfferCard.init();
+
+        if(htmlList.length) {
+            this.module.insertAdjacentHTML('beforeend', htmlList.join(''));
+
+            MapOfferCard.init();
+        } else {
+            this.module.innerHTML = `
+                <div style="margin-top: 20px; font-style: italic;">
+                    В видимой области карты товаров не найдено, попробуйте переместить карту!
+                </div>
+            `;
+        }
     }
 
     init = () => {
