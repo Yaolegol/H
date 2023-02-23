@@ -788,12 +788,47 @@
 .modules-pages-offers-routes-show {
   text-align: center;
 }
+.modules-pages-offers-routes-show__map-area {
+  display: flex;
+  margin-top: 15px;
+}
+@media screen and (max-width: 1023px) {
+  .modules-pages-offers-routes-show__map-area {
+    flex-direction: column;
+  }
+}
+.modules-pages-offers-routes-show__map-block {
+  flex: 1 1 60%;
+}
+.modules-pages-offers-routes-show__offers-area {
+  flex: 1 1 40%;
+  margin: 0 0 0 20px;
+  position: relative;
+}
+@media screen and (max-width: 1023px) {
+  .modules-pages-offers-routes-show__offers-area {
+    margin: 20px 0 0;
+    padding-bottom: 100%;
+  }
+}
+.modules-pages-offers-routes-show__offers-block {
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.modules-pages-offers-routes-show__offers-container {
+  flex: 1 1 auto;
+}
 .modules-pages-offers-routes-show__additional-info-block {
   margin-top: 25px;
 }
 .modules-pages-offers-routes-show__content-area {
   margin: 50px auto 0;
-  max-width: 800px;
+  max-width: 1400px;
   position: relative;
 }
 @media (max-width: 1023px) {
