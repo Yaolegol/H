@@ -52,6 +52,7 @@ class MapYandexComponentsViewAll {
     bind = () => {
         addEventListener(document, 'j-event--map-filter-update', this.handleUpdateMapFilter);
         addEventListener(document, 'j-event-map__show-placemark', this.handleShowPlacemark);
+        addEventListener(document, 'j-event-modules-common-geo-components-button__update-geo', this.handleUpdateGeo);
     }
 
     bindMapEvents = () => {
@@ -85,6 +86,12 @@ class MapYandexComponentsViewAll {
         this.mapInstance.setCenter(geoQueryResultPlacemarks.get(0).geometry.getCoordinates(), 17, {
             duration: 1000,
         });
+    }
+
+    handleUpdateGeo = (e) => {
+        this.geo = e.detail.position;
+
+        this.showGeoCoordinates();
     }
 
     fetchData = async () => {
@@ -154,6 +161,10 @@ class MapYandexComponentsViewAll {
         this.addMarkersToMap();
         this.bindMapEvents();
         this.updatePlacemarsDataList();
+
+        if(this.geo) {
+            this.showGeoCoordinates();
+        }
     }
 
     init = async () => {
@@ -182,6 +193,15 @@ class MapYandexComponentsViewAll {
                 list,
             }
         }));
+    }
+
+    showGeoCoordinates = () => {
+        const {coords} = this.geo;
+        const {latitude, longitude} = coords;
+
+        this.mapInstance.setCenter([latitude, longitude], 15, {
+            duration: 1000,
+        });
     }
 
     updatePlacemarsDataList = () => {

@@ -3,7 +3,12 @@
         <div class="modules-pages-map-web-routes-index__filters-block">
             <h4>Фильтры:</h4>
             <div class="modules-pages-map-web-routes-index__filters-container">
-                @include('modules.common.map.common.components.filters.product.index')
+                <div>
+                    @include('modules.common.map.common.components.filters.product.index')
+                </div>
+                <div>
+                    @include('modules.common.geo.components.button.index')
+                </div>
             </div>
         </div>
         <div class="modules-pages-map-web-routes-index__map-area">
