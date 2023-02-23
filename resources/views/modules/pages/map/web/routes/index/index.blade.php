@@ -1,7 +1,7 @@
 <div class="modules-pages-map-web-routes-index">
     <div class="modules-pages-map-web-routes-index__content-area">
         <div class="modules-pages-map-web-routes-index__filters-block">
-            <h4>Фильтры:</h4>
+            <h4 class="modules-pages-map-web-routes-index__filters-title">Фильтры:</h4>
             <div class="modules-pages-map-web-routes-index__filters-container">
                 <div class="modules-pages-map-web-routes-index__buttons-block">
                     <div class="modules-pages-map-web-routes-index__button-container">

@@ -949,8 +949,10 @@
   justify-content: space-between;
   padding-top: 10px;
 }
-.modules-pages-map-web-routes-index__filters-container {
-  margin-left: 15px;
+@media screen and (max-width: 1023px) {
+  .modules-pages-map-web-routes-index__filters-title {
+    display: none;
+  }
 }
 .modules-pages-map-web-routes-index__info-section {
   margin-top: 20px;
