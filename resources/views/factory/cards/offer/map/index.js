@@ -30,9 +30,9 @@ export class MapOfferCard {
 
         const salePointsHtml = salePoints.map(({address, description, id: salePointId, phone, title, working_hours}) => {
             return `
-                <div class="modules-pages-offers-shared-components-item__sale-point-address-container">${address}</div>
+                <div class="factory-cards-offer-map__sale-point-address-container">${address}</div>
                 <button
-                    class="modules-pages-offers-shared-components-item__show-on-map-button j-factory-cards-offer-map__placemark-link"
+                    class="factory-cards-offer-map__show-on-map-button j-factory-cards-offer-map__placemark-link"
                     data-placemark-id="${id}_${salePointId}"
                     type="button"
                 >Показать на карте</button>
@@ -40,74 +40,74 @@ export class MapOfferCard {
         });
 
         const salePontButton = salePointsHtml.length ? `
-            <button class="modules-pages-offers-shared-components-item__sale-points-button j-factory-cards-offer-map__sale-points-button" type="button">
-                <span class="modules-pages-offers-shared-components-item__sale-points-button-text modules-pages-offers-shared-components-item__sale-points-button-text_show">Свернуть</span>
-                <span class="modules-pages-offers-shared-components-item__sale-points-button-text modules-pages-offers-shared-components-item__sale-points-button-text_hide">Развернуть</span>
+            <button class="factory-cards-offer-map__sale-points-button j-factory-cards-offer-map__sale-points-button" type="button">
+                <span class="factory-cards-offer-map__sale-points-button-text factory-cards-offer-map__sale-points-button-text_show">Свернуть</span>
+                <span class="factory-cards-offer-map__sale-points-button-text factory-cards-offer-map__sale-points-button-text_hide">Развернуть</span>
             </button>
         ` : '';
 
         const salePointsBlock = salePointsHtml.length ? `
-            <div class="modules-pages-offers-shared-components-item__sale-points-block j-factory-cards-offer-map__sale-points-block">
-                <div class="modules-pages-offers-shared-components-item__sale-points-title">Торговые точки:</div>
-                <div class="modules-pages-offers-shared-components-item__sale-points-container">${salePointsHtml.join('')}</div>
+            <div class="factory-cards-offer-map__sale-points-block j-factory-cards-offer-map__sale-points-block">
+                <div class="factory-cards-offer-map__sale-points-title">Торговые точки:</div>
+                <div class="factory-cards-offer-map__sale-points-container">${salePointsHtml.join('')}</div>
                 ${salePontButton}
             </div>
         ` : '';
 
         return `
-            <div class="modules-pages-offers-shared-components-item j-factory-cards-offer-map">
-                <div class="modules-pages-offers-shared-components-item__image-block">
-                    <div class="modules-pages-offers-shared-components-item__image-container">
+            <div class="factory-cards-offer-map j-factory-cards-offer-map">
+                <div class="factory-cards-offer-map__image-block">
+                    <div class="factory-cards-offer-map__image-container">
                         <img
                             alt=""
-                            class="modules-pages-offers-shared-components-item__image"
+                            class="factory-cards-offer-map__image"
                             src="${src}"
                         >
                         <a
-                            class="modules-pages-offers-shared-components-item__image-link"
+                            class="factory-cards-offer-map__image-link"
                             href="${productLink}"
                         ></a>
                     </div>
                 </div>
-                <div class="modules-pages-offers-shared-components-item__content-block">
-                    <div class="modules-pages-offers-shared-components-item__info-section">
+                <div class="factory-cards-offer-map__content-block">
+                    <div class="factory-cards-offer-map__info-section">
                         <div>
                             <a
-                                class="modules-pages-offers-shared-components-item__product-link"
+                                class="factory-cards-offer-map__product-link"
                                 href="${productLink}"
                             >${title}</a>
                         </div>
-                        <div class="modules-pages-offers-shared-components-item__address-container j-factory-cards-offer-map__placemark-link">
+                        <div class="factory-cards-offer-map__address-container j-factory-cards-offer-map__placemark-link">
                             ${address}
                         </div>
                         <button
-                            class="modules-pages-offers-shared-components-item__show-on-map-button j-factory-cards-offer-map__placemark-link"
+                            class="factory-cards-offer-map__show-on-map-button j-factory-cards-offer-map__placemark-link"
                             data-placemark-id="${id}"
                             type="button"
                         >Показать на карте</button>
                         ${salePointsBlock}
-                        <div class="modules-pages-offers-shared-components-item__price-container">
-                            <span class="modules-pages-offers-shared-components-item__price-title">Цена:</span>
-                            <span class="modules-pages-offers-shared-components-item__price">
+                        <div class="factory-cards-offer-map__price-container">
+                            <span class="factory-cards-offer-map__price-title">Цена:</span>
+                            <span class="factory-cards-offer-map__price">
                                 ${price} ₽
                             </span>
-                            <span class="modules-pages-offers-shared-components-item__measure">
+                            <span class="factory-cards-offer-map__measure">
                                 (за ${measureTitle})
                             </span>
                         </div>
-                        <div class="modules-pages-offers-shared-components-item__contacts-block">
-                            <div class="modules-pages-offers-shared-components-item__phone-container">
-                                <span class="modules-pages-offers-shared-components-item__phone-title">Телефон:</span>
+                        <div class="factory-cards-offer-map__contacts-block">
+                            <div class="factory-cards-offer-map__phone-container">
+                                <span class="factory-cards-offer-map__phone-title">Телефон:</span>
                                 <a class="j-modules-common-offers-list__phone-link" href="tel:+${phone}">+${phone}</a>
                             </div>
-                            <div class="modules-pages-offers-shared-components-item__seller-info-container">
-                                <span class="modules-pages-offers-shared-components-item__seller-info-title">Продавец:</span>
+                            <div class="factory-cards-offer-map__seller-info-container">
+                                <span class="factory-cards-offer-map__seller-info-title">Продавец:</span>
                                 <a href="${sellerLink}">${name}</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modules-pages-offers-shared-components-item__service-block"></div>
+                <div class="factory-cards-offer-map__service-block"></div>
             </div>
         `;
     }

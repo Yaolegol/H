@@ -3,7 +3,7 @@
 @import (reference) '~styles/font';
 @import (reference) '~styles/text';
 
-.modules-pages-offers-shared-components-item {
+.factory-cards-offer-map {
     box-shadow: 0 1px 2px rgba(32, 33, 36, 8%);
     display: flex;
     padding: 20px 40px 20px 20px;
@@ -109,13 +109,13 @@
         &_show {
             display: none;
 
-            .modules-pages-offers-shared-components-item__sale-points-block.show & {
+            .factory-cards-offer-map__sale-points-block.show & {
                 display: unset;
             }
         }
 
         &_hide {
-            .modules-pages-offers-shared-components-item__sale-points-block.show & {
+            .factory-cards-offer-map__sale-points-block.show & {
                 display: none;
             }
         }
@@ -128,7 +128,7 @@
         height: 0;
         overflow: hidden;
 
-        .modules-pages-offers-shared-components-item__sale-points-block.show & {
+        .factory-cards-offer-map__sale-points-block.show & {
             height: auto;
         }
     }

@@ -1,0 +1,116 @@
+@import (reference) '~styles/adaptive';
+@import (reference) '~styles/colors';
+@import (reference) '~styles/text';
+
+.modules-pages-offers-shared-components-item {
+    border: 1px solid @white_100;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 1px rgba(242, 242, 242, 0.70);
+    display: flex;
+    padding: 20px 40px 20px 20px;
+    position: relative;
+
+    @media (max-width: 767px) {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    &__contacts-block {
+        .ellipsis();
+
+        margin-top: 15px;
+    }
+
+    &__content-block {
+        flex: 1 1 0;
+        padding: 0 0 0 20px;
+
+        @media (max-width: 767px) {
+            margin-top: 15px;
+            padding: 0;
+        }
+    }
+
+    &__description-container {
+        .ellipsis(2);
+    }
+
+    &__image {
+        bottom: 0;
+        height: 100%;
+        left: 0;
+        object-fit: cover;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+    }
+
+    &__image-block {
+        flex: 0 0 auto;
+        width: 150px;
+
+        @media @mobile {
+            width: 100%;
+        }
+    }
+
+    &__image-container {
+        height: 100%;
+        position: relative;
+
+        @media (max-width: 767px) {
+            height: auto;
+            padding-bottom: 100%;
+        }
+    }
+
+    &__image-link {
+        bottom: 0;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+    }
+
+    &__phone-container {
+        .ellipsis();
+    }
+
+    &__price {
+        font-weight: 800;
+    }
+
+    &__price-container {
+        .ellipsis();
+
+        margin-top: 15px;
+    }
+
+    &__product-link {
+        .ellipsis();
+
+        font-weight: 600;
+    }
+
+    &__rating-section {
+        margin-top: 20px;
+    }
+
+    &__seller-info-container {
+        .ellipsis(2);
+    }
+
+    &__service-block {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+
+        @media @mobile {
+            top: 35px;
+            right: 35px;
+        }
+    }
+}

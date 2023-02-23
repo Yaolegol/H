@@ -12,7 +12,7 @@
             </div>
             <div class="modules-pages-sellers-show__header-info-container">
                 <div class="modules-pages-sellers-show__header-info-title">Телефон</div>
-                <a href="tel:{{$sellerData['phone']}}">{{$sellerData['phone']}}</a>
+                <a href="tel:+{{$sellerData['phone']}}">+{{$sellerData['phone']}}</a>
             </div>
             <div class="modules-pages-sellers-show__header-info-container">
                 <div class="modules-pages-sellers-show__header-info-title">Email</div>
