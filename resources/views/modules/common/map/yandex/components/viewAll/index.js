@@ -41,7 +41,7 @@ class MapYandexComponentsViewAll {
                         id,
                     },
                     {
-                        balloonContentLayout: this.getBalloonContentLayoutClass(),
+                        balloonContentLayout: this.getBalloonContentLayoutClass(offer),
                     },
                 );
 
@@ -146,8 +146,8 @@ class MapYandexComponentsViewAll {
         }
     }
 
-    getBalloonContentLayoutClass = () => {
-        return ymaps.templateLayoutFactory.createClass(getOfferBalloon());
+    getBalloonContentLayoutClass = (offerData) => {
+        return ymaps.templateLayoutFactory.createClass(getOfferBalloon(offerData));
     };
 
     handleUpdateMapFilter = async (e) => {

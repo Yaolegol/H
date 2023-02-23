@@ -1,27 +1,39 @@
 import './index.less';
 
-export const getOfferBalloon = () => {
+export const getOfferBalloon = (offerData) => {
+    const {product, seller} = offerData;
+    const {address, id, price_description, title} = product;
+    const {name, phone} = seller;
+
     return `
         <div class="modules-common-map-yandex-components-balloon-offer">
-            <div class="modules-common-map-yandex-components-balloon-offer__title">{{ properties.data.offer.product.title }}</div>
-            <div>{{ properties.data.offer.product.address }}</div>
+            <div class="modules-common-map-yandex-components-balloon-offer__title">
+                <a
+                    href="/offers/${id}"
+                >${title}</a>
+            </div>
+            <div>${address}</div>
             <div class="modules-common-map-yandex-components-balloon-offer__section-price">
                 <div class="modules-common-map-yandex-components-balloon-offer__section-price-title">Цена</div>
                 <div><span class="modules-common-map-yandex-components-balloon-offer__price">{{ properties.data.offer.product.price }} ₽</span> за {{properties.data.offer.product.measure.title}}</div>
+                <div>${price_description}</div>
             </div>
             <div class="modules-common-map-yandex-components-balloon-offer__section-seller">
                 <div class="modules-common-map-yandex-components-balloon-offer__section-seller-title">Продавец</div>
-                <div>{{ properties.data.offer.seller.name }}</div>
+                <div>${name}</div>
                 <div>
                     <a
-                        href="tel:+{{properties.data.offer.seller.phone}}"
-                    >+{{ properties.data.offer.seller.phone }}</a>
+                        href="tel:+${phone}"
+                    >+${phone}</a>
                 </div>
+            </div>
+            <div class="modules-common-map-yandex-components-balloon-offer__section-link">
+                test 123
             </div>
             <div class="modules-common-map-yandex-components-balloon-offer__section-link">
                 <a
                     class="modules-common-map-yandex-components-balloon-offer__section-link-title"
-                    href="/offers/{{properties.data.offer.product.id}}"
+                    href="/offers/${id}"
                 >Подробнее</a>
             </div>
         </div>
