@@ -662,6 +662,7 @@
   margin: 60px auto 0;
   max-width: 1920px;
   padding: 0 50px;
+  width: 100%;
 }
 @media (max-width: 499px) {
   .modules-common-layout-web__content-container {
@@ -751,24 +752,6 @@
   min-width: 0;
   padding: 0 30px;
   width: 100%;
-}
-
-.components-map-yandex-components-add-marker {
-  padding-bottom: 100%;
-  position: relative;
-}
-.components-map-yandex-components-add-marker__map-container {
-  bottom: 0;
-  left: 0;
-  max-height: 500px;
-  max-width: 500px;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-.components-map-yandex-components-add-marker__map-container_mobile-app {
-  height: 300px;
-  width: auto;
 }
 
 .modules-pages-profile-common-components-body-create__all-points-link {

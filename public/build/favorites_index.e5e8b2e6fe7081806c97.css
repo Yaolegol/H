@@ -662,6 +662,7 @@
   margin: 60px auto 0;
   max-width: 1920px;
   padding: 0 50px;
+  width: 100%;
 }
 @media (max-width: 499px) {
   .modules-common-layout-web__content-container {
