@@ -36,6 +36,14 @@ class MapYandexComponentsViewItem {
         }
     }
 
+    handlePlacemarkClick = (e) => {
+        const {originalEvent} = e;
+
+        this.mapInstance.setCenter(originalEvent.target.geometry.getCoordinates(), 17, {
+            duration: 1000,
+        });
+    }
+
     handleYMapsReady = () => {
         this.initMap();
     }
@@ -73,6 +81,8 @@ class MapYandexComponentsViewItem {
                     balloonContentLayout: this.getBalloonContentLayoutClass(offer),
                 },
             );
+
+            markerInstance.events.add(['click'], this.handlePlacemarkClick);
             this.mapInstance.geoObjects.add(markerInstance);
         });
     }
