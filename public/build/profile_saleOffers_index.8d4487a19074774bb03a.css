@@ -878,12 +878,6 @@
   font-size: 12px;
   line-height: 14px;
 }
-@media screen and (max-width: 767px) {
-  .f_badge {
-    font-size: 8px;
-    line-height: 10px;
-  }
-}
 .f_btn {
   font-family: 'Lato', sans-serif;
   font-size: 16px;
