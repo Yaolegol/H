@@ -462,7 +462,7 @@
 .modules-common-header-index__favorites-count-container {
   align-items: center;
   border-radius: 50%;
-  color: #4CBB17;
+  color: #90d486;
   display: none;
   height: 20px;
   justify-content: center;
@@ -739,8 +739,8 @@
   text-align: center;
 }
 .button:hover {
-  background-color: #4CBB17;
-  border-color: #4CBB17;
+  background-color: #90d486;
+  border-color: #90d486;
   color: #FFFFFF;
 }
 .form:invalid .button_form {

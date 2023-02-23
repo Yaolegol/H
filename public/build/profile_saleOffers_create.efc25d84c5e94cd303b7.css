@@ -462,7 +462,7 @@
 .modules-common-header-index__favorites-count-container {
   align-items: center;
   border-radius: 50%;
-  color: #4CBB17;
+  color: #90d486;
   display: none;
   height: 20px;
   justify-content: center;
@@ -773,7 +773,7 @@
 .components-inputs-radio-item__marker-block {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 2px;
-  color: #4CBB17;
+  color: #90d486;
   height: 16px;
   display: block;
   width: 16px;
@@ -853,11 +853,11 @@
   text-align: center;
 }
 .modules-pages-profile-common-components-body-create__all-points-link:hover:not(.modules-pages-profile-common-components-body-create__tab-button_active) {
-  background-color: rgba(76, 187, 23, 0.5);
+  background-color: rgba(144, 212, 134, 0.5);
   color: #FFFFFF;
 }
 .modules-pages-profile-common-components-body-create__all-points-link_active {
-  background-color: #4CBB17;
+  background-color: #90d486;
   color: #FFFFFF;
   cursor: auto;
   font-weight: 900;
@@ -940,11 +940,11 @@
   text-align: center;
 }
 .modules-pages-profile-common-components-container-header__tab-button:hover:not(.modules-pages-profile-common-components-container-header__tab-button_active) {
-  background-color: rgba(76, 187, 23, 0.5);
+  background-color: rgba(144, 212, 134, 0.5);
   color: #FFFFFF;
 }
 .modules-pages-profile-common-components-container-header__tab-button_active {
-  background-color: #4CBB17;
+  background-color: #90d486;
   color: #FFFFFF;
   font-weight: 900;
 }
@@ -990,8 +990,8 @@
   text-align: center;
 }
 .button:hover {
-  background-color: #4CBB17;
-  border-color: #4CBB17;
+  background-color: #90d486;
+  border-color: #90d486;
   color: #FFFFFF;
 }
 .form:invalid .button_form {
