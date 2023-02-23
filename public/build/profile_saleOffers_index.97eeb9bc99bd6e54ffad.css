@@ -690,7 +690,7 @@
   margin-top: 50px;
 }
 .modules-pages-profile-common-components-body-index__create-link {
-  background-color: #e34132;
+  background-color: #46a02e;
   border-radius: 10px;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
   color: #FFFFFF;
@@ -702,7 +702,7 @@
   text-align: center;
 }
 .modules-pages-profile-common-components-body-index__create-link:hover {
-  background-color: #FF0000;
+  background-color: #258003;
 }
 @media (max-width: 1023px) {
   .modules-pages-profile-common-components-body-index__create-link-container {
