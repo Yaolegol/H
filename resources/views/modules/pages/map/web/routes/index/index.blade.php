@@ -26,7 +26,7 @@
                 <div class="modules-pages-map-web-routes-index__offers-block">
                     <div class="modules-pages-map-web-routes-index__offers-header">
                         <h4>Товары в видимой области карты*</h4>
-                        <div class="modules-pages-map-web-routes-index__offers-header-description">*чтобы посмотреть другие товары перемещайте или приблизте карту!</div>
+                        <div class="modules-pages-map-web-routes-index__offers-header-description">*чтобы посмотреть другие товары перемещайте или приблизьте карту!</div>
                     </div>
                     <div class="modules-pages-map-web-routes-index__offers-full-screen-container">
                         <button
