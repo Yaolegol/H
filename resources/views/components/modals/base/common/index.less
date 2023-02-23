@@ -2,7 +2,7 @@
 @import (reference) '~styles/colors';
 
 .components-modals-base-common {
-    background-color: @black_80;
+    background-color: @black_50;
     bottom: 0;
     display: none;
     height: 100%;
@@ -33,7 +33,7 @@
         width: 100%;
 
         @media @tablet {
-            padding: 25px 15px;
+            padding: 35px 15px 25px;
         }
     }
 
@@ -46,7 +46,6 @@
 
         @media @tablet {
             margin: 0;
-            overflow: auto;
         }
     }
 
@@ -67,6 +66,10 @@
         display: flex;
         min-height: 0;
         width: 100%;
+
+        @media @tablet {
+            overflow: auto;
+        }
     }
 
     &__close-button {

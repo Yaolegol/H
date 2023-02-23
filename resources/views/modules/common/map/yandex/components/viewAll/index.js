@@ -53,6 +53,7 @@ class MapYandexComponentsViewAll {
         addEventListener(document, 'j-event--map-filter-update', this.handleUpdateMapFilter);
         addEventListener(document, 'j-event-map__show-placemark', this.handleShowPlacemark);
         addEventListener(document, 'j-event-modules-common-geo-components-button__update-geo', this.handleUpdateGeo);
+        addEventListener(document, 'j-event-map-yandex-components-view-all__get-visible-markers-data', this.handleGetVisibleMarkerData)
     }
 
     bindMapEvents = () => {
@@ -73,6 +74,21 @@ class MapYandexComponentsViewAll {
         });
 
         return list;
+    }
+
+    handleGetVisibleMarkerData = () => {
+        console.log('--- view all handleGetVisibleMarkerData')
+
+        const list = this.getPlacemarksDataList();
+
+        console.log('--- view all list')
+        console.log(list)
+
+        document.dispatchEvent(new CustomEvent('j-event-map-yandex-components-view-all__get-visible-markers-data-complete', {
+            detail: {
+                list,
+            }
+        }));
     }
 
     handleMapBoundsChange = () => {

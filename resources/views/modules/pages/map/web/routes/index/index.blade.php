@@ -31,9 +31,11 @@
                     <div class="modules-pages-map-web-routes-index__offers-full-screen-container">
                         <button
                             class="modules-pages-map-web-routes-index__offers-full-screen-button j-components-buttons-modal-open"
+                            data-template-id="map-catalog-offers"
                             type="button"
                         >На весь экран</button>
                     </div>
+                    @include('modules.common.offers.modal.index')
                     <div class="modules-pages-map-web-routes-index__offers-container">
                         @include('modules.common.offers.list.index')
                     </div>
