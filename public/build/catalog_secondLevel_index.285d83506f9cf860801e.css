@@ -679,7 +679,6 @@
   flex-direction: column;
   margin: 60px auto 0;
   max-width: 1920px;
-  overflow: auto;
   padding: 0 50px;
 }
 @media (max-width: 499px) {

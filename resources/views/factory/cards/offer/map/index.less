@@ -9,11 +9,6 @@
     padding: 20px 40px 20px 20px;
     position: relative;
 
-    @media (max-width: 767px) {
-        flex-direction: column;
-        padding: 20px;
-    }
-
     &__contacts-block {
         margin-top: 15px;
     }
@@ -21,11 +16,6 @@
     &__content-block {
         flex: 1 1 0;
         padding: 0 0 0 20px;
-
-        @media (max-width: 767px) {
-            margin-top: 15px;
-            padding: 0;
-        }
     }
 
     &__image {
@@ -45,10 +35,6 @@
 
         @media @laptop {
             width: 50px;
-        }
-
-        @media @mobile {
-            width: 100%;
         }
     }
 
@@ -164,11 +150,6 @@
         position: absolute;
         top: 15px;
         right: 15px;
-
-        @media @mobile {
-            top: 35px;
-            right: 35px;
-        }
     }
 
     &__show-on-map-button {
