@@ -815,6 +815,11 @@
   flex: 0 0 auto;
   width: 150px;
 }
+@media screen and (max-width: 1440px) {
+  .modules-pages-offers-shared-components-item__image-block {
+    width: 50px;
+  }
+}
 @media screen and (max-width: 767px) {
   .modules-pages-offers-shared-components-item__image-block {
     width: 100%;
