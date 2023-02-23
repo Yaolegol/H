@@ -28,9 +28,6 @@ export const getOfferBalloon = (offerData) => {
                 </div>
             </div>
             <div class="modules-common-map-yandex-components-balloon-offer__section-link">
-                test 123
-            </div>
-            <div class="modules-common-map-yandex-components-balloon-offer__section-link">
                 <a
                     class="modules-common-map-yandex-components-balloon-offer__section-link-title"
                     href="/offers/${id}"
