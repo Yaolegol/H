@@ -77,12 +77,7 @@ class MapYandexComponentsViewAll {
     }
 
     handleGetVisibleMarkerData = () => {
-        console.log('--- view all handleGetVisibleMarkerData')
-
         const list = this.getPlacemarksDataList();
-
-        console.log('--- view all list')
-        console.log(list)
 
         document.dispatchEvent(new CustomEvent('j-event-map-yandex-components-view-all__get-visible-markers-data-complete', {
             detail: {

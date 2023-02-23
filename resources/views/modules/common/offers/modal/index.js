@@ -18,10 +18,6 @@ class OffersModal {
     handleGetVisibleMarkersData = (e) => {
         const {list} = e.detail;
 
-        console.log('--- handleGetVisibleMarkersData')
-        console.log('list')
-        console.log(list)
-
         this.module.innerHTML = '';
 
         const formattedData = {};
@@ -47,8 +43,6 @@ class OffersModal {
     }
 
     init = () => {
-        console.log('INIT !!!!!!!!!!!!!!!!!!!')
-
         document.dispatchEvent(new CustomEvent('j-event-map-yandex-components-view-all__get-visible-markers-data'));
     }
 }
