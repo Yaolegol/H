@@ -937,6 +937,16 @@
 }
 
 
+.modules-pages-map-web-routes-index__buttons-block {
+  align-items: center;
+  display: flex;
+}
+.modules-pages-map-web-routes-index__button-container {
+  margin-left: 15px;
+}
+.modules-pages-map-web-routes-index__button-container:first-child {
+  margin-left: 0;
+}
 .modules-pages-map-web-routes-index__content-area {
   margin: 0 auto;
   max-width: 1400px;
