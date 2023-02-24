@@ -18,12 +18,13 @@ export class MapOfferCard {
         this.module = element;
         this.salePointsButton = this.module.querySelector('.j-factory-cards-offer-map__sale-points-button');
         this.salePointsBlock = this.module.querySelector('.j-factory-cards-offer-map__sale-points-block');
-        this.isUserAuth = Boolean(document.querySelector('.j-user__auth'));
 
         this.bind();
     }
 
     static createMapOfferCard = ({placemarkList, placemarkData}) => {
+        const isUserAuth = Boolean(document.querySelector('.j-user__auth'));
+
         const {product, salePoints, seller} = placemarkData.offer;
         const {address, description, id, img, link: productLink, measure, price, price_description, title} = product;
         const {title: measureTitle} = measure;
@@ -56,7 +57,7 @@ export class MapOfferCard {
             </div>
         ` : '';
 
-        const favoritesHint = !this.isUserAuth ? `
+        const favoritesHint = !isUserAuth ? `
             <div class="modules-pages-favorites-shared-components-button__hint-block">
                 <div class="modules-pages-favorites-shared-components-button__hint-title">Чтобы добавить товар в избранное нужно</div>
                 <div class="modules-pages-favorites-shared-components-button__hint-text-container">
