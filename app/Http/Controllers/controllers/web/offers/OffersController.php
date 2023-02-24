@@ -8,7 +8,6 @@ use App\Http\Controllers\Controller;
 require_once('app/Http/Controllers/helpers/common/catalog/index.php');
 require_once('app/Http/Controllers/helpers/common/measure/index.php');
 require_once('app/Http/Controllers/helpers/web/breadcrumbs/index.php');
-require_once('app/Http/Controllers/helpers/web/location/index.php');
 require_once('app/Http/Controllers/helpers/web/offers/index.php');
 
 class OffersController extends Controller
@@ -33,14 +32,10 @@ class OffersController extends Controller
         $catalogLevelTwoItem = getCatalogLevelTwoItem($catalogLevelOneItem, $productLink);
         $offersPaginatedData = getOffersPaginatedData($catalogLevelTwoItem, $searchCountryId, $searchRegionId, $searchCityId);
         $breadcrumbs = getCatalogOffersBreadcrumbs($catalogLevelOneItem, $catalogLevelTwoItem);
-        $locationList = getLocationListFormatted();
-        $locationSearchData = getLocationSearchDataFormatted($locationList, $searchCountryId, $searchRegionId, $searchCityId);
 
         return view('pages.offers.index.index', [
             'breadcrumbs' => $breadcrumbs,
             'catalogHeader' => $catalogFull,
-            'locationList' => $locationList,
-            'locationSearchData' => $locationSearchData,
             'offersPaginatedData' => $offersPaginatedData,
         ]);
     }
@@ -57,12 +52,10 @@ class OffersController extends Controller
         $catalogFull = getCatalogFull();
         $offer = getOfferFormatted($id);
         $breadcrumbs = getOfferBreadcrumbs($offer);
-        $locationList = getLocationListFormatted();
 
         return view('pages.offers.show.index', [
             'breadcrumbs' => $breadcrumbs,
             'catalogHeader' => $catalogFull,
-            'locationList' => $locationList,
             'offer' => $offer,
         ]);
     }

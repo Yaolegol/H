@@ -2,16 +2,11 @@
 
 namespace App\Http\Controllers\controllers\api\cities;
 
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 
 require_once('app/Http/Controllers/helpers/common/assets/index.php');
 require_once('app/Http/Controllers/helpers/common/catalog/index.php');
-require_once('app/Http/Controllers/helpers/web/location/index.php');
 
 class ApiCitiesController extends Controller
 {
@@ -22,10 +17,8 @@ class ApiCitiesController extends Controller
      */
     public function index()
     {
-        $locationList = getLocationListFormatted();
-
         $data = [
-            'data' => $locationList,
+            'data' => [],
             'errors' => '',
         ];
 

@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 
 require_once('app/Http/Controllers/helpers/common/assets/index.php');
 require_once('app/Http/Controllers/helpers/common/catalog/index.php');
-require_once('app/Http/Controllers/helpers/web/location/index.php');
 require_once('app/Http/Controllers/helpers/web/offers/index.php');
 require_once('app/Http/Controllers/helpers/web/sellers/index.php');
 
@@ -22,12 +21,10 @@ class SellersController extends Controller
     public function show($id)
     {
         $catalogFull = getCatalogFull();
-        $locationList = getLocationListFormatted();
         $sellerData = getSellerDataFormatted($id);
 
         return view('pages.sellers.show.index', [
             'catalogHeader' => $catalogFull,
-            'locationList' => $locationList,
             'sellerData' => $sellerData,
         ]);
     }

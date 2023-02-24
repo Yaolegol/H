@@ -9,7 +9,6 @@ use App\Http\Controllers\Controller;
 require_once('app/Http/Controllers/helpers/common/assets/index.php');
 require_once('app/Http/Controllers/helpers/common/catalog/index.php');
 require_once('app/Http/Controllers/helpers/common/request/index.php');
-require_once('app/Http/Controllers/helpers/web/location/index.php');
 require_once('app/Http/Controllers/helpers/web/profile/salePointsInfo/index.php');
 
 class ProfileSalePointsController extends Controller
@@ -22,12 +21,10 @@ class ProfileSalePointsController extends Controller
     public function index()
     {
         $catalogFull = getCatalogFull();
-        $locationList = getLocationListFormatted();
         $salePointsList = getSalePointsDataFormatted();
 
         return view('pages.profile.sale-points-info.index.index', [
             'catalogHeader' => $catalogFull,
-            'locationList' => $locationList,
             'salePointsList' => $salePointsList,
         ]);
     }
@@ -40,11 +37,9 @@ class ProfileSalePointsController extends Controller
     public function create()
     {
         $catalogFull = getCatalogFull();
-        $locationList = getLocationListFormatted();
 
         return view('pages.profile.sale-points-info.create.index', [
             'catalogHeader' => $catalogFull,
-            'locationList' => $locationList,
         ]);
     }
 
@@ -81,12 +76,10 @@ class ProfileSalePointsController extends Controller
     public function edit(Request $request, $id)
     {
         $catalogFull = getCatalogFull();
-        $locationList = getLocationListFormatted();
         $salePointItemData = getSalePointItemDataFormatted($id);
 
         return view('pages.profile.sale-points-info.edit.index', [
             'catalogHeader' => $catalogFull,
-            'locationList' => $locationList,
             'salePointItemData' => $salePointItemData,
         ]);
     }

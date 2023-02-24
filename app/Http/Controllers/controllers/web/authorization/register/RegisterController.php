@@ -20,11 +20,9 @@ class RegisterController extends Controller
     public function index()
     {
         $catalogFull = getCatalogFull();
-        $locationList = getLocationListFormatted();
 
         return view('pages.auth.register.index.index', [
             'catalogHeader' => $catalogFull,
-            'locationList' => $locationList,
         ]);
     }
 

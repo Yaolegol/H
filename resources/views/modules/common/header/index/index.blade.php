@@ -82,4 +82,3 @@
 </div>
 
 @include('modules.common.catalog.modal.index')
-@include('modules.common.location.components.modal.index')

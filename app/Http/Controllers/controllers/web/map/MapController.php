@@ -19,24 +19,15 @@ class MapController extends Controller
      */
     public function index(Request $request)
     {
-        $searchLocationData = getSearchLocationData($request);
         $catalogLevelOneId = $request->query('catalogLevelOneId');
         $catalogLevelTwoId = $request->query('catalogLevelTwoId');
 
-        $searchCountryId = $searchLocationData['searchCountryId'];
-        $searchRegionId = $searchLocationData['searchRegionId'];
-        $searchCityId = $searchLocationData['searchCityId'];
-
         $catalogFull = getCatalogFull();
-        $locationList = getLocationListFormatted();
-        $locationSearchData = getLocationSearchDataFormatted($locationList, $searchCountryId, $searchRegionId, $searchCityId);
         $productFilterData = getProductFilterDataFormatted($catalogFull, $catalogLevelOneId, $catalogLevelTwoId);
 
         return view('pages.map.web.index.index', [
             'catalogHeader' => $catalogFull,
             'catalogPage' => $catalogFull,
-            'locationList' => $locationList,
-            'locationSearchData' => $locationSearchData,
             'productFilterData' => $productFilterData,
         ]);
     }

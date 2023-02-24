@@ -9,7 +9,6 @@ use App\Http\Controllers\Controller;
 require_once('app/Http/Controllers/helpers/common/assets/index.php');
 require_once('app/Http/Controllers/helpers/common/catalog/index.php');
 require_once('app/Http/Controllers/helpers/common/request/index.php');
-require_once('app/Http/Controllers/helpers/web/location/index.php');
 require_once('app/Http/Controllers/helpers/web/profile/organizationData/index.php');
 
 class ProfileOrganizationDataController extends Controller
@@ -22,12 +21,10 @@ class ProfileOrganizationDataController extends Controller
     public function index()
     {
         $catalogFull = getCatalogFull();
-        $locationList = getLocationListFormatted();
         $organizationList = getOrganizationDataFormatted();
 
         return view('pages.profile.organization-info.index.index', [
             'catalogHeader' => $catalogFull,
-            'locationList' => $locationList,
             'organizationList' => $organizationList,
         ]);
     }
@@ -40,11 +37,9 @@ class ProfileOrganizationDataController extends Controller
     public function create()
     {
         $catalogFull = getCatalogFull();
-        $locationList = getLocationListFormatted();
 
         return view('pages.profile.organization-info.create.index', [
             'catalogHeader' => $catalogFull,
-            'locationList' => $locationList,
         ]);
     }
 
@@ -81,12 +76,10 @@ class ProfileOrganizationDataController extends Controller
     public function edit(Request $request, $id)
     {
         $catalogFull = getCatalogFull();
-        $locationList = getLocationListFormatted();
         $organizationItemData = getOrganizationItemDataFormatted($id);
 
         return view('pages.profile.organization-info.edit.index', [
             'catalogHeader' => $catalogFull,
-            'locationList' => $locationList,
             'organizationItemData' => $organizationItemData,
         ]);
     }

@@ -10,7 +10,6 @@ require_once('app/Http/Controllers/helpers/common/assets/index.php');
 require_once('app/Http/Controllers/helpers/common/catalog/index.php');
 require_once('app/Http/Controllers/helpers/common/measure/index.php');
 require_once('app/Http/Controllers/helpers/common/request/index.php');
-require_once('app/Http/Controllers/helpers/web/location/index.php');
 require_once('app/Http/Controllers/helpers/web/profile/organizationData/index.php');
 require_once('app/Http/Controllers/helpers/web/profile/saleOffers/index.php');
 require_once('app/Http/Controllers/helpers/web/profile/salePointsInfo/index.php');
@@ -25,12 +24,10 @@ class ProfileSaleOffersController extends Controller
     public function index()
     {
         $catalogFull = getCatalogFull();
-        $locationList = getLocationListFormatted();
         $saleOffersList = getSaleOffersDataFormatted();
 
         return view('pages.profile.sale-offers.index.index', [
             'catalogHeader' => $catalogFull,
-            'locationList' => $locationList,
             'saleOffersList' => $saleOffersList,
         ]);
     }
@@ -43,25 +40,19 @@ class ProfileSaleOffersController extends Controller
     public function create()
     {
         $catalogFull = getCatalogFull();
-        $locationList = getLocationListFormatted();
         $measureList = getMeasures();
         $organizationsList = getUserOrganizationsListFormatted();
         $salePointsList = DB_getUserSalePoints();
         $catalogCategoriesList = getCatalogCategoriesList($catalogFull);
         $catalogSubCategoriesList = getCatalogSubCategoriesList($catalogFull);
-        $regionList = getRegionList($locationList);
-        $citiesList = getCitiesList($locationList);
 
         return view('pages.profile.sale-offers.create.index', [
             'catalogCategoriesList' => $catalogCategoriesList,
             'catalogSubCategoriesList' => $catalogSubCategoriesList,
             'catalogFull' => $catalogFull,
             'catalogHeader' => $catalogFull,
-            'citiesList' => $citiesList,
-            'locationList' => $locationList,
             'measureList' => $measureList,
             'organizationsList' => $organizationsList,
-            'regionList' => $regionList,
             'salePointsList' => $salePointsList,
         ]);
     }
@@ -99,26 +90,20 @@ class ProfileSaleOffersController extends Controller
     public function edit(Request $request, $saleOfferId)
     {
         $catalogFull = getCatalogFull();
-        $locationList = getLocationListFormatted();
         $saleOfferItemData = getSaleOfferItemDataFormatted($saleOfferId);
         $measureList = getMeasures($saleOfferItemData['measure_id']);
         $organizationsList = getUserOrganizationsWithSelectedList($saleOfferItemData);
         $salePointsList = getSaleOfferSalePointsListFormatted($saleOfferItemData);
         $catalogCategoriesList = getCatalogCategoriesWithSelectedList($catalogFull, $saleOfferItemData);
         $catalogSubCategoriesList = getCatalogSubCategoriesWithSelectedList($catalogFull, $saleOfferItemData);
-        $regionList = getRegionWithSelectedList($locationList, $saleOfferItemData);
-        $citiesList = getCitiesWithSelectedList($locationList, $saleOfferItemData);
 
         return view('pages.profile.sale-offers.edit.index', [
             'catalogCategoriesList' => $catalogCategoriesList,
             'catalogSubCategoriesList' => $catalogSubCategoriesList,
             'catalogFull' => $catalogFull,
             'catalogHeader' => $catalogFull,
-            'citiesList' => $citiesList,
-            'locationList' => $locationList,
             'measureList' => $measureList,
             'organizationsList' => $organizationsList,
-            'regionList' => $regionList,
             'saleOfferItemData' => $saleOfferItemData,
             'salePointsList' => $salePointsList,
         ]);

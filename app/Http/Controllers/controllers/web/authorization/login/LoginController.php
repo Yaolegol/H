@@ -8,7 +8,6 @@ use App\Http\Controllers\Controller;
 
 require_once('app/Http/Controllers/helpers/common/catalog/index.php');
 require_once('app/Http/Controllers/helpers/web/authorization/index.php');
-require_once('app/Http/Controllers/helpers/web/location/index.php');
 
 class LoginController extends Controller
 {
@@ -20,11 +19,9 @@ class LoginController extends Controller
     public function index()
     {
         $catalogFull = getCatalogFull();
-        $locationList = getLocationListFormatted();
 
         return view('pages.auth.login.index.index', [
             'catalogHeader' => $catalogFull,
-            'locationList' => $locationList,
         ]);
     }
 

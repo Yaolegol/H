@@ -12,7 +12,6 @@ use App\Http\Controllers\Controller;
 require_once('app/Http/Controllers/helpers/common/assets/index.php');
 require_once('app/Http/Controllers/helpers/common/catalog/index.php');
 require_once('app/Http/Controllers/helpers/common/user/index.php');
-require_once('app/Http/Controllers/helpers/web/location/index.php');
 require_once('app/Http/Controllers/helpers/web/profile/personalData/index.php');
 
 class ProfilePersonalDataController extends Controller
@@ -25,12 +24,10 @@ class ProfilePersonalDataController extends Controller
     public function index()
     {
         $catalogFull = getCatalogFull();
-        $locationList = getLocationListFormatted();
         $userData = getUserDataFormatted();
 
         return view('pages.profile.personal-info.index.index', [
             'catalogHeader' => $catalogFull,
-            'locationList' => $locationList,
             'userData' => $userData
         ]);
     }

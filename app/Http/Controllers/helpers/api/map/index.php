@@ -20,26 +20,11 @@ function apiGetAllOffersMapMarkersDataFormatted($request) {
 
     $catalogLevelOneId = $requestFilter['catalog']['levelOneId'] ?? null;
     $catalogLevelTwoId = $requestFilter['catalog']['levelTwoId'] ?? null;
-    $countryId = $requestFilter['location']['country'] ?? null;
-    $regionId = $requestFilter['location']['region'] ?? null;
-    $cityId = $requestFilter['location']['city'] ?? null;
 
     if($catalogLevelTwoId) {
         array_push($DBFilter, ['catalog_level_two_id', $catalogLevelTwoId]);
     } elseif($catalogLevelOneId) {
         array_push($DBFilter, ['catalog_level_one_id', $catalogLevelOneId]);
-    }
-
-    if($countryId) {
-        array_push($DBFilter, ['country_id', $countryId]);
-    }
-
-    if($regionId) {
-        array_push($DBFilter, ['region_id', $regionId]);
-    }
-
-    if($cityId) {
-        array_push($DBFilter, ['city_id', $cityId]);
     }
 
     $offers = apiGetAllOffers($DBFilter);

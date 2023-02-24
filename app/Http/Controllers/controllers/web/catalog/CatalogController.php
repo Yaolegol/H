@@ -8,7 +8,6 @@ use App\Http\Controllers\Controller;
 
 require_once('app/Http/Controllers/helpers/common/catalog/index.php');
 require_once('app/Http/Controllers/helpers/web/breadcrumbs/index.php');
-require_once('app/Http/Controllers/helpers/web/location/index.php');
 
 class CatalogController extends Controller
 {
@@ -20,7 +19,6 @@ class CatalogController extends Controller
     public function index()
     {
         $catalogFull = getCatalogFull();
-        $locationList = getLocationListFormatted();
         $breadcrumbs = [
             [
                 'isLink' => false,
@@ -32,7 +30,6 @@ class CatalogController extends Controller
             'breadcrumbs' => $breadcrumbs,
             'catalogHeader' => $catalogFull,
             'catalogPage' => $catalogFull,
-            'locationList' => $locationList,
         ]);
     }
 
@@ -48,13 +45,11 @@ class CatalogController extends Controller
         $catalogLevelOneItem = getCatalogLevelOneItem($catalogFull, $catalogLevelOneLink);
         $catalogLevelOneItemSubcategoriesList = getCatalogLevelOneItemSubcategoriesList($catalogLevelOneItem);
         $breadcrumbs = getCatalogLevelTwoBreadcrumbs($catalogLevelOneItem);
-        $locationList = getLocationListFormatted();
 
         return view('pages.catalog.secondLevel.index.index', [
             'breadcrumbs' => $breadcrumbs,
             'catalogHeader' => $catalogFull,
             'catalogPage' => $catalogLevelOneItemSubcategoriesList,
-            'locationList' => $locationList,
         ]);
     }
 }

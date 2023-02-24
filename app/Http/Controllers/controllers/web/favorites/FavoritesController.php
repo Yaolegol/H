@@ -9,7 +9,6 @@ use App\Http\Controllers\Controller;
 require_once('app/Http/Controllers/helpers/api/favorites/product/index.php');
 require_once('app/Http/Controllers/helpers/common/catalog/index.php');
 require_once('app/Http/Controllers/helpers/web/favorites/index.php');
-require_once('app/Http/Controllers/helpers/web/location/index.php');
 
 class FavoritesController extends Controller
 {
@@ -21,12 +20,10 @@ class FavoritesController extends Controller
     public function index(Request $request)
     {
         $catalogFull = getCatalogFull();
-        $locationList = getLocationListFormatted();
         $favoritesList = getUserFavoritesOffersFormatted();
 
         return view('pages.favorites.index.index', [
             'catalogHeader' => $catalogFull,
-            'locationList' => $locationList,
             'cardDataList' => $favoritesList,
         ]);
     }
