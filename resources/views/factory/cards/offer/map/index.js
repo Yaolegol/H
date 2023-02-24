@@ -56,8 +56,8 @@ export class MapOfferCard {
             </div>
         ` : '';
 
-        const favoritesHint = this.isUserAuth ? `
-            <div class="modules-pages-favorites-shared-components-button__hint-block modules-pages-favorites-shared-components-button__hint-block_left">
+        const favoritesHint = !this.isUserAuth ? `
+            <div class="modules-pages-favorites-shared-components-button__hint-block">
                 <div class="modules-pages-favorites-shared-components-button__hint-title">Чтобы добавить товар в избранное нужно</div>
                 <div class="modules-pages-favorites-shared-components-button__hint-text-container">
                     <a class="modules-pages-favorites-shared-components-button__hint-link" href="/login">Войти</a>
