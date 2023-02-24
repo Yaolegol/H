@@ -1,3 +1,5 @@
+import {addEventListener} from "helpers/events";
+
 class FavoritesSection {
     constructor(element) {
         this.module = element;
@@ -5,7 +7,12 @@ class FavoritesSection {
 
         if(this.isUserLoggedIn) {
             this.init();
+            this.bind();
         }
+    }
+
+    bind = () => {
+        addEventListener(document, 'j-event-favorites-components-section__get-favorites-products', this.handleGetFavoritesProducts);
     }
 
     fetchData = async () => {
@@ -20,6 +27,8 @@ class FavoritesSection {
             const {data, errors} = await response.json();
 
             if(!errors) {
+                this.data = data;
+
                 document.dispatchEvent(new CustomEvent('j-event-happened-get-favorites', {
                     detail: {
                         list: data,
@@ -29,6 +38,10 @@ class FavoritesSection {
         } catch(err) {
             console.error(err);
         }
+    }
+
+    handleGetFavoritesProducts = () => {
+        this.fetchData();
     }
 
     init = () => {

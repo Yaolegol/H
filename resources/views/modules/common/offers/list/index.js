@@ -41,6 +41,8 @@ class OffersList {
             this.module.insertAdjacentHTML('beforeend', htmlList.join(''));
 
             MapOfferCard.init();
+            document.dispatchEvent(new CustomEvent('j-event-module__update'));
+            document.dispatchEvent(new CustomEvent('j-event-favorites-components-section__get-favorites-products'));
         } else {
             this.module.innerHTML = `
                 <div style="margin-top: 20px; font-style: italic;">

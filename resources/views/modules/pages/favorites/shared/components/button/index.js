@@ -1,5 +1,6 @@
 import {PATH} from "constants/path";
 import {addEventListener} from 'helpers/events';
+import {module} from "helpers/module";
 import './index.less';
 
 const {FAVORITES} = PATH;
@@ -92,8 +93,4 @@ class FavoritesButton {
     }
 }
 
-const list = [...document.querySelectorAll('.j-favorites-components-button')];
-
-list.forEach((element) => {
-    new FavoritesButton(element);
-});
+module.initModule('j-favorites-components-button', FavoritesButton);
