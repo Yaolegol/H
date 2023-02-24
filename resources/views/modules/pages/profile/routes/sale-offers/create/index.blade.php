@@ -42,30 +42,6 @@
 
             @component('modules.pages.profile.common.components.container.form-field.index', [
                 'required' => true,
-                'title' => 'Регион:'
-            ])
-                @include('components.inputs.radio.group-first-level.index', [
-                            'groupName' => 'radio-group__region',
-                            'itemsList' => $regionList,
-                            'inputName' => 'region_id',
-                            'required' => true,
-                        ])
-                @include('components.form.error.index', [
-                    'message' => $errors->first('region_id'),
-                ])
-            @endcomponent
-
-            @component('modules.pages.profile.common.components.container.form-field.index')
-                @include('components.inputs.radio.group-second-level.index', [
-                        'contentList' => $citiesList,
-                        'inputsName' => 'city_id',
-                        'listenGroupName' => 'radio-group__region',
-                        'title' => 'Город'
-                    ])
-            @endcomponent
-
-            @component('modules.pages.profile.common.components.container.form-field.index', [
-                'required' => true,
                 'title' => 'Заголовок:'
                 ])
                 @include('components.inputs.form.index', [
