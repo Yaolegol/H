@@ -116,7 +116,7 @@ class SearchCatalog {
                 }
             });
 
-            const isNavigationValueSuit = regexp.test(navigationValue) || navigationValue === 'Другое';
+            const isNavigationValueSuit = regexp.test(navigationValue) || navigationValue === 'Остальное';
             const isSuit = isNavigationValueSuit || isContentExists;
 
             if(!isSuit) {

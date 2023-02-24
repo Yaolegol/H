@@ -30,7 +30,7 @@ class CatalogLevelOneSeeder extends Seeder
             'image' => 'public/catalog/levelOne/items/0/images/main/1.jpg',
             'link' => 'other',
             'order' => 999,
-            'title' => 'Другое',
+            'title' => 'Остальное',
         ],
     ];
 
