@@ -32,7 +32,6 @@ Route::get('/', [MapController::class, 'index']);
 
 Route::get('/catalog', [CatalogController::class, 'index']);
 Route::get('/catalog/{catalogLevelOneLink}', [CatalogController::class, 'show']);
-Route::get('/catalog/{catalogLevelOneLink}/{productLink}', [OffersController::class, 'index']);
 
 Route::get('/sellers/{id}', [SellersController::class, 'show']);
 
