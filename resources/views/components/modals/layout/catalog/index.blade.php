@@ -3,6 +3,12 @@
     <div class="modules-common-catalog__catalog-search-container">
         @include('components.inputs.search.index')
     </div>
+    <div class="modules-common-catalog__catalog-link-container">
+        <a
+            class="modules-common-catalog__catalog-link"
+            href="/catalog"
+        >Смотреть каталог</a>
+    </div>
     <div class="modules-common-catalog__content-area j-modules-common-catalog__content-area">
         <div class="modules-common-catalog__navigation-block">
             @include('components.modals.layout.catalog.navigation.index')
