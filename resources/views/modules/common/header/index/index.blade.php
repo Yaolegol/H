@@ -29,7 +29,7 @@
             </div>
             <div class="modules-common-header-index__area-right">
                 <div class="modules-common-header-index__area-item">
-                    <div class="modules-common-header-index__favorites-container">
+                    <div class="modules-common-header-index__favorites-container j-favorites-components-header-counter">
                         <div class="modules-common-header-index__favorites-count-container j-favorites-components-header-counter__count"></div>
                         <div class="modules-common-header-index__favorites-icon-container">
                             @include('icons.favorite')

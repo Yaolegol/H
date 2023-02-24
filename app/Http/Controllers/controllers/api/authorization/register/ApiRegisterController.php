@@ -62,8 +62,6 @@ class ApiRegisterController extends Controller
             $isUserAuth = DB_tryAuthUser($phone, $password);
 
             if ($isUserAuth) {
-                $request->session()->regenerate();
-
                 $data = [
                     'data' => '',
                     'errors' => '',

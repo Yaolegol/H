@@ -10,7 +10,7 @@ class FavoritesSection {
 
     fetchData = async () => {
         try {
-            const response = await fetch(`/api/favorites/products`, {
+            const response = await fetch(`/favorites/products`, {
                 headers: {
                     'Accept': 'application/json',
                 },

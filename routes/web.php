@@ -54,6 +54,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index']);
 
     Route::get('/favorites', [FavoritesController::class, 'index']);
+    Route::get('/favorites/products', [FavoritesController::class, 'products']);
+    Route::get('/favorites/products/add/{id}', [FavoritesController::class, 'productsAdd']);
+    Route::get('/favorites/products/remove/{id}', [FavoritesController::class, 'productsRemove']);
 
     Route::get('/profile', [ProfileController::class, 'index']);
 

@@ -58,7 +58,7 @@ class FavoritesButton {
 
     sendRequest = async (action) => {
         try {
-            const response = await fetch(`/api/favorites/product/${action}/${this.id}`, {
+            const response = await fetch(`/favorites/products/${action}/${this.id}`, {
                 headers: {
                     'Accept': 'application/json',
                 },
@@ -70,10 +70,10 @@ class FavoritesButton {
             if(!errors) {
                 if(action === 'add') {
                     this.activateButton();
-                    this.sendUpdateMessage('add');
+                    this.sendUpdateMessage(action);
                 } else {
                     this.button.classList.remove('active');
-                    this.sendUpdateMessage('remove');
+                    this.sendUpdateMessage(action);
                 }
 
                 this.checkIsNeedReloadPage();
