@@ -21,8 +21,15 @@ class CatalogController extends Controller
     {
         $catalogFull = getCatalogFull();
         $locationList = getLocationListFormatted();
+        $breadcrumbs = [
+            [
+                'isLink' => false,
+                'title' => 'Каталог',
+            ],
+        ];
 
         return view('pages.catalog.firstLevel.index.index', [
+            'breadcrumbs' => $breadcrumbs,
             'catalogHeader' => $catalogFull,
             'catalogPage' => $catalogFull,
             'locationList' => $locationList,

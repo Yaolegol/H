@@ -128,11 +128,9 @@ function getOffersPaginatedData($catalogLevelTwoItem, $searchCountry, $searchReg
 function setOfferCatalogLinks(&$offerItem) {
     $offerItemCatalogLevelTwo = &$offerItem['catalog_level_two'];
     $offerItemCatalogLevelOne = &$offerItemCatalogLevelTwo['catalog_level_one'];
-    $offerItemCatalogLevelTwoLink = $offerItemCatalogLevelTwo['link'];
-    $offerItemCatalogLevelOneLink = $offerItemCatalogLevelOne['link'];
 
-    $offerItemCatalogLevelTwo['linkFull'] = getCatalogLevelTwoLink($offerItemCatalogLevelOneLink, $offerItemCatalogLevelTwoLink);
-    $offerItemCatalogLevelOne['linkFull'] = getCatalogLevelOneLink($offerItemCatalogLevelOneLink);
+    $offerItemCatalogLevelTwo['linkFull'] = '/';
+    $offerItemCatalogLevelOne['linkFull'] = '/';
 }
 
 function setOfferLink(&$offerItem) {

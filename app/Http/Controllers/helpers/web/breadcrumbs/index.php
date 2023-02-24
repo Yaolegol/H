@@ -5,7 +5,7 @@ function getCatalogLevelTwoBreadcrumbs($catalogLevelOneItem)
     $breadcrumbs = [
         [
             'isLink' => true,
-            'link' => '/',
+            'link' => '/catalog',
             'title' => 'Каталог',
         ],
     ];
