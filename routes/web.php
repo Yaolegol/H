@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [CatalogController::class, 'index']);
+Route::get('/', [MapController::class, 'index']);
 
 Route::get('/catalog/{catalogLevelOneLink}/{productLink}', [OffersController::class, 'index']);
 
@@ -49,7 +49,6 @@ Route::post('/register/confirmCode', [RegisterController::class, 'confirmCode'])
 Route::get('/logout', [LogoutController::class, 'index']);
 
 Route::get('/map/mobile-app/single-point', [MapMobileAppSinglePoint::class, 'singlePoint']);
-Route::get('/map', [MapController::class, 'index']);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index']);

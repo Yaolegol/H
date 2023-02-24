@@ -1,7 +1,7 @@
 <div class="modules-common-header-index j-favorites-components-section">
     <div class="modules-common-header-index__map-block">
         <div class="modules-common-header-index__map-container">
-            <a class="modules-common-header-index__map-link" href="/map">Карта</a>
+            <a class="modules-common-header-index__map-link" href="/">Карта</a>
         </div>
     </div>
     <div class="modules-common-header-index__main">
