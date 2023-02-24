@@ -24,8 +24,6 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->bigInteger('lang_id')->unsigned()->index()->nullable();
             $table->foreign('lang_id')->references('id')->on('lang');
-            $table->bigInteger('city_id')->unsigned()->index()->nullable();
-            $table->foreign('city_id')->references('id')->on('city');
             $table->integer('order')->default(1);
             $table->rememberToken();
             $table->timestamps();
