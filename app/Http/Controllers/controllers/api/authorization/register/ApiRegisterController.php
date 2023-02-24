@@ -43,32 +43,14 @@ class ApiRegisterController extends Controller
         $newUser = DB_trySaveUserInDB($request, true);
 
         if($newUser != null) {
-            $isFromBrowser = $request->input('fromBrowser') === true;
+            $data = [
+                'data' => [
+                    'token' => $newUser->createToken($request->input('phone'))->plainTextToken,
+                ],
+                'errors' => '',
+            ];
 
-            if(!$isFromBrowser) {
-                $data = [
-                    'data' => [
-                        'token' => $newUser->createToken($request->input('phone'))->plainTextToken,
-                    ],
-                    'errors' => '',
-                ];
-
-                return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
-            }
-
-            $phone = $request->input('phone');
-            $password = $request->input('password');
-
-            $isUserAuth = DB_tryAuthUser($phone, $password);
-
-            if ($isUserAuth) {
-                $data = [
-                    'data' => '',
-                    'errors' => '',
-                ];
-
-                return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
-            }
+            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
         }
 
         $data = [

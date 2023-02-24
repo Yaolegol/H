@@ -36,7 +36,6 @@ class Test {
     handleConfirmCode = async (code) => {
         const _data = {
             code,
-            fromBrowser: true,
             phone: this.phoneValue,
             password: this.passwordValue,
             password_confirmation: this.password_confirmationValue,
@@ -89,7 +88,7 @@ class Test {
     }
 
     sendConfirmCode = async (data) => {
-        const response = await fetch('/api/register/confirmCode', {
+        const response = await fetch('/register/confirmCode', {
             body: JSON.stringify(data),
             headers: {
                 'Accept': 'application/json',
@@ -103,7 +102,7 @@ class Test {
     }
 
     sendSms = async (data) => {
-        const response = await fetch('/api/register/sendSms', {
+        const response = await fetch('/register/sendSms', {
             body: JSON.stringify(data),
             headers: {
                 'Accept': 'application/json',

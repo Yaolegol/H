@@ -43,7 +43,8 @@ Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'login']);
 
 Route::get('/register', [RegisterController::class, 'index']);
-Route::post('/register', [RegisterController::class, 'register']);
+Route::post('/register/sendSms', [RegisterController::class, 'sendSms']);
+Route::post('/register/confirmCode', [RegisterController::class, 'confirmCode']);
 
 Route::get('/logout', [LogoutController::class, 'index']);
 
