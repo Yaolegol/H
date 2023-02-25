@@ -1,9 +1,12 @@
+import 'views/components/buttons/filter';
 import 'views/components/checkboxes/map';
+import 'views/components/checkboxes/withTextArea';
 import 'views/components/form/error';
 import 'views/components/inputs/file/item';
 import 'views/components/inputs/form';
 import 'views/components/inputs/radio/group-first-level';
 import 'views/components/inputs/textarea/base';
+import 'views/modules/common/geo/components/button';
 import 'views/modules/common/map/yandex/components/add-marker';
 import 'views/modules/pages/profile/common/components/body/create';
 import 'views/modules/pages/profile/common/components/container/file-field';
@@ -11,3 +14,4 @@ import 'views/modules/pages/profile/common/components/container/form-field';
 import 'views/modules/pages/profile/common/components/container/section';
 import 'views/modules/pages/profile/common/components/footer';
 import 'views/modules/pages/profile/common/components/header';
+import './index.less';

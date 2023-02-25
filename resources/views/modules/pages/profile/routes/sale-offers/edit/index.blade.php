@@ -6,7 +6,7 @@
         ])
         <form
             action="/profile/sale-offers/{{$saleOfferItemData['id']}}"
-            class="form"
+            class="form modules-pages-profile-routes-sale-offers-edit"
             enctype="multipart/form-data"
             method="POST"
         >
@@ -42,7 +42,7 @@
 
             @component('modules.pages.profile.common.components.container.form-field.index', [
                 'required' => true,
-                'title' => 'Заголовок:'])
+                'title' => 'Название товара:'])
                 @include('components.inputs.form.index', [
                                 'name' => 'title',
                                 'placeholder' => 'Название товара',
@@ -67,36 +67,15 @@
                 ])
             @endcomponent
 
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Адрес (где можно купить Вашу продукцию):'])
+            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Контактное лицо:'])
                 @include('components.inputs.form.index', [
-                                'name' => 'address',
-                                'placeholder' => 'Адрес',
+                                'name' => 'contact_person',
+                                'placeholder' => 'Контактное лицо',
                                 'type' => 'text',
-                                'value' => $saleOfferItemData['address'],
+                                'value' => $saleOfferItemData['contact_person'],
                             ])
                 @include('components.form.error.index', [
-                    'message' => $errors->first('address'),
-                ])
-            @endcomponent
-
-            @component('modules.pages.profile.common.components.container.form-field.index', [
-                    'title' => 'Торговые точки (информацию о торговых точках можно добавить в разделе Вашего профиля - "Торговые точки"):'])
-                @foreach($salePointsList as $salePointItem)
-                    @include('components.checkboxes.map.index', [
-                        'isChecked' => $salePointItem['active'],
-                        'map_marker_lat' => $salePointItem['map_marker_lat'],
-                        'map_marker_lng' => $salePointItem['map_marker_lng'],
-                        'name' => "sale-point_$loop->index",
-                        'title' => $salePointItem['title'],
-                        'value' => $salePointItem['id']
-                    ])
-                @endforeach
-            @endcomponent
-
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Карта:'])
-                @include('modules.common.map.yandex.components.add-marker.index', [
-                    'markerLat' => $saleOfferItemData['map_marker_lat'],
-                    'markerLng' => $saleOfferItemData['map_marker_lng'],
+                    'message' => $errors->first('contact_person'),
                 ])
             @endcomponent
 
@@ -112,6 +91,18 @@
                             ])
                 @include('components.form.error.index', [
                     'message' => $errors->first('phone'),
+                ])
+            @endcomponent
+
+            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Режим работы:'])
+                @include('components.inputs.form.index', [
+                                'name' => 'working_hours',
+                                'placeholder' => 'Рабочие часы',
+                                'type' => 'text',
+                                'value' => $saleOfferItemData['working_hours'],
+                            ])
+                @include('components.form.error.index', [
+                    'message' => $errors->first('working_hours'),
                 ])
             @endcomponent
 
@@ -157,12 +148,67 @@
                 ])
             @endcomponent
 
+            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Адрес (где можно купить Вашу продукцию):'])
+                @include('components.inputs.form.index', [
+                                'name' => 'address',
+                                'placeholder' => 'Адрес (где можно купить Вашу продукцию)',
+                                'required' => true,
+                                'type' => 'text',
+                                'value' => $saleOfferItemData['address'],
+                            ])
+                @include('components.form.error.index', [
+                    'message' => $errors->first('address'),
+                ])
+            @endcomponent
+
+            @component('modules.pages.profile.common.components.container.form-field.index', [
+                'required' => true,
+                'title' => 'Пожалуйста, кликните на карте по адресу, который Вы указали выше, чтобы покупателям было проще Вас найти (это добавит метку на карте):'
+            ])
+                <div class="modules-pages-profile-routes-sale-offers-edit__map-geo-container">
+                    @include('components.buttons.filter.index', [
+                        'className' => 'j-modules-common-geo-components-button',
+                        'dataset' => [],
+                        'defaultTitle' => 'Приблизить карту ко мне',
+                        'title' => 'Приблизить карту ко мне',
+                    ])
+                </div>
+                <div class="modules-pages-profile-routes-sale-offers-edit__map-container">
+                    @include('modules.common.map.yandex.components.add-marker.index', [
+                        'markerLat' => $saleOfferItemData['map_marker_lat'],
+                        'markerLng' => $saleOfferItemData['map_marker_lng'],
+                        'required' => true,
+                    ])
+                </div>
+            @endcomponent
+
+            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Торговые точки:'])
+                @if(count($salePointsList) > 0)
+                    @foreach($salePointsList as $salePointItem)
+                        @include('components.checkboxes.map.index', [
+                            'isChecked' => $salePointItem['active'],
+                            'map_marker_lat' => $salePointItem['map_marker_lat'],
+                            'map_marker_lng' => $salePointItem['map_marker_lng'],
+                            'name' => "sale-point_$loop->index",
+                            'title' => $salePointItem['title'],
+                            'value' => $salePointItem['id']
+                        ])
+                    @endforeach
+                @else
+                    <div>Информацию о торговых точках можно добавить в разделе Вашего профиля - "Торговые точки"</div>
+                @endif
+            @endcomponent
+
             @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Организация:'])
-                @include('components.inputs.radio.group-first-level.index', [
+                @if(count($organizationsList) > 0)
+                    @include('components.inputs.radio.group-first-level.index', [
                                     'groupName' => 'radio-group__organization',
                                     'itemsList' => $organizationsList,
                                     'inputName' => 'organization_id',
                                 ])
+                @else
+                    <div>Информацию об организации можно добавить в разделе Вашего профиля - "Организации"</div>
+                @endif
             @endcomponent
 
             @component('modules.pages.profile.common.components.container.section.index', ['title' => 'Фотографии товара'])
