@@ -149,6 +149,18 @@
             @endcomponent
 
             @component('modules.pages.profile.common.components.container.form-field.index', [
+                'title' => 'Доставка:'
+            ])
+                @include('components.checkboxes.withTextArea.index', [
+                    'title' => 'Есть',
+                    'name' => 'delivery',
+                ])
+                @include('components.form.error.index', [
+                    'message' => $errors->first('price_description'),
+                ])
+            @endcomponent
+
+            @component('modules.pages.profile.common.components.container.form-field.index', [
                 'required' => true,
                 'title' => 'Адрес (где можно купить Вашу продукцию):'
             ])

@@ -1,0 +1,61 @@
+@import (reference) '~styles/colors';
+
+.components-checkboxes-with-text-area {
+    &__input {
+        height: 0;
+        opacity: 0;
+        outline: none;
+        pointer-events: none;
+        position: absolute;
+        width: 0;
+    }
+
+    &__input-label {
+        cursor: pointer;
+        display: flex;
+        position: relative;
+    }
+
+    &__input-label-container {
+        display: flex;
+    }
+
+    &__marker-block {
+        border: 1px solid @black_20;
+        border-radius: 2px;
+        color: @primary;
+        height: 16px;
+        display: block;
+        width: 16px;
+    }
+
+    &__marker-container {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        opacity: 0;
+
+        .components-checkboxes-with-text-area__input:checked ~ .components-checkboxes-with-text-area__input-label-container & {
+            opacity: 1;
+        }
+    }
+
+    &__textarea-container {
+        display: none;
+        margin-top: 15px;
+
+        .components-checkboxes-with-text-area__input:checked ~ & {
+            display: block;
+        }
+    }
+
+    &__title {
+        display: block;
+        margin-left: 10px;
+
+        .components-checkboxes-with-text-area__input:checked ~ .components-checkboxes-with-text-area__input-label-container & {
+            font-weight: 800;
+        }
+    }
+}
