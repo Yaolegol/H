@@ -67,7 +67,7 @@
         top: 65px;
         width: 250px;
 
-        .components-cards-sale-offer__moderation-label:hover & {
+        .components-cards-sale-offer__moderation-label:not(.components-cards-sale-offer__moderation-label_approved):hover & {
             display: block;
         }
     }
@@ -84,6 +84,10 @@
         position: absolute;
         right: 0;
         top: 20px;
+
+        &_approved {
+            background: @primary;
+        }
     }
 
     &__remove-button-container {

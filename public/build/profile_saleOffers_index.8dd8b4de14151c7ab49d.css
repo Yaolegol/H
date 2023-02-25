@@ -852,7 +852,7 @@
   top: 65px;
   width: 250px;
 }
-.components-cards-sale-offer__moderation-label:hover .components-cards-sale-offer__moderation-hint {
+.components-cards-sale-offer__moderation-label:not(.components-cards-sale-offer__moderation-label_approved):hover .components-cards-sale-offer__moderation-hint {
   display: block;
 }
 .components-cards-sale-offer__moderation-hint-container {
@@ -866,6 +866,9 @@
   position: absolute;
   right: 0;
   top: 20px;
+}
+.components-cards-sale-offer__moderation-label_approved {
+  background: #90d486;
 }
 .components-cards-sale-offer__remove-button-container {
   margin-left: 15px;
