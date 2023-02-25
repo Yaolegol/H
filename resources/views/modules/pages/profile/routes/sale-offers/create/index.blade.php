@@ -178,7 +178,7 @@
 
             @component('modules.pages.profile.common.components.container.form-field.index', [
                 'required' => true,
-                'title' => 'Пожалуйста, кликните на карте (адрес, указанный выше), чтобы покупателям было проще Вас найти:'
+                'title' => 'Пожалуйста, кликните на карте по адресу, который Вы указали выше, чтобы покупателям было проще Вас найти (это добавит метку на карте):'
             ])
                 <div class="modules-pages-profile-routes-sale-offers-create__map-geo-container">
                     @include('components.buttons.filter.index', [

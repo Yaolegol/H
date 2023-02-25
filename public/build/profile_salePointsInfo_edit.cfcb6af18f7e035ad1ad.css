@@ -814,6 +814,7 @@
 }
 .modules-pages-profile-common-components-body-create__form-container {
   margin-top: 50px;
+  max-width: 600px;
 }
 .modules-pages-profile-common-components-body-create__info-title {
   margin-top: 25px;
