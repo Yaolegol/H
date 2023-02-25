@@ -51,7 +51,11 @@ class User extends Authenticatable
 
     public function favoritesOffers()
     {
-        return $this->belongsToMany(Offer::class, 'users_favorites_offers', 'user_id', 'offer_id')->with(
+        return $this->belongsToMany(Offer::class, 'users_favorites_offers', 'user_id', 'offer_id')
+            ->where([
+                'is_approved' => true,
+            ])
+            ->with(
             [
                 'catalogLevelTwo',
                 'catalogLevelTwo.catalogLevelOne',

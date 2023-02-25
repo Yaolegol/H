@@ -269,12 +269,18 @@ function tryUpdateSaleOfferInDB($request, $saleOfferId)
     $authUser = Auth::user();
     $authUserId = $authUser->id;
 
+    $deliveryRequest = $request->input('delivery');
+    $delivery = $deliveryRequest == 'on' || $deliveryRequest == '1' || $deliveryRequest == 1;
+
     $data = [
         'address' => $request->input('address'),
         'catalog_level_one_id' => $request->input('catalog_level_one_id'),
         'catalog_level_two_id' => $request->input('catalog_level_two_id'),
-        'city_id' => $request->input('city_id'),
         'description' => $request->input('description'),
+        'contact_person' => $request->input('contact_person'),
+        'delivery' => $delivery,
+        'delivery_description' => $request->input('delivery_description'),
+        'is_approved' => false,
         'map_marker_lat' => $request->input('map_marker_lat'),
         'map_marker_lng' => $request->input('map_marker_lng'),
         'measure_id' => $request->input('measure_id'),
@@ -282,9 +288,9 @@ function tryUpdateSaleOfferInDB($request, $saleOfferId)
         'phone' => $request->input('phone'),
         'price' => $request->input('price'),
         'price_description' => $request->input('price_description'),
-        'region_id' => $request->input('region_id'),
         'title' => $request->input('title'),
         'user_id' => $authUserId,
+        'working_hours' => $request->input('working_hours'),
     ];
 
     $path = getSaleOfferAssetPath($saleOfferId);
