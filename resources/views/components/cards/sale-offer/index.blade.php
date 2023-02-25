@@ -1,5 +1,5 @@
 <div class="components-cards-sale-offer">
-    <div class="components-cards-sale-offer__moderation-label {{$saleOffer['is_approved'] ?? 'components-cards-sale-offer__moderation-label_approved'}}">
+    <div class="components-cards-sale-offer__moderation-label {{$saleOffer['is_approved'] ? 'components-cards-sale-offer__moderation-label_approved' : ''}}">
         {{$saleOffer['is_approved'] ? 'Опубликовано' : 'На проверке'}}
         <div class="components-cards-sale-offer__moderation-hint">
             <div>Ваше сообщение проверяется администрацией сайта!</div>

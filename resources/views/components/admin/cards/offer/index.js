@@ -50,7 +50,7 @@ class AdminCard {
         try {
             const body = JSON.stringify(data);
 
-            const response = await fetch(`/api/admin/offer/approve/${this.offerId}`, {
+            const response = await fetch(`/admin/offer/approve/${this.offerId}`, {
                 body,
                 headers: {
                     'Accept': 'application/json',
