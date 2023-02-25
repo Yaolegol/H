@@ -56,7 +56,7 @@
     </div>
     <div class="components-cards-sale-offer__item-container components-cards-sale-offer__item-container_service">
         <div class="components-cards-sale-offer__edit-button-container">
-            <a class="components-cards-sale-offer__link components-cards-sale-offer__link_edit" href="./sale-offers/edit/{{$saleOffer['id']}}">Изменить</a>
+            <a class="components-cards-sale-offer__link components-cards-sale-offer__link_edit" href="./sale-offers/edit/{{$saleOffer['id']}}">Редактировать</a>
         </div>
         <div class="components-cards-sale-offer__remove-button-container">
             <a class="components-cards-sale-offer__link components-cards-sale-offer__link_remove" href="./sale-offers/destroy/{{$saleOffer['id']}}">Удалить</a>

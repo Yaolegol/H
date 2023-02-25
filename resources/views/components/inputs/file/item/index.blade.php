@@ -25,13 +25,13 @@
                 class="j-inputs-file-item__change-file-button"
                 type="button"
             >
-                изменить
+                Редактировать
             </button>
             <button
                 class="components-inputs-file-item__remove-button j-inputs-file-item__remove-file-button"
                 type="button"
             >
-                удалить
+                Удалить
             </button>
         </div>
     </div>

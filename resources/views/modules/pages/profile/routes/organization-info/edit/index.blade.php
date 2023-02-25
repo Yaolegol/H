@@ -2,7 +2,7 @@
     @component('modules.pages.profile.common.components.body.create.index', [
             'backLink' => '/profile/organization-info',
             'backTitle' => 'Смотреть все мои организации',
-            'title' => 'Изменить данные об организации'
+            'title' => 'Редактировать данные об организации'
         ])
         <form
             action="/profile/organization-info/{{$organizationItemData['id']}}"

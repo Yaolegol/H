@@ -2,7 +2,7 @@
     @component('modules.pages.profile.common.components.body.create.index', [
             'backLink' => '/profile/sale-points-info',
             'backTitle' => 'Смотреть все мои торговые точки',
-            'title' => 'Изменить данные о торговой точке'
+            'title' => 'Редактировать данные о торговой точке'
         ])
         <form
             action="/profile/sale-points-info/{{$salePointItemData['id']}}"

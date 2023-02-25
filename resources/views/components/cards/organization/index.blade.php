@@ -45,7 +45,7 @@
     </div>
     <div class="components-cards-organization__item-container components-cards-organization__item-container_service">
         <div class="components-cards-organization__edit-button-container">
-            <a class="components-cards-organization__link components-cards-organization__link_edit" href="./organization-info/edit/{{$organization['id']}}">Изменить</a>
+            <a class="components-cards-organization__link components-cards-organization__link_edit" href="./organization-info/edit/{{$organization['id']}}">Редактировать</a>
         </div>
         <div class="components-cards-organization__remove-button-container">
             <a class="components-cards-organization__link components-cards-organization__link_remove" href="./organization-info/destroy/{{$organization['id']}}">Удалить</a>

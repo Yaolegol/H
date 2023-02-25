@@ -31,7 +31,7 @@
     </div>
     <div class="components-cards-sale-point__item-container components-cards-sale-point__item-container_service">
         <div class="components-cards-sale-point__edit-button-container">
-            <a class="components-cards-sale-point__link components-cards-sale-point__link_edit" href="./sale-points-info/edit/{{$salePoint['id']}}">Изменить</a>
+            <a class="components-cards-sale-point__link components-cards-sale-point__link_edit" href="./sale-points-info/edit/{{$salePoint['id']}}">Редактировать</a>
         </div>
         <div class="components-cards-sale-point__remove-button-container">
             <a class="components-cards-sale-point__link components-cards-sale-point__link_remove" href="./sale-points-info/destroy/{{$salePoint['id']}}">Удалить</a>
