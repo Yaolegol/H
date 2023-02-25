@@ -8,7 +8,10 @@ require_once('app/Http/Controllers/helpers/common/measure/index.php');
 function DB_getOffer($id)
 {
     try {
-        $offerData = Offer::where('id', $id)->with([
+        $offerData = Offer::where([
+            'id' => $id,
+            'is_approved' => true,
+        ])->with([
             'catalogLevelTwo',
             'catalogLevelTwo.catalogLevelOne',
             'measure',
@@ -17,14 +20,15 @@ function DB_getOffer($id)
             'user',
         ])->get()->toArray();
 
-        if(empty($offerData)) {
-            return abort(400);
-        }
-
-        return $offerData;
     } catch(\Exception $err) {
         return abort(500);
     }
+
+    if(empty($offerData)) {
+        return abort(404);
+    }
+
+    return $offerData;
 }
 
 function DB_getOffers($filters) {
