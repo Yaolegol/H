@@ -850,6 +850,50 @@
   width: auto;
 }
 
+.modules-common-map-yandex-components-balloon-offer__price {
+  font-weight: 600;
+}
+.modules-common-map-yandex-components-balloon-offer__section-link {
+  margin-top: 15px;
+}
+.modules-common-map-yandex-components-balloon-offer__section-link-title {
+  font-weight: 600;
+}
+.modules-common-map-yandex-components-balloon-offer__section-price {
+  margin-top: 15px;
+}
+.modules-common-map-yandex-components-balloon-offer__section-price-title {
+  font-weight: 600;
+}
+.modules-common-map-yandex-components-balloon-offer__section-seller {
+  margin-top: 15px;
+}
+.modules-common-map-yandex-components-balloon-offer__section-seller-title {
+  font-weight: 600;
+}
+.modules-common-map-yandex-components-balloon-offer__title {
+  font-weight: 600;
+}
+
+.components-map-yandex-components-view-item {
+  padding-bottom: 100%;
+  position: relative;
+}
+.components-map-yandex-components-view-item__map-container {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.components-map-yandex-components-view-item__map-container_mobile-app {
+  height: 300px;
+  width: auto;
+}
+.components-map-yandex-components-view-item__marker-popup {
+  width: 100px;
+}
+
 .modules-pages-profile-common-components-body-create__all-points-link {
   border-radius: 10px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);

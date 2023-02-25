@@ -26,32 +26,15 @@
                 ])
             @endcomponent
 
-            @component('modules.pages.profile.common.components.container.form-field.index', [
-                'required' => true,
-                'title' => 'Адрес:'])
+            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Описание:'])
                 @include('components.inputs.form.index', [
-                                'name' => 'address',
-                                'placeholder' => 'Адрес',
-                                'required' => true,
+                                'name' => 'description',
+                                'placeholder' => 'Описание',
                                 'type' => 'text',
+                                'value' => '',
                             ])
                 @include('components.form.error.index', [
-                    'message' => $errors->first('address'),
-                ])
-            @endcomponent
-
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Карта:'])
-                @include('modules.common.map.yandex.components.add-marker.index')
-            @endcomponent
-
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Режим работы:'])
-                @include('components.inputs.form.index', [
-                                'name' => 'working_hours',
-                                'placeholder' => 'Рабочие часы',
-                                'type' => 'text',
-                            ])
-                @include('components.form.error.index', [
-                    'message' => $errors->first('working_hours'),
+                    'message' => $errors->first('description'),
                 ])
             @endcomponent
 
@@ -75,6 +58,35 @@
                 @include('components.form.error.index', [
                     'message' => $errors->first('phone'),
                 ])
+            @endcomponent
+
+            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Режим работы:'])
+                @include('components.inputs.form.index', [
+                                'name' => 'working_hours',
+                                'placeholder' => 'Рабочие часы',
+                                'type' => 'text',
+                            ])
+                @include('components.form.error.index', [
+                    'message' => $errors->first('working_hours'),
+                ])
+            @endcomponent
+
+            @component('modules.pages.profile.common.components.container.form-field.index', [
+                'required' => true,
+                'title' => 'Адрес:'])
+                @include('components.inputs.form.index', [
+                                'name' => 'address',
+                                'placeholder' => 'Адрес',
+                                'required' => true,
+                                'type' => 'text',
+                            ])
+                @include('components.form.error.index', [
+                    'message' => $errors->first('address'),
+                ])
+            @endcomponent
+
+            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Карта:'])
+                @include('modules.common.map.yandex.components.add-marker.index')
             @endcomponent
 
             @component('modules.pages.profile.common.components.container.section.index', ['title' => 'Фотографии торговой точки'])

@@ -42,7 +42,7 @@
 
             @component('modules.pages.profile.common.components.container.form-field.index', [
                 'required' => true,
-                'title' => 'Заголовок:'
+                'title' => 'Название товара:'
                 ])
                 @include('components.inputs.form.index', [
                                 'name' => 'title',
@@ -56,7 +56,7 @@
                 ])
             @endcomponent
 
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Описание:'])
+            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Описание товара:'])
                 @include('components.inputs.form.index', [
                                 'name' => 'description',
                                 'placeholder' => 'Описание товара',
@@ -68,32 +68,15 @@
                 ])
             @endcomponent
 
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Адрес (где можно купить Вашу продукцию):'])
+            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Контактное лицо:'])
                 @include('components.inputs.form.index', [
-                                'name' => 'address',
-                                'placeholder' => 'Адрес',
+                                'name' => 'contact_person',
+                                'placeholder' => 'Контактное лицо',
                                 'type' => 'text',
-                                'value' => '',
                             ])
                 @include('components.form.error.index', [
-                    'message' => $errors->first('address'),
+                    'message' => $errors->first('contact_person'),
                 ])
-            @endcomponent
-
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Торговые точки (информацию о торговых точках можно добавить в разделе Вашего профиля - "Торговые точки"):'])
-                @foreach($salePointsList as $salePointItem)
-                    @include('components.checkboxes.map.index', [
-                        'map_marker_lat' => $salePointItem['map_marker_lat'],
-                        'map_marker_lng' => $salePointItem['map_marker_lng'],
-                        'name' => "sale-point_$loop->index",
-                        'title' => $salePointItem['title'],
-                        'value' => $salePointItem['id']
-                    ])
-                @endforeach
-            @endcomponent
-
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Карта:'])
-                @include('modules.common.map.yandex.components.add-marker.index')
             @endcomponent
 
             @component('modules.pages.profile.common.components.container.form-field.index', [
@@ -109,6 +92,17 @@
                             ])
                 @include('components.form.error.index', [
                     'message' => $errors->first('phone'),
+                ])
+            @endcomponent
+
+            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Режим работы:'])
+                @include('components.inputs.form.index', [
+                                'name' => 'working_hours',
+                                'placeholder' => 'Рабочие часы',
+                                'type' => 'text',
+                            ])
+                @include('components.form.error.index', [
+                    'message' => $errors->first('working_hours'),
                 ])
             @endcomponent
 
@@ -152,6 +146,38 @@
                 @include('components.form.error.index', [
                     'message' => $errors->first('price_description'),
                 ])
+            @endcomponent
+
+            @component('modules.pages.profile.common.components.container.form-field.index', [
+                'required' => true,
+                'title' => 'Адрес (где можно купить Вашу продукцию):'
+            ])
+                @include('components.inputs.form.index', [
+                                'name' => 'address',
+                                'placeholder' => 'Адрес',
+                                'required' => true,
+                                'type' => 'text',
+                                'value' => '',
+                            ])
+                @include('components.form.error.index', [
+                    'message' => $errors->first('address'),
+                ])
+            @endcomponent
+
+            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Карта:'])
+                @include('modules.common.map.yandex.components.add-marker.index')
+            @endcomponent
+
+            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Торговые точки (информацию о торговых точках можно добавить в разделе Вашего профиля - "Торговые точки"):'])
+                @foreach($salePointsList as $salePointItem)
+                    @include('components.checkboxes.map.index', [
+                        'map_marker_lat' => $salePointItem['map_marker_lat'],
+                        'map_marker_lng' => $salePointItem['map_marker_lng'],
+                        'name' => "sale-point_$loop->index",
+                        'title' => $salePointItem['title'],
+                        'value' => $salePointItem['id']
+                    ])
+                @endforeach
             @endcomponent
 
             @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Организация:'])
