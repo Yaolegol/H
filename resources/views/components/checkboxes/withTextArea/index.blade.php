@@ -25,7 +25,7 @@
     </div>
     <div class="components-checkboxes-with-text-area__textarea-container">
         @include('components.inputs.textarea.base.index', [
-            'name' => $name,
+            'name' => $textareaName,
             'placeholder' => 'Примечание к доставке',
         ])
     </div>

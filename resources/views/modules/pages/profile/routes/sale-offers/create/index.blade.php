@@ -154,6 +154,7 @@
                 @include('components.checkboxes.withTextArea.index', [
                     'title' => 'Есть',
                     'name' => 'delivery',
+                    'textareaName' => 'delivery_description',
                 ])
                 @include('components.form.error.index', [
                     'message' => $errors->first('price_description'),

@@ -7,13 +7,18 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 function DB_createSaleOffer($request, $userId) {
+    $deliveryRequest = $request->input('delivery');
+    $delivery = $deliveryRequest == 'on' || $deliveryRequest == '1' || $deliveryRequest == 1;
+
     try {
         $data = [
             'address' => $request->input('address'),
             'catalog_level_one_id' => $request->input('catalog_level_one_id'),
             'catalog_level_two_id' => $request->input('catalog_level_two_id'),
-            'city_id' => $request->input('city_id'),
             'description' => $request->input('description'),
+            'contact_person' => $request->input('contact_person'),
+            'delivery' => $delivery,
+            'delivery_description' => $request->input('delivery_description'),
             'map_marker_lat' => $request->input('map_marker_lat'),
             'map_marker_lng' => $request->input('map_marker_lng'),
             'measure_id' => $request->input('measure_id'),
@@ -21,9 +26,9 @@ function DB_createSaleOffer($request, $userId) {
             'phone' => $request->input('phone'),
             'price' => $request->input('price'),
             'price_description' => $request->input('price_description'),
-            'region_id' => $request->input('region_id'),
             'title' => $request->input('title'),
             'user_id' => $userId,
+            'working_hours' => $request->input('working_hours'),
         ];
 
         return Offer::create($data);
@@ -115,6 +120,8 @@ function getProfileSaleOffersValidator($request) {
             'address' => ['max:100'],
             'catalog_level_one_id' => ['required'],
             'catalog_level_two_id' => ['required'],
+            'contact_person' => ['max:100'],
+            'delivery_description' => ['max:100'],
             'description' => ['max:250'],
             'measure_id' => ['required'],
             'phone' => ['required', 'max:16'],
@@ -123,8 +130,8 @@ function getProfileSaleOffersValidator($request) {
             'photo_3' => ['image', 'max:10240'],
             'price' => ['required', 'max:10'],
             'price_description' => ['max:250'],
-            'region_id' => ['required'],
             'title' => ['required', 'max:50'],
+            'working_hours' => ['max:100'],
         ],
         [
             'image' => 'Поле должно содержать картинку, размером не более 10Мб',

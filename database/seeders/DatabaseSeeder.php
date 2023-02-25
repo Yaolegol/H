@@ -19,10 +19,10 @@ class DatabaseSeeder extends Seeder
             CatalogLevelOneSeeder::class,
             CatalogLevelTwoSeeder::class,
             MeasureSeeder::class,
-            OrganizationSeeder::class,
-            SalePointSeeder::class,
-            OfferSeeder::class,
-            SalePointOfferSeeder::class,
+//            OrganizationSeeder::class,
+//            SalePointSeeder::class,
+//            OfferSeeder::class,
+//            SalePointOfferSeeder::class,
         ]);
     }
 }
