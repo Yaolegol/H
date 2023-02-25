@@ -32,6 +32,7 @@ class Offer extends Model
         'map_marker_lat',
         'map_marker_lng',
         'is_active',
+        'is_approved',
         'user_id',
         'organization_id',
         'catalog_level_two_id',

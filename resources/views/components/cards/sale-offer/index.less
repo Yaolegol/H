@@ -5,10 +5,7 @@
     border-radius: 20px;
     max-width: 800px;
     padding: 20px;
-
-    &__remove-button-container {
-        margin-left: 15px;
-    }
+    position: relative;
 
     &__image {
         border: 1px solid @black_20;
@@ -56,6 +53,41 @@
         &_remove {
             color: @red;
         }
+    }
+
+    &__moderation-hint {
+        background: @white;
+        border: 1px solid @black_50;
+        border-radius: 8px;
+        font-weight: 400;
+        display: none;
+        padding: 10px;
+        position: absolute;
+        right: 0;
+        top: 65px;
+        width: 250px;
+
+        .components-cards-sale-offer__moderation-label:hover & {
+            display: block;
+        }
+    }
+
+    &__moderation-hint-container {
+        margin-top: 15px;
+    }
+
+    &__moderation-label {
+        background: #ffff40;
+        border-radius: 8px 0 0 8px;
+        font-weight: 600;
+        padding: 20px;
+        position: absolute;
+        right: 0;
+        top: 20px;
+    }
+
+    &__remove-button-container {
+        margin-left: 15px;
     }
 
     &__value {
