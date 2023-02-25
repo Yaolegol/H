@@ -73,7 +73,9 @@ class User extends Authenticatable
 
     public function offers()
     {
-        return $this->hasMany(Offer::class);
+        return $this->hasMany(Offer::class)->where([
+            'is_approved' => true,
+        ]);
     }
 
     public function organizations()
