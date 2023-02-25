@@ -4,14 +4,18 @@
     data-marker-lng="{{$markerLng ?? ''}}"
 >
     <input
-        class="j-map-yandex-components-add-marker__lat-input"
+        class="components-map-yandex-components-add-marker__input j-map-yandex-components-add-marker__lat-input"
         name="map_marker_lat"
-        type="hidden"
+        @isset($required)
+            required
+        @endisset
     >
     <input
-        class="j-map-yandex-components-add-marker__lng-input"
+        class="components-map-yandex-components-add-marker__input j-map-yandex-components-add-marker__lng-input"
         name="map_marker_lng"
-        type="hidden"
+        @isset($required)
+            required
+        @endisset
     >
     <div
         class="

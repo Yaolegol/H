@@ -164,8 +164,13 @@
                 ])
             @endcomponent
 
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Карта:'])
-                @include('modules.common.map.yandex.components.add-marker.index')
+            @component('modules.pages.profile.common.components.container.form-field.index', [
+                'required' => true,
+                'title' => 'Кликните на карте (адрес, указанный выше):'
+            ])
+                @include('modules.common.map.yandex.components.add-marker.index', [
+                    'required' => true,
+                ])
             @endcomponent
 
             @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Торговые точки (информацию о торговых точках можно добавить в разделе Вашего профиля - "Торговые точки"):'])
