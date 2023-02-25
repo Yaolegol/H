@@ -42,6 +42,7 @@ class MapYandexComponentsAddMarker {
     bind = () => {
         addEventListener(document, 'j-event__need-update-map-marker', this.handleUpdateMarker);
         addEventListener(document, 'j-event-map__check-ready-status', this.handleCheckMapReadyStatus);
+        addEventListener(document, 'j-event-modules-common-geo-components-button__update-geo', this.handleUpdateGeo);
     }
 
     handleCheckMapReadyStatus = () => {
@@ -52,6 +53,12 @@ class MapYandexComponentsAddMarker {
         const coords = e.get('coords');
 
         this.addMarkerFromClick(coords);
+    }
+
+    handleUpdateGeo = (e) => {
+        this.geo = e.detail.position;
+
+        this.showGeoCoordinates();
     }
 
     handleUpdateMarker = (e) => {
@@ -107,6 +114,15 @@ class MapYandexComponentsAddMarker {
     setLatLngInputsValues = ([lat, lng]) => {
         this.latInput.value = lat;
         this.lngInput.value = lng;
+    }
+
+    showGeoCoordinates = () => {
+        const {coords} = this.geo;
+        const {latitude, longitude} = coords;
+
+        this.mapInstance.setCenter([latitude, longitude], 15, {
+            duration: 1000,
+        });
     }
 }
 

@@ -6,7 +6,7 @@
         ])
         <form
             action="/profile/sale-offers"
-            class="form"
+            class="form modules-pages-profile-routes-sale-offers-create"
             enctype="multipart/form-data"
             method="POST"
         >
@@ -166,11 +166,21 @@
 
             @component('modules.pages.profile.common.components.container.form-field.index', [
                 'required' => true,
-                'title' => 'Пожалуйста, кликните на карте (адрес, указанный выше):'
+                'title' => 'Пожалуйста, кликните на карте (адрес, указанный выше), чтобы покупателям было проще Вас найти:'
             ])
-                @include('modules.common.map.yandex.components.add-marker.index', [
-                    'required' => true,
-                ])
+                <div class="modules-pages-profile-routes-sale-offers-create__map-geo-container">
+                    @include('components.buttons.filter.index', [
+                        'className' => 'j-modules-common-geo-components-button',
+                        'dataset' => [],
+                        'defaultTitle' => 'Приблизить карту ко мне',
+                        'title' => 'Приблизить карту ко мне',
+                    ])
+                </div>
+                <div class="modules-pages-profile-routes-sale-offers-create__map-container">
+                    @include('modules.common.map.yandex.components.add-marker.index', [
+                        'required' => true,
+                    ])
+                </div>
             @endcomponent
 
             @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Торговые точки (информацию о торговых точках можно добавить в разделе Вашего профиля - "Торговые точки"):'])
