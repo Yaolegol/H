@@ -1,5 +1,50 @@
 @import (reference) '~styles/colors';
 
 .components-checkboxes-map {
+    display: flex;
 
+    &__input {
+        height: 0;
+        opacity: 0;
+        outline: none;
+        pointer-events: none;
+        position: absolute;
+        width: 0;
+    }
+
+    &__input-label {
+        cursor: pointer;
+        display: flex;
+        position: relative;
+    }
+
+    &__marker-block {
+        border: 1px solid @black_20;
+        border-radius: 2px;
+        color: @primary;
+        height: 16px;
+        display: block;
+        width: 16px;
+    }
+
+    &__marker-container {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        opacity: 0;
+
+        .components-checkboxes-map__input:checked ~ .components-checkboxes-map__marker-block & {
+            opacity: 1;
+        }
+    }
+
+    &__title {
+        display: block;
+        margin-left: 10px;
+
+        .components-checkboxes-map__input:checked ~ & {
+            font-weight: 800;
+        }
+    }
 }
