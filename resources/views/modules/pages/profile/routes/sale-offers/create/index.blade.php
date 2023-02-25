@@ -166,7 +166,7 @@
 
             @component('modules.pages.profile.common.components.container.form-field.index', [
                 'required' => true,
-                'title' => 'Кликните на карте (адрес, указанный выше):'
+                'title' => 'Пожалуйста, кликните на карте (адрес, указанный выше):'
             ])
                 @include('modules.common.map.yandex.components.add-marker.index', [
                     'required' => true,
