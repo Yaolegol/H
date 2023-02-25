@@ -195,7 +195,7 @@
                 @endforeach
             @endcomponent
 
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Организация:'])
+            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Организация (информацию об организации можно добавить в разделе Вашего профиля - "Организации"):'])
                 @include('components.inputs.radio.group-first-level.index', [
                                     'groupName' => 'radio-group__organization',
                                     'itemsList' => $organizationsList,
