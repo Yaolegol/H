@@ -746,10 +746,13 @@
 .components-checkboxes-map__marker-block {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 2px;
-  color: #90d486;
+  color: #228B22;
   height: 16px;
   display: block;
   width: 16px;
+}
+.components-checkboxes-map__input:checked ~ .components-checkboxes-map__marker-block {
+  border-color: #228B22;
 }
 .components-checkboxes-map__marker-container {
   align-items: center;
@@ -798,10 +801,13 @@
 .components-checkboxes-with-text-area__marker-block {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 2px;
-  color: #90d486;
+  color: #228B22;
   height: 16px;
   display: block;
   width: 16px;
+}
+.components-checkboxes-with-text-area__input:checked ~ .components-checkboxes-with-text-area__input-label-container .components-checkboxes-with-text-area__marker-block {
+  border-color: #228B22;
 }
 .components-checkboxes-with-text-area__marker-container {
   align-items: center;
@@ -915,10 +921,13 @@
 .components-inputs-radio-item__marker-block {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 2px;
-  color: #90d486;
+  color: #228B22;
   height: 16px;
   display: block;
   width: 16px;
+}
+.components-inputs-radio-item__input:checked ~ .components-inputs-radio-item__marker-block {
+  border-color: #228B22;
 }
 .components-inputs-radio-item__marker-container {
   align-items: center;

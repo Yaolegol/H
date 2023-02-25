@@ -23,10 +23,14 @@
     &__marker-block {
         border: 1px solid @black_20;
         border-radius: 2px;
-        color: @primary;
+        color: @primary_100;
         height: 16px;
         display: block;
         width: 16px;
+
+        .components-checkboxes-with-text-area__input:checked ~ .components-checkboxes-with-text-area__input-label-container & {
+            border-color: @primary_100;
+        }
     }
 
     &__marker-container {
