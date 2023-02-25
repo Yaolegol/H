@@ -183,24 +183,32 @@
                 </div>
             @endcomponent
 
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Торговые точки (информацию о торговых точках можно добавить в разделе Вашего профиля - "Торговые точки"):'])
-                @foreach($salePointsList as $salePointItem)
-                    @include('components.checkboxes.map.index', [
-                        'map_marker_lat' => $salePointItem['map_marker_lat'],
-                        'map_marker_lng' => $salePointItem['map_marker_lng'],
-                        'name' => "sale-point_$loop->index",
-                        'title' => $salePointItem['title'],
-                        'value' => $salePointItem['id']
-                    ])
-                @endforeach
+            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Торговые точки:'])
+                @if(count($salePointsList) > 0)
+                    @foreach($salePointsList as $salePointItem)
+                        @include('components.checkboxes.map.index', [
+                            'map_marker_lat' => $salePointItem['map_marker_lat'],
+                            'map_marker_lng' => $salePointItem['map_marker_lng'],
+                            'name' => "sale-point_$loop->index",
+                            'title' => $salePointItem['title'],
+                            'value' => $salePointItem['id']
+                        ])
+                    @endforeach
+                @else
+                    <div>Информацию о торговых точках можно добавить в разделе Вашего профиля - "Торговые точки"</div>
+                @endif
             @endcomponent
 
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Организация (информацию об организации можно добавить в разделе Вашего профиля - "Организации"):'])
-                @include('components.inputs.radio.group-first-level.index', [
+            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Организация:'])
+                @if(count($organizationsList) > 0)
+                    @include('components.inputs.radio.group-first-level.index', [
                                     'groupName' => 'radio-group__organization',
                                     'itemsList' => $organizationsList,
                                     'inputName' => 'organization_id',
                                 ])
+                @else
+                    <div>Информацию об организации можно добавить в разделе Вашего профиля - "Организации"</div>
+                @endif
             @endcomponent
 
             @component('modules.pages.profile.common.components.container.section.index', ['title' => 'Фотографии товара'])
