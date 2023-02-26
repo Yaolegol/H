@@ -692,6 +692,41 @@
   margin-top: 100px;
 }
 
+.buttons-filter {
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  cursor: pointer;
+  display: flex;
+  min-height: 48px;
+  padding: 10px 20px;
+}
+.buttons-filter:hover {
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
+}
+.buttons-filter__reset-button {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.5);
+  line-height: 0;
+  margin-left: 10px;
+}
+.buttons-filter__reset-button:hover {
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
+  color: #000000;
+}
+.buttons-filter__reset-button svg {
+  height: 24px;
+  width: 24px;
+}
+.j-style-default-state .buttons-filter__reset-button {
+  display: none;
+}
+.buttons-filter__title {
+  font-weight: bold;
+}
+
 .components-form-error {
   color: #FF0000;
   font-size: 14px;
@@ -759,6 +794,7 @@
   padding: 0 30px;
   width: 100%;
 }
+
 
 .components-map-yandex-components-add-marker {
   padding-bottom: 100%;
@@ -977,6 +1013,13 @@
   .modules-pages-profile-common-components-container-header__title-container {
     margin-top: 25px;
   }
+}
+
+.modules-pages-profile-routes-sale-points-edit__map-container {
+  margin-top: 15px;
+}
+.modules-pages-profile-routes-sale-points-edit__map-geo-container {
+  margin-top: 15px;
 }
 
 .button {
