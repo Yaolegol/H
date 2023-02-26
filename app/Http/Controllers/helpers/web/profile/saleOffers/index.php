@@ -117,6 +117,7 @@ function getProfileSaleOffersValidator($request) {
     return Validator::make(
         $request->all(),
         [
+            'agreement' => ['accepted'],
             'address' => ['max:100'],
             'catalog_level_one_id' => ['required'],
             'catalog_level_two_id' => ['required'],
@@ -180,7 +181,7 @@ function getSaleOfferSalePointsListFormatted($saleOfferItemData) {
     return $userSalePointsList;
 }
 
-function getUserOrganizationsListFormatted($isApproved) {
+function getUserOrganizationsListFormatted($isApproved = false) {
     $userOrganizations = DB_getUserOrganizationsList($isApproved);
 
     return array_map(function($userOrganizationItem) {

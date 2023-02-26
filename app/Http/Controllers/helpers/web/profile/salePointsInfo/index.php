@@ -87,6 +87,7 @@ function getProfileSalePointsValidator($request) {
     return Validator::make(
         $request->all(),
         [
+            'agreement' => ['accepted'],
             'title' => ['required', 'max:50'],
             'address' => ['required', 'max:100'],
             'working_hours' => ['max:100'],
