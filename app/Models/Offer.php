@@ -53,12 +53,16 @@ class Offer extends Model
 
     public function organization()
     {
-        return $this->belongsTo(Organization::class);
+        return $this->belongsTo(Organization::class)->where([
+            'is_approved' => true,
+        ]);
     }
 
     public function salePoints()
     {
-        return $this->belongsToMany(SalePoint::class, 'sale_point_offer', 'offer_id', 'sale_point_id');
+        return $this->belongsToMany(SalePoint::class, 'sale_point_offer', 'offer_id', 'sale_point_id')->where([
+            'is_approved' => true,
+        ]);
     }
 
     public function user()

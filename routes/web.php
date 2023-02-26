@@ -3,6 +3,7 @@
 use App\Http\Controllers\controllers\map\mobileApp\MapMobileAppSinglePoint;
 use App\Http\Controllers\controllers\web\admin\offers\AdminOffersController;
 use App\Http\Controllers\controllers\web\admin\organizations\AdminOrganizationsController;
+use App\Http\Controllers\controllers\web\admin\salePoints\AdminSalePointsController;
 use App\Http\Controllers\controllers\web\admin\users\AdminUsersController;
 use App\Http\Controllers\controllers\web\authorization\login\LoginController;
 use App\Http\Controllers\controllers\web\authorization\logout\LogoutController;
@@ -59,6 +60,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/admin/organizations', [AdminOrganizationsController::class, 'index']);
     Route::post('/admin/organization/approve/{id}', [AdminOrganizationsController::class, 'approve']);
+
+    Route::get('/admin/sale-points', [AdminSalePointsController::class, 'index']);
+    Route::post('/admin/sale-point/approve/{id}', [AdminSalePointsController::class, 'approve']);
 
     Route::get('/favorites', [FavoritesController::class, 'index']);
     Route::get('/favorites/products', [FavoritesController::class, 'products']);

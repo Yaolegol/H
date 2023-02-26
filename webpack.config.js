@@ -37,6 +37,7 @@ const createConfig = (env, argv) => {
         entry: {
             admin_offers: path.resolve(appDirectoriesData.path_pages, 'admin', 'offers'),
             admin_organizations: path.resolve(appDirectoriesData.path_pages, 'admin', 'organizations'),
+            admin_salePoints: path.resolve(appDirectoriesData.path_pages, 'admin', 'salePoints'),
             admin_users: path.resolve(appDirectoriesData.path_pages, 'admin', 'users'),
             auth_login_index: path.resolve(appDirectoriesData.path_pages, 'auth', 'login', 'index'),
             auth_register_index: path.resolve(appDirectoriesData.path_pages, 'auth', 'register', 'index'),

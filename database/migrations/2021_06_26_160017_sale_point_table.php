@@ -28,6 +28,7 @@ class SalePointTable extends Migration
             $table->double('map_marker_lng')->nullable();
             $table->bigInteger('user_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->boolean('is_approved')->default(false);
             $table->timestamps();
         });
     }

@@ -82,6 +82,7 @@ function apiGetSalePointsData($offerItem) {
             'address' => $salePointItem['address'],
             'description' => $salePointItem['description'],
             'id' => $salePointItem['id'],
+            'is_approved' => $salePointItem['is_approved'],
             'phone' => $salePointItem['phone'],
             'title' => $salePointItem['title'],
             'working_hours' => $salePointItem['working_hours'],
