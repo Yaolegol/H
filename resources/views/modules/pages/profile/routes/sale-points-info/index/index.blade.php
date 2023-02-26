@@ -4,12 +4,17 @@
             'createTitle' => 'Добавить торговую точку',
             'title' => 'Ваши торговые точки'
         ])
-        @foreach ($salePointsList as $salePointItem)
-            @component('modules.pages.profile.common.components.container.card.index')
-                @include('components.cards.sale-point.index', [
-                                'salePoint' => $salePointItem,
-                            ])
-            @endcomponent
-        @endforeach
+        @if(count($salePointsList) > 0)
+            @foreach ($salePointsList as $salePointItem)
+                @component('modules.pages.profile.common.components.container.card.index')
+                    @include('components.cards.sale-point.index', [
+                                    'salePoint' => $salePointItem,
+                                ])
+                @endcomponent
+            @endforeach
+        @else
+            <div>Чтобы создать торговую точку, нажмите "Добавить торговую точку"</div>
+            <div>Это просто и бесплатно!</div>
+        @endif
     @endcomponent
 @endcomponent

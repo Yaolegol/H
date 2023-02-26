@@ -782,6 +782,9 @@
   margin-top: 5px;
 }
 
+.modules-pages-profile-common-components-body-index {
+  max-width: 600px;
+}
 .modules-pages-profile-common-components-body-index__content-container {
   margin-top: 50px;
 }
