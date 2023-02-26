@@ -1,4 +1,7 @@
 <div class="modules-pages-profile-common-components-container-footer">
+    <div>
+        @include('components.checkboxes.agreement.index')
+    </div>
     <div class="modules-pages-profile-common-components-container-footer__send-button-container">
         <button class="button button_form">Сохранить</button>
     </div>

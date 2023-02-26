@@ -1,0 +1,58 @@
+@import (reference) '~styles/colors';
+
+.components-checkboxes-agreement {
+    display: flex;
+
+    &__input {
+        height: 0;
+        opacity: 0;
+        outline: none;
+        pointer-events: none;
+        position: absolute;
+        width: 0;
+    }
+
+    &__input-label {
+        cursor: pointer;
+        display: flex;
+        position: relative;
+    }
+
+    &__link {
+        text-decoration-line: underline;
+    }
+
+    &__marker-block {
+        border: 1px solid @black_20;
+        border-radius: 2px;
+        color: @primary_100;
+        height: 16px;
+        display: block;
+        width: 16px;
+
+        .components-checkboxes-agreement__input:checked ~ & {
+            border-color: @primary_100;
+        }
+    }
+
+    &__marker-container {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        opacity: 0;
+
+        .components-checkboxes-agreement__input:checked ~ .components-checkboxes-agreement__marker-block & {
+            opacity: 1;
+        }
+    }
+
+    &__title {
+        display: block;
+        margin-left: 10px;
+
+        .components-checkboxes-agreement__input:checked ~ & {
+            font-weight: 800;
+        }
+    }
+}
