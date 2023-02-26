@@ -51,7 +51,7 @@ class ModalsCommon {
 
     handleOpen = (e) => {
         const {detail} = e;
-        const {templateId} = detail;
+        const {href, templateId} = detail;
 
         const template = document.querySelector(`.j-template[data-template-id="${templateId}"]`);
 
@@ -63,6 +63,12 @@ class ModalsCommon {
         document.body.classList.add('j-style-overflow-hidden');
 
         this.contentContainer.innerHTML = template.content.firstElementChild.outerHTML;
+        const content = this.contentContainer.querySelector('.j-template__content');
+
+        if(content) {
+            content.dataset.href = href;
+        }
+
         module.updateModules();
     }
 

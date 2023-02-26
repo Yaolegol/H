@@ -75,7 +75,11 @@
             <a class="components-cards-organization__link components-cards-organization__link_edit" href="./organization-info/edit/{{$organization['id']}}">Редактировать</a>
         </div>
         <div class="components-cards-organization__remove-button-container">
-            <a class="components-cards-organization__link components-cards-organization__link_remove" href="./organization-info/destroy/{{$organization['id']}}">Удалить</a>
+            <button
+                class="components-cards-organization__link components-cards-organization__link_remove j-components-buttons-modal-open"
+                data-href="/profile/organization-info/destroy/{{$organization['id']}}"
+                data-template-id="confirm-remove"
+            >Удалить</button>
         </div>
     </div>
 </div>

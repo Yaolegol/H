@@ -16,6 +16,7 @@ class ButtonsModalOpen {
     constructor(item) {
         this.module = item;
         this.templateId = this.module.dataset.templateId;
+        this.href = this.module.dataset.href;
 
         this.bind();
     }
@@ -27,6 +28,7 @@ class ButtonsModalOpen {
     handleClick = (e) => {
         document.dispatchEvent(new CustomEvent(OPEN, {
             detail: {
+                href: this.href,
                 templateId: this.templateId,
             }
         }));

@@ -82,3 +82,4 @@
 </div>
 
 @include('modules.common.catalog.modal.index')
+@include('modules.common.profile.modal.index')

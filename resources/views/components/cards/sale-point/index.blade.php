@@ -62,7 +62,11 @@
             <a class="components-cards-sale-point__link components-cards-sale-point__link_edit" href="./sale-points-info/edit/{{$salePoint['id']}}">Редактировать</a>
         </div>
         <div class="components-cards-sale-point__remove-button-container">
-            <a class="components-cards-sale-point__link components-cards-sale-point__link_remove" href="./sale-points-info/destroy/{{$salePoint['id']}}">Удалить</a>
+            <button
+                class="components-cards-sale-point__link components-cards-sale-point__link_remove j-components-buttons-modal-open"
+                data-href="/profile/sale-points-info/destroy/{{$salePoint['id']}}"
+                data-template-id="confirm-remove"
+            >Удалить</button>
         </div>
     </div>
 </div>
