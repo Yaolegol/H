@@ -50,10 +50,11 @@ Route::get('/logout', [LogoutController::class, 'index']);
 Route::get('/map/mobile-app/single-point', [MapMobileAppSinglePoint::class, 'singlePoint']);
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/admin/offers', [AdminOffersController::class, 'offers']);
+    Route::get('/admin/offers', [AdminOffersController::class, 'index']);
     Route::post('/admin/offer/approve/{id}', [AdminOffersController::class, 'approve']);
 
     Route::get('/admin/users', [AdminUsersController::class, 'index']);
+    Route::post('/admin/user/approve/{id}', [AdminUsersController::class, 'approve']);
 
     Route::get('/favorites', [FavoritesController::class, 'index']);
     Route::get('/favorites/products', [FavoritesController::class, 'products']);

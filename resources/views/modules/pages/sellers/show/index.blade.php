@@ -1,24 +1,27 @@
 <div class="modules-pages-sellers-show">
     <div class="modules-pages-sellers-show__content-area">
-        <h2 class="modules-pages-sellers-show__title">Продавец</h2>
-        <div class="modules-pages-sellers-show__header-block">
-            <div class="modules-pages-sellers-show__avatar-container">
-                <img  alt="" class="modules-pages-sellers-show__avatar" src="{{$sellerData['avatar']}}">
+        @if($sellerData['is_approved'] === 1)
+            <h2 class="modules-pages-sellers-show__title">Продавец</h2>
+            <div class="modules-pages-sellers-show__header-block">
+                <div class="modules-pages-sellers-show__avatar-container">
+                    <img  alt="" class="modules-pages-sellers-show__avatar" src="{{$sellerData['avatar']}}">
+                </div>
+                <div class="modules-pages-sellers-show__header-info-container">
+                    <div class="modules-pages-sellers-show__header-info-title">Имя</div>
+                    <div>{{$sellerData['name']}}</div>
+                    <div>{{$sellerData['description']}}</div>
+                </div>
+                <div class="modules-pages-sellers-show__header-info-container">
+                    <div class="modules-pages-sellers-show__header-info-title">Телефон</div>
+                    <a href="tel:+{{$sellerData['phone']}}">+{{$sellerData['phone']}}</a>
+                </div>
+                <div class="modules-pages-sellers-show__header-info-container">
+                    <div class="modules-pages-sellers-show__header-info-title">Email</div>
+                    <a href="mail:{{$sellerData['visible_email']}}">{{$sellerData['visible_email']}}</a>
+                </div>
             </div>
-            <div class="modules-pages-sellers-show__header-info-container">
-                <div class="modules-pages-sellers-show__header-info-title">Имя</div>
-                <div>{{$sellerData['name']}}</div>
-                <div>{{$sellerData['description']}}</div>
-            </div>
-            <div class="modules-pages-sellers-show__header-info-container">
-                <div class="modules-pages-sellers-show__header-info-title">Телефон</div>
-                <a href="tel:+{{$sellerData['phone']}}">+{{$sellerData['phone']}}</a>
-            </div>
-            <div class="modules-pages-sellers-show__header-info-container">
-                <div class="modules-pages-sellers-show__header-info-title">Email</div>
-                <a href="mail:{{$sellerData['visible_email']}}">{{$sellerData['visible_email']}}</a>
-            </div>
-        </div>
+        @endif
+
         <div class="modules-pages-sellers-show__offers-block">
             <h3 class="modules-pages-sellers-show__offers-title">Предложения продавца</h3>
             <div class="modules-pages-sellers-show__offers-container">

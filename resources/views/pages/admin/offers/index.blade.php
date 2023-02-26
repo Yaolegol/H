@@ -9,7 +9,7 @@
 
 <div class="j-csrf-token" data-value="{{ csrf_token() }}"></div>
 
-@include('modules.pages.admin.routes.index.index')
+@include('modules.pages.admin.routes.offers.index')
 
 <script
     defer

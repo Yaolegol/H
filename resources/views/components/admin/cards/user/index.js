@@ -6,8 +6,8 @@ class AdminCardUser {
     constructor(element) {
         this.module = element;
         this.id = this.module.dataset.id;
-        this.buttonApprove = this.module.querySelector('.j-components-admin-cards-offer__button-approve');
-        this.buttonReject = this.module.querySelector('.j-components-admin-cards-offer__button-reject');
+        this.buttonApprove = this.module.querySelector('.j-components-admin-cards-user__button-approve');
+        this.buttonReject = this.module.querySelector('.j-components-admin-cards-user__button-reject');
 
         this.init();
         this.bind();

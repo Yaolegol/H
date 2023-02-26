@@ -1,5 +1,5 @@
 <div class="modules-pages-admin-routes-offers">
-    @foreach($offersNotApprovedList as $offersNotApprovedItem)
+    @foreach($notApprovedList as $notApprovedItem)
         @component('components.admin.listItem.index')
             @include('components.admin.cards.offer.index')
         @endcomponent
