@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\controllers\map\mobileApp\MapMobileAppSinglePoint;
-use App\Http\Controllers\controllers\web\admin\AdminController;
+use App\Http\Controllers\controllers\web\admin\offers\AdminOffersController;
+use App\Http\Controllers\controllers\web\admin\users\AdminUsersController;
 use App\Http\Controllers\controllers\web\authorization\login\LoginController;
 use App\Http\Controllers\controllers\web\authorization\logout\LogoutController;
 use App\Http\Controllers\controllers\web\authorization\register\RegisterController;
@@ -49,8 +50,10 @@ Route::get('/logout', [LogoutController::class, 'index']);
 Route::get('/map/mobile-app/single-point', [MapMobileAppSinglePoint::class, 'singlePoint']);
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/admin', [AdminController::class, 'index']);
-    Route::post('/admin/offer/approve/{id}', [AdminController::class, 'approve']);
+    Route::get('/admin/offers', [AdminOffersController::class, 'offers']);
+    Route::post('/admin/offer/approve/{id}', [AdminOffersController::class, 'approve']);
+
+    Route::get('/admin/users', [AdminUsersController::class, 'index']);
 
     Route::get('/favorites', [FavoritesController::class, 'index']);
     Route::get('/favorites/products', [FavoritesController::class, 'products']);
@@ -61,7 +64,6 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/profile/personal-info', [ProfilePersonalDataController::class, 'index']);
     Route::post('/profile/personal-info/edit-personal-data', [ProfilePersonalDataController::class, 'editPersonalData']);
-    Route::post('/profile/personal-info/edit-email', [ProfilePersonalDataController::class, 'editEmail']);
     Route::post('/profile/personal-info/edit-password', [ProfilePersonalDataController::class, 'editPassword']);
 
     Route::get('/profile/organization-info/create', [ProfileOrganizationDataController::class, 'create']);
