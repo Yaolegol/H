@@ -47,9 +47,33 @@ class AdminUsersController extends Controller
             return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
         }
 
-        $newStatus = $request->input('approve');
+        updateUserApproveStatus($id, 1);
 
-        updateUserApproveStatus($id, $newStatus);
+        $data = [
+            'success' => true,
+            'errors' => [],
+        ];
+
+        return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function reject(Request $request, $id)
+    {
+        if(!Auth::check() || !Auth::user()->is_admin) {
+            $data = [
+                'success' => false,
+                'errors' => ['Not auth'],
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+        }
+
+        rejectUser($id, $request);
 
         $data = [
             'success' => true,

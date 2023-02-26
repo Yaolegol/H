@@ -45,6 +45,8 @@ function DB_tryChangeUserPersonalDataInDB($request)
         $authUser->name = $name;
         $authUser->description = $description;
         $authUser->visible_email = $visible_email;
+        $authUser->is_approved = false;
+        $authUser->approved_error_message = null;
 
         updateUserAvatar($authUser, $request);
 
@@ -125,6 +127,8 @@ function filterUserData($userData) {
             || $key === 'name'
             || $key === 'description'
             || $key === 'visible_email'
+            || $key === 'is_approved'
+            || $key === 'approved_error_message'
             || $key === 'phone';
     }, ARRAY_FILTER_USE_KEY);
 }

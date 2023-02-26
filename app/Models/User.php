@@ -24,6 +24,8 @@ class User extends Authenticatable
         'visible_email',
         'password',
         'phone',
+        'is_approved',
+        'approved_error_message'
     ];
 
     /**

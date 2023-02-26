@@ -2,12 +2,13 @@ import {addEventListener} from "helpers/events";
 import {module} from "helpers/module";
 import './index.less';
 
-class AdminCardUser {
+class AdminCard {
     constructor(element) {
         this.module = element;
         this.id = this.module.dataset.id;
         this.buttonApprove = this.module.querySelector('.j-components-admin-cards-user__button-approve');
         this.buttonReject = this.module.querySelector('.j-components-admin-cards-user__button-reject');
+        this.textarea = this.module.querySelector('.j-components-admin-cards-user__textarea');
 
         this.init();
         this.bind();
@@ -19,7 +20,7 @@ class AdminCardUser {
     }
 
     handleApprove = async () => {
-        const {errors, success} = await this.sendApproveRequest(1);
+        const {errors, success} = await this.sendApproveRequest();
 
         if(!success) {
             return;
@@ -29,7 +30,17 @@ class AdminCardUser {
     }
 
     handleReject = async () => {
-        const {errors, success} = await this.sendApproveRequest(-1);
+        if(!this.textarea.value) {
+            window.alert('Не указана причина отклонения!');
+        }
+
+        const data = {
+            error: {
+                message: this.textarea.value,
+            }
+        }
+
+        const {errors, success} = await this.sendRejectRequest(data);
 
         if(!success) {
             return;
@@ -42,15 +53,30 @@ class AdminCardUser {
         this.setCSRFToken();
     }
 
-    sendApproveRequest = async (isApproved) => {
-        const data = {
-            approve: isApproved,
+    sendApproveRequest = async () => {
+        try {
+            const response = await fetch(`/admin/user/approve/${this.id}`, {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': this.CSRFToken,
+                },
+                method: 'POST',
+            });
+
+            return response.json();
+        } catch(e) {
+            console.error(e);
         }
 
+        return {};
+    }
+
+    sendRejectRequest = async (data) => {
         try {
             const body = JSON.stringify(data);
 
-            const response = await fetch(`/admin/user/approve/${this.id}`, {
+            const response = await fetch(`/admin/user/reject/${this.id}`, {
                 body,
                 headers: {
                     'Accept': 'application/json',
@@ -75,4 +101,4 @@ class AdminCardUser {
     }
 }
 
-module.initModule('j-components-admin-cards-user', AdminCardUser);
+module.initModule('j-components-admin-cards-user', AdminCard);

@@ -837,6 +837,9 @@
     flex-direction: column;
   }
 }
+.modules-pages-profile-routes-personal-info-index__approve-container {
+  margin-top: 25px;
+}
 .modules-pages-profile-routes-personal-info-index__change-email-container {
   margin-top: 15px;
 }
@@ -896,6 +899,40 @@
 }
 .modules-pages-profile-routes-personal-info-index__input-container {
   margin-top: 5px;
+}
+.modules-pages-profile-routes-personal-info-index__moderation-hint {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  color: #000000;
+  display: none;
+  font-weight: 400;
+  padding: 10px;
+  position: absolute;
+  right: 0;
+  top: 65px;
+  width: 250px;
+}
+.modules-pages-profile-routes-personal-info-index__moderation-label:not(.modules-pages-profile-routes-personal-info-index__moderation-label_approved):hover .modules-pages-profile-routes-personal-info-index__moderation-hint {
+  display: block;
+}
+.modules-pages-profile-routes-personal-info-index__moderation-hint-container {
+  margin-top: 15px;
+}
+.modules-pages-profile-routes-personal-info-index__moderation-label {
+  background: #ffff40;
+  border-radius: 8px 0 0 8px;
+  font-weight: 600;
+  padding: 20px;
+  position: relative;
+}
+.modules-pages-profile-routes-personal-info-index__moderation-label_approved {
+  background: #46a02e;
+  color: #FFFFFF;
+}
+.modules-pages-profile-routes-personal-info-index__moderation-label_reject {
+  background: #e34132;
+  color: #FFFFFF;
 }
 .modules-pages-profile-routes-personal-info-index__photo-block {
   margin-top: 25px;
