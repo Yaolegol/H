@@ -697,9 +697,7 @@
   border-radius: 20px;
   max-width: 800px;
   padding: 20px;
-}
-.components-cards-sale-point__remove-button-container {
-  margin-left: 15px;
+  position: relative;
 }
 .components-cards-sale-point__image {
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -740,6 +738,45 @@
 }
 .components-cards-sale-point__link_remove {
   color: #FF0000;
+}
+.components-cards-sale-point__moderation-hint {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  color: #000000;
+  display: none;
+  font-weight: 400;
+  padding: 10px;
+  position: absolute;
+  right: 0;
+  top: 65px;
+  width: 250px;
+}
+.components-cards-sale-point__moderation-label:not(.components-cards-sale-point__moderation-label_approved):hover .components-cards-sale-point__moderation-hint {
+  display: block;
+}
+.components-cards-sale-point__moderation-hint-container {
+  margin-top: 15px;
+}
+.components-cards-sale-point__moderation-label {
+  background: #ffff40;
+  border-radius: 8px 0 0 8px;
+  font-weight: 600;
+  padding: 20px;
+  position: absolute;
+  right: 0;
+  top: 20px;
+}
+.components-cards-sale-point__moderation-label_approved {
+  background: #46a02e;
+  color: #FFFFFF;
+}
+.components-cards-sale-point__moderation-label_reject {
+  background: #e34132;
+  color: #FFFFFF;
+}
+.components-cards-sale-point__remove-button-container {
+  margin-left: 15px;
 }
 .components-cards-sale-point__value {
   margin-top: 5px;

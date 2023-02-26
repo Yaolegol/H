@@ -10,8 +10,6 @@ require_once('app/Http/Controllers/helpers/web/admin/users/index.php');
 require_once('app/Http/Controllers/helpers/common/assets/index.php');
 require_once('app/Http/Controllers/helpers/common/catalog/index.php');
 require_once('app/Http/Controllers/helpers/web/offers/index.php');
-require_once('app/Http/Controllers/helpers/api/admin/index.php');
-require_once('app/Http/Controllers/helpers/api/admin/index.php');
 
 class AdminUsersController extends Controller
 {

@@ -78,6 +78,11 @@
 .components-admin-cards-sale-point__remove-button-container {
   margin-left: 15px;
 }
+.components-admin-cards-sale-point__textarea-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
 .components-admin-cards-sale-point__value {
   margin-top: 5px;
 }

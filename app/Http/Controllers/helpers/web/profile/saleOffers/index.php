@@ -180,8 +180,8 @@ function getSaleOfferSalePointsListFormatted($saleOfferItemData) {
     return $userSalePointsList;
 }
 
-function getUserOrganizationsListFormatted() {
-    $userOrganizations = DB_getUserOrganizationsList();
+function getUserOrganizationsListFormatted($isApproved) {
+    $userOrganizations = DB_getUserOrganizationsList($isApproved);
 
     return array_map(function($userOrganizationItem) {
         $userOrganizationItemId = $userOrganizationItem['id'];

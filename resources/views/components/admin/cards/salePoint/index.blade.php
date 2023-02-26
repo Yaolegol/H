@@ -63,6 +63,9 @@
             >Заблокировать</button>
         </div>
     </div>
+    <div class="components-admin-cards-sale-point__textarea-container">
+        <textarea class="j-components-admin-cards-sale-point__textarea"></textarea>
+    </div>
 </div>
 
 

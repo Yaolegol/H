@@ -5,10 +5,7 @@
     border-radius: 20px;
     max-width: 800px;
     padding: 20px;
-
-    &__remove-button-container {
-        margin-left: 15px;
-    }
+    position: relative;
 
     &__image {
         border: 1px solid @black_20;
@@ -56,6 +53,52 @@
         &_remove {
             color: @red;
         }
+    }
+
+    &__moderation-hint {
+        background: @white;
+        border: 1px solid @black_50;
+        border-radius: 8px;
+        color: @black;
+        display: none;
+        font-weight: 400;
+        padding: 10px;
+        position: absolute;
+        right: 0;
+        top: 65px;
+        width: 250px;
+
+        .components-cards-organization__moderation-label:not(.components-cards-organization__moderation-label_approved):hover & {
+            display: block;
+        }
+    }
+
+    &__moderation-hint-container {
+        margin-top: 15px;
+    }
+
+    &__moderation-label {
+        background: #ffff40;
+        border-radius: 8px 0 0 8px;
+        font-weight: 600;
+        padding: 20px;
+        position: absolute;
+        right: 0;
+        top: 20px;
+
+        &_approved {
+            background: @green_100;
+            color: @white;
+        }
+
+        &_reject {
+            background: @red_tomatoes-cherry;
+            color: @white;
+        }
+    }
+
+    &__remove-button-container {
+        margin-left: 15px;
     }
 
     &__value {

@@ -1,4 +1,32 @@
 <div class="components-cards-sale-point">
+    @if($salePoint['approved_error_message'])
+        <div class="components-cards-sale-point__moderation-label components-cards-sale-point__moderation-label_reject">
+            Отклонено
+            <div class="components-cards-sale-point__moderation-hint">
+                <div>Причина отклонения:</div>
+                <div class="components-cards-sale-point__moderation-hint-container">
+                    {{$salePoint['approved_error_message']}}
+                </div>
+                <div class="components-cards-sale-point__moderation-hint-container">
+                    Как исправить?
+                </div>
+                <div class="components-cards-sale-point__moderation-hint-container">
+                    Вы можете отредактировать сообщение и оно сново будет отправлено на проверку
+                </div>
+            </div>
+        </div>
+    @else
+        <div class="components-cards-sale-point__moderation-label {{$salePoint['is_approved'] ? 'components-cards-sale-point__moderation-label_approved' : ''}}">
+            {{$salePoint['is_approved'] ? 'Опубликовано' : 'На проверке'}}
+            <div class="components-cards-sale-point__moderation-hint">
+                <div>Ваше сообщение проверяется администрацией сайта!</div>
+                <div class="components-cards-sale-point__moderation-hint-container">После проверки оно будет опубликовано или отклонено с указанием причины</div>
+                <div class="components-cards-sale-point__moderation-hint-container">Обычно проверка занимает не более суток</div>
+                <div class="components-cards-sale-point__moderation-hint-container">Спасибо за терпение!</div>
+            </div>
+        </div>
+    @endif
+
     <div class="components-cards-sale-point__item-container components-cards-sale-point__item-container_without-offset">
         <div class="components-cards-sale-point__title">Название</div>
         <div class="components-cards-sale-point__value">{{$salePoint['title']}}</div>

@@ -80,11 +80,15 @@ class User extends Authenticatable
 
     public function organizations()
     {
-        return $this->hasMany(Organization::class);
+        return $this->hasMany(Organization::class)->where([
+            ['is_approved', 1]
+        ]);
     }
 
     public function salePoints()
     {
-        return $this->hasMany(SalePoint::class);
+        return $this->hasMany(SalePoint::class)->where([
+            ['is_approved', 1]
+        ]);
     }
 }

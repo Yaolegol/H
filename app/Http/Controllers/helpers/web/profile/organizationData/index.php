@@ -47,13 +47,23 @@ function DB_getUserOrganizationItem($userId, $organizationId)
     }
 }
 
-function DB_getUserOrganizationsList()
+function DB_getUserOrganizationsList($isApproved = false)
 {
     try {
         $authUser = Auth::user();
         $authUserId = $authUser->id;
 
-        return Organization::where('user_id', $authUserId)->get()->toArray();
+        $filter = [
+            ['user_id', $authUserId],
+        ];
+
+        if($isApproved) {
+            array_push($filter, [
+                'is_approved', 1
+            ]);
+        }
+
+        return Organization::where($filter)->get()->toArray();
     } catch(\Exception $err) {
         return abort(500);
     }
@@ -256,6 +266,8 @@ function tryUpdateOrganizationDataInDB($request, $organizationId) {
         'email' => $request->input('email') ?? '',
         'phone' => $request->input('phone') ?? '',
         'user_id' => $authUserId,
+        'is_approved' => false,
+        'approved_error_message' => null,
     ];
 
     $updatedPhotoList = STORAGE_updateOrganizationAssets($authUserId, $organizationId, $request, 'photo', 3);

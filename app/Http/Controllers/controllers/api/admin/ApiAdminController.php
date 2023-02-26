@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-require_once('app/Http/Controllers/helpers/api/admin/index.php');
-
 class ApiAdminController extends Controller
 {
     /**

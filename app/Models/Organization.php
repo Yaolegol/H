@@ -17,6 +17,7 @@ class Organization extends Model
      * @var array
      */
     protected $fillable = [
+        'approved_error_message',
         'title',
         'inn',
         'legal_address',

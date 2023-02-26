@@ -50,13 +50,23 @@ function DB_getUserSalePointItem($userId, $salePointId) {
     }
 }
 
-function DB_getUserSalePoints()
+function DB_getUserSalePoints($approved = false)
 {
     try {
         $authUser = Auth::user();
         $authUserId = $authUser->id;
 
-        return SalePoint::where('user_id', $authUserId)->get()->toArray();
+        $filter = [
+            ['user_id', $authUserId],
+        ];
+
+        if($approved) {
+            array_push($filter, [
+                'is_approved', 1
+            ]);
+        }
+
+        return SalePoint::where($filter)->get()->toArray();
     } catch(\Exception $error) {
         return abort(500);
     }
@@ -192,6 +202,8 @@ function tryUpdateSalePointDataInDB($request, $salePointId) {
             'map_marker_lat' => $request->input('map_marker_lat'),
             'map_marker_lng' => $request->input('map_marker_lng'),
             'user_id' => $user_id,
+            'is_approved' => false,
+            'approved_error_message' => null,
         ];
 
         $path = getSalePointAssetPath($salePointId);

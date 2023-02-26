@@ -41,8 +41,8 @@ class ProfileSaleOffersController extends Controller
     {
         $catalogFull = getCatalogFull();
         $measureList = getMeasures();
-        $organizationsList = getUserOrganizationsListFormatted();
-        $salePointsList = DB_getUserSalePoints();
+        $organizationsList = getUserOrganizationsListFormatted(true);
+        $salePointsList = DB_getUserSalePoints(true);
         $catalogCategoriesList = getCatalogCategoriesList($catalogFull);
         $catalogSubCategoriesList = getCatalogSubCategoriesList($catalogFull);
 

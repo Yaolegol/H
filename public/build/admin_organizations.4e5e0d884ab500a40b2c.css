@@ -78,6 +78,11 @@
 .components-admin-cards-organization__remove-button-container {
   margin-left: 15px;
 }
+.components-admin-cards-organization__textarea-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
 .components-admin-cards-organization__value {
   margin-top: 5px;
 }

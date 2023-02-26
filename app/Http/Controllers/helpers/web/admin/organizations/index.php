@@ -6,18 +6,20 @@ function DB_getOrganizationsNotApproved() {
     try {
         return Organization::where([
             ['is_approved', 0],
+            ['approved_error_message', '=', null],
         ])->get()->toArray();
     } catch(\Exception $err) {
         return abort(500);
     }
 }
 
-function DB_updateOrganizationApprovedStatus($id, $newStatus) {
+function DB_updateOrganizationApprovedStatus($id, $newStatus, $errorMessage = null) {
     try {
         return Organization::where([
             ['id', $id],
         ])->update([
-            'is_approved' => $newStatus
+            'is_approved' => $newStatus,
+            'approved_error_message' => $errorMessage,
         ]);
     } catch(\Exception $err) {
         return abort(500);
@@ -49,4 +51,11 @@ function _setOrganizationImages(&$organizationItem) {
 
 function updateOrganizationApproveStatus($id, $newStatus) {
     DB_updateOrganizationApprovedStatus($id, $newStatus);
+}
+
+function rejectOrganization($id, $request) {
+    $requestData = $request->all();
+    $errorMessage = $requestData['error']['message'];
+
+    DB_updateOrganizationApprovedStatus($id, 0, $errorMessage);
 }

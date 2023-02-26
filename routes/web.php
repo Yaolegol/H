@@ -58,12 +58,15 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/admin/users', [AdminUsersController::class, 'index']);
     Route::post('/admin/user/approve/{id}', [AdminUsersController::class, 'approve']);
+    Route::post('/admin/user/reject/{id}', [AdminUsersController::class, 'reject']);
 
     Route::get('/admin/organizations', [AdminOrganizationsController::class, 'index']);
     Route::post('/admin/organization/approve/{id}', [AdminOrganizationsController::class, 'approve']);
+    Route::post('/admin/organization/reject/{id}', [AdminOrganizationsController::class, 'reject']);
 
     Route::get('/admin/sale-points', [AdminSalePointsController::class, 'index']);
     Route::post('/admin/sale-point/approve/{id}', [AdminSalePointsController::class, 'approve']);
+    Route::post('/admin/sale-point/reject/{id}', [AdminSalePointsController::class, 'reject']);
 
     Route::get('/favorites', [FavoritesController::class, 'index']);
     Route::get('/favorites/products', [FavoritesController::class, 'products']);

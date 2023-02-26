@@ -6,18 +6,20 @@ function DB_getSalePointsNotApproved() {
     try {
         return SalePoint::where([
             ['is_approved', 0],
+            ['approved_error_message', '=', null],
         ])->get()->toArray();
     } catch(\Exception $err) {
         return abort(500);
     }
 }
 
-function DB_updateSalePointsApprovedStatus($id, $newStatus) {
+function DB_updateSalePointsApprovedStatus($id, $newStatus, $errorMessage = null) {
     try {
         return SalePoint::where([
             ['id', $id],
         ])->update([
-            'is_approved' => $newStatus
+            'is_approved' => $newStatus,
+            'approved_error_message' => $errorMessage,
         ]);
     } catch(\Exception $err) {
         return abort(500);
@@ -48,4 +50,11 @@ function _setSalePointsImages(&$salePointItem) {
 
 function updateSalePointsApproveStatus($id, $newStatus) {
     DB_updateSalePointsApprovedStatus($id, $newStatus);
+}
+
+function rejectSalePoint($id, $request) {
+    $requestData = $request->all();
+    $errorMessage = $requestData['error']['message'];
+
+    DB_updateSalePointsApprovedStatus($id, 0, $errorMessage);
 }

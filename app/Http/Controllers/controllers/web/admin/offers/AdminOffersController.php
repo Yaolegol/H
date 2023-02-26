@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 require_once('app/Http/Controllers/helpers/web/admin/offers/index.php');
 require_once('app/Http/Controllers/helpers/common/catalog/index.php');
 require_once('app/Http/Controllers/helpers/web/offers/index.php');
-require_once('app/Http/Controllers/helpers/api/admin/index.php');
 
 class AdminOffersController extends Controller
 {

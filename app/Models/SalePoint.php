@@ -15,6 +15,7 @@ class SalePoint extends Model
      * @var array
      */
     protected $fillable = [
+        'approved_error_message',
         'title',
         'address',
         'working_hours',

@@ -11,7 +11,6 @@ require_once('app/Http/Controllers/helpers/web/profile/organizationData/index.ph
 require_once('app/Http/Controllers/helpers/common/assets/index.php');
 require_once('app/Http/Controllers/helpers/common/catalog/index.php');
 require_once('app/Http/Controllers/helpers/web/offers/index.php');
-require_once('app/Http/Controllers/helpers/api/admin/index.php');
 
 class AdminOrganizationsController extends Controller
 {
@@ -49,9 +48,33 @@ class AdminOrganizationsController extends Controller
             return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
         }
 
-        $newStatus = $request->input('approve');
+        updateOrganizationApproveStatus($id, 1);
 
-        updateOrganizationApproveStatus($id, $newStatus);
+        $data = [
+            'success' => true,
+            'errors' => [],
+        ];
+
+        return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function reject(Request $request, $id)
+    {
+        if(!Auth::check() || !Auth::user()->is_admin) {
+            $data = [
+                'success' => false,
+                'errors' => ['Not auth'],
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+        }
+
+        rejectOrganization($id, $request);
 
         $data = [
             'success' => true,
