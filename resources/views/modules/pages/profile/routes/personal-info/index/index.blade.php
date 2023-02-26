@@ -149,6 +149,7 @@
                                     @include('components.inputs.form.index', [
                                     'name' => 'current_password',
                                     'placeholder' => 'Текущий пароль',
+                                    'required' => true,
                                     'type' => 'password'
                                 ])
                                     @include('components.form.error.index', [
@@ -162,6 +163,7 @@
                                     @include('components.inputs.form.index', [
                                     'name' => 'password',
                                     'placeholder' => 'Новый пароль',
+                                    'required' => true,
                                     'type' => 'password'
                                 ])
                                     @include('components.form.error.index', [
@@ -175,6 +177,7 @@
                                     @include('components.inputs.form.index', [
                                     'name' => 'password_confirmation',
                                     'placeholder' => 'Подтверждение нового пароля',
+                                    'required' => true,
                                     'type' => 'password'
                                 ])
                                     @include('components.form.error.index', [
@@ -184,6 +187,10 @@
                             </div>
                             <div class="modules-pages-profile-routes-personal-info-index__send-button-container">
                                 <button class="button">Сохранить</button>
+                            </div>
+                            <div class="modules-pages-profile-routes-personal-info-index__info-container-required">
+                                <div>* Для сохранения необходимо заполнить все обязательные поля</div>
+                                <div>После заполнения всех обязательных полей данное сообщение будет скрыто</div>
                             </div>
                             @include('components.form.error.index', [
                                 'message' => session('commonChangePasswordError'),
