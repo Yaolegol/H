@@ -12,6 +12,18 @@ function DB_getUsersNotApproved() {
     }
 }
 
+function DB_updateUserApprovedStatus($id, $newStatus) {
+    try {
+        return User::where([
+            ['id', $id],
+        ])->update([
+            'is_approved' => $newStatus
+        ]);
+    } catch(\Exception $err) {
+        return abort(500);
+    }
+}
+
 function _formatUser(&$userItem) {
     _setUserAvatar($userItem);
 }
@@ -34,4 +46,8 @@ function _setUserAvatar(&$userItem) {
     $url = formatAssetPath($userItem['avatar']);
 
     $userItem['avatar_photo'] = $url;
+}
+
+function updateUserApproveStatus($id, $newStatus) {
+    DB_updateUserApprovedStatus($id, $newStatus);
 }

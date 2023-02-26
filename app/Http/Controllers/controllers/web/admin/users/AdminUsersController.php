@@ -51,7 +51,7 @@ class AdminUsersController extends Controller
 
         $newStatus = $request->input('approve');
 
-        updateOfferApproveStatus($id, $newStatus);
+        updateUserApproveStatus($id, $newStatus);
 
         $data = [
             'success' => true,
