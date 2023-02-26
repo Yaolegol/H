@@ -64,77 +64,79 @@
                     >{{$offer['user']['name']}}</a>
                 </div>
                 @isset($offer['organization'])
-                    <div class="modules-pages-offers-routes-show__info-block">
-                        <h4 class="modules-pages-offers-routes-show__info-block-title">Организация</h4>
-                        <div class="modules-pages-offers-routes-show__info-block-content">
-                            <div class="modules-pages-offers-routes-show__info-item-container">
-                                <div class="modules-pages-offers-routes-show__info-item-title">Название</div>
-                                <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['organization']['title']}}</div>
-                            </div>
-                            <div class="modules-pages-offers-routes-show__info-item-container">
-                                <div class="modules-pages-offers-routes-show__info-item-title">Описание</div>
-                                <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['organization']['description']}}</div>
-                            </div>
-                            <div class="modules-pages-offers-routes-show__info-item-container">
-                                <div class="modules-pages-offers-routes-show__info-item-title">ИНН</div>
-                                <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['organization']['inn']}}</div>
-                            </div>
-                            <div class="modules-pages-offers-routes-show__info-item-container">
-                                <div class="modules-pages-offers-routes-show__info-item-title">Фактический адрес</div>
-                                <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['organization']['real_address']}}</div>
-                            </div>
-                            <div class="modules-pages-offers-routes-show__info-item-container">
-                                <div class="modules-pages-offers-routes-show__info-item-title">Юридический адрес</div>
-                                <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['organization']['legal_address']}}</div>
-                            </div>
-                            <div class="modules-pages-offers-routes-show__info-item-container">
-                                <div class="modules-pages-offers-routes-show__info-item-title">Email</div>
-                                <a
-                                    class="modules-pages-offers-routes-show__info-item-description"
-                                    href="mail:{{$offer['organization']['email']}}"
-                                >{{$offer['organization']['email']}}</a>
-                            </div>
-                            <div class="modules-pages-offers-routes-show__info-item-container">
-                                <div class="modules-pages-offers-routes-show__info-item-title">Телефон</div>
-                                <a
-                                    class="modules-pages-offers-routes-show__info-item-description"
-                                    href="tel:{{$offer['organization']['phone']}}"
-                                >{{$offer['organization']['phone']}}</a>
-                            </div>
-                            @if(!empty($offer['organization']['certificateArray']))
+                    @if($offer['organization']['is_approved'] == 1)
+                        <div class="modules-pages-offers-routes-show__info-block">
+                            <h4 class="modules-pages-offers-routes-show__info-block-title">Организация</h4>
+                            <div class="modules-pages-offers-routes-show__info-block-content">
                                 <div class="modules-pages-offers-routes-show__info-item-container">
-                                    <div class="modules-pages-offers-routes-show__info-item-title">Сертификаты организации:</div>
-                                    <div class="modules-pages-offers-routes-show__slider-container">
-                                        @component('components.sliders.base.slider.index')
-                                            @foreach($offer['organization']['certificateArray'] as $certificateImg)
-                                                @component('components.sliders.base.slide.index')
-                                                    <div class="modules-pages-offers-routes-show__slider-image-container">
-                                                        <img alt="" class="modules-pages-offers-routes-show__slider-image" src="{{$certificateImg}}">
-                                                    </div>
-                                                @endcomponent
-                                            @endforeach
-                                        @endcomponent
-                                    </div>
+                                    <div class="modules-pages-offers-routes-show__info-item-title">Название</div>
+                                    <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['organization']['title']}}</div>
                                 </div>
-                            @endif
-                            @if(!empty($offer['organization']['photoArray']))
                                 <div class="modules-pages-offers-routes-show__info-item-container">
-                                    <div class="modules-pages-offers-routes-show__info-item-title">Фото оргинизации:</div>
-                                    <div class="modules-pages-offers-routes-show__slider-container">
-                                        @component('components.sliders.base.slider.index')
-                                            @foreach($offer['organization']['photoArray'] as $photoImg)
-                                                @component('components.sliders.base.slide.index')
-                                                    <div class="modules-pages-offers-routes-show__slider-image-container">
-                                                        <img alt="" class="modules-pages-offers-routes-show__slider-image" src="{{$photoImg}}">
-                                                    </div>
-                                                @endcomponent
-                                            @endforeach
-                                        @endcomponent
-                                    </div>
+                                    <div class="modules-pages-offers-routes-show__info-item-title">Описание</div>
+                                    <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['organization']['description']}}</div>
                                 </div>
-                            @endif
+                                <div class="modules-pages-offers-routes-show__info-item-container">
+                                    <div class="modules-pages-offers-routes-show__info-item-title">ИНН</div>
+                                    <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['organization']['inn']}}</div>
+                                </div>
+                                <div class="modules-pages-offers-routes-show__info-item-container">
+                                    <div class="modules-pages-offers-routes-show__info-item-title">Фактический адрес</div>
+                                    <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['organization']['real_address']}}</div>
+                                </div>
+                                <div class="modules-pages-offers-routes-show__info-item-container">
+                                    <div class="modules-pages-offers-routes-show__info-item-title">Юридический адрес</div>
+                                    <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['organization']['legal_address']}}</div>
+                                </div>
+                                <div class="modules-pages-offers-routes-show__info-item-container">
+                                    <div class="modules-pages-offers-routes-show__info-item-title">Email</div>
+                                    <a
+                                        class="modules-pages-offers-routes-show__info-item-description"
+                                        href="mail:{{$offer['organization']['email']}}"
+                                    >{{$offer['organization']['email']}}</a>
+                                </div>
+                                <div class="modules-pages-offers-routes-show__info-item-container">
+                                    <div class="modules-pages-offers-routes-show__info-item-title">Телефон</div>
+                                    <a
+                                        class="modules-pages-offers-routes-show__info-item-description"
+                                        href="tel:{{$offer['organization']['phone']}}"
+                                    >{{$offer['organization']['phone']}}</a>
+                                </div>
+                                @if(!empty($offer['organization']['certificateArray']))
+                                    <div class="modules-pages-offers-routes-show__info-item-container">
+                                        <div class="modules-pages-offers-routes-show__info-item-title">Сертификаты организации:</div>
+                                        <div class="modules-pages-offers-routes-show__slider-container">
+                                            @component('components.sliders.base.slider.index')
+                                                @foreach($offer['organization']['certificateArray'] as $certificateImg)
+                                                    @component('components.sliders.base.slide.index')
+                                                        <div class="modules-pages-offers-routes-show__slider-image-container">
+                                                            <img alt="" class="modules-pages-offers-routes-show__slider-image" src="{{$certificateImg}}">
+                                                        </div>
+                                                    @endcomponent
+                                                @endforeach
+                                            @endcomponent
+                                        </div>
+                                    </div>
+                                @endif
+                                @if(!empty($offer['organization']['photoArray']))
+                                    <div class="modules-pages-offers-routes-show__info-item-container">
+                                        <div class="modules-pages-offers-routes-show__info-item-title">Фото оргинизации:</div>
+                                        <div class="modules-pages-offers-routes-show__slider-container">
+                                            @component('components.sliders.base.slider.index')
+                                                @foreach($offer['organization']['photoArray'] as $photoImg)
+                                                    @component('components.sliders.base.slide.index')
+                                                        <div class="modules-pages-offers-routes-show__slider-image-container">
+                                                            <img alt="" class="modules-pages-offers-routes-show__slider-image" src="{{$photoImg}}">
+                                                        </div>
+                                                    @endcomponent
+                                                @endforeach
+                                            @endcomponent
+                                        </div>
+                                    </div>
+                                @endif
+                            </div>
                         </div>
-                    </div>
+                    @endif
                 @endisset
             </div>
         </div>

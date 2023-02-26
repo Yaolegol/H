@@ -5,7 +5,7 @@ import './index.less';
 class AdminOrganizationCard {
     constructor(element) {
         this.module = element;
-        this.offerId = this.module.dataset.offerId;
+        this.id = this.module.dataset.id;
         this.buttonApprove = this.module.querySelector('.j-components-admin-cards-organization__button-approve');
         this.buttonReject = this.module.querySelector('.j-components-admin-cards-organization__button-reject');
 
@@ -50,7 +50,7 @@ class AdminOrganizationCard {
         try {
             const body = JSON.stringify(data);
 
-            const response = await fetch(`/admin/organization/approve/${this.offerId}`, {
+            const response = await fetch(`/admin/organization/approve/${this.id}`, {
                 body,
                 headers: {
                     'Accept': 'application/json',
