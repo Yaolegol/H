@@ -844,8 +844,9 @@
   background: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.5);
   border-radius: 8px;
-  font-weight: 400;
+  color: #000000;
   display: none;
+  font-weight: 400;
   padding: 10px;
   position: absolute;
   right: 0;
@@ -869,6 +870,10 @@
 }
 .components-cards-sale-offer__moderation-label_approved {
   background: #46a02e;
+  color: #FFFFFF;
+}
+.components-cards-sale-offer__moderation-label_reject {
+  background: #e34132;
   color: #FFFFFF;
 }
 .components-cards-sale-offer__remove-button-container {

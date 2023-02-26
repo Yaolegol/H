@@ -6,6 +6,7 @@ function DB_getOffersNotApproved() {
     try {
         return Offer::where([
             ['is_approved', 0],
+            ['approved_error_message', '=', null],
         ])->with([
             'catalogLevelTwo',
             'catalogLevelTwo.catalogLevelOne',

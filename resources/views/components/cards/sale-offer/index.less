@@ -59,8 +59,9 @@
         background: @white;
         border: 1px solid @black_50;
         border-radius: 8px;
-        font-weight: 400;
+        color: @black;
         display: none;
+        font-weight: 400;
         padding: 10px;
         position: absolute;
         right: 0;
@@ -87,6 +88,11 @@
 
         &_approved {
             background: @green_100;
+            color: @white;
+        }
+
+        &_reject {
+            background: @red_tomatoes-cherry;
             color: @white;
         }
     }

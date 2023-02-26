@@ -47,9 +47,33 @@ class AdminOffersController extends Controller
             return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
         }
 
-        $newStatus = $request->input('approve');
+        updateOfferApproveStatus($id, 1);
 
-        updateOfferApproveStatus($id, $newStatus);
+        $data = [
+            'success' => true,
+            'errors' => [],
+        ];
+
+        return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function reject(Request $request, $id)
+    {
+        if(!Auth::check() || !Auth::user()->is_admin) {
+            $data = [
+                'success' => false,
+                'errors' => ['Not auth'],
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
+        }
+
+        rejectOffer($id, $request);
 
         $data = [
             'success' => true,

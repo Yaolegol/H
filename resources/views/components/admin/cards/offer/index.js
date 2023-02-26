@@ -8,6 +8,7 @@ class AdminCard {
         this.offerId = this.module.dataset.offerId;
         this.buttonApprove = this.module.querySelector('.j-components-admin-cards-offer__button-approve');
         this.buttonReject = this.module.querySelector('.j-components-admin-cards-offer__button-reject');
+        this.textarea = this.module.querySelector('.j-components-admin-cards-offer__textarea');
 
         this.init();
         this.bind();
@@ -19,7 +20,7 @@ class AdminCard {
     }
 
     handleApprove = async () => {
-        const {errors, success} = await this.sendApproveRequest(1);
+        const {errors, success} = await this.sendApproveRequest();
 
         if(!success) {
             return;
@@ -29,7 +30,17 @@ class AdminCard {
     }
 
     handleReject = async () => {
-        const {errors, success} = await this.sendApproveRequest(-1);
+        if(!this.textarea.value) {
+            window.alert('Не указана причина отклонения!');
+        }
+
+        const data = {
+            error: {
+                message: this.textarea.value,
+            }
+        }
+
+        const {errors, success} = await this.sendRejectRequest(data);
 
         if(!success) {
             return;
@@ -42,15 +53,30 @@ class AdminCard {
         this.setCSRFToken();
     }
 
-    sendApproveRequest = async (isApproved) => {
-        const data = {
-            approve: isApproved,
+    sendApproveRequest = async () => {
+        try {
+            const response = await fetch(`/admin/offer/approve/${this.offerId}`, {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': this.CSRFToken,
+                },
+                method: 'POST',
+            });
+
+            return response.json();
+        } catch(e) {
+            console.error(e);
         }
 
+        return {};
+    }
+
+    sendRejectRequest = async (data) => {
         try {
             const body = JSON.stringify(data);
 
-            const response = await fetch(`/admin/offer/approve/${this.offerId}`, {
+            const response = await fetch(`/admin/offer/reject/${this.offerId}`, {
                 body,
                 headers: {
                     'Accept': 'application/json',

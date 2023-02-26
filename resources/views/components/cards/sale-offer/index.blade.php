@@ -1,13 +1,31 @@
 <div class="components-cards-sale-offer">
-    <div class="components-cards-sale-offer__moderation-label {{$saleOffer['is_approved'] ? 'components-cards-sale-offer__moderation-label_approved' : ''}}">
-        {{$saleOffer['is_approved'] ? 'Опубликовано' : 'На проверке'}}
-        <div class="components-cards-sale-offer__moderation-hint">
-            <div>Ваше сообщение проверяется администрацией сайта!</div>
-            <div class="components-cards-sale-offer__moderation-hint-container">После проверки оно будет опубликовано или отклонено с указанием причины</div>
-            <div class="components-cards-sale-offer__moderation-hint-container">Обычно проверка занимает не более суток</div>
-            <div class="components-cards-sale-offer__moderation-hint-container">Спасибо за терпение!</div>
+    @if($saleOffer['approved_error_message'])
+        <div class="components-cards-sale-offer__moderation-label components-cards-sale-offer__moderation-label_reject">
+            Отклонено
+            <div class="components-cards-sale-offer__moderation-hint">
+                <div>Причина отклонения:</div>
+                <div class="components-cards-sale-offer__moderation-hint-container">
+                    {{$saleOffer['approved_error_message']}}
+                </div>
+                <div class="components-cards-sale-offer__moderation-hint-container">
+                    Как исправить?
+                </div>
+                <div class="components-cards-sale-offer__moderation-hint-container">
+                    Вы можете отредактировать сообщение и оно сново будет отправлено на проверку
+                </div>
+            </div>
         </div>
-    </div>
+    @else
+        <div class="components-cards-sale-offer__moderation-label {{$saleOffer['is_approved'] ? 'components-cards-sale-offer__moderation-label_approved' : ''}}">
+            {{$saleOffer['is_approved'] ? 'Опубликовано' : 'На проверке'}}
+            <div class="components-cards-sale-offer__moderation-hint">
+                <div>Ваше сообщение проверяется администрацией сайта!</div>
+                <div class="components-cards-sale-offer__moderation-hint-container">После проверки оно будет опубликовано или отклонено с указанием причины</div>
+                <div class="components-cards-sale-offer__moderation-hint-container">Обычно проверка занимает не более суток</div>
+                <div class="components-cards-sale-offer__moderation-hint-container">Спасибо за терпение!</div>
+            </div>
+        </div>
+    @endif
     <div class="components-cards-sale-offer__item-container components-cards-sale-offer__item-container_without-offset">
         <div class="components-cards-sale-offer__title">Название</div>
         <div class="components-cards-sale-offer__value">{{$saleOffer['title']}}</div>

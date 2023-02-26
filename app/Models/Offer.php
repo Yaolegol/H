@@ -15,6 +15,7 @@ class Offer extends Model
      * @var array
      */
     protected $fillable = [
+        'approved_error_message',
         'title',
         'description',
         'address',

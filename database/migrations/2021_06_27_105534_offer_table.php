@@ -42,7 +42,8 @@ class OfferTable extends Migration
             $table->foreign('catalog_level_two_id')->references('id')->on('catalog_level_two');
             $table->bigInteger('measure_id')->unsigned()->index();
             $table->foreign('measure_id')->references('id')->on('measure');
-            $table->integer('is_approved')->default(0);;
+            $table->integer('is_approved')->default(0);
+            $table->text('approved_error_message')->nullable();
             $table->timestamps();
         });
     }

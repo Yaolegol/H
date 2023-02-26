@@ -281,6 +281,7 @@ function tryUpdateSaleOfferInDB($request, $saleOfferId)
         'delivery' => $delivery,
         'delivery_description' => $request->input('delivery_description'),
         'is_approved' => false,
+        'approved_error_message' => null,
         'map_marker_lat' => $request->input('map_marker_lat'),
         'map_marker_lng' => $request->input('map_marker_lng'),
         'measure_id' => $request->input('measure_id'),

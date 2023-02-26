@@ -54,6 +54,7 @@ Route::get('/map/mobile-app/single-point', [MapMobileAppSinglePoint::class, 'sin
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin/offers', [AdminOffersController::class, 'index']);
     Route::post('/admin/offer/approve/{id}', [AdminOffersController::class, 'approve']);
+    Route::post('/admin/offer/reject/{id}', [AdminOffersController::class, 'reject']);
 
     Route::get('/admin/users', [AdminUsersController::class, 'index']);
     Route::post('/admin/user/approve/{id}', [AdminUsersController::class, 'approve']);
