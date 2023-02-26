@@ -101,8 +101,14 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="modules-pages-profile-routes-personal-info-index__agreement-container">
+                            @include('components.checkboxes.agreement.index')
+                        </div>
                         <div class="modules-pages-profile-routes-personal-info-index__send-button-container">
                             <button class="button">Сохранить</button>
+                        </div>
+                        <div class="modules-pages-profile-routes-personal-info-index__info-container-required">
+                            <div>* Для сохранения необходимо принять правила размещения контента на сайте</div>
                         </div>
                         @include('components.form.error.index', [
                             'message' => session('commonError'),
