@@ -998,6 +998,17 @@ form:invalid .modules-pages-profile-routes-personal-info-index__info-container-r
 .modules-pages-profile-routes-personal-info-index__section-container {
   margin-top: 50px;
 }
+.modules-pages-profile-routes-personal-info-index__seller-link {
+  color: #FFFFFF;
+  font-weight: 600;
+  text-decoration-line: underline;
+}
+.modules-pages-profile-routes-personal-info-index__seller-link-container {
+  margin-top: 15px;
+}
+.modules-pages-profile-routes-personal-info-index__seller-link-footer {
+  margin-top: 15px;
+}
 .modules-pages-profile-routes-personal-info-index__send-button-container {
   display: flex;
   justify-content: flex-end;

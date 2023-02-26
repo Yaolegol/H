@@ -130,7 +130,8 @@ function filterUserData($userData) {
             || $key === 'visible_email'
             || $key === 'is_approved'
             || $key === 'approved_error_message'
-            || $key === 'phone';
+            || $key === 'phone'
+            || $key === 'id';
     }, ARRAY_FILTER_USE_KEY);
 }
 
