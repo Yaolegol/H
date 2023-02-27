@@ -40,7 +40,7 @@
 
                         @guest
                             <div class="modules-common-header-index__favorites-hint-block">
-                                <div class="modules-common-header-index__favorites-hint-title">Чтобы просмотреть "Избранное" нужно</div>
+                                <div class="modules-common-header-index__favorites-hint-title">Чтобы посмотреть "Избранное" нужно</div>
                                 <div class="modules-common-header-index__favorites-hint-text-container">
                                     <a class="modules-common-header-index__favorites-hint-link" href="/login">Войти</a>
                                 </div>
