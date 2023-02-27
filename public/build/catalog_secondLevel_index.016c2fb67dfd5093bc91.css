@@ -264,11 +264,15 @@
   display: none;
 }
 .modules-common-header-search__search-block {
+  background: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 30px;
   height: 100%;
   position: relative;
   width: 100%;
+}
+.modules-common-header-search__search-block:hover {
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
 }
 @media (max-width: 767px) {
   .modules-common-header-search__search-block {

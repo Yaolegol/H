@@ -9,7 +9,7 @@
         <label class="modules-common-header-search__search-container j-header-search__search-container">
             <input
                 class="modules-common-header-search__input j-header-search__input"
-                placeholder="Найти"
+                placeholder="Найти по телефону"
                 type="text"
             />
             <button
