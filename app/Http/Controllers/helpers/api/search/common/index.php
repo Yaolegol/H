@@ -59,7 +59,7 @@ function apiGetSearchCommonResultFormatted($request) {
     $data = [
         [
             'dataList' => $usersDataList,
-            'title' => 'Продавцы',
+            'title' => 'Фермеры',
         ],
     ];
 
@@ -72,6 +72,7 @@ function apiGetUserLinks($userList) {
 
         return [
             'link' => $userLink,
+            'phone' => $userData['phone'],
             'title' => $userData['name'],
         ];
     }, $userList);

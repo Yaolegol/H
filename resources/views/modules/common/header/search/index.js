@@ -58,11 +58,11 @@ class Search {
     }
 
     createSearchResultItems = (dataList) => {
-        const itemsList = dataList.map(({linkFull, title}) => {
+        const itemsList = dataList.map(({linkFull, phone, title}) => {
             const itemTemplate = this.getSearchItemTemplateHTML();
             const linkElement = itemTemplate.querySelector('.j-header-search__search-result-item-link');
 
-            linkElement.innerHTML = title;
+            linkElement.innerHTML = `${title}, +${phone}`;
             linkElement.href = linkFull;
 
             return itemTemplate.outerHTML;

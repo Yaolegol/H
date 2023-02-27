@@ -52,7 +52,9 @@
                                                 {{request()->getHost()}}/sellers/{{$userData['id']}}
                                             </a>
                                         </div>
-                                        <div class="modules-pages-profile-routes-personal-info-index__seller-link-footer">Отправьте ссылку на нее всем друзьям и покупателям!</div>
+                                        <div class="modules-pages-profile-routes-personal-info-index__seller-link-footer">
+                                            Отправьте эту ссылку покупателям, чтобы Вас могли легко найти на сайте!
+                                        </div>
                                     </div>
                                 </div>
                             @endif
