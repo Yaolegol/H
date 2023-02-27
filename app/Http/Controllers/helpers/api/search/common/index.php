@@ -42,14 +42,8 @@ function apiGetUserListByTitleFromDB($title) {
     $queryString = '%' . $title . '%';
 
     return User::where([
-        ['name','like', $queryString],
+        ['phone','like', $queryString],
     ])
-        ->orWhereHas('organizations', function (Builder $query) use($queryString) {
-            $query->where('title', 'like', $queryString);
-        })
-        ->with(['organizations' => function ($query) use($queryString) {
-            $query->where('title', 'like', $queryString);
-        }])
         ->get()
         ->toArray();
 }
@@ -59,22 +53,10 @@ function apiGetSearchCommonResultFormatted($request) {
     $title = $data['title'];
 
     $userList = apiGetUserListByTitleFromDB($title);
-    $catalogLevelOneList = apiGetCatalogLevelOneListByTitleFromDB($title);
-    $catalogLevelOneListFormatted = getCatalogLevelOneWithFullLinks($catalogLevelOneList);
-    $catalogLevelTwoList = apiGetCatalogLevelTwoListByTitleFromDB($title);
-    setCatalogLevelTwoWithOneLinks($catalogLevelTwoList);
     $usersDataList = apiGetUserLinks($userList);
     setUserFullLinks($usersDataList);
 
     $data = [
-        [
-            'dataList' => $catalogLevelOneListFormatted,
-            'title' => 'Категории',
-        ],
-        [
-            'dataList' => $catalogLevelTwoList,
-            'title' => 'Товары',
-        ],
         [
             'dataList' => $usersDataList,
             'title' => 'Продавцы',
