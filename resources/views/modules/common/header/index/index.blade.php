@@ -50,6 +50,9 @@
                                 <div class="modules-common-header-index__favorites-hint-text-container">
                                     <a class="modules-common-header-index__favorites-hint-link" href="/register">Зарегистрироваться</a>
                                 </div>
+                                <div class="modules-common-header-index__favorites-hint-text-container">
+                                    Это бесплатно!
+                                </div>
                             </div>
                         @endguest
                     </div>
@@ -57,9 +60,30 @@
 
                 <div class="modules-common-header-index__area-item">
                     <div class="modules-common-header-index__profile-container">
-                        <a class="modules-common-header-index__profile-link" href="/profile">
+                        <div class="modules-common-header-index__profile-link-container">
                             @include('icons.profile')
-                        </a>
+                            @auth
+                                <a class="modules-common-header-index__profile-link" href="/profile"></a>
+                            @endauth
+                        </div>
+
+                        @guest
+                            <div class="modules-common-header-index__profile-hint-block">
+                                <div class="modules-common-header-index__favorites-hint-title">Чтобы посмотреть "Профиль" нужно</div>
+                                <div class="modules-common-header-index__favorites-hint-text-container">
+                                    <a class="modules-common-header-index__favorites-hint-link" href="/login">Войти</a>
+                                </div>
+                                <div class="modules-common-header-index__favorites-hint-text-container">
+                                    <div class="modules-common-header-index__favorites-hint-text">или</div>
+                                </div>
+                                <div class="modules-common-header-index__favorites-hint-text-container">
+                                    <a class="modules-common-header-index__favorites-hint-link" href="/register">Зарегистрироваться</a>
+                                </div>
+                                <div class="modules-common-header-index__favorites-hint-text-container">
+                                    Это бесплатно!
+                                </div>
+                            </div>
+                        @endguest
                     </div>
                 </div>
 
