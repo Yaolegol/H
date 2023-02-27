@@ -1,5 +1,12 @@
 <div class="modules-pages-map-web-routes-index">
     <div class="modules-pages-map-web-routes-index__content-area">
+        <div class="modules-pages-map-web-routes-index__add-product-block">
+            <a
+                class="modules-pages-map-web-routes-index__link"
+                href="/test"
+            >Как разместить товар на сайте?</a>
+            <div>Это просто и бесплатно!</div>
+        </div>
         <div class="modules-pages-map-web-routes-index__filters-block">
             <h4 class="modules-pages-map-web-routes-index__filters-title">Фильтры:</h4>
             <div class="modules-pages-map-web-routes-index__filters-container">

@@ -1031,6 +1031,9 @@
 
 
 
+.modules-pages-map-web-routes-index__add-product-block {
+  text-align: end;
+}
 .modules-pages-map-web-routes-index__buttons-block {
   align-items: center;
   display: flex;
@@ -1069,6 +1072,9 @@
 }
 .modules-pages-map-web-routes-index__info-section {
   margin-top: 20px;
+}
+.modules-pages-map-web-routes-index__link {
+  text-decoration-line: underline;
 }
 .modules-pages-map-web-routes-index__map-area {
   display: flex;
