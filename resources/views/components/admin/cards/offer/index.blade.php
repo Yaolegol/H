@@ -31,10 +31,6 @@
             <div class="components-admin-cards-offer__value">{{$notApprovedItem['user']['phone']}}</div>
         </div>
         <div class="components-admin-cards-offer__item-container">
-            <div class="components-admin-cards-offer__title">Видимый email</div>
-            <div class="components-admin-cards-offer__value">{{$notApprovedItem['user']['visible_email']}}</div>
-        </div>
-        <div class="components-admin-cards-offer__item-container">
             <div class="components-admin-cards-offer__title">Ссылка на профиль</div>
             <div class="components-admin-cards-offer__value">{{$notApprovedItem['user']['sellerLink']}}</div>
         </div>

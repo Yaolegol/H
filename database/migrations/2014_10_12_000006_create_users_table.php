@@ -19,7 +19,6 @@ class CreateUsersTable extends Migration
             $table->string('phone')->unique();
             $table->string('name')->default('')->nullable();
             $table->string('description')->default('')->nullable();
-            $table->string('visible_email')->default('')->nullable();
             $table->string('avatar')->default('')->nullable();
             $table->string('password');
             $table->bigInteger('lang_id')->unsigned()->index()->nullable();

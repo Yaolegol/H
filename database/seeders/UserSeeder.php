@@ -17,7 +17,6 @@ class UserSeeder extends Seeder
             'name' => 'Иван',
             'password' => '',
             'phone' => '71231230000',
-            'visible_email' => 'visible_test1@test1.com',
         ],
         [
             'description' => 'test2',
@@ -25,7 +24,6 @@ class UserSeeder extends Seeder
             'name' => 'Николай',
             'password' => '',
             'phone' => '71231231111',
-            'visible_email' => 'visible_test2@test2.com',
         ],
         [
             'description' => 'test3',
@@ -33,7 +31,6 @@ class UserSeeder extends Seeder
             'name' => 'Александр',
             'password' => '',
             'phone' => '71231232222',
-            'visible_email' => 'visible_test3@test3.com',
         ],
     ];
 

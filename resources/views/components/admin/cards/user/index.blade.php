@@ -33,10 +33,6 @@
         <div class="components-admin-cards-user__title">Телефон</div>
         <div class="components-admin-cards-user__value">{{$notApprovedListItem['phone']}}</div>
     </div>
-    <div class="components-admin-cards-user__item-container">
-        <div class="components-admin-cards-user__title">Видимый email</div>
-        <div class="components-admin-cards-user__value">{{$notApprovedListItem['visible_email']}}</div>
-    </div>
 
     <div class="components-admin-cards-user__buttons-container">
         <div class="components-admin-cards-user__button-container">

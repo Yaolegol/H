@@ -21,7 +21,6 @@ class User extends Authenticatable
         'name',
         'description',
         'phone',
-        'visible_email',
         'password',
         'is_approved',
         'approved_error_message'
@@ -40,7 +39,6 @@ class User extends Authenticatable
         'password',
         'remember_token',
         'updated_at',
-        'visible_email_verified_at',
     ];
 
     /**

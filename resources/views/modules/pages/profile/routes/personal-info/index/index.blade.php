@@ -90,20 +90,6 @@
                                 'message' => $errors->first('description'),
                             ])
                         </div>
-                        <div class="modules-pages-profile-routes-personal-info-index__info-title">Email:</div>
-                        <div class="modules-pages-profile-routes-personal-info-index__info-description">
-                            <div class="modules-pages-profile-routes-personal-info-index__input-container">
-                                @include('components.inputs.form.index', [
-                                            'name' => 'visible_email',
-                                            'placeholder' => 'Email',
-                                            'type' => 'email',
-                                            'value' => $userData['visible_email']
-                                        ])
-                                @include('components.form.error.index', [
-                                    'message' => $errors->first('visible_email'),
-                                ])
-                            </div>
-                        </div>
                         <div class="modules-pages-profile-routes-personal-info-index__photo-block">
                             <div class="modules-pages-profile-routes-personal-info-index__info-title">Фото профиля:</div>
                             <div class="modules-pages-profile-routes-personal-info-index__info-description">

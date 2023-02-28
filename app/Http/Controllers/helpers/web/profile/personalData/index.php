@@ -39,12 +39,10 @@ function DB_tryChangeUserPersonalDataInDB($request)
     try {
         $name = $request->input('name');
         $description = $request->input('description');
-        $visible_email = $request->input('visible_email');
 
         $authUser = Auth::user();
         $authUser->name = $name;
         $authUser->description = $description;
-        $authUser->visible_email = $visible_email;
         $authUser->is_approved = false;
         $authUser->approved_error_message = null;
 
@@ -100,10 +98,8 @@ function getPersonalDataValidator($request) {
             'avatar' => ['image', 'max:10240'],
             'name' => ['max:50'],
             'description' => ['max:100'],
-            'visible_email' => ['email', 'max:25'],
         ],
         [
-            'email' => 'Поле должно содержать email',
             'image' => 'Поле должно содержать картинку, размером не более 10Мб',
             'max' => 'Поле должно содержать максимум :max символов',
             'required' => 'Поле обязательно для заполнения',
@@ -127,7 +123,6 @@ function filterUserData($userData) {
         return $key === 'avatar'
             || $key === 'name'
             || $key === 'description'
-            || $key === 'visible_email'
             || $key === 'is_approved'
             || $key === 'approved_error_message'
             || $key === 'phone'
