@@ -62,7 +62,7 @@ class Search {
             const itemTemplate = this.getSearchItemTemplateHTML();
             const linkElement = itemTemplate.querySelector('.j-header-search__search-result-item-link');
 
-            linkElement.innerHTML = `${title}, +${phone}`;
+            linkElement.innerHTML = `${title}, ${phone}`;
             linkElement.href = linkFull;
 
             return itemTemplate.outerHTML;

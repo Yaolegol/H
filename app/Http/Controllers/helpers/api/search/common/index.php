@@ -2,8 +2,8 @@
 
 use App\Models\CatalogLevelOne;
 use App\Models\CatalogLevelTwo;
+use App\Models\Offer;
 use App\Models\User;
-use Illuminate\Database\Eloquent\Builder;
 
 function apiGetCatalogLevelOneListByTitleFromDB($title) {
     if(!$title) {
@@ -16,6 +16,20 @@ function apiGetCatalogLevelOneListByTitleFromDB($title) {
         ['title','like', $queryString],
     ])
         ->get(['title', 'link'])
+        ->toArray();
+}
+
+function apiGetOfferListByPhoneFromDB($title) {
+    if(!$title) {
+        return [];
+    }
+
+    $queryString = '%' . $title . '%';
+
+    return Offer::where([
+        ['phone','like', $queryString],
+    ])
+        ->get()
         ->toArray();
 }
 
@@ -34,7 +48,7 @@ function apiGetCatalogLevelTwoListByTitleFromDB($title) {
         ->toArray();
 }
 
-function apiGetUserListByTitleFromDB($title) {
+function apiGetUserListByPhoneFromDB($title) {
     if(!$title) {
         return [];
     }
@@ -52,7 +66,12 @@ function apiGetSearchCommonResultFormatted($request) {
     $data = $request->input('data');
     $title = $data['title'];
 
-    $userList = apiGetUserListByTitleFromDB($title);
+    $offerList = apiGetOfferListByPhoneFromDB($title);
+    $userList = apiGetUserListByPhoneFromDB($title);
+
+    $offersDataList = apiGetOfferLinks($offerList);
+    setOfferFullLinks($offersDataList);
+
     $usersDataList = apiGetUserLinks($userList);
     setUserFullLinks($usersDataList);
 
@@ -61,9 +80,25 @@ function apiGetSearchCommonResultFormatted($request) {
             'dataList' => $usersDataList,
             'title' => 'Фермеры',
         ],
+        [
+            'dataList' => $offersDataList,
+            'title' => 'Товары',
+        ],
     ];
 
     return $data;
+}
+
+function apiGetOfferLinks($offerList) {
+    return array_map(function($offerData) {
+        $offerLink = '/offers/' . $offerData['id'];
+
+        return [
+            'link' => $offerLink,
+            'phone' => $offerData['phone'],
+            'title' => $offerData['title'],
+        ];
+    }, $offerList);
 }
 
 function apiGetUserLinks($userList) {
@@ -72,10 +107,16 @@ function apiGetUserLinks($userList) {
 
         return [
             'link' => $userLink,
-            'phone' => $userData['phone'],
+            'phone' => '+' . $userData['phone'],
             'title' => $userData['name'],
         ];
     }, $userList);
+}
+
+function setOfferFullLinks(&$offerList) {
+    foreach($offerList as &$offerData) {
+        $offerData['linkFull'] = $offerData['link'];
+    }
 }
 
 function setUserFullLinks(&$userList) {

@@ -148,10 +148,13 @@
                 ])
             @endcomponent
 
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Адрес (где можно купить Вашу продукцию):'])
+            @component('modules.pages.profile.common.components.container.form-field.index', [
+                'required' => true,
+                'title' => 'Адрес (где можно купить Вашу продукцию):'
+            ])
                 @include('components.inputs.form.index', [
                                 'name' => 'address',
-                                'placeholder' => 'Адрес (где можно купить Вашу продукцию)',
+                                'placeholder' => 'Адрес',
                                 'required' => true,
                                 'type' => 'text',
                                 'value' => $saleOfferItemData['address'],
