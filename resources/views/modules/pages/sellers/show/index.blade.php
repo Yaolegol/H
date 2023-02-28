@@ -7,8 +7,7 @@
                     <img  alt="" class="modules-pages-sellers-show__avatar" src="{{$sellerData['avatar']}}">
                 </div>
                 <div class="modules-pages-sellers-show__header-info-container">
-                    <div class="modules-pages-sellers-show__header-info-title">Имя</div>
-                    <div>{{$sellerData['name']}}</div>
+                    <div class="modules-pages-sellers-show__header-info-title">{{$sellerData['name']}}</div>
                     <div>{{$sellerData['description']}}</div>
                 </div>
                 <div class="modules-pages-sellers-show__header-info-container">
