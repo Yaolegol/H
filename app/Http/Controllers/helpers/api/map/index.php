@@ -70,6 +70,7 @@ function apiGetOfferData($offerItem) {
         ],
         'salePoints' => apiGetSalePointsData($offerItem),
         'seller' => [
+            'id' => $offerItem['user']['id'],
             'link' => '/sellers/' . $offerItem['user']['id'],
             'name' => $offerItem['user']['name'],
             'phone' => $offerItem['user']['phone'],
@@ -81,6 +82,7 @@ function apiGetSalePointsData($offerItem) {
     return array_reduce($offerItem['sale_points'], function($acc, $salePointItem) {
         $data = [
             'address' => $salePointItem['address'],
+            'contact_person' => $salePointItem['contact_person'],
             'description' => $salePointItem['description'],
             'id' => $salePointItem['id'],
             'is_approved' => $salePointItem['is_approved'],

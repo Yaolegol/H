@@ -26,9 +26,6 @@ class MapYandexComponentsViewAll {
         const placemarks = [];
 
         this.offerData.forEach(({markersList, offer}) => {
-            console.log('offer')
-            console.log(offer)
-
             markersList.forEach(({id, markerCoords}) => {
                 const {lat, lng} = markerCoords;
 
@@ -41,7 +38,7 @@ class MapYandexComponentsViewAll {
                         id,
                     },
                     {
-                        balloonContentLayout: this.getBalloonContentLayoutClass(offer),
+                        balloonContentLayout: this.getBalloonContentLayoutClass(offer, id.toString()),
                     },
                 );
 
@@ -146,8 +143,8 @@ class MapYandexComponentsViewAll {
         }
     }
 
-    getBalloonContentLayoutClass = (offerData) => {
-        return ymaps.templateLayoutFactory.createClass(getOfferBalloon(offerData));
+    getBalloonContentLayoutClass = (offerData, markerId) => {
+        return ymaps.templateLayoutFactory.createClass(getOfferBalloon(offerData, markerId));
     };
 
     handleUpdateMapFilter = async (e) => {
