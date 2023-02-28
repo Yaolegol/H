@@ -926,6 +926,9 @@
 .components-cards-organization__remove-button-container {
   margin-left: 15px;
 }
+.components-cards-organization__title {
+  font-weight: 600;
+}
 .components-cards-organization__value {
   margin-top: 5px;
 }
