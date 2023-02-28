@@ -161,9 +161,8 @@ function getSaleOfferItemDataFormatted($saleOfferId)
 function getSaleOffersDataFormatted()
 {
     $userSaleOffersList = DB_getUserSaleOffers();
-    formatSaleOffersListItemsAssetsPath($userSaleOffersList);
 
-    return $userSaleOffersList;
+    return formatOffers($userSaleOffersList);
 }
 
 function getSaleOfferSalePointsIdsList($saleOfferItemData) {

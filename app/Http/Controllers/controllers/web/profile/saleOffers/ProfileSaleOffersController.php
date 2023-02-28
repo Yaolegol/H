@@ -13,6 +13,7 @@ require_once('app/Http/Controllers/helpers/common/request/index.php');
 require_once('app/Http/Controllers/helpers/web/profile/organizationData/index.php');
 require_once('app/Http/Controllers/helpers/web/profile/saleOffers/index.php');
 require_once('app/Http/Controllers/helpers/web/profile/salePointsInfo/index.php');
+require_once('app/Http/Controllers/helpers/web/offers/index.php');
 
 class ProfileSaleOffersController extends Controller
 {
