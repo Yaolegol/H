@@ -63,6 +63,7 @@ function apiGetOfferData($offerItem) {
             'map_marker_lat' => $offerItem['map_marker_lat'],
             'map_marker_lng' => $offerItem['map_marker_lng'],
             'measure' => $offerItem['measure'],
+            'phone' => $offerItem['phone'],
             'price' => $offerItem['price'],
             'price_description' => $offerItem['price_description'],
             'title' => $offerItem['title'],

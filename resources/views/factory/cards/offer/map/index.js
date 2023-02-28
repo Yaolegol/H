@@ -26,10 +26,10 @@ export class MapOfferCard {
         const isUserAuth = Boolean(document.querySelector('.j-user__auth'));
 
         const {product, salePoints, seller} = placemarkData.offer;
-        const {address, description, id, img, link: productLink, measure, price, price_description, title} = product;
+        const {address, description, id, img, link: productLink, measure, phone, price, price_description, title} = product;
         const {title: measureTitle} = measure;
         const {src} = img;
-        const {link: sellerLink, name, phone} = seller;
+        const {link: sellerLink, name} = seller;
 
         const salePointsHtml = salePoints.map(({address, description, id: salePointId, phone, title, working_hours}) => {
             return `
@@ -130,7 +130,7 @@ export class MapOfferCard {
                         <div class="factory-cards-offer-map__contacts-block">
                             <div class="factory-cards-offer-map__phone-container">
                                 <span class="factory-cards-offer-map__phone-title">Телефон:</span>
-                                <a class="j-modules-common-offers-list__phone-link" href="tel:+${phone}">+${phone}</a>
+                                <a class="j-modules-common-offers-list__phone-link" href="tel:${phone}">${phone}</a>
                             </div>
                             <div class="factory-cards-offer-map__seller-info-container">
                                 <span class="factory-cards-offer-map__seller-info-title">Продавец:</span>
