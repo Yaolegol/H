@@ -42,6 +42,7 @@ class MapYandexComponentsViewAll {
                     },
                 );
 
+                markerInstance.events.add(['click'], this.handlePlacemarkClick);
                 placemarks.push(markerInstance);
             });
         });
@@ -89,6 +90,14 @@ class MapYandexComponentsViewAll {
 
     handleMapBoundsChange = () => {
         this.updatePlacemarsDataList();
+    }
+
+    handlePlacemarkClick = (e) => {
+        const {originalEvent} = e;
+
+        this.mapInstance.setCenter(originalEvent.target.geometry.getCoordinates(), 17, {
+            duration: 1000,
+        });
     }
 
     handleShowPlacemark = (e) => {
