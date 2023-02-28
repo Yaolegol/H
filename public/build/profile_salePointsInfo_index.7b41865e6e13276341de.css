@@ -822,6 +822,9 @@
 .components-cards-sale-point__remove-button-container {
   margin-left: 15px;
 }
+.components-cards-sale-point__title {
+  font-weight: 600;
+}
 .components-cards-sale-point__value {
   margin-top: 5px;
 }

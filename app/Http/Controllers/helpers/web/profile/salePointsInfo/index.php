@@ -96,8 +96,8 @@ function getProfileSalePointsValidator($request) {
             'photo_1' => ['image', 'max:10240'],
             'photo_2' => ['image', 'max:10240'],
             'photo_3' => ['image', 'max:10240'],
-            'map_marker_lat' => ['max:50'],
-            'map_marker_lng' => ['max:50'],
+            'map_marker_lat' => ['required', 'max:50'],
+            'map_marker_lng' => ['required', 'max:50'],
         ],
         [
             'image' => 'Поле должно содержать картинку, размером не более 10Мб',

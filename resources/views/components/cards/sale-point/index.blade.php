@@ -32,12 +32,8 @@
         <div class="components-cards-sale-point__value">{{$salePoint['title']}}</div>
     </div>
     <div class="components-cards-sale-point__item-container">
-        <div class="components-cards-sale-point__title">Адрес</div>
-        <div class="components-cards-sale-point__value">{{$salePoint['address']}}</div>
-    </div>
-    <div class="components-cards-sale-point__item-container">
-        <div class="components-cards-sale-point__title">Режим работы</div>
-        <div class="components-cards-sale-point__value">{{$salePoint['working_hours']}}</div>
+        <div class="components-cards-sale-point__title">Описание</div>
+        <div class="components-cards-sale-point__value">{{$salePoint['description']}}</div>
     </div>
     <div class="components-cards-sale-point__item-container">
         <div class="components-cards-sale-point__title">Контактное лицо</div>
@@ -46,6 +42,14 @@
     <div class="components-cards-sale-point__item-container">
         <div class="components-cards-sale-point__title">Телефон</div>
         <div class="components-cards-sale-point__value">{{$salePoint['phone']}}</div>
+    </div>
+    <div class="components-cards-sale-point__item-container">
+        <div class="components-cards-sale-point__title">Режим работы</div>
+        <div class="components-cards-sale-point__value">{{$salePoint['working_hours']}}</div>
+    </div>
+    <div class="components-cards-sale-point__item-container">
+        <div class="components-cards-sale-point__title">Адрес</div>
+        <div class="components-cards-sale-point__value">{{$salePoint['address']}}</div>
     </div>
     <div class="components-cards-sale-point__item-container">
         <div class="components-cards-sale-point__title">Фото</div>

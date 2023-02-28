@@ -150,7 +150,7 @@ function getProfileOrganizationDataValidator($request) {
             'photo_2' => ['image', 'max:10240'],
             'photo_3' => ['image', 'max:10240'],
             'real_address' => ['max:100'],
-            'title' => ['max:50'],
+            'title' => ['required', 'max:50'],
         ],
         [
             'email' => 'Поле должно содержать email',

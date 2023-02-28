@@ -28,6 +28,54 @@
                 ])
             @endcomponent
 
+            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Описание:'])
+                @include('components.inputs.form.index', [
+                                'name' => 'description',
+                                'placeholder' => 'Описание',
+                                'type' => 'text',
+                                'value' => $salePointItemData['description'],
+                            ])
+                @include('components.form.error.index', [
+                    'message' => $errors->first('description'),
+                ])
+            @endcomponent
+
+            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Контактное лицо:'])
+                @include('components.inputs.form.index', [
+                                'name' => 'contact_person',
+                                'placeholder' => 'Контактное лицо',
+                                'type' => 'text',
+                                'value' => $salePointItemData['contact_person'],
+                            ])
+                @include('components.form.error.index', [
+                    'message' => $errors->first('contact_person'),
+                ])
+            @endcomponent
+
+            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Телефон:'])
+                @include('components.inputs.form.index', [
+                                'name' => 'phone',
+                                'placeholder' => 'Телефон',
+                                'type' => 'tel',
+                                'value' => $salePointItemData['phone'],
+                            ])
+                @include('components.form.error.index', [
+                    'message' => $errors->first('phone'),
+                ])
+            @endcomponent
+
+            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Режим работы:'])
+                @include('components.inputs.form.index', [
+                                'name' => 'working_hours',
+                                'placeholder' => 'Рабочие часы',
+                                'type' => 'text',
+                                'value' => $salePointItemData['working_hours'],
+                            ])
+                @include('components.form.error.index', [
+                    'message' => $errors->first('working_hours'),
+                ])
+            @endcomponent
+
             @component('modules.pages.profile.common.components.container.form-field.index', [
                 'required' => true,
                 'title' => 'Адрес:'])
@@ -62,42 +110,6 @@
                         'required' => true,
                     ])
                 </div>
-            @endcomponent
-
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Режим работы:'])
-                @include('components.inputs.form.index', [
-                                'name' => 'working_hours',
-                                'placeholder' => 'Рабочие часы',
-                                'type' => 'text',
-                                'value' => $salePointItemData['working_hours'],
-                            ])
-                @include('components.form.error.index', [
-                    'message' => $errors->first('working_hours'),
-                ])
-            @endcomponent
-
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Контактное лицо:'])
-                @include('components.inputs.form.index', [
-                                'name' => 'contact_person',
-                                'placeholder' => 'Контактное лицо',
-                                'type' => 'text',
-                                'value' => $salePointItemData['contact_person'],
-                            ])
-                @include('components.form.error.index', [
-                    'message' => $errors->first('contact_person'),
-                ])
-            @endcomponent
-
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Телефон:'])
-                @include('components.inputs.form.index', [
-                                'name' => 'phone',
-                                'placeholder' => 'Телефон',
-                                'type' => 'tel',
-                                'value' => $salePointItemData['phone'],
-                            ])
-                @include('components.form.error.index', [
-                    'message' => $errors->first('phone'),
-                ])
             @endcomponent
 
             @component('modules.pages.profile.common.components.container.section.index', ['title' => 'Фотографии торговой точки'])
