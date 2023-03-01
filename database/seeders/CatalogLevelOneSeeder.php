@@ -31,14 +31,14 @@ class CatalogLevelOneSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/4/images/main/1.jpg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/top-view-of-easter-eggs-in-bird-nests-and-feathers_12295170.htm#page=2&query=eggs&position=11&from_view=search&track=sph">Freepik</a>',
             'link' => 'eggs',
             'order' => 1,
             'title' => 'Яйца',
         ],
         [
             'image' => 'public/catalog/levelOne/items/5/images/main/1.jpg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/fruits-and-berries-platter-vegan-cuisine_10606159.htm#page=3&query=fruits&position=5&from_view=search&track=sph?log-in=google">Изображение от azerbaijan_stockers</a> на Freepik',
             'link' => 'fruit',
             'order' => 1,
             'title' => 'Фрукты',
