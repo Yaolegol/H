@@ -123,6 +123,30 @@ class CatalogLevelOneSeeder extends Seeder
             'title' => 'Эко туризм',
         ],
         [
+            'image' => 'public/catalog/levelOne/items/7/images/main/1.jpg',
+            'link' => 'fur',
+            'order' => 1,
+            'title' => 'Одежда и меховые изделия',
+        ],
+        [
+            'image' => 'public/catalog/levelOne/items/7/images/main/1.jpg',
+            'link' => 'wood',
+            'order' => 1,
+            'title' => 'Изделия из древесины',
+        ],
+        [
+            'image' => 'public/catalog/levelOne/items/7/images/main/1.jpg',
+            'link' => 'metal',
+            'order' => 1,
+            'title' => 'Изделия из металла',
+        ],
+        [
+            'image' => 'public/catalog/levelOne/items/7/images/main/1.jpg',
+            'link' => 'electronics',
+            'order' => 1,
+            'title' => 'Робототехника, электроника и транспортные средства',
+        ],
+        [
             'image' => 'public/catalog/levelOne/items/0/images/main/1.jpg',
             'link' => 'other',
             'order' => 999,
