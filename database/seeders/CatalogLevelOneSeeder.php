@@ -117,6 +117,12 @@ class CatalogLevelOneSeeder extends Seeder
             'title' => 'Мед и товары пчеловодства',
         ],
         [
+            'image' => 'public/catalog/levelOne/items/7/images/main/1.jpg',
+            'link' => 'tourism',
+            'order' => 1,
+            'title' => 'Эко туризм',
+        ],
+        [
             'image' => 'public/catalog/levelOne/items/0/images/main/1.jpg',
             'link' => 'other',
             'order' => 999,
