@@ -380,6 +380,27 @@ class CatalogLevelTwoSeeder extends Seeder
             'title' => 'Авокадо',
         ],
         [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 5,
+            'title' => 'Хурма',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 5,
+            'title' => 'Арбуз',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 5,
+            'title' => 'Дыня',
+        ],
+        [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
             'link' => 'other',
             'order' => 999,
@@ -530,13 +551,6 @@ class CatalogLevelTwoSeeder extends Seeder
             'title' => 'Кукуруза',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
-            'link' => '',
-            'order' => 1,
-            'catalog_level_one_id' => 6,
-            'title' => '',
-        ],
-        [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
             'link' => 'other',
             'order' => 999,
@@ -544,6 +558,160 @@ class CatalogLevelTwoSeeder extends Seeder
             'title' => 'Остальное',
         ],
 
+
+
+
+
+
+
+
+        // Ягода
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 7,
+            'title' => 'Голубика',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 7,
+            'title' => 'Клубника',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 7,
+            'title' => 'Черемуха',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 7,
+            'title' => 'Черноплодная рябина',
+        ],[
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 7,
+            'title' => 'Рябина',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 7,
+            'title' => 'Жимолость',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 7,
+            'title' => 'Смородина',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 7,
+            'title' => 'Крыжовник',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 7,
+            'title' => 'Земляника',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 7,
+            'title' => 'Облепиха',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 7,
+            'title' => 'Клюква',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 7,
+            'title' => 'Брусника',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 7,
+            'title' => 'Ежевика',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 7,
+            'title' => 'Боярышник',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 7,
+            'title' => 'Инжир',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 7,
+            'title' => 'Черешня',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 7,
+            'title' => 'Вишня',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 7,
+            'title' => 'Шелковица',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 7,
+            'title' => 'Ирга',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 7,
+            'title' => 'Личи',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'link' => 'other',
+            'order' => 999,
+            'catalog_level_one_id' => 7,
+            'title' => 'Остальное',
+        ],
 
 
 
