@@ -62,7 +62,7 @@ class CatalogLevelOneSeeder extends Seeder
             'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/white-bread-set-on-the-table_7219671.htm#page=2&query=bread&position=40&from_view=search&track=sph">Изображение от KamranAydinov</a> на Freepik',
             'link' => 'bread',
             'order' => 1,
-            'title' => 'Хлеб и пирожки',
+            'title' => 'Хлеб, пирожки и булочки',
         ],
         [
             'image' => 'public/catalog/levelOne/items/сonfectionery/images/main/1.jpg',

@@ -773,6 +773,13 @@ class CatalogLevelTwoSeeder extends Seeder
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 8,
+            'title' => 'Булочки',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 8,
             'title' => 'Батон',
         ],
         [
@@ -787,140 +794,123 @@ class CatalogLevelTwoSeeder extends Seeder
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 8,
+            'title' => 'Сушки и сухарики',
+        ],
+
+
+
+
+
+
+
+
+        // Кондитерские изделия
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 9,
             'title' => 'Торты',
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
             'link' => '',
             'order' => 1,
-            'catalog_level_one_id' => 8,
+            'catalog_level_one_id' => 9,
             'title' => 'Пирожные',
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
             'link' => '',
             'order' => 1,
-            'catalog_level_one_id' => 8,
+            'catalog_level_one_id' => 9,
             'title' => 'Кексы',
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
             'link' => '',
             'order' => 1,
-            'catalog_level_one_id' => 8,
+            'catalog_level_one_id' => 9,
             'title' => 'Пряники',
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
             'link' => '',
             'order' => 1,
-            'catalog_level_one_id' => 8,
+            'catalog_level_one_id' => 9,
             'title' => 'Конфеты',
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
             'link' => '',
             'order' => 1,
-            'catalog_level_one_id' => 8,
+            'catalog_level_one_id' => 9,
             'title' => 'Карамель',
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
             'link' => '',
             'order' => 1,
-            'catalog_level_one_id' => 8,
+            'catalog_level_one_id' => 9,
             'title' => 'Зефир',
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
             'link' => '',
             'order' => 1,
-            'catalog_level_one_id' => 8,
+            'catalog_level_one_id' => 9,
             'title' => 'Шоколад',
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
             'link' => '',
             'order' => 1,
-            'catalog_level_one_id' => 8,
+            'catalog_level_one_id' => 9,
             'title' => 'Пастила',
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
             'link' => '',
             'order' => 1,
-            'catalog_level_one_id' => 8,
+            'catalog_level_one_id' => 9,
             'title' => 'Восточные сладости',
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
             'link' => '',
             'order' => 1,
-            'catalog_level_one_id' => 8,
+            'catalog_level_one_id' => 9,
             'title' => 'Печенье',
         ],[
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
             'link' => '',
             'order' => 1,
-            'catalog_level_one_id' => 8,
+            'catalog_level_one_id' => 9,
             'title' => 'Круассаны',
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
             'link' => '',
             'order' => 1,
-            'catalog_level_one_id' => 8,
+            'catalog_level_one_id' => 9,
             'title' => 'Вафли',
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
             'link' => '',
             'order' => 1,
-            'catalog_level_one_id' => 8,
-            'title' => 'Рулеты',
-        ],
-        [
-            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
-            'link' => '',
-            'order' => 1,
-            'catalog_level_one_id' => 8,
+            'catalog_level_one_id' => 9,
             'title' => 'Бисквитные изделия',
-        ],
-        [
-            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
-            'link' => '',
-            'order' => 1,
-            'catalog_level_one_id' => 8,
-            'title' => 'Сушки и сухарики',
-        ],
-        [
-            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
-            'link' => '',
-            'order' => 1,
-            'catalog_level_one_id' => 8,
-            'title' => '',
-        ],
-        [
-            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
-            'link' => '',
-            'order' => 1,
-            'catalog_level_one_id' => 8,
-            'title' => '',
-        ],
-        [
-            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
-            'link' => '',
-            'order' => 1,
-            'catalog_level_one_id' => 8,
-            'title' => '',
         ],
         [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
             'link' => 'other',
             'order' => 999,
-            'catalog_level_one_id' => 8,
+            'catalog_level_one_id' => 9,
             'title' => 'Остальное',
         ],
+
+
 
 
 
