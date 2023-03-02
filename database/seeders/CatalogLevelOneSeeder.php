@@ -136,7 +136,7 @@ class CatalogLevelOneSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/seedlings/images/main/1.jpg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/top-view-gardening-tools-and-flower-pot_13560868.htm#query=%D0%A1%D0%B0%D0%B6%D0%B5%D0%BD%D1%86%D1%8B&position=0&from_view=search&track=sph">Freepik</a>',
             'link' => 'seedlings',
             'order' => 1,
             'title' => 'Саженцы',
