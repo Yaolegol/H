@@ -135,11 +135,18 @@ class CatalogLevelOneSeeder extends Seeder
             'title' => 'Семена',
         ],
         [
+            'image' => 'public/catalog/levelOne/items/seedlings/images/main/1.jpg',
+            'image_licence_link' => '',
+            'link' => 'seedlings',
+            'order' => 1,
+            'title' => 'Саженцы',
+        ],
+        [
             'image' => 'public/catalog/levelOne/items/plants/images/main/1.jpg',
             'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/green-houseplant-background-for-plant-lovers_17599271.htm#page=2&query=plants&position=13&from_view=search&track=sph">Изображение от rawpixel.com</a> на Freepik',
             'link' => 'plants',
             'order' => 1,
-            'title' => 'Растения и саженцы',
+            'title' => 'Растения',
         ],
         [
             'image' => 'public/catalog/levelOne/items/farming/images/main/1.jpg',
