@@ -1598,6 +1598,82 @@ class CatalogLevelTwoSeeder extends Seeder
             'catalog_level_one_id' => 17,
             'title' => 'Остальное',
         ],
+
+
+
+
+
+        // Семена
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 18,
+            'title' => 'Семена овощей',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 18,
+            'title' => 'Семена фруктов',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 18,
+            'title' => 'Семена орехов',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 18,
+            'title' => 'Семена плодовых деревьев',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 18,
+            'title' => 'Семена неплодовых деревьев',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 18,
+            'title' => 'Семена плодовых растений',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 18,
+            'title' => 'Семена декоративных растений',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 18,
+            'title' => 'Семена многолетних цветов',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 18,
+            'title' => 'Семена однолетних цветов',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'link' => 'other',
+            'order' => 999,
+            'catalog_level_one_id' => 18,
+            'title' => 'Остальное',
+        ],
     ];
 
     /**
