@@ -128,11 +128,25 @@ class CatalogLevelOneSeeder extends Seeder
             'title' => 'Цветы',
         ],
         [
+            'image' => 'public/catalog/levelOne/items/seeds/images/main/1.jpg',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/high-angle-of-woman-spreading-seeds-on-soil-in-pot_12391887.htm#query=%D0%A1%D0%B5%D0%BC%D0%B5%D0%BD%D0%B0&position=45&from_view=search&track=sph">Freepik</a>',
+            'link' => 'seeds',
+            'order' => 1,
+            'title' => 'Семена',
+        ],
+        [
             'image' => 'public/catalog/levelOne/items/plants/images/main/1.jpg',
             'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/green-houseplant-background-for-plant-lovers_17599271.htm#page=2&query=plants&position=13&from_view=search&track=sph">Изображение от rawpixel.com</a> на Freepik',
             'link' => 'plants',
             'order' => 1,
             'title' => 'Растения и саженцы',
+        ],
+        [
+            'image' => 'public/catalog/levelOne/items/farming/images/main/1.jpg',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/cow-resting-on-the-grass-covered-hills_13995437.htm#page=5&query=%D0%96%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%BE&position=49&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
+            'link' => 'farming',
+            'order' => 1,
+            'title' => 'Животноводство',
         ],
         [
             'image' => 'public/catalog/levelOne/items/hay/images/main/1.jpg',
