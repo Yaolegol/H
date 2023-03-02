@@ -373,12 +373,177 @@ class CatalogLevelTwoSeeder extends Seeder
             'title' => 'Кокос',
         ],
         [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 5,
+            'title' => 'Авокадо',
+        ],
+        [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 5,
             'title' => 'Остальное',
         ],
+
+
+
+
+
+
+
+
+
+        // Овощи
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 6,
+            'title' => 'Картофель',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 6,
+            'title' => 'Помидоры',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 6,
+            'title' => 'Огурцы',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 6,
+            'title' => 'Капуста',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 6,
+            'title' => 'Лук репчатый',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 6,
+            'title' => 'Лук пырей',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 6,
+            'title' => 'Салат',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 6,
+            'title' => 'Петрушка',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 6,
+            'title' => 'Укроп',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 6,
+            'title' => 'Баклажан',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 6,
+            'title' => 'Тыква',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 6,
+            'title' => 'Кабачок',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 6,
+            'title' => 'Перец',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 6,
+            'title' => 'Свекла',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 6,
+            'title' => 'Морковь',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 6,
+            'title' => 'Чеснок',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 6,
+            'title' => 'Редиска',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 6,
+            'title' => 'Редька',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 6,
+            'title' => 'Кукуруза',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 6,
+            'title' => '',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'link' => 'other',
+            'order' => 999,
+            'catalog_level_one_id' => 6,
+            'title' => 'Остальное',
+        ],
+
 
 
 
