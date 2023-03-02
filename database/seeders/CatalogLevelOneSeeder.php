@@ -97,7 +97,7 @@ class CatalogLevelOneSeeder extends Seeder
             'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/some-of-assorted-nuts-and-dried-fruits-with-pecan-pistachios-almond-peanut-cashew-pine-nuts-top-view_7481238.htm#&position=0&from_view=undefined">Изображение от 8photo</a> на Freepik',
             'link' => 'nuts',
             'order' => 1,
-            'title' => 'Орехи и изюм',
+            'title' => 'Орехи, изюм и сухофрукты',
         ],
         [
             'image' => 'public/catalog/levelOne/items/preserves/images/main/1.jpg',

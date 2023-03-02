@@ -1101,13 +1101,6 @@ class CatalogLevelTwoSeeder extends Seeder
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 12,
-            'title' => 'Сухофрукты',
-        ],
-        [
-            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
-            'link' => '',
-            'order' => 1,
-            'catalog_level_one_id' => 12,
             'title' => 'Соль',
         ],
         [
@@ -1159,6 +1152,125 @@ class CatalogLevelTwoSeeder extends Seeder
             'catalog_level_one_id' => 12,
             'title' => 'Остальное',
         ],
+
+
+
+
+
+
+
+
+
+
+        // Орехи
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 13,
+            'title' => 'Грецкий орех',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 13,
+            'title' => 'Арахис',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 13,
+            'title' => 'Изюм',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 13,
+            'title' => 'Сухофрукты',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 13,
+            'title' => 'Семечки',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 13,
+            'title' => 'Кешью',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 13,
+            'title' => 'Миндаль',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 13,
+            'title' => 'Курага',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 13,
+            'title' => 'Фундук',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 13,
+            'title' => 'Кедровый орех',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 13,
+            'title' => 'Чернослив',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 13,
+            'title' => 'Фисташки',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'link' => 'other',
+            'order' => 999,
+            'catalog_level_one_id' => 13,
+            'title' => 'Остальное',
+        ],
+
+
+
+
+
+
+
+        //
+
+
+
+
+
+
+
+
+
     ];
 
     /**
