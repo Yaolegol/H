@@ -1623,7 +1623,21 @@ class CatalogLevelTwoSeeder extends Seeder
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 18,
+            'title' => 'Семена ягод',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 18,
             'title' => 'Семена орехов',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 18,
+            'title' => 'Семена домашних цветов',
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
