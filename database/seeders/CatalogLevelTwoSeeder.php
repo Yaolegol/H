@@ -1261,8 +1261,56 @@ class CatalogLevelTwoSeeder extends Seeder
 
 
 
-        //
-
+        // Консервы
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 14,
+            'title' => 'Консервированные овощи',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 14,
+            'title' => 'Консервированные грибы',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 14,
+            'title' => 'Консервированные фрукты',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 14,
+            'title' => 'Мясные консервы',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 14,
+            'title' => 'Рыбные консервы',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 14,
+            'title' => 'Варенье',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'link' => 'other',
+            'order' => 999,
+            'catalog_level_one_id' => 14,
+            'title' => 'Остальное',
+        ],
 
 
 
