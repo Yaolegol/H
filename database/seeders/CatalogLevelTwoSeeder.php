@@ -912,6 +912,42 @@ class CatalogLevelTwoSeeder extends Seeder
 
 
 
+        // Чай
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 10,
+            'title' => 'Черный чай',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 10,
+            'title' => 'Зеленый чай',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 10,
+            'title' => 'Травы, листья и сборы',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'link' => 'other',
+            'order' => 999,
+            'catalog_level_one_id' => 10,
+            'title' => 'Остальное',
+        ],
+
+
+
+
+
+
+        // Чай
 
 
 
