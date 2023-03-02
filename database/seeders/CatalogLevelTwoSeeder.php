@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 class CatalogLevelTwoSeeder extends Seeder
 {
     public $data = [
+        // Мясная продукция
         [
             'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
             'link' => 'beef',
@@ -23,54 +24,372 @@ class CatalogLevelTwoSeeder extends Seeder
             'title' => 'Курица',
         ],
         [
+            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'link' => 'turkey',
+            'order' => 1,
+            'catalog_level_one_id' => 1,
+            'title' => 'Индейка',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'link' => 'pork',
+            'order' => 1,
+            'catalog_level_one_id' => 1,
+            'title' => 'Свинина',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'link' => 'sheep',
+            'order' => 1,
+            'catalog_level_one_id' => 1,
+            'title' => 'Баранина',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'link' => 'calf',
+            'order' => 1,
+            'catalog_level_one_id' => 1,
+            'title' => 'Телятина',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'link' => 'rabbit',
+            'order' => 1,
+            'catalog_level_one_id' => 1,
+            'title' => 'Крольчатина',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'link' => 'goat',
+            'order' => 1,
+            'catalog_level_one_id' => 1,
+            'title' => 'Козлятина',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'link' => 'bear',
+            'order' => 1,
+            'catalog_level_one_id' => 1,
+            'title' => 'Медвежатина',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'link' => 'deer',
+            'order' => 1,
+            'catalog_level_one_id' => 1,
+            'title' => 'Оленина',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'link' => 'moose',
+            'order' => 1,
+            'catalog_level_one_id' => 1,
+            'title' => 'Лосятина',
+        ],
+        [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 1,
             'title' => 'Остальное',
         ],
+
+
+
+
+
+
+
+
+
+
+
+        //   Рыба
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // Молочная продукция
         [
             'image' => 'public/catalog/levelTwo/items/3/images/main/1.jpg',
             'link' => 'milk',
             'order' => 1,
-            'catalog_level_one_id' => 2,
+            'catalog_level_one_id' => 3,
             'title' => 'Молоко',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
+            'link' => 'milk_сream',
+            'order' => 1,
+            'catalog_level_one_id' => 3,
+            'title' => 'Сливки',
         ],
         [
             'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
             'link' => 'kefir',
             'order' => 1,
-            'catalog_level_one_id' => 2,
+            'catalog_level_one_id' => 3,
             'title' => 'Кефир',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
+            'link' => 'butter',
+            'order' => 1,
+            'catalog_level_one_id' => 3,
+            'title' => 'Масло',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
+            'link' => 'margarine',
+            'order' => 1,
+            'catalog_level_one_id' => 3,
+            'title' => 'Маргарин',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
+            'link' => 'сottage_cheese',
+            'order' => 1,
+            'catalog_level_one_id' => 3,
+            'title' => 'Творог',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
+            'link' => 'sour_cream',
+            'order' => 1,
+            'catalog_level_one_id' => 3,
+            'title' => 'Сметана',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
+            'link' => 'ryazhenka',
+            'order' => 1,
+            'catalog_level_one_id' => 3,
+            'title' => 'Ряженка',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
+            'link' => 'milkshake',
+            'order' => 1,
+            'catalog_level_one_id' => 3,
+            'title' => 'Молочные коктели',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
+            'link' => 'yogurt',
+            'order' => 1,
+            'catalog_level_one_id' => 3,
+            'title' => 'Йогурт',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
+            'link' => 'curds',
+            'order' => 1,
+            'catalog_level_one_id' => 3,
+            'title' => 'Творожные сырки',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
+            'link' => 'pudding',
+            'order' => 1,
+            'catalog_level_one_id' => 3,
+            'title' => 'Пудинг',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
+            'link' => 'сondensed_milk',
+            'order' => 1,
+            'catalog_level_one_id' => 3,
+            'title' => 'Сгущенное молоко',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
+            'link' => 'cheese',
+            'order' => 1,
+            'catalog_level_one_id' => 3,
+            'title' => 'Сыр',
         ],
         [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
             'link' => 'other',
             'order' => 999,
-            'catalog_level_one_id' => 2,
+            'catalog_level_one_id' => 3,
             'title' => 'Остальное',
         ],
+
+
+
+
+
+
+
+
+
+        // Яйца
         [
             'image' => 'public/catalog/levelTwo/items/5/images/main/1.jpg',
             'link' => 'chicken-eggs',
             'order' => 1,
-            'catalog_level_one_id' => 3,
+            'catalog_level_one_id' => 4,
             'title' => 'Куринные яйца',
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
             'link' => 'quail',
             'order' => 1,
-            'catalog_level_one_id' => 3,
+            'catalog_level_one_id' => 4,
             'title' => 'Перепелинные яйца',
         ],
         [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
             'link' => 'other',
             'order' => 999,
-            'catalog_level_one_id' => 3,
+            'catalog_level_one_id' => 4,
             'title' => 'Остальное',
         ],
+
+
+
+
+        // Фрукты
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => 'apple',
+            'order' => 1,
+            'catalog_level_one_id' => 5,
+            'title' => 'Яблоки',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => 'pears',
+            'order' => 1,
+            'catalog_level_one_id' => 5,
+            'title' => 'Груши',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 5,
+            'title' => 'Мандарины',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 5,
+            'title' => 'Апельсины',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 5,
+            'title' => 'Бананы',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 5,
+            'title' => 'Манго',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 5,
+            'title' => 'Виноград',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 5,
+            'title' => 'Слива',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 5,
+            'title' => 'Хурма',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 5,
+            'title' => 'Айва',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 5,
+            'title' => 'Киви',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 5,
+            'title' => 'Грейпфрут',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 5,
+            'title' => 'Гранат',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 5,
+            'title' => 'Лимон',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 5,
+            'title' => 'Персики',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 5,
+            'title' => 'Кокос',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'link' => 'other',
+            'order' => 999,
+            'catalog_level_one_id' => 5,
+            'title' => 'Остальное',
+        ],
+
+
+
+
+
+
+
+
+
+
+        //
         [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
             'link' => 'other',
