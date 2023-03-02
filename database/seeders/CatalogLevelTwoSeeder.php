@@ -947,7 +947,56 @@ class CatalogLevelTwoSeeder extends Seeder
 
 
 
-        // Чай
+        // Мед
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 11,
+            'title' => 'Мед',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => 'perga',
+            'order' => 1,
+            'catalog_level_one_id' => 11,
+            'title' => 'Перга',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => 'propolis',
+            'order' => 1,
+            'catalog_level_one_id' => 11,
+            'title' => 'Прополис',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => 'Pollen',
+            'order' => 1,
+            'catalog_level_one_id' => 11,
+            'title' => 'Пыльца',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => 'milk',
+            'order' => 1,
+            'catalog_level_one_id' => 11,
+            'title' => 'Маточное молочко',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'link' => 'wax',
+            'order' => 1,
+            'catalog_level_one_id' => 11,
+            'title' => 'Воск',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'link' => 'other',
+            'order' => 999,
+            'catalog_level_one_id' => 11,
+            'title' => 'Остальное',
+        ],
 
 
 
