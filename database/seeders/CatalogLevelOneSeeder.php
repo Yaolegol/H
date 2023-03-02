@@ -118,7 +118,7 @@ class CatalogLevelOneSeeder extends Seeder
             'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/drink-bottles-in-wooden-crate_11463498.htm#page=6&query=juice&position=12&from_view=search&track=sph">Freepik</a>',
             'link' => 'juice',
             'order' => 1,
-            'title' => 'Вода и сок',
+            'title' => 'Вода, сок и квас',
         ],
         [
             'image' => 'public/catalog/levelOne/items/flower/images/main/1.jpg',
