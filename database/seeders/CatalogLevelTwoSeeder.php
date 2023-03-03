@@ -119,7 +119,7 @@ class CatalogLevelTwoSeeder extends Seeder
         //   Рыба
         [
             'image' => 'public/catalog/levelOne/items/fish/images/main/sub/trout/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/two-raw-seabass-with-spices_7121185.htm#page=2&query=%D1%84%D0%BE%D1%80%D0%B5%D0%BB%D1%8C&position=0&from_view=search&track=sph">Изображение от timolina</a> на Freepik',
             'link' => 'trout',
             'order' => 1,
             'catalog_level_one_id' => 2,
@@ -127,7 +127,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/fish/images/main/sub/pollock/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/composition-with-frozen-fish-on-the-table_14278035.htm#query=%D0%9C%D0%B8%D0%BD%D1%82%D0%B0%D0%B9&position=0&from_view=search&track=sph">Freepik</a>',
             'link' => 'pollock',
             'order' => 1,
             'catalog_level_one_id' => 2,
@@ -135,7 +135,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/fish/images/main/sub/salmon_fish/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/slices-of-raw-red-salmon_9659716.htm#query=%D0%A1%D0%B5%D0%BC%D0%B3%D0%B0&position=3&from_view=search&track=sph">Freepik</a>',
             'link' => 'salmon_fish',
             'order' => 1,
             'catalog_level_one_id' => 2,
@@ -143,7 +143,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/fish/images/main/sub/pike/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/close-up-of-fresh-pike-fish_3105527.htm#query=%D0%A9%D1%83%D0%BA%D0%B0&position=27&from_view=search&track=sph">Freepik</a>',
             'link' => 'pike',
             'order' => 1,
             'catalog_level_one_id' => 2,
@@ -151,7 +151,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/fish/images/main/sub/crucian_carp/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/fresh-raw-crucian-on-a-wooden-with-herbs_6963638.htm#query=%D0%9A%D0%B0%D1%80%D0%B0%D1%81%D1%8C&position=2&from_view=search&track=sph">Изображение от timolina</a> на Freepik',
             'link' => 'crucian_carp',
             'order' => 1,
             'catalog_level_one_id' => 2,
