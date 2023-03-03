@@ -10,91 +10,96 @@ class CatalogLevelTwoSeeder extends Seeder
     public $data = [
         // Мясная продукция
         [
-            'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/meat/images/main/sub/beef/1.jpeg',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/beautiful-cow-on-green-grass-with-blue-sky_11244791.htm#query=cow&position=14&from_view=search&track=sph">Изображение от vwalakte</a> на Freepik',
             'link' => 'beef',
             'order' => 1,
             'catalog_level_one_id' => 1,
             'title' => 'Говядина',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/meat/images/main/sub/chicken/1.jpeg',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/closeup-shot-of-a-white-hen-walking-in-a-field_10759817.htm#query=%D0%9A%D1%83%D1%80%D0%B8%D1%86%D0%B0&position=27&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
             'link' => 'chicken',
             'order' => 1,
             'catalog_level_one_id' => 1,
             'title' => 'Курица',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/meat/images/main/sub/turkey/1.jpeg',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/side-view-turkey-outdoors_8775118.htm#page=2&query=%D0%98%D0%BD%D0%B4%D0%B5%D0%B9%D0%BA%D0%B0&position=30&from_view=search&track=sph">Freepik</a>',
             'link' => 'turkey',
             'order' => 1,
             'catalog_level_one_id' => 1,
             'title' => 'Индейка',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/meat/images/main/sub/pork/1.jpeg',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/closeup-shot-of-three-domesticated-pigs_17244243.htm#query=pig&position=37&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
             'link' => 'pork',
             'order' => 1,
             'catalog_level_one_id' => 1,
             'title' => 'Свинина',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/meat/images/main/sub/sheep/1.jpeg',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/head-of-a-white-sheep_15672323.htm#query=sheep&position=4&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
             'link' => 'sheep',
             'order' => 1,
             'catalog_level_one_id' => 1,
             'title' => 'Баранина',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
-            'link' => 'calf',
-            'order' => 1,
-            'catalog_level_one_id' => 1,
-            'title' => 'Телятина',
-        ],
-        [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/meat/images/main/sub/rabbit/1.jpeg',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/portrait-of-a-cute-fluffy-gray-rabbit-with-ears-on-a-natural-green_9604087.htm#page=2&query=rabbit&position=47&from_view=search&track=sph">Изображение от pereslavtseva</a> на Freepik',
             'link' => 'rabbit',
             'order' => 1,
             'catalog_level_one_id' => 1,
             'title' => 'Крольчатина',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/meat/images/main/sub/goat/1.jpeg',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/brown-and-white-mother-and-baby-goats-inside-a-barn_12045833.htm#query=goat&position=1&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
             'link' => 'goat',
             'order' => 1,
             'catalog_level_one_id' => 1,
             'title' => 'Козлятина',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/meat/images/main/sub/horse/1.jpeg',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/horse-alezan-brown-ride-mane_1102300.htm#query=horse&position=42&from_view=search&track=sph">Изображение от senivpetro</a> на Freepik',
             'link' => 'horse',
             'order' => 1,
             'catalog_level_one_id' => 1,
             'title' => 'Конина',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/meat/images/main/sub/bear/1.jpeg',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/close-wild-big-brown-bear-near-a-forest-lake_11011847.htm#query=bear&position=29&from_view=search&track=sph">Изображение от byrdyak</a> на Freepik',
             'link' => 'bear',
             'order' => 1,
             'catalog_level_one_id' => 1,
             'title' => 'Медвежатина',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/meat/images/main/sub/deer/1.jpeg',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/red-deer-in-the-nature-habitat-during-the-deer-rut-european-wildlife_16755911.htm#query=deer&position=34&from_view=search&track=sph">Изображение от vladimircech</a> на Freepik',
             'link' => 'deer',
             'order' => 1,
             'catalog_level_one_id' => 1,
             'title' => 'Оленина',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/meat/images/main/sub/moose/1.jpeg',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/beautiful-shot-of-a-moose-or-elk-on-a-road-near-the-woods_14376060.htm#page=3&query=moose&position=45&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
             'link' => 'moose',
             'order' => 1,
             'catalog_level_one_id' => 1,
             'title' => 'Лосятина',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/meat/images/main/sub/other/1.jpeg',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/wild-boar-in-the-nature-habitat-dangerous-animal-in-the-forest-czech-republic-nature-sus-scrofa_16206151.htm#query=%D0%BA%D0%B0%D0%B1%D0%B0%D0%BD&position=2&from_view=search&track=sph">Изображение от vladimircech</a> на Freepik',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 1,
@@ -113,294 +118,336 @@ class CatalogLevelTwoSeeder extends Seeder
 
         //   Рыба
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Форель',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Минтай',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Семга',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Щука',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Карась',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Камбала',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Треска',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Карп',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Горбуша',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Сардина',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Сельдь',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Скумбрия',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Тунец',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Осьминоог',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Тилапия',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Пангасиус',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Шпроты',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Креветка',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Кальмар',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Окунь',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Краб',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Рак',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Кета',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Сибас',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Сайра',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Килька',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Анчоус',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Сардина',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Налим',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Вобла',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Осетр',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Мидии',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Палтус',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Килька',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Лещ',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Сом',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Судак',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Омуль',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Плотва',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Мойва',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Лосось',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/fish/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 2,
@@ -421,6 +468,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Молочная продукция
         [
             'image' => 'public/catalog/levelTwo/items/3/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'milk',
             'order' => 1,
             'catalog_level_one_id' => 3,
@@ -428,6 +476,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'milk_сream',
             'order' => 1,
             'catalog_level_one_id' => 3,
@@ -435,6 +484,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'kefir',
             'order' => 1,
             'catalog_level_one_id' => 3,
@@ -442,6 +492,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'koumiss',
             'order' => 1,
             'catalog_level_one_id' => 3,
@@ -449,6 +500,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'butter',
             'order' => 1,
             'catalog_level_one_id' => 3,
@@ -456,6 +508,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'margarine',
             'order' => 1,
             'catalog_level_one_id' => 3,
@@ -463,6 +516,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'сottage_cheese',
             'order' => 1,
             'catalog_level_one_id' => 3,
@@ -470,6 +524,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'sour_cream',
             'order' => 1,
             'catalog_level_one_id' => 3,
@@ -477,6 +532,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'ryazhenka',
             'order' => 1,
             'catalog_level_one_id' => 3,
@@ -484,6 +540,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'milkshake',
             'order' => 1,
             'catalog_level_one_id' => 3,
@@ -491,6 +548,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'yogurt',
             'order' => 1,
             'catalog_level_one_id' => 3,
@@ -498,6 +556,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'curds',
             'order' => 1,
             'catalog_level_one_id' => 3,
@@ -505,6 +564,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'pudding',
             'order' => 1,
             'catalog_level_one_id' => 3,
@@ -512,6 +572,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'сondensed_milk',
             'order' => 1,
             'catalog_level_one_id' => 3,
@@ -519,6 +580,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/4/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'cheese',
             'order' => 1,
             'catalog_level_one_id' => 3,
@@ -526,6 +588,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 3,
@@ -543,6 +606,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Яйца
         [
             'image' => 'public/catalog/levelTwo/items/5/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'chicken-eggs',
             'order' => 1,
             'catalog_level_one_id' => 4,
@@ -550,6 +614,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'quail',
             'order' => 1,
             'catalog_level_one_id' => 4,
@@ -557,6 +622,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 4,
@@ -569,6 +635,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Фрукты
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'apple',
             'order' => 1,
             'catalog_level_one_id' => 5,
@@ -576,6 +643,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'pears',
             'order' => 1,
             'catalog_level_one_id' => 5,
@@ -583,6 +651,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 5,
@@ -590,6 +659,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 5,
@@ -597,6 +667,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 5,
@@ -604,6 +675,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 5,
@@ -611,6 +683,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 5,
@@ -618,6 +691,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 5,
@@ -625,6 +699,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 5,
@@ -632,6 +707,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 5,
@@ -639,6 +715,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 5,
@@ -646,6 +723,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 5,
@@ -653,6 +731,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 5,
@@ -660,6 +739,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 5,
@@ -667,6 +747,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 5,
@@ -674,6 +755,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 5,
@@ -681,6 +763,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 5,
@@ -688,6 +771,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 5,
@@ -695,6 +779,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 5,
@@ -702,6 +787,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 5,
@@ -709,6 +795,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 5,
@@ -726,6 +813,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Овощи
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 6,
@@ -733,6 +821,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 6,
@@ -740,6 +829,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 6,
@@ -747,6 +837,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 6,
@@ -754,6 +845,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 6,
@@ -761,6 +853,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 6,
@@ -768,6 +861,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 6,
@@ -775,6 +869,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 6,
@@ -782,6 +877,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 6,
@@ -789,6 +885,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 6,
@@ -796,6 +893,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 6,
@@ -803,6 +901,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 6,
@@ -810,6 +909,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 6,
@@ -817,6 +917,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 6,
@@ -824,6 +925,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 6,
@@ -831,6 +933,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 6,
@@ -838,6 +941,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 6,
@@ -845,6 +949,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 6,
@@ -852,6 +957,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 6,
@@ -859,6 +965,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 6,
@@ -875,6 +982,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Ягода
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -882,6 +990,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -889,6 +998,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -896,12 +1006,15 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 7,
             'title' => 'Черноплодная рябина',
-        ],[
+        ],
+        [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -909,6 +1022,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -916,6 +1030,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -923,6 +1038,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -930,6 +1046,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -937,6 +1054,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -944,6 +1062,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -951,6 +1070,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -958,6 +1078,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -965,6 +1086,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -972,6 +1094,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -979,6 +1102,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -986,6 +1110,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -993,6 +1118,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -1000,6 +1126,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -1007,6 +1134,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -1014,6 +1142,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 7,
@@ -1028,6 +1157,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Хлеб
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 8,
@@ -1035,6 +1165,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 8,
@@ -1042,6 +1173,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 8,
@@ -1049,6 +1181,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 8,
@@ -1056,6 +1189,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 8,
@@ -1063,6 +1197,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 8,
@@ -1070,6 +1205,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 8,
@@ -1077,6 +1213,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 8,
@@ -1084,6 +1221,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 8,
@@ -1091,6 +1229,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 8,
@@ -1098,6 +1237,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 8,
@@ -1114,6 +1254,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Кондитерские изделия
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 9,
@@ -1121,6 +1262,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 9,
@@ -1128,6 +1270,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 9,
@@ -1135,6 +1278,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 9,
@@ -1142,6 +1286,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 9,
@@ -1149,6 +1294,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 9,
@@ -1156,6 +1302,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 9,
@@ -1163,6 +1310,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 9,
@@ -1170,6 +1318,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 9,
@@ -1177,6 +1326,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 9,
@@ -1184,12 +1334,15 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 9,
             'title' => 'Печенье',
-        ],[
+        ],
+        [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 9,
@@ -1197,6 +1350,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 9,
@@ -1204,6 +1358,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 9,
@@ -1211,6 +1366,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 9,
@@ -1222,6 +1378,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Чай
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 10,
@@ -1229,6 +1386,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 10,
@@ -1236,6 +1394,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 10,
@@ -1243,6 +1402,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 10,
@@ -1257,6 +1417,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Мед
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 11,
@@ -1264,6 +1425,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'perga',
             'order' => 1,
             'catalog_level_one_id' => 11,
@@ -1271,6 +1433,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'propolis',
             'order' => 1,
             'catalog_level_one_id' => 11,
@@ -1278,6 +1441,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'Pollen',
             'order' => 1,
             'catalog_level_one_id' => 11,
@@ -1285,6 +1449,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'milk',
             'order' => 1,
             'catalog_level_one_id' => 11,
@@ -1292,6 +1457,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'wax',
             'order' => 1,
             'catalog_level_one_id' => 11,
@@ -1299,6 +1465,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 11,
@@ -1314,6 +1481,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Бакалея
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'buckwheat',
             'order' => 1,
             'catalog_level_one_id' => 12,
@@ -1321,6 +1489,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'oatmeal',
             'order' => 1,
             'catalog_level_one_id' => 12,
@@ -1328,6 +1497,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 12,
@@ -1335,6 +1505,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 12,
@@ -1342,6 +1513,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 12,
@@ -1349,6 +1521,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 12,
@@ -1356,6 +1529,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 12,
@@ -1363,6 +1537,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 12,
@@ -1370,6 +1545,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 12,
@@ -1377,6 +1553,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 12,
@@ -1384,6 +1561,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 12,
@@ -1391,6 +1569,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 12,
@@ -1398,6 +1577,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 12,
@@ -1405,6 +1585,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 12,
@@ -1412,6 +1593,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 12,
@@ -1419,6 +1601,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 12,
@@ -1426,6 +1609,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 12,
@@ -1433,6 +1617,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 12,
@@ -1440,6 +1625,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 12,
@@ -1447,6 +1633,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 12,
@@ -1454,6 +1641,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 12,
@@ -1472,6 +1660,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Орехи
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 13,
@@ -1479,6 +1668,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 13,
@@ -1486,6 +1676,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 13,
@@ -1493,6 +1684,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 13,
@@ -1500,6 +1692,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 13,
@@ -1507,6 +1700,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 13,
@@ -1514,6 +1708,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 13,
@@ -1521,6 +1716,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 13,
@@ -1528,6 +1724,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 13,
@@ -1535,6 +1732,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 13,
@@ -1542,6 +1740,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 13,
@@ -1549,6 +1748,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 13,
@@ -1556,6 +1756,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 13,
@@ -1571,6 +1772,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Консервы
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 14,
@@ -1578,6 +1780,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 14,
@@ -1585,6 +1788,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 14,
@@ -1592,6 +1796,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 14,
@@ -1599,6 +1804,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 14,
@@ -1606,6 +1812,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 14,
@@ -1613,6 +1820,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 14,
@@ -1629,6 +1837,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Грибы
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 15,
@@ -1636,6 +1845,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 15,
@@ -1643,6 +1853,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 15,
@@ -1650,6 +1861,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 15,
@@ -1657,6 +1869,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 15,
@@ -1664,6 +1877,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 15,
@@ -1671,6 +1885,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 15,
@@ -1678,6 +1893,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 15,
@@ -1685,6 +1901,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 15,
@@ -1692,6 +1909,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 15,
@@ -1709,6 +1927,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Вода
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 16,
@@ -1716,6 +1935,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 16,
@@ -1723,6 +1943,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 16,
@@ -1730,6 +1951,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 16,
@@ -1746,6 +1968,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Цветы
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1753,6 +1976,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1760,6 +1984,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1767,6 +1992,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1774,6 +2000,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1781,6 +2008,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1788,6 +2016,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1795,6 +2024,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1802,6 +2032,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1809,6 +2040,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1816,6 +2048,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1823,6 +2056,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1830,6 +2064,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1837,6 +2072,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1844,6 +2080,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1851,6 +2088,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1858,6 +2096,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1865,6 +2104,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1872,6 +2112,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1879,6 +2120,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1886,6 +2128,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1893,6 +2136,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 17,
@@ -1906,6 +2150,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Семена
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 18,
@@ -1913,6 +2158,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 18,
@@ -1920,6 +2166,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 18,
@@ -1927,6 +2174,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 18,
@@ -1934,6 +2182,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 18,
@@ -1941,6 +2190,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 18,
@@ -1948,6 +2198,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 18,
@@ -1955,6 +2206,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 18,
@@ -1962,6 +2214,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 18,
@@ -1969,6 +2222,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 18,
@@ -1976,6 +2230,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 18,
@@ -1983,6 +2238,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 18,
@@ -1999,6 +2255,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Саженцы
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 19,
@@ -2006,6 +2263,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 19,
@@ -2013,6 +2271,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 19,
@@ -2020,6 +2279,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 19,
@@ -2027,6 +2287,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 19,
@@ -2034,6 +2295,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 19,
@@ -2041,6 +2303,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 19,
@@ -2048,6 +2311,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 19,
@@ -2055,6 +2319,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 19,
@@ -2062,6 +2327,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 19,
@@ -2069,6 +2335,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 19,
@@ -2076,6 +2343,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 19,
@@ -2090,6 +2358,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Растения
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 20,
@@ -2097,6 +2366,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 20,
@@ -2104,6 +2374,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 20,
@@ -2111,6 +2382,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 20,
@@ -2126,6 +2398,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Животноводство
         [
             'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'beef',
             'order' => 1,
             'catalog_level_one_id' => 21,
@@ -2133,6 +2406,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'chicken',
             'order' => 1,
             'catalog_level_one_id' => 21,
@@ -2140,6 +2414,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'turkey',
             'order' => 1,
             'catalog_level_one_id' => 21,
@@ -2147,6 +2422,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'pork',
             'order' => 1,
             'catalog_level_one_id' => 21,
@@ -2154,6 +2430,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'sheep',
             'order' => 1,
             'catalog_level_one_id' => 21,
@@ -2161,6 +2438,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'rabbit',
             'order' => 1,
             'catalog_level_one_id' => 21,
@@ -2168,6 +2446,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'goat',
             'order' => 1,
             'catalog_level_one_id' => 21,
@@ -2175,6 +2454,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'moose',
             'order' => 1,
             'catalog_level_one_id' => 21,
@@ -2182,6 +2462,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'fish',
             'order' => 1,
             'catalog_level_one_id' => 21,
@@ -2189,6 +2470,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'beef',
             'order' => 1,
             'catalog_level_one_id' => 21,
@@ -2196,6 +2478,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 21,
@@ -2213,6 +2496,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Дрова, сено, удобрения
         [
             'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 22,
@@ -2220,6 +2504,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 22,
@@ -2227,6 +2512,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 22,
@@ -2234,6 +2520,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 22,
@@ -2241,6 +2528,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 22,
@@ -2248,6 +2536,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 22,
@@ -2263,6 +2552,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Эко туризм
         [
             'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 23,
@@ -2270,6 +2560,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 23,
@@ -2283,6 +2574,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Одежда
         [
             'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 24,
@@ -2290,6 +2582,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 24,
@@ -2297,6 +2590,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 24,
@@ -2304,6 +2598,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 24,
@@ -2311,6 +2606,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => '',
             'order' => 1,
             'catalog_level_one_id' => 24,
@@ -2318,6 +2614,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'image_licence_link' => '',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 24,
