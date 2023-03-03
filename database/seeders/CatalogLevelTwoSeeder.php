@@ -199,7 +199,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/fish/images/main/sub/herring/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/front-view-fresh-sliced-fish-with-fresh-tomatoes-on-the-dark-seafood-color-photo-salad-meat-snack_14781385.htm#query=%D0%A1%D0%B5%D0%BB%D1%8C%D0%B4%D1%8C&position=14&from_view=search&track=sph">Изображение от KamranAydinov</a> на Freepik',
             'link' => 'herring',
             'order' => 1,
             'catalog_level_one_id' => 2,
@@ -207,7 +207,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/fish/images/main/sub/mackerel/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/smoked-mackerel-and-fresh-salad_6933333.htm#query=%D0%A1%D0%BA%D1%83%D0%BC%D0%B1%D1%80%D0%B8%D1%8F&position=17&from_view=search&track=sph">Изображение от timolina</a> на Freepik',
             'link' => 'mackerel',
             'order' => 1,
             'catalog_level_one_id' => 2,
@@ -215,7 +215,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/fish/images/main/sub/tuna/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/japanese-traditional-salad-with-pieces-of-medium-rare-grilled-ahi-tuna-and-sesame-with-fresh-vegetable-on-a-bowl_7535413.htm#query=tuna&position=23&from_view=search&track=sph">Изображение от timolina</a> на Freepik',
             'link' => 'tuna',
             'order' => 1,
             'catalog_level_one_id' => 2,
@@ -223,7 +223,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/fish/images/main/sub/octopus/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/octopus-legs-with-lemon-mint-and-berries_5588265.htm#query=%D0%BE%D1%81%D1%8C%D0%BC%D0%B8%D0%BD%D0%BE%D0%B3&position=31&from_view=search&track=sph">Изображение от azerbaijan_stockers</a> на Freepik',
             'link' => 'octopus',
             'order' => 1,
             'catalog_level_one_id' => 2,
@@ -231,7 +231,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/fish/images/main/sub/tilapia/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/fried-tilapia-with-chili-sauce-lemon-salad-and-garlic-on-a-plate-on-a-white-wooden-table_7370250.htm#query=tilapia&position=3&from_view=search&track=sph">Изображение от jcomp</a> на Freepik',
             'link' => 'tilapia',
             'order' => 1,
             'catalog_level_one_id' => 2,
@@ -239,7 +239,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/fish/images/main/sub/pangasius/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/barramundi-or-pangasius-fish-and-meat-steak_1144652.htm#query=Pangasius&position=3&from_view=search&track=sph">Изображение от mrsiraphol</a> на Freepik',
             'link' => 'pangasius',
             'order' => 1,
             'catalog_level_one_id' => 2,
@@ -247,7 +247,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/fish/images/main/sub/shrimp/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/fried-shrimps-with-herbs-close-up-view_9130505.htm#page=2&query=shrimp&position=7&from_view=search&track=sph">Изображение от devmaryna</a> на Freepik',
             'link' => 'shrimp',
             'order' => 1,
             'catalog_level_one_id' => 2,
