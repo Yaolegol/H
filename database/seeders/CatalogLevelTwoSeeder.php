@@ -159,7 +159,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/fish/images/main/sub/flounder/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Photo by <a href="https://unsplash.com/@brian_yuri?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Brian Yurasits</a> on <a href="https://unsplash.com/photos/KhTywORJC74?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>',
             'link' => 'flounder',
             'order' => 1,
             'catalog_level_one_id' => 2,
@@ -167,7 +167,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/fish/images/main/sub/cod/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/bottom-view-fish-fry-fried-eggplants-onion-peppers-on-wood-board-spices-in-small-bowls-fork-and-knife-tomatoes-oil-bottle-mint-dill-on-dark-background_16607684.htm#query=%D0%A2%D1%80%D0%B5%D1%81%D0%BA%D0%B0&position=30&from_view=search&track=sph">Изображение от KamranAydinov</a> на Freepik',
             'link' => 'cod',
             'order' => 1,
             'catalog_level_one_id' => 2,
@@ -175,7 +175,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/fish/images/main/sub/carp/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/fried-fish-carp-and-fresh-vegetable-salad-flat-lay-top-view_7688790.htm#page=2&query=%D0%9A%D0%B0%D1%80%D0%BF&position=35&from_view=search&track=sph">Изображение от timolina</a> на Freepik',
             'link' => 'carp',
             'order' => 1,
             'catalog_level_one_id' => 2,
@@ -431,7 +431,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/fish/images/main/sub/other/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/top-view-mix-of-fresh-fishes-on-ice_5567771.htm#page=2&query=%D0%9A%D0%B0%D1%80%D0%BF&position=22&from_view=search&track=sph">Freepik</a>',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 2,
