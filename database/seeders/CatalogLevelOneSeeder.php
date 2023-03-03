@@ -163,13 +163,6 @@ class CatalogLevelOneSeeder extends Seeder
             'title' => 'Дрова, сено, удобрения',
         ],
         [
-            'image' => 'public/catalog/levelOne/items/wood/images/main/1.jpg',
-            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/pile-of-shopped-wood-a-good-nature-wall_17667551.htm#page=2&query=lumber&position=24&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
-            'link' => 'wood',
-            'order' => 1,
-            'title' => 'Изделия из древесины',
-        ],
-        [
             'image' => 'public/catalog/levelOne/items/tourism/images/main/1.jpg',
             'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/large-green-rice-field-with-green-rice-plants-in-rows_12909734.htm#page=13&query=village&position=0&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
             'link' => 'tourism',
@@ -181,7 +174,7 @@ class CatalogLevelOneSeeder extends Seeder
             'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/serious-scandinavian-woman-with-pigtails-looks-calmly-at-front-dressed-in-warm-winter-clothing-poses-over-blue-wall_13758642.htm#query=caucasian%20clothing&position=0&from_view=search&track=ais">Изображение от wayhomestudio</a> на Freepik',
             'link' => 'clothes',
             'order' => 1,
-            'title' => 'Одежда',
+            'title' => 'Национальная одежда и сувениры',
         ],
         [
             'image' => 'public/catalog/levelOne/items/other/images/main/1.jpg',

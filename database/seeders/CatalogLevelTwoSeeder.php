@@ -1888,6 +1888,13 @@ class CatalogLevelTwoSeeder extends Seeder
             'title' => 'Пушные животные',
         ],
         [
+            'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'link' => 'beef',
+            'order' => 1,
+            'catalog_level_one_id' => 21,
+            'title' => 'Пчелы',
+        ],
+        [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
             'link' => 'other',
             'order' => 999,
@@ -1926,10 +1933,94 @@ class CatalogLevelTwoSeeder extends Seeder
             'title' => 'Навоз',
         ],
         [
+            'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 22,
+            'title' => 'Кругляк',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 22,
+            'title' => 'Пиломатериалы',
+        ],
+        [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 22,
+            'title' => 'Остальное',
+        ],
+
+
+
+
+
+
+
+        // Эко туризм
+        [
+            'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 23,
+            'title' => 'Эко туризм',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'link' => 'other',
+            'order' => 999,
+            'catalog_level_one_id' => 23,
+            'title' => 'Остальное',
+        ],
+
+
+
+
+
+        // Одежда
+        [
+            'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 24,
+            'title' => 'Национальные головные уборы',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 24,
+            'title' => 'Национальная одежда',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 24,
+            'title' => 'Национальная обувь',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 24,
+            'title' => 'Национальные костюмы',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 24,
+            'title' => 'Национальные сувениры',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'link' => 'other',
+            'order' => 999,
+            'catalog_level_one_id' => 24,
             'title' => 'Остальное',
         ],
     ];
