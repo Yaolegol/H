@@ -1894,6 +1894,44 @@ class CatalogLevelTwoSeeder extends Seeder
             'catalog_level_one_id' => 21,
             'title' => 'Остальное',
         ],
+
+
+
+
+
+
+
+
+
+        // Дрова, сено, удобрения
+        [
+            'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 22,
+            'title' => 'Дрова',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 22,
+            'title' => 'Сено',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'link' => '',
+            'order' => 1,
+            'catalog_level_one_id' => 22,
+            'title' => 'Навоз',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'link' => 'other',
+            'order' => 999,
+            'catalog_level_one_id' => 22,
+            'title' => 'Остальное',
+        ],
     ];
 
     /**
