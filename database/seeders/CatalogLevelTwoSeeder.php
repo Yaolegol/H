@@ -183,7 +183,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/fish/images/main/sub/pink_salmon/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/front-view-of-fresh-cut-raw-fishes-green-on-dark-color-tray-spices-kumquats-oil-bottle-on-blue-black-mix-colors-table_13150272.htm#query=%D0%93%D0%BE%D1%80%D0%B1%D1%83%D1%88%D0%B0&position=10&from_view=search&track=sph">Изображение от mdjaff</a> на Freepik',
             'link' => 'pink_salmon',
             'order' => 1,
             'catalog_level_one_id' => 2,
@@ -191,7 +191,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/fish/images/main/sub/sardine/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/closeup-shot-of-delicious-typical-spanish-espetos-of-sardines_30221988.htm#query=%D0%A1%D0%B0%D1%80%D0%B4%D0%B8%D0%BD%D0%B0&position=24&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
             'link' => 'sardine',
             'order' => 1,
             'catalog_level_one_id' => 2,
@@ -324,14 +324,6 @@ class CatalogLevelTwoSeeder extends Seeder
             'order' => 1,
             'catalog_level_one_id' => 2,
             'title' => 'Анчоус',
-        ],
-        [
-            'image' => 'public/catalog/levelOne/items/fish/images/main/sub/sardine/1.jpeg',
-            'image_licence_link' => '',
-            'link' => 'sardine',
-            'order' => 1,
-            'catalog_level_one_id' => 2,
-            'title' => 'Сардина',
         ],
         [
             'image' => 'public/catalog/levelOne/items/fish/images/main/sub/burbot/1.jpeg',
