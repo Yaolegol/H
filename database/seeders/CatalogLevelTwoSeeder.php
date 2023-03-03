@@ -400,13 +400,6 @@ class CatalogLevelTwoSeeder extends Seeder
             'title' => 'Лосось',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
-            'link' => '',
-            'order' => 1,
-            'catalog_level_one_id' => 2,
-            'title' => 'Икра',
-        ],
-        [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
             'link' => 'other',
             'order' => 999,
