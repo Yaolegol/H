@@ -66,6 +66,13 @@ class CatalogLevelTwoSeeder extends Seeder
             'title' => 'Козлятина',
         ],
         [
+            'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'link' => 'horse',
+            'order' => 1,
+            'catalog_level_one_id' => 1,
+            'title' => 'Канина',
+        ],
+        [
             'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
             'link' => 'bear',
             'order' => 1,
@@ -1814,6 +1821,77 @@ class CatalogLevelTwoSeeder extends Seeder
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 20,
+            'title' => 'Остальное',
+        ],
+
+
+
+
+
+
+
+        // Животноводство
+        [
+            'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'link' => 'beef',
+            'order' => 1,
+            'catalog_level_one_id' => 21,
+            'title' => 'Коровы',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'link' => 'chicken',
+            'order' => 1,
+            'catalog_level_one_id' => 21,
+            'title' => 'Курицы',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'link' => 'turkey',
+            'order' => 1,
+            'catalog_level_one_id' => 21,
+            'title' => 'Индейки',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'link' => 'pork',
+            'order' => 1,
+            'catalog_level_one_id' => 21,
+            'title' => 'Свиньи',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'link' => 'sheep',
+            'order' => 1,
+            'catalog_level_one_id' => 21,
+            'title' => 'Овцы',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'link' => 'rabbit',
+            'order' => 1,
+            'catalog_level_one_id' => 21,
+            'title' => 'Кролики',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'link' => 'goat',
+            'order' => 1,
+            'catalog_level_one_id' => 21,
+            'title' => 'Козлы',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
+            'link' => 'moose',
+            'order' => 1,
+            'catalog_level_one_id' => 21,
+            'title' => 'Пушные животные',
+        ],
+        [
+            'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'link' => 'other',
+            'order' => 999,
+            'catalog_level_one_id' => 21,
             'title' => 'Остальное',
         ],
     ];
