@@ -70,7 +70,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'link' => 'horse',
             'order' => 1,
             'catalog_level_one_id' => 1,
-            'title' => 'Канина',
+            'title' => 'Конина',
         ],
         [
             'image' => 'public/catalog/levelTwo/items/2/images/main/1.jpg',
