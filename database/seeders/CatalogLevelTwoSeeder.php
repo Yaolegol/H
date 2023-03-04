@@ -383,7 +383,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/fish/images/main/sub/catfish/1.jpeg',
-            'image_licence_link' => 'Photo by <a href="https://unsplash.com/@yosuke_ota?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Yosuke Ota</a> on <a href="https://unsplash.com/photos/ixJGjixar3g?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/closeup-shot-of-a-tiger-shovelnose-catfish-swimming-in-the-aquarium_20712327.htm#query=%D1%81%D0%BE%D0%BC&position=3&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
             'link' => 'catfish',
             'order' => 1,
             'catalog_level_one_id' => 2,
@@ -391,7 +391,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/fish/images/main/sub/zander/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/bottom-view-tasty-fish-fry-lemon-slices-cut-cherry-tomatoes-on-plate-dried-flower-branch-wooden-spoon-on-black-table_16608187.htm#query=%D0%A1%D1%83%D0%B4%D0%B0%D0%BA&position=1&from_view=search&track=sph">Изображение от KamranAydinov</a> на Freepik',
             'link' => 'zander',
             'order' => 1,
             'catalog_level_one_id' => 2,
@@ -399,7 +399,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/fish/images/main/sub/omul/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/top-view-fresh-fish-slices-with-lemon-on-dark-background-color-water-photo-meat-food-ocean-health-dinner-meal-seafood_23505127.htm#query=%D1%80%D1%8B%D0%B1%D0%B0&from_query=%D0%9E%D0%BC%D1%83%D0%BB%D1%8C&position=11&from_view=search&track=sph">Изображение от KamranAydinov</a> на Freepik',
             'link' => 'omul',
             'order' => 1,
             'catalog_level_one_id' => 2,
@@ -407,7 +407,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/fish/images/main/sub/roach/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/a-wooden-plate-full-of-delicious-fish_11527542.htm#page=2&query=%D0%BC%D0%B5%D0%BB%D0%BA%D0%B0%D1%8F%20%D1%80%D1%8B%D0%B1%D0%B0&position=18&from_view=search&track=ais">Изображение от azerbaijan_stockers</a> на Freepik',
             'link' => 'roach',
             'order' => 1,
             'catalog_level_one_id' => 2,
@@ -415,7 +415,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/fish/images/main/sub/capelin/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/top-view-fish-and-tomato-arrangement_11214407.htm#page=2&query=%D0%BC%D0%B5%D0%BB%D0%BA%D0%B0%D1%8F%20%D1%80%D1%8B%D0%B1%D0%B0&position=44&from_view=search&track=ais">Freepik</a>',
             'link' => 'capelin',
             'order' => 1,
             'catalog_level_one_id' => 2,
