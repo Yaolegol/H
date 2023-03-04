@@ -605,7 +605,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'title' => 'Перепелинные яйца',
         ],
         [
-            'image' => 'public/catalog/levelOne/items/fruit/images/main/sub//1.jpeg',
+            'image' => 'public/catalog/levelOne/items/eggs/images/main/sub/other/1.jpeg',
             'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/basket-full-of-eggs-in-nest-on-white-table_7520055.htm#query=%D1%8F%D0%B9%D1%86%D0%B0&position=40&from_view=search&track=sph">Изображение от stockking</a> на Freepik',
             'link' => 'other',
             'order' => 999,
