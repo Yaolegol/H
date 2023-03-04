@@ -589,24 +589,24 @@ class CatalogLevelTwoSeeder extends Seeder
 
         // Яйца
         [
-            'image' => 'public/catalog/levelTwo/items/5/images/main/1.jpg',
-            'image_licence_link' => '',
+            'image' => 'public/catalog/levelOne/items/eggs/images/main/sub/chicken-eggs/1.jpeg',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/white-eggs-on-piece-of-burlap_11818672.htm#query=Eggs&position=10&from_view=search&track=sph">Изображение от azerbaijan_stockers</a> на Freepik',
             'link' => 'chicken-eggs',
             'order' => 1,
             'catalog_level_one_id' => 4,
             'title' => 'Куринные яйца',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
-            'image_licence_link' => '',
+            'image' => 'public/catalog/levelOne/items/eggs/images/main/sub/quail/1.jpeg',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/wooden-bowl-of-raw-quail-eggs-on-stone-table_14411827.htm#query=%D0%BF%D0%B5%D1%80%D0%B5%D0%BF%D0%B5%D0%BB%D0%B8%D0%BD%D0%BD%D1%8B%D0%B5%20%D1%8F%D0%B9%D1%86%D0%B0&position=15&from_view=search&track=ais">Изображение от BalashMirzabey</a> на Freepik',
             'link' => 'quail',
             'order' => 1,
             'catalog_level_one_id' => 4,
             'title' => 'Перепелинные яйца',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
-            'image_licence_link' => '',
+            'image' => 'public/catalog/levelOne/items/eggs/images/main/sub/other/1.jpeg',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/basket-full-of-eggs-in-nest-on-white-table_7520055.htm#query=%D1%8F%D0%B9%D1%86%D0%B0&position=40&from_view=search&track=sph">Изображение от stockking</a> на Freepik',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 4,
