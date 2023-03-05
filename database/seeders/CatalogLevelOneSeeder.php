@@ -65,9 +65,9 @@ class CatalogLevelOneSeeder extends Seeder
             'title' => 'Хлеб, пирожки и булочки',
         ],
         [
-            'image' => 'public/catalog/levelOne/items/сonfectionery/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/confectionery/images/main/1.jpg',
             'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/homemade-blackberry-cheesecake-and-matcha-tea-on-a-cake-stand-on-a-white-background-berry-dessert-copy-space_23789689.htm#query=Confectionery&position=40&from_view=search&track=sph">Изображение от user14908974</a> на Freepik',
-            'link' => 'сonfectionery',
+            'link' => 'confectionery',
             'order' => 1,
             'title' => 'Кондитерские изделия',
         ],
