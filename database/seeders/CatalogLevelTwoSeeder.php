@@ -1774,7 +1774,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/flower/images/main/sub/chamomile/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/lovely-daisy-with-a-shining-heart-in-spring_10480070.htm#query=%D0%A0%D0%BE%D0%BC%D0%B0%D1%88%D0%BA%D0%B0&position=16&from_view=search&track=sph">Изображение от vwalakte</a> на Freepik',
             'link' => 'chamomile',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1782,7 +1782,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/flower/images/main/sub/carnation/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/baby-s-breath-flowers-and-carnations-bouquet-on-the-corner-of-the-marble-textured-backdrop_3972534.htm#query=%D0%93%D0%B2%D0%BE%D0%B7%D0%B4%D0%B8%D0%BA%D0%B0&position=14&from_view=search&track=sph">Freepik</a>',
             'link' => 'carnation',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1790,7 +1790,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/flower/images/main/sub/lily/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/still-life-with-flower-arrangement_25851846.htm#query=%D0%9B%D0%B8%D0%BB%D0%B8%D1%8F&position=7&from_view=search&track=sph">Freepik</a>',
             'link' => 'lily',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1798,31 +1798,15 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/flower/images/main/sub/rose/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/flat-lay-of-beautifully-bloomed-colorful-rose-flowers_15365314.htm#query=%D0%A0%D0%BE%D0%B7%D0%B0&position=21&from_view=search&track=sph">Freepik</a>',
             'link' => 'rose',
             'order' => 1,
             'catalog_level_one_id' => 17,
             'title' => 'Роза',
         ],
         [
-            'image' => 'public/catalog/levelOne/items/flower/images/main/sub/gypsophila/1.jpeg',
-            'image_licence_link' => '',
-            'link' => 'gypsophila',
-            'order' => 1,
-            'catalog_level_one_id' => 17,
-            'title' => 'Гипсофила',
-        ],
-        [
-            'image' => 'public/catalog/levelOne/items/flower/images/main/sub/eustoma/1.jpeg',
-            'image_licence_link' => '',
-            'link' => 'eustoma',
-            'order' => 1,
-            'catalog_level_one_id' => 17,
-            'title' => 'Эустома',
-        ],
-        [
             'image' => 'public/catalog/levelOne/items/flower/images/main/sub/hyacinth/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/close-up-of-hyacinth-flower-plant-in-the-glass_4741297.htm#page=3&query=%D0%93%D0%B8%D0%B0%D1%86%D0%B8%D0%BD%D1%82&position=10&from_view=search&track=sph">Freepik</a>',
             'link' => 'hyacinth',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1830,7 +1814,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/flower/images/main/sub/hydrangea/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/vertical-closeup-shot-of-pink-hydrangea-flowers-in-full-bloom_13153388.htm#query=%D0%93%D0%BE%D1%80%D1%82%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F&position=5&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
             'link' => 'hydrangea',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1838,7 +1822,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/flower/images/main/sub/buttercup/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/side-view-of-pink-ranunculus-flowers-bouquet-in-glass-vase-at-flower-shop_8404567.htm#query=%D0%9B%D1%8E%D1%82%D0%B8%D0%BA&position=12&from_view=search&track=sph">Изображение от KamranAydinov</a> на Freepik',
             'link' => 'buttercup',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1846,7 +1830,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/flower/images/main/sub/mimosa/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/yellow-flower-branches-scattered-on-blue-table_4002110.htm#query=%D0%9C%D0%B8%D0%BC%D0%BE%D0%B7%D0%B0&position=20&from_view=search&track=sph">Freepik</a>',
             'link' => 'mimosa',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1854,7 +1838,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/flower/images/main/sub/lilac_bush/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/top-view-of-lilac-flowers-isolated-on-white-background-with-copy-space_8897530.htm#query=%D0%A1%D0%B8%D1%80%D0%B5%D0%BD%D1%8C&position=13&from_view=search&track=sph">Изображение от stockking</a> на Freepik',
             'link' => 'lilac_bush',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1862,7 +1846,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/flower/images/main/sub/orchid/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/white-phalaenopsis-orchid-flower_1273889.htm#query=%D0%9E%D1%80%D1%85%D0%B8%D0%B4%D0%B5%D1%8F&position=30&from_view=search&track=sph">Изображение от aopsan</a> на Freepik',
             'link' => 'orchid',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1870,7 +1854,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/flower/images/main/sub/willow/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/white-chicken-eggs-with-willow-branches_4056688.htm#query=%D0%92%D0%B5%D1%80%D0%B1%D0%B0&position=35&from_view=search&track=sph">Freepik</a>',
             'link' => 'willow',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1878,7 +1862,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/flower/images/main/sub/bouquets/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/beautiful-flowers-bouquet-with-copy-space_16693869.htm#query=%D0%91%D1%83%D0%BA%D0%B5%D1%82%20%D1%86%D0%B2%D0%B5%D1%82%D0%BE%D0%B2&position=0&from_view=search&track=ais">Freepik</a>',
             'link' => 'bouquets',
             'order' => 1,
             'catalog_level_one_id' => 17,
