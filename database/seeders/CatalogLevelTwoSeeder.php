@@ -1870,7 +1870,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/flower/images/main/sub/other/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/top-view-of-beautifully-colored-flowers_15365221.htm#page=3&query=%D0%A6%D0%B2%D0%B5%D1%82%D1%8B&position=9&from_view=search&track=sph">Freepik</a>',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 17,
