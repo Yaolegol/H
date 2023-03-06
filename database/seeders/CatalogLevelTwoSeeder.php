@@ -1693,7 +1693,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Вода
         [
             'image' => 'public/catalog/levelOne/items/juice/images/main/sub/water/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/glass-on-the-table_6356495.htm#query=%D0%9C%D0%B8%D0%BD%D0%B5%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D0%B2%D0%BE%D0%B4%D0%B0&position=24&from_view=search&track=ais">Изображение от Racool_studio</a> на Freepik',
             'link' => 'water',
             'order' => 1,
             'catalog_level_one_id' => 16,
@@ -1701,7 +1701,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/juice/images/main/sub/juice/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/colorful-juice-bottles-and-fruit-slices_4996290.htm#query=juice&position=4&from_view=search&track=sph">Freepik</a>',
             'link' => 'juice',
             'order' => 1,
             'catalog_level_one_id' => 16,
@@ -1709,7 +1709,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/juice/images/main/sub/kvass/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/sliced-roll-cake-on-wooden-board-with-cup-of-tea-on-stone-background_13964035.htm#query=%D0%9A%D0%B2%D0%B0%D1%81%20%D1%81%D1%83%D1%85%D0%B0%D1%80%D0%B8&position=35&from_view=search&track=ais">Изображение от azerbaijan_stockers</a> на Freepik',
             'link' => 'kvass',
             'order' => 1,
             'catalog_level_one_id' => 16,
@@ -1717,7 +1717,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/juice/images/main/sub/other/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/orange-juice-in-a-jar-with-oranges_5896837.htm#query=juice&position=40&from_view=search&track=sph">Изображение от jcomp</a> на Freepik',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 16,
