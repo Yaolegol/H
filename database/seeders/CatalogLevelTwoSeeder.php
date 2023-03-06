@@ -1562,7 +1562,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Консервы
         [
             'image' => 'public/catalog/levelOne/items/preserves/images/main/sub/vegetables/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/arrangement-with-preserved-vegetables_9467569.htm#query=%D0%9A%D0%BE%D0%BD%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5%20%D0%BE%D0%B2%D0%BE%D1%89%D0%B8&position=13&from_view=search&track=ais">Freepik</a>',
             'link' => 'vegetables',
             'order' => 1,
             'catalog_level_one_id' => 14,
@@ -1570,7 +1570,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/preserves/images/main/sub/mushrooms/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/front-view-of-mushrooms-in-glass-jar_10889935.htm#query=%D0%9A%D0%BE%D0%BD%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5%20%D0%B3%D1%80%D0%B8%D0%B1%D1%8B&position=3&from_view=search&track=ais">Freepik</a>',
             'link' => 'mushrooms',
             'order' => 1,
             'catalog_level_one_id' => 14,
@@ -1578,7 +1578,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/preserves/images/main/sub/fruit/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/lots-of-fresh-fruit-cut-on-wooden-wall-drink-healthy-food_10377205.htm#page=2&query=%D0%9A%D0%BE%D0%BD%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5%20%D1%84%D1%80%D1%83%D0%BA%D1%82%D1%8B&position=8&from_view=search&track=ais">Изображение от pvproductions</a> на Freepik',
             'link' => 'fruit',
             'order' => 1,
             'catalog_level_one_id' => 14,
@@ -1586,23 +1586,15 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/preserves/images/main/sub/meat/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/canned-fish-in-tin-cans-salmon-tuna-mackerel-and-sprats_13340704.htm#query=%D0%9C%D1%8F%D1%81%D0%BD%D1%8B%D0%B5%20%D0%BA%D0%BE%D0%BD%D1%81%D0%B5%D1%80%D0%B2%D1%8B&position=0&from_view=search&track=ais">Изображение от azerbaijan_stockers</a> на Freepik',
             'link' => 'meat',
             'order' => 1,
             'catalog_level_one_id' => 14,
-            'title' => 'Мясные консервы',
-        ],
-        [
-            'image' => 'public/catalog/levelOne/items/preserves/images/main/sub/fish/1.jpeg',
-            'image_licence_link' => '',
-            'link' => 'fish',
-            'order' => 1,
-            'catalog_level_one_id' => 14,
-            'title' => 'Рыбные консервы',
+            'title' => 'Мясные и рыбные консервы',
         ],
         [
             'image' => 'public/catalog/levelOne/items/preserves/images/main/sub/jam/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/high-angle-arrangement-with-jars_8486696.htm#query=%D0%92%D0%B0%D1%80%D0%B5%D0%BD%D1%8C%D0%B5&position=1&from_view=search&track=sph">Freepik</a>',
             'link' => 'jam',
             'order' => 1,
             'catalog_level_one_id' => 14,
@@ -1610,7 +1602,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/preserves/images/main/sub/other/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/assortment-of-berry-jams-top-view_9829533.htm#page=2&query=%D0%92%D0%B0%D1%80%D0%B5%D0%BD%D1%8C%D0%B5&position=4&from_view=search&track=sph">Изображение от azerbaijan_stockers</a> на Freepik',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 14,
