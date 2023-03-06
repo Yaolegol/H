@@ -1455,7 +1455,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/grocery/images/main/sub/other/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/top-view-raw-pasta-with-buckwheat-and-seasonings-on-brown-surface_14267256.htm#query=%D0%91%D0%B0%D0%BA%D0%B0%D0%BB%D0%B5%D1%8F&position=6&from_view=search&track=sph">Изображение от mdjaff</a> на Freepik',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 12,
