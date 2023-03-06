@@ -1884,7 +1884,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Семена
         [
             'image' => 'public/catalog/levelOne/items/seeds/images/main/sub/vegetables/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/top-view-of-tomatoes-with-basket-of-veggies_9402960.htm#query=%D0%A1%D0%B5%D0%BC%D0%B5%D0%BD%D0%B0%20%D0%BE%D0%B2%D0%BE%D1%89%D0%B5%D0%B9&position=5&from_view=search&track=ais">Freepik</a>',
             'link' => 'vegetables',
             'order' => 1,
             'catalog_level_one_id' => 18,
@@ -1892,7 +1892,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/seeds/images/main/sub/fruit/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/top-view-fresh-fruits-different-mellow-fruits-on-the-white-background-tree-tasty-photo-ripe-diet-color-health-berry_15298977.htm#page=2&query=%D0%A1%D0%B5%D0%BC%D0%B5%D0%BD%D0%B0%20%D1%84%D1%80%D1%83%D0%BA%D1%82%D0%BE%D0%B2&position=7&from_view=search&track=ais">Изображение от KamranAydinov</a> на Freepik',
             'link' => 'fruit',
             'order' => 1,
             'catalog_level_one_id' => 18,
@@ -1900,7 +1900,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/seeds/images/main/sub/berry/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/natural-background-with-different-wild-berries-macro-shot_31621970.htm#page=3&query=%D1%81%D0%B5%D0%BC%D0%B5%D0%BD%D0%B0%20%D1%8F%D0%B3%D0%BE%D0%B4&position=10&from_view=search&track=ais">Изображение от pvproductions</a> на Freepik',
             'link' => 'berry',
             'order' => 1,
             'catalog_level_one_id' => 18,
@@ -1908,7 +1908,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/seeds/images/main/sub/nuts/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/set-of-pecan-pistachios-almond-peanut-cashew-pine-nuts-and-lined-up-assorted-nuts-and-dried-fruits-in-a-mini-different-bowls_7481223.htm#query=%D1%81%D0%B5%D0%BC%D0%B5%D0%BD%D0%B0%20%D0%BE%D1%80%D0%B5%D1%85%D0%BE%D0%B2&position=20&from_view=search&track=ais">Изображение от 8photo</a> на Freepik',
             'link' => 'nuts',
             'order' => 1,
             'catalog_level_one_id' => 18,
@@ -1916,7 +1916,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/seeds/images/main/sub/tree/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/apple-orchard_11139256.htm#query=%D0%AF%D0%B1%D0%BB%D0%BE%D0%BD%D1%8F&position=1&from_view=search&track=sph">Изображение от aleksandarlittlewolf</a> на Freepik',
             'link' => 'tree',
             'order' => 1,
             'catalog_level_one_id' => 18,
@@ -1924,7 +1924,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/seeds/images/main/sub/plants/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/popular-potted-houseplants-in-white-background_17229129.htm#page=2&query=%D1%80%D0%B0%D1%81%D1%82%D0%B5%D0%BD%D0%B8%D1%8F&position=49&from_view=search&track=sph">Изображение от rawpixel.com</a> на Freepik',
             'link' => 'plants',
             'order' => 1,
             'catalog_level_one_id' => 18,
@@ -1932,7 +1932,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/seeds/images/main/sub/flower/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/background-of-red-tulip-in-a-yellow-tulip-field_10074889.htm#query=%D0%A1%D0%B5%D0%BC%D0%B5%D0%BD%D0%B0%20%D1%82%D1%8E%D0%BB%D1%8C%D0%BF%D0%B0%D0%BD%D0%BE%D0%B2&position=25&from_view=search&track=ais">Изображение от wirestock</a> на Freepik',
             'link' => 'flower',
             'order' => 1,
             'catalog_level_one_id' => 18,
