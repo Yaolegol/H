@@ -942,7 +942,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Ягода
         [
             'image' => 'public/catalog/levelOne/items/berry/images/main/sub/blueberry/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/word-bilberry-diet-white-green_1174690.htm#query=blueberry&position=24&from_view=search&track=sph">Изображение от 4045</a> на Freepik',
             'link' => 'blueberry',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -950,15 +950,23 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/berry/images/main/sub/strawberry/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/strawberries_1012241.htm#query=%D0%9A%D0%BB%D1%83%D0%B1%D0%BD%D0%B8%D0%BA%D0%B0&position=18&from_view=search&track=sph">Изображение от kues1</a> на Freepik',
             'link' => 'strawberry',
             'order' => 1,
             'catalog_level_one_id' => 7,
             'title' => 'Клубника',
         ],
         [
+            'image' => 'public/catalog/levelOne/items/berry/images/main/sub/raspberry/1.jpeg',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/fresh-raspberries-flat-lay-food-photography_15439876.htm#query=%D0%9C%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0&position=7&from_view=search&track=sph">Изображение от rawpixel.com</a> на Freepik',
+            'link' => 'raspberry',
+            'order' => 1,
+            'catalog_level_one_id' => 7,
+            'title' => 'Малина',
+        ],
+        [
             'image' => 'public/catalog/levelOne/items/berry/images/main/sub/bird_cherry/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/closeup-shot-of-bird-cherry-prunus-padus-tree-with-ripe-berries-in-sun-rays_13235018.htm#query=%D1%87%D0%B5%D1%80%D0%B5%D0%BC%D1%83%D1%85%D0%B0&position=0&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
             'link' => 'bird_cherry',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -966,7 +974,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/berry/images/main/sub/chokeberry/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/lots-of-blueberries_5873712.htm#page=2&query=%D1%87%D0%B5%D1%80%D0%BD%D0%B0%D1%8F%20%D1%81%D0%BC%D0%BE%D1%80%D0%BE%D0%B4%D0%B8%D0%BD%D0%B0&position=6&from_view=search&track=ais">Изображение от Racool_studio</a> на Freepik',
             'link' => 'chokeberry',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -974,7 +982,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/berry/images/main/sub/ashberry/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/rowan-berries-on-a-branch-sorbus-alnifolia-sorbus-aucuparia_23457294.htm#page=2&query=%D0%A0%D1%8F%D0%B1%D0%B8%D0%BD%D0%B0&position=19&from_view=search&track=sph">Изображение от montypeter</a> на Freepik',
             'link' => 'ashberry',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -982,7 +990,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/berry/images/main/sub/honeysuckle/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/blueberries-top-view_877604.htm#query=%D0%96%D0%B8%D0%BC%D0%BE%D0%BB%D0%BE%D1%81%D1%82%D1%8C&position=45&from_view=search&track=sph">Изображение от onlyyouqj</a> на Freepik',
             'link' => 'honeysuckle',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -990,7 +998,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/berry/images/main/sub/currant/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/top-view-of-black-currant-in-a-bowl-on-a-gray-surface_9636996.htm#query=%D0%A1%D0%BC%D0%BE%D1%80%D0%BE%D0%B4%D0%B8%D0%BD%D0%B0&position=30&from_view=search&track=sph">Изображение от stockking</a> на Freepik',
             'link' => 'currant',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -998,7 +1006,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/berry/images/main/sub/gooseberry/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/green-gooseberries-in-a-wooden-bowl_7121443.htm#page=2&query=%D0%9A%D1%80%D1%8B%D0%B6%D0%BE%D0%B2%D0%BD%D0%B8%D0%BA&position=20&from_view=search&track=sph">Изображение от timolina</a> на Freepik',
             'link' => 'gooseberry',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -1006,7 +1014,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/berry/images/main/sub/strawberry_small/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/organic-wild-ripe-strawberry-in-forest-macro-shot-focus-on-a-foreground-blurred-background-close-up_27212590.htm#query=%D0%97%D0%B5%D0%BC%D0%BB%D1%8F%D0%BD%D0%B8%D0%BA%D0%B0&position=16&from_view=search&track=sph">Изображение от YuliiaKa</a> на Freepik',
             'link' => 'strawberry_small',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -1014,7 +1022,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/berry/images/main/sub/sea_buckthorn/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/top-half-view-sea-buckthorn-in-bowl-on-dark-red-surface_12063193.htm#query=%D0%9E%D0%B1%D0%BB%D0%B5%D0%BF%D0%B8%D1%85%D0%B0&position=27&from_view=search&track=sph">Изображение от KamranAydinov</a> на Freepik',
             'link' => 'sea_buckthorn',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -1022,7 +1030,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/berry/images/main/sub/cranberry/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/top-view-cranberries-arrangement_12097040.htm#query=%D0%9A%D0%BB%D1%8E%D0%BA%D0%B2%D0%B0&position=0&from_view=search&track=sph">Freepik</a>',
             'link' => 'cranberry',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -1030,7 +1038,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/berry/images/main/sub/lingonberry/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/a-front-view-red-lingonberry-inside-round-glass-plate-on-the-grey-desk-cranberry_9597415.htm#query=%D0%91%D1%80%D1%83%D1%81%D0%BD%D0%B8%D0%BA%D0%B0&position=47&from_view=search&track=sph">Изображение от KamranAydinov</a> на Freepik',
             'link' => 'lingonberry',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -1038,7 +1046,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/berry/images/main/sub/blackberry/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/tasty-ripe-sweet-healthy-blackberry_9655442.htm#query=%D0%95%D0%B6%D0%B5%D0%B2%D0%B8%D0%BA%D0%B0&position=6&from_view=search&track=sph">Изображение от azerbaijan_stockers</a> на Freepik',
             'link' => 'blackberry',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -1046,7 +1054,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/berry/images/main/sub/hawthorn/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/hawthorn_1016999.htm#query=hawthorn&from_query=%D0%91%D0%BE%D1%8F%D1%80%D1%8B%D1%88%D0%BD%D0%B8%D0%BA&position=0&from_view=search&track=sph">Изображение от dashu83</a> на Freepik',
             'link' => 'hawthorn',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -1054,7 +1062,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/berry/images/main/sub/fig/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/figs-cut-into-slices-on-a-wooden-cutting-board-closeup-selective-focus-horizontal-frame-seasonal-ripe-fig-fruits-mediterranean-diet-idea-for-advertising_31427008.htm#query=%D0%98%D0%BD%D0%B6%D0%B8%D1%80&position=6&from_view=search&track=sph">Изображение от ededchechine</a> на Freepik',
             'link' => 'fig',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -1062,7 +1070,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/berry/images/main/sub/merry/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/delicious-berries-on-the-table_6255570.htm#query=%D0%A7%D0%B5%D1%80%D0%B5%D1%88%D0%BD%D1%8F&position=6&from_view=search&track=sph">Изображение от Racool_studio</a> на Freepik',
             'link' => 'merry',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -1070,7 +1078,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/berry/images/main/sub/cherry/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/big-cherry-on-white-background_1192767.htm#query=%D0%A7%D0%B5%D1%80%D0%B5%D1%88%D0%BD%D1%8F&position=1&from_view=search&track=sph">Изображение от xb100</a> на Freepik',
             'link' => 'cherry',
             'order' => 1,
             'catalog_level_one_id' => 7,
@@ -1078,23 +1086,15 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/berry/images/main/sub/irga/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/white-plate-of-delicious-fresh-blueberries-on-marble-surface_17189850.htm#query=shadberry&position=38&from_view=search&track=ais?log-in=google">Изображение от azerbaijan_stockers</a> на Freepik',
             'link' => 'irga',
             'order' => 1,
             'catalog_level_one_id' => 7,
             'title' => 'Ирга',
         ],
         [
-            'image' => 'public/catalog/levelOne/items/berry/images/main/sub/lychee/1.jpeg',
-            'image_licence_link' => '',
-            'link' => 'lychee',
-            'order' => 1,
-            'catalog_level_one_id' => 7,
-            'title' => 'Личи',
-        ],
-        [
             'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/various-fresh-summer-berries-blueberries-red-currant-strawberries-blackberries-top-view_9691390.htm#query=%D0%B0%D1%81%D1%81%D0%BE%D1%80%D1%82%D0%B8%20%D1%8F%D0%B3%D0%BE%D0%B4%D1%8B&position=5&from_view=search&track=ais">Изображение от azerbaijan_stockers</a> на Freepik',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 7,
