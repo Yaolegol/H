@@ -1734,7 +1734,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Цветы
         [
             'image' => 'public/catalog/levelOne/items/flower/images/main/sub/tulip/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/tulips-bouquet-on-pink-background-with-copyspace_3948708.htm#query=%D0%A2%D1%8E%D0%BB%D1%8C%D0%BF%D0%B0%D0%BD&position=3&from_view=search&track=sph">Изображение от denamorado</a> на Freepik',
             'link' => 'tulip',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1742,7 +1742,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/flower/images/main/sub/iris/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/top-view-of-an-empty-picture-frame-with-dark-purple-color-iris-flowers-isolated-on-white-background-with-copy-space_8898409.htm#query=%D0%98%D1%80%D0%B8%D1%81&position=35&from_view=search&track=sph">Изображение от stockking</a> на Freepik',
             'link' => 'iris',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1750,23 +1750,15 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/flower/images/main/sub/gerbera/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/high-angle-closeup-shot-of-beautiful-light-pink-barberton-daisies_11678215.htm#query=%D0%93%D0%B5%D1%80%D0%B1%D0%B5%D1%80%D0%B0&position=9&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
             'link' => 'gerbera',
             'order' => 1,
             'catalog_level_one_id' => 17,
             'title' => 'Гербера',
         ],
         [
-            'image' => 'public/catalog/levelOne/items/flower/images/main/sub/alstroemeria/1.jpeg',
-            'image_licence_link' => '',
-            'link' => 'alstroemeria',
-            'order' => 1,
-            'catalog_level_one_id' => 17,
-            'title' => 'Альстромерия',
-        ],
-        [
             'image' => 'public/catalog/levelOne/items/flower/images/main/sub/chrysanthemum/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Photo by <a href="https://unsplash.com/de/@lee_hisu?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Hisu lee</a> on <a href="https://unsplash.com/photos/AbkBVd1gbVA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>',
             'link' => 'chrysanthemum',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1774,7 +1766,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/flower/images/main/sub/pion/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/fresh-beautiful-peony-flowers-in-a-vase_6780777.htm#page=2&query=%D0%9F%D0%B8%D0%BE%D0%BD&position=7&from_view=search&track=sph">Изображение от Racool_studio</a> на Freepik',
             'link' => 'pion',
             'order' => 1,
             'catalog_level_one_id' => 17,
@@ -1859,14 +1851,6 @@ class CatalogLevelTwoSeeder extends Seeder
             'order' => 1,
             'catalog_level_one_id' => 17,
             'title' => 'Мимоза',
-        ],
-        [
-            'image' => 'public/catalog/levelOne/items/flower/images/main/sub/chrysanthemum/1.jpeg',
-            'image_licence_link' => '',
-            'link' => 'chrysanthemum',
-            'order' => 1,
-            'catalog_level_one_id' => 17,
-            'title' => 'Хризантема',
         ],
         [
             'image' => 'public/catalog/levelOne/items/flower/images/main/sub/lilac_bush/1.jpeg',
