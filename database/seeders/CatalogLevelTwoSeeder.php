@@ -1692,31 +1692,31 @@ class CatalogLevelTwoSeeder extends Seeder
 
         // Вода
         [
-            'image' => 'public/catalog/levelOne/items/mushrooms/images/main/sub/other/1.jpeg',
+            'image' => 'public/catalog/levelOne/items/juice/images/main/sub/water/1.jpeg',
             'image_licence_link' => '',
-            'link' => '',
+            'link' => 'water',
             'order' => 1,
             'catalog_level_one_id' => 16,
             'title' => 'Минеральная вода',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/juice/images/main/sub/juice/1.jpeg',
             'image_licence_link' => '',
-            'link' => '',
+            'link' => 'juice',
             'order' => 1,
             'catalog_level_one_id' => 16,
             'title' => 'Сок',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/juice/images/main/sub/kvass/1.jpeg',
             'image_licence_link' => '',
-            'link' => '',
+            'link' => 'kvass',
             'order' => 1,
             'catalog_level_one_id' => 16,
             'title' => 'Квас',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/juice/images/main/sub/other/1.jpeg',
             'image_licence_link' => '',
             'link' => 'other',
             'order' => 999,
@@ -1733,7 +1733,7 @@ class CatalogLevelTwoSeeder extends Seeder
 
         // Цветы
         [
-            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/juice/images/main/sub/other/1.jpeg',
             'image_licence_link' => '',
             'link' => '',
             'order' => 1,
