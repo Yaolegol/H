@@ -1318,56 +1318,24 @@ class CatalogLevelTwoSeeder extends Seeder
 
         // Мед
         [
-            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
-            'image_licence_link' => '',
-            'link' => '',
+            'image' => 'public/catalog/levelOne/items/honey/images/main/sub/honey/1.jpeg',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/delicious-honey-on-dark-surface_13806932.htm#query=honey&position=22&from_view=search&track=sph">Изображение от jcomp</a> на Freepik',
+            'link' => 'honey',
             'order' => 1,
             'catalog_level_one_id' => 11,
             'title' => 'Мед',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
-            'image_licence_link' => '',
+            'image' => 'public/catalog/levelOne/items/honey/images/main/sub/perga/1.jpeg',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/wooden-spoon-bee-pollen-seeds-candies-and-jar-of-honey-on-sack-cloth_3434406.htm#page=2&query=%D1%82%D0%BE%D0%B2%D0%B0%D1%80%D1%8B%20%D0%BF%D1%87%D0%B5%D0%BB%D0%BE%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%B0&position=49&from_view=search&track=ais">Freepik</a>',
             'link' => 'perga',
             'order' => 1,
             'catalog_level_one_id' => 11,
             'title' => 'Перга',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
-            'image_licence_link' => '',
-            'link' => 'propolis',
-            'order' => 1,
-            'catalog_level_one_id' => 11,
-            'title' => 'Прополис',
-        ],
-        [
-            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
-            'image_licence_link' => '',
-            'link' => 'Pollen',
-            'order' => 1,
-            'catalog_level_one_id' => 11,
-            'title' => 'Пыльца',
-        ],
-        [
-            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
-            'image_licence_link' => '',
-            'link' => 'milk',
-            'order' => 1,
-            'catalog_level_one_id' => 11,
-            'title' => 'Маточное молочко',
-        ],
-        [
-            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
-            'image_licence_link' => '',
-            'link' => 'wax',
-            'order' => 1,
-            'catalog_level_one_id' => 11,
-            'title' => 'Воск',
-        ],
-        [
-            'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
-            'image_licence_link' => '',
+            'image' => 'public/catalog/levelOne/items/honey/images/main/sub/other/1.jpeg',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/honeycomb-bee-pollen-honey-and-bread-slice-over-wooden-surface_5223266.htm#page=3&query=%D0%BC%D0%B5%D0%B4&position=37&from_view=search&track=sph">Freepik</a>',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 11,
@@ -1382,7 +1350,7 @@ class CatalogLevelTwoSeeder extends Seeder
 
         // Бакалея
         [
-            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/tea/images/main/sub/other/1.jpeg',
             'image_licence_link' => '',
             'link' => 'buckwheat',
             'order' => 1,
