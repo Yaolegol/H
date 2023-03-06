@@ -1093,7 +1093,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'title' => 'Ирга',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/berry/images/main/sub/other/1.jpeg',
             'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/various-fresh-summer-berries-blueberries-red-currant-strawberries-blackberries-top-view_9691390.htm#query=%D0%B0%D1%81%D1%81%D0%BE%D1%80%D1%82%D0%B8%20%D1%8F%D0%B3%D0%BE%D0%B4%D1%8B&position=5&from_view=search&track=ais">Изображение от azerbaijan_stockers</a> на Freepik',
             'link' => 'other',
             'order' => 999,
