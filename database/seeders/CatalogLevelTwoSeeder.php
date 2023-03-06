@@ -1182,7 +1182,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Кондитерские изделия
         [
             'image' => 'public/catalog/levelOne/items/confectionery/images/main/sub/cakes_big/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/assortment-of-pieces-of-cake_17116599.htm#query=%D0%A2%D0%BE%D1%80%D1%82%D1%8B&position=49&from_view=search&track=sph">Изображение от azerbaijan_stockers</a> на Freepik',
             'link' => 'cakes_big',
             'order' => 1,
             'catalog_level_one_id' => 9,
@@ -1190,7 +1190,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/confectionery/images/main/sub/cakes/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/top-view-yummy-creamy-cakes-little-desserts-for-tea-with-fruits-and-chocolate-chips-on-a-white-surface-fruit-cake-cream-biscuit-pie-tea_16925338.htm#page=2&query=%D0%9F%D0%B8%D1%80%D0%BE%D0%B6%D0%BD%D1%8B%D0%B5&position=29&from_view=search&track=sph">Изображение от KamranAydinov</a> на Freepik',
             'link' => 'cakes',
             'order' => 1,
             'catalog_level_one_id' => 9,
@@ -1198,7 +1198,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/confectionery/images/main/sub/cupcakes/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/delicious-muffins-arrangement-top-view_31112433.htm#query=%D0%9A%D0%B5%D0%BA%D1%81%D1%8B&position=21&from_view=search&track=sph">Freepik</a>',
             'link' => 'cupcakes',
             'order' => 1,
             'catalog_level_one_id' => 9,
@@ -1206,7 +1206,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/confectionery/images/main/sub/gingerbreads/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/beverage-and-gingerbread-near-scarf-and-book_2810333.htm#query=%D0%9F%D1%80%D1%8F%D0%BD%D0%B8%D0%BA%D0%B8&position=11&from_view=search&track=sph">Freepik</a>',
             'link' => 'gingerbreads',
             'order' => 1,
             'catalog_level_one_id' => 9,
@@ -1214,7 +1214,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/confectionery/images/main/sub/candies/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/closeup-shot-of-chocolate-candy-isolated_15520864.htm#query=%D0%9A%D0%BE%D0%BD%D1%84%D0%B5%D1%82%D1%8B&position=15&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
             'link' => 'candies',
             'order' => 1,
             'catalog_level_one_id' => 9,
@@ -1222,7 +1222,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/confectionery/images/main/sub/marshmallows/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/pile-of-cookies-and-marshmallows-on-a-platter-on-marble-surface_16698934.htm#query=%D0%97%D0%B5%D1%84%D0%B8%D1%80&position=15&from_view=search&track=sph">Изображение от azerbaijan_stockers</a> на Freepik',
             'link' => 'marshmallows',
             'order' => 1,
             'catalog_level_one_id' => 9,
@@ -1230,7 +1230,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/confectionery/images/main/sub/chocolate/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/chocolate-bar-and-coffee-beans_5909263.htm#page=2&query=%D0%A8%D0%BE%D0%BA%D0%BE%D0%BB%D0%B0%D0%B4&position=49&from_view=search&track=sph">Изображение от Racool_studio</a> на Freepik',
             'link' => 'chocolate',
             'order' => 1,
             'catalog_level_one_id' => 9,
@@ -1238,7 +1238,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/confectionery/images/main/sub/pastille/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/healthy-assorted-dried-fruit-and-fruit-lozenge_15831706.htm#query=%D0%9F%D0%B0%D1%81%D1%82%D0%B8%D0%BB%D0%B0&position=3&from_view=search&track=sph">Изображение от serhii_bobyk</a> на Freepik',
             'link' => 'pastille',
             'order' => 1,
             'catalog_level_one_id' => 9,
@@ -1246,7 +1246,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/confectionery/images/main/sub/oriental/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/traditional-turkish-delight-oriental-sweets_10944475.htm#query=%D0%92%D0%BE%D1%81%D1%82%D0%BE%D1%87%D0%BD%D1%8B%D0%B5%20%D1%81%D0%BB%D0%B0%D0%B4%D0%BE%D1%81%D1%82%D0%B8&position=10&from_view=search&track=ais">Изображение от azerbaijan_stockers</a> на Freepik',
             'link' => 'oriental',
             'order' => 1,
             'catalog_level_one_id' => 9,
@@ -1254,20 +1254,26 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/confectionery/images/main/sub/cookie/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/christmas-cookies_1471784.htm#query=%D0%9F%D1%80%D1%8F%D0%BD%D0%B8%D0%BA%D0%B8&position=2&from_view=search&track=sph">Изображение от senivpetro</a> на Freepik',
             'link' => 'cookie',
             'order' => 1,
             'catalog_level_one_id' => 9,
             'title' => 'Печенье',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/confectionery/images/main/sub/other/1.jpeg',
             'image_licence_link' => '',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 9,
             'title' => 'Остальное',
         ],
+
+
+
+
+
+
 
 
 
