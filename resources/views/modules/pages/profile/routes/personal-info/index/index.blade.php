@@ -42,9 +42,9 @@
                                 </div>
                                 @if($userData['is_approved'])
                                     <div class="modules-pages-profile-routes-personal-info-index__seller-link-container">
-                                        <div class="modules-pages-profile-routes-personal-info-index__moderation-label modules-pages-profile-routes-personal-info-index__moderation-label_approved">
-                                            Поздравляем!
-                                            <div>Ваша персональная страница:</div>
+                                        <div class="modules-pages-profile-routes-personal-info-index__moderation-label modules-pages-profile-routes-personal-info-index__moderation-label_grey">
+                                            <div class="modules-pages-profile-routes-personal-info-index__seller-link-title">Поздравляем!</div>
+                                            <div class="modules-pages-profile-routes-personal-info-index__seller-link-footer">Ваша персональная страница:</div>
                                             <div>
                                                 <a
                                                     class="modules-pages-profile-routes-personal-info-index__seller-link"
@@ -54,7 +54,7 @@
                                                 </a>
                                             </div>
                                             <div class="modules-pages-profile-routes-personal-info-index__seller-link-footer">
-                                                Отправьте эту ссылку покупателям, чтобы Вас могли легко найти на сайте!
+                                                Отправьте эту ссылку покупателям, чтобы Вас можно было легко найти на сайте!
                                             </div>
                                         </div>
                                     </div>

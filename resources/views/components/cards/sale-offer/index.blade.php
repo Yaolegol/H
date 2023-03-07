@@ -65,9 +65,9 @@
    <div>
        @if($saleOffer['is_approved'])
            <div class="components-cards-sale-offer__approved-block">
-               Поздравляем!
-               <div>Для Вашего товара создана отдельная страница:</div>
-               <div class="components-cards-sale-offer__approved-block-container">
+               <div class="components-cards-sale-offer__approved-block-title">Поздравляем!</div>
+               <div class="components-cards-sale-offer__approved-block-container">Для Вашего товара создана отдельная страница:</div>
+               <div>
                    <a
                        class="components-cards-sale-offer__approved-block-link"
                        href="/offers/{{$saleOffer['id']}}"

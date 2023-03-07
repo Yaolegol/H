@@ -1,8 +1,13 @@
+@import (reference) '~styles/adaptive';
 @import (reference) '~styles/colors';
 
 .modules-pages-profile-common-components-container-header {
     margin: 0 auto;
     max-width: 1000px;
+
+    @media @mobile {
+        margin: 0
+    }
 
     &__info-container {
         margin-top: 50px;
