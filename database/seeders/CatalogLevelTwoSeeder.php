@@ -2027,31 +2027,31 @@ class CatalogLevelTwoSeeder extends Seeder
 
         // Растения
         [
-            'image' => 'public/catalog/levelOne/items/seedlings/images/main/sub/other/1.jpeg',
+            'image' => 'public/catalog/levelOne/items/plants/images/main/sub/home/1.jpeg',
             'image_licence_link' => '',
-            'link' => '',
+            'link' => 'home',
             'order' => 1,
             'catalog_level_one_id' => 20,
             'title' => 'Комнатные',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/plants/images/main/sub/decorative/1.jpeg',
             'image_licence_link' => '',
-            'link' => '',
+            'link' => 'decorative',
             'order' => 1,
             'catalog_level_one_id' => 20,
             'title' => 'Декоративные',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/6/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/plants/images/main/sub/garden/1.jpeg',
             'image_licence_link' => '',
-            'link' => '',
+            'link' => 'garden',
             'order' => 1,
             'catalog_level_one_id' => 20,
             'title' => 'Садовые',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/plants/images/main/sub/other/1.jpeg',
             'image_licence_link' => '',
             'link' => 'other',
             'order' => 999,
@@ -2067,7 +2067,7 @@ class CatalogLevelTwoSeeder extends Seeder
 
         // Животноводство
         [
-            'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/plants/images/main/sub/other/1.jpeg',
             'image_licence_link' => '',
             'link' => 'beef',
             'order' => 1,
