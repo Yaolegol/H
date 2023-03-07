@@ -1993,7 +1993,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'link' => 'flower',
             'order' => 1,
             'catalog_level_one_id' => 19,
-            'title' => 'Саженцы домашних цветов',
+            'title' => 'Саженцы цветов',
         ],
         [
             'image' => 'public/catalog/levelOne/items/seedlings/images/main/sub/other/1.jpeg',
