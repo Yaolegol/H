@@ -178,7 +178,7 @@ class CatalogLevelOneSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/other/images/main/1.jpg',
-            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/empty-and-closed-boxes-on-the-white_6087366.htm#page=5&query=warehouse&position=3&from_view=search&track=sph">Изображение от Racool_studio</a> на Freepik',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/glasses-on-market-in-morocco_4246624.htm#page=2&query=%D0%9D%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5%20%D1%81%D1%83%D0%B2%D0%B5%D0%BD%D0%B8%D1%80%D1%8B&position=6&from_view=search&track=ais">Freepik</a>',
             'link' => 'other',
             'order' => 999,
             'title' => 'Другое',
