@@ -1956,7 +1956,7 @@ class CatalogLevelTwoSeeder extends Seeder
 
         // Саженцы
         [
-            'image' => 'public/catalog/levelOne/items/seedlings/images/main/sub/other/1.jpeg',
+            'image' => 'public/catalog/levelOne/items/seedlings/images/main/sub/vegetables/1.jpeg',
             'image_licence_link' => '',
             'link' => 'vegetables',
             'order' => 1,
@@ -1964,7 +1964,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'title' => 'Саженцы овощей',
         ],
         [
-            'image' => 'public/catalog/levelOne/items/seedlings/images/main/sub/other/1.jpeg',
+            'image' => 'public/catalog/levelOne/items/seedlings/images/main/sub/fruit/1.jpeg',
             'image_licence_link' => '',
             'link' => 'fruit',
             'order' => 1,
@@ -1972,7 +1972,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'title' => 'Саженцы фруктов',
         ],
         [
-            'image' => 'public/catalog/levelOne/items/seedlings/images/main/sub/other/1.jpeg',
+            'image' => 'public/catalog/levelOne/items/seedlings/images/main/sub/berry/1.jpeg',
             'image_licence_link' => '',
             'link' => 'berry',
             'order' => 1,
@@ -1980,7 +1980,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'title' => 'Саженцы ягод',
         ],
         [
-            'image' => 'public/catalog/levelOne/items/seedlings/images/main/sub/other/1.jpeg',
+            'image' => 'public/catalog/levelOne/items/seedlings/images/main/sub/nuts/1.jpeg',
             'image_licence_link' => '',
             'link' => 'nuts',
             'order' => 1,
@@ -1988,7 +1988,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'title' => 'Саженцы орехов',
         ],
         [
-            'image' => 'public/catalog/levelOne/items/seedlings/images/main/sub/other/1.jpeg',
+            'image' => 'public/catalog/levelOne/items/seedlings/images/main/sub/flower/1.jpeg',
             'image_licence_link' => '',
             'link' => 'flower',
             'order' => 1,
@@ -1996,7 +1996,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'title' => 'Саженцы цветов',
         ],
         [
-            'image' => 'public/catalog/levelOne/items/seedlings/images/main/sub/other/1.jpeg',
+            'image' => 'public/catalog/levelOne/items/seedlings/images/main/sub/tree/1.jpeg',
             'image_licence_link' => '',
             'link' => 'tree',
             'order' => 1,
@@ -2004,7 +2004,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'title' => 'Саженцы деревьев',
         ],
         [
-            'image' => 'public/catalog/levelOne/items/seedlings/images/main/sub/other/1.jpeg',
+            'image' => 'public/catalog/levelOne/items/seedlings/images/main/sub/plants/1.jpeg',
             'image_licence_link' => '',
             'link' => 'plants',
             'order' => 1,
