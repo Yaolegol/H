@@ -2213,16 +2213,16 @@ class CatalogLevelTwoSeeder extends Seeder
 
         // Эко туризм
         [
-            'image' => 'public/catalog/levelOne/items/hay/images/main/sub/other/1.jpeg',
-            'image_licence_link' => '',
-            'link' => '',
+            'image' => 'public/catalog/levelOne/items/tourism/images/main/sub/tourism/1.jpeg',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/houses-and-trees-on-a-beautiful-grass-covered-hill-by-a-lake-captured-in-finland_17232054.htm#query=%D0%94%D0%BE%D0%BC%20%D0%B2%20%D0%BF%D0%BE%D0%BB%D0%B5&position=24&from_view=search&track=ais">Изображение от wirestock</a> на Freepik',
+            'link' => 'tourism',
             'order' => 1,
             'catalog_level_one_id' => 23,
             'title' => 'Эко туризм',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
-            'image_licence_link' => '',
+            'image' => 'public/catalog/levelOne/items/tourism/images/main/sub/other/1.jpeg',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/trees-growing-on-the-mountains-in-front-of-the-water_9654415.htm#query=%D0%A0%D1%8B%D0%B1%D0%B0%D0%BB%D0%BA%D0%B0&position=1&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 23,
