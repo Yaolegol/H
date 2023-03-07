@@ -897,6 +897,9 @@
   display: inline-block;
   margin-top: 5px;
 }
+.modules-pages-offers-routes-show__info-item-description_link {
+  text-decoration-line: underline;
+}
 .modules-pages-offers-routes-show__info-item-title {
   font-weight: 800;
 }

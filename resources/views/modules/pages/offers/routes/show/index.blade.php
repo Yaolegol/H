@@ -76,7 +76,7 @@
                 <div class="modules-pages-offers-routes-show__info-item-container">
                     <h4 class="modules-pages-offers-routes-show__info-item-title">Продавец:</h4>
                     <a
-                        class="modules-pages-offers-routes-show__info-item-description"
+                        class="modules-pages-offers-routes-show__info-item-description modules-pages-offers-routes-show__info-item-description_link"
                         href="{{$offer['user']['sellerLink']}}"
                     >{{$offer['user']['name']}}</a>
                 </div>
