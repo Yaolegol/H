@@ -7,18 +7,22 @@ const getAppDirectoriesData = () => {
     const path_root = path.resolve(__dirname);
     const path_public = path.resolve(path_root, 'public');
     const path_build = path.resolve(path_public, 'build');
+    const path_build_icons = path.resolve(path_build, 'icons');
     const path_build_images = path.resolve(path_build, 'images');
     const path_resource = path.resolve(path_root, 'resources');
+    const path_resource_icons = path.resolve(path_resource, 'icons');
     const path_resource_images = path.resolve(path_resource, 'images');
     const path_views = path.resolve(path_resource, 'views');
     const path_pages = path.resolve(path_views, 'pages');
 
     return {
         path_build,
+        path_build_icons,
         path_build_images,
         path_pages,
         path_public,
         path_resource,
+        path_resource_icons,
         path_resource_images,
         path_root,
         path_views,
@@ -151,6 +155,10 @@ const createConfig = (env, argv) => {
                     {
                         from: appDirectoriesData.path_resource_images,
                         to: appDirectoriesData.path_build_images,
+                    },
+                    {
+                        from: appDirectoriesData.path_resource_icons,
+                        to: appDirectoriesData.path_build_icons,
                     },
                 ],
             }),

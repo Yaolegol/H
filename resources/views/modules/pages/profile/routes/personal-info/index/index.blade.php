@@ -2,7 +2,7 @@
     <div class="modules-pages-profile-routes-personal-info-index">
         <div class="modules-pages-profile-routes-personal-info-index__image-block">
             <div class="modules-pages-profile-routes-personal-info-index__image-container">
-                <img alt="Photo" class="modules-pages-profile-routes-personal-info-index__image" src="{{$userData['avatar'] ? $userData['avatar'] : 'https://picsum.photos/200/300'}}">
+                <img alt="Photo" class="modules-pages-profile-routes-personal-info-index__image" src="{{$userData['avatar'] ? $userData['avatar'] : '/build/icons/person.svg'}}">
             </div>
         </div>
         <div class="modules-pages-profile-routes-personal-info-index__content-block">
