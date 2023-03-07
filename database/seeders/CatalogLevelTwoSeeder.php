@@ -2028,7 +2028,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Растения
         [
             'image' => 'public/catalog/levelOne/items/plants/images/main/sub/home/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/beautiful-interior-design-with-monstera-plant_25628615.htm#query=plants%20home&position=2&from_view=search&track=ais">Freepik</a>',
             'link' => 'home',
             'order' => 1,
             'catalog_level_one_id' => 20,
@@ -2036,7 +2036,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/plants/images/main/sub/decorative/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/palm-tree-house-plant-in-a-pot_17206830.htm#query=plants%20decorative&position=29&from_view=search&track=ais">Изображение от rawpixel.com</a> на Freepik',
             'link' => 'decorative',
             'order' => 1,
             'catalog_level_one_id' => 20,
@@ -2044,7 +2044,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/plants/images/main/sub/garden/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/plants-pot-with-watering-can_13238967.htm#query=plants%20garden&position=3&from_view=search&track=ais">Freepik</a>',
             'link' => 'garden',
             'order' => 1,
             'catalog_level_one_id' => 20,
@@ -2052,7 +2052,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/plants/images/main/sub/other/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/closeup-shot-of-the-small-green-leaves-of-a-bush_13153498.htm#query=plants&position=47&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 20,
