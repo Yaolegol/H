@@ -2157,47 +2157,47 @@ class CatalogLevelTwoSeeder extends Seeder
 
         // Дрова, сено, удобрения
         [
-            'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/hay/images/main/sub/firewood/1.jpeg',
             'image_licence_link' => '',
-            'link' => '',
+            'link' => 'firewood',
             'order' => 1,
             'catalog_level_one_id' => 22,
             'title' => 'Дрова',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/hay/images/main/sub/hay/1.jpeg',
             'image_licence_link' => '',
-            'link' => '',
+            'link' => 'hay',
             'order' => 1,
             'catalog_level_one_id' => 22,
             'title' => 'Сено',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/hay/images/main/sub/manure/1.jpeg',
             'image_licence_link' => '',
-            'link' => '',
+            'link' => 'manure',
             'order' => 1,
             'catalog_level_one_id' => 22,
             'title' => 'Навоз',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/hay/images/main/sub/round_timber/1.jpeg',
             'image_licence_link' => '',
-            'link' => '',
+            'link' => 'round_timber',
             'order' => 1,
             'catalog_level_one_id' => 22,
             'title' => 'Кругляк',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/hay/images/main/sub/lumber/1.jpeg',
             'image_licence_link' => '',
-            'link' => '',
+            'link' => 'lumber',
             'order' => 1,
             'catalog_level_one_id' => 22,
             'title' => 'Пиломатериалы',
         ],
         [
-            'image' => 'public/catalog/levelTwo/items/0/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/hay/images/main/sub/other/1.jpeg',
             'image_licence_link' => '',
             'link' => 'other',
             'order' => 999,
@@ -2213,7 +2213,7 @@ class CatalogLevelTwoSeeder extends Seeder
 
         // Эко туризм
         [
-            'image' => 'public/catalog/levelTwo/items/1/images/main/1.jpg',
+            'image' => 'public/catalog/levelOne/items/hay/images/main/sub/other/1.jpeg',
             'image_licence_link' => '',
             'link' => '',
             'order' => 1,
