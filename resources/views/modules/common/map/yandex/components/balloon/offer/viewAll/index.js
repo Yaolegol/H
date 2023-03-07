@@ -2,7 +2,19 @@ import './index.less';
 
 export const getOfferBalloon = (offerData, markerId) => {
     const {product, salePoints, seller} = offerData;
-    const {address, delivery, delivery_description, id, measure, phone, price, price_description, title} = product;
+    const {
+        address,
+        contact_person,
+        delivery,
+        delivery_description,
+        id,
+        measure,
+        phone,
+        price,
+        price_description,
+        title,
+        working_hours,
+    } = product;
     const {id: sellerId, name} = seller;
 
     const salePointId = markerId.split('_')[1];
@@ -16,7 +28,7 @@ export const getOfferBalloon = (offerData, markerId) => {
 
     if(currentSalePoint) {
         const _contactAddress = currentSalePoint['address'];
-        const _contactName = currentSalePoint['contact_person'];
+        const _contactName = currentSalePoint['contact_person'] || contact_person;
         const _contactPhone = currentSalePoint['phone'];
 
         if(_contactName) {
@@ -66,6 +78,14 @@ export const getOfferBalloon = (offerData, markerId) => {
                     <div class="modules-common-map-yandex-components-balloon-offer-view-item__section-seller">
                         <div class="modules-common-map-yandex-components-balloon-offer-view-item__section-seller-title">Доставка: есть</div>
                         <div>${delivery_description}</div>
+                    </div>
+                `
+                : ""}
+            ${working_hours ?
+                `
+                    <div class="modules-common-map-yandex-components-balloon-offer-view-item__section-seller">
+                        <div class="modules-common-map-yandex-components-balloon-offer-view-item__section-seller-title">Время работы:</div>
+                        <div>${working_hours}</div>
                     </div>
                 `
                 : ""}

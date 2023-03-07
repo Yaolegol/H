@@ -54,6 +54,10 @@
         <div class="components-admin-cards-offer__value">{{$notApprovedItem['address']}}</div>
     </div>
     <div class="components-admin-cards-offer__item-container">
+        <div class="components-admin-cards-offer__title">Контактное лицо</div>
+        <div class="components-admin-cards-offer__value">{{$notApprovedItem['contact_person']}}</div>
+    </div>
+    <div class="components-admin-cards-offer__item-container">
         <div class="components-admin-cards-offer__title">Телефон</div>
         <div class="components-admin-cards-offer__value">{{$notApprovedItem['phone']}}</div>
     </div>
