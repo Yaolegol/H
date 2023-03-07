@@ -23,7 +23,6 @@
         @endif
         <div class="modules-pages-offers-routes-show__info-section">
             <div class="modules-pages-offers-routes-show__info-item-container">
-                <div class="modules-pages-offers-routes-show__info-item-title">Описание:</div>
                 <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['description']}}</div>
             </div>
             <div class="modules-pages-offers-routes-show__info-item-container">
