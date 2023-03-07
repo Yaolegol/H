@@ -1,7 +1,7 @@
 import {getCookieData} from "helpers/cookie";
 import {addEventListener} from "helpers/events";
 import {getQueryData} from "helpers/query";
-import {getOfferBalloon} from "views/modules/common/map/yandex/components/balloon/offer";
+import {getOfferBalloon} from "views/modules/common/map/yandex/components/balloon/offer/viewAll";
 import './index.less';
 
 class MapYandexComponentsViewAll {

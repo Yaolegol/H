@@ -1,4 +1,4 @@
-import {getOfferBalloonProductPage} from "views/modules/common/map/yandex/components/balloon/offer";
+import {getOfferBalloonProductPage} from "views/modules/common/map/yandex/components/balloon/offer/viewItem";
 import './index.less';
 
 class MapYandexComponentsViewItem {
@@ -10,8 +10,8 @@ class MapYandexComponentsViewItem {
         this.init();
     }
 
-    getBalloonContentLayoutClass = (offerData) => {
-        return ymaps.templateLayoutFactory.createClass(getOfferBalloonProductPage(offerData));
+    getBalloonContentLayoutClass = (offerData, markerId) => {
+        return ymaps.templateLayoutFactory.createClass(getOfferBalloonProductPage(offerData, markerId));
     };
 
     fetchData = async () => {
@@ -78,7 +78,7 @@ class MapYandexComponentsViewItem {
                     id,
                 },
                 {
-                    balloonContentLayout: this.getBalloonContentLayoutClass(offer),
+                    balloonContentLayout: this.getBalloonContentLayoutClass(offer, id.toString()),
                 },
             );
 
