@@ -853,6 +853,15 @@
     padding: 20px;
   }
 }
+.components-cards-sale-offer__approved-block {
+  background: #f4f4f4;
+  border-radius: 8px;
+  margin-top: 20px;
+  padding: 20px;
+}
+.components-cards-sale-offer__approved-block-container {
+  margin-top: 15px;
+}
 .components-cards-sale-offer__contacts-block {
   display: -webkit-box;
   overflow: hidden;
@@ -986,6 +995,7 @@
   background: #ffff40;
   border-radius: 8px 0 0 8px;
   font-weight: 600;
+  max-width: 200px;
   padding: 20px;
   position: absolute;
   right: 0;

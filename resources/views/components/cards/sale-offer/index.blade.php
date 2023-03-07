@@ -62,6 +62,26 @@
         </div>
     </div>
 
+   <div>
+       @if($saleOffer['is_approved'])
+           <div class="components-cards-sale-offer__approved-block">
+               Поздравляем!
+               <div>Для Вашего товара создана отдельная страница:</div>
+               <div class="components-cards-sale-offer__approved-block-container">
+                   <a
+                       class="components-cards-sale-offer__approved-block-link"
+                       href="/offers/{{$saleOffer['id']}}"
+                   >
+                       {{request()->getHost()}}/offers/{{$saleOffer['id']}}
+                   </a>
+               </div>
+               <div class="components-cards-sale-offer__approved-block-container">
+                   Отправьте эту ссылку покупателям, чтобы его можно было легко найти на сайте!
+               </div>
+           </div>
+       @endif
+   </div>
+
     <div class="components-cards-sale-offer__service-container">
         <div class="components-cards-sale-offer__edit-button-container">
             <a class="components-cards-sale-offer__link components-cards-sale-offer__link_edit" href="./sale-offers/edit/{{$saleOffer['id']}}">Редактировать</a>
