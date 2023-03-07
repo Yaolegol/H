@@ -69,9 +69,13 @@
         <div class="components-admin-cards-offer__title">Доставка</div>
         <div class="components-admin-cards-offer__value">{{$notApprovedItem['delivery']}}</div>
     </div>
+    <div class="components-admin-cards-offer__item-container">
+        <div class="components-admin-cards-offer__title">Примечание к доставке</div>
+        <div class="components-admin-cards-offer__value">{{$notApprovedItem['delivery_description']}}</div>
+    </div>
         <div class="components-admin-cards-offer__item-container">
-            <div class="components-admin-cards-offer__title">Примечание к доставке</div>
-            <div class="components-admin-cards-offer__value">{{$notApprovedItem['delivery_description']}}</div>
+            <div class="components-admin-cards-offer__title">Режим работы</div>
+            <div class="components-admin-cards-offer__value">{{$notApprovedItem['working_hours']}}</div>
         </div>
     <div class="components-admin-cards-offer__item-container">
         <div class="components-admin-cards-offer__title">Фото</div>
