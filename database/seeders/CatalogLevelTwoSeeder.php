@@ -2158,7 +2158,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Дрова, сено, удобрения
         [
             'image' => 'public/catalog/levelOne/items/hay/images/main/sub/firewood/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/closeup-shot-of-oak-and-beech-firewoods-stacked-on-each-other_14890434.htm#query=%D0%94%D1%80%D0%BE%D0%B2%D0%B0&position=1&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
             'link' => 'firewood',
             'order' => 1,
             'catalog_level_one_id' => 22,
@@ -2166,7 +2166,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/hay/images/main/sub/hay/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/beautiful-landscape-with-rolls-of-hays-and-sunset_5272830.htm#query=%D0%A1%D0%B5%D0%BD%D0%BE&position=5&from_view=search&track=sph">Freepik</a>',
             'link' => 'hay',
             'order' => 1,
             'catalog_level_one_id' => 22,
@@ -2174,7 +2174,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/hay/images/main/sub/manure/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/compost-still-life-concept_17538508.htm#query=%D0%9D%D0%B0%D0%B2%D0%BE%D0%B7&position=0&from_view=search&track=sph">Freepik</a>',
             'link' => 'manure',
             'order' => 1,
             'catalog_level_one_id' => 22,
@@ -2182,7 +2182,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/hay/images/main/sub/round_timber/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/front-view-of-tree-trunks_11768201.htm#query=%D0%94%D1%80%D0%BE%D0%B2%D0%B0&position=5&from_view=search&track=sph">Freepik</a>',
             'link' => 'round_timber',
             'order' => 1,
             'catalog_level_one_id' => 22,
@@ -2190,7 +2190,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/hay/images/main/sub/lumber/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/3d-wood-planks_1049241.htm#query=%D0%9F%D0%B8%D0%BB%D0%BE%D0%BC%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D1%8B&position=0&from_view=search&track=sph">Изображение от kjpargeter</a> на Freepik',
             'link' => 'lumber',
             'order' => 1,
             'catalog_level_one_id' => 22,
@@ -2198,7 +2198,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/hay/images/main/sub/other/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/pile-of-wood-planks-front-view_11106927.htm#query=%D0%92%D0%B0%D0%B3%D0%BE%D0%BD%D0%BA%D0%B0&position=11&from_view=search&track=sph">Freepik</a>',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 22,
