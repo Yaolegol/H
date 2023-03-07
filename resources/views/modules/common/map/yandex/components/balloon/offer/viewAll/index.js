@@ -75,16 +75,16 @@ export const getOfferBalloon = (offerData, markerId) => {
             </div>
             ${delivery ?
                 `
-                    <div class="modules-common-map-yandex-components-balloon-offer-view-item__section-seller">
-                        <div class="modules-common-map-yandex-components-balloon-offer-view-item__section-seller-title">Доставка: есть</div>
+                    <div class="modules-common-map-yandex-components-balloon-offer-view-all__section-seller">
+                        <div class="modules-common-map-yandex-components-balloon-offer-view-all__section-seller-title">Доставка: есть</div>
                         <div>${delivery_description}</div>
                     </div>
                 `
                 : ""}
             ${working_hours ?
                 `
-                    <div class="modules-common-map-yandex-components-balloon-offer-view-item__section-seller">
-                        <div class="modules-common-map-yandex-components-balloon-offer-view-item__section-seller-title">Время работы:</div>
+                    <div class="modules-common-map-yandex-components-balloon-offer-view-all__section-seller">
+                        <div class="modules-common-map-yandex-components-balloon-offer-view-all__section-seller-title">Время работы:</div>
                         <div>${working_hours}</div>
                     </div>
                 `
