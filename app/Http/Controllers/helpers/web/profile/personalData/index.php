@@ -44,6 +44,7 @@ function DB_tryChangeUserPersonalDataInDB($request)
         $authUser->name = $name;
         $authUser->description = $description;
         $authUser->is_approved = false;
+        $authUser->is_changed = true;
         $authUser->approved_error_message = null;
 
         updateUserAvatar($authUser, $request);
@@ -124,6 +125,7 @@ function filterUserData($userData) {
             || $key === 'name'
             || $key === 'description'
             || $key === 'is_approved'
+            || $key === 'is_changed'
             || $key === 'approved_error_message'
             || $key === 'phone'
             || $key === 'id';

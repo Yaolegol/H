@@ -12,54 +12,56 @@
                         <h2>Личные данные</h2>
                         <div>(отображаются для других пользователей)</div>
                     </div>
-                    <div class="modules-pages-profile-routes-personal-info-index__approve-container">
-                        @if($userData['approved_error_message'])
-                            <div class="modules-pages-profile-routes-personal-info-index__moderation-label modules-pages-profile-routes-personal-info-index__moderation-label_reject">
-                                Отклонено
-                                <div class="modules-pages-profile-routes-personal-info-index__moderation-hint">
-                                    <div>Причина отклонения:</div>
-                                    <div class="modules-pages-profile-routes-personal-info-index__moderation-hint-container">
-                                        {{$userData['approved_error_message']}}
-                                    </div>
-                                    <div class="modules-pages-profile-routes-personal-info-index__moderation-hint-container">
-                                        Как исправить?
-                                    </div>
-                                    <div class="modules-pages-profile-routes-personal-info-index__moderation-hint-container">
-                                        Вы можете отредактировать сообщение и оно сново будет отправлено на проверку
-                                    </div>
-                                </div>
-                            </div>
-                        @else
-                            <div class="modules-pages-profile-routes-personal-info-index__moderation-label {{$userData['is_approved'] ? 'modules-pages-profile-routes-personal-info-index__moderation-label_approved' : ''}}">
-                                {{$userData['is_approved'] ? 'Опубликовано' : 'На проверке'}}
-                                <div class="modules-pages-profile-routes-personal-info-index__moderation-hint">
-                                    <div>Ваше сообщение проверяется администрацией сайта!</div>
-                                    <div class="modules-pages-profile-routes-personal-info-index__moderation-hint-container">После проверки оно будет опубликовано или отклонено с указанием причины</div>
-                                    <div class="modules-pages-profile-routes-personal-info-index__moderation-hint-container">Обычно проверка занимает не более суток</div>
-                                    <div class="modules-pages-profile-routes-personal-info-index__moderation-hint-container">Спасибо за терпение!</div>
-                                </div>
-                            </div>
-                            @if($userData['is_approved'])
-                                <div class="modules-pages-profile-routes-personal-info-index__seller-link-container">
-                                    <div class="modules-pages-profile-routes-personal-info-index__moderation-label modules-pages-profile-routes-personal-info-index__moderation-label_approved">
-                                        Поздравляем!
-                                        <div>Ваша персональная страница:</div>
-                                        <div>
-                                            <a
-                                                class="modules-pages-profile-routes-personal-info-index__seller-link"
-                                                href="/sellers/{{$userData['id']}}"
-                                            >
-                                                {{request()->getHost()}}/sellers/{{$userData['id']}}
-                                            </a>
+                    @if($userData['is_changed'])
+                        <div class="modules-pages-profile-routes-personal-info-index__approve-container">
+                            @if($userData['approved_error_message'])
+                                <div class="modules-pages-profile-routes-personal-info-index__moderation-label modules-pages-profile-routes-personal-info-index__moderation-label_reject">
+                                    Отклонено
+                                    <div class="modules-pages-profile-routes-personal-info-index__moderation-hint">
+                                        <div>Причина отклонения:</div>
+                                        <div class="modules-pages-profile-routes-personal-info-index__moderation-hint-container">
+                                            {{$userData['approved_error_message']}}
                                         </div>
-                                        <div class="modules-pages-profile-routes-personal-info-index__seller-link-footer">
-                                            Отправьте эту ссылку покупателям, чтобы Вас могли легко найти на сайте!
+                                        <div class="modules-pages-profile-routes-personal-info-index__moderation-hint-container">
+                                            Как исправить?
+                                        </div>
+                                        <div class="modules-pages-profile-routes-personal-info-index__moderation-hint-container">
+                                            Вы можете отредактировать сообщение и оно сново будет отправлено на проверку
                                         </div>
                                     </div>
                                 </div>
+                            @else
+                                <div class="modules-pages-profile-routes-personal-info-index__moderation-label {{$userData['is_approved'] ? 'modules-pages-profile-routes-personal-info-index__moderation-label_approved' : ''}}">
+                                    {{$userData['is_approved'] ? 'Опубликовано' : 'На проверке'}}
+                                    <div class="modules-pages-profile-routes-personal-info-index__moderation-hint">
+                                        <div>Ваше сообщение проверяется администрацией сайта!</div>
+                                        <div class="modules-pages-profile-routes-personal-info-index__moderation-hint-container">После проверки оно будет опубликовано или отклонено с указанием причины</div>
+                                        <div class="modules-pages-profile-routes-personal-info-index__moderation-hint-container">Обычно проверка занимает не более суток</div>
+                                        <div class="modules-pages-profile-routes-personal-info-index__moderation-hint-container">Спасибо за терпение!</div>
+                                    </div>
+                                </div>
+                                @if($userData['is_approved'])
+                                    <div class="modules-pages-profile-routes-personal-info-index__seller-link-container">
+                                        <div class="modules-pages-profile-routes-personal-info-index__moderation-label modules-pages-profile-routes-personal-info-index__moderation-label_approved">
+                                            Поздравляем!
+                                            <div>Ваша персональная страница:</div>
+                                            <div>
+                                                <a
+                                                    class="modules-pages-profile-routes-personal-info-index__seller-link"
+                                                    href="/sellers/{{$userData['id']}}"
+                                                >
+                                                    {{request()->getHost()}}/sellers/{{$userData['id']}}
+                                                </a>
+                                            </div>
+                                            <div class="modules-pages-profile-routes-personal-info-index__seller-link-footer">
+                                                Отправьте эту ссылку покупателям, чтобы Вас могли легко найти на сайте!
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
                             @endif
-                        @endif
-                    </div>
+                        </div>
+                    @endif
                     <form
                         action="/profile/personal-info/edit-personal-data"
                         enctype="multipart/form-data"

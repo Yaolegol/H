@@ -23,7 +23,8 @@ class User extends Authenticatable
         'phone',
         'password',
         'is_approved',
-        'approved_error_message'
+        'is_changed',
+        'approved_error_message',
     ];
 
     /**

@@ -4,7 +4,7 @@
             <h2 class="modules-pages-sellers-show__title">Продавец</h2>
             <div class="modules-pages-sellers-show__header-block">
                 <div class="modules-pages-sellers-show__avatar-container">
-                    <img  alt="" class="modules-pages-sellers-show__avatar" src="{{$sellerData['avatar']}}">
+                    <img  alt="" class="modules-pages-sellers-show__avatar" src="{{$sellerData['avatar'] ? $sellerData['avatar'] : '/build/icons/person.svg'}}">
                 </div>
                 <div class="modules-pages-sellers-show__header-info-container">
                     <div class="modules-pages-sellers-show__header-info-title">{{$sellerData['name']}}</div>
