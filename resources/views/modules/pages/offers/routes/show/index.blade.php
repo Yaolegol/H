@@ -26,7 +26,7 @@
                 <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['description']}}</div>
             </div>
             <div class="modules-pages-offers-routes-show__info-item-container">
-                <div class="modules-pages-offers-routes-show__info-item-title">Цена:</div>
+                <div class="modules-pages-offers-routes-show__info-item-title">Цена</div>
                 <div class="modules-pages-offers-routes-show__info-item-description">
                     <div class="modules-pages-offers-routes-show__price">{{$offer['price']}} ₽</div>
                     @if($offer['measure_id'] !== 4)
@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="modules-pages-offers-routes-show__info-item-container">
-                <div class="modules-pages-offers-routes-show__info-item-title">Комментарий к цене:</div>
+                <div class="modules-pages-offers-routes-show__info-item-title">Комментарий к цене</div>
                 <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['price_description']}}</div>
             </div>
             @if($offer['delivery'])
@@ -44,13 +44,25 @@
                     <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['delivery_description']}}</div>
                 </div>
             @endif
+            @if($offer['contact_person'])
+                <div class="modules-pages-offers-routes-show__info-item-container">
+                    <div class="modules-pages-offers-routes-show__info-item-title">Контактное лицо</div>
+                    <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['contact_person']}}</div>
+                </div>
+            @endif
             <div class="modules-pages-offers-routes-show__info-item-container">
-                <div class="modules-pages-offers-routes-show__info-item-title">Телефон:</div>
+                <div class="modules-pages-offers-routes-show__info-item-title">Телефон</div>
                 <a
                     class="modules-pages-offers-routes-show__info-item-description"
                     href="tel:{{$offer['phone']}}"
                 >{{$offer['phone']}}</a>
             </div>
+            @if($offer['working_hours'])
+                <div class="modules-pages-offers-routes-show__info-item-container">
+                    <div class="modules-pages-offers-routes-show__info-item-title">Время работы</div>
+                    <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['working_hours']}}</div>
+                </div>
+            @endif
             <div class="modules-pages-offers-routes-show__info-item-container">
                 <div class="modules-pages-offers-routes-show__info-item-title">Где купить?</div>
                 <div class="modules-pages-offers-routes-show__map-container">
@@ -97,7 +109,7 @@
                                     >{{$offer['organization']['email']}}</a>
                                 </div>
                                 <div class="modules-pages-offers-routes-show__info-item-container">
-                                    <div class="modules-pages-offers-routes-show__info-item-title">Телефон</div>
+                                    <div class="modules-pages-offers-routes-show__info-item-title">Телефон:</div>
                                     <a
                                         class="modules-pages-offers-routes-show__info-item-description"
                                         href="tel:{{$offer['organization']['phone']}}"
