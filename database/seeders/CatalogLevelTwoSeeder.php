@@ -1957,7 +1957,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Саженцы
         [
             'image' => 'public/catalog/levelOne/items/seedlings/images/main/sub/vegetables/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/top-view-gardening-tools-and-flower-pot_13560863.htm#query=vegetable%20seedlings&position=2&from_view=search&track=ais">Freepik</a>',
             'link' => 'vegetables',
             'order' => 1,
             'catalog_level_one_id' => 19,
@@ -1965,7 +1965,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/seedlings/images/main/sub/fruit/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/seedlings-in-the-planting-tray_8352258.htm#query=vegetable%20seedlings&position=0&from_view=search&track=ais">Изображение от jcomp</a> на Freepik',
             'link' => 'fruit',
             'order' => 1,
             'catalog_level_one_id' => 19,
@@ -1973,7 +1973,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/seedlings/images/main/sub/berry/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/selective-focus-shot-of-a-group-of-green-sprouts-growing-out-from-the-soil_13061705.htm#query=vegetable%20seedlings&position=21&from_view=search&track=ais">Изображение от wirestock</a> на Freepik',
             'link' => 'berry',
             'order' => 1,
             'catalog_level_one_id' => 19,
@@ -1981,7 +1981,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/seedlings/images/main/sub/nuts/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/high-angle-of-plants-in-black-pots_5375644.htm#query=vegetable%20seedlings&position=18&from_view=search&track=ais">Freepik</a>',
             'link' => 'nuts',
             'order' => 1,
             'catalog_level_one_id' => 19,
@@ -1989,7 +1989,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/seedlings/images/main/sub/flower/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/greenery-potted-plants-gardening-nature_2861791.htm#query=vegetable%20seedlings&position=33&from_view=search&track=ais">Изображение от rawpixel.com</a> на Freepik',
             'link' => 'flower',
             'order' => 1,
             'catalog_level_one_id' => 19,
@@ -1997,7 +1997,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/seedlings/images/main/sub/tree/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/seedlings-in-the-planting-tray_8352258.htm#query=vegetable%20seedlings&position=0&from_view=search&track=ais">Изображение от jcomp</a> на Freepik',
             'link' => 'tree',
             'order' => 1,
             'catalog_level_one_id' => 19,
@@ -2005,7 +2005,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/seedlings/images/main/sub/plants/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/seedlings-with-garden-tools_27544768.htm#query=vegetable%20seedlings&position=1&from_view=search&track=ais">Изображение от Tatiana Goskova</a> на Freepik',
             'link' => 'plants',
             'order' => 1,
             'catalog_level_one_id' => 19,
@@ -2013,7 +2013,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/seedlings/images/main/sub/other/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/closeup-of-sprouted-arugula-grow-on-wet-linen-mat_9129919.htm#query=vegetable%20seedlings&position=31&from_view=search&track=ais">Изображение от devmaryna</a> на Freepik',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 19,
