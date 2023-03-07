@@ -66,6 +66,14 @@
         <div class="components-admin-cards-offer__value">{{$notApprovedItem['price_description']}}</div>
     </div>
     <div class="components-admin-cards-offer__item-container">
+        <div class="components-admin-cards-offer__title">Доставка</div>
+        <div class="components-admin-cards-offer__value">{{$notApprovedItem['delivery']}}</div>
+    </div>
+        <div class="components-admin-cards-offer__item-container">
+            <div class="components-admin-cards-offer__title">Примечание к доставке</div>
+            <div class="components-admin-cards-offer__value">{{$notApprovedItem['delivery_description']}}</div>
+        </div>
+    <div class="components-admin-cards-offer__item-container">
         <div class="components-admin-cards-offer__title">Фото</div>
         <div class="components-admin-cards-offer__image-list-container">
             @foreach($notApprovedItem['photoArray'] as $photoImg)

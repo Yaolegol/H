@@ -157,7 +157,7 @@
                     'textareaName' => 'delivery_description',
                 ])
                 @include('components.form.error.index', [
-                    'message' => $errors->first('price_description'),
+                    'message' => $errors->first('delivery_description'),
                 ])
             @endcomponent
 

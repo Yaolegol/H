@@ -2,9 +2,9 @@
     class="components-checkboxes-with-text-area"
 >
     <input
-        @isset($value)
+        @if($value === 1)
             checked
-        @endisset
+        @endif
         class="components-checkboxes-with-text-area__input"
         id="id-input-{{$name}}"
         name="{{$name}}"
@@ -27,6 +27,7 @@
         @include('components.inputs.textarea.base.index', [
             'name' => $textareaName,
             'placeholder' => 'Примечание к доставке',
+            'value' => $textareaValue ?? '',
         ])
     </div>
 </div>

@@ -149,6 +149,21 @@
             @endcomponent
 
             @component('modules.pages.profile.common.components.container.form-field.index', [
+                'title' => 'Доставка:'
+            ])
+                @include('components.checkboxes.withTextArea.index', [
+                    'title' => 'Есть',
+                    'name' => 'delivery',
+                    'textareaName' => 'delivery_description',
+                    'value' => $saleOfferItemData['delivery'],
+                    'textareaValue' => $saleOfferItemData['delivery_description'],
+                ])
+                @include('components.form.error.index', [
+                    'message' => $errors->first('delivery_description'),
+                ])
+            @endcomponent
+
+            @component('modules.pages.profile.common.components.container.form-field.index', [
                 'required' => true,
                 'title' => 'Адрес (где можно купить Вашу продукцию):'
             ])
