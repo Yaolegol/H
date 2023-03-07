@@ -38,6 +38,12 @@
                 <div class="modules-pages-offers-routes-show__info-item-title">Комментарий к цене:</div>
                 <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['price_description']}}</div>
             </div>
+            @if($offer['delivery'])
+                <div class="modules-pages-offers-routes-show__info-item-container">
+                    <div class="modules-pages-offers-routes-show__info-item-title">Доставка: есть</div>
+                    <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['delivery_description']}}</div>
+                </div>
+            @endif
             <div class="modules-pages-offers-routes-show__info-item-container">
                 <div class="modules-pages-offers-routes-show__info-item-title">Телефон:</div>
                 <a
