@@ -48,6 +48,7 @@ const createConfig = (env, argv) => {
             catalog_firstLevel_index: path.resolve(appDirectoriesData.path_pages, 'catalog', 'firstLevel', 'index'),
             catalog_secondLevel_index: path.resolve(appDirectoriesData.path_pages, 'catalog', 'secondLevel', 'index'),
             favorites_index: path.resolve(appDirectoriesData.path_pages, 'favorites', 'index'),
+            legal_index: path.resolve(appDirectoriesData.path_pages, 'legal', 'index'),
             map_web_index: path.resolve(appDirectoriesData.path_pages, 'map', 'web', 'index'),
             map_mobileApp_singlePoint_index: path.resolve(appDirectoriesData.path_pages, 'map', 'mobileApp', 'singlePoint', 'index'),
             offers_index: path.resolve(appDirectoriesData.path_pages, 'offers', 'index'),

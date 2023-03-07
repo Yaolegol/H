@@ -10,6 +10,7 @@ use App\Http\Controllers\controllers\web\authorization\logout\LogoutController;
 use App\Http\Controllers\controllers\web\authorization\register\RegisterController;
 use App\Http\Controllers\controllers\web\catalog\CatalogController;
 use App\Http\Controllers\controllers\web\favorites\FavoritesController;
+use App\Http\Controllers\controllers\web\legal\LegalController;
 use App\Http\Controllers\controllers\web\map\MapController;
 use App\Http\Controllers\controllers\web\offers\OffersController;
 use App\Http\Controllers\controllers\web\profile\index\ProfileController;
@@ -50,6 +51,8 @@ Route::post('/register/confirmCode', [RegisterController::class, 'confirmCode'])
 Route::get('/logout', [LogoutController::class, 'index']);
 
 Route::get('/map/mobile-app/single-point', [MapMobileAppSinglePoint::class, 'singlePoint']);
+
+Route::get('/legal', [LegalController::class, 'index']);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin/offers', [AdminOffersController::class, 'index']);
