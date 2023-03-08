@@ -9,7 +9,7 @@
             <div class="modules-pages-profile-routes-personal-info-index__content-container">
                 <div class="modules-pages-profile-routes-personal-info-index__personal-data-container">
                     <div class="modules-pages-profile-routes-personal-info-index__title-container">
-                        <h2>Личные данные</h2>
+                        <h4>Личные данные</h4>
                         <div>(отображаются для других пользователей)</div>
                     </div>
                     @if($userData['is_changed'])
@@ -125,7 +125,7 @@
                 <div class="modules-pages-profile-routes-personal-info-index__section-container">
                     <div class="modules-pages-profile-routes-personal-info-index__change-password-container">
                         <div class="modules-pages-profile-routes-personal-info-index__title-container">
-                            <h3>Изменить пароль</h3>
+                            <h4>Изменить пароль</h4>
                             <div>* отмечены обязательные для заполнения поля</div>
                         </div>
                         <form
