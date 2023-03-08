@@ -15,21 +15,11 @@
         </span>
     </label>
     <span class="components-checkboxes-agreement__title">
-        Я прочитал и согласен с
+        Я прочитал
         <a
             class="components-checkboxes-agreement__link"
-            href="/test"
+            href="/legal"
             target="_blank"
-        >правилами размещения контента на сайте</a>,
-        <a
-            class="components-checkboxes-agreement__link"
-            href="/test"
-            target="_blank"
-        >правилами пользования сайтом</a> и
-        <a
-            class="components-checkboxes-agreement__link"
-            href="/test"
-            target="_blank"
-        >политикой конфиденциальности</a>*
+        >правовую информацию</a> и даю согласие на обработку и хранение персональных данных*
     </span>
 </div>

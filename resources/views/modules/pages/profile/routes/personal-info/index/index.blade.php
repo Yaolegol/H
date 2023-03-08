@@ -115,7 +115,7 @@
                             <button class="button">Сохранить</button>
                         </div>
                         <div class="modules-pages-profile-routes-personal-info-index__info-container-required">
-                            <div>* Для сохранения необходимо принять правила размещения контента на сайте</div>
+                            <div>* Для сохранения необходимо заполнить поле</div>
                         </div>
                         @include('components.form.error.index', [
                             'message' => session('commonError'),
@@ -180,7 +180,6 @@
                             </div>
                             <div class="modules-pages-profile-routes-personal-info-index__info-container-required">
                                 <div>* Для сохранения необходимо заполнить все обязательные поля</div>
-                                <div>После заполнения всех обязательных полей данное сообщение будет скрыто</div>
                             </div>
                             @include('components.form.error.index', [
                                 'message' => session('commonChangePasswordError'),
