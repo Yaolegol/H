@@ -3,7 +3,9 @@
         <h1 class="modules-pages-legal-routes-index__title">
             Правовая информация
         </h1>
-        <div class="modules-pages-legal-routes-index__title">(Условия и правила пользования сайтом, политика конфиденциальности и обработки персональных данных)</div>
+        <div class="modules-pages-legal-routes-index__title">
+            (Условия и правила пользования сайтом, размещения информации на сайте, политика конфиденциальности и обработки персональных данных)
+        </div>
     </div>
     <div class="modules-pages-legal-routes-index__paragraph-container">
         <div>
