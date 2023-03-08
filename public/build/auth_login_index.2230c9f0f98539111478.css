@@ -5,7 +5,7 @@
 }
 
 .components-inputs-form {
-  border: 1px solid #a1a1a1;
+  border: 1px solid #e0e0e0;
   border-radius: 25px;
   height: 55px;
   overflow: hidden;
@@ -21,7 +21,7 @@
 }
 
 .components-inputs-phone {
-  border: 1px solid #a1a1a1;
+  border: 1px solid #e0e0e0;
   border-radius: 25px;
   display: block;
   height: 55px;
@@ -53,7 +53,7 @@
 }
 
 .modules-pages-auth-common-components-layout-form__send-button {
-  border: 1px solid #a1a1a1;
+  border: 1px solid #e0e0e0;
   border-radius: 25px;
   color: #636363;
   cursor: pointer;
@@ -364,7 +364,7 @@
 }
 .modules-common-header-search__clear-button {
   align-items: center;
-  border: 1px solid #a1a1a1;
+  border: 1px solid #e0e0e0;
   border-radius: 50%;
   color: #636363;
   display: flex;
@@ -445,7 +445,7 @@
 }
 .modules-common-header-search__search-results-area {
   background-color: #FFFFFF;
-  border: 1px solid #c1c1c1;
+  border: 1px solid #e0e0e0;
   border-radius: 15px;
   display: none;
   left: 0;
@@ -904,7 +904,7 @@
 
 .button {
   background-color: #FFFFFF;
-  border: 1px solid #a1a1a1;
+  border: 1px solid #e0e0e0;
   border-radius: 25px;
   color: #636363;
   cursor: pointer;
