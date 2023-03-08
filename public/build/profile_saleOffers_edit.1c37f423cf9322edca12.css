@@ -1092,9 +1092,12 @@
 .modules-pages-profile-common-components-body-create__all-points-link-container {
   margin-top: 10px;
 }
+.modules-pages-profile-common-components-body-create__description-container {
+  margin-top: 5px;
+}
 .modules-pages-profile-common-components-body-create__form-container {
   margin-top: 50px;
-  max-width: 600px;
+  max-width: 700px;
 }
 .modules-pages-profile-common-components-body-create__info-title {
   margin-top: 25px;
@@ -1264,10 +1267,10 @@
   }
 }
 
-.modules-pages-profile-routes-sale-offers-create__map-container {
+.modules-pages-profile-routes-sale-offers-edit__map-container {
   margin-top: 15px;
 }
-.modules-pages-profile-routes-sale-offers-create__map-geo-container {
+.modules-pages-profile-routes-sale-offers-edit__map-geo-container {
   margin-top: 15px;
 }
 
