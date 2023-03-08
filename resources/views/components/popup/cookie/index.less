@@ -1,0 +1,35 @@
+@import (reference) '~styles/adaptive';
+@import (reference) '~styles/colors';
+
+.components-popup-cookie {
+    align-items: center;
+    background: @grey;
+    border-radius: 20px;
+    bottom: 10px;
+    box-shadow: 0 0 10px 1px @black_10;
+    display: flex;
+    left: 20px;
+    margin: 0 auto;
+    max-width: 720px;
+    padding: 10px 50px;
+    position: fixed;
+    right: 20px;
+    text-align: center;
+
+    @media @tablet {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    &__button {
+        margin: 0 0 0 15px;
+
+        @media @tablet {
+            margin: 15px 0 0;
+        }
+    }
+
+    &__link {
+        text-decoration-line: underline;
+    }
+}

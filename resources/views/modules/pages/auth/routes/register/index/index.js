@@ -6,12 +6,12 @@ import 'views/modules/pages/auth/routes/register/components/confirmCode';
 import 'views/modules/pages/auth/routes/register/components/sendSms';
 import './index.less';
 
-class Test {
+class Register {
     constructor(element) {
         this.module = element;
-        this.sendSmsContainer = this.module.querySelector('.j-test__send-sms-container');
-        this.confirmCodeContainer = this.module.querySelector('.j-test__confirm-code-container');
-        this.errorContainer = this.module.querySelector('.j-test__error-container');
+        this.sendSmsContainer = this.module.querySelector('.j-modules-pages-auth-routes-register-index__send-sms-container');
+        this.confirmCodeContainer = this.module.querySelector('.j-modules-pages-auth-routes-register-index__confirm-code-container');
+        this.errorContainer = this.module.querySelector('.j-modules-pages-auth-routes-register-index__error-container');
         this.inputsCodeModule = this.module.querySelector('.j-components-inputs-code');
         this.CSRFContainer = document.querySelector('.j-csrf-token');
         this.CSRFValue = this.CSRFContainer?.dataset.value;
@@ -122,4 +122,4 @@ class Test {
 }
 
 
-module.initModule('j-test', Test);
+module.initModule('j-modules-pages-auth-routes-register-index', Register);

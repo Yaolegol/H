@@ -9,3 +9,5 @@
         <div class="modules-common-footer-index__copyright-container">© 2022 г. Все права защищены</div>
     </div>
 </div>
+
+@include('components.popup.cookie.index')
