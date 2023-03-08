@@ -2,7 +2,7 @@
     class="components-checkboxes-with-text-area"
 >
     <input
-        @if($value === 1)
+        @if($value ?? 0 === 1)
             checked
         @endif
         class="components-checkboxes-with-text-area__input"
