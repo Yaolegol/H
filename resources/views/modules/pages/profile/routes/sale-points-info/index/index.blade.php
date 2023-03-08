@@ -13,8 +13,10 @@
                 @endcomponent
             @endforeach
         @else
-            <div>Чтобы создать торговую точку, нажмите "Добавить торговую точку"</div>
-            <div>Это просто и бесплатно!</div>
+            <div class="modules-pages-profile-routes-sale-points-info-index__empty-block">
+                <div>Чтобы создать торговую точку, нажмите "Добавить торговую точку"</div>
+                <div>Это просто и бесплатно!</div>
+            </div>
         @endif
     @endcomponent
 @endcomponent

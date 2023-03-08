@@ -13,8 +13,10 @@
                 @endcomponent
             @endforeach
         @else
-            <div>Чтобы создать организацию, нажмите "Добавить организацию"</div>
-            <div>Это просто и бесплатно!</div>
+            <div class="modules-pages-profile-routes-organization-info-index__empty-block">
+                <div>Чтобы создать организацию, нажмите "Добавить организацию"</div>
+                <div>Это просто и бесплатно!</div>
+            </div>
         @endif
     @endcomponent
 @endcomponent
