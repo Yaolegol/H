@@ -1,8 +1,9 @@
-.modules-pages-legal-routes-index {
-  font-size: 24px;
-}
 .modules-pages-legal-routes-index__container {
   margin-top: 100px;
+}
+.modules-pages-legal-routes-index__description {
+  margin-top: 20px;
+  text-align: center;
 }
 .modules-pages-legal-routes-index__paragraph-container {
   margin-top: 50px;
