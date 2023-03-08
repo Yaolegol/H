@@ -2,19 +2,21 @@
 
 .buttons-filter {
     align-items: center;
-    border: 1px solid @black_15;
+    border: 1px solid @black_5;
     border-radius: 25px;
+    color: @black_50;
     cursor: pointer;
     display: flex;
     min-height: 48px;
     padding: 10px 20px;
 
     &:hover {
-        box-shadow: 0 0 5px 1px @black_10
+        box-shadow: 0 0 5px 1px @shadow;
+        color: @black;
     }
 
     &__reset-button {
-        border: 1px solid @black_15;
+        border: 1px solid @black_5;
         border-radius: 50%;
         display: inline-block;
         color: @black_50;
@@ -22,7 +24,7 @@
         margin-left: 10px;
 
         &:hover {
-            box-shadow: 0 0 5px 1px @black_10;
+            box-shadow: 0 0 5px 1px @shadow;
             color: @black;
         }
 
