@@ -1,20 +1,15 @@
-.modules-common-breadcrumbs-item {
-  align-items: center;
-  display: flex;
-  margin-right: 15px;
-  white-space: nowrap;
+.modules-pages-legal-routes-index__container {
+  margin-top: 100px;
 }
-.modules-common-breadcrumbs-item__arrow {
-  margin-left: 15px;
+.modules-pages-legal-routes-index__description {
+  margin-top: 20px;
+  text-align: center;
 }
-.modules-common-breadcrumbs-item__link:hover {
-  color: #FF0000;
+.modules-pages-legal-routes-index__paragraph-container {
+  margin-top: 50px;
 }
-
-.modules-common-breadcrumbs-list {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
+.modules-pages-legal-routes-index__title {
+  text-align: center;
 }
 
 .components-popup-cookie {
@@ -99,7 +94,7 @@
 
 .components-inputs-search {
   align-items: center;
-  border: 1px solid #848484;
+  border: 1px solid #e0e0e0;
   border-radius: 30px;
   display: block;
   padding: 20px;
@@ -110,12 +105,8 @@
   }
 }
 .components-inputs-search__input {
-  color: #424242;
   height: 100%;
   width: 100%;
-}
-.components-inputs-search__input::placeholder {
-  color: #424242;
 }
 
 .modules-common-catalog-content__categories-container {
@@ -425,9 +416,9 @@
 }
 .components-modals-base-common__close-button {
   background-color: #FFFFFF;
-  border: 1px solid #a1a1a1;
+  border: 1px solid #e0e0e0;
   border-radius: 50%;
-  color: #636363;
+  color: #e0e0e0;
   height: 50px;
   position: absolute;
   right: 0;
@@ -435,7 +426,7 @@
 }
 .components-modals-base-common__close-button:hover {
   box-shadow: 0 0 5px 1px #e6e6e6;
-  color: #000000;
+  color: #c1c1c1;
 }
 .components-modals-base-common__close-button svg {
   height: 100%;
@@ -784,185 +775,6 @@
 }
 .modules-common-layout-web__footer-container {
   margin-top: 100px;
-}
-
-.modules-pages-favorites-shared-components-button {
-  position: relative;
-}
-.modules-pages-favorites-shared-components-button__button {
-  color: #e0e0e0;
-  width: 20px;
-}
-.modules-pages-favorites-shared-components-button__button:hover,
-.modules-pages-favorites-shared-components-button__button.active {
-  color: #ffff00;
-  cursor: pointer;
-}
-.modules-pages-favorites-shared-components-button__button:hover svg,
-.modules-pages-favorites-shared-components-button__button.active svg {
-  filter: drop-shadow(0 0 10px #ffff00);
-}
-.modules-pages-favorites-shared-components-button__hint-block {
-  align-items: center;
-  background-color: #FFFFFF;
-  border-radius: 10px;
-  box-shadow: 0 0 5px 1px #e6e6e6;
-  display: none;
-  flex-direction: column;
-  padding: 10px;
-  position: absolute;
-  right: 0;
-  text-align: center;
-  width: 200px;
-  z-index: 9;
-}
-.modules-pages-favorites-shared-components-button:hover .modules-pages-favorites-shared-components-button__hint-block {
-  display: flex;
-}
-.modules-pages-favorites-shared-components-button__hint-block_left {
-  left: 0;
-  right: auto;
-}
-.modules-pages-favorites-shared-components-button__hint-link {
-  font-weight: 800;
-}
-.modules-pages-favorites-shared-components-button__hint-link:hover {
-  text-decoration: underline;
-}
-.modules-pages-favorites-shared-components-button__hint-text-container {
-  margin-top: 5px;
-}
-
-.modules-common-map-yandex-components-balloon-offer-view-item__price {
-  font-weight: 600;
-}
-.modules-common-map-yandex-components-balloon-offer-view-item__section-link {
-  margin-top: 15px;
-}
-.modules-common-map-yandex-components-balloon-offer-view-item__section-link-title {
-  font-weight: 600;
-}
-.modules-common-map-yandex-components-balloon-offer-view-item__section-price {
-  margin-top: 15px;
-}
-.modules-common-map-yandex-components-balloon-offer-view-item__section-price-title {
-  font-weight: 600;
-}
-.modules-common-map-yandex-components-balloon-offer-view-item__section-seller {
-  margin-top: 15px;
-}
-.modules-common-map-yandex-components-balloon-offer-view-item__section-seller-title {
-  font-weight: 600;
-}
-.modules-common-map-yandex-components-balloon-offer-view-item__title {
-  font-weight: 600;
-}
-
-.components-map-yandex-components-view-item {
-  padding-bottom: 100%;
-  position: relative;
-}
-.components-map-yandex-components-view-item__map-container {
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-.components-map-yandex-components-view-item__map-container_mobile-app {
-  height: 300px;
-  width: auto;
-}
-.components-map-yandex-components-view-item__marker-popup {
-  width: 100px;
-}
-
-
-.components-sliders-base-slider {
-  position: relative;
-}
-@media (max-width: 1023px) {
-  .components-sliders-base-slider__arrow {
-    display: none !important;
-  }
-}
-.components-sliders-base-slider__arrow_next {
-  right: -50px !important;
-}
-.components-sliders-base-slider__arrow_prev {
-  left: -50px !important;
-}
-
-.modules-pages-offers-routes-show {
-  text-align: center;
-}
-.modules-pages-offers-routes-show__additional-info-block {
-  margin-top: 25px;
-}
-.modules-pages-offers-routes-show__content-area {
-  margin: 50px auto 0;
-  max-width: 800px;
-  position: relative;
-}
-@media (max-width: 1023px) {
-  .modules-pages-offers-routes-show__content-area {
-    margin: 25px auto 0;
-  }
-}
-.modules-pages-offers-routes-show__favorites-section {
-  display: flex;
-  position: absolute;
-  right: 0;
-  top: -23px;
-}
-.modules-pages-offers-routes-show__info-block {
-  margin-top: 25px;
-}
-.modules-pages-offers-routes-show__info-block-content {
-  margin-top: 15px;
-}
-.modules-pages-offers-routes-show__info-item-container {
-  margin-top: 15px;
-}
-.modules-pages-offers-routes-show__info-item-description {
-  display: inline-block;
-  margin-top: 5px;
-}
-.modules-pages-offers-routes-show__info-item-description_link {
-  text-decoration-line: underline;
-}
-.modules-pages-offers-routes-show__info-item-title {
-  font-weight: 800;
-}
-.modules-pages-offers-routes-show__info-section {
-  margin-top: 20px;
-}
-.modules-pages-offers-routes-show__map-container {
-  margin: 15px auto 0;
-  max-width: 500px;
-}
-.modules-pages-offers-routes-show__price {
-  font-weight: 800;
-}
-.modules-pages-offers-routes-show__slider-container {
-  margin-top: 15px;
-}
-.modules-pages-offers-routes-show__slider-image {
-  bottom: 0;
-  height: 100%;
-  left: 0;
-  object-fit: contain;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100%;
-}
-.modules-pages-offers-routes-show__slider-image-container {
-  padding-bottom: 50%;
-  position: relative;
-}
-.modules-pages-offers-routes-show__title {
-  text-align: center;
 }
 
 .button {
