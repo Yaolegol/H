@@ -800,6 +800,7 @@
   box-shadow: 0 0 5px 1px #e6e6e6;
   display: flex;
   flex-direction: column;
+  max-width: 250px;
   padding: 20px;
   text-align: center;
 }
@@ -1088,10 +1089,11 @@
 
 
 .modules-pages-map-web-routes-index__add-product-block {
-  display: flex;
-  justify-content: flex-end;
+  text-align: end;
 }
 .modules-pages-map-web-routes-index__add-product-container {
+  display: flex;
+  justify-content: flex-end;
   position: relative;
 }
 .modules-pages-map-web-routes-index__add-product-text {

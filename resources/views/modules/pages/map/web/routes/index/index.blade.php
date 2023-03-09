@@ -6,7 +6,9 @@
                     <div class="modules-pages-map-web-routes-index__add-product-text">
                         Разместить объявление!
                     </div>
-                    @include('components.hint.common.index')
+                    @include('components.hint.common.index', [
+                        'text' => 'Размещать объявления могут только зарегистрированные пользователи!',
+                    ])
                 </div>
             @endguest
             @auth

@@ -1,6 +1,6 @@
 <div class="components-hint">
     <div class="components-hint__content">
-        <div>Чтобы разместить объявление нужно</div>
+        <div>{{$text}}</div>
         <div class="components-hint__text-container">
             <a class="components-hint__link" href="/login">Войти</a>
         </div>
