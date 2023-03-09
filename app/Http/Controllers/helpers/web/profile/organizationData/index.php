@@ -136,7 +136,6 @@ function getProfileOrganizationDataValidator($request) {
     return Validator::make(
         $request->all(),
         [
-            'agreement' => ['accepted'],
             'certificate_1' => ['image', 'max:10240'],
             'certificate_2' => ['image', 'max:10240'],
             'certificate_3' => ['image', 'max:10240'],

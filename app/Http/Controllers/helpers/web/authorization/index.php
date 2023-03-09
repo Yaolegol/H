@@ -97,6 +97,7 @@ function getRegistrationSendSmsValidator($request) {
     return Validator::make(
         $request->all(),
         [
+            'agreement' => ['accepted'],
             'password' => ['required', 'max:25', 'min:6'],
             'password_confirmation' => ['required', 'same:password'],
             'phone' => ['required', 'digits:11', new StartWith('7'), 'unique:users'],

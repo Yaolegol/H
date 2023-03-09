@@ -108,9 +108,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modules-pages-profile-routes-personal-info-index__agreement-container">
-                            @include('components.checkboxes.agreement.index')
-                        </div>
                         <div class="modules-pages-profile-routes-personal-info-index__send-button-container">
                             <button class="button">Сохранить</button>
                         </div>
