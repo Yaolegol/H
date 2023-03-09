@@ -41,9 +41,10 @@ function DB_destroySaleOfferItem($user_id, $saleOfferId) {
     $saleOffer = Offer::where([
         ['user_id', $user_id],
         ['id', $saleOfferId]
-    ])->with('salePoints');
+    ])->with(['salePoints', 'usersFavorites']);
 
     $saleOffer->first()->salePoints()->detach();
+    $saleOffer->first()->usersFavorites()->detach();
     $saleOffer->delete();
 }
 

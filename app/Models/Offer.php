@@ -66,6 +66,11 @@ class Offer extends Model
         ]);
     }
 
+    public function usersFavorites()
+    {
+        return $this->belongsToMany(User::class, 'users_favorites_offers', 'offer_id', 'user_id');
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
