@@ -1,0 +1,38 @@
+@import (reference) '~styles/adaptive';
+@import (reference) '~styles/colors';
+
+.components-hint {
+    display: none;
+    padding: 10px 0 0;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    z-index: 999;
+
+    &:hover {
+        display: block;
+    }
+
+    &__content {
+        align-items: center;
+        background-color: @white;
+        border-radius: 10px;
+        box-shadow: 0 0 5px 1px @shadow;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+    }
+
+    &__link {
+        font-weight: 800;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__text-container {
+        margin-top: 5px;
+    }
+}

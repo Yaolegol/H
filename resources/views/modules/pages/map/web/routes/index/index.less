@@ -6,6 +6,18 @@
         text-align: end;
     }
 
+    &__add-product-container {
+        position: relative;
+    }
+
+    &__add-product-text {
+        text-decoration-line: underline;
+
+        &:hover ~ .components-hint {
+            display: block;
+        }
+    }
+
     &__buttons-block {
         align-items: center;
         display: flex;
@@ -40,7 +52,7 @@
     &__filters-block {
         align-items: center;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         padding-top: 10px;
     }
 

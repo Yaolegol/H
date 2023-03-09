@@ -1,14 +1,23 @@
 <div class="modules-pages-map-web-routes-index">
     <div class="modules-pages-map-web-routes-index__content-area">
         <div class="modules-pages-map-web-routes-index__add-product-block">
-            <a
-                class="modules-pages-map-web-routes-index__link"
-                href="/test"
-            >Как разместить товар на сайте?</a>
+            @guest
+                <div class="modules-pages-map-web-routes-index__add-product-container">
+                    <div class="modules-pages-map-web-routes-index__add-product-text">
+                        Разместить объявление!
+                    </div>
+                    @include('components.hint.common.index')
+                </div>
+            @endguest
+            @auth
+                <a
+                    class="modules-pages-map-web-routes-index__link"
+                    href="/profile/sale-offers/create"
+                >Разместить объявление!</a>
+            @endauth
             <div>Это просто и бесплатно!</div>
         </div>
         <div class="modules-pages-map-web-routes-index__filters-block">
-            <h4 class="modules-pages-map-web-routes-index__filters-title">Фильтры:</h4>
             <div class="modules-pages-map-web-routes-index__filters-container">
                 <div class="modules-pages-map-web-routes-index__buttons-block">
                     <div class="modules-pages-map-web-routes-index__button-container">
