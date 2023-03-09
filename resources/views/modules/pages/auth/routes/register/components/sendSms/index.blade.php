@@ -28,4 +28,7 @@
             'message' => $errors->first('password_confirmation'),
         ])
     @endcomponent
+    @component('modules.pages.auth.common.components.formItemContainer.index')
+        @include('components.checkboxes.agreement.index')
+    @endcomponent
 </div>

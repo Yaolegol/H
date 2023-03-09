@@ -15,7 +15,7 @@
         </span>
     </label>
     <span class="components-checkboxes-agreement__title">
-        Я прочитал
+        Я прочитал(-а)
         <a
             class="components-checkboxes-agreement__link"
             href="/legal"

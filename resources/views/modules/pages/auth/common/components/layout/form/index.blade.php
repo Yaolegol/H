@@ -1,6 +1,6 @@
 <form
     action="{{$formAction}}"
-    class="{{$formClass ?? ''}}"
+    class="{{$formClass ?? 'modules-pages-auth-common-components-layout-form'}}"
     method="POST"
 >
     @csrf
@@ -8,7 +8,10 @@
     {{$slot}}
 
     <div class="modules-pages-auth-common-components-layout-form__send-button-container">
-        <button class="button">Отправить</button>
+        <button class="button modules-pages-auth-common-components-layout-form__send-button">Отправить</button>
+    </div>
+    <div class="modules-pages-auth-common-components-layout-form__info-container-required">
+        <div>* Для отправки необходимо заполнить все поля</div>
     </div>
 
     @include('components.form.error.index', [

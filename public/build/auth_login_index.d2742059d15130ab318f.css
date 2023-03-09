@@ -52,13 +52,16 @@
   margin-top: 30px;
 }
 
-.modules-pages-auth-common-components-layout-form__send-button {
-  border: 1px solid #e0e0e0;
-  border-radius: 25px;
-  color: #636363;
-  cursor: pointer;
-  padding: 20px;
-  text-align: center;
+.modules-pages-auth-common-components-layout-form__info-container-required {
+  display: none;
+  color: #848484;
+  margin-top: 15px;
+}
+.modules-pages-auth-common-components-layout-form:invalid .modules-pages-auth-common-components-layout-form__info-container-required {
+  display: block;
+}
+.modules-pages-auth-common-components-layout-form:invalid .modules-pages-auth-common-components-layout-form__send-button {
+  pointer-events: none;
 }
 .modules-pages-auth-common-components-layout-form__send-button-container {
   display: flex;

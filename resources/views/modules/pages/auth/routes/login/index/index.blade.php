@@ -17,6 +17,7 @@
             @include('components.inputs.form.index', [
                     'name' => 'password',
                     'placeholder' => 'Пароль',
+                    'required' => true,
                     'type' => 'password'
                 ])
             @include('components.form.error.index', [

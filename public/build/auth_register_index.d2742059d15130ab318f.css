@@ -769,13 +769,16 @@
   margin-top: 5px;
 }
 
-.modules-pages-auth-common-components-layout-form__send-button {
-  border: 1px solid #e0e0e0;
-  border-radius: 25px;
-  color: #636363;
-  cursor: pointer;
-  padding: 20px;
-  text-align: center;
+.modules-pages-auth-common-components-layout-form__info-container-required {
+  display: none;
+  color: #848484;
+  margin-top: 15px;
+}
+.modules-pages-auth-common-components-layout-form:invalid .modules-pages-auth-common-components-layout-form__info-container-required {
+  display: block;
+}
+.modules-pages-auth-common-components-layout-form:invalid .modules-pages-auth-common-components-layout-form__send-button {
+  pointer-events: none;
 }
 .modules-pages-auth-common-components-layout-form__send-button-container {
   display: flex;
@@ -905,6 +908,54 @@
 .modules-pages-auth-routes-register-components-confirm-code__title {
   color: #636363;
   text-align: center;
+}
+
+.components-checkboxes-agreement {
+  display: flex;
+}
+.components-checkboxes-agreement__input {
+  height: 0;
+  opacity: 0;
+  outline: none;
+  pointer-events: none;
+  position: absolute;
+  width: 0;
+}
+.components-checkboxes-agreement__input-label {
+  cursor: pointer;
+  display: flex;
+  position: relative;
+}
+.components-checkboxes-agreement__link {
+  text-decoration-line: underline;
+}
+.components-checkboxes-agreement__marker-block {
+  border: 1px solid #e0e0e0;
+  border-radius: 2px;
+  color: #228B22;
+  height: 16px;
+  display: block;
+  width: 16px;
+}
+.components-checkboxes-agreement__input:checked ~ .components-checkboxes-agreement__marker-block {
+  border-color: #228B22;
+}
+.components-checkboxes-agreement__marker-container {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  opacity: 0;
+}
+.components-checkboxes-agreement__input:checked ~ .components-checkboxes-agreement__marker-block .components-checkboxes-agreement__marker-container {
+  opacity: 1;
+}
+.components-checkboxes-agreement__title {
+  display: block;
+  margin-left: 10px;
+}
+.components-checkboxes-agreement__input:checked ~ .components-checkboxes-agreement__title {
+  font-weight: 800;
 }
 
 .components-inputs-phone {

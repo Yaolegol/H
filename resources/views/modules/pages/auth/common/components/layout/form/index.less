@@ -1,13 +1,20 @@
 @import (reference) '~styles/colors';
 
 .modules-pages-auth-common-components-layout-form {
+    &__info-container-required {
+        display: none;
+        color: @black_20;
+        margin-top: 15px;
+
+        .modules-pages-auth-common-components-layout-form:invalid & {
+            display: block;
+        }
+    }
+
     &__send-button {
-        border: 1px solid @black_5;
-        border-radius: 25px;
-        color: @black_50;
-        cursor: pointer;
-        padding: 20px;
-        text-align: center;
+        .modules-pages-auth-common-components-layout-form:invalid & {
+            pointer-events: none;
+        }
     }
 
     &__send-button-container {
