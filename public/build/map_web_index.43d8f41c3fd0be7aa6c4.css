@@ -1088,7 +1088,8 @@
 
 
 .modules-pages-map-web-routes-index__add-product-block {
-  text-align: end;
+  display: flex;
+  justify-content: flex-end;
 }
 .modules-pages-map-web-routes-index__add-product-container {
   position: relative;
