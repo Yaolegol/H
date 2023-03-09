@@ -99,8 +99,11 @@ class Search {
     }
 
     handleSearchInputBlur = (e) => {
-        this.module.classList.remove('j-style-header-search__focus');
-        this.module.classList.remove('j-style-header-search__mobile-show');
+        // Иначе не работает клик по ссылке
+        setTimeout(() => {
+            this.module.classList.remove('j-style-header-search__focus');
+            this.module.classList.remove('j-style-header-search__mobile-show');
+        }, 100);
     }
 
     handleSearchInputFocus = (e) => {
