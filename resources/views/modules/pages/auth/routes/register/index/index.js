@@ -54,13 +54,15 @@ class Register {
     }
 
     handleSendSms = async (e) => {
-        const {phone, password, password_confirmation} = e.target.elements;
+        const {agreement, phone, password, password_confirmation} = e.target.elements;
 
+        this.agreement = agreement.value;
         this.phoneValue = phone.value;
         this.passwordValue = password.value;
         this.password_confirmationValue = password_confirmation.value;
 
         const _data = {
+            agreement: this.agreement,
             phone: this.phoneValue,
             password: this.passwordValue,
             password_confirmation: this.password_confirmationValue,

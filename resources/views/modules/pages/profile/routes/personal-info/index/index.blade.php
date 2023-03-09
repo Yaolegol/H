@@ -40,28 +40,27 @@
                                         <div class="modules-pages-profile-routes-personal-info-index__moderation-hint-container">Спасибо за терпение!</div>
                                     </div>
                                 </div>
-                                @if($userData['is_approved'])
-                                    <div class="modules-pages-profile-routes-personal-info-index__seller-link-container">
-                                        <div class="modules-pages-profile-routes-personal-info-index__moderation-label modules-pages-profile-routes-personal-info-index__moderation-label_grey">
-                                            <div class="modules-pages-profile-routes-personal-info-index__seller-link-title">Поздравляем!</div>
-                                            <div class="modules-pages-profile-routes-personal-info-index__seller-link-footer">Ваша персональная страница:</div>
-                                            <div>
-                                                <a
-                                                    class="modules-pages-profile-routes-personal-info-index__seller-link"
-                                                    href="/sellers/{{$userData['id']}}"
-                                                >
-                                                    {{request()->getHost()}}/sellers/{{$userData['id']}}
-                                                </a>
-                                            </div>
-                                            <div class="modules-pages-profile-routes-personal-info-index__seller-link-footer">
-                                                Отправьте эту ссылку покупателям, чтобы Вас можно было легко найти на сайте!
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
                             @endif
                         </div>
                     @endif
+                    <div class="modules-pages-profile-routes-personal-info-index__seller-link-container">
+                        <div class="modules-pages-profile-routes-personal-info-index__moderation-label modules-pages-profile-routes-personal-info-index__moderation-label_grey">
+                            <div class="modules-pages-profile-routes-personal-info-index__seller-link-title">Поздравляем!</div>
+                            <div class="modules-pages-profile-routes-personal-info-index__seller-link-footer">Ваша персональная страница:</div>
+                            <div>
+                                <a
+                                    class="modules-pages-profile-routes-personal-info-index__seller-link"
+                                    href="/sellers/{{$userData['id']}}"
+                                >
+                                    {{request()->getHost()}}/sellers/{{$userData['id']}}
+                                </a>
+                            </div>
+                            <div class="modules-pages-profile-routes-personal-info-index__seller-link-footer">
+                                Отправьте эту ссылку покупателям, чтобы Вас можно было легко найти на сайте!
+                            </div>
+                        </div>
+                    </div>
+
                     <form
                         action="/profile/personal-info/edit-personal-data"
                         enctype="multipart/form-data"
