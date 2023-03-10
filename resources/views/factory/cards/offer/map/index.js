@@ -138,6 +138,16 @@ export class MapOfferCard {
                             </div>
                         </div>
                     </div>
+                    <div class="factory-cards-offer-map__category-block">
+                        <div>
+                            <span class="factory-cards-offer-map__category-title">Категория:</span>
+                            Фрукты
+                        </div>
+                        <div class="factory-cards-offer-map__category-container">
+                            <span class="factory-cards-offer-map__category-title">Товары:</span>
+                            Яблоки, Груши, Бананы
+                        </div>
+                    </div>
                 </div>
                 <div class="factory-cards-offer-map__service-block">
                     ${favoritesBlock}

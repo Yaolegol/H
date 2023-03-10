@@ -975,6 +975,15 @@
   padding: 20px 40px 20px 20px;
   position: relative;
 }
+.factory-cards-offer-map__category-block {
+  margin-top: 15px;
+}
+.factory-cards-offer-map__category-container {
+  margin-top: 5px;
+}
+.factory-cards-offer-map__category-title {
+  font-weight: 600;
+}
 .factory-cards-offer-map__contacts-block {
   margin-top: 15px;
 }

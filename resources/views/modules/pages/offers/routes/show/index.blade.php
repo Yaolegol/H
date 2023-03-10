@@ -74,7 +74,7 @@
             <div class="modules-pages-offers-routes-show__additional-info-block">
                 <h4>Дополнительная информация</h4>
                 <div class="modules-pages-offers-routes-show__info-item-container">
-                    <h4 class="modules-pages-offers-routes-show__info-item-title">Продавец:</h4>
+                    <h6 class="modules-pages-offers-routes-show__info-item-title">Продавец:</h6>
                     <a
                         class="modules-pages-offers-routes-show__info-item-description modules-pages-offers-routes-show__info-item-description_link"
                         href="{{$offer['user']['sellerLink']}}"
@@ -83,7 +83,7 @@
                 @isset($offer['organization'])
                     @if($offer['organization']['is_approved'] == 1)
                         <div class="modules-pages-offers-routes-show__info-block">
-                            <h4 class="modules-pages-offers-routes-show__info-block-title">Организация</h4>
+                            <h6 class="modules-pages-offers-routes-show__info-block-title">Организация</h6>
                             <div class="modules-pages-offers-routes-show__info-block-content">
                                 <div class="modules-pages-offers-routes-show__info-item-container">
                                     <div class="modules-pages-offers-routes-show__info-item-title">Название</div>
