@@ -93,6 +93,7 @@
                         </div>
                         <div class="modules-pages-profile-routes-personal-info-index__photo-block">
                             <div class="modules-pages-profile-routes-personal-info-index__info-title">Фото профиля:</div>
+                            <div class="modules-pages-profile-routes-personal-info-index__info-title-description">*не более 10MB</div>
                             <div class="modules-pages-profile-routes-personal-info-index__info-description">
                                 <div class="modules-pages-profile-routes-personal-info-index__input-container">
                                     @include('components.inputs.file.item.index', [

@@ -104,7 +104,10 @@
                 </div>
             @endcomponent
 
-            @component('modules.pages.profile.common.components.container.section.index', ['title' => 'Фотографии торговой точки'])
+            @component('modules.pages.profile.common.components.container.section.index', [
+                'description' => '*Не более 10MB каждая',
+                'title' => 'Фотографии торговой точки'
+            ])
                 @component('modules.pages.profile.common.components.container.file-field.index')
                     @include('components.inputs.file.item.index', [
                                         'imageSrc' => '',

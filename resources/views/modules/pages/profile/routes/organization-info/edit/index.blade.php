@@ -91,7 +91,10 @@
                 ])
             @endcomponent
 
-            @component('modules.pages.profile.common.components.container.section.index', ['title' => 'Свидетельтва, выданные организации'])
+            @component('modules.pages.profile.common.components.container.section.index', [
+                'description' => '*Не более 10MB каждое',
+                'title' => 'Свидетельтва, выданные организации'
+            ])
                 @component('modules.pages.profile.common.components.container.file-field.index')
                     @include('components.inputs.file.item.index', [
                                         'imageSrc' => $organizationItemData['certificateArray'][0] ?? '',
@@ -153,7 +156,10 @@
                 @endcomponent
             @endcomponent
 
-            @component('modules.pages.profile.common.components.container.section.index', ['title' => 'Фотографии организации'])
+            @component('modules.pages.profile.common.components.container.section.index', [
+                            'description' => '*Не более 10MB каждая',
+                            'title' => 'Фотографии организации'
+            ])
                 @component('modules.pages.profile.common.components.container.file-field.index')
                     @include('components.inputs.file.item.index', [
                                         'imageSrc' => $organizationItemData['photoArray'][0] ?? '',

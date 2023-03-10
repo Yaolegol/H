@@ -224,7 +224,10 @@
                 @endif
             @endcomponent
 
-            @component('modules.pages.profile.common.components.container.section.index', ['title' => 'Фотографии товара'])
+            @component('modules.pages.profile.common.components.container.section.index', [
+                'description' => '*Не более 10MB каждая',
+                'title' => 'Фотографии товара'
+            ])
                 @component('modules.pages.profile.common.components.container.file-field.index')
                     @include('components.inputs.file.item.index', [
                                         'imageSrc' => '',
