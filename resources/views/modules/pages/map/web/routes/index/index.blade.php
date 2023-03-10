@@ -20,19 +20,17 @@
             <div>Это просто и бесплатно!</div>
         </div>
         <div class="modules-pages-map-web-routes-index__filters-block">
-            <div class="modules-pages-map-web-routes-index__filters-container">
-                <div class="modules-pages-map-web-routes-index__buttons-block">
-                    <div class="modules-pages-map-web-routes-index__button-container">
-                        @include('modules.common.map.common.components.filters.product.index')
-                    </div>
-                    <div class="modules-pages-map-web-routes-index__button-container">
-                        @include('components.buttons.filter.index', [
-                            'className' => 'j-modules-common-geo-components-button',
-                            'dataset' => [],
-                            'defaultTitle' => 'Показать рядом со мной',
-                            'title' => 'Показать рядом со мной',
-                        ])
-                    </div>
+            <div class="modules-pages-map-web-routes-index__buttons-block">
+                <div class="modules-pages-map-web-routes-index__button-container">
+                    @include('modules.common.map.common.components.filters.product.index')
+                </div>
+                <div class="modules-pages-map-web-routes-index__button-container">
+                    @include('components.buttons.filter.index', [
+                        'className' => 'j-modules-common-geo-components-button',
+                        'dataset' => [],
+                        'defaultTitle' => 'Показать рядом со мной',
+                        'title' => 'Показать рядом со мной',
+                    ])
                 </div>
             </div>
         </div>

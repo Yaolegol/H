@@ -4,12 +4,20 @@
 .modules-pages-map-web-routes-index {
     &__add-product-block {
         text-align: end;
+
+        @media @mobile {
+            text-align: center;
+        }
     }
 
     &__add-product-container {
         display: flex;
         justify-content: flex-end;
         position: relative;
+
+        @media @mobile {
+            justify-content: center;
+        }
     }
 
     &__add-product-text {
@@ -23,13 +31,22 @@
     &__buttons-block {
         align-items: center;
         display: flex;
+
+        @media @mobile {
+            flex-direction: column;
+            width: 100%;
+        }
     }
 
     &__button-container {
-        margin-left: 15px;
+        margin: 0 0 0 15px;
+
+        @media @mobile {
+            margin: 15px 0 0;
+        }
 
         &:first-child {
-            margin-left: 0;
+            margin: 0;
         }
     }
 
