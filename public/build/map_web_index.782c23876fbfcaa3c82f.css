@@ -1002,6 +1002,8 @@
   }
 }
 .factory-cards-offer-map__image-container {
+  border-radius: 8px;
+  overflow: hidden;
   padding-bottom: 100%;
   position: relative;
 }
