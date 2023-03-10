@@ -127,6 +127,7 @@
 }
 .modules-common-catalog-content__header-item {
   display: inline-block;
+  font-weight: 600;
 }
 .modules-common-catalog-content__header-item:hover {
   background-color: #E9EDF6;
