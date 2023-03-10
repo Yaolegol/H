@@ -44,7 +44,7 @@
                         </div>
                     @endif
                     <div class="modules-pages-profile-routes-personal-info-index__seller-link-container">
-                        <div class="modules-pages-profile-routes-personal-info-index__moderation-label modules-pages-profile-routes-personal-info-index__moderation-label_grey">
+                        <div class="modules-pages-profile-routes-personal-info-index__moderation-label modules-pages-profile-routes-personal-info-index__moderation-label_light-green">
                             <div class="modules-pages-profile-routes-personal-info-index__seller-link-title">Поздравляем!</div>
                             <div class="modules-pages-profile-routes-personal-info-index__seller-link-footer">Ваша персональная страница:</div>
                             <div>
