@@ -25,11 +25,12 @@ export class MapOfferCard {
     static createMapOfferCard = ({placemarkList, placemarkData}) => {
         const isUserAuth = Boolean(document.querySelector('.j-user__auth'));
 
-        const {product, salePoints, seller} = placemarkData.offer;
+        const {catalog, product, salePoints, seller} = placemarkData.offer;
         const {address, description, id, img, link: productLink, measure, phone, price, price_description, title} = product;
         const {title: measureTitle} = measure;
         const {src} = img;
         const {link: sellerLink, name} = seller;
+        const {catalog_level_one, catalog_level_two} = catalog;
 
         const salePointsHtml = salePoints.map(({address, description, id: salePointId, phone, title, working_hours}) => {
             return `
@@ -141,11 +142,11 @@ export class MapOfferCard {
                     <div class="factory-cards-offer-map__category-block">
                         <div>
                             <span class="factory-cards-offer-map__category-title">Категория:</span>
-                            Фрукты
+                            ${catalog_level_one.title}
                         </div>
                         <div class="factory-cards-offer-map__category-container">
                             <span class="factory-cards-offer-map__category-title">Товары:</span>
-                            Яблоки, Груши, Бананы
+                            ${catalog_level_two.title}
                         </div>
                     </div>
                 </div>
