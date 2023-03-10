@@ -12,6 +12,10 @@
 
     &__catalog-link-container {
         margin-top: 50px;
+
+        @media @tablet {
+            margin-top: 15px;
+        }
     }
 
     &__catalog-search-container {
@@ -35,11 +39,19 @@
     &__content-block {
         flex: 2 1 66%;
         overflow: auto;
+
+        @media @tablet {
+            flex: 1 1 50%;
+        }
     }
 
     &__navigation-block {
         flex: 1 1 33%;
         overflow: auto;
+
+        @media @tablet {
+            flex: 1 1 50%;
+        }
     }
 
     &__title {

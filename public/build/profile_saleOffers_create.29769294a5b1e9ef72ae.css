@@ -138,6 +138,11 @@
 .modules-common-catalog__catalog-link-container {
   margin-top: 50px;
 }
+@media screen and (max-width: 1023px) {
+  .modules-common-catalog__catalog-link-container {
+    margin-top: 15px;
+  }
+}
 .modules-common-catalog__catalog-search-container {
   margin-top: 50px;
 }
@@ -160,9 +165,19 @@
   flex: 2 1 66%;
   overflow: auto;
 }
+@media screen and (max-width: 1023px) {
+  .modules-common-catalog__content-block {
+    flex: 1 1 50%;
+  }
+}
 .modules-common-catalog__navigation-block {
   flex: 1 1 33%;
   overflow: auto;
+}
+@media screen and (max-width: 1023px) {
+  .modules-common-catalog__navigation-block {
+    flex: 1 1 50%;
+  }
 }
 .modules-common-catalog__title {
   margin: 0 auto;
