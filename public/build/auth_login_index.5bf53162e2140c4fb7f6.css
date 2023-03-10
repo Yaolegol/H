@@ -678,6 +678,7 @@
   position: absolute;
   right: 0;
   text-align: center;
+  z-index: 9;
 }
 .modules-common-header-index__favorites-container:hover .modules-common-header-index__favorites-hint-block {
   display: flex;
@@ -835,6 +836,7 @@
   position: absolute;
   right: 0;
   text-align: center;
+  z-index: 9;
 }
 .modules-common-header-index__profile-container:hover .modules-common-header-index__profile-hint-block {
   display: flex;
