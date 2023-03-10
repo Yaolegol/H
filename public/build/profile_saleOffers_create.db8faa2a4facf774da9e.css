@@ -1050,7 +1050,6 @@
 }
 .components-inputs-radio-group-second-level__content-block {
   margin-top: 10px;
-  max-height: 500px;
 }
 .components-inputs-radio-group-second-level__content-container {
   display: none;
@@ -1292,10 +1291,10 @@
   }
 }
 
-.modules-pages-profile-routes-sale-offers-edit__map-container {
+.modules-pages-profile-routes-sale-offers-create__map-container {
   margin-top: 15px;
 }
-.modules-pages-profile-routes-sale-offers-edit__map-geo-container {
+.modules-pages-profile-routes-sale-offers-create__map-geo-container {
   margin-top: 15px;
 }
 

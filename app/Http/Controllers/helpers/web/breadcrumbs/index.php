@@ -52,7 +52,7 @@ function getOfferBreadcrumbs($offer)
     return [
         [
             'isLink' => true,
-            'link' => '/',
+            'link' => '/catalog',
             'title' => 'Каталог',
         ],
         [

@@ -133,8 +133,8 @@ function setOfferCatalogLinks(&$offerItem) {
     $offerItemCatalogLevelTwo = &$offerItem['catalog_level_two'];
     $offerItemCatalogLevelOne = &$offerItemCatalogLevelTwo['catalog_level_one'];
 
-    $offerItemCatalogLevelTwo['linkFull'] = '/';
-    $offerItemCatalogLevelOne['linkFull'] = '/';
+    $offerItemCatalogLevelTwo['linkFull'] = '/?catalogLevelTwoId=' . $offerItem['catalog_level_two_id'];
+    $offerItemCatalogLevelOne['linkFull'] = '/?catalogLevelOneId=' . $offerItem['catalog_level_one_id'];
 }
 
 function setOfferLink(&$offerItem) {

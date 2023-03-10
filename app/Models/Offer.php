@@ -36,6 +36,7 @@ class Offer extends Model
         'is_approved',
         'user_id',
         'organization_id',
+        'catalog_level_one_id',
         'catalog_level_two_id',
         'measure_id',
     ];
