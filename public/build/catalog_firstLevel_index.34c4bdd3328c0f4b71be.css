@@ -364,7 +364,7 @@
 }
 
 .components-modals-base-common {
-  background-color: #636363;
+  background-color: rgba(0, 0, 0, 0.5);
   bottom: 0;
   display: none;
   height: 100%;

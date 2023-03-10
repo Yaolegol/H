@@ -345,7 +345,7 @@
 }
 
 .components-modals-base-common {
-  background-color: #636363;
+  background-color: rgba(0, 0, 0, 0.5);
   bottom: 0;
   display: none;
   height: 100%;
@@ -1284,10 +1284,10 @@
   }
 }
 
-.modules-pages-profile-routes-sale-offers-edit__map-container {
+.modules-pages-profile-routes-sale-offers-create__map-container {
   margin-top: 15px;
 }
-.modules-pages-profile-routes-sale-offers-edit__map-geo-container {
+.modules-pages-profile-routes-sale-offers-create__map-geo-container {
   margin-top: 15px;
 }
 
