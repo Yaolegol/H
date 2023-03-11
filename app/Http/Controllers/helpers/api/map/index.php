@@ -2,34 +2,59 @@
 
 use App\Models\Offer;
 
-function apiGetAllOffers($filter) {
-    return Offer::where($filter)
-        ->with([
+function apiGetAllOffers($filter, $catalogLevelTwoIds = []) {
+    $queryBuilder = Offer::where($filter)->with([
+        'catalogLevelOne',
         'catalogLevelTwo',
-        'catalogLevelTwo.catalogLevelOne',
         'measure',
         'organization',
         'salePoints',
         'user',
-    ])->get()->toArray();
+    ]);
+
+    if(count($catalogLevelTwoIds) > 0) {
+        $queryBuilder->whereHas('catalogLevelTwo', function($query) use($catalogLevelTwoIds) {
+            $query->whereIn('catalog_level_two_id', $catalogLevelTwoIds);
+        });
+    }
+
+    return $queryBuilder->get()->toArray();
+}
+
+function apiGetAllOffersByCatalogLevelTwo($idList) {
+    return Offer::whereHas('catalogLevelTwo', function($query) use($idList) {
+        $query->whereIn('catalog_level_two_id', $idList);
+    })
+        ->with([
+            'catalogLevelTwo',
+            'measure',
+            'organization',
+            'salePoints',
+            'user',
+        ])->get()->toArray();
 }
 
 function apiGetAllOffersMapMarkersDataFormatted($request) {
     $requestFilter = $request->input('filter') ?? [];
     $DBFilter = [
-        'is_approved' => true,
+        ['is_approved', true],
     ];
+    $catalogLevelTwoIdList = [];
 
     $catalogLevelOneId = $requestFilter['catalog']['levelOneId'] ?? null;
     $catalogLevelTwoId = $requestFilter['catalog']['levelTwoId'] ?? null;
 
-    if($catalogLevelTwoId) {
-        array_push($DBFilter, ['catalog_level_two_id', $catalogLevelTwoId]);
-    } elseif($catalogLevelOneId) {
-        array_push($DBFilter, ['catalog_level_one_id', $catalogLevelOneId]);
+    if($catalogLevelOneId) {
+        array_push($DBFilter, [
+            'catalog_level_one_id', $catalogLevelOneId
+        ]);
     }
 
-    $offers = apiGetAllOffers($DBFilter);
+    if($catalogLevelTwoId) {
+        array_push($catalogLevelTwoIdList, [$catalogLevelTwoId]);
+    }
+
+    $offers = apiGetAllOffers($DBFilter, $catalogLevelTwoIdList);
 
     $offersMapMarkersDataList = [];
 
@@ -54,13 +79,9 @@ function apiGetOfferData($offerItem) {
     return [
         'catalog' => [
             'catalog_level_one' => [
-//                'title' => $offerItem['catalog_level_two']['catalog_level_one']['title']
-                'title' => 'test catalog_level_one'
+                'title' => $offerItem['catalog_level_one']['title'],
             ],
-            'catalog_level_two' => [
-//                'title' => $offerItem['catalog_level_two']['title']
-                'title' => 'test catalog_level_two'
-            ],
+            'catalog_level_two' => $offerItem['catalog_level_two'],
         ],
         'product' => [
             'address' => $offerItem['address'],

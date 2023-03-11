@@ -87,6 +87,8 @@ export class MapOfferCard {
             </div>
         `;
 
+        const catalogCategoriesLevelTwoTitleList = catalog_level_two.map(({title}) => title).join(', ');
+
         return `
             <div class="factory-cards-offer-map j-factory-cards-offer-map">
                 <div class="factory-cards-offer-map__image-block">
@@ -146,7 +148,7 @@ export class MapOfferCard {
                         </div>
                         <div class="factory-cards-offer-map__category-container">
                             <span class="factory-cards-offer-map__category-title">Товары:</span>
-                            ${catalog_level_two.title}
+                            ${catalogCategoriesLevelTwoTitleList}
                         </div>
                     </div>
                 </div>

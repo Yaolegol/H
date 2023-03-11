@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 
 require_once('app/Http/Controllers/helpers/api/map/index.php');
 require_once('app/Http/Controllers/helpers/web/offers/index.php');
+require_once('app/Http/Controllers/helpers/web/profile/saleOffers/index.php');
 
 class ApiMapController extends Controller
 {

@@ -43,9 +43,14 @@ class Offer extends Model
 
     protected $table = 'offer';
 
+    public function catalogLevelOne()
+    {
+        return $this->belongsTo(CatalogLevelOne::class, 'catalog_level_one_id');
+    }
+
     public function catalogLevelTwo()
     {
-        return $this->belongsTo(CatalogLevelTwo::class);
+        return $this->belongsToMany(CatalogLevelTwo::class, 'catalog_level_two_offer', 'offer_id', 'catalog_level_two_id');
     }
 
     public function measure()
