@@ -1,7 +1,7 @@
 import './index.less';
 
 export const getOfferBalloon = (offerData, markerId) => {
-    const {product, salePoints, seller} = offerData;
+    const {catalog, product, salePoints, seller} = offerData;
     const {
         address,
         contact_person,
@@ -16,6 +16,7 @@ export const getOfferBalloon = (offerData, markerId) => {
         working_hours,
     } = product;
     const {id: sellerId, name} = seller;
+    const {catalog_level_one, catalog_level_two} = catalog;
 
     const salePointId = markerId.split('_')[1];
     const currentSalePoint = salePoints.find(({id}) => {
@@ -43,6 +44,8 @@ export const getOfferBalloon = (offerData, markerId) => {
             contactAddress = _contactAddress;
         }
     }
+
+    const catalogCategoriesLevelTwoTitleList = catalog_level_two.map(({title}) => title).join(', ');
 
     return `
         <div class="modules-common-map-yandex-components-balloon-offer-view-all">
@@ -89,6 +92,12 @@ export const getOfferBalloon = (offerData, markerId) => {
                     </div>
                 `
                 : ""}
+            <div class="modules-common-map-yandex-components-balloon-offer-view-all__section-link">
+                <div class="modules-common-map-yandex-components-balloon-offer-view-all__section-seller-title">Категория:</div>
+                <div>${catalog_level_one.title}</div>
+                <div class="modules-common-map-yandex-components-balloon-offer-view-all__section-seller-title">Товары:</div>
+                <div>${catalogCategoriesLevelTwoTitleList}</div>
+            </div>
             <div class="modules-common-map-yandex-components-balloon-offer-view-all__section-link">
                 <a
                     class="modules-common-map-yandex-components-balloon-offer-view-all__section-link-title"
