@@ -15,8 +15,8 @@
     <div class="components-inputs-radio-group-second-level__content-block j-components-inputs-radio-checkbox-group">
         <input
             @foreach($contentList as $contentItem)
-                @foreach($contentItem['content'] as $contentItem)
-                    @if($item['isChecked'] ?? false)
+                @foreach($contentItem['content'] as $contentItemContent)
+                    @if($contentItemContent['isChecked'] ?? false)
                         checked
 
                         @break
