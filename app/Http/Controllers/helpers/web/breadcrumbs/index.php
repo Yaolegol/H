@@ -46,8 +46,7 @@ function getCatalogOffersBreadcrumbs($catalogLevelOneItem, $catalogLevelTwoItem)
 
 function getOfferBreadcrumbs($offer)
 {
-    $offerCatalogLevelTwoData = $offer['catalog_level_two'];
-    $offerCatalogLevelOneData = $offerCatalogLevelTwoData['catalog_level_one'];
+    $offerCatalogLevelOneData = $offer['catalog_level_one'];
 
     return [
         [
@@ -57,17 +56,8 @@ function getOfferBreadcrumbs($offer)
         ],
         [
             'isLink' => true,
-//            'link' => $offerCatalogLevelOneData['linkFull'],
-//            'title' => $offerCatalogLevelOneData['title'],
-            'link' => '__/test1',
-            'title' => '__test1',
-        ],
-        [
-            'isLink' => true,
-//            'link' => $offerCatalogLevelTwoData['linkFull'],
-//            'title' => $offerCatalogLevelTwoData['title'],
-            'link' => '__/test2',
-            'title' => '__test2',
+            'link' => $offerCatalogLevelOneData['linkFull'],
+            'title' => $offerCatalogLevelOneData['title'],
         ]
     ];
 }

@@ -12,8 +12,8 @@ function DB_getOffer($id)
             'id' => $id,
             'is_approved' => true,
         ])->with([
+            'catalogLevelOne',
             'catalogLevelTwo',
-            'catalogLevelTwo.catalogLevelOne',
             'measure',
             'organization',
             'salePoints',
@@ -130,11 +130,9 @@ function getOffersPaginatedData($catalogLevelTwoItem, $searchCountry, $searchReg
 }
 
 function setOfferCatalogLinks(&$offerItem) {
-    $offerItemCatalogLevelTwo = &$offerItem['catalog_level_two'];
-    $offerItemCatalogLevelOne = &$offerItemCatalogLevelTwo['catalog_level_one'];
+    $offerItemCatalogLevelOne = &$offerItem['catalog_level_one'];
 
-    $offerItemCatalogLevelTwo['linkFull'] = '/?catalogLevelTwoId=' . '__test';
-    $offerItemCatalogLevelOne['linkFull'] = '/?catalogLevelOneId=' . $offerItem['catalog_level_one_id'];
+    $offerItemCatalogLevelOne['linkFull'] = '/?catalogLevelOneId=' . $offerItem['catalog_level_one']['id'];
 }
 
 function setOfferLink(&$offerItem) {
