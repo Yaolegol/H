@@ -9,6 +9,7 @@ const {
         RADIO: {
             GROUP: {
                 CHANGE,
+                INIT,
             }
         }
     }
@@ -46,17 +47,17 @@ class InputsRadioGroupFirstLevel {
             this.value = value;
         }
 
-        this.sendMessage();
+        this.sendMessage(CHANGE);
     }
 
     init = () => {
         if(this.value) {
-            this.sendMessage();
+            this.sendMessage(INIT);
         }
     }
 
-    sendMessage = () => {
-        document.dispatchEvent(new CustomEvent(CHANGE, {
+    sendMessage = (event) => {
+        document.dispatchEvent(new CustomEvent(event, {
             detail: {
                 groupName: this.groupName,
                 value: this.value,

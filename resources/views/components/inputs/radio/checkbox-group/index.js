@@ -1,5 +1,16 @@
+import {EVENTS_NAMES} from "events/index";
 import {addEventListener} from "helpers/events";
 import './index.less';
+
+const {
+    INPUTS: {
+        RADIO: {
+            GROUP: {
+                CHANGE,
+            }
+        }
+    }
+} = EVENTS_NAMES;
 
 class CheckboxGroup {
     constructor(element) {
@@ -12,6 +23,15 @@ class CheckboxGroup {
 
     bind = () => {
         addEventListener(this.module, 'click', this.handleClick);
+        addEventListener(document, CHANGE, this.handleChange);
+    }
+
+    handleChange = () => {
+        this.inputList.forEach((input) => {
+            input.checked = false;
+        });
+
+        this.hiddenInput.checked = false;
     }
 
     handleClick = () => {

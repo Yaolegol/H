@@ -7,6 +7,7 @@ const {
     INPUTS: {
         RADIO: {
             GROUP: {
+                INIT,
                 CHANGE,
             }
         }
@@ -21,6 +22,7 @@ class InputsRadioGroupSecondLevel {
         this.listenGroupName = this.module.dataset.listenGroupName;
         this.activeContentContainer = null;
 
+        addEventListener(document, INIT, this.handleChange);
         addEventListener(document, CHANGE, this.handleChange);
     }
 
