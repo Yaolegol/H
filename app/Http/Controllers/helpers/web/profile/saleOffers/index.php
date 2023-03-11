@@ -52,7 +52,12 @@ function DB_getUserSaleOfferItem($userId, $saleOfferId) {
     $saleOfferItem = Offer::where([
         ['user_id', $userId],
         ['id', $saleOfferId],
-    ])->with(['salePoints', 'organization'])->first()->toArray();
+    ])->with([
+        'catalogLevelOne',
+        'catalogLevelTwo',
+        'salePoints',
+        'organization'
+    ])->first()->toArray();
 
     return array_merge($saleOfferItem);
 }

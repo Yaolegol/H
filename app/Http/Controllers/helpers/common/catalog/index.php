@@ -35,21 +35,11 @@ function getCatalogCategoriesList($catalogFull) {
 }
 
 function getCatalogCategoriesWithSelectedList($catalogFull, $saleOfferItemData) {
-    $offerCatalogId = $saleOfferItemData['catalog_level_two_id'];
+    $offerCatalogId = $saleOfferItemData['catalog_level_one']['id'];
 
     return array_map(function($catalogLevelOneItem) use($offerCatalogId) {
-        $catalogLevelTwoList = $catalogLevelOneItem['catalog_level_two'];
-
-        $isChecked = false;
-
-        foreach ($catalogLevelTwoList as $catalogLevelTwoItem) {
-            if($catalogLevelTwoItem['id'] === $offerCatalogId) {
-                $isChecked = true;
-            }
-        }
-
         return [
-            'isChecked' => $isChecked,
+            'isChecked' => $catalogLevelOneItem['id'] === $offerCatalogId,
             'title' => $catalogLevelOneItem['title'],
             'value' => $catalogLevelOneItem['id'],
         ];
@@ -77,12 +67,12 @@ function getCatalogSubCategoriesList($catalogFull) {
     }, $catalogFull);
 }
 
-function getCatalogLevelTwoListFormatted($catalogLevelTwoItemsList, $offerItemCatalogId) {
-    return array_map(function($catalogLevelTwoItem) use($offerItemCatalogId) {
+function getCatalogLevelTwoListFormatted($catalogLevelTwoItemsList, $offerCatalogLevelTwoIdList) {
+    return array_map(function($catalogLevelTwoItem) use($offerCatalogLevelTwoIdList) {
         $catalogLevelTwoItemId = $catalogLevelTwoItem['id'];
 
         return [
-            'isChecked' => $catalogLevelTwoItemId === $offerItemCatalogId,
+            'isChecked' => in_array($catalogLevelTwoItemId, $offerCatalogLevelTwoIdList),
             'title' => $catalogLevelTwoItem['title'],
             'value' => $catalogLevelTwoItemId,
         ];
@@ -90,11 +80,13 @@ function getCatalogLevelTwoListFormatted($catalogLevelTwoItemsList, $offerItemCa
 }
 
 function getCatalogSubCategoriesWithSelectedList($catalogFull, $saleOfferItemData) {
-    $offerItemCatalogId = $saleOfferItemData['catalog_level_two_id'];
+    $offerCatalogLevelTwoIdList = array_map(function($offerCatalogLevelTwoItem) {
+        return $offerCatalogLevelTwoItem['id'];
+    }, $saleOfferItemData['catalog_level_two']);
 
-    return array_map(function($catalogLevelOneItem) use($offerItemCatalogId) {
+    return array_map(function($catalogLevelOneItem) use($offerCatalogLevelTwoIdList) {
         $catalogLevelTwoItemsList = $catalogLevelOneItem['catalog_level_two'];
-        $catalogLevelTwoItemsListFormatted = getCatalogLevelTwoListFormatted($catalogLevelTwoItemsList, $offerItemCatalogId);
+        $catalogLevelTwoItemsListFormatted = getCatalogLevelTwoListFormatted($catalogLevelTwoItemsList, $offerCatalogLevelTwoIdList);
 
         return [
             'content' => $catalogLevelTwoItemsListFormatted,
