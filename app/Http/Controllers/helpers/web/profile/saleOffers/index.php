@@ -10,11 +10,13 @@ function DB_createSaleOffer($request, $userId) {
     $deliveryRequest = $request->input('delivery');
     $delivery = $deliveryRequest == 'on' || $deliveryRequest == '1' || $deliveryRequest == 1;
 
+    $catalogLevelTwoIdsArray = getProfileSaleOffersCatalogLevelTwoList($request);
+
     try {
         $data = [
             'address' => $request->input('address'),
             'catalog_level_one_id' => $request->input('catalog_level_one_id'),
-            'catalog_level_two_id' => $request->input('catalog_level_two_id'),
+            'catalog_level_two_id' => implode(",", $catalogLevelTwoIdsArray),
             'description' => $request->input('description'),
             'contact_person' => $request->input('contact_person'),
             'delivery' => $delivery,
@@ -112,6 +114,17 @@ function getOfferImagesData($request, $userId, $saleOfferId) {
     }
 
     return array_merge(...$storedPhotos);
+}
+
+function getProfileSaleOffersCatalogLevelTwoList($request) {
+    $catalogLevelTwoIdsArray = [];
+    foreach($request->all() as $key => $value){
+        if("catalog_level_two_id_" == substr($key,0,21)){
+            array_push($catalogLevelTwoIdsArray, $value);
+        }
+    }
+
+    return $catalogLevelTwoIdsArray;
 }
 
 function getProfileSaleOffersValidator($request) {

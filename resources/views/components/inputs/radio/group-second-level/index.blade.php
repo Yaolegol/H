@@ -12,7 +12,24 @@
             *
         @endisset
     </div>
-    <div class="components-inputs-radio-group-second-level__content-block">
+    <div class="components-inputs-radio-group-second-level__content-block j-components-inputs-radio-checkbox-group">
+        <input
+            @foreach($contentList as $contentItem)
+                @foreach($contentItem['content'] as $contentItem)
+                    @if($item['isChecked'] ?? false)
+                        checked
+
+                        @break
+                    @endif
+                @endforeach
+            @endforeach
+            class="components-inputs-radio-checkbox-group__input j-components-inputs-radio-checkbox-group__hidden-input"
+            name="{{$inputsName}}"
+            @if($required)
+                required
+            @endif
+            type="checkbox"
+        >
         @foreach($contentList as $contentItem)
             <div
                 class="
@@ -21,15 +38,11 @@
                 "
                 data-listen-id="{{$contentItem['listenId']}}"
             >
-                @foreach($contentItem['content'] as $item)
-                    @include('components.inputs.radio.item.index', [
-                        'isChecked' => $item['isChecked'] ?? false,
-                        'name' => $inputsName,
-                        'required' => $required ?? false,
-                        'title' => $item['title'],
-                        'value' => $item['value'],
-                    ])
-                @endforeach
+                @include('components.inputs.radio.checkbox-group.index', [
+                    'list' => $contentItem['content'],
+                    'name' => $inputsName,
+                    'required' => $required ?? false,
+                ])
             </div>
         @endforeach
     </div>

@@ -66,6 +66,13 @@ class ProfileSaleOffersController extends Controller
      */
     public function store(Request $request)
     {
+        $catalogLevelTwoIdsArray = getProfileSaleOffersCatalogLevelTwoList($request);
+
+        if(count($catalogLevelTwoIdsArray) == 0) {
+            return back()
+                ->withInput();
+        }
+
         $validator = getProfileSaleOffersValidator($request);
 
         if($validator->fails()) {

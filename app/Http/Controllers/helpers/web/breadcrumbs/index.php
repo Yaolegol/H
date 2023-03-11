@@ -57,13 +57,17 @@ function getOfferBreadcrumbs($offer)
         ],
         [
             'isLink' => true,
-            'link' => $offerCatalogLevelOneData['linkFull'],
-            'title' => $offerCatalogLevelOneData['title'],
+//            'link' => $offerCatalogLevelOneData['linkFull'],
+//            'title' => $offerCatalogLevelOneData['title'],
+            'link' => '__/test1',
+            'title' => '__test1',
         ],
         [
             'isLink' => true,
-            'link' => $offerCatalogLevelTwoData['linkFull'],
-            'title' => $offerCatalogLevelTwoData['title'],
+//            'link' => $offerCatalogLevelTwoData['linkFull'],
+//            'title' => $offerCatalogLevelTwoData['title'],
+            'link' => '__/test2',
+            'title' => '__test2',
         ]
     ];
 }

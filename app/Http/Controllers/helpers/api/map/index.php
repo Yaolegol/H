@@ -54,10 +54,12 @@ function apiGetOfferData($offerItem) {
     return [
         'catalog' => [
             'catalog_level_one' => [
-                'title' => $offerItem['catalog_level_two']['catalog_level_one']['title']
+//                'title' => $offerItem['catalog_level_two']['catalog_level_one']['title']
+                'title' => 'test catalog_level_one'
             ],
             'catalog_level_two' => [
-                'title' => $offerItem['catalog_level_two']['title']
+//                'title' => $offerItem['catalog_level_two']['title']
+                'title' => 'test catalog_level_two'
             ],
         ],
         'product' => [

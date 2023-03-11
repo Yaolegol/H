@@ -1,7 +1,7 @@
 import {EVENTS_NAMES} from 'events/index';
 import {addEventListener} from 'helpers/events';
 import 'views/components/inputs/radio/group-second-level';
-import 'views/components/inputs/radio/item';
+import 'views/components/inputs/radio/radio-item';
 import './index.less';
 
 const {

@@ -3,7 +3,7 @@
     data-group-name="{{$groupName}}"
 >
     @foreach($itemsList as $item)
-        @include('components.inputs.radio.item.index', [
+        @include('components.inputs.radio.radio-item.index', [
             'isChecked' => $item['isChecked'] ?? false,
             'name' => $inputName,
             'required' => $required ?? false,
