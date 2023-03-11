@@ -64,7 +64,12 @@ function DB_getUserSaleOffers()
         $user_id = $authUser->id;
 
         return Offer::where('user_id', $user_id)->with(
-            ['organization', 'salePoints']
+            [
+                'catalogLevelOne',
+                'catalogLevelTwo',
+                'organization',
+                'salePoints'
+            ]
         )->get()->toArray();
     } catch(\Exception $error) {
         return abort(500);
