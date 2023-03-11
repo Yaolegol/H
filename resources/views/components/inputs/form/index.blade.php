@@ -6,7 +6,7 @@
             @if($required ?? false)
                 required
             @endif
-            type="{{$type}}"
+            type="{{$type ?? 'text'}}"
             @isset($value)
                 value="{{$value}}"
             @endisset

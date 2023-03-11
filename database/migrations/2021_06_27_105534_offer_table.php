@@ -21,7 +21,7 @@ class OfferTable extends Migration
             $table->string('contact_person')->nullable();
             $table->string('phone');
             $table->string('working_hours')->nullable();
-            $table->double('price');
+            $table->text('price');
             $table->text('price_description')->nullable();
             $table->boolean('delivery')->nullable();
             $table->text('delivery_description')->nullable();

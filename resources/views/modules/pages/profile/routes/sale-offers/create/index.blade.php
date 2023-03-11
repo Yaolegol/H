@@ -114,7 +114,6 @@
                                 'name' => 'price',
                                 'placeholder' => 'Цена',
                                 'required' => true,
-                                'type' => 'number',
                                 'value' => '',
                             ])
                 @include('components.form.error.index', [

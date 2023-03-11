@@ -113,7 +113,6 @@
                                 'name' => 'price',
                                 'placeholder' => 'Цена',
                                 'required' => true,
-                                'type' => 'number',
                                 'value' => $saleOfferItemData['price'],
                             ])
                 @include('components.form.error.index', [
