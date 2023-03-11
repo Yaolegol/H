@@ -126,6 +126,13 @@ class ProfileSaleOffersController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $catalogLevelTwoIdsArray = getProfileSaleOffersCatalogLevelTwoList($request);
+
+        if(count($catalogLevelTwoIdsArray) == 0) {
+            return back()
+                ->withInput();
+        }
+
         $validator = getProfileSaleOffersValidator($request);
 
         if($validator->fails()) {

@@ -306,7 +306,6 @@ function tryUpdateSaleOfferInDB($request, $saleOfferId)
     $data = [
         'address' => $request->input('address'),
         'catalog_level_one_id' => $request->input('catalog_level_one_id'),
-        'catalog_level_two_id' => $request->input('catalog_level_two_id'),
         'description' => $request->input('description'),
         'contact_person' => $request->input('contact_person'),
         'delivery' => $delivery,
@@ -335,6 +334,7 @@ function tryUpdateSaleOfferInDB($request, $saleOfferId)
 
     $currentOffer = DB_updateSaleOfferData($authUserId, $saleOfferId, $newSaleOfferData);
     DB_syncSaleOfferSalePointsData($request, $currentOffer);
+    DB_syncSaleOfferCatalogLevelTwoData($request, $currentOffer);
 
     return true;
 }
