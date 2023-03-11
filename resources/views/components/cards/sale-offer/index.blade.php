@@ -48,10 +48,6 @@
                 <div class="components-cards-sale-offer__price-container">
                     <span>Цена: </span>
                     <span class="components-cards-sale-offer__price">{{$saleOffer['price']}}</span>
-                    <span>₽</span>
-                    @if($saleOffer['measure_id'] !== 4)
-                        <span class="components-cards-sale-offer__measure">(за {{$saleOffer['measure']}})</span>
-                    @endif
                 </div>
                 <div class="components-cards-sale-offer__contacts-block">
                     <div class="components-cards-sale-offer__phone-container">

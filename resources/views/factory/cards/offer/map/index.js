@@ -26,8 +26,7 @@ export class MapOfferCard {
         const isUserAuth = Boolean(document.querySelector('.j-user__auth'));
 
         const {catalog, product, salePoints, seller} = placemarkData.offer;
-        const {address, description, id, img, link: productLink, measure, phone, price, price_description, title} = product;
-        const {title: measureTitle} = measure;
+        const {address, description, id, img, link: productLink, phone, price, price_description, title} = product;
         const {src} = img;
         const {link: sellerLink, name} = seller;
         const {catalog_level_one, catalog_level_two} = catalog;
@@ -124,10 +123,7 @@ export class MapOfferCard {
                         <div class="factory-cards-offer-map__price-container">
                             <span class="factory-cards-offer-map__price-title">Цена:</span>
                             <span class="factory-cards-offer-map__price">
-                                ${price} ₽
-                            </span>
-                            <span class="factory-cards-offer-map__measure">
-                                (за ${measureTitle})
+                                ${price}
                             </span>
                         </div>
                         <div class="factory-cards-offer-map__contacts-block">

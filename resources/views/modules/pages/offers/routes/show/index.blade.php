@@ -42,10 +42,7 @@
             <div class="modules-pages-offers-routes-show__info-item-container">
                 <div class="modules-pages-offers-routes-show__info-item-title">Цена</div>
                 <div class="modules-pages-offers-routes-show__info-item-description">
-                    <div class="modules-pages-offers-routes-show__price">{{$offer['price']}} ₽</div>
-                    @if($offer['measure_id'] !== 4)
-                        <div>(за {{$offer['measure']}})</div>
-                    @endif
+                    <div class="modules-pages-offers-routes-show__price">{{$offer['price']}}</div>
                 </div>
             </div>
             <div class="modules-pages-offers-routes-show__info-item-container">

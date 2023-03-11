@@ -8,7 +8,6 @@ export const getOfferBalloon = (offerData, markerId) => {
         delivery,
         delivery_description,
         id,
-        measure,
         phone,
         price,
         price_description,
@@ -57,7 +56,9 @@ export const getOfferBalloon = (offerData, markerId) => {
             <div>${contactAddress}</div>
             <div class="modules-common-map-yandex-components-balloon-offer-view-all__section-price">
                 <div class="modules-common-map-yandex-components-balloon-offer-view-all__section-price-title">Цена</div>
-                <div><span class="modules-common-map-yandex-components-balloon-offer-view-all__price">${price} ₽</span> за ${measure.title}</div>
+                <div>
+                    <span class="modules-common-map-yandex-components-balloon-offer-view-all__price">${price}</span>
+                </div>
                 <div>${price_description ?? ''}</div>
             </div>
             <div class="modules-common-map-yandex-components-balloon-offer-view-all__section-seller">

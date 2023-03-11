@@ -41,7 +41,6 @@ class ProfileSaleOffersController extends Controller
     public function create()
     {
         $catalogFull = getCatalogFull();
-        $measureList = getMeasures();
         $organizationsList = getUserOrganizationsListFormatted(true);
         $salePointsList = DB_getUserSalePoints(true);
         $catalogCategoriesList = getCatalogCategoriesList($catalogFull);
@@ -52,7 +51,6 @@ class ProfileSaleOffersController extends Controller
             'catalogSubCategoriesList' => $catalogSubCategoriesList,
             'catalogFull' => $catalogFull,
             'catalogHeader' => $catalogFull,
-            'measureList' => $measureList,
             'organizationsList' => $organizationsList,
             'salePointsList' => $salePointsList,
         ]);
@@ -99,7 +97,6 @@ class ProfileSaleOffersController extends Controller
     {
         $catalogFull = getCatalogFull();
         $saleOfferItemData = getSaleOfferItemDataFormatted($saleOfferId);
-        $measureList = getMeasures($saleOfferItemData['measure_id']);
         $organizationsList = getUserOrganizationsWithSelectedList($saleOfferItemData);
         $salePointsList = getSaleOfferSalePointsListFormatted($saleOfferItemData);
         $catalogCategoriesList = getCatalogCategoriesWithSelectedList($catalogFull, $saleOfferItemData);
@@ -110,7 +107,6 @@ class ProfileSaleOffersController extends Controller
             'catalogSubCategoriesList' => $catalogSubCategoriesList,
             'catalogFull' => $catalogFull,
             'catalogHeader' => $catalogFull,
-            'measureList' => $measureList,
             'organizationsList' => $organizationsList,
             'saleOfferItemData' => $saleOfferItemData,
             'salePointsList' => $salePointsList,

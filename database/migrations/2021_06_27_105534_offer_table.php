@@ -38,8 +38,6 @@ class OfferTable extends Migration
             $table->foreign('organization_id')->references('id')->on('organization')->nullOnDelete();
             $table->bigInteger('catalog_level_one_id')->unsigned()->index()->nullable();
             $table->foreign('catalog_level_one_id')->references('id')->on('catalog_level_one');
-            $table->bigInteger('measure_id')->unsigned()->index();
-            $table->foreign('measure_id')->references('id')->on('measure');
             $table->integer('is_approved')->default(0);
             $table->text('approved_error_message')->nullable();
             $table->timestamps();

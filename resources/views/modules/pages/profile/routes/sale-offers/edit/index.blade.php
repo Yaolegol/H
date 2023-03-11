@@ -121,21 +121,6 @@
             @endcomponent
 
             @component('modules.pages.profile.common.components.container.form-field.index', [
-                'required' => true,
-                'title' => 'Цена за:'
-            ])
-                @include('components.inputs.radio.group-first-level.index', [
-                    'groupName' => 'radio-group__price-measure',
-                    'itemsList' => $measureList,
-                    'inputName' => 'measure_id',
-                    'required' => true,
-                ])
-                @include('components.form.error.index', [
-                    'message' => $errors->first('measure_id'),
-                ])
-            @endcomponent
-
-            @component('modules.pages.profile.common.components.container.form-field.index', [
                 'title' => 'Примечание к цене:'
             ])
                 @include('components.inputs.textarea.base.index', [

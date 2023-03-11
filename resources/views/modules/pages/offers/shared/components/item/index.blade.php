@@ -19,10 +19,6 @@
             <div class="modules-pages-offers-shared-components-item__price-container">
                 <span>Цена: </span>
                 <span class="modules-pages-offers-shared-components-item__price">{{$offer['price']}}</span>
-                <span>₽</span>
-                @if($offer['measure_id'] !== 4)
-                    <span class="modules-pages-offers-shared-components-item__measure">(за {{$offer['measure']}})</span>
-                @endif
             </div>
             <div class="modules-pages-offers-shared-components-item__contacts-block">
                 <div class="modules-pages-offers-shared-components-item__phone-container">

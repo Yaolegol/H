@@ -38,7 +38,6 @@ class Offer extends Model
         'organization_id',
         'catalog_level_one_id',
         'catalog_level_two_id',
-        'measure_id',
     ];
 
     protected $table = 'offer';
