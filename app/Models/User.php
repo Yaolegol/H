@@ -57,8 +57,8 @@ class User extends Authenticatable
             ])
             ->with(
             [
+                'catalogLevelOne',
                 'catalogLevelTwo',
-                'catalogLevelTwo.catalogLevelOne',
                 'measure',
                 'organization',
                 'salePoints',

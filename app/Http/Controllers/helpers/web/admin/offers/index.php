@@ -8,8 +8,8 @@ function DB_getOffersNotApproved() {
             ['is_approved', 0],
             ['approved_error_message', '=', null],
         ])->with([
+            'catalogLevelOne',
             'catalogLevelTwo',
-            'catalogLevelTwo.catalogLevelOne',
             'measure',
             'organization',
             'salePoints',

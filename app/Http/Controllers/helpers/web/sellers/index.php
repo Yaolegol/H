@@ -8,8 +8,8 @@ function DB_getSeller($id) {
             ['id', $id],
         ])->with([
             'offers',
+            'offers.catalogLevelOne',
             'offers.catalogLevelTwo',
-            'offers.catalogLevelTwo.catalogLevelOne',
             'offers.measure',
             'offers.organization',
             'offers.salePoints',

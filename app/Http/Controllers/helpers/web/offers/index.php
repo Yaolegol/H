@@ -39,8 +39,8 @@ function DB_getOffers($filters) {
         $filtersData = array_merge($filter, $filters);
 
         return Offer::where($filtersData)->with([
+            'catalogLevelOne',
             'catalogLevelTwo',
-            'catalogLevelTwo.catalogLevelOne',
             'measure',
             'organization',
             'salePoints',

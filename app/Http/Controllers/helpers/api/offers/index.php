@@ -6,8 +6,8 @@ function API_DB_getOffer($id)
 {
     try {
         $offerData = Offer::where('id', $id)->with([
+            'catalogLevelOne',
             'catalogLevelTwo',
-            'catalogLevelTwo.catalogLevelOne',
             'measure',
             'organization',
             'salePoints',
@@ -32,8 +32,8 @@ function API_DB_getOffers($filters = []) {
         $filtersData = array_merge($filter, $filters);
 
         return Offer::where($filtersData)->with([
+            'catalogLevelOne',
             'catalogLevelTwo',
-            'catalogLevelTwo.catalogLevelOne',
             'measure',
             'organization',
             'salePoints',
