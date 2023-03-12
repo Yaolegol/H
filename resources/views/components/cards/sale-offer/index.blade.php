@@ -45,15 +45,6 @@
                 <div class="components-cards-sale-offer__description-container">
                     {{$saleOffer['description']}}
                 </div>
-                <div class="components-cards-sale-offer__price-container">
-                    <span>Цена: </span>
-                    <span class="components-cards-sale-offer__price">{{$saleOffer['price']}}</span>
-                </div>
-                <div class="components-cards-sale-offer__contacts-block">
-                    <div class="components-cards-sale-offer__phone-container">
-                        Телефон: {{$saleOffer['phone']}}
-                    </div>
-                </div>
             </div>
         </div>
     </div>

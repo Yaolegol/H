@@ -17,18 +17,30 @@
                 {{$offer['description']}}
             </div>
             <div class="modules-pages-offers-shared-components-item__price-container">
-                <span>Цена: </span>
+                <span class="modules-pages-offers-shared-components-item__title">Цена: </span>
                 <span class="modules-pages-offers-shared-components-item__price">{{$offer['price']}}</span>
             </div>
             <div class="modules-pages-offers-shared-components-item__contacts-block">
                 <div class="modules-pages-offers-shared-components-item__phone-container">
-                    Телефон: <a href="tel:{{$offer['phone']}}">{{$offer['phone']}}</a>
+                    <span class="modules-pages-offers-shared-components-item__title">Телефон:</span> <a href="tel:{{$offer['phone']}}">{{$offer['phone']}}</a>
                 </div>
                 @if($withSeller)
                     <div class="modules-pages-offers-shared-components-item__seller-info-container">
-                        <span>Продавец: </span><a href="{{$offer['user']['sellerLink']}}">{{$offer['user']['name']}}</a>
+                        <span class="modules-pages-offers-shared-components-item__title">Продавец: </span><a href="{{$offer['user']['sellerLink']}}">{{$offer['user']['name']}}</a>
                     </div>
                 @endif
+            </div>
+            <div class="modules-pages-offers-shared-components-item__categories-block">
+                <div>
+                    <span class="modules-pages-offers-shared-components-item__title">Категория:</span>
+                    {{$offer['catalog_level_one']['title']}}
+                </div>
+                <div>
+                    <span class="modules-pages-offers-shared-components-item__title">Товары:</span>
+                    @foreach($offer['catalog_level_two'] as $catalogLevelTwoItem)
+                        {{$catalogLevelTwoItem['title']}}@if($loop->iteration < $loop->count), @endif
+                    @endforeach
+                </div>
             </div>
         </div>
 {{--        <div class="modules-pages-offers-shared-components-item__rating-section">--}}
