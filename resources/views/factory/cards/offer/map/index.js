@@ -142,7 +142,7 @@ export class MapOfferCard {
                             <span class="factory-cards-offer-map__category-title">Категория:</span>
                             ${catalog_level_one.title}
                         </div>
-                        <div class="factory-cards-offer-map__category-container">
+                        <div>
                             <span class="factory-cards-offer-map__category-title">Товары:</span>
                             ${catalogCategoriesLevelTwoTitleList}
                         </div>
