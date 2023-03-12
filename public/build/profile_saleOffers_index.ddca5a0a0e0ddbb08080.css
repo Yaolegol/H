@@ -980,14 +980,8 @@
   }
 }
 .components-cards-sale-offer__image-container {
-  height: 100%;
+  padding-bottom: 100%;
   position: relative;
-}
-@media (max-width: 767px) {
-  .components-cards-sale-offer__image-container {
-    height: auto;
-    padding-bottom: 100%;
-  }
 }
 .components-cards-sale-offer__image-link {
   bottom: 0;
