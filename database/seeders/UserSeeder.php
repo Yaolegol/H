@@ -10,27 +10,13 @@ class UserSeeder extends Seeder
 {
     public $data = [
         [
-            'avatar' => 'public/users/1/avatar/1_1648916228.jpg',
-            'description' => 'test1',
+            'avatar' => '',
+            'description' => 'Админ',
             'is_admin' => true,
             'lang_id' => 1,
-            'name' => 'Иван',
+            'name' => 'Админ',
             'password' => '',
-            'phone' => '71231230000',
-        ],
-        [
-            'description' => 'test2',
-            'lang_id' => 1,
-            'name' => 'Николай',
-            'password' => '',
-            'phone' => '71231231111',
-        ],
-        [
-            'description' => 'test3',
-            'lang_id' => 1,
-            'name' => 'Александр',
-            'password' => '',
-            'phone' => '71231232222',
+            'phone' => '71111111111',
         ],
     ];
 
@@ -42,7 +28,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         foreach ($this->data as $dataItem) {
-            $hashPassword = Hash::make('123123');
+            $hashPassword = Hash::make('13467982465!');
             $dataItem['password'] = $hashPassword;
 
             DB::table('users')->insert($dataItem);

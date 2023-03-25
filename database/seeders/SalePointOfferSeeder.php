@@ -7,20 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class SalePointOfferSeeder extends Seeder
 {
-    public $data = [
-        [
-            'sale_point_id' => 1,
-            'offer_id' => 1,
-        ],
-        [
-            'sale_point_id' => 2,
-            'offer_id' => 1,
-        ],
-        [
-            'sale_point_id' => 3,
-            'offer_id' => 3,
-        ]
-    ];
+    public $data = [];
 
     /**
      * Run the database seeds.
