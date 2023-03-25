@@ -5,10 +5,10 @@ namespace App\Http\Controllers\controllers\web\sellers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-require_once('app/Http/Controllers/helpers/common/assets/index.php');
-require_once('app/Http/Controllers/helpers/common/catalog/index.php');
-require_once('app/Http/Controllers/helpers/web/offers/index.php');
-require_once('app/Http/Controllers/helpers/web/sellers/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/common/assets/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/common/catalog/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/web/offers/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/web/sellers/index.php');
 
 class SellersController extends Controller
 {

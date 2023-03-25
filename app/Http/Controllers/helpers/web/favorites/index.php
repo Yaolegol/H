@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 
-require_once('app/Http/Controllers/helpers/web/offers/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/web/offers/index.php');
 
 function DB_getUserFavoritesOffers() {
     try {

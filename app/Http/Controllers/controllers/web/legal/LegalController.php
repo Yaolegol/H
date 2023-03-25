@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 
-require_once('app/Http/Controllers/helpers/common/catalog/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/common/catalog/index.php');
 
 class LegalController extends Controller
 {

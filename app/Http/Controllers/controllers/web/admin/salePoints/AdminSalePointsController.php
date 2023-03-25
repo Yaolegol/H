@@ -6,10 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-require_once('app/Http/Controllers/helpers/web/admin/salePoints/index.php');
-require_once('app/Http/Controllers/helpers/common/assets/index.php');
-require_once('app/Http/Controllers/helpers/common/catalog/index.php');
-require_once('app/Http/Controllers/helpers/web/offers/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/web/admin/salePoints/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/common/assets/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/common/catalog/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/web/offers/index.php');
 
 class AdminSalePointsController extends Controller
 {

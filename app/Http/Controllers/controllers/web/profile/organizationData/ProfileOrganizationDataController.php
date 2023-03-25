@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 
-require_once('app/Http/Controllers/helpers/common/assets/index.php');
-require_once('app/Http/Controllers/helpers/common/catalog/index.php');
-require_once('app/Http/Controllers/helpers/common/request/index.php');
-require_once('app/Http/Controllers/helpers/web/profile/organizationData/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/common/assets/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/common/catalog/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/common/request/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/web/profile/organizationData/index.php');
 
 class ProfileOrganizationDataController extends Controller
 {

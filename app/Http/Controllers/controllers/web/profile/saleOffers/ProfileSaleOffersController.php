@@ -6,14 +6,14 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 
-require_once('app/Http/Controllers/helpers/common/assets/index.php');
-require_once('app/Http/Controllers/helpers/common/catalog/index.php');
-require_once('app/Http/Controllers/helpers/common/measure/index.php');
-require_once('app/Http/Controllers/helpers/common/request/index.php');
-require_once('app/Http/Controllers/helpers/web/profile/organizationData/index.php');
-require_once('app/Http/Controllers/helpers/web/profile/saleOffers/index.php');
-require_once('app/Http/Controllers/helpers/web/profile/salePointsInfo/index.php');
-require_once('app/Http/Controllers/helpers/web/offers/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/common/assets/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/common/catalog/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/common/measure/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/common/request/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/web/profile/organizationData/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/web/profile/saleOffers/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/web/profile/salePointsInfo/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/web/offers/index.php');
 
 class ProfileSaleOffersController extends Controller
 {

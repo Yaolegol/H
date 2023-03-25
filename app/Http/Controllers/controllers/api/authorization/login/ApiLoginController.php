@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 
-require_once('app/Http/Controllers/helpers/common/errors/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/common/errors/index.php');
 
 class ApiLoginController extends Controller
 {

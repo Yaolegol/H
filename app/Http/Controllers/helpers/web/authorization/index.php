@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-require_once('app/Http/Controllers/helpers/common/sms/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/common/sms/index.php');
 
 function DB_tryAuthUser($phone, $password) {
     return Auth::attempt(

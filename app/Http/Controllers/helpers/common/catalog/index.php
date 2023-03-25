@@ -2,7 +2,7 @@
 
 use App\Models\CatalogLevelOne;
 
-require_once('app/Http/Controllers/helpers/common/assets/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/common/assets/index.php');
 
 function DB_getCatalogLevelOne($withLevelTwo = true)
 {
