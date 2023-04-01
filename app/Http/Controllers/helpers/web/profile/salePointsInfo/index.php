@@ -8,6 +8,7 @@ function DB_createSalePoint($request, $userId) {
     try {
         $data = [
             'title' => $request->input('title') ?? '',
+            'description' => $request->input('description') ?? '',
             'address' => $request->input('address') ?? '',
             'working_hours' => $request->input('working_hours') ?? '',
             'contact_person' => $request->input('contact_person') ?? '',
