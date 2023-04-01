@@ -8,7 +8,7 @@
         </a>
     </div>
     <div class="modules-pages-profile-common-components-body-create__title-container">
-        <h2>{{$title}}</h2>
+        <h4>{{$title}}</h4>
     </div>
     <div class="modules-pages-profile-common-components-body-create__description-container">
         * отмечены поля, обязательные для заполнения
