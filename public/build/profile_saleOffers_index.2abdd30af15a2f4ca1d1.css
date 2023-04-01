@@ -1075,6 +1075,7 @@
   position: absolute;
   right: 0;
   top: 20px;
+  z-index: 9;
 }
 @media screen and (max-width: 767px) {
   .components-cards-sale-offer__moderation-label {
