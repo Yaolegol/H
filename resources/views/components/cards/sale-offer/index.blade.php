@@ -31,16 +31,14 @@
         <div class="components-cards-sale-offer__image-block">
             <div class="components-cards-sale-offer__image-container">
                 <img alt="{{$saleOffer['title']}}" class="components-cards-sale-offer__image" src="{{$saleOffer['photoArray'][0] ?? ''}}">
-                <a class="components-cards-sale-offer__image-link" href="{{$saleOffer['offerLink']}}"></a>
             </div>
         </div>
         <div class="components-cards-sale-offer__content-block">
             <div class="components-cards-sale-offer__info-section">
                 <div>
-                    <a
+                    <span
                         class="components-cards-sale-offer__product-link"
-                        href="{{$saleOffer['offerLink']}}"
-                    >{{$saleOffer['title']}}</a>
+                    >{{$saleOffer['title']}}</span>
                 </div>
                 <div class="components-cards-sale-offer__description-container">
                     {{$saleOffer['description']}}
