@@ -49,7 +49,7 @@
                                 'placeholder' => 'Название товара',
                                 'required' => true,
                                 'type' => 'text',
-                                'value' => ''
+                                'value' => old('title'),
                             ])
                 @include('components.form.error.index', [
                     'message' => $errors->first('title'),
@@ -61,7 +61,7 @@
                                 'name' => 'description',
                                 'placeholder' => 'Описание товара',
                                 'type' => 'text',
-                                'value' => '',
+                                'value' => old('description'),
                             ])
                 @include('components.form.error.index', [
                     'message' => $errors->first('description'),
@@ -73,6 +73,7 @@
                                 'name' => 'contact_person',
                                 'placeholder' => 'Контактное лицо',
                                 'type' => 'text',
+                                'value' => old('contact_person'),
                             ])
                 @include('components.form.error.index', [
                     'message' => $errors->first('contact_person'),
@@ -88,7 +89,7 @@
                                 'placeholder' => 'Телефон',
                                 'required' => true,
                                 'type' => 'tel',
-                                'value' => '',
+                                'value' => old('phone'),
                             ])
                 @include('components.form.error.index', [
                     'message' => $errors->first('phone'),
@@ -100,6 +101,7 @@
                                 'name' => 'working_hours',
                                 'placeholder' => 'Рабочие часы',
                                 'type' => 'text',
+                                'value' => old('working_hours'),
                             ])
                 @include('components.form.error.index', [
                     'message' => $errors->first('working_hours'),
@@ -114,7 +116,7 @@
                                 'name' => 'price',
                                 'placeholder' => 'Цена',
                                 'required' => true,
-                                'value' => '',
+                                'value' => old('price'),
                             ])
                 @include('components.form.error.index', [
                     'message' => $errors->first('price'),
@@ -126,6 +128,7 @@
             ])
                 @include('components.inputs.textarea.base.index', [
                     'name' => 'price_description',
+                    'value' => old('price_description'),
                 ])
                 @include('components.form.error.index', [
                     'message' => $errors->first('price_description'),
@@ -139,6 +142,8 @@
                     'title' => 'Есть',
                     'name' => 'delivery',
                     'textareaName' => 'delivery_description',
+                    'textareaValue' => old('delivery_description'),
+                    'value' => old('delivery'),
                 ])
                 @include('components.form.error.index', [
                     'message' => $errors->first('delivery_description'),
@@ -154,7 +159,7 @@
                                 'placeholder' => 'Адрес',
                                 'required' => true,
                                 'type' => 'text',
-                                'value' => '',
+                                'value' => old('address'),
                             ])
                 @include('components.form.error.index', [
                     'message' => $errors->first('address'),
@@ -175,6 +180,8 @@
                 </div>
                 <div class="modules-pages-profile-routes-sale-offers-create__map-container">
                     @include('modules.common.map.yandex.components.add-marker.index', [
+                        'markerLat' => old('map_marker_lat'),
+                        'markerLng' => old('map_marker_lng'),
                         'required' => true,
                     ])
                 </div>
