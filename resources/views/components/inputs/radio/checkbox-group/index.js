@@ -17,6 +17,7 @@ class CheckboxGroup {
         this.module = element;
         this.hiddenInput = this.module.querySelector('.j-components-inputs-radio-checkbox-group__hidden-input');
         this.inputList = [...this.module.querySelectorAll('.j-components-inputs-radio-checkbox-group__input')];
+        this.listenGroupName = this.module.dataset.listenGroupName;
 
         this.bind();
     }
@@ -26,7 +27,14 @@ class CheckboxGroup {
         addEventListener(document, CHANGE, this.handleChange);
     }
 
-    handleChange = () => {
+    handleChange = (e) => {
+        const {detail} = e;
+        const {groupName} = detail;
+
+        if(groupName !== this.listenGroupName) {
+            return;
+        }
+
         this.inputList.forEach((input) => {
             input.checked = false;
         });
