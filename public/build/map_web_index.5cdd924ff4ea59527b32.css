@@ -1241,7 +1241,7 @@
 .modules-pages-map-web-routes-index__offers-container::-webkit-scrollbar {
   background-color: lightgrey;
   border-radius: 8px;
-  width: 4px;
+  width: 8px;
 }
 .modules-pages-map-web-routes-index__offers-container::-webkit-scrollbar-thumb {
   background: darkgray;
