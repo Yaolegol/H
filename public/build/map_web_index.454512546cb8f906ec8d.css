@@ -1216,7 +1216,6 @@
 @media screen and (max-width: 1023px) {
   .modules-pages-map-web-routes-index__offers-area {
     margin: 20px 0 0;
-    padding-bottom: 100%;
   }
 }
 .modules-pages-map-web-routes-index__offers-block {
@@ -1228,18 +1227,38 @@
   right: 0;
   top: 0;
 }
+@media screen and (max-width: 1023px) {
+  .modules-pages-map-web-routes-index__offers-block {
+    position: static;
+  }
+}
 .modules-pages-map-web-routes-index__offers-container {
   flex: 1 1 auto;
   overflow: auto;
+  scrollbar-color: lightgrey darkgray;
+  scrollbar-width: thin;
 }
 .modules-pages-map-web-routes-index__offers-container::-webkit-scrollbar {
   background-color: lightgrey;
   border-radius: 8px;
-  width: 8px;
+  width: 4px;
 }
 .modules-pages-map-web-routes-index__offers-container::-webkit-scrollbar-thumb {
   background: darkgray;
   border-radius: 8px;
+}
+@media screen and (max-width: 1023px) {
+  .modules-pages-map-web-routes-index__offers-container {
+    max-height: 600px;
+  }
+  .modules-pages-map-web-routes-index__offers-container::-webkit-scrollbar {
+    width: 4px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .modules-pages-map-web-routes-index__offers-container {
+    max-height: 450px;
+  }
 }
 .modules-pages-map-web-routes-index__offers-full-screen-button {
   text-decoration-line: underline;
