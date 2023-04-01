@@ -29,6 +29,7 @@
                         'className' => 'j-modules-common-geo-components-button',
                         'dataset' => [],
                         'defaultTitle' => 'Показать рядом со мной',
+                        'icon' => 'icons.location',
                         'title' => 'Показать рядом со мной',
                     ])
                 </div>

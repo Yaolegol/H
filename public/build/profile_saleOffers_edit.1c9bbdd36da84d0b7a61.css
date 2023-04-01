@@ -824,6 +824,17 @@
 .buttons-filter__title {
   font-weight: bold;
 }
+.buttons-filter__title-block {
+  align-items: center;
+  display: flex;
+}
+.buttons-filter__title-icon-container {
+  margin-right: 8px;
+}
+.buttons-filter__title-icon-container svg {
+  height: 16px;
+  width: 16px;
+}
 
 .components-checkboxes-map {
   display: flex;
