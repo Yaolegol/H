@@ -206,7 +206,7 @@
   width: 100%;
 }
 .modules-common-filters-product-modal-components-buttons-navigation_bold {
-  font-weight: 600;
+  font-weight: 800;
 }
 
 
@@ -220,7 +220,7 @@
   margin-top: 5px;
 }
 .modules-common-header-search-block__title {
-  font-weight: 600;
+  font-weight: 800;
 }
 
 .modules-common-header-search-item {
@@ -906,6 +906,37 @@
   width: 100%;
 }
 
+
+.components-map-yandex-components-add-marker {
+  padding-bottom: 100%;
+  position: relative;
+}
+.components-map-yandex-components-add-marker__input {
+  appearance: none;
+  background: none;
+  border: none;
+  bottom: 0;
+  height: 0;
+  left: 0;
+  outline: none;
+  position: absolute;
+  visibility: hidden;
+  width: 0;
+}
+.components-map-yandex-components-add-marker__map-container {
+  bottom: 0;
+  left: 0;
+  max-height: 500px;
+  max-width: 500px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.components-map-yandex-components-add-marker__map-container_mobile-app {
+  height: 300px;
+  width: auto;
+}
+
 .modules-pages-profile-common-components-body-create__all-points-link {
   border-radius: 10px;
   box-shadow: 0 0 5px 0 #e6e6e6;
@@ -1107,6 +1138,13 @@
   }
 }
 
+.modules-pages-profile-routes-sale-points-create__map-container {
+  margin-top: 15px;
+}
+.modules-pages-profile-routes-sale-points-create__map-geo-container {
+  margin-top: 15px;
+}
+
 .button {
   background-color: #FFFFFF;
   border: 1px solid #e0e0e0;
@@ -1131,7 +1169,7 @@
 }
 @font-face {
   font-family: 'Lato';
-  font-weight: 600;
+  font-weight: 800;
   src: url(fonts/Lato-Bold.woff2);
 }
 @font-face {

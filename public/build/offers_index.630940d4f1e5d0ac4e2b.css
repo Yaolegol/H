@@ -1,15 +1,20 @@
-.modules-pages-legal-routes-index__container {
-  margin-top: 100px;
+.modules-common-breadcrumbs-item {
+  align-items: center;
+  display: flex;
+  margin-right: 15px;
+  white-space: nowrap;
 }
-.modules-pages-legal-routes-index__description {
-  margin-top: 20px;
-  text-align: center;
+.modules-common-breadcrumbs-item__arrow {
+  margin-left: 15px;
 }
-.modules-pages-legal-routes-index__paragraph-container {
-  margin-top: 50px;
+.modules-common-breadcrumbs-item__link:hover {
+  color: #FF0000;
 }
-.modules-pages-legal-routes-index__title {
-  text-align: center;
+
+.modules-common-breadcrumbs-list {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .components-popup-cookie {
@@ -220,7 +225,7 @@
   width: 100%;
 }
 .modules-common-filters-product-modal-components-buttons-navigation_bold {
-  font-weight: 600;
+  font-weight: 800;
 }
 
 
@@ -234,7 +239,7 @@
   margin-top: 5px;
 }
 .modules-common-header-search-block__title {
-  font-weight: 600;
+  font-weight: 800;
 }
 
 .modules-common-header-search-item {
@@ -851,6 +856,54 @@
   margin-top: 100px;
 }
 
+
+.components-pagination-common-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.components-pagination-common-main__current-page {
+  color: #000000;
+}
+.components-pagination-common-main__link.disabled {
+  visibility: hidden;
+}
+.components-pagination-common-main__main-block {
+  display: flex;
+  margin-top: 15px;
+}
+.components-pagination-common-main__main-block-item {
+  margin-left: 10px;
+}
+.components-pagination-common-main__main-block-item:first-child {
+  margin-left: 0;
+}
+
+.modules-pages-offers-shared-components-list__item-container {
+  margin: 15px 0 0;
+}
+.modules-pages-offers-shared-components-list__item-container:first-child {
+  margin-top: 0;
+}
+@media (max-width: 767px) {
+  .modules-pages-offers-shared-components-list__item-container {
+    margin: 15px auto 0;
+    max-width: 400px;
+  }
+}
+
+.modules-pages-offers-common-components-paginated-list {
+  margin: 15px auto 0;
+  max-width: 800px;
+}
+
+.modules-pages-offers-routes-index__location-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
 .button {
   background-color: #FFFFFF;
   border: 1px solid #e0e0e0;
@@ -875,7 +928,7 @@
 }
 @font-face {
   font-family: 'Lato';
-  font-weight: 600;
+  font-weight: 800;
   src: url(fonts/Lato-Bold.woff2);
 }
 @font-face {
