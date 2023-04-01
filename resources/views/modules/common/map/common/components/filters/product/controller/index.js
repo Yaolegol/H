@@ -1,7 +1,7 @@
 import {EVENTS_NAMES} from 'events/index';
 import {addEventListener} from "helpers/events";
 import {module} from "helpers/module";
-import {setUrlQuery} from "helpers/query";
+import {getUrlWithNewQueryData, setUrlQuery} from "helpers/query";
 
 const {
     COMMON: {
@@ -42,6 +42,10 @@ class MapProductFilterController {
                 {
                     key: 'catalogLevelOneId',
                     value: id,
+                },
+                {
+                    key: 'catalogLevelTwoId',
+                    value: null,
                 }
             );
         }
@@ -49,14 +53,27 @@ class MapProductFilterController {
         if(isContentButton) {
             query.push(
                 {
+                    key: 'catalogLevelOneId',
+                    value: null,
+                },
+                {
                     key: 'catalogLevelTwoId',
                     value: id,
                 }
             );
         }
 
-        setUrlQuery(query);
-        this.setFilter(target.innerHTML);
+        if(window.location.pathname === '/') {
+            setUrlQuery(query);
+            this.setFilter(target.innerHTML);
+
+            return;
+        }
+
+        window.location.href = getUrlWithNewQueryData({
+            defaultUrl: window.location.origin,
+            queryDataArray: query,
+        });
     }
 
     handleReset = (e) => {
