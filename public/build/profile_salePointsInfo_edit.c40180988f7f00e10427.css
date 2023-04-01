@@ -206,7 +206,7 @@
   width: 100%;
 }
 .modules-common-filters-product-modal-components-buttons-navigation_bold {
-  font-weight: 600;
+  font-weight: 800;
 }
 
 
@@ -220,7 +220,7 @@
   margin-top: 5px;
 }
 .modules-common-header-search-block__title {
-  font-weight: 600;
+  font-weight: 800;
 }
 
 .modules-common-header-search-item {
@@ -1156,7 +1156,7 @@
 }
 @font-face {
   font-family: 'Lato';
-  font-weight: 600;
+  font-weight: 800;
   src: url(fonts/Lato-Bold.woff2);
 }
 @font-face {

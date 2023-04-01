@@ -206,7 +206,7 @@
   width: 100%;
 }
 .modules-common-filters-product-modal-components-buttons-navigation_bold {
-  font-weight: 600;
+  font-weight: 800;
 }
 
 
@@ -220,7 +220,7 @@
   margin-top: 5px;
 }
 .modules-common-header-search-block__title {
-  font-weight: 600;
+  font-weight: 800;
 }
 
 .modules-common-header-search-item {
@@ -1086,7 +1086,7 @@ form:invalid .modules-pages-profile-routes-personal-info-index__info-container-r
 .modules-pages-profile-routes-personal-info-index__moderation-label {
   background: #ffff40;
   border-radius: 8px 0 0 8px;
-  font-weight: 600;
+  font-weight: 800;
   padding: 20px;
   position: relative;
 }
@@ -1120,7 +1120,7 @@ form:invalid .modules-pages-profile-routes-personal-info-index__info-container-r
   margin-top: 15px;
 }
 .modules-pages-profile-routes-personal-info-index__seller-link-title {
-  font-weight: 600;
+  font-weight: 800;
 }
 .modules-pages-profile-routes-personal-info-index__send-button-container {
   display: flex;
@@ -1160,7 +1160,7 @@ form:invalid .modules-pages-profile-routes-personal-info-index__send-button-cont
 }
 @font-face {
   font-family: 'Lato';
-  font-weight: 600;
+  font-weight: 800;
   src: url(fonts/Lato-Bold.woff2);
 }
 @font-face {
