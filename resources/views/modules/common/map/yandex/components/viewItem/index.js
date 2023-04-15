@@ -66,6 +66,13 @@ class MapYandexComponentsViewItem {
 
         const {markersList, offer} = this.offerData;
 
+        if(!markersList.length) {
+            return;
+        }
+
+        this.mapCluster = new ymaps.Clusterer();
+        const placemarks = [];
+
         markersList.forEach(({id, markerCoords}) => {
             const {lat, lng} = markerCoords;
 
@@ -83,8 +90,11 @@ class MapYandexComponentsViewItem {
             );
 
             markerInstance.events.add(['click'], this.handlePlacemarkClick);
-            this.mapInstance.geoObjects.add(markerInstance);
+            placemarks.push(markerInstance);
         });
+
+        this.mapCluster.add(placemarks);
+        this.mapInstance.geoObjects.add(this.mapCluster);
     }
 }
 
