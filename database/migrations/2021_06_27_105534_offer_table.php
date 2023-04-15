@@ -40,6 +40,7 @@ class OfferTable extends Migration
             $table->foreign('catalog_level_one_id')->references('id')->on('catalog_level_one');
             $table->integer('is_approved')->default(0);
             $table->text('approved_error_message')->nullable();
+            $table->boolean('is_removed')->default(false);
             $table->timestamps();
         });
     }

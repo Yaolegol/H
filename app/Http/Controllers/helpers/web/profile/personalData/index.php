@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Offer;
+use App\Models\Organization;
+use App\Models\SalePoint;
 
 function DB_tryChangeUserEmail($request)
 {
@@ -38,6 +41,24 @@ function DB_tryDestroyProfile()
 {
     try {
         $authUser = Auth::user();
+        $authUserId = $authUser->id;
+
+        $filter = [
+            ['user_id', $authUserId]
+        ];
+
+        $newData = [
+            'is_removed' => true,
+        ];
+
+        $userOffers = Offer::where($filter);
+        $userOrganizations = Organization::where($filter);
+        $userSalePoints = SalePoint::where($filter);
+
+        $userOffers->update($newData);
+        $userOrganizations->update($newData);
+        $userSalePoints->update($newData);
+
         $authUser->is_removed = true;
         $authUser->save();
 

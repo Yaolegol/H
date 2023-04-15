@@ -27,7 +27,8 @@ class SalePoint extends Model
         'photo_3',
         'map_marker_lat',
         'map_marker_lng',
-        'user_id'
+        'user_id',
+        'is_removed',
     ];
 
     protected $table = 'sale_point';

@@ -30,6 +30,7 @@ class SalePointTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->boolean('is_approved')->default(false);
             $table->text('approved_error_message')->nullable();
+            $table->boolean('is_removed')->default(false);
             $table->timestamps();
         });
     }

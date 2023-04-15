@@ -13,6 +13,7 @@ require_once(app_path() . '/Http/Controllers/helpers/common/assets/index.php');
 require_once(app_path() . '/Http/Controllers/helpers/common/catalog/index.php');
 require_once(app_path() . '/Http/Controllers/helpers/common/user/index.php');
 require_once(app_path() . '/Http/Controllers/helpers/web/profile/personalData/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/web/authorization/index.php');
 
 class ProfilePersonalDataController extends Controller
 {
@@ -77,7 +78,7 @@ class ProfilePersonalDataController extends Controller
         $isAuth = checkAuthUserPassword($currentPassword);
 
         if($isAuth) {
-            $isSaved = DB_tryDestroyProfile();
+            $isSaved = DB_tryChangeUserPassword($request);
 
             if($isSaved) {
                 return back();
@@ -100,11 +101,19 @@ class ProfilePersonalDataController extends Controller
         $isAuth = checkAuthUserPassword($currentPassword);
 
         if($isAuth) {
-            $isSaved = true;
+            $isDestroyed = DB_tryDestroyProfile();
 
-            if($isSaved) {
-                return redirect('/');
+            if(!$isDestroyed) {
+                abort(500);
             }
+
+            $isLogout = DB_tryLogoutUser($request);
+
+            if(!$isLogout) {
+                abort(500);
+            }
+
+            return redirect('/');
         }
 
         return back()->with(
