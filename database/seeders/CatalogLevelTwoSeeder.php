@@ -2032,7 +2032,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'link' => 'chicken',
             'order' => 1,
             'catalog_level_one_id' => 21,
-            'title' => 'Курицы',
+            'title' => 'Куры',
         ],
         [
             'image' => 'public/catalog/levelOne/items/farming/images/main/sub/turkey/1.jpeg',
@@ -2072,7 +2072,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'link' => 'goat',
             'order' => 1,
             'catalog_level_one_id' => 21,
-            'title' => 'Козлы',
+            'title' => 'Козы',
         ],
         [
             'image' => 'public/catalog/levelOne/items/farming/images/main/sub/fish/1.jpeg',
