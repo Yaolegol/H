@@ -184,6 +184,44 @@
                         </form>
                     </div>
                 </div>
+                <div class="modules-pages-profile-routes-personal-info-index__section-container modules-pages-profile-routes-personal-info-index__section-container_large-offset">
+                    <div class="modules-pages-profile-routes-personal-info-index__change-password-container">
+                        <div class="modules-pages-profile-routes-personal-info-index__title-container">
+                            <h4 class="modules-pages-profile-routes-personal-info-index__title">Удалить профиль</h4>
+                            <div>* отмечены обязательные для заполнения поля</div>
+                            <div class="modules-pages-profile-routes-personal-info-index__delete-description">После удаления профиля будут удалены все Ваши организации, торговые точки, торговые предложения и иная информация!</div>
+                        </div>
+                        <form
+                            action="/profile/personal-info/destroy"
+                            method="POST"
+                        >
+                            @csrf
+                            <div class="modules-pages-profile-routes-personal-info-index__info-title">Текущий пароль: *</div>
+                            <div class="modules-pages-profile-routes-personal-info-index__info-description">
+                                <div class="modules-pages-profile-routes-personal-info-index__input-container">
+                                    @include('components.inputs.form.index', [
+                                    'name' => 'current_password',
+                                    'placeholder' => 'Текущий пароль',
+                                    'required' => true,
+                                    'type' => 'password'
+                                ])
+                                    @include('components.form.error.index', [
+                                        'message' => $errors->first('current_password'),
+                                    ])
+                                </div>
+                            </div>
+                            <div class="modules-pages-profile-routes-personal-info-index__send-button-container">
+                                <button class="button button_hover_red">Удалить</button>
+                            </div>
+                            <div class="modules-pages-profile-routes-personal-info-index__info-container-required">
+                                <div>* Для удаления необходимо заполнить все обязательные поля</div>
+                            </div>
+                            @include('components.form.error.index', [
+                                'message' => session('commonDestroyError'),
+                            ])
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

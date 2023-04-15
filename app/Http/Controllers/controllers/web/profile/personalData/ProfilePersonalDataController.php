@@ -88,4 +88,27 @@ class ProfilePersonalDataController extends Controller
             ['commonChangePasswordError' => 'Неверный пароль']
         );
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @return Response
+     */
+    public function destroy(Request $request)
+    {
+        $currentPassword = $request->input('current_password');
+        $isAuth = checkAuthUserPassword($currentPassword);
+
+        if($isAuth) {
+            $isSaved = true;
+
+            if($isSaved) {
+                return redirect('/');
+            }
+        }
+
+        return back()->with(
+            ['commonDestroyError' => 'Неверный пароль']
+        );
+    }
 }

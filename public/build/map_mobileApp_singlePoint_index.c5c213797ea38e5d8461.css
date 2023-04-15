@@ -46,6 +46,11 @@
 .form:invalid .button_form {
   pointer-events: none;
 }
+.button_hover_red:hover {
+  background-color: #FF0000;
+  border-color: #FF0000;
+  color: #FFFFFF;
+}
 @font-face {
   font-family: 'Lato';
   font-weight: 400;
