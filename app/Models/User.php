@@ -24,6 +24,7 @@ class User extends Authenticatable
         'password',
         'is_approved',
         'is_changed',
+        'is_removed',
         'approved_error_message',
     ];
 

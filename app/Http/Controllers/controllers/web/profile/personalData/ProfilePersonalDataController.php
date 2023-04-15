@@ -77,7 +77,7 @@ class ProfilePersonalDataController extends Controller
         $isAuth = checkAuthUserPassword($currentPassword);
 
         if($isAuth) {
-            $isSaved = DB_tryChangeUserPassword($request);
+            $isSaved = DB_tryDestroyProfile();
 
             if($isSaved) {
                 return back();

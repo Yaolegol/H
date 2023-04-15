@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->boolean('is_changed')->default(false);
             $table->boolean('is_approved')->default(true);
             $table->text('approved_error_message')->nullable();
+            $table->boolean('is_removed')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

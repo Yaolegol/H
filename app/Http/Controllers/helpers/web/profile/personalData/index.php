@@ -34,6 +34,19 @@ function DB_tryChangeUserPassword($request)
     }
 }
 
+function DB_tryDestroyProfile()
+{
+    try {
+        $authUser = Auth::user();
+        $authUser->is_removed = true;
+        $authUser->save();
+
+        return true;
+    } catch (\Exception $error) {
+        return abort(500);
+    }
+}
+
 function DB_tryChangeUserPersonalDataInDB($request)
 {
     try {
