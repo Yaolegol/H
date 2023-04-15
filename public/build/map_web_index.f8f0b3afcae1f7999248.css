@@ -1114,6 +1114,9 @@
 .factory-cards-offer-map__show-on-map-button:hover {
   color: #000000;
 }
+.factory-cards-offer-map__show-on-map-button_with-offset {
+  margin-top: 5px;
+}
 
 
 
