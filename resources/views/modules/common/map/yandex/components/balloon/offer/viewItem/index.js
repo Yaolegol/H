@@ -7,6 +7,7 @@ export const getOfferBalloonProductPage = (offerData, markerId) => {
         contact_person,
         delivery,
         delivery_description,
+        description,
         id,
         phone,
         price,
@@ -24,11 +25,17 @@ export const getOfferBalloonProductPage = (offerData, markerId) => {
     let contactAddress = address;
     let contactName = name;
     let contactPhone = phone;
+    let balloonDescription = description;
 
     if(currentSalePoint) {
         const _contactAddress = currentSalePoint['address'];
         const _contactName = currentSalePoint['contact_person'] || contact_person;
         const _contactPhone = currentSalePoint['phone'];
+        const _description = currentSalePoint['description'];
+
+        if(_description) {
+            balloonDescription = _description;
+        }
 
         if(_contactName) {
             contactName = _contactName;
@@ -48,6 +55,7 @@ export const getOfferBalloonProductPage = (offerData, markerId) => {
             <div class="modules-common-map-yandex-components-balloon-offer-view-item__title">
                 ${title}
             </div>
+            <div>${balloonDescription}</div>
             <div>${contactAddress}</div>
             <div class="modules-common-map-yandex-components-balloon-offer-view-item__section-price">
                 <div class="modules-common-map-yandex-components-balloon-offer-view-item__section-price-title">Цена</div>
