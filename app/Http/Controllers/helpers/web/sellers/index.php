@@ -6,6 +6,8 @@ function DB_getSeller($id) {
     try {
         $seller = User::where([
             ['id', $id],
+            ['is_approved', 1],
+            ['is_removed', 0],
         ])->with([
             'offers',
             'offers.catalogLevelOne',
@@ -15,10 +17,6 @@ function DB_getSeller($id) {
             'offers.salePoints',
             'offers.user',
         ])->get()->toArray();
-
-        if(empty($seller)) {
-            return abort(404);
-        }
 
         return array_merge(...$seller);
     } catch(\Exception $error) {
@@ -40,6 +38,10 @@ function formatSellerData($sellerData) {
 
 function getSellerDataFormatted($sellerId) {
     $seller = DB_getSeller($sellerId);
+
+    if(empty($seller)) {
+        return abort(404);
+    }
 
     return formatSellerData($seller);
 }

@@ -59,6 +59,7 @@ function DB_getUserSalePoints($approved = false)
 
         $filter = [
             ['user_id', $authUserId],
+            ['is_removed', false],
         ];
 
         if($approved) {

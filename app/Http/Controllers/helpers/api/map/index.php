@@ -38,6 +38,7 @@ function apiGetAllOffersMapMarkersDataFormatted($request) {
     $requestFilter = $request->input('filter') ?? [];
     $DBFilter = [
         ['is_approved', true],
+        ['is_removed', false],
     ];
     $catalogLevelTwoIdList = [];
 

@@ -55,6 +55,7 @@ function DB_getUserOrganizationsList($isApproved = false)
 
         $filter = [
             ['user_id', $authUserId],
+            ['is_removed', false]
         ];
 
         if($isApproved) {

@@ -11,6 +11,7 @@ function DB_getOffer($id)
         $offerData = Offer::where([
             'id' => $id,
             'is_approved' => true,
+            'is_removed' => false,
         ])->with([
             'catalogLevelOne',
             'catalogLevelTwo',
@@ -34,6 +35,7 @@ function DB_getOffer($id)
 function DB_getOffers($filters) {
     try {
         $filter = [
+            'is_removed' => false,
             'is_approved' => 1,
         ];
         $filtersData = array_merge($filter, $filters);

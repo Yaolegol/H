@@ -62,6 +62,7 @@ class Offer extends Model
     {
         return $this->belongsTo(Organization::class)->where([
             'is_approved' => true,
+            'is_removed' => false,
         ]);
     }
 
@@ -69,6 +70,7 @@ class Offer extends Model
     {
         return $this->belongsToMany(SalePoint::class, 'sale_point_offer', 'offer_id', 'sale_point_id')->where([
             'is_approved' => true,
+            'is_removed' => false,
         ]);
     }
 
