@@ -6,7 +6,6 @@ function DB_getSeller($id) {
     try {
         $seller = User::where([
             ['id', $id],
-            ['is_approved', 1],
             ['is_removed', 0],
         ])->with([
             'offers',
