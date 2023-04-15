@@ -30,8 +30,7 @@
   width: 20px;
 }
 .components-popup-cookie__close-button:hover {
-  box-shadow: 0 0 5px 1px #e6e6e6;
-  color: #c1c1c1;
+  color: #000000;
 }
 .components-popup-cookie__close-button svg {
   height: 100%;
@@ -922,37 +921,6 @@
   width: 100%;
 }
 
-
-.components-map-yandex-components-add-marker {
-  padding-bottom: 100%;
-  position: relative;
-}
-.components-map-yandex-components-add-marker__input {
-  appearance: none;
-  background: none;
-  border: none;
-  bottom: 0;
-  height: 0;
-  left: 0;
-  outline: none;
-  position: absolute;
-  visibility: hidden;
-  width: 0;
-}
-.components-map-yandex-components-add-marker__map-container {
-  bottom: 0;
-  left: 0;
-  max-height: 500px;
-  max-width: 500px;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-.components-map-yandex-components-add-marker__map-container_mobile-app {
-  height: 300px;
-  width: auto;
-}
-
 .modules-pages-profile-common-components-body-create__all-points-link {
   border-radius: 10px;
   box-shadow: 0 0 5px 0 #e6e6e6;
@@ -1152,13 +1120,6 @@
   .modules-pages-profile-common-components-container-header__title-container {
     margin-top: 25px;
   }
-}
-
-.modules-pages-profile-routes-sale-points-edit__map-container {
-  margin-top: 15px;
-}
-.modules-pages-profile-routes-sale-points-edit__map-geo-container {
-  margin-top: 15px;
 }
 
 .button {
