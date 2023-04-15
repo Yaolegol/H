@@ -59,6 +59,8 @@ function DB_tryDestroyProfile()
         $userOrganizations->update($newData);
         $userSalePoints->update($newData);
 
+        $authUser->phone_before_removed = $authUser->phone;
+        $authUser->phone = null;
         $authUser->is_removed = true;
         $authUser->save();
 

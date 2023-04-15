@@ -62,7 +62,7 @@ class ApiLoginController extends Controller
 
         $data = [
             'data' => '',
-            'errors' => ['Не верный номер телефона или пароль. Попробуйте снова'],
+            'errors' => ['Неверный номер телефона или пароль. Попробуйте снова'],
         ];
 
         return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);

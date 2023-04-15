@@ -25,6 +25,7 @@ class User extends Authenticatable
         'is_approved',
         'is_changed',
         'is_removed',
+        'phone_before_removed',
         'approved_error_message',
     ];
 

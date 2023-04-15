@@ -16,7 +16,7 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->boolean('is_admin')->default(false);
-            $table->string('phone')->unique();
+            $table->string('phone')->unique()->nullable();
             $table->string('name')->default('')->nullable();
             $table->string('description')->default('')->nullable();
             $table->string('avatar')->default('')->nullable();
@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->boolean('is_approved')->default(true);
             $table->text('approved_error_message')->nullable();
             $table->boolean('is_removed')->default(false);
+            $table->string('phone_before_removed')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
