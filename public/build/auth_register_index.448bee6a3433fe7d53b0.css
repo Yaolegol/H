@@ -912,7 +912,7 @@
 }
 @media (max-width: 767px) {
   .modules-pages-auth-common-components-layout-page__content-block {
-    margin-top: 50px;
+    margin-top: 80px;
     min-width: auto;
     width: 100%;
   }
@@ -924,7 +924,7 @@
 }
 @media (max-width: 374px) {
   .modules-pages-auth-common-components-layout-page__content-block {
-    margin-top: 40px;
+    margin-top: 50px;
   }
 }
 .modules-pages-auth-common-components-layout-page__content-container {
