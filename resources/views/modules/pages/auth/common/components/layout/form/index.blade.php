@@ -17,4 +17,6 @@
     @include('components.form.error.index', [
         'message' => session('commonError'),
     ])
+
+    {{$slot_footer ?? ''}}
 </form>

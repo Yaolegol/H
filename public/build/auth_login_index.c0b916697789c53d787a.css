@@ -140,6 +140,18 @@
   margin-top: 50px;
 }
 
+.modules-pages-auth-routes-login-components-forgot-password {
+  text-align: right;
+}
+.modules-pages-auth-routes-login-components-forgot-password__button {
+  color: #636363;
+  cursor: pointer;
+}
+
+.modules-pages-auth-routes-login-index__forgot-password-container {
+  margin-top: 50px;
+}
+
 .components-popup-cookie {
   align-items: center;
   background: #FFFFFF;
