@@ -35,7 +35,7 @@ function DB_destroyOrganizationItem($user_id, $organizationId) {
             ['user_id', $user_id],
             ['id', $organizationId],
             ['is_removed', false]
-        ]);
+        ])->first();
 
         $organization->is_removed = true;
         $organization->save();

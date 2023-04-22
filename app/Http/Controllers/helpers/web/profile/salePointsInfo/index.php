@@ -38,7 +38,7 @@ function DB_destroySalePointItem($userId, $salePointId) {
             ['user_id', $userId],
             ['id', $salePointId],
             ['is_removed', false]
-        ])->first();
+        ])->with('offers')->first();
 
         $salePoint->is_removed = true;
         $salePoint->save();
