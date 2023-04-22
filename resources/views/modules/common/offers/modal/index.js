@@ -46,7 +46,10 @@ class OffersModal {
         } else {
             this.module.innerHTML = `
                 <div style="margin-top: 20px; font-style: italic;">
-                    В видимой области карты товаров не найдено, попробуйте переместить карту!
+                    В видимой области карты <span style="font-weight: 800;">товаров не найдено</span>, попробуйте переместить карту!
+                </div>
+                <div style="margin-top: 20px;">
+                    <span style="font-weight: 800;">Поделитесь ссылкой на сайт</span> в социальных сетях и мессенджерах, чтобы&nbsp;на&nbsp;сайте было больше товаров!
                 </div>
             `;
         }
