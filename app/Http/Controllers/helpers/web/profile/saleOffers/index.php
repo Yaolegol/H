@@ -61,6 +61,13 @@ function DB_getUserSaleOfferItem($userId, $saleOfferId) {
     return array_merge($saleOfferItem);
 }
 
+function DB_getUserSaleOfferItemByCLO($userId, $CLOId) {
+    return Offer::where([
+        ['user_id', $userId],
+        ['catalog_level_one_id', $CLOId],
+    ])->get()->first();
+}
+
 function DB_getUserSaleOffers()
 {
     try {
@@ -112,6 +119,17 @@ function DB_updateSaleOfferData($userId, $saleOfferId, $imagesArray) {
     } catch(\Exception $error) {
         abort(500);
     }
+}
+
+function checkIsCatalogLevelOneItemCreated($request) {
+    $authUser = Auth::user();
+    $authUserId = $authUser->id;
+
+    $CLOId = $request->input('catalog_level_one_id');
+
+    $offer = DB_getUserSaleOfferItemByCLO($authUserId, $CLOId);
+
+    return $offer !== null;
 }
 
 function formatSaleOffersListItemsAssetsPath(&$saleOffersList) {

@@ -7,6 +7,9 @@
             {{$backTitle}}
         </a>
     </div>
+    @include('components.form.error.index', [
+        'message' => $errors->first('commonError'),
+    ])
     <div class="modules-pages-profile-common-components-body-create__title-container">
         <h4>{{$title}}</h4>
     </div>
