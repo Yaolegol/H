@@ -55,9 +55,9 @@ class ForgotPasswordController extends Controller
             return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
         }
 
-        $newUser = DB_trySaveUserInDB($request, true);
+        $user = DB_trySaveUserDataInDB($request);
 
-        if($newUser != null) {
+        if($user != null) {
             $phone = $request->input('phone');
             $password = $request->input('password');
 

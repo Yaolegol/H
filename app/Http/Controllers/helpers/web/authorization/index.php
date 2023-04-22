@@ -32,6 +32,25 @@ function DB_tryLogoutUser($request) {
     }
 }
 
+function DB_trySaveUserDataInDB($request)
+{
+    try {
+        $phone = $request->input('phone');
+        $password = $request->input('password');
+
+        $user = User::where([
+            'phone' => $phone,
+        ])->get()->last();;
+
+        $user->password = Hash::make($password);
+        $user->save();
+
+        return true;
+    } catch (\Exception $error) {
+        return abort(500);
+    }
+}
+
 function DB_trySaveUserInDB($request, $isApi = false)
 {
     try {
@@ -176,11 +195,16 @@ function getForgotPasswordConfirmCodeValidator($request) {
         $request->all(),
         [
             'code' => ['required', 'digits:4'],
+            'password' => ['required', 'max:25', 'min:6'],
+            'password_confirmation' => ['required', 'same:password'],
             'phone' => ['required', 'digits:11', new StartWith('7')],
         ],
         [
             'digits' => 'Поле должно содержать :digits цифр',
+            'max' => 'Поле должно содержать максимум :max символов',
+            'min' => 'Поле должно содержать минимум :min символов',
             'required' => 'Поле обязательно для заполнения',
+            'same' => 'Поле должно совпадать с паролем',
         ]
     );
 }
