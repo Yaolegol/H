@@ -43,6 +43,7 @@ const createConfig = (env, argv) => {
             admin_organizations: path.resolve(appDirectoriesData.path_pages, 'admin', 'organizations'),
             admin_salePoints: path.resolve(appDirectoriesData.path_pages, 'admin', 'salePoints'),
             admin_users: path.resolve(appDirectoriesData.path_pages, 'admin', 'users'),
+            auth_forgotPassword_index: path.resolve(appDirectoriesData.path_pages, 'auth', 'forgotPassword', 'index'),
             auth_login_index: path.resolve(appDirectoriesData.path_pages, 'auth', 'login', 'index'),
             auth_register_index: path.resolve(appDirectoriesData.path_pages, 'auth', 'register', 'index'),
             catalog_firstLevel_index: path.resolve(appDirectoriesData.path_pages, 'catalog', 'firstLevel', 'index'),

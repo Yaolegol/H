@@ -1,0 +1,30 @@
+@import (reference) '~styles/colors';
+
+.modules-pages-auth-routes-forgot-password-index {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: center;
+
+    &__content-block {
+        border-radius: 20px;
+        box-shadow: 0 0 40px 0 @shadow;
+        margin: 60px auto 0;
+        padding: 50px;
+        width: 500px;
+
+        @media (max-width: 767px) {
+            margin-top: 80px;
+            min-width: auto;
+            width: 100%;
+        }
+
+        @media (max-width: 375px) {
+            padding: 20px;
+        }
+
+        @media (max-width: 374px) {
+            margin-top: 50px;
+        }
+    }
+}

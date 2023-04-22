@@ -5,6 +5,7 @@ use App\Http\Controllers\controllers\web\admin\offers\AdminOffersController;
 use App\Http\Controllers\controllers\web\admin\organizations\AdminOrganizationsController;
 use App\Http\Controllers\controllers\web\admin\salePoints\AdminSalePointsController;
 use App\Http\Controllers\controllers\web\admin\users\AdminUsersController;
+use App\Http\Controllers\controllers\web\authorization\forgotPassword\ForgotPasswordController;
 use App\Http\Controllers\controllers\web\authorization\login\LoginController;
 use App\Http\Controllers\controllers\web\authorization\logout\LogoutController;
 use App\Http\Controllers\controllers\web\authorization\register\RegisterController;
@@ -43,6 +44,8 @@ Route::get('/offers/{id}', [OffersController::class, 'show']);
 
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'login']);
+
+Route::get('/forgot-password', [ForgotPasswordController::class, 'index']);
 
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register/sendSms', [RegisterController::class, 'sendSms']);
