@@ -121,7 +121,7 @@ function DB_updateSaleOfferData($userId, $saleOfferId, $imagesArray) {
     }
 }
 
-function checkIsCatalogLevelOneItemCreated($request) {
+function checkIsCatalogLevelOneItemCreated($request, $offerId = null) {
     $authUser = Auth::user();
     $authUserId = $authUser->id;
 
@@ -129,7 +129,15 @@ function checkIsCatalogLevelOneItemCreated($request) {
 
     $offer = DB_getUserSaleOfferItemByCLO($authUserId, $CLOId);
 
-    return $offer !== null;
+    if($offer === null) {
+        return false;
+    }
+
+    if($offerId === null) {
+        return true;
+    }
+
+    return (string) $offer->id !== $offerId;
 }
 
 function formatSaleOffersListItemsAssetsPath(&$saleOffersList) {

@@ -142,12 +142,27 @@ class ProfileSaleOffersController extends Controller
 
         if(count($catalogLevelTwoIdsArray) == 0) {
             return back()
+                ->withErrors([
+                    'commonError' => 'Не выбрана категория!',
+                ])
+                ->withInput();
+        }
+
+        $isCatalogLevelOneItemCreated = checkIsCatalogLevelOneItemCreated($request, $id);
+
+        if($isCatalogLevelOneItemCreated) {
+            return back()
+                ->withErrors([
+                    'commonError' => 'У Вас уже создано торговое предложение с указанной категорией!',
+                ])
                 ->withInput();
         }
 
         $validator = getProfileSaleOffersValidator($request);
 
         if($validator->fails()) {
+            $validator->errors()->add('commonError', 'Ошибки при заполнении формы! Пожалуйста, проверьте правильность заполнения формы!');
+
             return back()
                 ->withErrors($validator)
                 ->withInput();
