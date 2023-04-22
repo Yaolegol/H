@@ -74,6 +74,7 @@ function DB_getUserSaleOfferItemByCLO($userId, $CLOId) {
     return Offer::where([
         ['user_id', $userId],
         ['catalog_level_one_id', $CLOId],
+        ['is_removed', false],
     ])->get()->first();
 }
 
