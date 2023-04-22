@@ -21,10 +21,9 @@ class Search {
     }
 
     bind = () => {
+        addEventListener(document, 'click', this.handleDocumentClick);
         addEventListener(this.searchInput, 'input', debounce(this.handleSearchInputInput, 500));
         addEventListener(this.searchInput, 'focus', this.handleSearchInputFocus);
-        addEventListener(this.searchInput, 'blur', this.handleSearchInputBlur);
-        addEventListener(this.clearButton, 'mousedown', this.handleClearButtonMouseDown);
         addEventListener(this.clearButton, 'click', this.handleClearButtonClick);
         addEventListener(this.mobileSearchButton, 'click', this.handleMobileSearchButtonClick);
     }
@@ -32,6 +31,11 @@ class Search {
     clearResultsContainer = () => {
         this.searchResultsOutput.innerHTML = '';
         this.noResultsContainer.classList.add('hidden');
+    }
+
+    close = () => {
+        this.module.classList.remove('j-style-header-search__focus');
+        this.module.classList.remove('j-style-header-search__mobile-show');
     }
 
     createSearchResultBlock = ({dataList, title}) => {
@@ -102,24 +106,24 @@ class Search {
     handleClearButtonClick = (e) => {
         this.searchInput.value = '';
 
-        this.searchInput.blur();
+        this.close();
+        this.clearResultsContainer();
+        toggleClass(this.module, 'j-style-header-search__has-value', false);
     }
 
-    handleClearButtonMouseDown = (e) => {
-        e.preventDefault();
+    handleDocumentClick = (e) => {
+        const isClickInside = this.module.contains(e.target);
+
+        if(isClickInside) {
+            return;
+        }
+
+        this.close();
     }
 
     handleMobileSearchButtonClick = (e) => {
         this.module.classList.add('j-style-header-search__mobile-show');
         this.searchInput.focus();
-    }
-
-    handleSearchInputBlur = (e) => {
-        // Иначе не работает клик по ссылке
-        setTimeout(() => {
-            this.module.classList.remove('j-style-header-search__focus');
-            this.module.classList.remove('j-style-header-search__mobile-show');
-        }, 100);
     }
 
     handleSearchInputFocus = (e) => {
