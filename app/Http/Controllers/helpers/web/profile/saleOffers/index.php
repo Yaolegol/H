@@ -36,15 +36,24 @@ function DB_createSaleOffer($request, $userId) {
 }
 
 function DB_destroySaleOfferItem($user_id, $saleOfferId) {
+//    $saleOffer = Offer::where([
+//        ['user_id', $user_id],
+//        ['id', $saleOfferId]
+//    ])->with(['salePoints', 'usersFavorites']);
+//
+//    $saleOffer->first()->salePoints()->detach();
+//    $saleOffer->first()->usersFavorites()->detach();
+//    $saleOffer->first()->catalogLevelTwo()->detach();
+//    $saleOffer->delete();
+
     $saleOffer = Offer::where([
         ['user_id', $user_id],
-        ['id', $saleOfferId]
-    ])->with(['salePoints', 'usersFavorites']);
+        ['id', $saleOfferId],
+        ['is_removed', false],
+    ])->first();
 
-    $saleOffer->first()->salePoints()->detach();
-    $saleOffer->first()->usersFavorites()->detach();
-    $saleOffer->first()->catalogLevelTwo()->detach();
-    $saleOffer->delete();
+    $saleOffer->is_removed = true;
+    $saleOffer->save();
 }
 
 function DB_getUserSaleOfferItem($userId, $saleOfferId) {
@@ -74,7 +83,10 @@ function DB_getUserSaleOffers()
         $authUser = Auth::user();
         $user_id = $authUser->id;
 
-        return Offer::where('user_id', $user_id)->with(
+        return Offer::where([
+            ['user_id', $user_id],
+            ['is_removed', false],
+        ])->with(
             [
                 'catalogLevelOne',
                 'catalogLevelTwo',
@@ -294,7 +306,7 @@ function tryDestroySaleOfferDataInDB($saleOfferId)
         $authUser = Auth::user();
         $user_id = $authUser->id;
 
-        STORAGE_destroySaleOfferData($user_id, $saleOfferId);
+//        STORAGE_destroySaleOfferData($user_id, $saleOfferId);
         DB_destroySaleOfferItem($user_id, $saleOfferId);
 
         return true;

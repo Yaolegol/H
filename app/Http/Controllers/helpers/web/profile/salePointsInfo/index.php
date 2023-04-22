@@ -26,13 +26,22 @@ function DB_createSalePoint($request, $userId) {
 
 function DB_destroySalePointItem($userId, $salePointId) {
     try {
+//        $salePoint = SalePoint::where([
+//            ['user_id', $userId],
+//            ['id', $salePointId],
+//        ])->with('offers');
+//
+//        $salePoint->first()->offers()->detach();
+//        $salePoint->delete();
+
         $salePoint = SalePoint::where([
             ['user_id', $userId],
-            ['id', $salePointId]
-        ])->with('offers');
+            ['id', $salePointId],
+            ['is_removed', false]
+        ])->first();
 
-        $salePoint->first()->offers()->detach();
-        $salePoint->delete();
+        $salePoint->is_removed = true;
+        $salePoint->save();
     } catch(\Exception $error) {
         return abort(500);
     }
@@ -170,7 +179,7 @@ function tryDestroySalePointDataInDB($salePointId)
     $authUser = Auth::user();
     $user_id = $authUser->id;
 
-    STORAGE_destroySalePointData($user_id, $salePointId);
+//    STORAGE_destroySalePointData($user_id, $salePointId);
     DB_destroySalePointItem($user_id, $salePointId);
 
     return true;

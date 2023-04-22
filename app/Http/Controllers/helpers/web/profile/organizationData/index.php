@@ -24,12 +24,21 @@ function DB_createOrganization($request, $authUserId) {
 
 function DB_destroyOrganizationItem($user_id, $organizationId) {
     try {
+//        $organization = Organization::where([
+//            ['user_id', $user_id],
+//            ['id', $organizationId]
+//        ]);
+//
+//        $organization->delete();
+
         $organization = Organization::where([
             ['user_id', $user_id],
-            ['id', $organizationId]
+            ['id', $organizationId],
+            ['is_removed', false]
         ]);
 
-        $organization->delete();
+        $organization->is_removed = true;
+        $organization->save();
     } catch(\Exception $err) {
         abort(500);
     }
@@ -249,7 +258,7 @@ function tryDestroyOrganizationDataInDB($organizationId)
     $authUser = Auth::user();
     $user_id = $authUser->id;
 
-    STORAGE_destroyOrganizationData($user_id, $organizationId);
+//    STORAGE_destroyOrganizationData($user_id, $organizationId);
     DB_destroyOrganizationItem($user_id, $organizationId);
 
     return true;
