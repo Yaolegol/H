@@ -46,6 +46,8 @@ Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'login']);
 
 Route::get('/forgot-password', [ForgotPasswordController::class, 'index']);
+Route::post('/forgot-password/sendSms', [ForgotPasswordController::class, 'sendSms']);
+Route::post('/forgot-password/confirmCode', [ForgotPasswordController::class, 'confirmCode']);
 
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register/sendSms', [RegisterController::class, 'sendSms']);

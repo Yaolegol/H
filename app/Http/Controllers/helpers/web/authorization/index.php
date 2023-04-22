@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\SmsForgotPassword;
 use App\Models\SmsRegistration;
 use App\Models\User;
 use App\Rules\StartWith;
@@ -55,6 +56,151 @@ function DB_trySaveUserInDB($request, $isApi = false)
 
         return abort(500);
     }
+}
+
+function forgotPasswordSendSMS($request) {
+    $phone = $request->input('phone');
+
+    $user = User::where([
+        'phone' => $phone,
+    ])->get()->last();
+
+    if($user === null) {
+        return [
+            'error' => 'Пользователь с указанный номером телефона не зарегистрирован',
+        ];
+    }
+
+    $smsData = SmsForgotPassword::where([
+        'phone' => $phone,
+    ])->get()->last();
+
+    if($smsData !== null) {
+        $nowTimestamp = now()->timestamp;
+        $smsTimestamp = $smsData->created_at->timestamp;
+        $smsTimestampWithAddTime = $smsTimestamp + 120;
+        $isSmsFresh = $nowTimestamp < $smsTimestampWithAddTime;
+
+        if($isSmsFresh) {
+            return [
+                'error' => 'Смс уже отправлена. Для повторной отправки пожалуйста подождите несколько минут',
+            ];
+        }
+    }
+
+    $formattedPhone = '+' . $phone;
+    $code = mt_rand(1111, 9999);
+    $message = 'Ваш код подтверждения ' . $code;
+
+    $response = SMS_send($formattedPhone, $message);
+
+    if($response->failed()) {
+        return [
+            'error' => 'Не удалось отправить смс, попробуйте снова',
+        ];
+    }
+
+    $smsData = $response->json();
+
+    if(isset($smsData['error'])) {
+        return [
+            'error' => $smsData['error'],
+        ];
+    }
+
+    SmsForgotPassword::create([
+        'phone' => $phone,
+        'code' => $code,
+        'sms_id' => $smsData['id'],
+    ]);
+
+    return [
+        'error' => '',
+    ];
+}
+
+function forgotPasswordCheckSmsCode($request) {
+    $phone = $request->input('phone');
+    $codeFromRequest = $request->input('code');
+
+    $smsData = SmsForgotPassword::where([
+        'phone' => $phone,
+    ])->get()->last();
+
+    if($smsData === null) {
+        return [
+            'error' => 'Пользователь с указанным номером телефона не найден',
+        ];
+    }
+
+    $nowTimestamp = now()->timestamp;
+    $smsTimestamp = $smsData->created_at->timestamp;
+    $smsTimestampWithAddTime = $smsTimestamp + 120;
+    $isSmsFresh = $nowTimestamp < $smsTimestampWithAddTime;
+
+    if(!$isSmsFresh) {
+        return [
+            'error' => 'Срок действия кода истек',
+        ];
+    }
+
+    $isActive = $smsData['isActive'];
+
+    if($isActive === 0) {
+        return [
+            'error' => 'Код недействителен',
+        ];
+    }
+
+    $isCodeMatch = $codeFromRequest === $smsData['code'];
+
+    if(!$isCodeMatch) {
+        return [
+            'error' => 'Неверный код подтверждения',
+        ];
+    }
+
+    SmsForgotPassword::where([
+        'id' => $smsData['id'],
+    ])->update([
+        'isActive' => false,
+    ]);
+
+    return [
+        'error' => '',
+    ];
+}
+
+function getForgotPasswordConfirmCodeValidator($request) {
+    return Validator::make(
+        $request->all(),
+        [
+            'code' => ['required', 'digits:4'],
+            'phone' => ['required', 'digits:11', new StartWith('7')],
+        ],
+        [
+            'digits' => 'Поле должно содержать :digits цифр',
+            'required' => 'Поле обязательно для заполнения',
+        ]
+    );
+}
+
+function getForgotPasswordSendSmsValidator($request) {
+    return Validator::make(
+        $request->all(),
+        [
+            'password' => ['required', 'max:25', 'min:6'],
+            'password_confirmation' => ['required', 'same:password'],
+            'phone' => ['required', 'digits:11', new StartWith('7')],
+        ],
+        [
+            'digits' => 'Поле должно содержать :digits цифр',
+            'max' => 'Поле должно содержать максимум :max символов',
+            'min' => 'Поле должно содержать минимум :min символов',
+            'required' => 'Поле обязательно для заполнения',
+            'same' => 'Поле должно совпадать с паролем',
+        ]
+    );
 }
 
 function getLoginValidator($request) {
