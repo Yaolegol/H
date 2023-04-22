@@ -1,5 +1,6 @@
 import {getCookieData} from "helpers/cookie";
 import {addEventListener} from "helpers/events";
+import {debounce} from "helpers/debounceNew";
 import {getQueryData} from "helpers/query";
 import {getOfferBalloon} from "views/modules/common/map/yandex/components/balloon/offer/viewAll";
 import './index.less';
@@ -59,7 +60,7 @@ class MapYandexComponentsViewAll {
     }
 
     bindMapEvents = () => {
-        this.mapInstance.events.add(['boundschange'], this.handleMapBoundsChange);
+        this.mapInstance.events.add(['boundschange'], debounce(this.handleMapBoundsChange, 500));
     }
 
     getPlacemarksDataList = () => {
