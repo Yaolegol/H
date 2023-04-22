@@ -1,6 +1,6 @@
 import {getCookieData} from "helpers/cookie";
 import {addEventListener} from "helpers/events";
-import {debounce} from "helpers/debounceNew";
+import {debounce} from "helpers/debounce";
 import {getQueryData} from "helpers/query";
 import {getOfferBalloon} from "views/modules/common/map/yandex/components/balloon/offer/viewAll";
 import './index.less';

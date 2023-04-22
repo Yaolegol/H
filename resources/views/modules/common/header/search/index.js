@@ -21,7 +21,7 @@ class Search {
     }
 
     bind = () => {
-        addEventListener(this.searchInput, 'input', this.handleSearchInputInput);
+        addEventListener(this.searchInput, 'input', debounce(this.handleSearchInputInput, 500));
         addEventListener(this.searchInput, 'focus', this.handleSearchInputFocus);
         addEventListener(this.searchInput, 'blur', this.handleSearchInputBlur);
         addEventListener(this.clearButton, 'mousedown', this.handleClearButtonMouseDown);
@@ -71,6 +71,22 @@ class Search {
         return itemsList.join('');
     }
 
+    fetchData = async () => {
+        const searchValue = this.searchInput.value;
+
+        if(!searchValue) {
+            return;
+        }
+
+        const {data, errors} = await this.sendRequest(searchValue);
+
+        if(errors) {
+            return;
+        }
+
+        this.setData(data);
+    }
+
     getSearchContainerTemplateHTML = () => {
         const template = this.module.querySelector('.j-template[data-template-id="header-search-result-container"]');
 
@@ -116,26 +132,10 @@ class Search {
         const value = this.searchInput.value;
 
         if(value) {
-            debounce(this.inputDebounce, 1000);
+            this.fetchData();
         }
 
         toggleClass(this.module, 'j-style-header-search__has-value', value);
-    }
-
-    inputDebounce = async () => {
-        const searchValue = this.searchInput.value;
-
-        if(!searchValue) {
-            return;
-        }
-
-        const {data, errors} = await this.sendRequest(searchValue);
-
-        if(errors) {
-            return;
-        }
-
-        this.setData(data);
     }
 
     isDataExists = (data) => {
