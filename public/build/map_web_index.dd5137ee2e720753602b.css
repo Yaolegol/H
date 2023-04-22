@@ -903,6 +903,14 @@
   margin-top: 5px;
 }
 
+.components-info-common__button {
+  font-style: italic;
+}
+.components-info-common__text {
+  color: #424242;
+  font-style: italic;
+}
+
 
 .modules-common-map-yandex-components-balloon-offer-view-all__price {
   font-weight: 800;
@@ -1293,6 +1301,14 @@
 .modules-pages-map-web-routes-index__offers-header-description {
   color: #424242;
   margin-top: 5px;
+}
+.modules-pages-map-web-routes-index__share-block {
+  margin-top: 5px;
+}
+@media screen and (max-width: 1023px) {
+  .modules-pages-map-web-routes-index__share-block {
+    text-align: center;
+  }
 }
 .modules-pages-map-web-routes-index__slider-container {
   margin-top: 50px;
