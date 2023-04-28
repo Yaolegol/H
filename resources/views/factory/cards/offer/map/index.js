@@ -31,6 +31,8 @@ export class MapOfferCard {
         const {link: sellerLink, name} = seller;
         const {catalog_level_one, catalog_level_two} = catalog;
 
+        const _name = name ?? 'имя не указано';
+
         const salePointsHtml = salePoints.map(({address, description, id: salePointId, phone, title, working_hours}) => {
             return `
                 <div class="factory-cards-offer-map__sale-point-address-container">${address}</div>
@@ -149,7 +151,7 @@ export class MapOfferCard {
                             </div>
                             <div class="factory-cards-offer-map__seller-info-container">
                                 <span class="factory-cards-offer-map__seller-info-title">Продавец:</span>
-                                <a href="${sellerLink}">${name}</a>
+                                <a href="${sellerLink}">${_name}</a>
                             </div>
                         </div>
                     </div>

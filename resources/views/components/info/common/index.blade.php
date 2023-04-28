@@ -6,5 +6,5 @@
     <button
         class="components-info-common__button j-components-info-common__close-button"
         type="button"
-    >Больше не показывать!</button>
+    >Больше не показывать</button>
 </div>

@@ -905,6 +905,7 @@
 
 .components-info-common__button {
   font-style: italic;
+  text-decoration: underline;
 }
 .components-info-common__text {
   color: #424242;
