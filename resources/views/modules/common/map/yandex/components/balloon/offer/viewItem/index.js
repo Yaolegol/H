@@ -23,7 +23,7 @@ export const getOfferBalloonProductPage = (offerData, markerId) => {
     });
 
     let contactAddress = address;
-    let contactName = name;
+    let contactName = name ?? 'не указано';
     let contactPhone = phone;
     let balloonDescription = description;
 
