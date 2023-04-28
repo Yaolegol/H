@@ -22,6 +22,11 @@ class SellersController extends Controller
     {
         $catalogFull = getCatalogFull();
         $sellerData = getSellerDataFormatted($id);
+        $offersCount = count($sellerData['offers_all_active']);
+
+        if($offersCount <= 0) {
+            abort(404);
+        }
 
         return view('pages.sellers.show.index', [
             'catalogHeader' => $catalogFull,

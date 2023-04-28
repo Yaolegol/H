@@ -14,6 +14,7 @@ require_once(app_path() . '/Http/Controllers/helpers/common/request/index.php');
 require_once(app_path() . '/Http/Controllers/helpers/web/profile/organizationData/index.php');
 require_once(app_path() . '/Http/Controllers/helpers/web/profile/saleOffers/index.php');
 require_once(app_path() . '/Http/Controllers/helpers/web/profile/salePointsInfo/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/web/profile/personalData/index.php');
 require_once(app_path() . '/Http/Controllers/helpers/web/offers/index.php');
 
 class ProfileSaleOffersController extends Controller
@@ -27,10 +28,12 @@ class ProfileSaleOffersController extends Controller
     {
         $catalogFull = getCatalogFull();
         $saleOffersList = getSaleOffersDataFormatted();
+        $userData = getUserDataFormatted();
 
         return view('pages.profile.sale-offers.index.index', [
             'catalogHeader' => $catalogFull,
             'saleOffersList' => $saleOffersList,
+            'userData' => $userData,
         ]);
     }
 

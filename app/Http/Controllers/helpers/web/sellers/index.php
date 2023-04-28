@@ -28,8 +28,13 @@ function formatSellerData($sellerData) {
         $sellerData['avatar'] = formatAssetPath($sellerData['avatar']);
     }
 
+    $sellerData['offers_all_active'] = $sellerData['offers'] ?? [];
+
     if($sellerData['offers']) {
-        $sellerData['offers'] = formatOffers($sellerData['offers']);
+        $offers_approved = array_filter($sellerData['offers'], function($offer) {
+            return $offer['is_approved'] === 1;
+        });
+        $sellerData['offers'] = formatOffers($offers_approved);
     }
 
     return $sellerData;

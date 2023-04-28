@@ -1153,6 +1153,45 @@
 .modules-pages-profile-routes-sale-offers-info-index__empty-block {
   margin-top: 20px;
 }
+.modules-pages-profile-routes-sale-offers-info-index__form-container {
+  margin-top: 50px;
+}
+.modules-pages-profile-routes-sale-offers-info-index__moderation-hint-container {
+  margin-top: 15px;
+}
+.modules-pages-profile-routes-sale-offers-info-index__moderation-label {
+  background: #ffff40;
+  border-radius: 8px 0 0 8px;
+  font-weight: 800;
+  padding: 20px;
+  position: relative;
+}
+.modules-pages-profile-routes-sale-offers-info-index__moderation-label_approved {
+  background: #46a02e;
+  color: #FFFFFF;
+}
+.modules-pages-profile-routes-sale-offers-info-index__moderation-label_light-green {
+  background: #ebfde6;
+  color: #424242;
+  font-weight: 400;
+}
+.modules-pages-profile-routes-sale-offers-info-index__moderation-label_reject {
+  background: #e34132;
+  color: #FFFFFF;
+}
+.modules-pages-profile-routes-sale-offers-info-index__seller-link {
+  color: #424242;
+  text-decoration-line: underline;
+}
+.modules-pages-profile-routes-sale-offers-info-index__seller-link-container {
+  margin-top: 15px;
+}
+.modules-pages-profile-routes-sale-offers-info-index__seller-link-footer {
+  margin-top: 15px;
+}
+.modules-pages-profile-routes-sale-offers-info-index__seller-link-title {
+  font-weight: 800;
+}
 
 .button {
   background-color: #FFFFFF;

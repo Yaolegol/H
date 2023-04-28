@@ -32,7 +32,7 @@
                                 </div>
                             @else
                                 <div class="modules-pages-profile-routes-personal-info-index__moderation-label {{$userData['is_approved'] ? 'modules-pages-profile-routes-personal-info-index__moderation-label_approved' : ''}}">
-                                    {{$userData['is_approved'] ? 'Опубликовано' : 'На проверке'}}
+                                    {{$userData['is_approved'] ? 'Сохранено' : 'На проверке'}}
                                     <div class="modules-pages-profile-routes-personal-info-index__moderation-hint">
                                         <div>Ваше сообщение проверяется администрацией сайта!</div>
                                         <div class="modules-pages-profile-routes-personal-info-index__moderation-hint-container">После проверки оно будет опубликовано или отклонено с указанием причины</div>
@@ -43,24 +43,6 @@
                             @endif
                         </div>
                     @endif
-                    <div class="modules-pages-profile-routes-personal-info-index__seller-link-container">
-                        <div class="modules-pages-profile-routes-personal-info-index__moderation-label modules-pages-profile-routes-personal-info-index__moderation-label_light-green">
-                            <div class="modules-pages-profile-routes-personal-info-index__seller-link-title">Поздравляем!</div>
-                            <div class="modules-pages-profile-routes-personal-info-index__seller-link-footer">Ваша персональная страница:</div>
-                            <div>
-                                <a
-                                    class="modules-pages-profile-routes-personal-info-index__seller-link"
-                                    href="/sellers/{{$userData['id']}}"
-                                >
-                                    {{request()->getHost()}}/sellers/{{$userData['id']}}
-                                </a>
-                            </div>
-                            <div class="modules-pages-profile-routes-personal-info-index__seller-link-footer">
-                                Отправьте эту ссылку покупателям, чтобы Вас можно было легко найти на сайте!
-                            </div>
-                        </div>
-                    </div>
-
                     <form
                         action="/profile/personal-info/edit-personal-data"
                         enctype="multipart/form-data"

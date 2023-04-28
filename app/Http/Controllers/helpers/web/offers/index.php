@@ -54,7 +54,7 @@ function DB_getOffers($filters) {
 }
 
 function formatOffer($offerItem) {
-    setUserAvatar($offerItem);
+    setUserAvatarData($offerItem);
     setOfferLink($offerItem);
     setOfferPhotoArray($offerItem);
     setOfferOrganizationData($offerItem);
@@ -180,7 +180,7 @@ function setSellerLink(&$offerItem) {
     $offerItem['user']['sellerLink'] = '/sellers/' . $offerItem['user']['id'];
 }
 
-function setUserAvatar(&$offerItem) {
+function setUserAvatarData(&$offerItem) {
     if(!isset($offerItem['user'])) {
         return;
     }
