@@ -6,7 +6,7 @@
                 href="/legal"
             >Правила использования сайта и другая правовая информация</a>
         </div>
-        <div class="modules-common-footer-index__copyright-container">© 2022 г. Все права защищены</div>
+        <div class="modules-common-footer-index__copyright-container">© 2023 г. Все права защищены</div>
     </div>
 </div>
 
