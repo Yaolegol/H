@@ -132,8 +132,8 @@ function getPersonalDataValidator($request) {
         $request->all(),
         [
             'avatar' => ['image', 'max:10240'],
-            'name' => ['max:50'],
-            'description' => ['max:100'],
+            'name' => ['max:100'],
+            'description' => ['max:1000'],
         ],
         [
             'image' => 'Поле должно содержать картинку, размером не более 10Мб',
