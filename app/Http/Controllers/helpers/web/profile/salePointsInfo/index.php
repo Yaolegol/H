@@ -190,6 +190,12 @@ function tryStoreSalePointDataInDB($request)
     $authUser = Auth::user();
     $user_id = $authUser->id;
 
+    $userSalePointsList = DB_getUserSalePoints();
+
+    if(count($userSalePointsList) >= 50) {
+        return false;
+    }
+
     $createdSalePointData = DB_createSalePoint($request, $user_id);
     $createdSalePointId = $createdSalePointData['id'];
     $imagesArray = getSalePointImagesData($request, $user_id, $createdSalePointId);
