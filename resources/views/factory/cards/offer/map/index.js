@@ -31,7 +31,11 @@ export class MapOfferCard {
         const {link: sellerLink, name} = seller;
         const {catalog_level_one, catalog_level_two} = catalog;
 
-        const _name = name ?? 'имя не указано';
+        let _name = name;
+
+        if(!_name) {
+            _name = 'имя не указано';
+        }
 
         const salePointsHtml = salePoints.map(({address, description, id: salePointId, phone, title, working_hours}) => {
             return `
