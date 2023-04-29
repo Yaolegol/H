@@ -215,7 +215,7 @@ class MapYandexComponentsViewAll {
         const {coords} = this.geo;
         const {latitude, longitude} = coords;
 
-        this.mapInstance.setCenter([latitude, longitude], 15, {
+        this.mapInstance.setCenter([latitude, longitude], 11, {
             duration: 1000,
         });
     }
