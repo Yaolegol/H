@@ -15,11 +15,11 @@ class SalePointTable extends Migration
     {
         Schema::create('sale_point', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('description')->nullable();
-            $table->string('address');
-            $table->string('working_hours')->nullable();
-            $table->string('contact_person')->nullable();
+            $table->text('title');
+            $table->text('description')->nullable();
+            $table->text('address');
+            $table->text('working_hours')->nullable();
+            $table->text('contact_person')->nullable();
             $table->string('phone')->nullable();
             $table->string('photo_1')->nullable();
             $table->string('photo_2')->nullable();
