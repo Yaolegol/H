@@ -89,7 +89,7 @@
                     <a
                         class="modules-pages-offers-routes-show__info-item-description modules-pages-offers-routes-show__info-item-description_link"
                         href="{{$offer['user']['sellerLink']}}"
-                    >{{$offer['user']['name'] ?? 'имя не указано'}}</a>
+                    >{{!$offer['user']['name'] ? 'имя не указано' : $offer['user']['name']}}</a>
                 </div>
                 @isset($offer['organization'])
                     @if($offer['organization']['is_approved'] == 1)
