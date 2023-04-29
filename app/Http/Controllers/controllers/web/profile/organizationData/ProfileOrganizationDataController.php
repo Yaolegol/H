@@ -65,7 +65,11 @@ class ProfileOrganizationDataController extends Controller
             return redirect('/profile/organization-info');
         }
 
-        return abort(500);
+        return back()
+            ->withErrors([
+                'commonError' => 'Достигнут лимит количества организаций! Вы можете удалить или отрадактировать имеющиеся'
+            ])
+            ->withInput();
     }
 
     /**

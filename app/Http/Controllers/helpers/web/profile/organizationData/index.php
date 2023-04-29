@@ -244,6 +244,12 @@ function tryStoreOrganizationData($request) {
     $authUser = Auth::user();
     $authUserId = $authUser->id;
 
+    $userOrganizationList = DB_getUserOrganizationsList();
+
+    if(count($userOrganizationList) >= 5) {
+        return false;
+    }
+
     $createdOrganizationData = DB_createOrganization($request, $authUserId);
     $createdOrganizationId = $createdOrganizationData['id'];
     $imagesArray = getOrganizationImagesData($request, $authUserId, $createdOrganizationId);
