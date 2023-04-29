@@ -51,19 +51,51 @@
   color: #FFFFFF;
   padding: 20px;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1023px) {
+  .modules-common-footer-index {
+    text-align: center;
+  }
+}
+.modules-common-footer-index__contacts-area {
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (max-width: 1023px) {
+  .modules-common-footer-index__contacts-area {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+.modules-common-footer-index__contacts-block-right {
+  text-align: right;
+}
+@media screen and (max-width: 1023px) {
+  .modules-common-footer-index__contacts-block-right {
+    margin-top: 15px;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 1023px) {
   .modules-common-footer-index__copyright-container {
     margin-top: 15px;
   }
 }
 .modules-common-footer-index__info-container {
+  align-items: flex-end;
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1023px) {
   .modules-common-footer-index__info-container {
+    align-items: initial;
     flex-direction: column;
     justify-content: flex-start;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .modules-common-footer-index__legal-container {
+    margin-top: 15px;
   }
 }
 .modules-common-footer-index__link {
@@ -921,37 +953,6 @@
   width: 100%;
 }
 
-
-.components-map-yandex-components-add-marker {
-  padding-bottom: 100%;
-  position: relative;
-}
-.components-map-yandex-components-add-marker__input {
-  appearance: none;
-  background: none;
-  border: none;
-  bottom: 0;
-  height: 0;
-  left: 0;
-  outline: none;
-  position: absolute;
-  visibility: hidden;
-  width: 0;
-}
-.components-map-yandex-components-add-marker__map-container {
-  bottom: 0;
-  left: 0;
-  max-height: 500px;
-  max-width: 500px;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-.components-map-yandex-components-add-marker__map-container_mobile-app {
-  height: 300px;
-  width: auto;
-}
-
 .modules-pages-profile-common-components-body-create__all-points-link {
   border-radius: 10px;
   box-shadow: 0 0 5px 0 #e6e6e6;
@@ -1151,13 +1152,6 @@
   .modules-pages-profile-common-components-container-header__title-container {
     margin-top: 25px;
   }
-}
-
-.modules-pages-profile-routes-sale-points-edit__map-container {
-  margin-top: 15px;
-}
-.modules-pages-profile-routes-sale-points-edit__map-geo-container {
-  margin-top: 15px;
 }
 
 .button {
