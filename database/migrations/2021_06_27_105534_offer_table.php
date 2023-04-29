@@ -15,12 +15,12 @@ class OfferTable extends Migration
     {
         Schema::create('offer', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('description')->nullable();
-            $table->string('address')->nullable();
-            $table->string('contact_person')->nullable();
+            $table->text('title');
+            $table->text('description')->nullable();
+            $table->text('address')->nullable();
+            $table->text('contact_person')->nullable();
             $table->string('phone');
-            $table->string('working_hours')->nullable();
+            $table->text('working_hours')->nullable();
             $table->text('price');
             $table->text('price_description')->nullable();
             $table->boolean('delivery')->nullable();
@@ -40,6 +40,7 @@ class OfferTable extends Migration
             $table->foreign('catalog_level_one_id')->references('id')->on('catalog_level_one');
             $table->integer('is_approved')->default(0);
             $table->text('approved_error_message')->nullable();
+            $table->boolean('is_removed')->default(false);
             $table->timestamps();
         });
     }

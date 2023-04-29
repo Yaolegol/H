@@ -5,6 +5,7 @@ use App\Models\Organization;
 function DB_getOrganizationsNotApproved() {
     try {
         return Organization::where([
+            ['is_removed', false],
             ['is_approved', 0],
             ['approved_error_message', '=', null],
         ])->get()->toArray();

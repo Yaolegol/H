@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Offer;
+use App\Models\Organization;
+use App\Models\SalePoint;
 
 function DB_tryChangeUserEmail($request)
 {
@@ -26,6 +29,39 @@ function DB_tryChangeUserPassword($request)
 
         $authUser = Auth::user();
         $authUser->password = Hash::make($newPassword);
+        $authUser->save();
+
+        return true;
+    } catch (\Exception $error) {
+        return abort(500);
+    }
+}
+
+function DB_tryDestroyProfile()
+{
+    try {
+        $authUser = Auth::user();
+        $authUserId = $authUser->id;
+
+        $filter = [
+            ['user_id', $authUserId]
+        ];
+
+        $newData = [
+            'is_removed' => true,
+        ];
+
+        $userOffers = Offer::where($filter);
+        $userOrganizations = Organization::where($filter);
+        $userSalePoints = SalePoint::where($filter);
+
+        $userOffers->update($newData);
+        $userOrganizations->update($newData);
+        $userSalePoints->update($newData);
+
+        $authUser->phone_before_removed = $authUser->phone;
+        $authUser->phone = null;
+        $authUser->is_removed = true;
         $authUser->save();
 
         return true;
@@ -96,8 +132,8 @@ function getPersonalDataValidator($request) {
         $request->all(),
         [
             'avatar' => ['image', 'max:10240'],
-            'name' => ['max:50'],
-            'description' => ['max:100'],
+            'name' => ['max:100'],
+            'description' => ['max:1000'],
         ],
         [
             'image' => 'Поле должно содержать картинку, размером не более 10Мб',

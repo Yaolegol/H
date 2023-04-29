@@ -49,6 +49,6 @@ class LoginController extends Controller
             return redirect()->intended('/');
         }
 
-        return back()->with(['commonError' => 'Не верный телефон или пароль. Попробуйте снова']);
+        return back()->with(['commonError' => 'Неверный телефон или пароль. Попробуйте снова']);
     }
 }

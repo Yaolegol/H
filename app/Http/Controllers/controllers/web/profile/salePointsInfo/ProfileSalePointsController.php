@@ -65,7 +65,11 @@ class ProfileSalePointsController extends Controller
             return redirect('/profile/sale-points-info');
         }
 
-        return abort(500);
+        return back()
+            ->withErrors([
+                'commonError' => 'Достигнут лимит количества торговых точек! Вы можете удалить или отредактировать имеющиеся, а также написать нам на email, телефон или в социальных сетях для увеличения лимита!'
+            ])
+            ->withInput();
     }
 
     /**

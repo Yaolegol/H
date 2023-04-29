@@ -11,6 +11,7 @@ function DB_getOffer($id)
         $offerData = Offer::where([
             'id' => $id,
             'is_approved' => true,
+            'is_removed' => false,
         ])->with([
             'catalogLevelOne',
             'catalogLevelTwo',
@@ -34,6 +35,7 @@ function DB_getOffer($id)
 function DB_getOffers($filters) {
     try {
         $filter = [
+            'is_removed' => false,
             'is_approved' => 1,
         ];
         $filtersData = array_merge($filter, $filters);
@@ -52,7 +54,7 @@ function DB_getOffers($filters) {
 }
 
 function formatOffer($offerItem) {
-    setUserAvatar($offerItem);
+    setUserAvatarData($offerItem);
     setOfferLink($offerItem);
     setOfferPhotoArray($offerItem);
     setOfferOrganizationData($offerItem);
@@ -178,7 +180,7 @@ function setSellerLink(&$offerItem) {
     $offerItem['user']['sellerLink'] = '/sellers/' . $offerItem['user']['id'];
 }
 
-function setUserAvatar(&$offerItem) {
+function setUserAvatarData(&$offerItem) {
     if(!isset($offerItem['user'])) {
         return;
     }

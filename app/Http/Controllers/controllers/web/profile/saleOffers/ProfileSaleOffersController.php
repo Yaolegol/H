@@ -8,11 +8,13 @@ use App\Http\Controllers\Controller;
 
 require_once(app_path() . '/Http/Controllers/helpers/common/assets/index.php');
 require_once(app_path() . '/Http/Controllers/helpers/common/catalog/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/common/errors/index.php');
 require_once(app_path() . '/Http/Controllers/helpers/common/measure/index.php');
 require_once(app_path() . '/Http/Controllers/helpers/common/request/index.php');
 require_once(app_path() . '/Http/Controllers/helpers/web/profile/organizationData/index.php');
 require_once(app_path() . '/Http/Controllers/helpers/web/profile/saleOffers/index.php');
 require_once(app_path() . '/Http/Controllers/helpers/web/profile/salePointsInfo/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/web/profile/personalData/index.php');
 require_once(app_path() . '/Http/Controllers/helpers/web/offers/index.php');
 
 class ProfileSaleOffersController extends Controller
@@ -26,10 +28,12 @@ class ProfileSaleOffersController extends Controller
     {
         $catalogFull = getCatalogFull();
         $saleOffersList = getSaleOffersDataFormatted();
+        $userData = getUserDataFormatted();
 
         return view('pages.profile.sale-offers.index.index', [
             'catalogHeader' => $catalogFull,
             'saleOffersList' => $saleOffersList,
+            'userData' => $userData,
         ]);
     }
 
@@ -68,12 +72,27 @@ class ProfileSaleOffersController extends Controller
 
         if(count($catalogLevelTwoIdsArray) == 0) {
             return back()
+                ->withErrors([
+                    'commonError' => 'Не выбрана категория!',
+                ])
+                ->withInput();
+        }
+
+        $isCatalogLevelOneItemCreated = checkIsCatalogLevelOneItemCreated($request);
+
+        if($isCatalogLevelOneItemCreated) {
+            return back()
+                ->withErrors([
+                    'commonError' => 'У Вас уже создано торговое предложение с указанной категорией!',
+                ])
                 ->withInput();
         }
 
         $validator = getProfileSaleOffersValidator($request);
 
         if($validator->fails()) {
+            $validator->errors()->add('commonError', 'Ошибки при заполнении формы! Пожалуйста, проверьте правильность заполнения формы!');
+
             return back()
                 ->withErrors($validator)
                 ->withInput();
@@ -126,12 +145,27 @@ class ProfileSaleOffersController extends Controller
 
         if(count($catalogLevelTwoIdsArray) == 0) {
             return back()
+                ->withErrors([
+                    'commonError' => 'Не выбрана категория!',
+                ])
+                ->withInput();
+        }
+
+        $isCatalogLevelOneItemCreated = checkIsCatalogLevelOneItemCreated($request, $id);
+
+        if($isCatalogLevelOneItemCreated) {
+            return back()
+                ->withErrors([
+                    'commonError' => 'У Вас уже создано торговое предложение с указанной категорией!',
+                ])
                 ->withInput();
         }
 
         $validator = getProfileSaleOffersValidator($request);
 
         if($validator->fails()) {
+            $validator->errors()->add('commonError', 'Ошибки при заполнении формы! Пожалуйста, проверьте правильность заполнения формы!');
+
             return back()
                 ->withErrors($validator)
                 ->withInput();

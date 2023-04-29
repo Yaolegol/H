@@ -9,6 +9,10 @@
     padding: 20px 40px 20px 20px;
     position: relative;
 
+    &__address-container {
+        .ellipsis(2);
+    }
+
     &__category-block {
         margin-top: 15px;
     }
@@ -79,6 +83,8 @@
     }
 
     &__price-container {
+        .ellipsis();
+
         margin-top: 15px;
     }
 
@@ -170,6 +176,10 @@
 
         &:hover {
             color: @black;
+        }
+
+        &_with-offset {
+            margin-top: 5px;
         }
     }
 }

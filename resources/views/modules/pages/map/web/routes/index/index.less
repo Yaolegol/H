@@ -109,7 +109,6 @@
 
         @media @tablet {
             margin: 20px 0 0;
-            padding-bottom: 100%;
         }
     }
 
@@ -121,11 +120,17 @@
         position: absolute;
         right: 0;
         top: 0;
+
+        @media @tablet {
+            position: static;
+        }
     }
 
     &__offers-container {
         flex: 1 1 auto;
         overflow: auto;
+        scrollbar-color: lightgrey darkgray;
+        scrollbar-width: thin;
 
         &::-webkit-scrollbar {
             background-color: lightgrey;
@@ -136,6 +141,18 @@
         &::-webkit-scrollbar-thumb {
             background: darkgray;
             border-radius: 8px;
+        }
+
+        @media @tablet {
+            max-height: 600px;
+
+            &::-webkit-scrollbar {
+                width: 4px;
+            }
+        }
+
+        @media @mobile_max_500 {
+            max-height: 450px;
         }
     }
 
@@ -158,6 +175,14 @@
     &__offers-header-description {
         color: @black_80;
         margin-top: 5px;
+    }
+
+    &__share-block {
+        margin-top: 5px;
+
+        @media @tablet {
+            text-align: center;
+        }
     }
 
     &__slider-container {

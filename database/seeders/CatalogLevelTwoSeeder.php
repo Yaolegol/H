@@ -2032,7 +2032,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'link' => 'chicken',
             'order' => 1,
             'catalog_level_one_id' => 21,
-            'title' => 'Курицы',
+            'title' => 'Куры',
         ],
         [
             'image' => 'public/catalog/levelOne/items/farming/images/main/sub/turkey/1.jpeg',
@@ -2072,7 +2072,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'link' => 'goat',
             'order' => 1,
             'catalog_level_one_id' => 21,
-            'title' => 'Козлы',
+            'title' => 'Козы',
         ],
         [
             'image' => 'public/catalog/levelOne/items/farming/images/main/sub/fish/1.jpeg',
@@ -2107,7 +2107,7 @@ class CatalogLevelTwoSeeder extends Seeder
 
 
 
-        // Дрова, сено, удобрения
+        // Дрова, сено, удобрение, зерно
         [
             'image' => 'public/catalog/levelOne/items/hay/images/main/sub/firewood/1.jpeg',
             'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/closeup-shot-of-oak-and-beech-firewoods-stacked-on-each-other_14890434.htm#query=%D0%94%D1%80%D0%BE%D0%B2%D0%B0&position=1&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
@@ -2133,12 +2133,20 @@ class CatalogLevelTwoSeeder extends Seeder
             'title' => 'Навоз',
         ],
         [
+            'image' => 'public/catalog/levelOne/items/hay/images/main/sub/seed/1.jpeg',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/oats-peeled_1197007.htm#query=%D0%B7%D0%B5%D1%80%D0%BD%D0%BE&position=41&from_view=search&track=sph">Изображение от luis_molinero</a> на Freepik',
+            'link' => 'seed',
+            'order' => 1,
+            'catalog_level_one_id' => 22,
+            'title' => 'Зерно',
+        ],
+        [
             'image' => 'public/catalog/levelOne/items/hay/images/main/sub/round_timber/1.jpeg',
             'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/front-view-of-tree-trunks_11768201.htm#query=%D0%94%D1%80%D0%BE%D0%B2%D0%B0&position=5&from_view=search&track=sph">Freepik</a>',
             'link' => 'round_timber',
             'order' => 1,
             'catalog_level_one_id' => 22,
-            'title' => 'Кругляк',
+            'title' => 'Кругляк TEST',
         ],
         [
             'image' => 'public/catalog/levelOne/items/hay/images/main/sub/lumber/1.jpeg',

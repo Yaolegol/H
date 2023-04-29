@@ -7,7 +7,9 @@
         >Подробнее</a>
     </div>
     <button
-        class="button components-popup-cookie__button j-components-popup-cookie__button-accept"
+        class="components-popup-cookie__close-button j-components-popup-cookie__button-accept"
         type="button"
-    >Понятно</button>
+    >
+        @include('icons.close')
+    </button>
 </div>

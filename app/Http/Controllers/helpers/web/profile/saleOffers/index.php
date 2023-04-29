@@ -36,15 +36,24 @@ function DB_createSaleOffer($request, $userId) {
 }
 
 function DB_destroySaleOfferItem($user_id, $saleOfferId) {
+//    $saleOffer = Offer::where([
+//        ['user_id', $user_id],
+//        ['id', $saleOfferId]
+//    ])->with(['salePoints', 'usersFavorites']);
+//
+//    $saleOffer->first()->salePoints()->detach();
+//    $saleOffer->first()->usersFavorites()->detach();
+//    $saleOffer->first()->catalogLevelTwo()->detach();
+//    $saleOffer->delete();
+
     $saleOffer = Offer::where([
         ['user_id', $user_id],
-        ['id', $saleOfferId]
-    ])->with(['salePoints', 'usersFavorites']);
+        ['id', $saleOfferId],
+        ['is_removed', false],
+    ])->first();
 
-    $saleOffer->first()->salePoints()->detach();
-    $saleOffer->first()->usersFavorites()->detach();
-    $saleOffer->first()->catalogLevelTwo()->detach();
-    $saleOffer->delete();
+    $saleOffer->is_removed = true;
+    $saleOffer->save();
 }
 
 function DB_getUserSaleOfferItem($userId, $saleOfferId) {
@@ -61,13 +70,24 @@ function DB_getUserSaleOfferItem($userId, $saleOfferId) {
     return array_merge($saleOfferItem);
 }
 
+function DB_getUserSaleOfferItemByCLO($userId, $CLOId) {
+    return Offer::where([
+        ['user_id', $userId],
+        ['catalog_level_one_id', $CLOId],
+        ['is_removed', false],
+    ])->get()->first();
+}
+
 function DB_getUserSaleOffers()
 {
     try {
         $authUser = Auth::user();
         $user_id = $authUser->id;
 
-        return Offer::where('user_id', $user_id)->with(
+        return Offer::where([
+            ['user_id', $user_id],
+            ['is_removed', false],
+        ])->with(
             [
                 'catalogLevelOne',
                 'catalogLevelTwo',
@@ -114,6 +134,25 @@ function DB_updateSaleOfferData($userId, $saleOfferId, $imagesArray) {
     }
 }
 
+function checkIsCatalogLevelOneItemCreated($request, $offerId = null) {
+    $authUser = Auth::user();
+    $authUserId = $authUser->id;
+
+    $CLOId = $request->input('catalog_level_one_id');
+
+    $offer = DB_getUserSaleOfferItemByCLO($authUserId, $CLOId);
+
+    if($offer === null) {
+        return false;
+    }
+
+    if($offerId === null) {
+        return true;
+    }
+
+    return (string) $offer->id !== $offerId;
+}
+
 function formatSaleOffersListItemsAssetsPath(&$saleOffersList) {
     foreach ($saleOffersList as &$saleOffer) {
         $saleOffer['photoArray'] = getAssetArrayFormatted($saleOffer, 'photo', 3);
@@ -148,19 +187,19 @@ function getProfileSaleOffersValidator($request) {
     return Validator::make(
         $request->all(),
         [
-            'address' => ['max:100'],
+            'address' => ['max:1000'],
             'catalog_level_one_id' => ['required'],
-            'contact_person' => ['max:100'],
-            'delivery_description' => ['max:100'],
-            'description' => ['max:250'],
+            'contact_person' => ['max:1000'],
+            'delivery_description' => ['max:1000'],
+            'description' => ['max:1000'],
             'phone' => ['required', 'max:16'],
             'photo_1' => ['image', 'max:10240'],
             'photo_2' => ['image', 'max:10240'],
             'photo_3' => ['image', 'max:10240'],
-            'price' => ['required', 'max:10'],
-            'price_description' => ['max:250'],
-            'title' => ['required', 'max:50'],
-            'working_hours' => ['max:100'],
+            'price' => ['required', 'max:1000'],
+            'price_description' => ['max:1000'],
+            'title' => ['required', 'max:1000'],
+            'working_hours' => ['max:1000'],
         ],
         [
             'image' => 'Поле должно содержать картинку, размером не более 10Мб',
@@ -268,7 +307,7 @@ function tryDestroySaleOfferDataInDB($saleOfferId)
         $authUser = Auth::user();
         $user_id = $authUser->id;
 
-        STORAGE_destroySaleOfferData($user_id, $saleOfferId);
+//        STORAGE_destroySaleOfferData($user_id, $saleOfferId);
         DB_destroySaleOfferItem($user_id, $saleOfferId);
 
         return true;

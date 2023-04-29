@@ -3,6 +3,7 @@ import 'views/modules/common/catalog/modal';
 import 'views/modules/common/header/search';
 import 'views/modules/common/location/components/buttons/iconButton';
 import 'views/modules/common/location/components/modal';
+import 'views/modules/common/map/common/components/filters/product';
 import 'views/modules/common/profile/modal';
 import 'views/modules/pages/favorites/shared/components/header-counter';
 import 'views/modules/pages/favorites/shared/components/section';

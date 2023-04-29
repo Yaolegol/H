@@ -5,6 +5,7 @@ use App\Models\SalePoint;
 function DB_getSalePointsNotApproved() {
     try {
         return SalePoint::where([
+            ['is_removed', false],
             ['is_approved', 0],
             ['approved_error_message', '=', null],
         ])->get()->toArray();

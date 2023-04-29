@@ -4,3 +4,5 @@ import 'views/components/inputs/phone';
 import 'views/modules/pages/auth/common/components/formItemContainer';
 import 'views/modules/pages/auth/common/components/layout/form';
 import 'views/modules/pages/auth/common/components/layout/page';
+import 'views/modules/pages/auth/routes/login/components/forgotPassword';
+import './index.less';

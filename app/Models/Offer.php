@@ -38,6 +38,7 @@ class Offer extends Model
         'organization_id',
         'catalog_level_one_id',
         'catalog_level_two_id',
+        'is_removed',
     ];
 
     protected $table = 'offer';
@@ -61,6 +62,7 @@ class Offer extends Model
     {
         return $this->belongsTo(Organization::class)->where([
             'is_approved' => true,
+            'is_removed' => false,
         ]);
     }
 
@@ -68,6 +70,7 @@ class Offer extends Model
     {
         return $this->belongsToMany(SalePoint::class, 'sale_point_offer', 'offer_id', 'sale_point_id')->where([
             'is_approved' => true,
+            'is_removed' => false,
         ]);
     }
 

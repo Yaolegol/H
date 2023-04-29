@@ -89,7 +89,7 @@
                     <a
                         class="modules-pages-offers-routes-show__info-item-description modules-pages-offers-routes-show__info-item-description_link"
                         href="{{$offer['user']['sellerLink']}}"
-                    >{{$offer['user']['name']}}</a>
+                    >{{!$offer['user']['name'] ? 'имя не указано' : $offer['user']['name']}}</a>
                 </div>
                 @isset($offer['organization'])
                     @if($offer['organization']['is_approved'] == 1)
@@ -144,7 +144,7 @@
                                 @endif
                                 @if(!empty($offer['organization']['photoArray']))
                                     <div class="modules-pages-offers-routes-show__info-item-container">
-                                        <div class="modules-pages-offers-routes-show__info-item-title">Фото оргинизации:</div>
+                                        <div class="modules-pages-offers-routes-show__info-item-title">Фото организации:</div>
                                         <div class="modules-pages-offers-routes-show__slider-container">
                                             @component('components.sliders.base.slider.index')
                                                 @foreach($offer['organization']['photoArray'] as $photoImg)

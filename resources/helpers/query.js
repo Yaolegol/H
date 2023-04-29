@@ -18,8 +18,12 @@ export const getQueryData = () => {
     }, {});
 }
 
-export const getUrlWithNewQueryData = ({queryDataArray, removeQueryWithoutValue = true}) => {
-    const url = new URL(window.location);
+export const getUrlWithNewQueryData = ({
+    defaultUrl = window.location,
+    queryDataArray,
+    removeQueryWithoutValue = true
+}) => {
+    const url = new URL(defaultUrl);
     const queryString = window.location.search;
     const urlSearchParams = new URLSearchParams(queryString);
 

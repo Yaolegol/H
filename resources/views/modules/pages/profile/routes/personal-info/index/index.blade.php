@@ -32,7 +32,7 @@
                                 </div>
                             @else
                                 <div class="modules-pages-profile-routes-personal-info-index__moderation-label {{$userData['is_approved'] ? 'modules-pages-profile-routes-personal-info-index__moderation-label_approved' : ''}}">
-                                    {{$userData['is_approved'] ? 'Опубликовано' : 'На проверке'}}
+                                    {{$userData['is_approved'] ? 'Сохранено' : 'На проверке'}}
                                     <div class="modules-pages-profile-routes-personal-info-index__moderation-hint">
                                         <div>Ваше сообщение проверяется администрацией сайта!</div>
                                         <div class="modules-pages-profile-routes-personal-info-index__moderation-hint-container">После проверки оно будет опубликовано или отклонено с указанием причины</div>
@@ -43,24 +43,6 @@
                             @endif
                         </div>
                     @endif
-                    <div class="modules-pages-profile-routes-personal-info-index__seller-link-container">
-                        <div class="modules-pages-profile-routes-personal-info-index__moderation-label modules-pages-profile-routes-personal-info-index__moderation-label_light-green">
-                            <div class="modules-pages-profile-routes-personal-info-index__seller-link-title">Поздравляем!</div>
-                            <div class="modules-pages-profile-routes-personal-info-index__seller-link-footer">Ваша персональная страница:</div>
-                            <div>
-                                <a
-                                    class="modules-pages-profile-routes-personal-info-index__seller-link"
-                                    href="/sellers/{{$userData['id']}}"
-                                >
-                                    {{request()->getHost()}}/sellers/{{$userData['id']}}
-                                </a>
-                            </div>
-                            <div class="modules-pages-profile-routes-personal-info-index__seller-link-footer">
-                                Отправьте эту ссылку покупателям, чтобы Вас можно было легко найти на сайте!
-                            </div>
-                        </div>
-                    </div>
-
                     <form
                         action="/profile/personal-info/edit-personal-data"
                         enctype="multipart/form-data"
@@ -180,6 +162,44 @@
                             </div>
                             @include('components.form.error.index', [
                                 'message' => session('commonChangePasswordError'),
+                            ])
+                        </form>
+                    </div>
+                </div>
+                <div class="modules-pages-profile-routes-personal-info-index__section-container modules-pages-profile-routes-personal-info-index__section-container_large-offset">
+                    <div class="modules-pages-profile-routes-personal-info-index__change-password-container">
+                        <div class="modules-pages-profile-routes-personal-info-index__title-container">
+                            <h4 class="modules-pages-profile-routes-personal-info-index__title">Удалить профиль</h4>
+                            <div>* отмечены обязательные для заполнения поля</div>
+                            <div class="modules-pages-profile-routes-personal-info-index__delete-description">После удаления профиля будут удалены все Ваши организации, торговые точки, торговые предложения и иная информация!</div>
+                        </div>
+                        <form
+                            action="/profile/personal-info/destroy"
+                            method="POST"
+                        >
+                            @csrf
+                            <div class="modules-pages-profile-routes-personal-info-index__info-title">Текущий пароль: *</div>
+                            <div class="modules-pages-profile-routes-personal-info-index__info-description">
+                                <div class="modules-pages-profile-routes-personal-info-index__input-container">
+                                    @include('components.inputs.form.index', [
+                                    'name' => 'current_password',
+                                    'placeholder' => 'Текущий пароль',
+                                    'required' => true,
+                                    'type' => 'password'
+                                ])
+                                    @include('components.form.error.index', [
+                                        'message' => $errors->first('current_password'),
+                                    ])
+                                </div>
+                            </div>
+                            <div class="modules-pages-profile-routes-personal-info-index__send-button-container">
+                                <button class="button button_hover_red">Удалить</button>
+                            </div>
+                            <div class="modules-pages-profile-routes-personal-info-index__info-container-required">
+                                <div>* Для удаления необходимо заполнить все обязательные поля</div>
+                            </div>
+                            @include('components.form.error.index', [
+                                'message' => session('commonDestroyError'),
                             ])
                         </form>
                     </div>

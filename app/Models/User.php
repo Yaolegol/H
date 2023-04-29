@@ -24,6 +24,8 @@ class User extends Authenticatable
         'password',
         'is_approved',
         'is_changed',
+        'is_removed',
+        'phone_before_removed',
         'approved_error_message',
     ];
 
@@ -54,6 +56,7 @@ class User extends Authenticatable
         return $this->belongsToMany(Offer::class, 'users_favorites_offers', 'user_id', 'offer_id')
             ->where([
                 'is_approved' => true,
+                'is_removed' => false,
             ])
             ->with(
             [
@@ -74,21 +77,23 @@ class User extends Authenticatable
     public function offers()
     {
         return $this->hasMany(Offer::class)->where([
-            'is_approved' => true,
+            ['is_removed', false]
         ]);
     }
 
     public function organizations()
     {
         return $this->hasMany(Organization::class)->where([
-            ['is_approved', 1]
+            ['is_approved', 1],
+            ['is_removed', false]
         ]);
     }
 
     public function salePoints()
     {
         return $this->hasMany(SalePoint::class)->where([
-            ['is_approved', 1]
+            ['is_approved', 1],
+            ['is_removed', false]
         ]);
     }
 }

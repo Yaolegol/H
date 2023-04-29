@@ -5,6 +5,7 @@ use App\Http\Controllers\controllers\web\admin\offers\AdminOffersController;
 use App\Http\Controllers\controllers\web\admin\organizations\AdminOrganizationsController;
 use App\Http\Controllers\controllers\web\admin\salePoints\AdminSalePointsController;
 use App\Http\Controllers\controllers\web\admin\users\AdminUsersController;
+use App\Http\Controllers\controllers\web\authorization\forgotPassword\ForgotPasswordController;
 use App\Http\Controllers\controllers\web\authorization\login\LoginController;
 use App\Http\Controllers\controllers\web\authorization\logout\LogoutController;
 use App\Http\Controllers\controllers\web\authorization\register\RegisterController;
@@ -44,6 +45,10 @@ Route::get('/offers/{id}', [OffersController::class, 'show']);
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'login']);
 
+Route::get('/forgot-password', [ForgotPasswordController::class, 'index']);
+Route::post('/forgot-password/sendSms', [ForgotPasswordController::class, 'sendSms']);
+Route::post('/forgot-password/confirmCode', [ForgotPasswordController::class, 'confirmCode']);
+
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register/sendSms', [RegisterController::class, 'sendSms']);
 Route::post('/register/confirmCode', [RegisterController::class, 'confirmCode']);
@@ -81,6 +86,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile/personal-info', [ProfilePersonalDataController::class, 'index']);
     Route::post('/profile/personal-info/edit-personal-data', [ProfilePersonalDataController::class, 'editPersonalData']);
     Route::post('/profile/personal-info/edit-password', [ProfilePersonalDataController::class, 'editPassword']);
+    Route::post('/profile/personal-info/destroy', [ProfilePersonalDataController::class, 'destroy']);
 
     Route::get('/profile/organization-info/create', [ProfileOrganizationDataController::class, 'create']);
     Route::get('/profile/organization-info/destroy/{id}', [ProfileOrganizationDataController::class, 'destroy']);

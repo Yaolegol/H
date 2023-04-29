@@ -17,6 +17,7 @@ class SalePoint extends Model
     protected $fillable = [
         'approved_error_message',
         'title',
+        'description',
         'address',
         'working_hours',
         'contact_person',
@@ -26,7 +27,8 @@ class SalePoint extends Model
         'photo_3',
         'map_marker_lat',
         'map_marker_lng',
-        'user_id'
+        'user_id',
+        'is_removed',
     ];
 
     protected $table = 'sale_point';

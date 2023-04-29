@@ -29,11 +29,17 @@
                         'className' => 'j-modules-common-geo-components-button',
                         'dataset' => [],
                         'defaultTitle' => 'Показать рядом со мной',
+                        'icon' => 'icons.location',
                         'title' => 'Показать рядом со мной',
                     ])
                 </div>
             </div>
         </div>
+        @include('components.info.common.index', [
+            'className' => 'modules-pages-map-web-routes-index__share-block',
+            'id' => 'local_storage__info_share',
+            'text' => 'Мы только открылись! Поделитесь ссылкой на сайт в социальных сетях, чтобы было больше продуктов!',
+        ])
         <div class="modules-pages-map-web-routes-index__map-area">
             <div class="modules-pages-map-web-routes-index__map-block">
                 @include('modules.common.map.yandex.components.viewAll.index')

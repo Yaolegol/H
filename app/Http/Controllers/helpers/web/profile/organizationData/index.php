@@ -24,12 +24,21 @@ function DB_createOrganization($request, $authUserId) {
 
 function DB_destroyOrganizationItem($user_id, $organizationId) {
     try {
+//        $organization = Organization::where([
+//            ['user_id', $user_id],
+//            ['id', $organizationId]
+//        ]);
+//
+//        $organization->delete();
+
         $organization = Organization::where([
             ['user_id', $user_id],
-            ['id', $organizationId]
-        ]);
+            ['id', $organizationId],
+            ['is_removed', false]
+        ])->first();
 
-        $organization->delete();
+        $organization->is_removed = true;
+        $organization->save();
     } catch(\Exception $err) {
         abort(500);
     }
@@ -55,6 +64,7 @@ function DB_getUserOrganizationsList($isApproved = false)
 
         $filter = [
             ['user_id', $authUserId],
+            ['is_removed', false]
         ];
 
         if($isApproved) {
@@ -143,13 +153,13 @@ function getProfileOrganizationDataValidator($request) {
             'certificate_5' => ['image', 'max:10240'],
             'email' => ['email', 'max:25', 'nullable'],
             'inn' => ['required', 'max:25'],
-            'legal_address' => ['max:100'],
+            'legal_address' => ['max:1000'],
             'phone' => ['max:16'],
             'photo_1' => ['image', 'max:10240'],
             'photo_2' => ['image', 'max:10240'],
             'photo_3' => ['image', 'max:10240'],
-            'real_address' => ['max:100'],
-            'title' => ['required', 'max:50'],
+            'real_address' => ['max:1000'],
+            'title' => ['required', 'max:1000'],
         ],
         [
             'email' => 'Поле должно содержать email',
@@ -234,6 +244,12 @@ function tryStoreOrganizationData($request) {
     $authUser = Auth::user();
     $authUserId = $authUser->id;
 
+    $userOrganizationList = DB_getUserOrganizationsList();
+
+    if(count($userOrganizationList) >= 5) {
+        return false;
+    }
+
     $createdOrganizationData = DB_createOrganization($request, $authUserId);
     $createdOrganizationId = $createdOrganizationData['id'];
     $imagesArray = getOrganizationImagesData($request, $authUserId, $createdOrganizationId);
@@ -248,7 +264,7 @@ function tryDestroyOrganizationDataInDB($organizationId)
     $authUser = Auth::user();
     $user_id = $authUser->id;
 
-    STORAGE_destroyOrganizationData($user_id, $organizationId);
+//    STORAGE_destroyOrganizationData($user_id, $organizationId);
     DB_destroyOrganizationItem($user_id, $organizationId);
 
     return true;

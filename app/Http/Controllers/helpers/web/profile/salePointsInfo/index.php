@@ -8,6 +8,7 @@ function DB_createSalePoint($request, $userId) {
     try {
         $data = [
             'title' => $request->input('title') ?? '',
+            'description' => $request->input('description') ?? '',
             'address' => $request->input('address') ?? '',
             'working_hours' => $request->input('working_hours') ?? '',
             'contact_person' => $request->input('contact_person') ?? '',
@@ -25,13 +26,22 @@ function DB_createSalePoint($request, $userId) {
 
 function DB_destroySalePointItem($userId, $salePointId) {
     try {
+//        $salePoint = SalePoint::where([
+//            ['user_id', $userId],
+//            ['id', $salePointId],
+//        ])->with('offers');
+//
+//        $salePoint->first()->offers()->detach();
+//        $salePoint->delete();
+
         $salePoint = SalePoint::where([
             ['user_id', $userId],
-            ['id', $salePointId]
-        ])->with('offers');
+            ['id', $salePointId],
+            ['is_removed', false]
+        ])->with('offers')->first();
 
-        $salePoint->first()->offers()->detach();
-        $salePoint->delete();
+        $salePoint->is_removed = true;
+        $salePoint->save();
     } catch(\Exception $error) {
         return abort(500);
     }
@@ -58,6 +68,7 @@ function DB_getUserSalePoints($approved = false)
 
         $filter = [
             ['user_id', $authUserId],
+            ['is_removed', false],
         ];
 
         if($approved) {
@@ -87,10 +98,10 @@ function getProfileSalePointsValidator($request) {
     return Validator::make(
         $request->all(),
         [
-            'title' => ['required', 'max:50'],
-            'address' => ['required', 'max:100'],
-            'working_hours' => ['max:100'],
-            'contact_person' => ['max:100'],
+            'title' => ['required', 'max:1000'],
+            'address' => ['required', 'max:1000'],
+            'working_hours' => ['max:1000'],
+            'contact_person' => ['max:1000'],
             'phone' => ['max:16'],
             'photo_1' => ['image', 'max:10240'],
             'photo_2' => ['image', 'max:10240'],
@@ -168,7 +179,7 @@ function tryDestroySalePointDataInDB($salePointId)
     $authUser = Auth::user();
     $user_id = $authUser->id;
 
-    STORAGE_destroySalePointData($user_id, $salePointId);
+//    STORAGE_destroySalePointData($user_id, $salePointId);
     DB_destroySalePointItem($user_id, $salePointId);
 
     return true;
@@ -178,6 +189,12 @@ function tryStoreSalePointDataInDB($request)
 {
     $authUser = Auth::user();
     $user_id = $authUser->id;
+
+    $userSalePointsList = DB_getUserSalePoints();
+
+    if(count($userSalePointsList) >= 50) {
+        return false;
+    }
 
     $createdSalePointData = DB_createSalePoint($request, $user_id);
     $createdSalePointId = $createdSalePointData['id'];

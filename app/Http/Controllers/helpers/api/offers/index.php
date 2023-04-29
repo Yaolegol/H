@@ -28,6 +28,7 @@ function API_DB_getOffers($filters = []) {
     try {
         $filter = [
             'is_approved' => 1,
+            'is_removed' => 0,
         ];
         $filtersData = array_merge($filter, $filters);
 

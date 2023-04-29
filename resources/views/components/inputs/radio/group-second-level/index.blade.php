@@ -12,7 +12,10 @@
             *
         @endisset
     </div>
-    <div class="components-inputs-radio-group-second-level__content-block j-components-inputs-radio-checkbox-group">
+    <div
+        class="components-inputs-radio-group-second-level__content-block j-components-inputs-radio-checkbox-group"
+        data-listen-group-name="{{$listenGroupName}}"
+    >
         <input
             @foreach($contentList as $contentItem)
                 @foreach($contentItem['content'] as $contentItemContent)

@@ -6,19 +6,51 @@
     color: @white;
     padding: 20px;
 
+    @media @tablet {
+        text-align: center;
+    }
+
+    &__contacts-area {
+        display: flex;
+        justify-content: space-between;
+
+        @media @tablet {
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+    }
+
+    &__contacts-block-right {
+        text-align: right;
+
+        @media @tablet {
+            margin-top: 15px;
+            text-align: center;
+        }
+    }
+
     &__copyright-container {
-        @media @mobile {
+        @media @tablet {
             margin-top: 15px;
         }
     }
 
     &__info-container {
+        align-items: flex-end;
         display: flex;
         justify-content: space-between;
+        margin-top: 20px;
 
-        @media @mobile {
+        @media @tablet {
+            align-items: initial;
             flex-direction: column;
             justify-content: flex-start;
+        }
+    }
+
+    &__legal-container {
+        @media @tablet {
+            margin-top: 15px;
         }
     }
 

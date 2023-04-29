@@ -13,6 +13,7 @@ require_once(app_path() . '/Http/Controllers/helpers/common/assets/index.php');
 require_once(app_path() . '/Http/Controllers/helpers/common/catalog/index.php');
 require_once(app_path() . '/Http/Controllers/helpers/common/user/index.php');
 require_once(app_path() . '/Http/Controllers/helpers/web/profile/personalData/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/web/authorization/index.php');
 
 class ProfilePersonalDataController extends Controller
 {
@@ -86,6 +87,37 @@ class ProfilePersonalDataController extends Controller
 
         return back()->with(
             ['commonChangePasswordError' => 'Неверный пароль']
+        );
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @return Response
+     */
+    public function destroy(Request $request)
+    {
+        $currentPassword = $request->input('current_password');
+        $isAuth = checkAuthUserPassword($currentPassword);
+
+        if($isAuth) {
+            $isDestroyed = DB_tryDestroyProfile();
+
+            if(!$isDestroyed) {
+                abort(500);
+            }
+
+            $isLogout = DB_tryLogoutUser($request);
+
+            if(!$isLogout) {
+                abort(500);
+            }
+
+            return redirect('/');
+        }
+
+        return back()->with(
+            ['commonDestroyError' => 'Неверный пароль']
         );
     }
 }
