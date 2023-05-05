@@ -1074,7 +1074,9 @@
   width: 100%;
 }
 .factory-cards-offer-map__image-block {
+  display: flex;
   flex: 0 0 auto;
+  flex-direction: column;
   width: 150px;
 }
 @media screen and (max-width: 1440px) {
@@ -1121,6 +1123,9 @@
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   font-weight: 800;
+}
+.factory-cards-offer-map__rating-container {
+  margin-top: auto;
 }
 .factory-cards-offer-map__rating-section {
   margin-top: 20px;

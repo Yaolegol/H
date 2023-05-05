@@ -116,6 +116,7 @@ export class MapOfferCard {
                             href="${productLink}"
                         ></a>
                     </div>
+                    <div class="factory-cards-offer-map__rating-container">Рейтинг</div>
                 </div>
                 <div class="factory-cards-offer-map__content-block">
                     <div class="factory-cards-offer-map__info-section">

@@ -46,7 +46,9 @@
     }
 
     &__image-block {
+        display: flex;
         flex: 0 0 auto;
+        flex-direction: column;
         width: 150px;
 
         @media @laptop {
@@ -96,6 +98,10 @@
         .ellipsis();
 
         font-weight: 800;
+    }
+
+    &__rating-container {
+        margin-top: auto;
     }
 
     &__rating-section {
