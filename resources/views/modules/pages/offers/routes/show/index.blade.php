@@ -163,6 +163,9 @@
                     @endif
                 @endisset
             </div>
+            <div class="modules-pages-offers-routes-show__additional-info-block">
+                Рейтинг
+            </div>
         </div>
     </div>
 </div>

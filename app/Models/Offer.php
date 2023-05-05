@@ -66,6 +66,11 @@ class Offer extends Model
         ]);
     }
 
+    public function rating()
+    {
+        return $this->belongsToMany(RatingForOffer::class, 'offer_rating_for_offer', 'offer_id', 'rating_for_offer_id');
+    }
+
     public function salePoints()
     {
         return $this->belongsToMany(SalePoint::class, 'sale_point_offer', 'offer_id', 'sale_point_id')->where([
