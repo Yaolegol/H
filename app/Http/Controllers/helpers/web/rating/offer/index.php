@@ -43,6 +43,7 @@ function DB_updateOfferRating($request, $id) {
             ['offer_id', $id],
             ['user_id', $user->id],
         ])->update([
+            'comment' => $request->input('comment'),
             'value' => (int) $request->input('value'),
         ]);
 
@@ -71,11 +72,13 @@ function getStoreOfferRatingValidator($request) {
     return Validator::make(
         $request->all(),
         [
+            'comment' => ['max:1000'],
             'value' => ['required', 'integer', 'between:1,5'],
         ],
         [
             'between' => 'Поле должно содержать значение от 1 до 5',
             'integer' => 'Поле должно содержать число',
+            'max' => 'Поле должно содержать не более 1000 символов',
             'required' => 'Поле обязательно для заполнения',
         ]
     );
@@ -85,11 +88,13 @@ function getUpdateOfferRatingValidator($request) {
     return Validator::make(
         $request->all(),
         [
+            'comment' => ['max:1000'],
             'value' => ['required', 'integer', 'between:1,5'],
         ],
         [
             'between' => 'Поле должно содержать значение от 1 до 5',
             'integer' => 'Поле должно содержать число',
+            'max' => 'Поле должно содержать не более 1000 символов',
             'required' => 'Поле обязательно для заполнения',
         ]
     );
