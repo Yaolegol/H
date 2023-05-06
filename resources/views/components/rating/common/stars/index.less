@@ -1,0 +1,19 @@
+@import (reference) '~styles/adaptive';
+@import (reference) '~styles/colors';
+
+.components-rating-common-stars {
+    display: flex;
+
+    &__button {
+        background: none;
+        color: @yellow;
+        height: 24px;
+        outline: none;
+        padding: 0;
+        width: 24px;
+
+        &.active ~ & {
+            color: @black_10;
+        }
+    }
+}

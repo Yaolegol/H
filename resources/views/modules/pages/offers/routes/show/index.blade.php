@@ -164,7 +164,18 @@
                 @endisset
             </div>
             <div class="modules-pages-offers-routes-show__additional-info-block">
-                Рейтинг
+                <div>Рейтинг</div>
+                <div>
+                    @component('components.rating.common.controller.index', [
+                        'isUpdate' => count($ratingData) > 0,
+                        'offerId' => $offer['id'],
+                    ])
+                        @include('components.rating.common.stars.index', [
+                            'defaultValue' => $ratingData['value'] ?? 5,
+                        ])
+                        <button>send</button>
+                    @endcomponent
+                </div>
             </div>
         </div>
     </div>

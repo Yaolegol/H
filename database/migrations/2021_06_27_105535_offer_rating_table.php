@@ -13,12 +13,14 @@ class OfferRatingTable extends Migration
      */
     public function up()
     {
-        Schema::create('offer_rating_for_offer', function (Blueprint $table) {
+        Schema::create('offer_rating', function (Blueprint $table) {
             $table->id();
+            $table->integer('value');
+            $table->text('comment')->nullable();
+            $table->bigInteger('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->bigInteger('offer_id')->unsigned()->index();
             $table->foreign('offer_id')->references('id')->on('offer');
-            $table->bigInteger('rating_for_offer_id')->unsigned()->index();
-            $table->foreign('rating_for_offer_id')->references('id')->on('rating_for_offer');
             $table->timestamps();
         });
     }

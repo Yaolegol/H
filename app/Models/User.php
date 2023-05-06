@@ -89,6 +89,11 @@ class User extends Authenticatable
         ]);
     }
 
+    public function offerRating()
+    {
+        return $this->hasMany(OfferRating::class);
+    }
+
     public function salePoints()
     {
         return $this->hasMany(SalePoint::class)->where([

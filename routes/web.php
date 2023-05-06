@@ -19,6 +19,7 @@ use App\Http\Controllers\controllers\web\profile\organizationData\ProfileOrganiz
 use App\Http\Controllers\controllers\web\profile\personalData\ProfilePersonalDataController;
 use App\Http\Controllers\controllers\web\profile\saleOffers\ProfileSaleOffersController;
 use App\Http\Controllers\controllers\web\profile\salePointsInfo\ProfileSalePointsController;
+use App\Http\Controllers\controllers\web\rating\offer\OfferRatingController;
 use App\Http\Controllers\controllers\web\sellers\SellersController;
 use Illuminate\Support\Facades\Route;
 
@@ -80,6 +81,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/favorites/products', [FavoritesController::class, 'products']);
     Route::get('/favorites/products/add/{id}', [FavoritesController::class, 'productsAdd']);
     Route::get('/favorites/products/remove/{id}', [FavoritesController::class, 'productsRemove']);
+
+    Route::post('/offer/rating', [OfferRatingController::class, 'store']);
+    Route::put('/offer/rating/{id}', [OfferRatingController::class, 'update']);
 
     Route::get('/profile', [ProfileController::class, 'index']);
 
