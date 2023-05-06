@@ -23,6 +23,7 @@ function DB_storeOfferRating(Request $request) {
 
     try {
         OfferRating::create([
+            'comment' => $request->input('comment'),
             'value' => (int) $request->input('value'),
             'user_id' => $user->id,
             'offer_id' => (int) $request->input('offer_id'),

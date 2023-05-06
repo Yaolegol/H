@@ -163,17 +163,27 @@
                     @endif
                 @endisset
             </div>
-            <div class="modules-pages-offers-routes-show__additional-info-block">
-                <div>Рейтинг</div>
-                <div>
+            <div class="modules-pages-offers-routes-show__rating-block">
+                <h4>Оценить</h4>
+                <div class="modules-pages-offers-routes-show__rating-container">
                     @component('components.rating.common.controller.index', [
                         'isUpdate' => count($ratingData) > 0,
                         'offerId' => $offer['id'],
                     ])
-                        @include('components.rating.common.stars.index', [
-                            'defaultValue' => $ratingData['value'] ?? 5,
-                        ])
-                        <button>send</button>
+                        <div class="modules-pages-offers-routes-show__rating-item modules-pages-offers-routes-show__rating-item_center">
+                            @include('components.rating.common.stars.index', [
+                                'defaultValue' => $ratingData['value'] ?? 5,
+                            ])
+                        </div>
+                        <div class="modules-pages-offers-routes-show__rating-item">
+                            @include('components.textarea.common.index', [
+                                'defaultValue' => $ratingData['comment'] ?? '',
+                                'name' => 'comment',
+                            ])
+                        </div>
+                        <div class="modules-pages-offers-routes-show__rating-footer">
+                            <button class="modules-pages-offers-routes-show__rating-submit-button">Отправить</button>
+                        </div>
                     @endcomponent
                 </div>
             </div>

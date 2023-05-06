@@ -27,9 +27,10 @@ class RatingController {
     sendRequest = async (e) => {
         const form = e.currentTarget;
 
-        const {offer_id, value} = form.elements;
+        const {comment, offer_id, value} = form.elements;
 
         const body = {
+            comment: comment.value,
             offer_id: offer_id.value,
             value: value.value,
         }
