@@ -28,6 +28,7 @@ class RatingStars {
     init = () => {
         this.activeButton = this.buttonsList[this.defaultValue - 1];
         this.activeButton.classList.add('active');
+        this.hiddenInput.value = this.defaultValue;
     }
 
     setActiveButton = (e) => {
