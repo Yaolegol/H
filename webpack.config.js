@@ -117,12 +117,29 @@ const createConfig = (env, argv) => {
                 // less
                 {
                     test: /\.less$/i,
-                    use: [MiniCssExtractPlugin.loader, "css-loader", "less-loader"],
+                    use: [
+                        MiniCssExtractPlugin.loader,
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                url: false,
+                            }
+                        },
+                        "less-loader"
+                    ],
                 },
                 // css
                 {
                     test: /\.css$/i,
-                    use: [MiniCssExtractPlugin.loader, 'css-loader'],
+                    use: [
+                        MiniCssExtractPlugin.loader,
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                url: false,
+                            }
+                        }
+                    ],
                 },
                 // html
                 {

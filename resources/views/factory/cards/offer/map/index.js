@@ -26,7 +26,7 @@ export class MapOfferCard {
         const isUserAuth = Boolean(document.querySelector('.j-user__auth'));
 
         const {catalog, product, salePoints, seller} = placemarkData.offer;
-        const {address, description, id, img, link: productLink, phone, price, price_description, title} = product;
+        const {address, description, id, img, link: productLink, phone, price, price_description, rating, title} = product;
         const {src} = img;
         const {link: sellerLink, name} = seller;
         const {catalog_level_one, catalog_level_two} = catalog;
@@ -116,7 +116,12 @@ export class MapOfferCard {
                             href="${productLink}"
                         ></a>
                     </div>
-                    <div class="factory-cards-offer-map__rating-container">Рейтинг</div>
+                    <div class="factory-cards-offer-map__rating-container">
+                        <div class="factory-cards-offer-map__rating-star-container">
+                            <div class="factory-cards-offer-map__rating-star-container-default"></div>
+                            <div class="factory-cards-offer-map__rating-star-container-active" style="width: ${20 * rating}px"></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="factory-cards-offer-map__content-block">
                     <div class="factory-cards-offer-map__info-section">
@@ -161,10 +166,6 @@ export class MapOfferCard {
                         </div>
                     </div>
                     <div class="factory-cards-offer-map__category-block">
-                        <div>
-                            <span class="factory-cards-offer-map__category-title">Категория:</span>
-                            ${catalog_level_one.title}
-                        </div>
                         <div>
                             <span class="factory-cards-offer-map__category-title">Товары:</span>
                             ${catalogCategoriesLevelTwoTitleList}

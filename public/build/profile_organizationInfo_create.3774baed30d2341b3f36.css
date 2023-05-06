@@ -953,37 +953,6 @@
   width: 100%;
 }
 
-
-.components-map-yandex-components-add-marker {
-  padding-bottom: 100%;
-  position: relative;
-}
-.components-map-yandex-components-add-marker__input {
-  appearance: none;
-  background: none;
-  border: none;
-  bottom: 0;
-  height: 0;
-  left: 0;
-  outline: none;
-  position: absolute;
-  visibility: hidden;
-  width: 0;
-}
-.components-map-yandex-components-add-marker__map-container {
-  bottom: 0;
-  left: 0;
-  max-height: 500px;
-  max-width: 500px;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-.components-map-yandex-components-add-marker__map-container_mobile-app {
-  height: 300px;
-  width: auto;
-}
-
 .modules-pages-profile-common-components-body-create__all-points-link {
   border-radius: 10px;
   box-shadow: 0 0 5px 0 #e6e6e6;
@@ -1185,13 +1154,6 @@
   }
 }
 
-.modules-pages-profile-routes-sale-points-edit__map-container {
-  margin-top: 15px;
-}
-.modules-pages-profile-routes-sale-points-edit__map-geo-container {
-  margin-top: 15px;
-}
-
 .button {
   background-color: #FFFFFF;
   border: 1px solid #e0e0e0;
@@ -1217,17 +1179,17 @@
 @font-face {
   font-family: 'Lato';
   font-weight: 400;
-  src: url(fonts/Lato-Regular.woff2);
+  src: url('../../../../../fonts/Lato/woff2/Lato-Regular.woff2');
 }
 @font-face {
   font-family: 'Lato';
   font-weight: 800;
-  src: url(fonts/Lato-Bold.woff2);
+  src: url('../../../../../fonts/Lato/woff2/Lato-Bold.woff2');
 }
 @font-face {
   font-family: 'Lato';
   font-style: italic;
-  src: url(fonts/Lato-Italic.woff2);
+  src: url('../../../../../fonts/Lato/woff2/Lato-Italic.woff2');
 }
 * {
   box-sizing: border-box;

@@ -102,8 +102,6 @@ export const getOfferBalloon = (offerData, markerId) => {
                 `
                 : ""}
             <div class="modules-common-map-yandex-components-balloon-offer-view-all__section-link">
-                <div class="modules-common-map-yandex-components-balloon-offer-view-all__section-seller-title">Категория:</div>
-                <div>${catalog_level_one.title}</div>
                 <div class="modules-common-map-yandex-components-balloon-offer-view-all__section-seller-title">Товары:</div>
                 <div>${catalogCategoriesLevelTwoTitleList}</div>
             </div>

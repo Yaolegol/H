@@ -68,7 +68,7 @@ class Offer extends Model
 
     public function rating()
     {
-        return $this->belongsToMany(RatingForOffer::class, 'offer_rating_for_offer', 'offer_id', 'rating_for_offer_id');
+        return $this->hasMany(OfferRating::class, 'offer_id');
     }
 
     public function salePoints()

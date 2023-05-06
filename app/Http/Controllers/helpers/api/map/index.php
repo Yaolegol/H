@@ -8,6 +8,7 @@ function apiGetAllOffers($filter, $catalogLevelTwoIds = []) {
         'catalogLevelTwo',
         'measure',
         'organization',
+        'rating',
         'salePoints',
         'user',
     ]);
@@ -77,6 +78,16 @@ function apiGetAllOffersMapMarkersDataFormatted($request) {
 }
 
 function apiGetOfferData($offerItem) {
+    $ratingValue = 0;
+    $ratingVotes = 0;
+
+    array_walk($offerItem['rating'], function($ratingData) use(&$ratingValue, &$ratingVotes) {
+        $ratingValue += (int) $ratingData['value'];
+        $ratingVotes += 1;
+    });
+
+    $productRating = $ratingValue / $ratingVotes;
+
     return [
         'catalog' => [
             'catalog_level_one' => [
@@ -103,6 +114,7 @@ function apiGetOfferData($offerItem) {
             'contact_person' => $offerItem['working_hours'],
             'delivery' => $offerItem['delivery'],
             'delivery_description'=> $offerItem['delivery_description'],
+            'rating'=> $productRating,
         ],
         'salePoints' => apiGetSalePointsData($offerItem),
         'seller' => [
