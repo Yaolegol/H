@@ -6,8 +6,8 @@ function DB_getOffersRatingNotApproved() {
     try {
         return OfferRating::where([
             ['is_removed', false],
-            ['is_approved', 0],
-            ['approved_error_message', '=', null],
+            ['is_comment_approved', 0],
+            ['approved_comment_error_message', '=', null],
         ])->get()->toArray();
     } catch(\Exception $err) {
         return abort(500);
@@ -19,8 +19,8 @@ function DB_updateOfferRatingApprovedStatus($id, $newStatus, $errorMessage = nul
         return OfferRating::where([
             ['id', $id],
         ])->update([
-            'is_approved' => $newStatus,
-            'approved_error_message' => $errorMessage,
+            'is_comment_approved' => $newStatus,
+            'approved_comment_error_message' => $errorMessage,
         ]);
     } catch(\Exception $err) {
         return abort(500);
