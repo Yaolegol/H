@@ -21,6 +21,9 @@ class CreateOfferRatingTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->bigInteger('offer_id')->unsigned()->index();
             $table->foreign('offer_id')->references('id')->on('offer');
+            $table->boolean('is_approved')->default(0);
+            $table->boolean('is_removed')->default(0);
+            $table->text('approved_error_message')->nullable();
             $table->timestamps();
         });
     }

@@ -15,6 +15,9 @@ class OfferRating extends Model
      * @var array
      */
     protected $fillable = [
+        'is_approved',
+        'is_removed',
+        'approved_error_message',
         'comment',
         'value',
         'user_id',
