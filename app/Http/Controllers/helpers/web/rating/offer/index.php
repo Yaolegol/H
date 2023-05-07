@@ -89,6 +89,18 @@ function calculateNewRating($offerData, $value) {
     ];
 }
 
+function calculateUpdateRating($offerData, $value, $userPrevRatingValue) {
+    $ratingValues = (double) $offerData['rating_values'];
+    $ratingVotes = (double) $offerData['rating_votes'];
+    $ratingValuesNew = $ratingValues - $userPrevRatingValue + $value;
+
+    return [
+        'rating' => $ratingValuesNew / $ratingVotes,
+        'rating_values' => $ratingValuesNew,
+        'rating_votes' => $ratingVotes,
+    ];
+}
+
 function checkIfOfferRatingExists($request) {
     $offerId = (int) $request->input('offer_id');
     $dataList = DB_getUserOfferRatingByOffer($offerId);
@@ -120,8 +132,22 @@ function updateOfferRating(Request $request, $id) {
     $offer_id = (int) $request->input('offer_id');
     $user = Auth::user();
     $userId = $user->id;
+    $userRatingDataList = $user->offerRating()->get()->toArray();
+    $userPrevRatingData = array_merge(...array_filter($userRatingDataList, function($data) use($offer_id) {
+        return $data['offer_id'] === $offer_id;
+    }));
+    $userPrevRatingValue = (int) $userPrevRatingData['value'];
 
-    return DB_updateOfferRating($userId, $offer_id, $value, $comment);
+    DB_updateOfferRating($userId, $offer_id, $value, $comment);
+
+    $_offerData = DB_getOffer($offer_id);
+    $offerData = $_offerData[0];
+
+    $ratingData = calculateUpdateRating($offerData, $value, $userPrevRatingValue);
+
+    DB_setOfferRating($offer_id, $ratingData['rating'], $ratingData['rating_values'], $ratingData['rating_votes']);
+
+    return true;
 }
 
 function getStoreOfferRatingValidator($request) {
