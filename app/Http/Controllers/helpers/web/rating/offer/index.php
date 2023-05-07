@@ -104,7 +104,8 @@ function storeOfferRating(Request $request) {
     $userId = $user->id;
 
     DB_storeOfferRating($userId, $offer_id, $value, $comment);
-    $offerData = DB_getOffer($offer_id);
+    $_offerData = DB_getOffer($offer_id);
+    $offerData = $_offerData[0];
 
     $ratingData = calculateNewRating($offerData, $value);
 

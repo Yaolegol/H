@@ -66,7 +66,7 @@ class Offer extends Model
         ]);
     }
 
-    public function rating()
+    public function ratingData()
     {
         return $this->hasMany(OfferRating::class, 'offer_id');
     }

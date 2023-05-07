@@ -8,7 +8,6 @@ function apiGetAllOffers($filter, $catalogLevelTwoIds = []) {
         'catalogLevelTwo',
         'measure',
         'organization',
-        'rating',
         'salePoints',
         'user',
     ]);
