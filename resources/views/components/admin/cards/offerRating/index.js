@@ -55,7 +55,7 @@ class AdminCard {
 
     sendApproveRequest = async () => {
         try {
-            const response = await fetch(`/admin/offerRating/approve/${this.offerId}`, {
+            const response = await fetch(`/admin/offers-rating/approve/${this.offerId}`, {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ class AdminCard {
         try {
             const body = JSON.stringify(data);
 
-            const response = await fetch(`/admin/offerRating/reject/${this.offerId}`, {
+            const response = await fetch(`/admin/offers-rating/reject/${this.offerId}`, {
                 body,
                 headers: {
                     'Accept': 'application/json',

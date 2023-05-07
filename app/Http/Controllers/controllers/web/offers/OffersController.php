@@ -53,13 +53,13 @@ class OffersController extends Controller
         $catalogFull = getCatalogFull();
         $offer = getOfferFormatted($id);
         $breadcrumbs = getOfferBreadcrumbs($offer);
-        $ratingData = getOfferRatingData($id);
+        $authUserRatingData = getAuthUserOfferRatingData($id);
 
         return view('pages.offers.show.index', [
             'breadcrumbs' => $breadcrumbs,
             'catalogHeader' => $catalogFull,
             'offer' => $offer,
-            'ratingData' => $ratingData,
+            'authUserRatingData' => $authUserRatingData,
         ]);
     }
 }

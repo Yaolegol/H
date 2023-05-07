@@ -18,6 +18,8 @@ function DB_getOffer($id)
             'catalogLevelTwo',
             'measure',
             'organization',
+            'ratingData',
+            'ratingData.userData',
             'salePoints',
             'user',
         ])->get()->toArray();
@@ -132,7 +134,7 @@ function getOffersPaginatedData($catalogLevelTwoItem, $searchCountry, $searchReg
     return formatOffersPaginatedData($offersPaginatedData);
 }
 
-function getOfferRatingData($id) {
+function getAuthUserOfferRatingData($id) {
     $authUser = Auth::user();
     $ratedOffers = $authUser->offerRating()->get()->toArray();
 

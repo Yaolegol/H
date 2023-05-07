@@ -25,4 +25,9 @@ class OfferRating extends Model
     ];
 
     protected $table = 'offer_rating';
+
+    public function userData()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
 }

@@ -1040,6 +1040,12 @@
 .modules-pages-offers-routes-show__additional-info-block {
   margin-top: 25px;
 }
+.modules-pages-offers-routes-show__comments-block {
+  margin-top: 50px;
+}
+.modules-pages-offers-routes-show__comments-container {
+  margin-top: 20px;
+}
 .modules-pages-offers-routes-show__content-area {
   margin: 50px auto 0;
   max-width: 800px;

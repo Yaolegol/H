@@ -167,17 +167,17 @@
                 <h4>Оценить</h4>
                 <div class="modules-pages-offers-routes-show__rating-container">
                     @component('components.rating.common.controller.index', [
-                        'isUpdate' => count($ratingData) > 0,
+                        'isUpdate' => count($authUserRatingData) > 0,
                         'offerId' => $offer['id'],
                     ])
                         <div class="modules-pages-offers-routes-show__rating-item modules-pages-offers-routes-show__rating-item_center">
                             @include('components.rating.common.stars.index', [
-                                'defaultValue' => $ratingData['value'] ?? 5,
+                                'defaultValue' => $authUserRatingData['value'] ?? 5,
                             ])
                         </div>
                         <div class="modules-pages-offers-routes-show__rating-item">
                             @include('components.textarea.common.index', [
-                                'defaultValue' => $ratingData['comment'] ?? '',
+                                'defaultValue' => $authUserRatingData['comment'] ?? '',
                                 'name' => 'comment',
                             ])
                         </div>
@@ -185,6 +185,17 @@
                             <button class="modules-pages-offers-routes-show__rating-submit-button">Отправить</button>
                         </div>
                     @endcomponent
+                </div>
+                <div class="modules-pages-offers-routes-show__comments-block">
+                    <h4>Отзыв</h4>
+                    <div class="modules-pages-offers-routes-show__comments-container">
+                        @foreach($offer['rating_data'] as $ratingData)
+                            <div>Пользователь: {{$ratingData['user_data']['name'] ?? 'Имя не указано'}}</div>
+                            <div>Оценка: {{$ratingData['value']}}</div>
+                            <div>Отзыв:</div>
+                            <div>{{$ratingData['comment']}}</div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
