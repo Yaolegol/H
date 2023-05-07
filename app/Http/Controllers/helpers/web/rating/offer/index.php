@@ -1,9 +1,20 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Models\Offer;
 use App\Models\OfferRating;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+
+function DB_getOffer($id) {
+    try {
+        return Offer::where([
+            ['id', $id],
+        ])->get()->toArray();
+    } catch(\Exception $err) {
+        abort(500);
+    }
+}
 
 function DB_getUserOfferRatingByOffer($id) {
     $user = Auth::user();
@@ -18,15 +29,29 @@ function DB_getUserOfferRatingByOffer($id) {
     }
 }
 
-function DB_storeOfferRating(Request $request) {
-    $user = Auth::user();
+function DB_setOfferRating($id, $rating, $ratingValues, $ratingVotes) {
+    try {
+        Offer::where([
+            ['id', $id],
+        ])->update([
+            'rating' => $rating,
+            'rating_values' => $ratingValues,
+            'rating_votes' => $ratingVotes,
+        ]);;
 
+        return true;
+    } catch(\Exception $err) {
+        abort(500);
+    }
+}
+
+function DB_storeOfferRating($userId, $offer_id, $value, $comment) {
     try {
         OfferRating::create([
-            'comment' => $request->input('comment'),
-            'value' => (int) $request->input('value'),
-            'user_id' => $user->id,
-            'offer_id' => (int) $request->input('offer_id'),
+            'comment' => $comment,
+            'value' => $value,
+            'user_id' => $userId,
+            'offer_id' => $offer_id,
         ]);
 
         return true;
@@ -35,22 +60,33 @@ function DB_storeOfferRating(Request $request) {
     }
 }
 
-function DB_updateOfferRating($request, $id) {
-    $user = Auth::user();
-
+function DB_updateOfferRating($userId, $offer_id, $value, $comment) {
     try {
         OfferRating::where([
-            ['offer_id', $id],
-            ['user_id', $user->id],
+            ['offer_id', $offer_id],
+            ['user_id', $userId],
         ])->update([
-            'comment' => $request->input('comment'),
-            'value' => (int) $request->input('value'),
+            'comment' => $comment,
+            'value' => $value,
         ]);
 
         return true;
     } catch(\Exception $err) {
         abort(500);
     }
+}
+
+function calculateNewRating($offerData, $value) {
+    $ratingValues = (double) $offerData['rating_values'];
+    $ratingVotes = (double) $offerData['rating_votes'];
+    $ratingValuesNew = $ratingValues + $value;
+    $ratingVotesNew = $ratingVotes + 1;
+
+    return [
+        'rating' => $ratingValuesNew / $ratingVotesNew,
+        'rating_values' => $ratingValuesNew,
+        'rating_votes' => $ratingVotesNew,
+    ];
 }
 
 function checkIfOfferRatingExists($request) {
@@ -61,11 +97,30 @@ function checkIfOfferRatingExists($request) {
 }
 
 function storeOfferRating(Request $request) {
-    return DB_storeOfferRating($request);
+    $comment = $request->input('comment');
+    $value = (int) $request->input('value');
+    $offer_id = (int) $request->input('offer_id');
+    $user = Auth::user();
+    $userId = $user->id;
+
+    DB_storeOfferRating($userId, $offer_id, $value, $comment);
+    $offerData = DB_getOffer($offer_id);
+
+    $ratingData = calculateNewRating($offerData, $value);
+
+    DB_setOfferRating($offer_id, $ratingData['rating'], $ratingData['rating_values'], $ratingData['rating_votes']);
+
+    return true;
 }
 
 function updateOfferRating(Request $request, $id) {
-    return DB_updateOfferRating($request, $id);
+    $comment = $request->input('comment');
+    $value = (int) $request->input('value');
+    $offer_id = (int) $request->input('offer_id');
+    $user = Auth::user();
+    $userId = $user->id;
+
+    return DB_updateOfferRating($userId, $offer_id, $value, $comment);
 }
 
 function getStoreOfferRatingValidator($request) {

@@ -31,6 +31,8 @@ class CreateOfferTable extends Migration
             $table->double('map_marker_lat');
             $table->double('map_marker_lng');
             $table->integer('rating')->default(0);
+            $table->integer('rating_values')->default(0);
+            $table->integer('rating_votes')->default(0);
             $table->integer('order')->default(1);
             $table->boolean('is_active')->default(true);
             $table->bigInteger('user_id')->unsigned()->index();
