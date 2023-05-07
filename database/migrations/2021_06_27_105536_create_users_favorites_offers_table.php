@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class SalePointOfferTable extends Migration
+class CreateUsersFavoritesOffersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class SalePointOfferTable extends Migration
      */
     public function up()
     {
-        Schema::create('sale_point_offer', function (Blueprint $table) {
+        Schema::create('users_favorites_offers', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('sale_point_id')->unsigned()->index();
-            $table->foreign('sale_point_id')->references('id')->on('sale_point');
+            $table->bigInteger('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->bigInteger('offer_id')->unsigned()->index();
             $table->foreign('offer_id')->references('id')->on('offer');
             $table->timestamps();
@@ -30,6 +30,6 @@ class SalePointOfferTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sale_point_offer');
+        Schema::dropIfExists('users_favorites_offers');
     }
 }

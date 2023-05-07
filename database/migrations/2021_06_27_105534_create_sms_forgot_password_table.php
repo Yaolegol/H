@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class SmsRegistrationTable extends Migration
+class CreateSmsForgotPasswordTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class SmsRegistrationTable extends Migration
      */
     public function up()
     {
-        Schema::create('sms_registration', function (Blueprint $table) {
+        Schema::create('sms_forgot_password', function (Blueprint $table) {
             $table->id();
             $table->string('phone');
             $table->bigInteger('code');
@@ -30,6 +30,6 @@ class SmsRegistrationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sms_registration');
+        Schema::dropIfExists('sms_forgot_password');
     }
 }

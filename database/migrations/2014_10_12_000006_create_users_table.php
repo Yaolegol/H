@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->bigInteger('lang_id')->unsigned()->index()->nullable();
             $table->foreign('lang_id')->references('id')->on('lang');
             $table->integer('order')->default(1);
+            $table->integer('rating')->default(0);
             $table->boolean('is_changed')->default(false);
             $table->boolean('is_approved')->default(true);
             $table->text('approved_error_message')->nullable();

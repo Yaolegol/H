@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class OfferTable extends Migration
+class CreateOfferTable extends Migration
 {
     /**
      * Run the migrations.
@@ -30,6 +30,7 @@ class OfferTable extends Migration
             $table->string('photo_3')->nullable();
             $table->double('map_marker_lat');
             $table->double('map_marker_lng');
+            $table->integer('rating')->default(0);
             $table->integer('order')->default(1);
             $table->boolean('is_active')->default(true);
             $table->bigInteger('user_id')->unsigned()->index();
