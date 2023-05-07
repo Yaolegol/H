@@ -30,7 +30,7 @@ class CreateOfferTable extends Migration
             $table->string('photo_3')->nullable();
             $table->double('map_marker_lat');
             $table->double('map_marker_lng');
-            $table->integer('rating')->default(0);
+            $table->double('rating')->default(0);
             $table->integer('rating_values')->default(0);
             $table->integer('rating_votes')->default(0);
             $table->integer('order')->default(1);
