@@ -11,12 +11,30 @@ class UserSeeder extends Seeder
     public $data = [
         [
             'avatar' => '',
-            'description' => 'Админ',
+            'description' => 'Админ 1',
             'is_admin' => true,
             'lang_id' => 1,
             'name' => 'Админ',
             'password' => '',
             'phone' => '71111111111',
+        ],
+        [
+            'avatar' => '',
+            'description' => 'Админ 2',
+            'is_admin' => true,
+            'lang_id' => 1,
+            'name' => 'Админ 2',
+            'password' => '',
+            'phone' => '72222222222',
+        ],
+        [
+            'avatar' => '',
+            'description' => 'Админ 3',
+            'is_admin' => true,
+            'lang_id' => 1,
+            'name' => 'Админ 3',
+            'password' => '',
+            'phone' => '73333333333',
         ],
     ];
 
