@@ -1023,6 +1023,10 @@
     padding: 0;
   }
 }
+.modules-pages-offers-shared-components-item__created-at-container {
+  color: #848484;
+  margin-top: 5px;
+}
 .modules-pages-offers-shared-components-item__description-container {
   display: -webkit-box;
   overflow: hidden;

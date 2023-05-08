@@ -45,6 +45,9 @@
                         ])
                     </div>
                 @endif
+                <div class="modules-pages-offers-shared-components-item__created-at-container">
+                    Опубликовано: {{date('d.m.Y', strtotime($offer['created_at']))}}
+                </div>
             </div>
         </div>
     </div>
