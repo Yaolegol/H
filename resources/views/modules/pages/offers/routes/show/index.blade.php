@@ -199,6 +199,7 @@
                                 @include('components.textarea.common.index', [
                                     'defaultValue' => $authUserRatingData['comment'] ?? '',
                                     'name' => 'comment',
+                                    'placeholder' => 'Напишите отзыв о товаре!'
                                 ])
                             </div>
                             <div class="modules-pages-offers-routes-show__rating-footer">
