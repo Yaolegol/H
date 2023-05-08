@@ -125,7 +125,6 @@ export class MapOfferCard {
                             href="${productLink}"
                         ></a>
                     </div>
-                    ${ratingLayout}
                 </div>
                 <div class="factory-cards-offer-map__content-block">
                     <div class="factory-cards-offer-map__info-section">
@@ -173,6 +172,9 @@ export class MapOfferCard {
                         <div>
                             <span class="factory-cards-offer-map__category-title">Товары:</span>
                             ${catalogCategoriesLevelTwoTitleList}
+                        </div>
+                        <div class="factory-cards-offer-map__rating-block">
+                            ${ratingLayout}
                         </div>
                     </div>
                 </div>
