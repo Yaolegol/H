@@ -12,7 +12,10 @@
     <div class="j-components-rating-common-controller__content">
         {{$slot}}
     </div>
-    <div class="j-components-rating-common-controller__success">
+    <div class="j-components-rating-common-controller__success hidden">
         Спасибо! Ваш отзыв отправлен!
+    </div>
+    <div class="j-components-rating-common-controller__error hidden">
+        Что-то пошло не так! Попробуйте позже - мы уже работаем над исправлением ошибки!
     </div>
 </form>

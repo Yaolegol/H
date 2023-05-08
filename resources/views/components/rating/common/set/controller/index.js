@@ -5,6 +5,9 @@ class RatingController {
     constructor(element) {
         this.module = element;
         this.isUpdate = this.module.hasAttribute('data-update');
+        this.contentContainer = this.module.querySelector('.j-components-rating-common-controller__content');
+        this.successContainer = this.module.querySelector('.j-components-rating-common-controller__success');
+        this.errorContainer = this.module.querySelector('.j-components-rating-common-controller__error');
 
         this.init();
         this.bind();
@@ -48,8 +51,13 @@ class RatingController {
 
             const {data, errors} = await response.json();
 
-            console.log('data');
-            console.log(data);
+            if(!data.success) {
+                this.showError();
+
+                return;
+            }
+
+            this.showSuccess();
         } catch(err) {
             console.error(err);
         }
@@ -59,6 +67,16 @@ class RatingController {
         const csrfContainer = document.querySelector('.j-csrf-token');
 
         this.CSRFToken = csrfContainer.dataset.value;
+    }
+
+    showError = () => {
+        this.errorContainer.classList.remove('hidden');
+        this.contentContainer.classList.add('hidden');
+    }
+
+    showSuccess = () => {
+        this.successContainer.classList.remove('hidden');
+        this.contentContainer.classList.add('hidden');
     }
 }
 

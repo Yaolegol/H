@@ -166,31 +166,30 @@
             @auth
                 <div class="modules-pages-offers-routes-show__rating-block">
                     <h4>Оценить</h4>
-
-                    @if(count($authUserRatingData) > 0)
-                        @if($authUserRatingData['is_comment_approved'] === 0)
-                            <div class="modules-pages-offers-routes-show__rating-success-message">Спасибо!<br />Ваш отзыв отправлен на проверку и скоро будет опубликован или отклонен с указанием причины!</div>
-                        @endif
-                        @if($authUserRatingData['approved_comment_error_message'])
-                            <div class="modules-pages-offers-routes-show__rating-error-message-block">
-                                <div class="modules-pages-offers-routes-show__rating-error-message-title">
-                                    Ваш отзыв отклонен!<br />Вы можете отредактировать отзыв и снова отправить на проверку!
-                                </div>
-                                <div class="modules-pages-offers-routes-show__rating-error-message-reason-title">
-                                    Причина отклонения:
-                                </div>
-                                <div class="modules-pages-offers-routes-show__rating-error-message">
-                                    {{$authUserRatingData['approved_comment_error_message']}}
-                                </div>
-                            </div>
-                        @endif
-                    @endif
-
                     <div class="modules-pages-offers-routes-show__rating-container">
                         @component('components.rating.common.set.controller.index', [
                             'isUpdate' => count($authUserRatingData) > 0,
                             'offerId' => $offer['id'],
                         ])
+                            @if(count($authUserRatingData) > 0)
+                                @if($authUserRatingData['is_comment_approved'] === 0 && $authUserRatingData['approved_comment_error_message'] === null)
+                                    <div class="modules-pages-offers-routes-show__rating-success-message">Спасибо!<br />Ваш отзыв отправлен на проверку и скоро будет опубликован или отклонен с указанием причины!</div>
+                                @endif
+                                @if($authUserRatingData['approved_comment_error_message'])
+                                    <div class="modules-pages-offers-routes-show__rating-error-message-block">
+                                        <div class="modules-pages-offers-routes-show__rating-error-message-title">
+                                            Ваш отзыв отклонен!<br />Вы можете отредактировать отзыв и снова отправить на проверку!
+                                        </div>
+                                        <div class="modules-pages-offers-routes-show__rating-error-message-reason-title">
+                                            Причина отклонения:
+                                        </div>
+                                        <div class="modules-pages-offers-routes-show__rating-error-message">
+                                            {{$authUserRatingData['approved_comment_error_message']}}
+                                        </div>
+                                    </div>
+                                @endif
+                            @endif
+
                             <div class="modules-pages-offers-routes-show__rating-item modules-pages-offers-routes-show__rating-item_center">
                                 @include('components.rating.common.set.stars.index', [
                                     'defaultValue' => $authUserRatingData['value'] ?? 5,
