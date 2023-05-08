@@ -136,6 +136,10 @@ function getOffersPaginatedData($catalogLevelTwoItem, $searchCountry, $searchReg
 
 function getAuthUserOfferRatingData($id) {
     $authUser = Auth::user();
+
+    if(!$authUser) {
+        return [];
+    }
     $ratedOffers = $authUser->offerRating()->get()->toArray();
 
     $ratedOfferDataList = array_filter($ratedOffers, function($data) use($id) {
