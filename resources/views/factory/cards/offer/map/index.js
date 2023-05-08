@@ -173,9 +173,7 @@ export class MapOfferCard {
                             <span class="factory-cards-offer-map__category-title">Товары:</span>
                             ${catalogCategoriesLevelTwoTitleList}
                         </div>
-                        <div class="factory-cards-offer-map__rating-block">
-                            ${ratingLayout}
-                        </div>
+                        ${ratingLayout}
                     </div>
                 </div>
                 <div class="factory-cards-offer-map__service-block">

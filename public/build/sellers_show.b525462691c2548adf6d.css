@@ -1068,7 +1068,7 @@
   font-weight: 800;
 }
 .modules-pages-offers-shared-components-item__rating-container {
-  margin-top: auto;
+  margin-top: 15px;
 }
 .modules-pages-offers-shared-components-item__rating-star-container {
   display: flex;

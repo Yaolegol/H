@@ -1149,11 +1149,8 @@
   -webkit-box-orient: vertical;
   font-weight: 800;
 }
-.factory-cards-offer-map__rating-block {
-  margin-top: 15px;
-}
 .factory-cards-offer-map__rating-container {
-  margin-top: auto;
+  margin-top: 15px;
 }
 .factory-cards-offer-map__rating-star-container {
   display: flex;

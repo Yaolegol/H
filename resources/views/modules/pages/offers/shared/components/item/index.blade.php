@@ -4,13 +4,6 @@
             <img alt="{{$offer['title']}}" class="modules-pages-offers-shared-components-item__image" src="{{$offer['photoArray'][0] ?? ''}}">
             <a class="modules-pages-offers-shared-components-item__image-link" href="{{$offer['offerLink']}}"></a>
         </div>
-        @if($offer['rating'] > 0)
-            <div class="modules-pages-offers-shared-components-item__rating-container">
-                @include('components.rating.common.get.index', [
-                    'rating' => $offer['rating'],
-                ])
-            </div>
-        @endif
     </div>
     <div class="modules-pages-offers-shared-components-item__content-block">
         <div class="modules-pages-offers-shared-components-item__info-section">
@@ -44,6 +37,13 @@
                         {{$catalogLevelTwoItem['title']}}@if($loop->iteration < $loop->count), @endif
                     @endforeach
                 </div>
+                @if($offer['rating'] > 0)
+                    <div class="modules-pages-offers-shared-components-item__rating-container">
+                        @include('components.rating.common.get.index', [
+                            'rating' => $offer['rating'],
+                        ])
+                    </div>
+                @endif
             </div>
         </div>
     </div>
