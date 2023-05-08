@@ -8,11 +8,14 @@
             ])
         </div>
         <h2 class="modules-pages-offers-routes-show__title">{{$offer['title']}}</h2>
-        <div class="modules-pages-offers-routes-show__product-rating-container">
-            @include('components.rating.common.get.index', [
-                'rating' => $offer['rating'],
-            ])
-        </div>
+        @if($offer['rating'] > 0)
+            <div class="modules-pages-offers-routes-show__product-rating-container">
+                @include('components.rating.common.get.index', [
+                    'rating' => $offer['rating'],
+                    'votes' => $offer['rating_votes'],
+                ])
+            </div>
+        @endif
         @if(!empty($offer['photoArray']))
             <div class="modules-pages-offers-routes-show__slider-container">
                 @component('components.sliders.base.slider.index')

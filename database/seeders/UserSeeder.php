@@ -36,6 +36,24 @@ class UserSeeder extends Seeder
             'password' => '',
             'phone' => '73333333333',
         ],
+        [
+            'avatar' => '',
+            'description' => 'Админ 4',
+            'is_admin' => true,
+            'lang_id' => 1,
+            'name' => 'Админ 4',
+            'password' => '',
+            'phone' => '74444444444',
+        ],
+        [
+            'avatar' => '',
+            'description' => 'Админ 5',
+            'is_admin' => true,
+            'lang_id' => 1,
+            'name' => 'Админ 5',
+            'password' => '',
+            'phone' => '75555555555',
+        ],
     ];
 
     /**

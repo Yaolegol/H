@@ -104,6 +104,7 @@ function apiGetOfferData($offerItem) {
             'delivery' => $offerItem['delivery'],
             'delivery_description'=> $offerItem['delivery_description'],
             'rating'=> $offerItem['rating'],
+            'rating_votes'=> $offerItem['rating_votes'],
         ],
         'salePoints' => apiGetSalePointsData($offerItem),
         'seller' => [

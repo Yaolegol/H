@@ -101,14 +101,17 @@
     }
 
     &__rating-container {
+        align-items: flex-end;
+        display: flex;
+        flex-wrap: wrap;
         margin-top: 15px;
     }
 
     &__rating-star-container {
         display: flex;
-        flex: 1 1 auto;
         height: 20px;
         position: relative;
+        margin-right: 10px;
         width: 100px;
     }
 
@@ -131,6 +134,10 @@
 
     &__rating-section {
         margin-top: 20px;
+    }
+
+    &__rating-votes-container {
+        color: @black_20;
     }
 
     &__sale-point-address-container {

@@ -1,6 +1,7 @@
 import 'views/modules/pages/favorites/shared/components/button';
 import {EVENTS_NAMES} from 'events/index';
 import {addEventListener} from "helpers/events";
+import {plural_ru} from "helpers/plural";
 import './index.less';
 
 const {
@@ -26,7 +27,7 @@ export class MapOfferCard {
         const isUserAuth = Boolean(document.querySelector('.j-user__auth'));
 
         const {catalog, product, salePoints, seller} = placemarkData.offer;
-        const {address, description, id, img, link: productLink, phone, price, price_description, rating, title} = product;
+        const {address, description, id, img, link: productLink, phone, price, price_description, rating, rating_votes, title} = product;
         const {src} = img;
         const {link: sellerLink, name} = seller;
         const {catalog_level_one, catalog_level_two} = catalog;
@@ -108,6 +109,7 @@ export class MapOfferCard {
                     <div class="factory-cards-offer-map__rating-star-container-default"></div>
                     <div class="factory-cards-offer-map__rating-star-container-active" style="width: ${20 * rating}px"></div>
                 </div>
+                <div class="factory-cards-offer-map__rating-votes-container">${rating_votes} ${plural_ru(rating_votes, ['оценка', 'оценки', 'оценок'])}</div>
             </div>
         `: '';
 

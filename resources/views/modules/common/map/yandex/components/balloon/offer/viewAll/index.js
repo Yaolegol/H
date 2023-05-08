@@ -1,3 +1,4 @@
+import {plural_ru} from "helpers/plural";
 import './index.less';
 
 export const getOfferBalloon = (offerData, markerId) => {
@@ -13,6 +14,7 @@ export const getOfferBalloon = (offerData, markerId) => {
         price,
         price_description,
         rating,
+        rating_votes,
         title,
         working_hours,
     } = product;
@@ -58,6 +60,9 @@ export const getOfferBalloon = (offerData, markerId) => {
         <div class="modules-common-map-yandex-components-balloon-offer-view-all__rating-star-container">
             <div class="modules-common-map-yandex-components-balloon-offer-view-all__rating-star-container-default"></div>
             <div class="modules-common-map-yandex-components-balloon-offer-view-all__rating-star-container-active" style="width: ${20 * rating}px"></div>
+        </div>
+        <div class="modules-common-map-yandex-components-balloon-offer-view-all__rating-votes-container">
+            ${rating_votes} ${plural_ru(rating_votes, ['оценка', 'оценки', 'оценок'])}
         </div>
     ` : '';
 
