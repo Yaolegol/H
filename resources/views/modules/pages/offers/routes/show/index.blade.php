@@ -190,27 +190,31 @@
             <div class="modules-pages-offers-routes-show__reviews-block">
                 <h4>Отзывы</h4>
                 <div class="modules-pages-offers-routes-show__reviews-container">
-                    @foreach($offer['rating_data'] as $ratingData)
-                        <div class="modules-pages-offers-routes-show__review-item">
-                            <div class="modules-pages-offers-routes-show__review-item-header">
-                                <div class="modules-pages-offers-routes-show__review-item-title">
-                                    {{$ratingData['user_data']['name'] ?? 'Имя не указано'}}
+                    @if(count($offer['rating_data']) > 0)
+                        @foreach($offer['rating_data'] as $ratingData)
+                            <div class="modules-pages-offers-routes-show__review-item">
+                                <div class="modules-pages-offers-routes-show__review-item-header">
+                                    <div class="modules-pages-offers-routes-show__review-item-title">
+                                        {{$ratingData['user_data']['name'] ?? 'Имя не указано'}}
+                                    </div>
+                                    <div class="modules-pages-offers-routes-show__review-item-date">
+                                        {{date('d.m.Y', strtotime($ratingData['created_at']))}}
+                                    </div>
                                 </div>
-                                <div class="modules-pages-offers-routes-show__review-item-date">
-                                    {{date('d.m.Y', strtotime($ratingData['created_at']))}}
-                                </div>
-                            </div>
 
-                            <div class="modules-pages-offers-routes-show__review-item-rating">
-                                @include('components.rating.common.get.index', [
-                                    'rating' => $ratingData['value'],
-                                ])
+                                <div class="modules-pages-offers-routes-show__review-item-rating">
+                                    @include('components.rating.common.get.index', [
+                                        'rating' => $ratingData['value'],
+                                    ])
+                                </div>
+                                <div class="modules-pages-offers-routes-show__review-item-review-text">
+                                    {{$ratingData['comment']}}
+                                </div>
                             </div>
-                            <div class="modules-pages-offers-routes-show__review-item-review-text">
-                                {{$ratingData['comment']}}
-                            </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    @else
+                        <div class="modules-pages-offers-routes-show__review-no">Пока нет отзывов! Вы можете быть первым!</div>
+                    @endif
                 </div>
             </div>
         </div>

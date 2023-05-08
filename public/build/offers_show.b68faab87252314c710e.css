@@ -1162,6 +1162,9 @@
   margin-top: 20px;
   text-align: left;
 }
+.modules-pages-offers-routes-show__review-no {
+  text-align: center;
+}
 .modules-pages-offers-routes-show__slider-container {
   margin-top: 15px;
 }
