@@ -186,16 +186,29 @@
                         </div>
                     @endcomponent
                 </div>
-                <div class="modules-pages-offers-routes-show__comments-block">
-                    <h4>Отзыв</h4>
-                    <div class="modules-pages-offers-routes-show__comments-container">
-                        @foreach($offer['rating_data'] as $ratingData)
-                            <div>Пользователь: {{$ratingData['user_data']['name'] ?? 'Имя не указано'}}</div>
-                            <div>Оценка: {{$ratingData['value']}}</div>
-                            <div>Отзыв:</div>
-                            <div>{{$ratingData['comment']}}</div>
-                        @endforeach
-                    </div>
+            </div>
+            <div class="modules-pages-offers-routes-show__reviews-block">
+                <h4>Отзывы</h4>
+                <div class="modules-pages-offers-routes-show__reviews-container">
+                    @foreach($offer['rating_data'] as $ratingData)
+                        <div class="modules-pages-offers-routes-show__review-item">
+                            <div class="modules-pages-offers-routes-show__review-item-header">
+                                <div class="modules-pages-offers-routes-show__review-item-title">
+                                    {{$ratingData['user_data']['name'] ?? 'Имя не указано'}}
+                                </div>
+                                <div class="modules-pages-offers-routes-show__review-item-date">
+                                    {{date('d.m.Y', strtotime($ratingData['created_at']))}}
+                                </div>
+                            </div>
+
+                            <div class="modules-pages-offers-routes-show__review-item-rating">
+                                Оценка: {{$ratingData['value']}}
+                            </div>
+                            <div class="modules-pages-offers-routes-show__review-item-review-text">
+                                {{$ratingData['comment']}}
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
