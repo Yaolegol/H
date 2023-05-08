@@ -1028,7 +1028,7 @@
   width: 24px;
 }
 .components-rating-common-stars__button.active ~ .components-rating-common-stars__button {
-  color: #c1c1c1;
+  color: #e0e0e0;
 }
 
 
@@ -1062,6 +1062,9 @@
 }
 .modules-pages-offers-routes-show__additional-info-block {
   margin-top: 25px;
+}
+.modules-pages-offers-routes-show__auth-link {
+  font-weight: 600;
 }
 .modules-pages-offers-routes-show__content-area {
   margin: 50px auto 0;

@@ -163,9 +163,15 @@
                     @endif
                 @endisset
             </div>
-            @auth
-                <div class="modules-pages-offers-routes-show__rating-block">
-                    <h4>Оценить</h4>
+            <div class="modules-pages-offers-routes-show__rating-block">
+                <h4>Оценить</h4>
+                @guest
+                    <div class="modules-pages-offers-routes-show__rating-container">
+                        Чтобы оценить товар нужно <a class="modules-pages-offers-routes-show__auth-link" href="/login">войти</a> или <a class="modules-pages-offers-routes-show__auth-link" href="/register">зарегистрироваться</a>!
+                        <br />Это бесплатно!
+                    </div>
+                @endguest
+                @auth
                     <div class="modules-pages-offers-routes-show__rating-container">
                         @component('components.rating.common.set.controller.index', [
                             'isUpdate' => count($authUserRatingData) > 0,
@@ -207,8 +213,8 @@
                             </div>
                         @endcomponent
                     </div>
-                </div>
-            @endauth
+                @endauth
+            </div>
             <div class="modules-pages-offers-routes-show__reviews-block">
                 <h4>Отзывы</h4>
                 <div class="modules-pages-offers-routes-show__reviews-container">
