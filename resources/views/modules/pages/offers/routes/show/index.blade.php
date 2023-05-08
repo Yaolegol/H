@@ -38,12 +38,6 @@
                 <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['description']}}</div>
             </div>
             <div class="modules-pages-offers-routes-show__info-item-container">
-                <div class="modules-pages-offers-routes-show__info-item-title">Категория</div>
-                <div class="modules-pages-offers-routes-show__info-item-description">
-                    {{$offer['catalog_level_one']['title']}}
-                </div>
-            </div>
-            <div class="modules-pages-offers-routes-show__info-item-container">
                 <div class="modules-pages-offers-routes-show__info-item-title">Товары</div>
                 <div class="modules-pages-offers-routes-show__info-item-description">
                     @foreach($offer['catalog_level_two'] as $catalogLevelTwoItem)
