@@ -163,30 +163,52 @@
                     @endif
                 @endisset
             </div>
-            <div class="modules-pages-offers-routes-show__rating-block">
-                <h4>Оценить</h4>
-                <div class="modules-pages-offers-routes-show__rating-container">
-                    @component('components.rating.common.set.controller.index', [
-                        'isUpdate' => count($authUserRatingData) > 0,
-                        'offerId' => $offer['id'],
-                    ])
-                        <div class="modules-pages-offers-routes-show__rating-item modules-pages-offers-routes-show__rating-item_center">
-                            @include('components.rating.common.set.stars.index', [
-                                'defaultValue' => $authUserRatingData['value'] ?? 5,
-                            ])
-                        </div>
-                        <div class="modules-pages-offers-routes-show__rating-item">
-                            @include('components.textarea.common.index', [
-                                'defaultValue' => $authUserRatingData['comment'] ?? '',
-                                'name' => 'comment',
-                            ])
-                        </div>
-                        <div class="modules-pages-offers-routes-show__rating-footer">
-                            <button class="modules-pages-offers-routes-show__rating-submit-button">Отправить</button>
-                        </div>
-                    @endcomponent
+            @auth
+                <div class="modules-pages-offers-routes-show__rating-block">
+                    <h4>Оценить</h4>
+
+                    @if(count($authUserRatingData) > 0)
+                        @if($authUserRatingData['is_comment_approved'] === 0)
+                            <div class="modules-pages-offers-routes-show__rating-success-message">Спасибо!<br />Ваш отзыв отправлен на проверку и скоро будет опубликован или отклонен с указанием причины!</div>
+                        @endif
+                        @if($authUserRatingData['approved_comment_error_message'])
+                            <div class="modules-pages-offers-routes-show__rating-error-message-block">
+                                <div class="modules-pages-offers-routes-show__rating-error-message-title">
+                                    Ваш отзыв отклонен!<br />Вы можете отредактировать отзыв и снова отправить на проверку!
+                                </div>
+                                <div class="modules-pages-offers-routes-show__rating-error-message-reason-title">
+                                    Причина отклонения:
+                                </div>
+                                <div class="modules-pages-offers-routes-show__rating-error-message">
+                                    {{$authUserRatingData['approved_comment_error_message']}}
+                                </div>
+                            </div>
+                        @endif
+                    @endif
+
+                    <div class="modules-pages-offers-routes-show__rating-container">
+                        @component('components.rating.common.set.controller.index', [
+                            'isUpdate' => count($authUserRatingData) > 0,
+                            'offerId' => $offer['id'],
+                        ])
+                            <div class="modules-pages-offers-routes-show__rating-item modules-pages-offers-routes-show__rating-item_center">
+                                @include('components.rating.common.set.stars.index', [
+                                    'defaultValue' => $authUserRatingData['value'] ?? 5,
+                                ])
+                            </div>
+                            <div class="modules-pages-offers-routes-show__rating-item">
+                                @include('components.textarea.common.index', [
+                                    'defaultValue' => $authUserRatingData['comment'] ?? '',
+                                    'name' => 'comment',
+                                ])
+                            </div>
+                            <div class="modules-pages-offers-routes-show__rating-footer">
+                                <button class="modules-pages-offers-routes-show__rating-submit-button">Отправить</button>
+                            </div>
+                        @endcomponent
+                    </div>
                 </div>
-            </div>
+            @endauth
             <div class="modules-pages-offers-routes-show__reviews-block">
                 <h4>Отзывы</h4>
                 <div class="modules-pages-offers-routes-show__reviews-container">

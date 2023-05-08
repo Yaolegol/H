@@ -66,7 +66,9 @@ function DB_updateOfferRating($userId, $offer_id, $value, $comment) {
             ['offer_id', $offer_id],
             ['user_id', $userId],
         ])->update([
+            'approved_comment_error_message' => '',
             'comment' => $comment,
+            'is_comment_approved' => 0,
             'value' => $value,
         ]);
 

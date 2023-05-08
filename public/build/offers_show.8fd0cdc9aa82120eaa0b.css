@@ -1114,6 +1114,15 @@
 .modules-pages-offers-routes-show__rating-container {
   margin-top: 20px;
 }
+.modules-pages-offers-routes-show__rating-error-message {
+  margin-top: 15px;
+}
+.modules-pages-offers-routes-show__rating-error-message-block {
+  margin-top: 15px;
+}
+.modules-pages-offers-routes-show__rating-error-message-reason-title {
+  margin-top: 5px;
+}
 .modules-pages-offers-routes-show__rating-footer {
   margin-top: 50px;
 }
@@ -1131,6 +1140,9 @@
 }
 .modules-pages-offers-routes-show__rating-submit-button:hover {
   border-color: #848484;
+}
+.modules-pages-offers-routes-show__rating-success-message {
+  margin-top: 15px;
 }
 .modules-pages-offers-routes-show__review-item {
   border-top: 1px solid #c1c1c1;
