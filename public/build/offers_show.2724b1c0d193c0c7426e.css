@@ -994,7 +994,6 @@
 
 .components-rating-common-get {
   display: flex;
-  flex: 1 1 auto;
   height: 20px;
   position: relative;
   width: 100px;
@@ -1110,6 +1109,11 @@
 }
 .modules-pages-offers-routes-show__price {
   font-weight: 800;
+}
+.modules-pages-offers-routes-show__product-rating-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
 }
 .modules-pages-offers-routes-show__rating-block {
   margin-top: 50px;
