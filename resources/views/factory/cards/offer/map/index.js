@@ -102,6 +102,15 @@ export class MapOfferCard {
 
         const catalogCategoriesLevelTwoTitleList = catalog_level_two.map(({title}) => title).join(', ');
 
+        const ratingLayout = rating > 0 ? `
+            <div class="factory-cards-offer-map__rating-container">
+                <div class="factory-cards-offer-map__rating-star-container">
+                    <div class="factory-cards-offer-map__rating-star-container-default"></div>
+                    <div class="factory-cards-offer-map__rating-star-container-active" style="width: ${20 * rating}px"></div>
+                </div>
+            </div>
+        `: '';
+
         return `
             <div class="factory-cards-offer-map j-factory-cards-offer-map">
                 <div class="factory-cards-offer-map__image-block">
@@ -116,12 +125,7 @@ export class MapOfferCard {
                             href="${productLink}"
                         ></a>
                     </div>
-                    <div class="factory-cards-offer-map__rating-container">
-                        <div class="factory-cards-offer-map__rating-star-container">
-                            <div class="factory-cards-offer-map__rating-star-container-default"></div>
-                            <div class="factory-cards-offer-map__rating-star-container-active" style="width: ${20 * rating}px"></div>
-                        </div>
-                    </div>
+                    ${ratingLayout}
                 </div>
                 <div class="factory-cards-offer-map__content-block">
                     <div class="factory-cards-offer-map__info-section">

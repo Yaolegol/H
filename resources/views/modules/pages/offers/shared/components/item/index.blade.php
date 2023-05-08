@@ -4,6 +4,13 @@
             <img alt="{{$offer['title']}}" class="modules-pages-offers-shared-components-item__image" src="{{$offer['photoArray'][0] ?? ''}}">
             <a class="modules-pages-offers-shared-components-item__image-link" href="{{$offer['offerLink']}}"></a>
         </div>
+        @if($offer['rating'] > 0)
+            <div class="modules-pages-offers-shared-components-item__rating-container">
+                @include('components.rating.common.get.index', [
+                    'rating' => $offer['rating'],
+                ])
+            </div>
+        @endif
     </div>
     <div class="modules-pages-offers-shared-components-item__content-block">
         <div class="modules-pages-offers-shared-components-item__info-section">
@@ -39,9 +46,6 @@
                 </div>
             </div>
         </div>
-{{--        <div class="modules-pages-offers-shared-components-item__rating-section">--}}
-{{--            <span>Товар: 4.5</span> <span>Продавец: 4.0</span>--}}
-{{--        </div>--}}
     </div>
     <div class="modules-pages-offers-shared-components-item__service-block">
         @include('modules.pages.favorites.shared.components.button.index', [

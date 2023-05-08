@@ -884,6 +884,29 @@
   margin-top: 100px;
 }
 
+.components-rating-common-get {
+  display: flex;
+  flex: 1 1 auto;
+  height: 20px;
+  position: relative;
+  width: 100px;
+}
+.components-rating-common-get__star-container-active {
+  background: url('/build/icons/star_active.svg');
+  background-size: 20px;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+.components-rating-common-get__star-container-default {
+  background: url('/build/icons/star_default.svg');
+  background-size: 20px;
+  width: 100%;
+}
+
 .modules-pages-favorites-shared-components-button {
   position: relative;
 }
@@ -982,18 +1005,14 @@
   width: 100%;
 }
 .modules-pages-offers-shared-components-item__image-block {
+  display: flex;
   flex: 0 0 auto;
+  flex-direction: column;
   width: 150px;
 }
 .modules-pages-offers-shared-components-item__image-container {
-  height: 100%;
+  padding-bottom: 100%;
   position: relative;
-}
-@media (max-width: 767px) {
-  .modules-pages-offers-shared-components-item__image-container {
-    height: auto;
-    padding-bottom: 100%;
-  }
 }
 .modules-pages-offers-shared-components-item__image-link {
   bottom: 0;
@@ -1029,6 +1048,31 @@
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   font-weight: 800;
+}
+.modules-pages-offers-shared-components-item__rating-container {
+  margin-top: auto;
+}
+.modules-pages-offers-shared-components-item__rating-star-container {
+  display: flex;
+  flex: 1 1 auto;
+  height: 20px;
+  position: relative;
+  width: 100px;
+}
+.modules-pages-offers-shared-components-item__rating-star-container-active {
+  background: url('/build/icons/star_active.svg');
+  background-size: 20px;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+.modules-pages-offers-shared-components-item__rating-star-container-default {
+  background: url('/build/icons/star_default.svg');
+  background-size: 20px;
+  width: 100%;
 }
 .modules-pages-offers-shared-components-item__rating-section {
   margin-top: 20px;
