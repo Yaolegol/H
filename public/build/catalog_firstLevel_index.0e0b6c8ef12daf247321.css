@@ -8,7 +8,7 @@
   margin-left: 15px;
 }
 .modules-common-breadcrumbs-item__link:hover {
-  color: #FF0000;
+  text-decoration-line: underline;
 }
 
 .modules-common-breadcrumbs-list {
