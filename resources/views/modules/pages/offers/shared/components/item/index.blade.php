@@ -41,6 +41,7 @@
                     <div class="modules-pages-offers-shared-components-item__rating-container">
                         @include('components.rating.common.get.index', [
                             'rating' => $offer['rating'],
+                            'votes' => $offer['rating_votes'],
                         ])
                     </div>
                 @endif

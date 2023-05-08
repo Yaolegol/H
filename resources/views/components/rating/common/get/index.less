@@ -2,11 +2,24 @@
 @import (reference) '~styles/colors';
 
 .components-rating-common-get {
+    align-items: flex-end;
+    display: flex;
+    flex-wrap: wrap;
+
+    &_bottom {
+        display: block;
+    }
+
     &__star-container {
         display: flex;
         height: 20px;
         position: relative;
+        margin-right: 10px;
         width: 100px;
+
+        .components-rating-common-get_bottom & {
+            margin-right: 0;
+        }
     }
 
     &__star-container-active {
@@ -28,6 +41,9 @@
 
     &__votes-container {
         color: @black_20;
-        margin-top: 5px;
+
+        .components-rating-common-get_bottom & {
+            margin-top: 5px;
+        }
     }
 }

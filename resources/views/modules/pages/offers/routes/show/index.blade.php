@@ -13,6 +13,7 @@
                 @include('components.rating.common.get.index', [
                     'rating' => $offer['rating'],
                     'votes' => $offer['rating_votes'],
+                    'votes_position_bottom' => true,
                 ])
             </div>
         @endif

@@ -1,4 +1,4 @@
-<div class="components-rating-common-get">
+<div class="components-rating-common-get {{($votes_position_bottom ?? false) ? 'components-rating-common-get_bottom' : ''}}">
     <div class="components-rating-common-get__star-container">
         <div class="components-rating-common-get__star-container-default"></div>
         <div class="components-rating-common-get__star-container-active" style="width: {{20 * (int) $rating ?? 0}}px"></div>
