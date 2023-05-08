@@ -12,6 +12,7 @@ export const getOfferBalloon = (offerData, markerId) => {
         phone,
         price,
         price_description,
+        rating,
         title,
         working_hours,
     } = product;
@@ -53,9 +54,17 @@ export const getOfferBalloon = (offerData, markerId) => {
 
     const catalogCategoriesLevelTwoTitleList = catalog_level_two.map(({title}) => title).join(', ');
 
+    const ratingLayout = rating > 0 ? `
+        <div class="modules-common-map-yandex-components-balloon-offer-view-all__rating-star-container">
+            <div class="modules-common-map-yandex-components-balloon-offer-view-all__rating-star-container-default"></div>
+            <div class="modules-common-map-yandex-components-balloon-offer-view-all__rating-star-container-active" style="width: ${20 * rating}px"></div>
+        </div>
+    ` : '';
+
     return `
         <div class="modules-common-map-yandex-components-balloon-offer-view-all">
-            <div class="modules-common-map-yandex-components-balloon-offer-view-all__title">
+            <div>${ratingLayout}</div>
+            <div class="modules-common-map-yandex-components-balloon-offer-view-all__title ${ratingLayout ? 'modules-common-map-yandex-components-balloon-offer-view-all__title_with-offset' : ''}">
                 <a
                     href="/offers/${id}"
                 >${title}</a>

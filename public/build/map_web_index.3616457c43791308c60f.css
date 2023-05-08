@@ -948,6 +948,28 @@
 .modules-common-map-yandex-components-balloon-offer-view-all__price {
   font-weight: 800;
 }
+.modules-common-map-yandex-components-balloon-offer-view-all__rating-star-container {
+  display: flex;
+  flex: 1 1 auto;
+  height: 20px;
+  position: relative;
+  width: 100px;
+}
+.modules-common-map-yandex-components-balloon-offer-view-all__rating-star-container-active {
+  background: url('/build/icons/star_active.svg');
+  background-size: 20px;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+.modules-common-map-yandex-components-balloon-offer-view-all__rating-star-container-default {
+  background: url('/build/icons/star_default.svg');
+  background-size: 20px;
+  width: 100%;
+}
 .modules-common-map-yandex-components-balloon-offer-view-all__section-link {
   margin-top: 15px;
 }
@@ -968,6 +990,9 @@
 }
 .modules-common-map-yandex-components-balloon-offer-view-all__title {
   font-weight: 800;
+}
+.modules-common-map-yandex-components-balloon-offer-view-all__title_with-offset {
+  margin-top: 15px;
 }
 
 .components-map-yandex-components-view-all {
