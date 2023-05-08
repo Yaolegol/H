@@ -17,6 +17,9 @@
                 ])
             </div>
         @endif
+        <div class="modules-pages-offers-routes-show__product-created-at">
+            Опубликовано: {{date('d.m.Y', strtotime($offer['created_at']))}}
+        </div>
         @if(!empty($offer['photoArray']))
             <div class="modules-pages-offers-routes-show__slider-container">
                 @component('components.sliders.base.slider.index')

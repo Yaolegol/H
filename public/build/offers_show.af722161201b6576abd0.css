@@ -1128,6 +1128,10 @@
 .modules-pages-offers-routes-show__price {
   font-weight: 800;
 }
+.modules-pages-offers-routes-show__product-created-at {
+  color: #848484;
+  margin-top: 5px;
+}
 .modules-pages-offers-routes-show__product-rating-container {
   display: flex;
   justify-content: center;
