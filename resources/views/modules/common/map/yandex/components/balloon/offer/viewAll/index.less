@@ -1,13 +1,21 @@
 @import (reference) '~styles/colors';
 
 .modules-common-map-yandex-components-balloon-offer-view-all {
+    &__created-at-block {
+        color: @black_20;
+    }
+
     &__price {
         font-weight: 800;
     }
 
+    &__rating-block {
+        align-items: flex-end;
+        display: flex;
+    }
+
     &__rating-star-container {
         display: flex;
-        flex: 1 1 auto;
         height: 20px;
         position: relative;
         width: 100px;
@@ -32,6 +40,8 @@
 
     &__rating-votes-container {
         color: @black_20;
+        line-height: 16px;
+        margin-left: 10px;
     }
 
     &__section-link {

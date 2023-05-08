@@ -945,12 +945,18 @@
 }
 
 
+.modules-common-map-yandex-components-balloon-offer-view-all__created-at-block {
+  color: #848484;
+}
 .modules-common-map-yandex-components-balloon-offer-view-all__price {
   font-weight: 800;
 }
+.modules-common-map-yandex-components-balloon-offer-view-all__rating-block {
+  align-items: flex-end;
+  display: flex;
+}
 .modules-common-map-yandex-components-balloon-offer-view-all__rating-star-container {
   display: flex;
-  flex: 1 1 auto;
   height: 20px;
   position: relative;
   width: 100px;
@@ -972,6 +978,8 @@
 }
 .modules-common-map-yandex-components-balloon-offer-view-all__rating-votes-container {
   color: #848484;
+  line-height: 16px;
+  margin-left: 10px;
 }
 .modules-common-map-yandex-components-balloon-offer-view-all__section-link {
   margin-top: 15px;

@@ -6,6 +6,7 @@ export const getOfferBalloon = (offerData, markerId) => {
     const {
         address,
         contact_person,
+        created_at,
         delivery,
         delivery_description,
         description,
@@ -57,18 +58,30 @@ export const getOfferBalloon = (offerData, markerId) => {
     const catalogCategoriesLevelTwoTitleList = catalog_level_two.map(({title}) => title).join(', ');
 
     const ratingLayout = rating > 0 ? `
-        <div class="modules-common-map-yandex-components-balloon-offer-view-all__rating-star-container">
-            <div class="modules-common-map-yandex-components-balloon-offer-view-all__rating-star-container-default"></div>
-            <div class="modules-common-map-yandex-components-balloon-offer-view-all__rating-star-container-active" style="width: ${20 * rating}px"></div>
-        </div>
-        <div class="modules-common-map-yandex-components-balloon-offer-view-all__rating-votes-container">
-            ${rating_votes} ${plural_ru(rating_votes, ['оценка', 'оценки', 'оценок'])}
+        <div class="modules-common-map-yandex-components-balloon-offer-view-all__rating-block">
+            <div class="modules-common-map-yandex-components-balloon-offer-view-all__rating-star-container">
+                <div class="modules-common-map-yandex-components-balloon-offer-view-all__rating-star-container-default"></div>
+                <div class="modules-common-map-yandex-components-balloon-offer-view-all__rating-star-container-active" style="width: ${20 * rating}px"></div>
+            </div>
+            <div class="modules-common-map-yandex-components-balloon-offer-view-all__rating-votes-container">
+                ${rating_votes} ${plural_ru(rating_votes, ['оценка', 'оценки', 'оценок'])}
+            </div>
         </div>
     ` : '';
 
+    const createdAtDate = new Date(created_at);
+    const createdAtMonth = createdAtDate.getMonth() + 1;
+    const createdAtDay = createdAtDate.getDate();
+    const createdAtDayFormatted = createdAtDay < 10 ? `0${createdAtDay}` : createdAtDay;
+    const createdAtMonthFormatted = createdAtMonth < 10 ? `0${createdAtMonth}` : createdAtMonth;
+    const createdAtYear = createdAtDate.getFullYear();
+
     return `
         <div class="modules-common-map-yandex-components-balloon-offer-view-all">
-            <div>${ratingLayout}</div>
+            ${ratingLayout}
+            <div class="modules-common-map-yandex-components-balloon-offer-view-all__created-at-block">
+                Опубликовано: ${createdAtDayFormatted}.${createdAtMonthFormatted}.${createdAtYear}
+            </div>
             <div class="modules-common-map-yandex-components-balloon-offer-view-all__title ${ratingLayout ? 'modules-common-map-yandex-components-balloon-offer-view-all__title_with-offset' : ''}">
                 <a
                     href="/offers/${id}"
