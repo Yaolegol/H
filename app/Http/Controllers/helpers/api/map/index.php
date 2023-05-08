@@ -87,6 +87,7 @@ function apiGetOfferData($offerItem) {
         'product' => [
             'address' => $offerItem['address'],
             'description' => $offerItem['description'],
+            'created_at' => $offerItem['created_at'],
             'id' => $offerItem['id'],
             'img' => [
                 'src' => formatAssetPath($offerItem['photo_1']),

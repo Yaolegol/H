@@ -27,7 +27,7 @@ export class MapOfferCard {
         const isUserAuth = Boolean(document.querySelector('.j-user__auth'));
 
         const {catalog, product, salePoints, seller} = placemarkData.offer;
-        const {address, description, id, img, link: productLink, phone, price, price_description, rating, rating_votes, title} = product;
+        const {address, created_at, description, id, img, link: productLink, phone, price, price_description, rating, rating_votes, title} = product;
         const {src} = img;
         const {link: sellerLink, name} = seller;
         const {catalog_level_one, catalog_level_two} = catalog;
@@ -113,6 +113,13 @@ export class MapOfferCard {
             </div>
         `: '';
 
+        const createdAtDate = new Date(created_at);
+        const createdAtMonth = createdAtDate.getMonth() + 1;
+        const createdAtDay = createdAtDate.getDate();
+        const createdAtDayFormatted = createdAtDay < 10 ? `0${createdAtDay}` : createdAtDay;
+        const createdAtMonthFormatted = createdAtMonth < 10 ? `0${createdAtMonth}` : createdAtMonth;
+        const createdAtYear = createdAtDate.getFullYear();
+
         return `
             <div class="factory-cards-offer-map j-factory-cards-offer-map">
                 <div class="factory-cards-offer-map__image-block">
@@ -176,6 +183,9 @@ export class MapOfferCard {
                             ${catalogCategoriesLevelTwoTitleList}
                         </div>
                         ${ratingLayout}
+                        <div class="factory-cards-offer-map__created-at-block">
+                            Опубликовано: ${createdAtDayFormatted}.${createdAtMonthFormatted}.${createdAtYear}
+                        </div>
                     </div>
                 </div>
                 <div class="factory-cards-offer-map__service-block">

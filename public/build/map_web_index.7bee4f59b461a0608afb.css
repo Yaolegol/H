@@ -1084,6 +1084,10 @@
 .factory-cards-offer-map__category-title {
   font-weight: 800;
 }
+.factory-cards-offer-map__created-at-block {
+  color: #848484;
+  margin-top: 5px;
+}
 .factory-cards-offer-map__contacts-block {
   margin-top: 15px;
 }
