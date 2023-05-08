@@ -992,6 +992,29 @@
   width: 100px;
 }
 
+.components-rating-common-get {
+  display: flex;
+  flex: 1 1 auto;
+  height: 20px;
+  position: relative;
+  width: 100px;
+}
+.components-rating-common-get__star-container-active {
+  background: url('/build/icons/star_active.svg');
+  background-size: 20px;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+.components-rating-common-get__star-container-default {
+  background: url('/build/icons/star_default.svg');
+  background-size: 20px;
+  width: 100%;
+}
+
 
 .components-rating-common-stars {
   display: flex;
@@ -1108,6 +1131,16 @@
 }
 .modules-pages-offers-routes-show__rating-submit-button:hover {
   border-color: #848484;
+}
+.modules-pages-offers-routes-show__review-item {
+  border-top: 1px solid #c1c1c1;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+.modules-pages-offers-routes-show__review-item:first-child {
+  border-top: none;
+  margin-top: 0;
+  padding-top: 0;
 }
 .modules-pages-offers-routes-show__review-item-header {
   display: flex;

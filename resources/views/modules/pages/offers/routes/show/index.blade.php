@@ -166,12 +166,12 @@
             <div class="modules-pages-offers-routes-show__rating-block">
                 <h4>Оценить</h4>
                 <div class="modules-pages-offers-routes-show__rating-container">
-                    @component('components.rating.common.controller.index', [
+                    @component('components.rating.common.set.controller.index', [
                         'isUpdate' => count($authUserRatingData) > 0,
                         'offerId' => $offer['id'],
                     ])
                         <div class="modules-pages-offers-routes-show__rating-item modules-pages-offers-routes-show__rating-item_center">
-                            @include('components.rating.common.stars.index', [
+                            @include('components.rating.common.set.stars.index', [
                                 'defaultValue' => $authUserRatingData['value'] ?? 5,
                             ])
                         </div>
@@ -202,7 +202,9 @@
                             </div>
 
                             <div class="modules-pages-offers-routes-show__review-item-rating">
-                                Оценка: {{$ratingData['value']}}
+                                @include('components.rating.common.get.index', [
+                                    'rating' => $ratingData['value'],
+                                ])
                             </div>
                             <div class="modules-pages-offers-routes-show__review-item-review-text">
                                 {{$ratingData['comment']}}
