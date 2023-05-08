@@ -17,6 +17,7 @@ class CreateOfferRatingTable extends Migration
             $table->id();
             $table->integer('value');
             $table->text('comment')->nullable();
+            $table->text('comment_admin_reply')->nullable();
             $table->bigInteger('user_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users');
             $table->bigInteger('offer_id')->unsigned()->index();
