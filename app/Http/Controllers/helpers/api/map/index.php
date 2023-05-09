@@ -101,7 +101,7 @@ function apiGetOfferData($offerItem) {
             'price_description' => $offerItem['price_description'],
             'title' => $offerItem['title'],
             'working_hours' => $offerItem['working_hours'],
-            'contact_person' => $offerItem['working_hours'],
+            'contact_person' => $offerItem['contact_person'],
             'delivery' => $offerItem['delivery'],
             'delivery_description'=> $offerItem['delivery_description'],
             'rating'=> $offerItem['rating'],
