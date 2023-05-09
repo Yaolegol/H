@@ -66,6 +66,16 @@ class Offer extends Model
         ]);
     }
 
+    public function ratingData()
+    {
+        return $this
+            ->hasMany(OfferRating::class, 'offer_id')
+            ->where([
+                'is_comment_approved' => true,
+                'is_removed' => false,
+            ]);
+    }
+
     public function salePoints()
     {
         return $this->belongsToMany(SalePoint::class, 'sale_point_offer', 'offer_id', 'sale_point_id')->where([

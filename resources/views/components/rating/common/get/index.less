@@ -1,0 +1,49 @@
+@import (reference) '~styles/adaptive';
+@import (reference) '~styles/colors';
+
+.components-rating-common-get {
+    align-items: flex-end;
+    display: flex;
+    flex-wrap: wrap;
+
+    &_bottom {
+        display: block;
+    }
+
+    &__star-container {
+        display: flex;
+        height: 20px;
+        position: relative;
+        margin-right: 10px;
+        width: 100px;
+
+        .components-rating-common-get_bottom & {
+            margin-right: 0;
+        }
+    }
+
+    &__star-container-active {
+        background: url('/build/icons/star_active.svg');
+        background-size: 20px;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+    }
+
+    &__star-container-default {
+        background: url('/build/icons/star_default.svg');
+        background-size: 20px;
+        width: 100%;
+    }
+
+    &__votes-container {
+        color: @black_20;
+
+        .components-rating-common-get_bottom & {
+            margin-top: 5px;
+        }
+    }
+}

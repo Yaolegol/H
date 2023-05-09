@@ -1,6 +1,7 @@
 import 'views/modules/pages/favorites/shared/components/button';
 import {EVENTS_NAMES} from 'events/index';
 import {addEventListener} from "helpers/events";
+import {plural_ru} from "helpers/plural";
 import './index.less';
 
 const {
@@ -26,7 +27,7 @@ export class MapOfferCard {
         const isUserAuth = Boolean(document.querySelector('.j-user__auth'));
 
         const {catalog, product, salePoints, seller} = placemarkData.offer;
-        const {address, description, id, img, link: productLink, phone, price, price_description, title} = product;
+        const {address, created_at, description, id, img, link: productLink, phone, price, price_description, rating, rating_votes, title} = product;
         const {src} = img;
         const {link: sellerLink, name} = seller;
         const {catalog_level_one, catalog_level_two} = catalog;
@@ -102,6 +103,23 @@ export class MapOfferCard {
 
         const catalogCategoriesLevelTwoTitleList = catalog_level_two.map(({title}) => title).join(', ');
 
+        const ratingLayout = rating > 0 ? `
+            <div class="factory-cards-offer-map__rating-container">
+                <div class="factory-cards-offer-map__rating-star-container">
+                    <div class="factory-cards-offer-map__rating-star-container-default"></div>
+                    <div class="factory-cards-offer-map__rating-star-container-active" style="width: ${20 * rating}px"></div>
+                </div>
+                <div class="factory-cards-offer-map__rating-votes-container">${rating_votes} ${plural_ru(rating_votes, ['оценка', 'оценки', 'оценок'])}</div>
+            </div>
+        `: '';
+
+        const createdAtDate = new Date(created_at);
+        const createdAtMonth = createdAtDate.getMonth() + 1;
+        const createdAtDay = createdAtDate.getDate();
+        const createdAtDayFormatted = createdAtDay < 10 ? `0${createdAtDay}` : createdAtDay;
+        const createdAtMonthFormatted = createdAtMonth < 10 ? `0${createdAtMonth}` : createdAtMonth;
+        const createdAtYear = createdAtDate.getFullYear();
+
         return `
             <div class="factory-cards-offer-map j-factory-cards-offer-map">
                 <div class="factory-cards-offer-map__image-block">
@@ -161,12 +179,12 @@ export class MapOfferCard {
                     </div>
                     <div class="factory-cards-offer-map__category-block">
                         <div>
-                            <span class="factory-cards-offer-map__category-title">Категория:</span>
-                            ${catalog_level_one.title}
-                        </div>
-                        <div>
                             <span class="factory-cards-offer-map__category-title">Товары:</span>
                             ${catalogCategoriesLevelTwoTitleList}
+                        </div>
+                        ${ratingLayout}
+                        <div class="factory-cards-offer-map__created-at-block">
+                            Опубликовано: ${createdAtDayFormatted}.${createdAtMonthFormatted}.${createdAtYear}
                         </div>
                     </div>
                 </div>

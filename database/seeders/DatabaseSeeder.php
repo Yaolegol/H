@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             MeasureSeeder::class,
 //            OrganizationSeeder::class,
 //            SalePointSeeder::class,
-//            OfferSeeder::class,
+            OfferSeeder::class,
 //            SalePointOfferSeeder::class,
         ]);
     }

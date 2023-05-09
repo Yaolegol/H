@@ -1,3 +1,4 @@
+import {plural_ru} from "helpers/plural";
 import './index.less';
 
 export const getOfferBalloon = (offerData, markerId) => {
@@ -5,6 +6,7 @@ export const getOfferBalloon = (offerData, markerId) => {
     const {
         address,
         contact_person,
+        created_at,
         delivery,
         delivery_description,
         description,
@@ -12,6 +14,8 @@ export const getOfferBalloon = (offerData, markerId) => {
         phone,
         price,
         price_description,
+        rating,
+        rating_votes,
         title,
         working_hours,
     } = product;
@@ -26,13 +30,13 @@ export const getOfferBalloon = (offerData, markerId) => {
     let contactAddress = address;
     let contactName = name ?? 'не указано';
     let contactPhone = phone;
-    let balloonDescription = description;
+    let balloonDescription = description ?? '';
 
     if(currentSalePoint) {
         const _contactAddress = currentSalePoint['address'];
         const _contactName = currentSalePoint['contact_person'] || contact_person;
         const _contactPhone = currentSalePoint['phone'];
-        const _description = currentSalePoint['description'];
+        const _description = currentSalePoint['description'] ?? '';
 
         if(_description) {
             balloonDescription = _description;
@@ -53,9 +57,32 @@ export const getOfferBalloon = (offerData, markerId) => {
 
     const catalogCategoriesLevelTwoTitleList = catalog_level_two.map(({title}) => title).join(', ');
 
+    const ratingLayout = rating > 0 ? `
+        <div class="modules-common-map-yandex-components-balloon-offer-view-all__rating-block">
+            <div class="modules-common-map-yandex-components-balloon-offer-view-all__rating-star-container">
+                <div class="modules-common-map-yandex-components-balloon-offer-view-all__rating-star-container-default"></div>
+                <div class="modules-common-map-yandex-components-balloon-offer-view-all__rating-star-container-active" style="width: ${20 * rating}px"></div>
+            </div>
+            <div class="modules-common-map-yandex-components-balloon-offer-view-all__rating-votes-container">
+                ${rating_votes} ${plural_ru(rating_votes, ['оценка', 'оценки', 'оценок'])}
+            </div>
+        </div>
+    ` : '';
+
+    const createdAtDate = new Date(created_at);
+    const createdAtMonth = createdAtDate.getMonth() + 1;
+    const createdAtDay = createdAtDate.getDate();
+    const createdAtDayFormatted = createdAtDay < 10 ? `0${createdAtDay}` : createdAtDay;
+    const createdAtMonthFormatted = createdAtMonth < 10 ? `0${createdAtMonth}` : createdAtMonth;
+    const createdAtYear = createdAtDate.getFullYear();
+
     return `
         <div class="modules-common-map-yandex-components-balloon-offer-view-all">
-            <div class="modules-common-map-yandex-components-balloon-offer-view-all__title">
+            ${ratingLayout}
+            <div class="modules-common-map-yandex-components-balloon-offer-view-all__created-at-block">
+                Опубликовано: ${createdAtDayFormatted}.${createdAtMonthFormatted}.${createdAtYear}
+            </div>
+            <div class="modules-common-map-yandex-components-balloon-offer-view-all__title ${ratingLayout ? 'modules-common-map-yandex-components-balloon-offer-view-all__title_with-offset' : ''}">
                 <a
                     href="/offers/${id}"
                 >${title}</a>
@@ -102,8 +129,6 @@ export const getOfferBalloon = (offerData, markerId) => {
                 `
                 : ""}
             <div class="modules-common-map-yandex-components-balloon-offer-view-all__section-link">
-                <div class="modules-common-map-yandex-components-balloon-offer-view-all__section-seller-title">Категория:</div>
-                <div>${catalog_level_one.title}</div>
                 <div class="modules-common-map-yandex-components-balloon-offer-view-all__section-seller-title">Товары:</div>
                 <div>${catalogCategoriesLevelTwoTitleList}</div>
             </div>

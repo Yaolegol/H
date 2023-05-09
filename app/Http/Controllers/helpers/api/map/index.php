@@ -87,6 +87,7 @@ function apiGetOfferData($offerItem) {
         'product' => [
             'address' => $offerItem['address'],
             'description' => $offerItem['description'],
+            'created_at' => $offerItem['created_at'],
             'id' => $offerItem['id'],
             'img' => [
                 'src' => formatAssetPath($offerItem['photo_1']),
@@ -103,6 +104,8 @@ function apiGetOfferData($offerItem) {
             'contact_person' => $offerItem['working_hours'],
             'delivery' => $offerItem['delivery'],
             'delivery_description'=> $offerItem['delivery_description'],
+            'rating'=> $offerItem['rating'],
+            'rating_votes'=> $offerItem['rating_votes'],
         ],
         'salePoints' => apiGetSalePointsData($offerItem),
         'seller' => [

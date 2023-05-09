@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Offer;
+use Illuminate\Support\Facades\Auth;
 
 require_once(app_path() . '/Http/Controllers/helpers/common/assets/index.php');
 require_once(app_path() . '/Http/Controllers/helpers/common/measure/index.php');
@@ -17,6 +18,8 @@ function DB_getOffer($id)
             'catalogLevelTwo',
             'measure',
             'organization',
+            'ratingData',
+            'ratingData.userData',
             'salePoints',
             'user',
         ])->get()->toArray();
@@ -129,6 +132,21 @@ function getOffersPaginatedData($catalogLevelTwoItem, $searchCountry, $searchReg
     $offersPaginatedData = DB_getOffers($filters);
 
     return formatOffersPaginatedData($offersPaginatedData);
+}
+
+function getAuthUserOfferRatingData($id) {
+    $authUser = Auth::user();
+
+    if(!$authUser) {
+        return [];
+    }
+    $ratedOffers = $authUser->offerRating()->get()->toArray();
+
+    $ratedOfferDataList = array_filter($ratedOffers, function($data) use($id) {
+        return $data['offer_id'] === (int) $id;
+    });
+
+    return array_merge(...$ratedOfferDataList);
 }
 
 function setOfferCatalogLinks(&$offerItem) {

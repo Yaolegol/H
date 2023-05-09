@@ -4,6 +4,7 @@ namespace App\Http\Controllers\controllers\web\offers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 require_once(app_path() . '/Http/Controllers/helpers/common/catalog/index.php');
 require_once(app_path() . '/Http/Controllers/helpers/common/measure/index.php');
@@ -52,11 +53,13 @@ class OffersController extends Controller
         $catalogFull = getCatalogFull();
         $offer = getOfferFormatted($id);
         $breadcrumbs = getOfferBreadcrumbs($offer);
+        $authUserRatingData = getAuthUserOfferRatingData($id);
 
         return view('pages.offers.show.index', [
             'breadcrumbs' => $breadcrumbs,
             'catalogHeader' => $catalogFull,
             'offer' => $offer,
+            'authUserRatingData' => $authUserRatingData,
         ]);
     }
 }

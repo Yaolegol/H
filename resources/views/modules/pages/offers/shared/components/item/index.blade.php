@@ -32,20 +32,24 @@
             </div>
             <div class="modules-pages-offers-shared-components-item__categories-block">
                 <div>
-                    <span class="modules-pages-offers-shared-components-item__title">Категория:</span>
-                    {{$offer['catalog_level_one']['title']}}
-                </div>
-                <div>
                     <span class="modules-pages-offers-shared-components-item__title">Товары:</span>
                     @foreach($offer['catalog_level_two'] as $catalogLevelTwoItem)
                         {{$catalogLevelTwoItem['title']}}@if($loop->iteration < $loop->count), @endif
                     @endforeach
                 </div>
+                @if($offer['rating'] > 0)
+                    <div class="modules-pages-offers-shared-components-item__rating-container">
+                        @include('components.rating.common.get.index', [
+                            'rating' => $offer['rating'],
+                            'votes' => $offer['rating_votes'],
+                        ])
+                    </div>
+                @endif
+                <div class="modules-pages-offers-shared-components-item__created-at-container">
+                    Опубликовано: {{date('d.m.Y', strtotime($offer['created_at']))}}
+                </div>
             </div>
         </div>
-{{--        <div class="modules-pages-offers-shared-components-item__rating-section">--}}
-{{--            <span>Товар: 4.5</span> <span>Продавец: 4.0</span>--}}
-{{--        </div>--}}
     </div>
     <div class="modules-pages-offers-shared-components-item__service-block">
         @include('modules.pages.favorites.shared.components.button.index', [
