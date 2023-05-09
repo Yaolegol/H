@@ -27,6 +27,10 @@ export const getOfferBalloonProductPage = (offerData, markerId) => {
     let contactPhone = phone;
     let balloonDescription = description ?? '';
 
+    if(contact_person) {
+        contactName = contact_person;
+    }
+
     if(currentSalePoint) {
         const _contactAddress = currentSalePoint['address'];
         const _contactName = currentSalePoint['contact_person'] || contact_person;
