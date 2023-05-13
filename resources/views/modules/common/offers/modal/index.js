@@ -1,7 +1,18 @@
+import {EVENTS_NAMES} from 'events/index';
 import {addEventListener} from "helpers/events";
 import {module} from "helpers/module";
 import {MapOfferCard} from "views/factory/cards/offer/map";
 import './index.less';
+
+const {
+    COMMON: {
+        MODALS: {
+            COMMON: {
+                CLOSE,
+            }
+        }
+    }
+} = EVENTS_NAMES;
 
 class OffersModal {
     constructor(element) {
@@ -13,6 +24,11 @@ class OffersModal {
 
     bind = () => {
         addEventListener(document,'j-event-map-yandex-components-view-all__get-visible-markers-data-complete', this.handleGetVisibleMarkersData);
+        addEventListener(document, CLOSE, this.handleClose);
+    }
+
+    handleClose = () => {
+        document.removeEventListener('j-event-map-yandex-components-view-all__get-visible-markers-data-complete', this.handleGetVisibleMarkersData);
     }
 
     handleGetVisibleMarkersData = (e) => {
