@@ -38,7 +38,7 @@
         @include('components.info.common.index', [
             'className' => 'modules-pages-map-web-routes-index__share-block',
             'id' => 'local_storage__info_share',
-            'text' => 'Мы только открылись! Поделитесь ссылкой на сайт в социальных сетях, чтобы было больше продуктов!',
+            'text' => 'Мы только открылись!<br /> Поделитесь ссылкой на сайт в социальных сетях, чтобы было больше продуктов!',
         ])
         <div class="modules-pages-map-web-routes-index__map-area">
             <div class="modules-pages-map-web-routes-index__map-block">
