@@ -19,11 +19,16 @@ class FavoritesButton {
         this.bind();
     }
 
-    activateButton = () => {
-        this.button.classList.add('active');
+    activateButton = (isActive = true) => {
+        if(isActive) {
+            this.button.classList.add('active');
+        } else {
+            this.button.classList.remove('active');
+        }
     }
 
     bind = () => {
+        addEventListener(document, 'j-event-happened-update-favorites', this.handleUpdateFavorites);
         addEventListener(document, 'j-event-happened-get-favorites', this.handleGetFavorites);
         addEventListener(this.button, 'click', this.handleClick);
     }
@@ -57,6 +62,14 @@ class FavoritesButton {
         })
     }
 
+    handleUpdateFavorites = (e) => {
+        const {action, id} = e.detail;
+
+        if(id === this.id) {
+            this.activateButton(action === 'add');
+        }
+    }
+
     sendRequest = async (action) => {
         try {
             const response = await fetch(`/favorites/products/${action}/${this.id}`, {
@@ -88,6 +101,7 @@ class FavoritesButton {
         document.dispatchEvent(new CustomEvent('j-event-happened-update-favorites', {
             detail: {
                 action,
+                id: this.id,
             }
         }))
     }
