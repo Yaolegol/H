@@ -60,7 +60,11 @@ class OffersModal {
 
             MapOfferCard.init();
             document.dispatchEvent(new CustomEvent('j-event-module__update'));
-            document.dispatchEvent(new CustomEvent('j-event-favorites-components-section__get-favorites-products'));
+            document.dispatchEvent(new CustomEvent('j-event-favorites-components-section__get-favorites-products', {
+                detail: {
+                    fromMemory: true,
+                }
+            }));
         } else {
             this.module.innerHTML = `
                 <div style="margin-top: 20px; font-style: italic;">

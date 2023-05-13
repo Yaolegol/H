@@ -52,12 +52,11 @@ class FavoritesController extends Controller
      */
     public function productsAdd(Request $request, $id)
     {
-        $result = apiAddOfferToUserFavorites($id);
+        apiAddOfferToUserFavorites($id);
+        $userFavoritesProductsList = getUserFavoritesOffersFormatted();
 
         $data = [
-            'data' => [
-                'success' => $result,
-            ],
+            'data' => $userFavoritesProductsList,
             'errors' => '',
         ];
 
@@ -71,12 +70,11 @@ class FavoritesController extends Controller
      */
     public function productsRemove(Request $request, $id)
     {
-        $result = apiRemoveOfferFromUserFavorites($id);
+        apiRemoveOfferFromUserFavorites($id);
+        $userFavoritesProductsList = getUserFavoritesOffersFormatted();
 
         $data = [
-            'data' => [
-                'success' => $result,
-            ],
+            'data' => $userFavoritesProductsList,
             'errors' => '',
         ];
 
