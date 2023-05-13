@@ -13,6 +13,7 @@ class FavoritesSection {
 
     bind = () => {
         addEventListener(document, 'j-event-favorites-components-section__get-favorites-products', this.handleGetFavoritesProducts);
+        addEventListener(document, 'j-event-favorites-components-section__update-favorites-products', this.handleUpdateFavoritesProducts);
     }
 
     fetchData = async () => {
@@ -29,23 +30,44 @@ class FavoritesSection {
             if(!errors) {
                 this.data = data;
 
-                document.dispatchEvent(new CustomEvent('j-event-happened-get-favorites', {
-                    detail: {
-                        list: data,
-                    }
-                }))
+                this.sendFavoritesData();
             }
         } catch(err) {
             console.error(err);
         }
     }
 
-    handleGetFavoritesProducts = () => {
+    handleGetFavoritesProducts = (e) => {
+        const {fromMemory} = e.detail;
+
+        if(fromMemory) {
+            this.sendFavoritesData();
+
+            return;
+        }
+
         this.fetchData();
+    }
+
+    handleUpdateFavoritesProducts = (e) => {
+        const {list} = e.detail;
+
+        console.log('list')
+        console.log(list)
+
+        this.data = list;
     }
 
     init = () => {
         this.fetchData()
+    }
+
+    sendFavoritesData = () => {
+        document.dispatchEvent(new CustomEvent('j-event-happened-get-favorites', {
+            detail: {
+                list: this.data,
+            }
+        }))
     }
 }
 

@@ -91,6 +91,12 @@ class FavoritesButton {
                 }
 
                 this.checkIsNeedReloadPage();
+
+                document.dispatchEvent(new CustomEvent('j-event-favorites-components-section__update-favorites-products', {
+                    detail: {
+                        list: data,
+                    }
+                }));
             }
         } catch(err) {
             console.error(err);
