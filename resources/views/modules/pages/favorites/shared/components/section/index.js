@@ -38,7 +38,7 @@ class FavoritesSection {
     }
 
     handleGetFavoritesProducts = (e) => {
-        const {fromMemory = false} = e.detail;
+        const {fromMemory} = e.detail ?? {};
 
         if(fromMemory) {
             this.sendFavoritesData();
