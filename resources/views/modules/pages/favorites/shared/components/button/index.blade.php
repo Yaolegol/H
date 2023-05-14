@@ -27,6 +27,9 @@
             <div class="modules-pages-favorites-shared-components-button__hint-text-container">
                 <a class="modules-pages-favorites-shared-components-button__hint-link" href="/register">Зарегистрироваться</a>
             </div>
+            <div class="modules-pages-favorites-shared-components-button__hint-text-container">
+                Это бесплатно!
+            </div>
         </div>
     @endguest
 </div>
