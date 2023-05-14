@@ -5,18 +5,20 @@
     max-width: 1000px;
 
     &__item {
-        flex: 0 0 auto;
+        flex: 0 1 25%;
+
+        @media (max-width: 767px) {
+            flex: 0 1 50%;
+        }
+    }
+
+    &__item-content {
         margin-top: 50px;
         padding: 0 25px;
-        width: 187px;
 
         @media (max-width: 767px) {
             margin-top: 25px;
-            width: 160px;
-        }
-
-        @media (max-width: 374px) {
-            width: 135px;
+            padding: 0 10px;
         }
     }
 
@@ -25,9 +27,8 @@
         flex-wrap: wrap;
         margin: 0 -25px;
 
-        @media @tablet {
-            justify-content: center;
-            margin: 0;
+        @media (max-width: 767px) {
+            margin: 0 -10px;
         }
     }
 }
