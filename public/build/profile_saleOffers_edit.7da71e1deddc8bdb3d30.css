@@ -750,6 +750,9 @@
 .modules-common-header-index__login-link {
   color: #636363;
 }
+.modules-common-header-index__logo-container {
+  display: inline-block;
+}
 @media (max-width: 1023px) {
   .modules-common-header-index__logo-container_desktop {
     display: none;
@@ -1428,10 +1431,10 @@
   }
 }
 
-.modules-pages-profile-routes-sale-offers-create__map-container {
+.modules-pages-profile-routes-sale-offers-edit__map-container {
   margin-top: 15px;
 }
-.modules-pages-profile-routes-sale-offers-create__map-geo-container {
+.modules-pages-profile-routes-sale-offers-edit__map-geo-container {
   margin-top: 15px;
 }
 
