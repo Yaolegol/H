@@ -1,20 +1,4 @@
 <div class="modules-pages-legal-routes-privacy-policy">
-    <div class="modules-pages-legal-routes-privacy-policy__container">
-        <h1 class="modules-pages-legal-routes-privacy-policy__title">
-            ПОЛЬЗОВАТЕЛЬСКОЕ СОГЛАШЕНИЕ
-        </h1>
-    </div>
-    <div class="modules-pages-legal-routes-privacy-policy__text-block">
-        <div class="modules-pages-legal-routes-privacy-policy__paragraph-title">Общие положения</div>
-        <div class="modules-pages-legal-routes-privacy-policy__paragraph">
-            1. Настоящий сайт, далее - Сайт, это интернет-сайт, доступный по адресу LEGAL_PLACEHOLDER__DOMAIN (включая все уровни домена), представляющий собой информационно-справочную систему, владельцем которой является LEGAL_PLACEHOLDER__COMPANY, далее Компания.
-        </div>
-        <div class="modules-pages-legal-routes-privacy-policy__paragraph">
-            2. Вы можете использовать Сайт только в случае согласия с правовой информацией, изложенной на данной странице. В случае несогласия с изложенной на данной странице правовой информацией Вам необходимо покинуть Сайт.
-        </div>
-        <div class="modules-pages-legal-routes-privacy-policy__paragraph">
-            3. Сайт представляет собой электронный каталог объявлений (информационно-справочную систему) о товарах, услугах и других предложениях, которые пользователи могут предлагать и искать на Сайте с целью заключения сделок, включая информацию о зарегистрированных пользователях, организациях зарегистрированных пользователей и торговых точках зарегистрированных пользователей (далее — Объявления).
-        </div>
         <div>
             4. Сайт предоставляет авторизованным пользователям техническую возможность размещать Объявления на Сайте.
         </div>

@@ -45,7 +45,7 @@
             </div>
             <div>
                 9. Объявление - информационное сообщение, Размещённое на Сайте,
-                в том числе Пользователями, о товарах и услугах;
+                в том числе Пользователями, о товарах и услугах, адресованное неопределенному кругу лиц;
             </div>
             <div>
                 10. Актуальность - подлинность, достоверность и действительность Пользовательских Данных
@@ -89,6 +89,16 @@
             <div class="modules-pages-legal-routes-terms-of-use__paragraph">
                 10. Предметом Соглашения является предоставление Компанией Пользователю доступа к Сайту на
                 условиях Соглашения и обязанность Пользователя использовать Сайт только на условиях Соглашения.
+            </div>
+        </div>
+        <div class="modules-pages-legal-routes-terms-of-use__section">
+            <div class="modules-pages-legal-routes-terms-of-use__section-title">Сайт</div>
+            <div class="modules-pages-legal-routes-terms-of-use__paragraph">
+                1. Сайт является электронным каталогом Объявлений (информационно-справочной системой).
+            </div>
+            <div class="modules-pages-legal-routes-terms-of-use__paragraph">
+                2. Единственная цель Сайта - предоставить Пользователям техническую возможность
+                искать, просматривать и Размещать Объявления.
             </div>
         </div>
         <div class="modules-pages-legal-routes-terms-of-use__section">
