@@ -59,7 +59,8 @@ Route::get('/logout', [LogoutController::class, 'index']);
 
 Route::get('/map/mobile-app/single-point', [MapMobileAppSinglePoint::class, 'singlePoint']);
 
-Route::get('/legal', [LegalController::class, 'index']);
+Route::get('/legal/rules/terms-of-use', [LegalController::class, 'termsOfUse']);
+Route::get('/legal/rules/privacy-policy', [LegalController::class, 'privacyPolicy']);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin/offers', [AdminOffersController::class, 'index']);

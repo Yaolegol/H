@@ -13,13 +13,18 @@
     </div>
     <div class="modules-common-footer-index__info-container">
         <div>
+            Использование сайта означает согласие с
             <a
                 class="modules-common-footer-index__link"
-                href="/legal"
-            >Правила пользования сайтом, политики конфиденциальности,
-                <br />хранения и обработки персональных данных, использования файлов cookie
-                <br />и другая правовая информация
-            </a>
+                href="/legal/rules/terms-of-use"
+                target="_blank"
+            >Пользовательским соглашением</a>
+            и
+            <a
+                class="modules-common-footer-index__link"
+                href="/legal/rules/privacy-policy"
+                target="_blank"
+            >Политикой обработки персональных данных</a>
         </div>
         <div class="modules-common-footer-index__copyright-container">© clickferma, 2023. Все права защищены</div>
     </div>
