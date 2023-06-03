@@ -13,7 +13,8 @@
     </div>
     <div class="modules-common-footer-index__info-container">
         <div>
-            Использование сайта означает согласие с
+            Просмотр сайта означает согласие
+            <br />с
             <a
                 class="modules-common-footer-index__link"
                 href="/legal/rules/terms-of-use"
