@@ -131,6 +131,16 @@
                 предусмотренных законом. Сайт и Компания не несут ответственность за сторонние
                 неправомерные действия в отношении информации, которую пользователи разместили на Сайте.
             </div>
+            <div class="modules-pages-legal-routes-terms-of-use__paragraph">
+                13. Удаление Профиля Пользователя возможно через Профиль на Сайте.
+            </div>
+            <div class="modules-pages-legal-routes-terms-of-use__paragraph">
+                14. Объявления и другая информация, размещенные на Сайте Пользователями, не являются офертой или рекламой.
+            </div>
+            <div class="modules-pages-legal-routes-terms-of-use__paragraph">
+                15. Пользователи могут обратиться в Компанию любым законным способом,
+                по реквизитам, указанным в настоящем Соглашении.
+            </div>
         </div>
         <div class="modules-pages-legal-routes-terms-of-use__section">
             <div class="modules-pages-legal-routes-terms-of-use__section-title">Сайт</div>
