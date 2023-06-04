@@ -399,6 +399,10 @@
                 <br />- Сайт и Компания не несёт ответственности за указанную Пользователями информацию,
                 в том числе за последствия её использования Пользователями
             </div>
+            <div class="modules-pages-legal-routes-terms-of-use__paragraph">
+                23. Использование Сайта означает согласие Пользователя на обработку и хранение его
+                персональных данных Компанием и Сайтом.
+            </div>
         </div>
         <div class="modules-pages-legal-routes-terms-of-use__section">
             <div class="modules-pages-legal-routes-terms-of-use__section-title">Результаты интеллектуальной деятельности</div>
