@@ -70,12 +70,17 @@
             <div class="modules-common-footer-index__block-top-right">
                 <div class="modules-common-footer-index__contacts-block-right">
                     <div>
-                        <div>Контакты</div>
                         <div>
-                            <a href="mailto:clickferma@yandex.ru">clickferma@yandex.ru</a>
+                            Если у Вас есть вопросы по работе сайте, пожелания, предложения -
+                            <br />обязательно свяжитесь с нами! Мы всегда будем Вам рады!
                         </div>
-                        <div>
-                            <a href="tel:89527568210">8 952 756 82 10</a>
+                        <div class="modules-common-footer-index__contacts-container">
+                            <div class="modules-common-footer-index__contacts-item">
+                                <a href="mailto:clickferma@yandex.ru">clickferma@yandex.ru</a>
+                            </div>
+                            <div class="modules-common-footer-index__contacts-item">
+                                <a href="tel:89527568210">8 952 756 82 10</a>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -27,6 +27,16 @@
 
     &__block-bottom-right {
         flex: 1 1 50%;
+        text-align: right;
+    }
+
+    &__block-top-left {
+        flex: 0 0 50%;
+    }
+
+    &__block-top-right {
+        flex: 1 1 50%;
+        text-align: right;
     }
 
     &__contacts-area {
@@ -45,6 +55,18 @@
         @media @tablet {
             margin-top: 15px;
             text-align: center;
+        }
+    }
+
+    &__contacts-container {
+        margin-top: 5px;
+    }
+
+    &__contacts-item {
+        margin-top: 5px;
+
+        &:first-child {
+            margin: 0;
         }
     }
 
