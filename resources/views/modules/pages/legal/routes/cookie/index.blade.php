@@ -38,6 +38,13 @@
             <div class="modules-pages-legal-routes-cookie__paragraph">
                 2. Куки файлы могут содержать ПД Пользователя.
             </div>
+            <div class="modules-pages-legal-routes-cookie__paragraph">
+                3. Пользователь обязан самостоятельно при каждом Использовании Сайта
+                проверять условия настоящей Политики.
+            </div>
+            <div class="modules-pages-legal-routes-cookie__paragraph">
+                4. Компания и Сайт вправе вносить изменения в Политику ПД без уведомления Пользователей.
+            </div>
         </div>
     </div>
 </div>
