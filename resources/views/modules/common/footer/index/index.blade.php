@@ -71,7 +71,7 @@
                 <div class="modules-common-footer-index__contacts-block-right">
                     <div>
                         <div>
-                            Если у Вас есть вопросы по работе сайте, пожелания, предложения -
+                            Если у Вас есть вопросы по работе сайте, пожелания,&nbsp;предложения -
                             <br />обязательно свяжитесь с нами! Мы всегда будем Вам рады!
                         </div>
                         <div class="modules-common-footer-index__contacts-container">
@@ -109,7 +109,7 @@
                         class="modules-common-footer-index__link"
                         href="/legal/rules/cookie"
                         target="_blank"
-                    >Политикой в отношении куки (cookie) файлов</a>
+                    >Политикой в отношении куки (cookie)&nbsp;файлов</a>
                 </div>
             </div>
         </div>
