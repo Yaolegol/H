@@ -14,22 +14,42 @@
         display: flex;
         justify-content: space-between;
         margin-top: 50px;
+
+        @media @tablet {
+            align-items: center;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
     }
 
     &__area-top {
         display: flex;
         justify-content: space-between;
+
+        @media @tablet {
+            align-items: center;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
     }
 
     &__block-bottom-left {
         align-items: flex-end;
         display: flex;
         flex: 0 0 50%;
+
+        @media @tablet {
+            order: 1;
+        }
     }
 
     &__block-bottom-right {
         flex: 1 1 50%;
         text-align: right;
+
+        @media @tablet {
+            text-align: center;
+        }
     }
 
     &__block-top-left {
@@ -39,16 +59,6 @@
     &__block-top-right {
         flex: 1 1 50%;
         text-align: right;
-    }
-
-    &__contacts-area {
-        display: flex;
-        justify-content: space-between;
-
-        @media @tablet {
-            flex-direction: column;
-            justify-content: flex-start;
-        }
     }
 
     &__contacts-block-right {
