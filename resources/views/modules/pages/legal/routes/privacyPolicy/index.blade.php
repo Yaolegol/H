@@ -9,7 +9,7 @@
     <div class="modules-pages-legal-routes-privacy-policy__text-block">
         <div class="modules-pages-legal-routes-privacy-policy__section">
             <div class="modules-pages-legal-routes-privacy-policy__section-title">Термины и определения</div>
-            <div>
+            <div class="modules-pages-legal-routes-privacy-policy__paragraph">
                 1. Политика ПД - настоящая Политика в отношении обработки персональных данных
             </div>
             <div class="modules-pages-legal-routes-privacy-policy__paragraph">
@@ -66,7 +66,7 @@
             <div class="modules-pages-legal-routes-privacy-policy__paragraph">
                 3. Компания и Сайт вправе вносить изменения в Политику ПД без уведомления Пользователей.
             </div>
-            <div>
+            <div class="modules-pages-legal-routes-privacy-policy__paragraph">
                 4. При каждом Использовании Сайта, а также при каждом обращении в Компанию
                 Пользователь дает свое согласие:
                 <br />- на обработку введенных на Сайте сведений о Пользователе,
@@ -89,7 +89,7 @@
                 адресах запрашиваемых страниц, действиях на сайте или в приложении,
                 технических характеристиках устройства, IP-адресе и т.п.
             </div>
-            <div>
+            <div class="modules-pages-legal-routes-privacy-policy__paragraph">
                5. Компания и Сайт обрабатывают только общие категории ПД
                 и не обрабатывают биометрические ПД и специальные категории персональных данных.
             </div>
@@ -152,7 +152,7 @@
                 4. Обработка ПД на Сайте может осуществляться как с использованием средств автоматизации,
                 так и без.
             </div>
-            <div>
+            <div class="modules-pages-legal-routes-privacy-policy__paragraph">
                 5. Оператор вправе поручить обработку ПД другому лицу.
             </div>
         </div>
