@@ -63,7 +63,7 @@
                         </svg>
                     </a>
                 </div>
-                <div class="modules-common-footer-index__contacts-block-left">
+                <div class="modules-common-footer-index__social-media">
                     <div>Социальные сети</div>
                 </div>
             </div>
