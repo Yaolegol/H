@@ -12,20 +12,26 @@
         </div>
     </div>
     <div class="modules-common-footer-index__info-container">
-        <div>
-            Просмотр сайта означает согласие
+        <div class="modules-common-footer-index__legal-container">
+            Просмотр и использование сайта означает согласие
             <br />с
             <a
                 class="modules-common-footer-index__link"
                 href="/legal/rules/terms-of-use"
                 target="_blank"
-            >Пользовательским соглашением</a>
-            и
+            >Пользовательским соглашением</a>,
+            <br />
             <a
                 class="modules-common-footer-index__link"
                 href="/legal/rules/privacy-policy"
                 target="_blank"
-            >Политикой обработки персональных данных</a>
+            >Политикой обработки персональных данных</a>,
+            <br />
+            <a
+                class="modules-common-footer-index__link"
+                href="/legal/rules/cookie"
+                target="_blank"
+            >Политикой в отношении куки (cookie) файлов</a>
         </div>
         <div class="modules-common-footer-index__copyright-container">© clickferma, 2023. Все права защищены</div>
     </div>

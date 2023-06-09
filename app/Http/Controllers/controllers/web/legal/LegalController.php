@@ -15,6 +15,20 @@ class LegalController extends Controller
      *
      * @return Response
      */
+    public function cookie()
+    {
+        $catalogFull = getCatalogFull();
+
+        return view('pages.legal.cookie.index', [
+            'catalogHeader' => $catalogFull,
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
     public function termsOfUse()
     {
         $catalogFull = getCatalogFull();
