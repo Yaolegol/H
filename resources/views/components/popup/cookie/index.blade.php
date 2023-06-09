@@ -3,7 +3,7 @@
         Для улучшения работы сайта мы используем файлы cookie.
         <a
             class="components-popup-cookie__link"
-            href="/legal"
+            href="/legal/rules/cookie"
         >Подробнее</a>
     </div>
     <button
