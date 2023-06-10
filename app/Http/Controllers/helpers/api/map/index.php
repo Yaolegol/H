@@ -111,7 +111,7 @@ function apiGetOfferData($offerItem) {
         'seller' => [
             'id' => $offerItem['user']['id'],
             'link' => '/sellers/' . $offerItem['user']['id'],
-            'name' => $offerItem['user']['name'],
+            'name' => $offerItem['user']['is_approved'] ? $offerItem['user']['name'] : '',
             'phone' => $offerItem['user']['phone'],
         ],
     ];
