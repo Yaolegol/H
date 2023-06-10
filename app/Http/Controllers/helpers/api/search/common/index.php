@@ -68,11 +68,11 @@ function apiGetSearchCommonResultFormatted($request) {
 
     $normalizedTitle = normalizeTitle($title);
 
-    $offerList = apiGetOfferListByPhoneFromDB($normalizedTitle);
+//    $offerList = apiGetOfferListByPhoneFromDB($normalizedTitle);
     $userList = apiGetUserListByPhoneFromDB($normalizedTitle);
 
-    $offersDataList = apiGetOfferLinks($offerList);
-    setOfferFullLinks($offersDataList);
+//    $offersDataList = apiGetOfferLinks($offerList);
+//    setOfferFullLinks($offersDataList);
 
     $usersDataList = apiGetUserLinks($userList);
     setUserFullLinks($usersDataList);
@@ -83,7 +83,7 @@ function apiGetSearchCommonResultFormatted($request) {
             'title' => 'Фермеры',
         ],
         [
-            'dataList' => $offersDataList,
+            'dataList' => [],
             'title' => 'Товары',
         ],
     ];
