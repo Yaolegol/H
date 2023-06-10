@@ -2146,7 +2146,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'link' => 'round_timber',
             'order' => 1,
             'catalog_level_one_id' => 22,
-            'title' => 'Кругляк TEST',
+            'title' => 'Кругляк',
         ],
         [
             'image' => 'public/catalog/levelOne/items/hay/images/main/sub/lumber/1.jpeg',
