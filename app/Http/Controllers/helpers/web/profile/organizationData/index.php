@@ -1,7 +1,6 @@
 <?php
 
 use App\Models\Organization;
-use App\Rules\StartWith;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
@@ -155,7 +154,7 @@ function getProfileOrganizationDataValidator($request) {
             'email' => ['email', 'max:25', 'nullable'],
             'inn' => ['required', 'max:25'],
             'legal_address' => ['max:1000'],
-            'phone' => ['digits:11', new StartWith('7')],
+            'phone' => ['max:30'],
             'photo_1' => ['image', 'max:10240'],
             'photo_2' => ['image', 'max:10240'],
             'photo_3' => ['image', 'max:10240'],

@@ -51,11 +51,13 @@
 
             @component('modules.pages.profile.common.components.container.form-field.index', [
                 'title' => 'Телефон:'
-            ])
-                @include('components.inputs.phone.index', [
-                                'name' => 'phone',
-                                'value' => old('phone'),
                 ])
+                @include('components.inputs.form.index', [
+                                'name' => 'phone',
+                                'placeholder' => 'Телефон',
+                                'type' => 'tel',
+                                'value' => old('phone'),
+                            ])
                 @include('components.form.error.index', [
                     'message' => $errors->first('phone'),
                 ])

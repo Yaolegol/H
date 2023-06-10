@@ -4,7 +4,6 @@ import 'views/components/checkboxes/withTextArea';
 import 'views/components/form/error';
 import 'views/components/inputs/file/item';
 import 'views/components/inputs/form';
-import 'views/components/inputs/phone';
 import 'views/components/inputs/radio/group-first-level';
 import 'views/components/inputs/textarea/base';
 import 'views/modules/common/geo/components/button';

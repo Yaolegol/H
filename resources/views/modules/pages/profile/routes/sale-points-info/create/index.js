@@ -2,7 +2,6 @@ import 'views/components/buttons/filter';
 import 'views/components/form/error';
 import 'views/components/inputs/file/item';
 import 'views/components/inputs/form';
-import 'views/components/inputs/phone';
 import 'views/modules/common/geo/components/button';
 import 'views/modules/common/map/yandex/components/add-marker';
 import 'views/modules/pages/profile/common/components/body/create';
