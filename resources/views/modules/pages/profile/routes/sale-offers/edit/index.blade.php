@@ -81,14 +81,13 @@
 
             @component('modules.pages.profile.common.components.container.form-field.index', [
                 'required' => true,
-                'title' => 'Телефон:'])
-                @include('components.inputs.form.index', [
+                'title' => 'Телефон:'
+            ])
+                @include('components.inputs.phone.index', [
                                 'name' => 'phone',
-                                'placeholder' => 'Телефон',
                                 'required' => true,
-                                'type' => 'tel',
                                 'value' => $saleOfferItemData['phone'],
-                            ])
+                ])
                 @include('components.form.error.index', [
                     'message' => $errors->first('phone'),
                 ])

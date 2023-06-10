@@ -1,5 +1,6 @@
 <?php
 
+use App\Rules\StartWith;
 use App\Models\Offer;
 use App\Models\Organization;
 use App\Models\SalePoint;
@@ -192,7 +193,7 @@ function getProfileSaleOffersValidator($request) {
             'contact_person' => ['max:1000'],
             'delivery_description' => ['max:1000'],
             'description' => ['max:1000'],
-            'phone' => ['required', 'max:16'],
+            'phone' => ['required', 'digits:11', new StartWith('7')],
             'photo_1' => ['image', 'max:10240'],
             'photo_2' => ['image', 'max:10240'],
             'photo_3' => ['image', 'max:10240'],
@@ -202,6 +203,7 @@ function getProfileSaleOffersValidator($request) {
             'working_hours' => ['max:1000'],
         ],
         [
+            'digits' => 'Поле должно содержать :digits цифр',
             'image' => 'Поле должно содержать картинку, размером не более 10Мб',
             'max' => 'Поле должно содержать максимум :max символов',
             'required' => 'Поле обязательно для заполнения',

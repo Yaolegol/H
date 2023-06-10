@@ -1,6 +1,7 @@
 import 'views/components/form/error';
 import 'views/components/inputs/file/item';
 import 'views/components/inputs/form';
+import 'views/components/inputs/phone';
 import 'views/modules/pages/profile/common/components/body/create';
 import 'views/modules/pages/profile/common/components/container/file-field';
 import 'views/modules/pages/profile/common/components/container/form-field';

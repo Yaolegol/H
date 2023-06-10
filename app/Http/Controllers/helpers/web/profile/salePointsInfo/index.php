@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\SalePoint;
+use App\Rules\StartWith;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
@@ -102,7 +103,7 @@ function getProfileSalePointsValidator($request) {
             'address' => ['required', 'max:1000'],
             'working_hours' => ['max:1000'],
             'contact_person' => ['max:1000'],
-            'phone' => ['max:16'],
+            'phone' => ['digits:11', new StartWith('7')],
             'photo_1' => ['image', 'max:10240'],
             'photo_2' => ['image', 'max:10240'],
             'photo_3' => ['image', 'max:10240'],

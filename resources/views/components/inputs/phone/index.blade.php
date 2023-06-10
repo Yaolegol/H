@@ -9,5 +9,6 @@
     <input
         class="components-inputs-phone__input-mask j-inputs-phone__input-mask"
         type="tel"
+        value="{{$value ?? ''}}"
     />
 </label>
