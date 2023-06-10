@@ -66,8 +66,10 @@ function apiGetSearchCommonResultFormatted($request) {
     $data = $request->input('data');
     $title = $data['title'];
 
-    $offerList = apiGetOfferListByPhoneFromDB($title);
-    $userList = apiGetUserListByPhoneFromDB($title);
+    $normalizedTitle = normalizeTitle($title);
+
+    $offerList = apiGetOfferListByPhoneFromDB($normalizedTitle);
+    $userList = apiGetUserListByPhoneFromDB($normalizedTitle);
 
     $offersDataList = apiGetOfferLinks($offerList);
     setOfferFullLinks($offersDataList);
@@ -111,6 +113,28 @@ function apiGetUserLinks($userList) {
             'title' => $userData['name'],
         ];
     }, $userList);
+}
+
+function normalizeTitle($title) {
+    if(!$title) {
+        return '';
+    }
+
+    $normalizedTitle = $title;
+
+    if(str_starts_with($normalizedTitle, '+')) {
+        $normalizedTitle = substr($normalizedTitle, 1);
+    }
+
+    if(str_starts_with($normalizedTitle, '7')) {
+        $normalizedTitle = substr($normalizedTitle, 1);
+    }
+
+    if(str_starts_with($normalizedTitle, '8')) {
+        $normalizedTitle = substr($normalizedTitle, 1);
+    }
+
+    return $normalizedTitle;
 }
 
 function setOfferFullLinks(&$offerList) {
