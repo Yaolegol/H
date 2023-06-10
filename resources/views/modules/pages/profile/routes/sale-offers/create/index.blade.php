@@ -42,11 +42,11 @@
 
             @component('modules.pages.profile.common.components.container.form-field.index', [
                 'required' => true,
-                'title' => 'Название товара:'
-                ])
+                'title' => 'Заголовок объявления:'
+            ])
                 @include('components.inputs.form.index', [
                                 'name' => 'title',
-                                'placeholder' => 'Название товара',
+                                'placeholder' => 'Название объявления',
                                 'required' => true,
                                 'type' => 'text',
                                 'value' => old('title'),
