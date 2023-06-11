@@ -72,7 +72,7 @@
                     <div>
                         <div>
                             Если у Вас есть вопросы по работе сайте, пожелания,&nbsp;предложения -
-                            <br />обязательно свяжитесь с нами! Мы всегда Вам рады!
+                            <br />обязательно свяжитесь с нами! Мы&nbsp;всегда&nbsp;Вам&nbsp;рады!
                         </div>
                         <div class="modules-common-footer-index__contacts-container">
                             <div class="modules-common-footer-index__contacts-item">
@@ -93,6 +93,14 @@
                 </div>
             </div>
             <div class="modules-common-footer-index__block-bottom-right">
+                <div>
+                    <a
+                        class="modules-common-footer-index__link"
+                        href="/copyright/images"
+                    >
+                        Список использованных изображений и&nbsp;их&nbsp;авторов
+                    </a>
+                </div>
                 <div class="modules-common-footer-index__legal-container">
                     Просмотр и использование сайта означает согласие с
                     <a
