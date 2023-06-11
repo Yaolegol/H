@@ -4,14 +4,34 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <!-- About -->
+        <title>{{ config('app.name', 'Кликферма') }}</title>
+        <meta
+            name="description"
+            content="Найти, купить натуральные фермерские продукты. Объявления о продаже натуральных фермерских продуктов. Бесплатное размещение объявлений"
+        >
+
+        <!-- Favicon -->
+        <link
+            href="/build/icons/favicon/favicon.svg"
+            rel="icon"
+            sizes="any"
+            type="image/svg+xml"
+        >
+        <link
+            href="/build/icons/favicon/favicon.svg"
+            rel="apple-touch-icon"
+            sizes="any"
+            type="image/svg+xml"
+        >
+
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Styles -->
         @yield('layout-styles')
 
+        <!-- Scripts -->
         <script
             src="https://api-maps.yandex.ru/2.1/?apikey=b92366ae-3520-458e-bf9f-17db62817585&lang=ru_RU"
             type="text/javascript"
