@@ -375,7 +375,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/fish/images/main/sub/salmon/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/delicious-fresh-salmon-fish_10594289.htm#query=salmon&position=3&from_view=search&track=sph">Freepik</a>',
             'link' => 'salmon',
             'order' => 1,
             'catalog_level_one_id' => 2,
@@ -476,7 +476,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/milk/images/main/sub/milkshake/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/delicious-milkshakes_10094631.htm#page=5&query=milkshake&position=46&from_view=search&track=sph">Изображение от Racool_studio</a> на Freepik',
             'link' => 'milkshake',
             'order' => 1,
             'catalog_level_one_id' => 3,
@@ -1214,7 +1214,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/confectionery/images/main/sub/other/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/close-up-of-chocolate-arrangement_6123495.htm#page=19&query=cookie&position=0&from_view=search&track=sph">Freepik</a>',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 9,
@@ -2020,7 +2020,7 @@ class CatalogLevelTwoSeeder extends Seeder
         // Животноводство
         [
             'image' => 'public/catalog/levelOne/items/farming/images/main/sub/cow/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/beautiful-cow-on-green-grass-with-blue-sky_11244791.htm#query=cow&position=14&from_view=search&track=sph">Изображение от vwalakte</a> на Freepik',
             'link' => 'cow',
             'order' => 1,
             'catalog_level_one_id' => 21,
@@ -2028,7 +2028,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/farming/images/main/sub/chicken/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/closeup-shot-of-a-white-hen-walking-in-a-field_10759817.htm#query=%D0%9A%D1%83%D1%80%D0%B8%D1%86%D0%B0&position=27&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
             'link' => 'chicken',
             'order' => 1,
             'catalog_level_one_id' => 21,
@@ -2036,7 +2036,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/farming/images/main/sub/turkey/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/side-view-turkey-outdoors_8775118.htm#page=2&query=%D0%98%D0%BD%D0%B4%D0%B5%D0%B9%D0%BA%D0%B0&position=30&from_view=search&track=sph">Freepik</a>',
             'link' => 'turkey',
             'order' => 1,
             'catalog_level_one_id' => 21,
@@ -2044,7 +2044,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/farming/images/main/sub/pig/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/closeup-shot-of-three-domesticated-pigs_17244243.htm#query=pig&position=37&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
             'link' => 'pig',
             'order' => 1,
             'catalog_level_one_id' => 21,
@@ -2052,7 +2052,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/farming/images/main/sub/sheep/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/head-of-a-white-sheep_15672323.htm#query=sheep&position=4&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
             'link' => 'sheep',
             'order' => 1,
             'catalog_level_one_id' => 21,
@@ -2060,7 +2060,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/farming/images/main/sub/rabbit/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://www.freepik.com/free-photo/portrait-cute-fluffy-gray-rabbit-with-ears-natural-green_9604087.htm#page=2&query=rabbit&position=28&from_view=search&track=sph">Image by pereslavtseva</a> on Freepik',
             'link' => 'rabbit',
             'order' => 1,
             'catalog_level_one_id' => 21,
@@ -2068,7 +2068,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/farming/images/main/sub/goat/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://www.freepik.com/free-photo/cute-white-goat-leaning-another-goat_8857775.htm#query=goats&position=2&from_view=search&track=sph">Image by wirestock</a> on Freepik',
             'link' => 'goat',
             'order' => 1,
             'catalog_level_one_id' => 21,
@@ -2092,7 +2092,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/farming/images/main/sub/other/1.jpeg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/close-wild-big-brown-bear-near-a-forest-lake_11011847.htm#query=bear&position=29&from_view=search&track=sph">Изображение от byrdyak</a> на Freepik',
             'link' => 'other',
             'order' => 999,
             'catalog_level_one_id' => 21,
