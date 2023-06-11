@@ -11,6 +11,7 @@ use App\Http\Controllers\controllers\web\authorization\login\LoginController;
 use App\Http\Controllers\controllers\web\authorization\logout\LogoutController;
 use App\Http\Controllers\controllers\web\authorization\register\RegisterController;
 use App\Http\Controllers\controllers\web\catalog\CatalogController;
+use App\Http\Controllers\controllers\web\copyright\CopyrightController;
 use App\Http\Controllers\controllers\web\favorites\FavoritesController;
 use App\Http\Controllers\controllers\web\legal\LegalController;
 use App\Http\Controllers\controllers\web\map\MapController;
@@ -62,6 +63,8 @@ Route::get('/map/mobile-app/single-point', [MapMobileAppSinglePoint::class, 'sin
 Route::get('/legal/rules/cookie', [LegalController::class, 'cookie']);
 Route::get('/legal/rules/privacy-policy', [LegalController::class, 'privacyPolicy']);
 Route::get('/legal/rules/terms-of-use', [LegalController::class, 'termsOfUse']);
+
+Route::get('/copyright/images', [CopyrightController::class, 'images']);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin/offers', [AdminOffersController::class, 'index']);
