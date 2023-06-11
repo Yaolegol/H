@@ -72,7 +72,7 @@
                     <div>
                         <div>
                             Если у Вас есть вопросы по работе сайте, пожелания,&nbsp;предложения -
-                            <br />обязательно свяжитесь с нами! Мы всегда будем Вам рады!
+                            <br />обязательно свяжитесь с нами! Мы всегда Вам рады!
                         </div>
                         <div class="modules-common-footer-index__contacts-container">
                             <div class="modules-common-footer-index__contacts-item">
