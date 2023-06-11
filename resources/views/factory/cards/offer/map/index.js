@@ -123,15 +123,23 @@ export class MapOfferCard {
         const createdAtMonthFormatted = createdAtMonth < 10 ? `0${createdAtMonth}` : createdAtMonth;
         const createdAtYear = createdAtDate.getFullYear();
 
+        const imageLayout = src ? `
+            <img
+                alt=""
+                class="factory-cards-offer-map__image"
+                src="${src}"
+            >
+        ` : `
+            <div class="factory-cards-offer-map__image-no">
+                нет фото
+            </div>
+        `;
+
         return `
             <div class="factory-cards-offer-map j-factory-cards-offer-map">
                 <div class="factory-cards-offer-map__image-block">
                     <div class="factory-cards-offer-map__image-container">
-                        <img
-                            alt=""
-                            class="factory-cards-offer-map__image"
-                            src="${src}"
-                        >
+                        ${imageLayout}
                         <a
                             class="factory-cards-offer-map__image-link"
                             href="${productLink}"

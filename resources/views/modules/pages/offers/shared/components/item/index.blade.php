@@ -1,7 +1,15 @@
 <div class="modules-pages-offers-shared-components-item">
     <div class="modules-pages-offers-shared-components-item__image-block">
         <div class="modules-pages-offers-shared-components-item__image-container">
-            <img alt="{{$offer['title']}}" class="modules-pages-offers-shared-components-item__image" src="{{$offer['photoArray'][0] ?? ''}}">
+            @if($offer['photoArray'][0] ?? false)
+                <img
+                    alt="{{$offer['title']}}"
+                    class="modules-pages-offers-shared-components-item__image"
+                    src="{{$offer['photoArray'][0] ?? ''}}"
+                >
+            @else
+                <div class="modules-pages-offers-shared-components-item__image-no">нет фото</div>
+            @endif
             <a class="modules-pages-offers-shared-components-item__image-link" href="{{$offer['offerLink']}}"></a>
         </div>
     </div>
