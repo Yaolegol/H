@@ -1,9 +1,9 @@
 <div class="modules-pages-copyright-routes-images">
     <div class="modules-pages-copyright-routes-images__container">
-        <h1 class="modules-pages-copyright-routes-images__title">
+        <h5 class="modules-pages-copyright-routes-images__title">
             Выражаем свою благодарность авторам изображений,
             <br />которые использованы на сайте
-        </h1>
+        </h5>
         <div class="modules-pages-copyright-routes-images__images-section">
             @foreach($copyrightImages as $copyrightImage)
                 <div class="modules-pages-copyright-routes-images__image-item">
