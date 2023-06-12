@@ -382,6 +382,22 @@ class CatalogLevelTwoSeeder extends Seeder
             'title' => 'Лосось',
         ],
         [
+            'image' => 'public/catalog/levelOne/items/fish/images/main/sub/caviar_red/1.jpeg',
+            'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://www.freepik.com/free-photo/red-caviar_8537226.htm#query=caviar&from_query=%D0%B8%D0%BA%D1%80%D0%B0&position=41&from_view=search&track=sph">Image by Racool_studio</a> on Freepik',
+            'link' => 'caviar_red',
+            'order' => 1,
+            'catalog_level_one_id' => 2,
+            'title' => 'Икра красная',
+        ],
+        [
+            'image' => 'public/catalog/levelOne/items/fish/images/main/sub/caviar_black/1.jpeg',
+            'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://www.freepik.com/free-photo/black-caviar-glass-jar_7412732.htm#query=caviar%20black&position=10&from_view=search&track=ais">Image by azerbaijan_stockers</a> on Freepik',
+            'link' => 'caviar_black',
+            'order' => 1,
+            'catalog_level_one_id' => 2,
+            'title' => 'Икра черная',
+        ],
+        [
             'image' => 'public/catalog/levelOne/items/fish/images/main/sub/other/1.jpeg',
             'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/top-view-mix-of-fresh-fishes-on-ice_5567771.htm#page=2&query=%D0%9A%D0%B0%D1%80%D0%BF&position=22&from_view=search&track=sph">Freepik</a>',
             'link' => 'other',
