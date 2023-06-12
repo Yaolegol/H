@@ -78,8 +78,22 @@
                             <div class="modules-common-footer-index__contacts-item">
                                 <a href="mailto:clickferma@yandex.ru">clickferma@yandex.ru</a>
                             </div>
-                            <div class="modules-common-footer-index__contacts-item">
-                                <a href="tel:89527568210">8 952 756 82 10</a>
+                            <div class="modules-common-footer-index__contacts-item modules-common-footer-index__contacts-item_flex">
+                                <div class="modules-common-footer-index__contacts-messenger-container">
+                                    <a href="https://t.me/yaolegoleinik">
+                                        @include('icons.messengers.telegram')
+                                    </a>
+                                </div>
+                                <div class="modules-common-footer-index__contacts-messenger-container">
+                                    <a href="https://api.whatsapp.com/send?phone=89527568210">
+                                        @include('icons.messengers.whatsapp')
+                                    </a>
+                                </div>
+                                <div class="modules-common-footer-index__contacts-messenger-container">
+                                    <a href="viber://chat?number=89527568210">
+                                        @include('icons.messengers.viber')
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
