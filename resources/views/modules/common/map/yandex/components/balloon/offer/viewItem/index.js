@@ -26,6 +26,7 @@ export const getOfferBalloonProductPage = (offerData, markerId) => {
     let contactName = name ?? 'не указано';
     let contactPhone = phone;
     let balloonDescription = description ?? '';
+    let deliveryDescription = delivery_description ?? '';
 
     if(contact_person) {
         contactName = contact_person;
@@ -88,7 +89,7 @@ export const getOfferBalloonProductPage = (offerData, markerId) => {
                 `
                     <div class="modules-common-map-yandex-components-balloon-offer-view-item__section-seller">
                         <div class="modules-common-map-yandex-components-balloon-offer-view-item__section-seller-title">Доставка: есть</div>
-                        <div>${delivery_description}</div>
+                        <div>${deliveryDescription}</div>
                     </div>
                 `
             : ""}
