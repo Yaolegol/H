@@ -2243,6 +2243,14 @@ class CatalogLevelTwoSeeder extends Seeder
      */
     public function run()
     {
+        usort($this->data, function ($item1, $item2) {
+            if($item2['title'] === 'Остальное') {
+                return -1;
+            }
+
+            return strcmp($item1['title'], $item2['title']);
+        });
+
         foreach ($this->data as $dataItem) {
             DB::table('catalog_level_two')->insert($dataItem);
         }
