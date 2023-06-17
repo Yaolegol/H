@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\controllers\map\mobileApp\MapMobileAppSinglePoint;
+use App\Http\Controllers\controllers\web\about\AboutController;
 use App\Http\Controllers\controllers\web\admin\offers\AdminOffersController;
 use App\Http\Controllers\controllers\web\admin\offersRating\AdminOffersRatingController;
 use App\Http\Controllers\controllers\web\admin\organizations\AdminOrganizationsController;
@@ -63,6 +64,8 @@ Route::get('/map/mobile-app/single-point', [MapMobileAppSinglePoint::class, 'sin
 Route::get('/legal/rules/cookie', [LegalController::class, 'cookie']);
 Route::get('/legal/rules/privacy-policy', [LegalController::class, 'privacyPolicy']);
 Route::get('/legal/rules/terms-of-use', [LegalController::class, 'termsOfUse']);
+
+Route::get('/about', [AboutController::class, 'index']);
 
 Route::get('/copyright/images', [CopyrightController::class, 'images']);
 

@@ -43,6 +43,7 @@ const createConfig = (env, argv) => {
     return {
         devtool: production ? false : 'source-map',
         entry: {
+            about_index: path.resolve(appDirectoriesData.path_pages, 'about', 'index'),
             admin_offers: path.resolve(appDirectoriesData.path_pages, 'admin', 'offers'),
             admin_offersRating: path.resolve(appDirectoriesData.path_pages, 'admin', 'offersRating'),
             admin_organizations: path.resolve(appDirectoriesData.path_pages, 'admin', 'organizations'),

@@ -71,6 +71,9 @@
                 <div class="modules-common-footer-index__contacts-block-right">
                     <div>
                         <div>
+                            <a href="/about">О нас</a>
+                        </div>
+                        <div class="modules-common-footer-index__contacts-title-container">
                             Если у Вас есть вопросы по работе сайте, пожелания,&nbsp;предложения -
                             <br />обязательно свяжитесь с нами! Мы&nbsp;всегда&nbsp;Вам&nbsp;рады!
                         </div>
