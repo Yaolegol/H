@@ -1,8 +1,14 @@
+@import (reference) '~styles/adaptive';
 @import (reference) '~styles/colors';
+@import (reference) '~styles/typography';
 
 .modules-pages-legal-routes-privacy-policy {
     &__container {
         margin-top: 100px;
+
+        @media @mobile {
+            margin-top: 50px;
+        }
     }
 
     &__description {
@@ -38,6 +44,8 @@
     }
 
     &__title {
+        .f_h5;
+
         text-align: center;
     }
 }
