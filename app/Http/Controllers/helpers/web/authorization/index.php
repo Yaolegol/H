@@ -195,7 +195,7 @@ function getForgotPasswordConfirmCodeValidator($request) {
         $request->all(),
         [
             'code' => ['required', 'digits:4'],
-            'password' => ['required', 'max:25', 'min:6'],
+            'password' => ['required', 'max:50', 'min:6'],
             'password_confirmation' => ['required', 'same:password'],
             'phone' => ['required', 'digits:11', new StartWith('7')],
         ],
@@ -213,7 +213,7 @@ function getForgotPasswordSendSmsValidator($request) {
     return Validator::make(
         $request->all(),
         [
-            'password' => ['required', 'max:25', 'min:6'],
+            'password' => ['required', 'max:50', 'min:6'],
             'password_confirmation' => ['required', 'same:password'],
             'phone' => ['required', 'digits:11', new StartWith('7')],
         ],
@@ -231,7 +231,7 @@ function getLoginValidator($request) {
     return Validator::make(
         $request->all(),
         [
-            'password' => ['required', 'min:6'],
+            'password' => ['required', 'max:50', 'min:6'],
             'phone' => ['required', 'digits:11', new StartWith('7')],
         ],
         [
@@ -248,7 +248,7 @@ function getRegistrationConfirmCodeValidator($request) {
         $request->all(),
         [
             'code' => ['required', 'digits:4'],
-            'password' => ['required', 'max:25', 'min:6'],
+            'password' => ['required', 'max:50', 'min:6'],
             'password_confirmation' => ['required', 'same:password'],
             'phone' => ['required', 'digits:11', new StartWith('7'), 'unique:users'],
         ],
@@ -268,7 +268,7 @@ function getRegistrationSendSmsValidator($request) {
         $request->all(),
         [
             'agreement' => ['accepted'],
-            'password' => ['required', 'max:25', 'min:6'],
+            'password' => ['required', 'max:50', 'min:6'],
             'password_confirmation' => ['required', 'same:password'],
             'phone' => ['required', 'digits:11', new StartWith('7'), 'unique:users'],
         ],

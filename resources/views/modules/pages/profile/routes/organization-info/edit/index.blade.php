@@ -79,13 +79,15 @@
                 ])
             @endcomponent
 
-            @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Телефон:'])
+            @component('modules.pages.profile.common.components.container.form-field.index', [
+                'title' => 'Телефон организации:'
+                ])
                 @include('components.inputs.form.index', [
-                            'name' => 'phone',
-                            'placeholder' => 'Телефон организации',
-                            'type' => 'tel',
-                            'value' => $organizationItemData['phone'],
-                        ])
+                                'name' => 'phone',
+                                'placeholder' => 'Телефон',
+                                'type' => 'tel',
+                                'value' => $organizationItemData['phone'],
+                            ])
                 @include('components.form.error.index', [
                     'message' => $errors->first('phone'),
                 ])

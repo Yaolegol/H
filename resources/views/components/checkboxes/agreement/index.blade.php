@@ -18,8 +18,18 @@
         Я согласен(-на) с
         <a
             class="components-checkboxes-agreement__link"
-            href="/legal"
+            href="/legal/rules/terms-of-use"
             target="_blank"
-        >правовой информацией</a> и положениями "О персональных данных"
+        >
+            Пользовательским соглашением
+        </a>
+        и
+        <a
+            class="components-checkboxes-agreement__link"
+            href="/legal/rules/privacy-policy"
+            target="_blank"
+        >
+            Политикой обработки персональных данных
+        </a>
     </span>
 </div>

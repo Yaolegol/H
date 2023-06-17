@@ -154,7 +154,7 @@ function getProfileOrganizationDataValidator($request) {
             'email' => ['email', 'max:25', 'nullable'],
             'inn' => ['required', 'max:25'],
             'legal_address' => ['max:1000'],
-            'phone' => ['max:16'],
+            'phone' => ['max:30'],
             'photo_1' => ['image', 'max:10240'],
             'photo_2' => ['image', 'max:10240'],
             'photo_3' => ['image', 'max:10240'],

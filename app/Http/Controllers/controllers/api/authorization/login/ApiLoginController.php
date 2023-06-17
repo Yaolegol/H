@@ -24,7 +24,7 @@ class ApiLoginController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'password' => ['required', 'min:6'],
+                'password' => ['required', 'max:50', 'min:6'],
                 'phone' => ['required', 'digits:11', new StartWith('7')],
             ],
             [

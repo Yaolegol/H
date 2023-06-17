@@ -98,7 +98,7 @@ function getEmailValidator($request) {
         $request->all(),
         [
             'registration_email' => ['required', 'email', 'max:25', 'unique:users'],
-            'password' => ['required', 'min:6'],
+            'password' => ['required', 'max:50', 'min:6'],
         ],
         [
             'email' => 'Поле должно содержать email',
@@ -114,8 +114,8 @@ function getPasswordValidator($request) {
     return Validator::make(
         $request->all(),
         [
-            'current_password' => ['required', 'min:6'],
-            'password' => ['required', 'max:25', 'min:6'],
+            'current_password' => ['required', 'max:50', 'min:6'],
+            'password' => ['required', 'max:50', 'min:6'],
             'password_confirmation' => ['required', 'same:password'],
         ],
         [

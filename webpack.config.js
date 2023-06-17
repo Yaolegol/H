@@ -7,9 +7,11 @@ const getAppDirectoriesData = () => {
     const path_root = path.resolve(__dirname);
     const path_public = path.resolve(path_root, 'public');
     const path_build = path.resolve(path_public, 'build');
+    const path_build_fonts = path.resolve(path_build, 'fonts');
     const path_build_icons = path.resolve(path_build, 'icons');
     const path_build_images = path.resolve(path_build, 'images');
     const path_resource = path.resolve(path_root, 'resources');
+    const path_resource_fonts = path.resolve(path_resource, 'fonts');
     const path_resource_icons = path.resolve(path_resource, 'icons');
     const path_resource_images = path.resolve(path_resource, 'images');
     const path_views = path.resolve(path_resource, 'views');
@@ -17,11 +19,13 @@ const getAppDirectoriesData = () => {
 
     return {
         path_build,
+        path_build_fonts,
         path_build_icons,
         path_build_images,
         path_pages,
         path_public,
         path_resource,
+        path_resource_fonts,
         path_resource_icons,
         path_resource_images,
         path_root,
@@ -49,8 +53,11 @@ const createConfig = (env, argv) => {
             auth_register_index: path.resolve(appDirectoriesData.path_pages, 'auth', 'register', 'index'),
             catalog_firstLevel_index: path.resolve(appDirectoriesData.path_pages, 'catalog', 'firstLevel', 'index'),
             catalog_secondLevel_index: path.resolve(appDirectoriesData.path_pages, 'catalog', 'secondLevel', 'index'),
+            copyright_images: path.resolve(appDirectoriesData.path_pages, 'copyright', 'images', 'index'),
             favorites_index: path.resolve(appDirectoriesData.path_pages, 'favorites', 'index'),
-            legal_index: path.resolve(appDirectoriesData.path_pages, 'legal', 'index'),
+            legal_cookie: path.resolve(appDirectoriesData.path_pages, 'legal', 'cookie', 'index'),
+            legal_privacyPolicy: path.resolve(appDirectoriesData.path_pages, 'legal', 'privacyPolicy', 'index'),
+            legal_termsOfUse: path.resolve(appDirectoriesData.path_pages, 'legal', 'termsOfUse', 'index'),
             map_web_index: path.resolve(appDirectoriesData.path_pages, 'map', 'web', 'index'),
             map_mobileApp_singlePoint_index: path.resolve(appDirectoriesData.path_pages, 'map', 'mobileApp', 'singlePoint', 'index'),
             offers_index: path.resolve(appDirectoriesData.path_pages, 'offers', 'index'),
@@ -179,6 +186,10 @@ const createConfig = (env, argv) => {
                     {
                         from: appDirectoriesData.path_resource_icons,
                         to: appDirectoriesData.path_build_icons,
+                    },
+                    {
+                        from: appDirectoriesData.path_resource_fonts,
+                        to: appDirectoriesData.path_build_fonts,
                     },
                 ],
             }),

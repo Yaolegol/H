@@ -15,11 +15,39 @@ class LegalController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function cookie()
     {
         $catalogFull = getCatalogFull();
 
-        return view('pages.legal.index.index', [
+        return view('pages.legal.cookie.index', [
+            'catalogHeader' => $catalogFull,
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function termsOfUse()
+    {
+        $catalogFull = getCatalogFull();
+
+        return view('pages.legal.termsOfUse.index', [
+            'catalogHeader' => $catalogFull,
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function privacyPolicy()
+    {
+        $catalogFull = getCatalogFull();
+
+        return view('pages.legal.privacyPolicy.index', [
             'catalogHeader' => $catalogFull,
         ]);
     }

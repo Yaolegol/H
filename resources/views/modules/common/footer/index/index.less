@@ -10,14 +10,55 @@
         text-align: center;
     }
 
-    &__contacts-area {
+    &__area-bottom {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 50px;
+
+        @media @tablet {
+            align-items: center;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+    }
+
+    &__area-top {
         display: flex;
         justify-content: space-between;
 
         @media @tablet {
+            align-items: center;
             flex-direction: column;
             justify-content: flex-start;
         }
+    }
+
+    &__block-bottom-left {
+        align-items: flex-end;
+        display: flex;
+        flex: 0 0 50%;
+
+        @media @tablet {
+            order: 1;
+        }
+    }
+
+    &__block-bottom-right {
+        flex: 1 1 50%;
+        text-align: right;
+
+        @media @tablet {
+            text-align: center;
+        }
+    }
+
+    &__block-top-left {
+        flex: 0 0 50%;
+    }
+
+    &__block-top-right {
+        flex: 1 1 50%;
+        text-align: right;
     }
 
     &__contacts-block-right {
@@ -29,7 +70,44 @@
         }
     }
 
+    &__contacts-container {
+        margin-top: 5px;
+    }
+
+    &__contacts-item {
+        margin-top: 5px;
+
+        &:first-child {
+            margin: 0;
+        }
+
+        &_flex {
+            display: flex;
+            justify-content: flex-end;
+
+            @media @tablet {
+                justify-content: center;
+            }
+        }
+    }
+
+    &__contacts-messenger-container {
+        line-height: 0;
+        margin-left: 15px;
+
+        svg {
+            width: 24px;
+        }
+    }
+
+    &__content-area {
+        margin: 0 auto;
+        max-width: 1440px;
+    }
+
     &__copyright-container {
+        margin-top: 20px;
+
         @media @tablet {
             margin-top: 15px;
         }
@@ -56,5 +134,22 @@
 
     &__link {
         color: @white;
+        text-decoration-line: underline;
+    }
+
+    &__logo-container {
+        display: inline-block;
+
+        &_desktop {
+            @media (max-width: 1023px) {
+                display: none;
+            }
+        }
+
+        &_mobile {
+            @media (min-width: 1024px) {
+                display: none;
+            }
+        }
     }
 }

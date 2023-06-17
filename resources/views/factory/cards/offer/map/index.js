@@ -46,11 +46,9 @@ export class MapOfferCard {
                     data-placemark-id="${id}_${salePointId}"
                     type="button"
                 >
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 491.582 491.582" width="14" height="14">
-                        <path
-                            d="M245.791,0C153.799,0,78.957,74.841,78.957,166.833c0,36.967,21.764,93.187,68.493,176.926 c31.887,57.138,63.627,105.4,64.966,107.433l22.941,34.773c2.313,3.507,6.232,5.617,10.434,5.617s8.121-2.11,10.434-5.617    l22.94-34.771c1.326-2.01,32.835-49.855,64.967-107.435c46.729-83.735,68.493-139.955,68.493-176.926    C412.625,74.841,337.783,0,245.791,0z M322.302,331.576c-31.685,56.775-62.696,103.869-64.003,105.848l-12.508,18.959    l-12.504-18.954c-1.314-1.995-32.563-49.511-64.007-105.853c-43.345-77.676-65.323-133.104-65.323-164.743    C103.957,88.626,167.583,25,245.791,25s141.834,63.626,141.834,141.833C387.625,198.476,365.647,253.902,322.302,331.576z" fill="currentColor" />
-                        <path
-                            d="M245.791,73.291c-51.005,0-92.5,41.496-92.5,92.5s41.495,92.5,92.5,92.5s92.5-41.496,92.5-92.5    S296.796,73.291,245.791,73.291z M245.791,233.291c-37.22,0-67.5-30.28-67.5-67.5s30.28-67.5,67.5-67.5    c37.221,0,67.5,30.28,67.5,67.5S283.012,233.291,245.791,233.291z" fill="currentColor" />
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 44" fill="none">
+                        <path d="M14.577 43.2384L2.46606 22.2616C-3.11798 12.5898 3.86207 0.5 15.0301 0.5C26.1982 0.5 33.1783 12.5898 27.5942 22.2616L15.4833 43.2384C15.2819 43.5872 14.7784 43.5872 14.577 43.2384Z" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="15" cy="15" r="7.5" stroke="currentColor" stroke-width="2"/>
                     </svg>
                     Показать на карте
                 </button>
@@ -84,6 +82,9 @@ export class MapOfferCard {
                 <div class="modules-pages-favorites-shared-components-button__hint-text-container">
                     <a class="modules-pages-favorites-shared-components-button__hint-link" href="/register">Зарегистрироваться</a>
                 </div>
+                <div class="modules-pages-favorites-shared-components-button__hint-text-container">
+                    Это бесплатно!
+                </div>
             </div>
         `: '';
 
@@ -93,8 +94,8 @@ export class MapOfferCard {
                 data-id="${id}"
             >
                 <button class="modules-pages-favorites-shared-components-button__button j-favorites-components-button__button">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 47.94 47.94">
-                        <path d="M26.285,2.486l5.407,10.956c0.376,0.762,1.103,1.29,1.944,1.412l12.091,1.757  c2.118,0.308,2.963,2.91,1.431,4.403l-8.749,8.528c-0.608,0.593-0.886,1.448-0.742,2.285l2.065,12.042  c0.362,2.109-1.852,3.717-3.746,2.722l-10.814-5.685c-0.752-0.395-1.651-0.395-2.403,0l-10.814,5.685  c-1.894,0.996-4.108-0.613-3.746-2.722l2.065-12.042c0.144-0.837-0.134-1.692-0.742-2.285l-8.749-8.528  c-1.532-1.494-0.687-4.096,1.431-4.403l12.091-1.757c0.841-0.122,1.568-0.65,1.944-1.412l5.407-10.956  C22.602,0.567,25.338,0.567,26.285,2.486z" fill="currentColor"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" fill="currentColor">
+                        <path d="M23.5631 1.52369L28.6205 12.2419C29.0158 13.0798 29.786 13.6714 30.6896 13.8088L41.9982 15.5275C43.4083 15.7419 44.0318 17.6017 42.9619 18.6926L34.7789 27.0356C34.1349 27.6922 33.846 28.6315 33.9962 29.5472L35.9279 41.3277C36.1839 42.8887 34.639 43.9671 33.4014 43.2866L23.2867 37.7246C22.482 37.2821 21.518 37.2821 20.7133 37.7246L10.5986 43.2866C9.36104 43.9671 7.81613 42.8887 8.07211 41.3277L10.0038 29.5472C10.154 28.6315 9.8651 27.6922 9.22107 27.0356L1.03809 18.6926C-0.0318016 17.6017 0.591688 15.7419 2.00177 15.5275L13.3104 13.8088C14.214 13.6714 14.9842 13.0798 15.3795 12.2419L20.4369 1.52369C21.0809 0.158771 22.9191 0.15877 23.5631 1.52369Z" stroke="currentColor"/>
                     </svg>
                 </button>
                 ${favoritesHint}
@@ -120,15 +121,23 @@ export class MapOfferCard {
         const createdAtMonthFormatted = createdAtMonth < 10 ? `0${createdAtMonth}` : createdAtMonth;
         const createdAtYear = createdAtDate.getFullYear();
 
+        const imageLayout = src ? `
+            <img
+                alt=""
+                class="factory-cards-offer-map__image"
+                src="${src}"
+            >
+        ` : `
+            <div class="factory-cards-offer-map__image-no">
+                нет фото
+            </div>
+        `;
+
         return `
             <div class="factory-cards-offer-map j-factory-cards-offer-map">
                 <div class="factory-cards-offer-map__image-block">
                     <div class="factory-cards-offer-map__image-container">
-                        <img
-                            alt=""
-                            class="factory-cards-offer-map__image"
-                            src="${src}"
-                        >
+                        ${imageLayout}
                         <a
                             class="factory-cards-offer-map__image-link"
                             href="${productLink}"
@@ -151,11 +160,9 @@ export class MapOfferCard {
                             data-placemark-id="${id}"
                             type="button"
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 491.582 491.582" width="14" height="14">
-                                <path
-                                    d="M245.791,0C153.799,0,78.957,74.841,78.957,166.833c0,36.967,21.764,93.187,68.493,176.926 c31.887,57.138,63.627,105.4,64.966,107.433l22.941,34.773c2.313,3.507,6.232,5.617,10.434,5.617s8.121-2.11,10.434-5.617    l22.94-34.771c1.326-2.01,32.835-49.855,64.967-107.435c46.729-83.735,68.493-139.955,68.493-176.926    C412.625,74.841,337.783,0,245.791,0z M322.302,331.576c-31.685,56.775-62.696,103.869-64.003,105.848l-12.508,18.959    l-12.504-18.954c-1.314-1.995-32.563-49.511-64.007-105.853c-43.345-77.676-65.323-133.104-65.323-164.743    C103.957,88.626,167.583,25,245.791,25s141.834,63.626,141.834,141.833C387.625,198.476,365.647,253.902,322.302,331.576z" fill="currentColor" />
-                                <path
-                                    d="M245.791,73.291c-51.005,0-92.5,41.496-92.5,92.5s41.495,92.5,92.5,92.5s92.5-41.496,92.5-92.5    S296.796,73.291,245.791,73.291z M245.791,233.291c-37.22,0-67.5-30.28-67.5-67.5s30.28-67.5,67.5-67.5    c37.221,0,67.5,30.28,67.5,67.5S283.012,233.291,245.791,233.291z" fill="currentColor" />
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31 44" fill="none">
+                                <path d="M14.577 43.2384L2.46606 22.2616C-3.11798 12.5898 3.86207 0.5 15.0301 0.5C26.1982 0.5 33.1783 12.5898 27.5942 22.2616L15.4833 43.2384C15.2819 43.5872 14.7784 43.5872 14.577 43.2384Z" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="15" cy="15" r="7.5" stroke="currentColor" stroke-width="2"/>
                             </svg>
                             Показать на карте
                         </button>
