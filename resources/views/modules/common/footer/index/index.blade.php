@@ -120,17 +120,14 @@
                     <a
                         class="modules-common-footer-index__link"
                         href="/legal/rules/terms-of-use"
-                        target="_blank"
                     >Пользовательским соглашением</a>,
                     <a
                         class="modules-common-footer-index__link"
                         href="/legal/rules/privacy-policy"
-                        target="_blank"
                     >Политикой обработки персональных данных</a>,
                     <a
                         class="modules-common-footer-index__link"
                         href="/legal/rules/cookie"
-                        target="_blank"
                     >Политикой в отношении куки (cookie)&nbsp;файлов</a>
                 </div>
             </div>
