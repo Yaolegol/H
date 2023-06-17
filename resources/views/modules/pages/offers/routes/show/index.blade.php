@@ -72,7 +72,7 @@
                         </div>
                     @endif
                 </div>
-
+            @endif
             @if($offer['contact_person'])
                 <div class="modules-pages-offers-routes-show__info-item-container">
                     <div class="modules-pages-offers-routes-show__info-item-title">
