@@ -53,24 +53,40 @@
             </div>
             @if($offer['price_description'])
                 <div class="modules-pages-offers-routes-show__info-item-container">
-                    <div class="modules-pages-offers-routes-show__info-item-title">Комментарий к цене</div>
-                    <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['price_description']}}</div>
+                    <div class="modules-pages-offers-routes-show__info-item-title">
+                        Комментарий к цене
+                    </div>
+                    <div class="modules-pages-offers-routes-show__info-item-description">
+                        {{$offer['price_description']}}
+                    </div>
                 </div>
             @endif
             @if($offer['delivery'])
                 <div class="modules-pages-offers-routes-show__info-item-container">
-                    <div class="modules-pages-offers-routes-show__info-item-title">Доставка: есть</div>
-                    <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['delivery_description']}}</div>
+                    <div class="modules-pages-offers-routes-show__info-item-title">
+                        Доставка: есть
+                    </div>
+                    @if($offer['delivery_description'])
+                        <div class="modules-pages-offers-routes-show__info-item-description">
+                            {{$offer['delivery_description']}}
+                        </div>
+                    @endif
                 </div>
-            @endif
+
             @if($offer['contact_person'])
                 <div class="modules-pages-offers-routes-show__info-item-container">
-                    <div class="modules-pages-offers-routes-show__info-item-title">Контактное лицо</div>
-                    <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['contact_person']}}</div>
+                    <div class="modules-pages-offers-routes-show__info-item-title">
+                        Контактное лицо
+                    </div>
+                    <div class="modules-pages-offers-routes-show__info-item-description">
+                        {{$offer['contact_person']}}
+                    </div>
                 </div>
             @endif
             <div class="modules-pages-offers-routes-show__info-item-container">
-                <div class="modules-pages-offers-routes-show__info-item-title">Телефон</div>
+                <div class="modules-pages-offers-routes-show__info-item-title">
+                    Телефон
+                </div>
                 <a
                     class="modules-pages-offers-routes-show__info-item-description"
                     href="tel:{{$offer['phone']}}"
@@ -78,12 +94,18 @@
             </div>
             @if($offer['working_hours'])
                 <div class="modules-pages-offers-routes-show__info-item-container">
-                    <div class="modules-pages-offers-routes-show__info-item-title">Время работы</div>
-                    <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['working_hours']}}</div>
+                    <div class="modules-pages-offers-routes-show__info-item-title">
+                        Время работы
+                    </div>
+                    <div class="modules-pages-offers-routes-show__info-item-description">
+                        {{$offer['working_hours']}}
+                    </div>
                 </div>
             @endif
             <div class="modules-pages-offers-routes-show__info-item-container">
-                <div class="modules-pages-offers-routes-show__info-item-title">Где купить?</div>
+                <div class="modules-pages-offers-routes-show__info-item-title">
+                    Где купить?
+                </div>
                 <div class="modules-pages-offers-routes-show__map-container">
                     @include('modules.common.map.yandex.components.viewItem.index', [
                         'offerId' => $offer['id'],
@@ -102,41 +124,67 @@
                 @isset($offer['organization'])
                     @if($offer['organization']['is_approved'] == 1)
                         <div class="modules-pages-offers-routes-show__info-block">
-                            <h6 class="modules-pages-offers-routes-show__info-block-title">Организация</h6>
+                            <h6 class="modules-pages-offers-routes-show__info-block-title">
+                                Организация
+                            </h6>
                             <div class="modules-pages-offers-routes-show__info-block-content">
                                 <div class="modules-pages-offers-routes-show__info-item-container">
-                                    <div class="modules-pages-offers-routes-show__info-item-title">Название</div>
-                                    <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['organization']['title']}}</div>
+                                    <div class="modules-pages-offers-routes-show__info-item-title">
+                                        Название
+                                    </div>
+                                    <div class="modules-pages-offers-routes-show__info-item-description">
+                                        {{$offer['organization']['title']}}
+                                    </div>
                                 </div>
                                 <div class="modules-pages-offers-routes-show__info-item-container">
-                                    <div class="modules-pages-offers-routes-show__info-item-title">ИНН</div>
-                                    <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['organization']['inn']}}</div>
+                                    <div class="modules-pages-offers-routes-show__info-item-title">
+                                        ИНН
+                                    </div>
+                                    <div class="modules-pages-offers-routes-show__info-item-description">
+                                        {{$offer['organization']['inn']}}
+                                    </div>
                                 </div>
                                 <div class="modules-pages-offers-routes-show__info-item-container">
-                                    <div class="modules-pages-offers-routes-show__info-item-title">Фактический адрес</div>
-                                    <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['organization']['real_address']}}</div>
+                                    <div class="modules-pages-offers-routes-show__info-item-title">
+                                        Фактический адрес
+                                    </div>
+                                    <div class="modules-pages-offers-routes-show__info-item-description">
+                                        {{$offer['organization']['real_address']}}
+                                    </div>
                                 </div>
                                 <div class="modules-pages-offers-routes-show__info-item-container">
-                                    <div class="modules-pages-offers-routes-show__info-item-title">Юридический адрес</div>
-                                    <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['organization']['legal_address']}}</div>
+                                    <div class="modules-pages-offers-routes-show__info-item-title">
+                                        Юридический адрес
+                                    </div>
+                                    <div class="modules-pages-offers-routes-show__info-item-description">
+                                        {{$offer['organization']['legal_address']}}
+                                    </div>
                                 </div>
                                 <div class="modules-pages-offers-routes-show__info-item-container">
-                                    <div class="modules-pages-offers-routes-show__info-item-title">Email</div>
+                                    <div class="modules-pages-offers-routes-show__info-item-title">
+                                        Email
+                                    </div>
                                     <a
                                         class="modules-pages-offers-routes-show__info-item-description"
                                         href="mail:{{$offer['organization']['email']}}"
                                     >{{$offer['organization']['email']}}</a>
                                 </div>
                                 <div class="modules-pages-offers-routes-show__info-item-container">
-                                    <div class="modules-pages-offers-routes-show__info-item-title">Телефон:</div>
+                                    <div class="modules-pages-offers-routes-show__info-item-title">
+                                        Телефон:
+                                    </div>
                                     <a
                                         class="modules-pages-offers-routes-show__info-item-description"
                                         href="tel:{{$offer['organization']['phone']}}"
-                                    >{{$offer['organization']['phone']}}</a>
+                                    >
+                                        {{$offer['organization']['phone']}}
+                                    </a>
                                 </div>
                                 @if(!empty($offer['organization']['certificateArray']))
                                     <div class="modules-pages-offers-routes-show__info-item-container">
-                                        <div class="modules-pages-offers-routes-show__info-item-title">Сертификаты организации:</div>
+                                        <div class="modules-pages-offers-routes-show__info-item-title">
+                                            Сертификаты организации:
+                                        </div>
                                         <div class="modules-pages-offers-routes-show__slider-container">
                                             @component('components.sliders.base.slider.index')
                                                 @foreach($offer['organization']['certificateArray'] as $certificateImg)
@@ -152,7 +200,9 @@
                                 @endif
                                 @if(!empty($offer['organization']['photoArray']))
                                     <div class="modules-pages-offers-routes-show__info-item-container">
-                                        <div class="modules-pages-offers-routes-show__info-item-title">Фото организации:</div>
+                                        <div class="modules-pages-offers-routes-show__info-item-title">
+                                            Фото организации:
+                                        </div>
                                         <div class="modules-pages-offers-routes-show__slider-container">
                                             @component('components.sliders.base.slider.index')
                                                 @foreach($offer['organization']['photoArray'] as $photoImg)
