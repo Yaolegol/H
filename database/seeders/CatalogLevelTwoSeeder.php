@@ -302,14 +302,6 @@ class CatalogLevelTwoSeeder extends Seeder
             'title' => 'Вобла',
         ],
         [
-            'image' => 'public/catalog/levelOne/items/fish/images/main/sub/sturgeon/1.jpeg',
-            'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/sturgeon-lavangi-with-walnuts-cheery-plum-onion-pomegranate-lettuce-side-view_7787001.htm#query=sturgeon&position=3&from_view=search&track=sph">Изображение от stockking</a> на Freepik',
-            'link' => 'sturgeon',
-            'order' => 1,
-            'catalog_level_one_id' => 2,
-            'title' => 'Осетр, стерлядь, белуга',
-        ],
-        [
             'image' => 'public/catalog/levelOne/items/fish/images/main/sub/mussels/1.jpeg',
             'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/top-view-delicious-seafood-composition_13508916.htm#query=%D0%BC%D0%B8%D0%B4%D0%B8%D0%B8&position=32&from_view=search&track=sph">Freepik</a>',
             'link' => 'mussels',
