@@ -80,12 +80,12 @@
                             </div>
                             <div class="modules-common-footer-index__contacts-item modules-common-footer-index__contacts-item_flex">
                                 <div class="modules-common-footer-index__contacts-messenger-container">
-                                    <a href="viber://chat?number=89527568210">
+                                    <a href="viber://chat?number=+79527568210">
                                         @include('icons.messengers.viber')
                                     </a>
                                 </div>
                                 <div class="modules-common-footer-index__contacts-messenger-container">
-                                    <a href="https://api.whatsapp.com/send?phone=89527568210">
+                                    <a href="https://api.whatsapp.com/send?phone=+79527568210">
                                         @include('icons.messengers.whatsapp')
                                     </a>
                                 </div>
