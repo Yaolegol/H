@@ -144,42 +144,50 @@
                                         {{$offer['organization']['inn']}}
                                     </div>
                                 </div>
-                                <div class="modules-pages-offers-routes-show__info-item-container">
-                                    <div class="modules-pages-offers-routes-show__info-item-title">
-                                        Фактический адрес
+                                @if($offer['organization']['real_address'])
+                                    <div class="modules-pages-offers-routes-show__info-item-container">
+                                        <div class="modules-pages-offers-routes-show__info-item-title">
+                                            Фактический адрес
+                                        </div>
+                                        <div class="modules-pages-offers-routes-show__info-item-description">
+                                            {{$offer['organization']['real_address']}}
+                                        </div>
                                     </div>
-                                    <div class="modules-pages-offers-routes-show__info-item-description">
-                                        {{$offer['organization']['real_address']}}
+                                @endif
+                                @if($offer['organization']['legal_address'])
+                                    <div class="modules-pages-offers-routes-show__info-item-container">
+                                        <div class="modules-pages-offers-routes-show__info-item-title">
+                                            Юридический адрес
+                                        </div>
+                                        <div class="modules-pages-offers-routes-show__info-item-description">
+                                            {{$offer['organization']['legal_address']}}
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="modules-pages-offers-routes-show__info-item-container">
-                                    <div class="modules-pages-offers-routes-show__info-item-title">
-                                        Юридический адрес
+                                @endif
+                                @if($offer['organization']['email'])
+                                    <div class="modules-pages-offers-routes-show__info-item-container">
+                                        <div class="modules-pages-offers-routes-show__info-item-title">
+                                            Email
+                                        </div>
+                                        <a
+                                            class="modules-pages-offers-routes-show__info-item-description"
+                                            href="mail:{{$offer['organization']['email']}}"
+                                        >{{$offer['organization']['email']}}</a>
                                     </div>
-                                    <div class="modules-pages-offers-routes-show__info-item-description">
-                                        {{$offer['organization']['legal_address']}}
+                                @endif
+                                @if($offer['organization']['phone'])
+                                    <div class="modules-pages-offers-routes-show__info-item-container">
+                                        <div class="modules-pages-offers-routes-show__info-item-title">
+                                            Телефон:
+                                        </div>
+                                        <a
+                                            class="modules-pages-offers-routes-show__info-item-description"
+                                            href="tel:{{$offer['organization']['phone']}}"
+                                        >
+                                            {{$offer['organization']['phone']}}
+                                        </a>
                                     </div>
-                                </div>
-                                <div class="modules-pages-offers-routes-show__info-item-container">
-                                    <div class="modules-pages-offers-routes-show__info-item-title">
-                                        Email
-                                    </div>
-                                    <a
-                                        class="modules-pages-offers-routes-show__info-item-description"
-                                        href="mail:{{$offer['organization']['email']}}"
-                                    >{{$offer['organization']['email']}}</a>
-                                </div>
-                                <div class="modules-pages-offers-routes-show__info-item-container">
-                                    <div class="modules-pages-offers-routes-show__info-item-title">
-                                        Телефон:
-                                    </div>
-                                    <a
-                                        class="modules-pages-offers-routes-show__info-item-description"
-                                        href="tel:{{$offer['organization']['phone']}}"
-                                    >
-                                        {{$offer['organization']['phone']}}
-                                    </a>
-                                </div>
+                                @endif
                                 @if(!empty($offer['organization']['certificateArray']))
                                     <div class="modules-pages-offers-routes-show__info-item-container">
                                         <div class="modules-pages-offers-routes-show__info-item-title">
