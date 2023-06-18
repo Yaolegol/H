@@ -89,7 +89,7 @@
                                 'placeholder' => 'Телефон',
                                 'required' => true,
                                 'type' => 'tel',
-                                'value' => old('phone'),
+                                'value' => $saleOfferItemData['phone'],
                             ])
                 @include('components.form.error.index', [
                     'message' => $errors->first('phone'),
