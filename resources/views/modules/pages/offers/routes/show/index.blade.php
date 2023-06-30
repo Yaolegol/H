@@ -233,8 +233,17 @@
                 <h4>Оценить</h4>
                 @guest
                     <div class="modules-pages-offers-routes-show__rating-container">
-                        Чтобы оценить товар нужно <a class="modules-pages-offers-routes-show__auth-link" href="/login">войти</a> или <a class="modules-pages-offers-routes-show__auth-link" href="/register">зарегистрироваться</a>!
-                        <br />Это бесплатно!
+                        Чтобы оценить товар нужно
+                        <br />
+                        <a class="modules-pages-offers-routes-show__auth-link" href="/login">
+                            войти
+                        </a>
+                        или
+                        <a class="modules-pages-offers-routes-show__auth-link" href="/register">
+                            зарегистрироваться
+                        </a>!
+                        <br />
+                        Это бесплатно!
                     </div>
                 @endguest
                 @auth
