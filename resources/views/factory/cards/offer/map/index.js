@@ -179,7 +179,7 @@ export class MapOfferCard {
                                 <a class="j-modules-common-offers-list__phone-link" href="tel:${phone}">${phone}</a>
                             </div>
                             <div class="factory-cards-offer-map__seller-info-container">
-                                <span class="factory-cards-offer-map__seller-info-title">Продавец:</span>
+                                <span class="factory-cards-offer-map__seller-info-title">Фермер:</span>
                                 <a href="${sellerLink}">${_name}</a>
                             </div>
                         </div>

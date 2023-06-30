@@ -1,7 +1,7 @@
 <div class="modules-pages-sellers-show">
     <div class="modules-pages-sellers-show__content-area">
         @if($sellerData['is_approved'] === 1)
-            <h2 class="modules-pages-sellers-show__title">Продавец</h2>
+            <h2 class="modules-pages-sellers-show__title">Фермер</h2>
             <div class="modules-pages-sellers-show__header-block">
                 <div class="modules-pages-sellers-show__avatar-container">
                     <img  alt="" class="modules-pages-sellers-show__avatar" src="{{$sellerData['avatar'] ? $sellerData['avatar'] : '/build/icons/person.svg'}}">

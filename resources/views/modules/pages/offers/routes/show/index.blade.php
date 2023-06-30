@@ -115,7 +115,7 @@
             <div class="modules-pages-offers-routes-show__additional-info-block">
                 <h4>Дополнительная информация</h4>
                 <div class="modules-pages-offers-routes-show__info-item-container">
-                    <h6 class="modules-pages-offers-routes-show__info-item-title">Продавец:</h6>
+                    <h6 class="modules-pages-offers-routes-show__info-item-title">Фермер:</h6>
                     <a
                         class="modules-pages-offers-routes-show__info-item-description modules-pages-offers-routes-show__info-item-description_link"
                         href="{{$offer['user']['sellerLink']}}"
