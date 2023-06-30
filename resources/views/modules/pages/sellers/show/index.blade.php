@@ -18,7 +18,7 @@
         @endif
 
         <div class="modules-pages-sellers-show__offers-block">
-            <h3 class="modules-pages-sellers-show__offers-title">Предложения продавца</h3>
+            <h3 class="modules-pages-sellers-show__offers-title">Предложения фермера</h3>
             <div class="modules-pages-sellers-show__offers-container">
                 @include('modules.pages.offers.shared.components.list.index', [
                     'offersList' => $sellerData['offers'],
