@@ -115,7 +115,7 @@
             <div class="modules-pages-offers-routes-show__additional-info-block">
                 <h4>Дополнительная информация</h4>
                 <div class="modules-pages-offers-routes-show__info-item-container">
-                    <h6 class="modules-pages-offers-routes-show__info-item-title">Продавец:</h6>
+                    <h6 class="modules-pages-offers-routes-show__info-item-title">Фермер:</h6>
                     <a
                         class="modules-pages-offers-routes-show__info-item-description modules-pages-offers-routes-show__info-item-description_link"
                         href="{{$offer['user']['sellerLink']}}"
@@ -233,8 +233,17 @@
                 <h4>Оценить</h4>
                 @guest
                     <div class="modules-pages-offers-routes-show__rating-container">
-                        Чтобы оценить товар нужно <a class="modules-pages-offers-routes-show__auth-link" href="/login">войти</a> или <a class="modules-pages-offers-routes-show__auth-link" href="/register">зарегистрироваться</a>!
-                        <br />Это бесплатно!
+                        Чтобы оценить товар нужно
+                        <br />
+                        <a class="modules-pages-offers-routes-show__auth-link" href="/login">
+                            войти
+                        </a>
+                        или
+                        <a class="modules-pages-offers-routes-show__auth-link" href="/register">
+                            зарегистрироваться
+                        </a>!
+                        <br />
+                        Это бесплатно!
                     </div>
                 @endguest
                 @auth
