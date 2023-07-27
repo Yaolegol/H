@@ -165,7 +165,6 @@ return [
         /*
          * Package Service Providers...
          */
-        Aws\Laravel\AwsServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -190,7 +189,6 @@ return [
     */
 
     'aliases' => [
-        'AWS' => Aws\Laravel\AwsFacade::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Arr' => Illuminate\Support\Arr::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
