@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\Offer;
 use App\Models\Organization;
 use App\Models\SalePoint;
+use Aws\S3\S3Client;
 
 function DB_tryChangeUserEmail($request)
 {
@@ -89,6 +90,8 @@ function DB_tryChangeUserPersonalDataInDB($request)
 
         return true;
     } catch (\Exception $error) {
+        dd($error);
+
         return false;
     }
 }
@@ -202,10 +205,14 @@ function updateUserAvatar($authUser, $request)
     $avatar = $request->file('avatar');
 
     if ($avatar) {
-        STORAGE_removeUserAvatar($authUserId);
-        $avatarPath = STORAGE_saveAuthUserAvatar($authUserId, $avatar);
+        $s3 = new S3Client([
+            'version' => 'latest',
+            'endpoint' => 'https://storage.yandexcloud.net',
+            'region' => 'ru-central1',
+        ]);
 
-        $authUser->avatar = $avatarPath;
+        $data = $s3->upload('object-backet-images', 'test123.jpg',  file_get_contents($avatar));
+        $authUser->avatar = $data->get('ObjectURL');
     } else {
         $isRemoveAvatar = $request->has('remove_avatar');
 
