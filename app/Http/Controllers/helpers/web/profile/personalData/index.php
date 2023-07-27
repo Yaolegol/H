@@ -179,21 +179,28 @@ function setUserAvatar(&$userData) {
 function STORAGE_removeUserAvatar($userId)
 {
     try {
-        File::deleteDirectory(storage_path() . '/app/public/users/' . $userId . '/avatar');
+        $s3 = STORAGE_getS3Client();
+        $s3->deleteMatchingObjects('clickferma-buckets-users', $userId . '/' . 'personalData/avatar');
     } catch(\Exception $err) {
         abort(500);
     }
 }
 
+function STORAGE_getS3Client() {
+    return new S3Client([
+        'version' => 'latest',
+        'endpoint' => 'https://storage.yandexcloud.net',
+        'region' => 'ru-central1',
+    ]);
+}
+
 function STORAGE_saveAuthUserAvatar($authUserId, $avatar)
 {
     try {
-        $date = new DateTime();
-        $avatarName = $authUserId . '_' . $date->getTimestamp() . '.' . $avatar->extension();
+        $s3 = STORAGE_getS3Client();
+        $data = $s3->upload('clickferma-buckets-users', $authUserId . '/' . 'personalData/avatar.jpg',  file_get_contents($avatar));
 
-        return $avatar->storeAs(
-            '/public/users/'. $authUserId . '/avatar', $avatarName
-        );
+        return $data->get('ObjectURL');
     } catch(\Exception $err) {
         return abort(500);
     }
@@ -205,20 +212,13 @@ function updateUserAvatar($authUser, $request)
     $avatar = $request->file('avatar');
 
     if ($avatar) {
-        $s3 = new S3Client([
-            'version' => 'latest',
-            'endpoint' => 'https://storage.yandexcloud.net',
-            'region' => 'ru-central1',
-        ]);
-
-        $data = $s3->upload('clickferma-images', '1.jpg',  file_get_contents($avatar));
-        $authUser->avatar = $data->get('ObjectURL');
+        $avatarPath = STORAGE_saveAuthUserAvatar($authUserId, $avatar);
+        $authUser->avatar = $avatarPath;
     } else {
         $isRemoveAvatar = $request->has('remove_avatar');
 
         if ($isRemoveAvatar) {
             STORAGE_removeUserAvatar($authUserId);
-
             $authUser->avatar = '';
         }
     }
