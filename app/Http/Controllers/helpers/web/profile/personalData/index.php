@@ -211,7 +211,7 @@ function updateUserAvatar($authUser, $request)
             'region' => 'ru-central1',
         ]);
 
-        $data = $s3->upload('object-backet-images', 'test123.jpg',  file_get_contents($avatar));
+        $data = $s3->upload('clickferma-images', '1.jpg',  file_get_contents($avatar));
         $authUser->avatar = $data->get('ObjectURL');
     } else {
         $isRemoveAvatar = $request->has('remove_avatar');
