@@ -114,14 +114,14 @@ function getOrganizationImagesData($request, $userId, $organizationId) {
     $storedPhotos = [];
 
     if(!empty($requestPhotoArray)) {
-        $storedPhotos = STORAGE_saveOrganizationAssets($userId, $organizationId, $requestPhotoArray, 'photo');
+        $storedPhotos = S3_STORAGE_saveOrganizationAssets($userId, $organizationId, $requestPhotoArray, 'photo');
     }
 
     $requestCertificateArray = getFilesArray($request, 'certificate', 5);
     $newCertificates = [];
 
     if(!empty($requestCertificateArray)) {
-        $newCertificates = STORAGE_saveOrganizationAssets($userId, $organizationId, $requestCertificateArray, 'certificate');
+        $newCertificates = S3_STORAGE_saveOrganizationAssets($userId, $organizationId, $requestCertificateArray, 'certificate');
     }
 
     return array_merge(
@@ -136,8 +136,8 @@ function getOrganizationItemDataFormatted($organizationId)
     $userId = $authUser->id;
 
     $userOrganizationItemData = DB_getUserOrganizationItem($userId, $organizationId);
-    $userOrganizationItemData['photoArray'] = getAssetArrayFormatted($userOrganizationItemData, 'photo', 3);
-    $userOrganizationItemData['certificateArray'] = getAssetArrayFormatted($userOrganizationItemData, 'certificate', 5);
+    $userOrganizationItemData['photoArray'] = getAssetArrayFormatted($userOrganizationItemData, 'photo', 3, true);
+    $userOrganizationItemData['certificateArray'] = getAssetArrayFormatted($userOrganizationItemData, 'certificate', 5, true);
 
     return $userOrganizationItemData;
 }
@@ -185,18 +185,18 @@ function STORAGE_destroyOrganizationData($userId, $organizationId) {
     }
 }
 
-function STORAGE_saveOrganizationAssets($userId, $createdOrganizationId, $requestAssetsArray, $pathName)
+function S3_STORAGE_saveOrganizationAssets($userId, $createdOrganizationId, $requestAssetsArray, $pathName)
 {
     $path = getOrganizationAssetPath($createdOrganizationId, $pathName);
 
-    return STORAGE_saveAssetList($userId, $requestAssetsArray, $path, $pathName);
+    return S3_STORAGE_saveAssetList($userId, $requestAssetsArray, $path, $pathName);
 }
 
-function STORAGE_updateOrganizationAssets($userId, $organizationId, $request, $name, $count)
+function S3_STORAGE_updateOrganizationAssets($userId, $organizationId, $request, $name, $count)
 {
     $path = getOrganizationAssetPath($organizationId, $name);
 
-    return STORAGE_updateAssetList($userId, $request, $name, $count, $path);
+    return S3_STORAGE_updateAssetList($userId, $request, $name, $count, $path);
 }
 
 function tryChangeOrganizationDataInDB($request)
@@ -286,8 +286,8 @@ function tryUpdateOrganizationDataInDB($request, $organizationId) {
         'approved_error_message' => null,
     ];
 
-    $updatedPhotoList = STORAGE_updateOrganizationAssets($authUserId, $organizationId, $request, 'photo', 3);
-    $updatedCertificateList = STORAGE_updateOrganizationAssets($authUserId, $organizationId, $request, 'certificate', 5);
+    $updatedPhotoList = S3_STORAGE_updateOrganizationAssets($authUserId, $organizationId, $request, 'photo', 3);
+    $updatedCertificateList = S3_STORAGE_updateOrganizationAssets($authUserId, $organizationId, $request, 'certificate', 5);
 
     $newOrganizationData = array_merge(
         $data,

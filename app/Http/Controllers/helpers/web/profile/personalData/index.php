@@ -1,12 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Offer;
 use App\Models\Organization;
 use App\Models\SalePoint;
-use Aws\S3\S3Client;
 
 function DB_tryChangeUserEmail($request)
 {
@@ -184,14 +182,6 @@ function S3_STORAGE_removeUserAvatar($userId)
     } catch(\Exception $err) {
         abort(500);
     }
-}
-
-function S3_STORAGE_getS3Client() {
-    return new S3Client([
-        'version' => 'latest',
-        'endpoint' => 'https://storage.yandexcloud.net',
-        'region' => 'ru-central1',
-    ]);
 }
 
 function S3_STORAGE_saveAuthUserAvatar($authUserId, $avatar)
