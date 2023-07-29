@@ -150,15 +150,10 @@ function getProfileOrganizationDataValidator($request) {
     );
 }
 
-function STORAGE_destroyOrganizationData($userId, $organizationId) {
+function S3_STORAGE_destroyOrganizationData($userId, $organizationId) {
     try {
-        File::deleteDirectory(
-            storage_path() .
-            '/app/public/users/' .
-            $userId .
-            '/organization/' .
-            $organizationId
-        );
+        $s3 = S3_STORAGE_getS3Client();
+        $s3->deleteMatchingObjects('clickferma-buckets-users', $userId . '/' . 'organization' . '/' . $organizationId);
     } catch(\Exception $err) {
         abort(500);
     }
@@ -202,7 +197,7 @@ function tryDestroyOrganizationDataInDB($organizationId)
     $authUser = Auth::user();
     $user_id = $authUser->id;
 
-//    STORAGE_destroyOrganizationData($user_id, $organizationId);
+    S3_STORAGE_destroyOrganizationData($user_id, $organizationId);
     DB_destroyOrganizationItem($user_id, $organizationId);
 
     return true;
