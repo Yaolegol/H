@@ -65,7 +65,7 @@ function S3_STORAGE_updateAssetList($userId, $request, $name, $count, $path) {
             $currentFile = $request->file($currentName);
 
             if ($currentFile) {
-                $assetName = $iteration . '.' . $currentFile->extension();
+                $assetName = $iteration . '_' . time() . '.' . $currentFile->extension();
                 $assetPath = S3_STORAGE_saveAsset($currentFile, $userId, $path, $assetName);
 
                 $assetPathArray[$currentName] = $assetPath;
