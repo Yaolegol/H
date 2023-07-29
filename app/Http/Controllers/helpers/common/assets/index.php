@@ -65,6 +65,8 @@ function S3_STORAGE_updateAssetList($userId, $request, $name, $count, $path) {
             $currentFile = $request->file($currentName);
 
             if ($currentFile) {
+                S3_STORAGE_deleteAssetByNumber($userId, $path, $iteration);
+
                 $assetName = $iteration . '_' . time() . '.' . $currentFile->extension();
                 $assetPath = S3_STORAGE_saveAsset($currentFile, $userId, $path, $assetName);
 
