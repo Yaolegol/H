@@ -129,7 +129,7 @@ function getSalePointImagesData($request, $userId, $salePointId) {
     if(!empty($requestPhotoArray)) {
         $path = getSalePointAssetPath($salePointId);
 
-        $storedPhotos = STORAGE_saveAssetList($userId, $requestPhotoArray, $path, 'photo');
+        $storedPhotos = S3_STORAGE_saveAssetList($userId, $requestPhotoArray, $path, 'photo');
     }
 
     return array_merge(...$storedPhotos);
@@ -147,7 +147,7 @@ function getSalePointItemDataFormatted($salePointId)
     $userId = $authUser->id;
 
     $userSalePointItemData = DB_getUserSalePointItem($userId, $salePointId);
-    $userSalePointItemData['photoArray'] = getAssetArrayFormatted($userSalePointItemData, 'photo', 3);
+    $userSalePointItemData['photoArray'] = getAssetArrayFormatted($userSalePointItemData, 'photo', 3, true);
 
     return $userSalePointItemData;
 }
@@ -224,7 +224,7 @@ function tryUpdateSalePointDataInDB($request, $salePointId) {
         ];
 
         $path = getSalePointAssetPath($salePointId);
-        $updatedPhotoList = STORAGE_updateAssetList($user_id, $request, 'photo', 3, $path);
+        $updatedPhotoList = S3_STORAGE_updateAssetList($user_id, $request, 'photo', 3, $path);
 
         $newSalePointData = array_merge(
             $data,
