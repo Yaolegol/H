@@ -55,27 +55,6 @@ function S3_STORAGE_saveAsset($asset, $userId, $path, $name) {
     }
 }
 
-function S3_STORAGE_saveAssetList($userId, $assetList, $path, $pathKey) {
-    try {
-        $pathArray = [];
-        $iteration = 1;
-
-        foreach ($assetList as $assetItem) {
-            $assetName = $iteration . '.' . $assetItem->extension();
-            $assetPath = S3_STORAGE_saveAsset($assetItem, $userId, $path, $assetName);
-
-            $pathKeyName = $pathKey . '_' . $iteration;
-            array_push($pathArray, [$pathKeyName => $assetPath]);
-
-            $iteration++;
-        }
-
-        return $pathArray;
-    } catch(\Exception $err) {
-        return abort(500);
-    }
-}
-
 function S3_STORAGE_updateAssetList($userId, $request, $name, $count, $path) {
     try {
         $assetPathArray = [];
