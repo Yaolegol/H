@@ -63,6 +63,8 @@ function DB_tryDestroyProfile()
         $authUser->is_removed = true;
         $authUser->save();
 
+        S3_STORAGE_destroyUser($authUserId);
+
         return true;
     } catch (\Exception $error) {
         return abort(500);
@@ -91,6 +93,15 @@ function DB_tryChangeUserPersonalDataInDB($request)
         dd($error);
 
         return false;
+    }
+}
+
+function S3_STORAGE_destroyUser($userId) {
+    try {
+        $s3 = S3_STORAGE_getS3Client();
+        $s3->deleteMatchingObjects('clickferma-buckets-users', $userId);
+    } catch(\Exception $err) {
+        abort(500);
     }
 }
 
