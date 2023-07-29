@@ -164,9 +164,9 @@ function getOfferImagesData($request, $userId, $saleOfferId) {
     $storedPhotos = [];
 
     if(!empty($requestPhotoArray)) {
-        $path = getSalePointAssetPath($saleOfferId);
+        $path = getSaleOfferAssetPath($saleOfferId);
 
-        $storedPhotos = STORAGE_saveAssetList($userId, $requestPhotoArray, $path, 'photo');
+        $storedPhotos = S3_STORAGE_saveAssetList($userId, $requestPhotoArray, $path, 'photo');
     }
 
     return array_merge(...$storedPhotos);
@@ -221,7 +221,7 @@ function getSaleOfferItemDataFormatted($saleOfferId)
     $userId = $authUser->id;
 
     $userSaleOfferItemData = DB_getUserSaleOfferItem($userId, $saleOfferId);
-    $userSaleOfferItemData['photoArray'] = getAssetArrayFormatted($userSaleOfferItemData, 'photo', 3);
+    $userSaleOfferItemData['photoArray'] = getAssetArrayFormatted($userSaleOfferItemData, 'photo', 3, true);
 
     return $userSaleOfferItemData;
 }
@@ -362,7 +362,7 @@ function tryUpdateSaleOfferInDB($request, $saleOfferId)
     ];
 
     $path = getSaleOfferAssetPath($saleOfferId);
-    $updatedPhotoList = STORAGE_updateAssetList($authUserId, $request, 'photo', 3, $path);
+    $updatedPhotoList = S3_STORAGE_updateAssetList($authUserId, $request, 'photo', 3, $path);
 
     $newSaleOfferData = array_merge(
         $data,
