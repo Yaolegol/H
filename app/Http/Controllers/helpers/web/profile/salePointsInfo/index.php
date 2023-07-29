@@ -122,19 +122,6 @@ function getSalePointAssetPath($salePointId) {
     return 'sale-point/' . $salePointId;
 }
 
-function getSalePointImagesData($request, $userId, $salePointId) {
-    $requestPhotoArray = getFilesArray($request, 'photo', 3);
-    $storedPhotos = [];
-
-    if(!empty($requestPhotoArray)) {
-        $path = getSalePointAssetPath($salePointId);
-
-        $storedPhotos = S3_STORAGE_saveAssetList($userId, $requestPhotoArray, $path, 'photo');
-    }
-
-    return array_merge(...$storedPhotos);
-}
-
 function formatSalePointsListItemsAssetsPath(&$salePointList) {
     foreach ($salePointList as &$salePointItem) {
         $salePointItem['photoArray'] = getAssetArrayFormatted($salePointItem, 'photo', 3);
@@ -160,15 +147,10 @@ function getSalePointsDataFormatted()
     return $userSalePointsList;
 }
 
-function STORAGE_destroySalePointData($userId, $salePointId) {
+function S3_STORAGE_destroySalePointData($userId, $salePointId) {
     try {
-        File::deleteDirectory(
-            storage_path() .
-            '/app/public/users/' .
-            $userId .
-            '/sale-point/' .
-            $salePointId
-        );
+        $s3 = S3_STORAGE_getS3Client();
+        $s3->deleteMatchingObjects('clickferma-buckets-users', $userId . '/' . 'sale-point' . '/' . $salePointId);
     } catch(\Exception $err) {
         abort(500);
     }
@@ -179,7 +161,7 @@ function tryDestroySalePointDataInDB($salePointId)
     $authUser = Auth::user();
     $user_id = $authUser->id;
 
-//    STORAGE_destroySalePointData($user_id, $salePointId);
+    S3_STORAGE_destroySalePointData($user_id, $salePointId);
     DB_destroySalePointItem($user_id, $salePointId);
 
     return true;
@@ -198,9 +180,11 @@ function tryStoreSalePointDataInDB($request)
 
     $createdSalePointData = DB_createSalePoint($request, $user_id);
     $createdSalePointId = $createdSalePointData['id'];
-    $imagesArray = getSalePointImagesData($request, $user_id, $createdSalePointId);
 
-    DB_updateSalePointData($user_id, $createdSalePointId, $imagesArray);
+    $path = getSalePointAssetPath($createdSalePointId);
+    $updatedPhotoList = S3_STORAGE_updateAssetList($user_id, $request, 'photo', 3, $path);
+
+    DB_updateSalePointData($user_id, $createdSalePointId, $updatedPhotoList);
 
     return true;
 }
