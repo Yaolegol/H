@@ -12,9 +12,9 @@
             </div>
             <div class="modules-pages-legal-routes-terms-of-use__paragraph">
                 2. Компания - Общество с ограниченной ответственностью «Кликферма» (ООО «Кликферма»),
-                ОГРН: __PLACEHOLDER__,
-                ИНН: __PLACEHOLDER__,
-                адрес: __PLACEHOLDER__
+                ОГРН: 1237000005549,
+                ИНН: 7000008161,
+                адрес: 634021, Россия, г. Томск, пр. Фрунзе, д. 128, кв. 48
             </div>
             <div class="modules-pages-legal-routes-terms-of-use__paragraph">
                 3. Сайт - интернет-ресурс, размещённый по адресу: https://clickferma.ru,
