@@ -159,19 +159,6 @@ function formatSaleOffersListItemsAssetsPath(&$saleOffersList) {
     }
 }
 
-function getOfferImagesData($request, $userId, $saleOfferId) {
-    $requestPhotoArray = getFilesArray($request, 'photo', 3);
-    $storedPhotos = [];
-
-    if(!empty($requestPhotoArray)) {
-        $path = getSalePointAssetPath($saleOfferId);
-
-        $storedPhotos = STORAGE_saveAssetList($userId, $requestPhotoArray, $path, 'photo');
-    }
-
-    return array_merge(...$storedPhotos);
-}
-
 function getProfileSaleOffersCatalogLevelTwoList($request) {
     $catalogLevelTwoIdsArray = [];
     foreach($request->all() as $key => $value){
@@ -221,7 +208,7 @@ function getSaleOfferItemDataFormatted($saleOfferId)
     $userId = $authUser->id;
 
     $userSaleOfferItemData = DB_getUserSaleOfferItem($userId, $saleOfferId);
-    $userSaleOfferItemData['photoArray'] = getAssetArrayFormatted($userSaleOfferItemData, 'photo', 3);
+    $userSaleOfferItemData['photoArray'] = getAssetArrayFormatted($userSaleOfferItemData, 'photo', 3, true);
 
     return $userSaleOfferItemData;
 }
@@ -288,15 +275,10 @@ function setCheckedPropertyForSalePointsList(&$userSalePointsList, $saleOfferIte
     }
 }
 
-function STORAGE_destroySaleOfferData($user_id, $saleOfferId) {
+function S3_STORAGE_destroySaleOfferData($user_id, $saleOfferId) {
     try {
-        File::deleteDirectory(
-            storage_path() .
-            '/app/public/users/' .
-            $user_id .
-            '/offer/' .
-            $saleOfferId
-        );
+        $s3 = S3_STORAGE_getS3Client();
+        $s3->deleteMatchingObjects('clickferma-buckets-users', $user_id . '/' . 'sale-offer' . '/' . $saleOfferId);
     } catch(\Exception $err) {
         abort(500);
     }
@@ -308,7 +290,7 @@ function tryDestroySaleOfferDataInDB($saleOfferId)
         $authUser = Auth::user();
         $user_id = $authUser->id;
 
-//        STORAGE_destroySaleOfferData($user_id, $saleOfferId);
+        S3_STORAGE_destroySaleOfferData($user_id, $saleOfferId);
         DB_destroySaleOfferItem($user_id, $saleOfferId);
 
         return true;
@@ -325,8 +307,11 @@ function trySaveSaleOfferInDB($request)
     $createdSaleOffer = DB_createSaleOffer($request, $user_id);
     $createdSalePointData = $createdSaleOffer->toArray();
     $createdSaleOfferId = $createdSalePointData['id'];
-    $imagesArray = getOfferImagesData($request, $user_id, $createdSaleOfferId);
-    DB_updateSaleOfferData($user_id, $createdSaleOfferId, $imagesArray);
+
+    $path = getSaleOfferAssetPath($createdSaleOfferId);
+    $updatedPhotoList = S3_STORAGE_updateAssetList($user_id, $request, 'photo', 3, $path);
+
+    DB_updateSaleOfferData($user_id, $createdSaleOfferId, $updatedPhotoList);
     DB_syncSaleOfferSalePointsData($request, $createdSaleOffer);
     DB_syncSaleOfferCatalogLevelTwoData($request, $createdSaleOffer);
 
@@ -362,7 +347,7 @@ function tryUpdateSaleOfferInDB($request, $saleOfferId)
     ];
 
     $path = getSaleOfferAssetPath($saleOfferId);
-    $updatedPhotoList = STORAGE_updateAssetList($authUserId, $request, 'photo', 3, $path);
+    $updatedPhotoList = S3_STORAGE_updateAssetList($authUserId, $request, 'photo', 3, $path);
 
     $newSaleOfferData = array_merge(
         $data,

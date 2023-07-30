@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Offer;
 use App\Models\Organization;
@@ -64,6 +63,8 @@ function DB_tryDestroyProfile()
         $authUser->is_removed = true;
         $authUser->save();
 
+        S3_STORAGE_destroyUser($authUserId);
+
         return true;
     } catch (\Exception $error) {
         return abort(500);
@@ -89,7 +90,18 @@ function DB_tryChangeUserPersonalDataInDB($request)
 
         return true;
     } catch (\Exception $error) {
+        dd($error);
+
         return false;
+    }
+}
+
+function S3_STORAGE_destroyUser($userId) {
+    try {
+        $s3 = S3_STORAGE_getS3Client();
+        $s3->deleteMatchingObjects('clickferma-buckets-users', $userId);
+    } catch(\Exception $err) {
+        abort(500);
     }
 }
 
@@ -173,24 +185,23 @@ function setUserAvatar(&$userData) {
     }
 }
 
-function STORAGE_removeUserAvatar($userId)
+function S3_STORAGE_removeUserAvatar($userId)
 {
     try {
-        File::deleteDirectory(storage_path() . '/app/public/users/' . $userId . '/avatar');
+        $s3 = S3_STORAGE_getS3Client();
+        $s3->deleteMatchingObjects('clickferma-buckets-users', $userId . '/' . 'personalData/avatar');
     } catch(\Exception $err) {
         abort(500);
     }
 }
 
-function STORAGE_saveAuthUserAvatar($authUserId, $avatar)
+function S3_STORAGE_saveAuthUserAvatar($authUserId, $avatar)
 {
     try {
-        $date = new DateTime();
-        $avatarName = $authUserId . '_' . $date->getTimestamp() . '.' . $avatar->extension();
+        $s3 = S3_STORAGE_getS3Client();
+        $data = $s3->upload('clickferma-buckets-users', $authUserId . '/' . 'personalData/avatar.jpg',  file_get_contents($avatar));
 
-        return $avatar->storeAs(
-            '/public/users/'. $authUserId . '/avatar', $avatarName
-        );
+        return $data->get('ObjectURL');
     } catch(\Exception $err) {
         return abort(500);
     }
@@ -202,16 +213,13 @@ function updateUserAvatar($authUser, $request)
     $avatar = $request->file('avatar');
 
     if ($avatar) {
-        STORAGE_removeUserAvatar($authUserId);
-        $avatarPath = STORAGE_saveAuthUserAvatar($authUserId, $avatar);
-
+        $avatarPath = S3_STORAGE_saveAuthUserAvatar($authUserId, $avatar);
         $authUser->avatar = $avatarPath;
     } else {
         $isRemoveAvatar = $request->has('remove_avatar');
 
         if ($isRemoveAvatar) {
-            STORAGE_removeUserAvatar($authUserId);
-
+            S3_STORAGE_removeUserAvatar($authUserId);
             $authUser->avatar = '';
         }
     }

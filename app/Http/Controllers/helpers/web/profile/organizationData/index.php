@@ -109,35 +109,14 @@ function getOrganizationDataFormatted()
     return $userOrganizationList;
 }
 
-function getOrganizationImagesData($request, $userId, $organizationId) {
-    $requestPhotoArray = getFilesArray($request, 'photo', 3);
-    $storedPhotos = [];
-
-    if(!empty($requestPhotoArray)) {
-        $storedPhotos = STORAGE_saveOrganizationAssets($userId, $organizationId, $requestPhotoArray, 'photo');
-    }
-
-    $requestCertificateArray = getFilesArray($request, 'certificate', 5);
-    $newCertificates = [];
-
-    if(!empty($requestCertificateArray)) {
-        $newCertificates = STORAGE_saveOrganizationAssets($userId, $organizationId, $requestCertificateArray, 'certificate');
-    }
-
-    return array_merge(
-        ...$newCertificates,
-        ...$storedPhotos,
-    );
-}
-
 function getOrganizationItemDataFormatted($organizationId)
 {
     $authUser = Auth::user();
     $userId = $authUser->id;
 
     $userOrganizationItemData = DB_getUserOrganizationItem($userId, $organizationId);
-    $userOrganizationItemData['photoArray'] = getAssetArrayFormatted($userOrganizationItemData, 'photo', 3);
-    $userOrganizationItemData['certificateArray'] = getAssetArrayFormatted($userOrganizationItemData, 'certificate', 5);
+    $userOrganizationItemData['photoArray'] = getAssetArrayFormatted($userOrganizationItemData, 'photo', 3, true);
+    $userOrganizationItemData['certificateArray'] = getAssetArrayFormatted($userOrganizationItemData, 'certificate', 5, true);
 
     return $userOrganizationItemData;
 }
@@ -171,73 +150,20 @@ function getProfileOrganizationDataValidator($request) {
     );
 }
 
-function STORAGE_destroyOrganizationData($userId, $organizationId) {
+function S3_STORAGE_destroyOrganizationData($userId, $organizationId) {
     try {
-        File::deleteDirectory(
-            storage_path() .
-            '/app/public/users/' .
-            $userId .
-            '/organization/' .
-            $organizationId
-        );
+        $s3 = S3_STORAGE_getS3Client();
+        $s3->deleteMatchingObjects('clickferma-buckets-users', $userId . '/' . 'organization' . '/' . $organizationId);
     } catch(\Exception $err) {
         abort(500);
     }
 }
 
-function STORAGE_saveOrganizationAssets($userId, $createdOrganizationId, $requestAssetsArray, $pathName)
-{
-    $path = getOrganizationAssetPath($createdOrganizationId, $pathName);
-
-    return STORAGE_saveAssetList($userId, $requestAssetsArray, $path, $pathName);
-}
-
-function STORAGE_updateOrganizationAssets($userId, $organizationId, $request, $name, $count)
+function S3_STORAGE_updateOrganizationAssets($userId, $organizationId, $request, $name, $count)
 {
     $path = getOrganizationAssetPath($organizationId, $name);
 
-    return STORAGE_updateAssetList($userId, $request, $name, $count, $path);
-}
-
-function tryChangeOrganizationDataInDB($request)
-{
-    try {
-        $authUser = Auth::user();
-        $authUserId = $authUser->id;
-
-        $title = $request->input('title') ?? '';
-        $inn = $request->input('inn') ?? '';
-        $legal_address = $request->input('legal_address') ?? '';
-        $real_address = $request->input('real_address') ?? '';
-        $email = $request->input('email') ?? '';
-        $phone = $request->input('phone') ?? '';
-
-        $newCertificates = updateOrganizationCertificates($request);
-        $newPhotos = updateOrganizationPhotos($request);
-
-        $newOrganizationData = array_merge(
-            [
-                'title' => $title,
-                'inn' => $inn,
-                'legal_address' => $legal_address,
-                'real_address' => $real_address,
-                'email' => $email,
-                'phone' => $phone,
-                'user_id' => $authUserId,
-            ],
-            ...$newCertificates,
-            ...$newPhotos
-        );
-
-        Organization::updateOrCreate(
-            ['user_id' => $authUserId],
-            $newOrganizationData,
-        );
-
-        return true;
-    } catch (\Exception $error) {
-        return false;
-    }
+    return S3_STORAGE_updateAssetList($userId, $request, $name, $count, $path);
 }
 
 function tryStoreOrganizationData($request) {
@@ -252,9 +178,16 @@ function tryStoreOrganizationData($request) {
 
     $createdOrganizationData = DB_createOrganization($request, $authUserId);
     $createdOrganizationId = $createdOrganizationData['id'];
-    $imagesArray = getOrganizationImagesData($request, $authUserId, $createdOrganizationId);
 
-    DB_updateOrganizationData($authUserId, $createdOrganizationId, $imagesArray);
+    $updatedPhotoList = S3_STORAGE_updateOrganizationAssets($authUserId, $createdOrganizationId, $request, 'photo', 3);
+    $updatedCertificateList = S3_STORAGE_updateOrganizationAssets($authUserId, $createdOrganizationId, $request, 'certificate', 5);
+
+    $newOrganizationData = array_merge(
+        $updatedPhotoList,
+        $updatedCertificateList,
+    );
+
+    DB_updateOrganizationData($authUserId, $createdOrganizationId, $newOrganizationData);
 
     return true;
 }
@@ -264,7 +197,7 @@ function tryDestroyOrganizationDataInDB($organizationId)
     $authUser = Auth::user();
     $user_id = $authUser->id;
 
-//    STORAGE_destroyOrganizationData($user_id, $organizationId);
+    S3_STORAGE_destroyOrganizationData($user_id, $organizationId);
     DB_destroyOrganizationItem($user_id, $organizationId);
 
     return true;
@@ -286,8 +219,8 @@ function tryUpdateOrganizationDataInDB($request, $organizationId) {
         'approved_error_message' => null,
     ];
 
-    $updatedPhotoList = STORAGE_updateOrganizationAssets($authUserId, $organizationId, $request, 'photo', 3);
-    $updatedCertificateList = STORAGE_updateOrganizationAssets($authUserId, $organizationId, $request, 'certificate', 5);
+    $updatedPhotoList = S3_STORAGE_updateOrganizationAssets($authUserId, $organizationId, $request, 'photo', 3);
+    $updatedCertificateList = S3_STORAGE_updateOrganizationAssets($authUserId, $organizationId, $request, 'certificate', 5);
 
     $newOrganizationData = array_merge(
         $data,
