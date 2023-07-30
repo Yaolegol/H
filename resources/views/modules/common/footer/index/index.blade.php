@@ -80,17 +80,17 @@
                             </div>
                             <div class="modules-common-footer-index__contacts-item modules-common-footer-index__contacts-item_flex">
                                 <div class="modules-common-footer-index__contacts-messenger-container">
-                                    <a href="viber://chat?number=+79539117514">
+                                    <a href="viber://chat?number=%2B79539117514">
                                         @include('icons.messengers.viber')
                                     </a>
                                 </div>
                                 <div class="modules-common-footer-index__contacts-messenger-container">
-                                    <a href="https://api.whatsapp.com/send?phone=+79539117514">
+                                    <a href="https://wa.me/+79539117514">
                                         @include('icons.messengers.whatsapp')
                                     </a>
                                 </div>
                                 <div class="modules-common-footer-index__contacts-messenger-container">
-                                    <a href="https://t.me/yaolegoleinik">
+                                    <a href="https://t.me/Clickferma">
                                         @include('icons.messengers.telegram')
                                     </a>
                                 </div>
