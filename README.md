@@ -57,11 +57,19 @@ triggers
 aws_access_key_id=
 aws_secret_access_key=
 
+# Mysql backup create the backup directory and sh script
+
+> cd /home/oleg/PhpstormProjects/Laravel/H/database
+
+> mkdir mysql
+
+> sudo nano index.sh
+
+# Mysql backup make sh script executable
+
+> sudo chmod +x /home/oleg/PhpstormProjects/Laravel/H/database/backup/index.sh
+
 # Mysql backup cron config
-
-> sudo crontab -e
-
-> * * * * * /home/oleg/PhpstormProjects/Laravel/H/database/backup/index.sh
 
 > sudo crontab -e
 
