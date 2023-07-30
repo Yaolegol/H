@@ -66,8 +66,8 @@ aws_secret_access_key=
 > sudo crontab -e
 
 MAILTO=""
-SHELL=/bin/bash
+SHELL=/bin/sh
 PATH=/bin:/usr/bin:/usr/local/bin
 HOME=/home/oleg
 
-* * * * * /usr/local/bin/aws --endpoint-url=https://storage.yandexcloud.net s3 cp /home/oleg/PhpstormProjects/Laravel/H/database/backup/mysql/backup.mysql s3://clickferma-buckets-mysql/backup/common/backup.mysql
+* * * * * sh /home/oleg/PhpstormProjects/Laravel/H/database/backup/index.sh
