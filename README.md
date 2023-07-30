@@ -44,3 +44,21 @@ triggers
 # Mysql backup
 
 > sudo mysqldump --defaults-file="/home/oleg/Документы/Clickferma/custom.cnf" --all-databases --result-file="/home/oleg/Документы/Clickferma/h.mysql"
+
+# Mysql backup S3 credentials
+
+> cd ~
+
+> mkdir .aws
+
+> sudo nano credentials
+
+[default]
+aws_access_key_id=
+aws_secret_access_key=
+
+# Mysql backup cron config
+
+> sudo crontab -e
+
+> * * * * * /home/oleg/PhpstormProjects/Laravel/H/database/backup/index.sh
