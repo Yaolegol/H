@@ -153,7 +153,7 @@ function getProfileOrganizationDataValidator($request) {
 function S3_STORAGE_destroyOrganizationData($userId, $organizationId) {
     try {
         $s3 = S3_STORAGE_getS3Client();
-        $s3->deleteMatchingObjects('clickferma-buckets-users', $userId . '/' . 'organization' . '/' . $organizationId);
+        $s3->deleteMatchingObjects(env('AWS_S3_STORAGE__BACKET__USERS'), $userId . '/' . 'organization' . '/' . $organizationId);
     } catch(\Exception $err) {
         abort(500);
     }

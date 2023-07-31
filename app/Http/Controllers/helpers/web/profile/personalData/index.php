@@ -99,7 +99,7 @@ function DB_tryChangeUserPersonalDataInDB($request)
 function S3_STORAGE_destroyUser($userId) {
     try {
         $s3 = S3_STORAGE_getS3Client();
-        $s3->deleteMatchingObjects('clickferma-buckets-users', $userId);
+        $s3->deleteMatchingObjects(env('AWS_S3_STORAGE__BACKET__USERS'), $userId);
     } catch(\Exception $err) {
         abort(500);
     }
@@ -189,7 +189,7 @@ function S3_STORAGE_removeUserAvatar($userId)
 {
     try {
         $s3 = S3_STORAGE_getS3Client();
-        $s3->deleteMatchingObjects('clickferma-buckets-users', $userId . '/' . 'personalData/avatar');
+        $s3->deleteMatchingObjects(env('AWS_S3_STORAGE__BACKET__USERS'), $userId . '/' . 'personalData/avatar');
     } catch(\Exception $err) {
         abort(500);
     }
@@ -199,7 +199,7 @@ function S3_STORAGE_saveAuthUserAvatar($authUserId, $avatar)
 {
     try {
         $s3 = S3_STORAGE_getS3Client();
-        $data = $s3->upload('clickferma-buckets-users', $authUserId . '/' . 'personalData/avatar.jpg',  file_get_contents($avatar));
+        $data = $s3->upload(env('AWS_S3_STORAGE__BACKET__USERS'), $authUserId . '/' . 'personalData/avatar.jpg',  file_get_contents($avatar));
 
         return $data->get('ObjectURL');
     } catch(\Exception $err) {
