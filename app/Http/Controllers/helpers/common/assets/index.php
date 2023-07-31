@@ -33,7 +33,7 @@ function getAssetArrayFormatted($item, $name, $count, $preserveOrder = false) {
 
 function S3_STORAGE_deleteAssetByNumber($userId, $path, $number) {
     $s3 = S3_STORAGE_getS3Client();
-    $s3->deleteMatchingObjects(env('AWS_S3_STORAGE__BACKET__USERS'), $userId . '/' . $path . '/' . $number);
+    $s3->deleteMatchingObjects(env('AWS_S3_STORAGE__BUCKET__USERS'), $userId . '/' . $path . '/' . $number);
 }
 
 function S3_STORAGE_getS3Client() {
@@ -47,7 +47,7 @@ function S3_STORAGE_getS3Client() {
 function S3_STORAGE_saveAsset($asset, $userId, $path, $name) {
     try {
         $s3 = S3_STORAGE_getS3Client();
-        $data = $s3->upload(env('AWS_S3_STORAGE__BACKET__USERS'), $userId . '/' . $path . '/' . $name,  file_get_contents($asset));
+        $data = $s3->upload(env('AWS_S3_STORAGE__BUCKET__USERS'), $userId . '/' . $path . '/' . $name,  file_get_contents($asset));
 
         return $data->get('ObjectURL');
     } catch(\Exception $err) {

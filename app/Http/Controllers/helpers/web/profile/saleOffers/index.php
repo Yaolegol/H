@@ -278,7 +278,7 @@ function setCheckedPropertyForSalePointsList(&$userSalePointsList, $saleOfferIte
 function S3_STORAGE_destroySaleOfferData($user_id, $saleOfferId) {
     try {
         $s3 = S3_STORAGE_getS3Client();
-        $s3->deleteMatchingObjects(env('AWS_S3_STORAGE__BACKET__USERS'), $user_id . '/' . 'sale-offer' . '/' . $saleOfferId);
+        $s3->deleteMatchingObjects(env('AWS_S3_STORAGE__BUCKET__USERS'), $user_id . '/' . 'sale-offer' . '/' . $saleOfferId);
     } catch(\Exception $err) {
         abort(500);
     }
