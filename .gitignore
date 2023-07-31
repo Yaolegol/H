@@ -5,7 +5,7 @@ node_modules
 /storage/*.key
 /storage/app/public/users
 /vendor
-.env.backup
+.env
 .idea
 .phpunit.result.cache
 docker-compose.override.yml
