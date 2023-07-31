@@ -150,7 +150,7 @@ function getSalePointsDataFormatted()
 function S3_STORAGE_destroySalePointData($userId, $salePointId) {
     try {
         $s3 = S3_STORAGE_getS3Client();
-        $s3->deleteMatchingObjects(env('AWS_S3_STORAGE__BACKET__USERS'), $userId . '/' . 'sale-point' . '/' . $salePointId);
+        $s3->deleteMatchingObjects(env('AWS_S3_STORAGE__BUCKET__USERS'), $userId . '/' . 'sale-point' . '/' . $salePointId);
     } catch(\Exception $err) {
         abort(500);
     }
