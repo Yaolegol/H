@@ -199,7 +199,7 @@ function S3_STORAGE_saveAuthUserAvatar($authUserId, $avatar)
 {
     try {
         $s3 = S3_STORAGE_getS3Client();
-        $data = $s3->upload(env('AWS_S3_STORAGE__BUCKET__USERS'), $authUserId . '/' . 'personalData/avatar.jpg',  file_get_contents($avatar));
+        $data = $s3->upload(env('AWS_S3_STORAGE__BUCKET__USERS'), $authUserId . '/' . 'personalData/avatar_' . time() . '.'  . $avatar->extension(),  file_get_contents($avatar));
 
         return $data->get('ObjectURL');
     } catch(\Exception $err) {
@@ -213,6 +213,8 @@ function updateUserAvatar($authUser, $request)
     $avatar = $request->file('avatar');
 
     if ($avatar) {
+        S3_STORAGE_removeUserAvatar($authUserId);
+
         $avatarPath = S3_STORAGE_saveAuthUserAvatar($authUserId, $avatar);
         $authUser->avatar = $avatarPath;
     } else {
