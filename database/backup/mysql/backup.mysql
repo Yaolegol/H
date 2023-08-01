@@ -1509,7 +1509,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,1,'71111111111','Админ','Админ 1','','$2y$10$k4OpKn8xr.v7qUXbpCufIuE7RLVGiM/F71sgF996KHC6iqQ1iJz6e',1,1,0,0,0,1,0,NULL,0,'',NULL,NULL,'2023-07-31 08:20:08');
+INSERT INTO `users` VALUES (1,1,'71111111111','Админ','Админ 1','https://clickferma-local-buckets-users.storage.yandexcloud.net/1/personalData/avatar.jpg','$2y$10$k4OpKn8xr.v7qUXbpCufIuE7RLVGiM/F71sgF996KHC6iqQ1iJz6e',1,1,0,0,0,1,0,NULL,0,'',NULL,NULL,'2023-07-31 09:06:58');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1719,4 +1719,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-31 23:00:01
+-- Dump completed on 2023-08-01 13:00:01
