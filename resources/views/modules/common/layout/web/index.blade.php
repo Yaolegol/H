@@ -60,7 +60,7 @@
 
         <!-- Yandex map -->
         <script
-            src="https://api-maps.yandex.ru/2.1/?apikey=b92366ae-3520-458e-bf9f-17db62817585&lang=ru_RU"
+            src="https://api-maps.yandex.ru/2.1/?apikey=d5742a84-07eb-4b11-9ff3-a0037b661366&lang=ru_RU"
             type="text/javascript"
         ></script>
 
