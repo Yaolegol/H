@@ -54,7 +54,7 @@ function apiTryDeleteUserAvatarInDB() {
         $authUser = Auth::user();
         $authUserId = $authUser->id;
 
-        STORAGE_removeUserAvatar($authUserId);
+        S3_STORAGE_removeUserAvatar($authUserId);
 
         $authUser->avatar = '';
         $authUser->save();
