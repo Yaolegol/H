@@ -109,7 +109,7 @@ class ApiProfilePersonalDataController extends Controller
      */
     public function updatePersonalData(Request $request)
     {
-        $validator = getPersonalDataValidator($request);
+        $validator = getPersonalDataValidator_api($request);
 
         if($validator->fails()) {
             $data = [

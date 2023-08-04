@@ -156,6 +156,20 @@ function getPersonalDataValidator($request) {
     );
 }
 
+function getPersonalDataValidator_api($request) {
+    return Validator::make(
+        $request->all(),
+        [
+            'name' => ['max:100'],
+            'description' => ['max:1000'],
+        ],
+        [
+            'max' => 'Поле должно содержать максимум :max символов',
+            'size' => 'Поле должно содержать картинку, размером не более 10Мб',
+        ]
+    );
+}
+
 function getUserDataFormatted()
 {
     $userData = Auth::user()->getAttributes();
