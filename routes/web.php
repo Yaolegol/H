@@ -66,7 +66,7 @@ Route::get('/legal/rules/terms-of-use', [LegalController::class, 'termsOfUse']);
 
 Route::get('/copyright/images', [CopyrightController::class, 'images']);
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'userExistsWeb'])->group(function () {
     Route::get('/admin/offers', [AdminOffersController::class, 'index']);
     Route::post('/admin/offer/approve/{id}', [AdminOffersController::class, 'approve']);
     Route::post('/admin/offer/reject/{id}', [AdminOffersController::class, 'reject']);

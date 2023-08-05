@@ -53,7 +53,7 @@ Route::post('/search/common', [ApiSearchCommonController::class, 'index']);
 
 Route::get('/sellers/{id}', [ApiSellersController::class, 'show']);
 
-Route::group(['middleware' => ['auth:sanctum']], function() {
+Route::group(['middleware' => ['auth:sanctum', 'userExistsApi']], function() {
     Route::get('/favorites/products', [ApiFavoritesProductController::class, 'index']);
     Route::get('/favorites/product/add/{id}', [ApiFavoritesProductController::class, 'add']);
     Route::get('/favorites/product/remove/{id}', [ApiFavoritesProductController::class, 'remove']);
