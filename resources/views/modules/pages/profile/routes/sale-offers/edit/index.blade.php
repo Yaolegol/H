@@ -32,8 +32,7 @@
                             'contentList' => $catalogSubCategoriesList,
                             'inputsName' => 'catalog_level_two_id',
                             'listenGroupName' => 'radio-group__catalog_level_one',
-                            'title' => 'Подкатегория',
-                            'required' => true,
+                            'title' => 'Подкатегории (можно указать несколько)',
                         ])
                 @include('components.form.error.index', [
                     'message' => $errors->first('catalog_level_two_id'),

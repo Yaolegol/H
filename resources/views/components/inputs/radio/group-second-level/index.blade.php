@@ -28,7 +28,7 @@
             @endforeach
             class="components-inputs-radio-checkbox-group__input j-components-inputs-radio-checkbox-group__hidden-input"
             name="{{$inputsName}}"
-            @if($required)
+            @if($required ?? false)
                 required
             @endif
             type="checkbox"
