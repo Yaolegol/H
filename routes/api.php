@@ -64,6 +64,7 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::post('/profile/change-email', [ApiProfilePersonalDataController::class, 'updatePersonalEmail']);
     Route::post('/profile/change-password', [ApiProfilePersonalDataController::class, 'updatePersonalPassword']);
     Route::post('/profile/remove-avatar', [ApiProfilePersonalDataController::class, 'removeAvatar']);
+    Route::post('/profile/destroy', [ApiProfilePersonalDataController::class, 'destroy']);
 
     Route::get('/profile/organizations-info', [ApiProfileOrganizationDataController::class, 'index']);
     Route::post('/profile/organizations-info', [ApiProfileOrganizationDataController::class, 'store']);

@@ -64,13 +64,48 @@ class ApiProfilePersonalDataController extends Controller
         } else {
             $data = [
                 'data' => '',
-                'errors' => [
-                    'common' => 'Что-то пошло не так. Попробуйте снова.',
-                ],
+                'errors' => ['Что-то пошло не так. Попробуйте снова.'],
             ];
 
             return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
         }
+    }
+
+    /**
+     * @return Response
+     */
+    public function destroy(Request $request) {
+        $currentPassword = $request->input('current_password');
+        $isAuth = checkAuthUserPassword($currentPassword);
+
+        if(!$isAuth) {
+            $data = [
+                'data' => '',
+                'errors' => ['Неверный пароль'],
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+        }
+
+        $isDestroyed = DB_tryDestroyProfile();
+
+        if(!$isDestroyed) {
+            $data = [
+                'data' => '',
+                'errors' => ['Что-то пошло не так. Попробуйте снова.'],
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+        }
+
+        $request->user()->currentAccessToken()->delete();
+
+        $data = [
+            'data' => '',
+            'errors' => '',
+        ];
+
+        return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
     }
 
     /**
@@ -92,9 +127,7 @@ class ApiProfilePersonalDataController extends Controller
         } else {
             $data = [
                 'data' => '',
-                'errors' => [
-                    'common' => 'Что-то пошло не так. Попробуйте снова.',
-                ],
+                'errors' => ['Что-то пошло не так. Попробуйте снова.'],
             ];
 
             return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
@@ -132,9 +165,7 @@ class ApiProfilePersonalDataController extends Controller
         } else {
             $data = [
                 'data' => '',
-                'errors' => [
-                    'common' => 'Что-то пошло не так. Попробуйте снова.',
-                ],
+                'errors' => ['Что-то пошло не так. Попробуйте снова.'],
             ];
 
             return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
