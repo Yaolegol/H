@@ -177,7 +177,7 @@ class ApiProfileSaleOffersController extends Controller
         if($isDestroyed) {
             $data = [
                 'data' => '',
-                'errors' => [],
+                'errors' => '',
             ];
 
             return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
@@ -185,9 +185,7 @@ class ApiProfileSaleOffersController extends Controller
 
         $data = [
             'data' => '',
-            'errors' => [
-                'common' => 'Что-то пошло не так. Попробуйте снова.',
-            ],
+            'errors' => ['Что-то пошло не так. Попробуйте снова.'],
         ];
 
         return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
