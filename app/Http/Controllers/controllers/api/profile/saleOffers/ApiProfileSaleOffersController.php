@@ -47,6 +47,28 @@ class ApiProfileSaleOffersController extends Controller
      */
     public function store(Request $request)
     {
+        $catalogLevelTwoIdsArray = getProfileSaleOffersCatalogLevelTwoList($request);
+
+        if(count($catalogLevelTwoIdsArray) == 0) {
+            $data = [
+                'data' => '',
+                'errors' => ['Не выбрана подкатегория!'],
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+        }
+
+        $isCatalogLevelOneItemCreated = checkIsCatalogLevelOneItemCreated($request);
+
+        if($isCatalogLevelOneItemCreated) {
+            $data = [
+                'data' => '',
+                'errors' => ['У Вас уже создано торговое предложение с указанной категорией!'],
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+        }
+
         $validator = getProfileSaleOffersValidator($request);
 
         if($validator->fails()) {

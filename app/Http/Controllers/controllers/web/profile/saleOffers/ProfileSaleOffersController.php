@@ -73,7 +73,7 @@ class ProfileSaleOffersController extends Controller
         if(count($catalogLevelTwoIdsArray) == 0) {
             return back()
                 ->withErrors([
-                    'commonError' => 'Не выбрана категория!',
+                    'commonError' => 'Не выбрана подкатегория!',
                 ])
                 ->withInput();
         }
