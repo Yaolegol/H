@@ -1,0 +1,34 @@
+@import (reference) '~styles/colors';
+
+.components-map-yandex-components-add-marker {
+    padding-bottom: 100%;
+    position: relative;
+
+    &__input {
+        appearance: none;
+        background: none;
+        border: none;
+        bottom: 0;
+        height: 0;
+        left: 0;
+        outline: none;
+        position: absolute;
+        visibility: hidden;
+        width: 0;
+    }
+
+    &__map-container {
+        bottom: 0;
+        left: 0;
+        max-height: 500px;
+        max-width: 500px;
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        &_mobile-app {
+            height: 300px;
+            width: auto;
+        }
+    }
+}

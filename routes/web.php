@@ -58,7 +58,8 @@ Route::post('/register/confirmCode', [RegisterController::class, 'confirmCode'])
 
 Route::get('/logout', [LogoutController::class, 'index']);
 
-Route::get('/map/mobile-app/single-point', [MapMobileAppSinglePoint::class, 'singlePoint']);
+Route::get('/mobile-app/map/all', [MapMobileAppSinglePoint::class, 'viewAll']);
+Route::get('/mobile-app/map/single-point', [MapMobileAppSinglePoint::class, 'singlePoint']);
 
 Route::get('/legal/rules/cookie', [LegalController::class, 'cookie']);
 Route::get('/legal/rules/privacy-policy', [LegalController::class, 'privacyPolicy']);

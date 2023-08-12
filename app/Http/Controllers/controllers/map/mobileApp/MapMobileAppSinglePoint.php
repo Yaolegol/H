@@ -21,4 +21,14 @@ class MapMobileAppSinglePoint extends Controller
     {
         return view('pages.map.mobileApp.singlePoint.index', []);
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function viewAll()
+    {
+        return view('pages.map.mobileApp.viewAll.index', []);
+    }
 }

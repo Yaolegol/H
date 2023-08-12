@@ -60,6 +60,7 @@ const createConfig = (env, argv) => {
             legal_termsOfUse: path.resolve(appDirectoriesData.path_pages, 'legal', 'termsOfUse', 'index'),
             map_web_index: path.resolve(appDirectoriesData.path_pages, 'map', 'web', 'index'),
             map_mobileApp_singlePoint_index: path.resolve(appDirectoriesData.path_pages, 'map', 'mobileApp', 'singlePoint', 'index'),
+            map_mobileApp_viewAll_index: path.resolve(appDirectoriesData.path_pages, 'map', 'mobileApp', 'viewAll', 'index'),
             offers_index: path.resolve(appDirectoriesData.path_pages, 'offers', 'index'),
             offers_show: path.resolve(appDirectoriesData.path_pages, 'offers', 'show'),
             profile_organizationInfo_create: path.resolve(appDirectoriesData.path_pages, 'profile', 'organization-info', 'create'),

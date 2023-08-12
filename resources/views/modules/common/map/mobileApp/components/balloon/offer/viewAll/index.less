@@ -1,0 +1,78 @@
+@import (reference) '~styles/colors';
+
+.modules-common-map-yandex-components-balloon-offer-view-all {
+    &__created-at-block {
+        color: @black_20;
+    }
+
+    &__price {
+        font-weight: 800;
+    }
+
+    &__rating-block {
+        align-items: flex-end;
+        display: flex;
+    }
+
+    &__rating-star-container {
+        display: flex;
+        height: 20px;
+        position: relative;
+        width: 100px;
+    }
+
+    &__rating-star-container-active {
+        background: url('/build/icons/star_active.svg');
+        background-size: 20px;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+    }
+
+    &__rating-star-container-default {
+        background: url('/build/icons/star_default.svg');
+        background-size: 20px;
+        width: 100%;
+    }
+
+    &__rating-votes-container {
+        color: @black_20;
+        line-height: 16px;
+        margin-left: 10px;
+    }
+
+    &__section-link {
+        margin-top: 15px;
+    }
+
+    &__section-link-title {
+        font-weight: 800;
+    }
+
+    &__section-price {
+        margin-top: 15px;
+    }
+
+    &__section-price-title {
+        font-weight: 800;
+    }
+
+    &__section-seller {
+        margin-top: 15px;
+    }
+
+    &__section-seller-title {
+        font-weight: 800;
+    }
+
+    &__title {
+        font-weight: 800;
+
+        &_with-offset {
+            margin-top: 15px;
+        }
+    }
+}
