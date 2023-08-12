@@ -1,4 +1,3 @@
-import {getCookieData} from "helpers/cookie";
 import {addEventListener} from "helpers/events";
 import {debounce} from "helpers/debounce";
 import {getQueryData} from "helpers/query";
@@ -50,10 +49,24 @@ class MapMobileAppComponentsViewAll {
                 duration: 1000,
             });
         }
+
+        window.fetchMarkersData = async (catalogLevelOneId, catalogLevelTwoId) => {
+            const {data, errors} = await this.fetchData(catalogLevelOneId, catalogLevelTwoId);
+
+            if(!errors) {
+                this.offerData = data;
+
+                this.mapInstance.geoObjects.remove(this.mapCluster);
+                this.addMarkersToMap();
+
+                const list = this.getPlacemarksDataList();
+
+                this.sendPlacemarksDataListUpdateEvent({list});
+            }
+        }
     }
 
     bind = () => {
-        addEventListener(document, 'j-event--map-filter-update', this.handleUpdateMapFilter);
         addEventListener(document, 'j-event-map__show-placemark', this.handleShowPlacemark);
         addEventListener(document, 'j-event-modules-common-geo-components-button__update-geo', this.handleUpdateGeo);
         addEventListener(document, 'j-map-mobile-app-components-view-all__get-visible-markers-data', this.handleGetVisibleMarkerData)
@@ -116,21 +129,13 @@ class MapMobileAppComponentsViewAll {
         this.showGeoCoordinates();
     }
 
-    fetchData = async () => {
+    fetchData = async (catalogLevelOneId, catalogLevelTwoId) => {
         try {
-            const cookieData = getCookieData();
-            const {catalogLevelOneId, catalogLevelTwoId} = getQueryData();
-
             const bodyData = {
                 filter: {
                     catalog: {
                         levelOneId: catalogLevelOneId ?? null,
                         levelTwoId: catalogLevelTwoId ?? null,
-                    },
-                    location: {
-                        city: cookieData['search-city-id'] ?? null,
-                        country: cookieData['search-country-id'] ?? null,
-                        region: cookieData['search-region-id'] ?? null,
                     },
                 }
             };
@@ -155,21 +160,6 @@ class MapMobileAppComponentsViewAll {
     getBalloonContentLayoutClass = (offerData, markerId) => {
         return ymaps.templateLayoutFactory.createClass(getOfferBalloon(offerData, markerId));
     };
-
-    handleUpdateMapFilter = async (e) => {
-        const {data, errors} = await this.fetchData();
-
-        if(!errors) {
-            this.offerData = data;
-
-            this.mapInstance.geoObjects.remove(this.mapCluster);
-            this.addMarkersToMap();
-
-            const list = this.getPlacemarksDataList();
-
-            this.sendPlacemarksDataListUpdateEvent({list});
-        }
-    }
 
     handleYMapsReady = () => {
         this.initMap();
