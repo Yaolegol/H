@@ -5,18 +5,10 @@ import {getQueryData} from "helpers/query";
 import {getOfferBalloon} from "views/modules/common/map/yandex/components/balloon/offer/viewAll";
 import './index.less';
 
-class MapYandexComponentsViewAll {
+class MapMobileAppComponentsViewAll {
     constructor(element) {
         this.module = element;
-        this.mapContainer = this.module.querySelector('.j-map-yandex-components-view-all__map-container');
-        this.tokenCSRFInput = this.module.querySelector('input[name="_token"]');
-        this.tokenCSRFValue = this.tokenCSRFInput.value;
-
-        if(!this.tokenCSRFValue) {
-            console.error('no csrf token found');
-
-            return;
-        }
+        this.mapContainer = this.module.querySelector('.j-map-mobile-app-components-view-all__map-container');
 
         this.init();
         this.bind();
@@ -56,7 +48,7 @@ class MapYandexComponentsViewAll {
         addEventListener(document, 'j-event--map-filter-update', this.handleUpdateMapFilter);
         addEventListener(document, 'j-event-map__show-placemark', this.handleShowPlacemark);
         addEventListener(document, 'j-event-modules-common-geo-components-button__update-geo', this.handleUpdateGeo);
-        addEventListener(document, 'j-event-map-yandex-components-view-all__get-visible-markers-data', this.handleGetVisibleMarkerData)
+        addEventListener(document, 'j-map-mobile-app-components-view-all__get-visible-markers-data', this.handleGetVisibleMarkerData)
     }
 
     bindMapEvents = () => {
@@ -82,7 +74,7 @@ class MapYandexComponentsViewAll {
     handleGetVisibleMarkerData = () => {
         const list = this.getPlacemarksDataList();
 
-        document.dispatchEvent(new CustomEvent('j-event-map-yandex-components-view-all__get-visible-markers-data-complete', {
+        document.dispatchEvent(new CustomEvent('j-map-mobile-app-components-view-all__get-visible-markers-data-complete', {
             detail: {
                 list,
             }
@@ -142,7 +134,6 @@ class MapYandexComponentsViewAll {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': this.tokenCSRFValue,
                 },
                 method: 'POST',
             });
@@ -214,12 +205,10 @@ class MapYandexComponentsViewAll {
             controls: ['zoomControl'],
             zoom,
         });
-
-        this.mapInstance.options.set('dragCursor', 'arrow');
     }
 
     sendPlacemarksDataListUpdateEvent = ({list}) => {
-        document.dispatchEvent(new CustomEvent('j-event-map-yandex-components-view-all__update-visible-markers-data', {
+        document.dispatchEvent(new CustomEvent('j-map-mobile-app-components-view-all__update-visible-markers-data', {
             detail: {
                 list,
             }
@@ -238,12 +227,17 @@ class MapYandexComponentsViewAll {
     updatePlacemarsDataList = () => {
         const list = this.getPlacemarksDataList();
 
-        this.sendPlacemarksDataListUpdateEvent({list});
+        // this.sendPlacemarksDataListUpdateEvent({list});
+        if(window.MOBILE_APP__EVENTS) {
+            window.MOBILE_APP__EVENTS.postMessage(JSON.stringify({
+                data: list,
+            }));
+        }
     }
 }
 
-const list = [...document.querySelectorAll('.j-map-yandex-components-view-all')];
+const list = [...document.querySelectorAll('.j-map-mobile-app-components-view-all')];
 
 list.forEach((element) => {
-    new MapYandexComponentsViewAll(element);
+    new MapMobileAppComponentsViewAll(element);
 })
