@@ -44,6 +44,14 @@ class MapMobileAppComponentsViewAll {
         this.mapInstance.geoObjects.add(this.mapCluster);
     }
 
+    addMobileAppFunctions = () => {
+        window.zoomToUser = (latitude, longitude) => {
+            this.mapInstance.setCenter([latitude, longitude], 11, {
+                duration: 1000,
+            });
+        }
+    }
+
     bind = () => {
         addEventListener(document, 'j-event--map-filter-update', this.handleUpdateMapFilter);
         addEventListener(document, 'j-event-map__show-placemark', this.handleShowPlacemark);
@@ -168,6 +176,8 @@ class MapMobileAppComponentsViewAll {
         this.addMarkersToMap();
         this.bindMapEvents();
         this.updatePlacemarsDataList();
+
+        this.addMobileAppFunctions();
 
         if(this.geo) {
             this.showGeoCoordinates();
