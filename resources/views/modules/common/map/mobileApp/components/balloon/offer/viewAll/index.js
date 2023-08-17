@@ -64,12 +64,9 @@ const getKeyValueLayout = (key, values) => {
 
 const getMoreLinkLayout = (id) => {
     return wrapWithBlock(`
-        <a
-            class="modules-common-map-common-components-balloon-offer__title"
-            href="/offers/${id}"
-        >
+        <span class="modules-common-map-common-components-balloon-offer__title">
             Подробнее о товаре
-        </a>
+        </span>
     `);
 }
 
@@ -209,7 +206,11 @@ export const getOfferBalloon_mobileApp = (offerData, markerId) => {
     const workingHoursLayout = getWorkingHoursLayout(working_hours);
 
     return `
-        <div class="modules-common-map-common-components-balloon-offer">
+        <div
+            class="modules-common-map-common-components-balloon-offer j-modules-common-map-common-components-balloon-offer"
+            data-id-product="${id}"
+            data-id-seller="${sellerId}"
+        >
             ${publishLayout}
             ${ratingLayout}
             ${catalogCategoriesLevelTwoLayout}

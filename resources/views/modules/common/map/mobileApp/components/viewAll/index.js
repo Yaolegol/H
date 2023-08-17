@@ -156,7 +156,103 @@ class MapMobileAppComponentsViewAll {
     }
 
     getBalloonContentLayoutClass = (offerData, markerId) => {
-        return ymaps.templateLayoutFactory.createClass(getOfferBalloon_mobileApp(offerData, markerId));
+        return ymaps.templateLayoutFactory.createClass(
+            getOfferBalloon_mobileApp(offerData, markerId),
+            {
+                build: function() {
+                    // Сначала вызываем метод build родительского класса.
+                    BalloonContentLayout.superclass.build.call(this);
+
+                    const linkProduct = this.customGetLinkProduct();
+                    const linkSeller = this.customGetLinkSeller();
+
+                    if(linkProduct) {
+                        linkProduct.addEventListener('click', this.handleClickLinkProduct);
+                    }
+
+                    if(linkSeller) {
+                        linkSeller.addEventListener('click', this.handleClickLinkSeller);
+                    }
+                },
+                clear: function() {
+                    // Выполняем действия в обратном порядке - сначала снимаем слушателя,
+                    // а потом вызываем метод clear родительского класса.
+                    const linkProduct = this.customGetLinkProduct();
+                    const linkSeller = this.customGetLinkSeller();
+
+                    if(linkProduct) {
+                        linkProduct.removeEventListener('click', this.handleClickLinkProduct);
+                    }
+
+                    if(linkSeller) {
+                        linkSeller.removeEventListener('click', this.handleClickLinkSeller);
+                    }
+
+                    BalloonContentLayout.superclass.clear.call(this);
+                },
+                handleClickLinkProduct: function() {
+                    if(!window.MOBILE_APP__EVENTS) {
+                        return;
+                    }
+
+                    const balloon = this.customGetBalloon();
+
+                    if(!balloon) {
+                        return;
+                    }
+
+                    const {idProduct} = balloon.dataset;
+
+                    window.MOBILE_APP__EVENTS.postMessage(JSON.stringify({
+                        data: {
+                            id: idProduct,
+                        },
+                        type: 'BALLOON__CLICK-PRODUCT-LINK'
+                    }));
+                },
+                handleClickLinkSeller: function() {
+                    if(!window.MOBILE_APP__EVENTS) {
+                        return;
+                    }
+
+                    const balloon = this.customGetBalloon();
+
+                    if(!balloon) {
+                        return;
+                    }
+
+                    const {idSeller} = balloon.dataset;
+
+                    window.MOBILE_APP__EVENTS.postMessage(JSON.stringify({
+                        data: {
+                            id: idSeller,
+                        },
+                        type: 'BALLOON__CLICK-SELLER-LINK'
+                    }));
+                },
+                customGetBalloon: function() {
+                    return document.querySelector('.j-modules-common-map-common-components-balloon-offer');
+                },
+                customGetLinkProduct: function() {
+                    const balloon = this.customGetBalloon();
+
+                    if(!balloon) {
+                        return;
+                    }
+
+                    return balloon.querySelector('.j-modules-common-map-common-components-balloon-offer__link-product');
+                },
+                customGetLinkSeller: function() {
+                    const balloon = this.customGetBalloon();
+
+                    if(!balloon) {
+                        return;
+                    }
+
+                    return balloon.querySelector('.j-modules-common-map-common-components-balloon-offer__link-seller');
+                }
+            }
+        );
     };
 
     handleYMapsReady = () => {
@@ -207,6 +303,7 @@ class MapMobileAppComponentsViewAll {
         if(window.MOBILE_APP__EVENTS) {
             window.MOBILE_APP__EVENTS.postMessage(JSON.stringify({
                 data: list,
+                type: 'MAP__UPDATE-PLACEMARKS_LIST'
             }));
         }
     }
