@@ -1,5 +1,5 @@
 import {debounce} from "helpers/debounce";
-import {getOfferBalloon} from "views/modules/common/map/yandex/components/balloon/offer/viewAll";
+import {getOfferBalloon} from "views/modules/common/map/common/components/balloon/offer";
 import './index.less';
 
 class MapMobileAppComponentsViewAll {

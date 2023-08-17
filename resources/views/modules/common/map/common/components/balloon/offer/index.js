@@ -4,19 +4,19 @@ import './index.less';
 const getAddressLayout = (currentSalePoint, address) => {
     const _address = currentSalePoint ? currentSalePoint['address'] : address;
 
-    return wrapWithBlock(_address);
+    return getKeyValueLayout('Адрес', [_address]);
 }
 
 const getCatalogLevelTwoLayout = (catalog_level_two) => {
-    const values = catalog_level_two.map(({title}) => title).join(', ');
+    const stringValues = catalog_level_two.map(({title}) => title).join(', ');
 
-    return getKeyValueLayout('Товары', values);
+    return getKeyValueLayout('Товары', [stringValues]);
 }
 
 const getContactPersonLayout = (currentSalePoint, contactPerson) => {
     const _contactPerson = currentSalePoint ? currentSalePoint['contact_person'] : contactPerson;
 
-    return getKeyValueLayout('Контактное лицо:', _contactPerson);
+    return getKeyValueLayout('Контактное лицо', [_contactPerson]);
 }
 
 const getCurrentSalePoint = (markerId, salePoints) => {
@@ -32,7 +32,7 @@ const getDeliveryLayout = (delivery, deliveryDescription) => {
         return '';
     }
 
-    return getKeyValueLayout('Доставка: есть', deliveryDescription);
+    return getKeyValueLayout('Доставка: есть', [deliveryDescription]);
 }
 
 const getDescriptionLayout = (description) => {
@@ -40,31 +40,35 @@ const getDescriptionLayout = (description) => {
         return '';
     }
 
-    return wrapWithBlock(description);
+    return getKeyValueLayout('Описание', [description]);
 }
 
 const getKeyLayout = (key) => {
     return `
-        <div class="modules-common-map-common-components-balloon-offer__key">
+        <div class="modules-common-map-common-components-balloon-offer__title">
             ${key}
         </div>
     `;
 }
 
-const getKeyValueLayout = (key, value) => {
+const getKeyValueLayout = (key, values) => {
     const keyLayout = getKeyLayout(key);
-    const valuesLayout = (typeof value === 'object') ? getValuesListLayout(value) : value;
+    const valuesLayout = getValuesListLayout(values);
 
-    wrapWithBlock(`${keyLayout} ${valuesLayout}`);
+    if(valuesLayout === '') {
+        return '';
+    }
+
+    return wrapWithBlock(`${keyLayout} ${valuesLayout}`);
 }
 
 const getMoreLinkLayout = (id) => {
     return wrapWithBlock(`
         <a
-            class="modules-common-map-common-components-balloon-offer__section-link-title"
+            class="modules-common-map-common-components-balloon-offer__title"
             href="/offers/${id}"
         >
-            Подробнее
+            Подробнее о товаре
         </a>
     `);
 }
@@ -72,7 +76,7 @@ const getMoreLinkLayout = (id) => {
 const getPhoneLayout = (currentSalePoint, phone) => {
     const _phone = currentSalePoint ? currentSalePoint['phone'] : phone;
 
-    return getKeyValueLayout('Телефон', `<a href="tel:${_phone}">${_phone}</a>`);
+    return getKeyValueLayout('Телефон', [`<a href="tel:${_phone}">${_phone}</a>`]);
 }
 
 const getPriceLayout = (price, price_description) => {
@@ -107,13 +111,13 @@ const getRatingLayout = (rating, rating_votes) => {
 }
 
 const getTitleLayout = (title) => {
-    return wrapWithBlock(title);
+    return getKeyValueLayout('Название товаров', [title]);
 }
 
-const getValueLayout = (layout) => {
+const getValueLayout = (value) => {
     return `
         <div class="modules-common-map-common-components-balloon-offer__container">
-            ${layout}
+            ${value}
         </div>
     `
 }
@@ -138,7 +142,7 @@ const getWorkingHoursLayout = (working_hours) => {
         return '';
     }
 
-    return getKeyValueLayout('Время работы', working_hours);
+    return getKeyValueLayout('Время работы', [working_hours]);
 }
 
 const wrapWithBlock = (layout) => {
@@ -172,32 +176,32 @@ export const getOfferBalloon = (offerData, markerId) => {
 
     const currentSalePoint = getCurrentSalePoint(markerId, salePoints);
 
+    const addressLayout = getAddressLayout(currentSalePoint, address);
+    const catalogCategoriesLevelTwoLayout = getCatalogLevelTwoLayout(catalog_level_two);
+    const contactPersonLayout = getContactPersonLayout(currentSalePoint, contact_person);
+    const deliveryLayout = getDeliveryLayout(delivery, delivery_description);
+    const descriptionLayout = getDescriptionLayout(description);
+    const moreLinkLayout = getMoreLinkLayout(id);
+    const phoneLayout = getPhoneLayout(currentSalePoint, phone);
+    const priceLayout = getPriceLayout(price, price_description);
     const publishLayout = getPublishDateLayout(created_at);
     const ratingLayout = getRatingLayout(rating, rating_votes);
-    const catalogCategoriesLevelTwoLayout = getCatalogLevelTwoLayout(catalog_level_two);
     const titleLayout = getTitleLayout(title);
-    const descriptionLayout = getDescriptionLayout(description);
-    const addressLayout = getAddressLayout(currentSalePoint, address);
-    const priceLayout = getPriceLayout(price, price_description);
-    const contactPersonLayout = getContactPersonLayout(currentSalePoint, contact_person);
-    const phoneLayout = getPhoneLayout(currentSalePoint, phone);
-    const deliveryLayout = getDeliveryLayout(delivery, delivery_description);
     const workingHoursLayout = getWorkingHoursLayout(working_hours);
-    const moreLinkLayout = getMoreLinkLayout(id);
 
     return `
         <div class="modules-common-map-common-components-balloon-offer">
             ${publishLayout}
             ${ratingLayout}
             ${catalogCategoriesLevelTwoLayout}
-            ${titleLayout}
-            ${descriptionLayout}
-            ${addressLayout}
             ${priceLayout}
             ${contactPersonLayout}
             ${phoneLayout}
+            ${addressLayout}
             ${deliveryLayout}
             ${workingHoursLayout}
+            ${titleLayout}
+            ${descriptionLayout}
             ${moreLinkLayout}
         </div>
     `
