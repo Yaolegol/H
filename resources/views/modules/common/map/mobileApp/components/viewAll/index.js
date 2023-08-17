@@ -67,7 +67,6 @@ class MapMobileAppComponentsViewAll {
     }
 
     bind = () => {
-        addEventListener(document, 'j-event-modules-common-geo-components-button__update-geo', this.handleUpdateGeo);
         addEventListener(document, 'j-map-mobile-app-components-view-all__get-visible-markers-data', this.handleGetVisibleMarkerData)
     }
 
@@ -135,12 +134,6 @@ class MapMobileAppComponentsViewAll {
         });
     }
 
-    handleUpdateGeo = (e) => {
-        this.geo = e.detail.position;
-
-        this.showGeoCoordinates();
-    }
-
     fetchData = async (catalogLevelOneId, catalogLevelTwoId) => {
         try {
             const bodyData = {
@@ -180,10 +173,6 @@ class MapMobileAppComponentsViewAll {
         this.sendPlacemarksDataList();
 
         this.addMobileAppFunctions();
-
-        if(this.geo) {
-            this.showGeoCoordinates();
-        }
     }
 
     init = async () => {
@@ -227,15 +216,6 @@ class MapMobileAppComponentsViewAll {
                 data: list,
             }));
         }
-    }
-
-    showGeoCoordinates = () => {
-        const {coords} = this.geo;
-        const {latitude, longitude} = coords;
-
-        this.mapInstance.setCenter([latitude, longitude], 11, {
-            duration: 1000,
-        });
     }
 
     zoomToUser = (latitude, longitude) => {
