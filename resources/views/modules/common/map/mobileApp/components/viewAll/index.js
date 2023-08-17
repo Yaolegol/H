@@ -6,6 +6,14 @@ class MapMobileAppComponentsViewAll {
     constructor(element) {
         this.module = element;
         this.mapContainer = this.module.querySelector('.j-map-mobile-app-components-view-all__map-container');
+        this.tokenCSRFInput = this.module.querySelector('input[name="_token"]');
+        this.tokenCSRFValue = this.tokenCSRFInput.value;
+
+        if(!this.tokenCSRFValue) {
+            console.error('no csrf token found');
+
+            return;
+        }
 
         this.init();
     }
@@ -136,6 +144,7 @@ class MapMobileAppComponentsViewAll {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': this.tokenCSRFValue,
                 },
                 method: 'POST',
             });

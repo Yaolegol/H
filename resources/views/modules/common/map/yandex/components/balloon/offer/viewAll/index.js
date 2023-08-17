@@ -83,9 +83,13 @@ export const getOfferBalloon = (offerData, markerId) => {
 
     return `
         <div class="modules-common-map-yandex-components-balloon-offer-view-all">
-            ${ratingLayout}
             <div class="modules-common-map-yandex-components-balloon-offer-view-all__created-at-block">
                 Опубликовано: ${createdAtDayFormatted}.${createdAtMonthFormatted}.${createdAtYear}
+            </div>
+            ${ratingLayout}
+            <div class="modules-common-map-yandex-components-balloon-offer-view-all__section-link">
+                <div class="modules-common-map-yandex-components-balloon-offer-view-all__section-seller-title">Товары:</div>
+                <div>${catalogCategoriesLevelTwoTitleList}</div>
             </div>
             <div class="modules-common-map-yandex-components-balloon-offer-view-all__title ${ratingLayout ? 'modules-common-map-yandex-components-balloon-offer-view-all__title_with-offset' : ''}">
                 <a
@@ -133,10 +137,6 @@ export const getOfferBalloon = (offerData, markerId) => {
                     </div>
                 `
                 : ""}
-            <div class="modules-common-map-yandex-components-balloon-offer-view-all__section-link">
-                <div class="modules-common-map-yandex-components-balloon-offer-view-all__section-seller-title">Товары:</div>
-                <div>${catalogCategoriesLevelTwoTitleList}</div>
-            </div>
             <div class="modules-common-map-yandex-components-balloon-offer-view-all__section-link">
                 <a
                     class="modules-common-map-yandex-components-balloon-offer-view-all__section-link-title"
