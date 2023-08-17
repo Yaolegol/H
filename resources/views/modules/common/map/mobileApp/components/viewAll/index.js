@@ -1,6 +1,5 @@
 import {addEventListener} from "helpers/events";
 import {debounce} from "helpers/debounce";
-import {getQueryData} from "helpers/query";
 import {getOfferBalloon} from "views/modules/common/map/yandex/components/balloon/offer/viewAll";
 import './index.less';
 
@@ -44,34 +43,49 @@ class MapMobileAppComponentsViewAll {
     }
 
     addMobileAppFunctions = () => {
-        window.zoomToUser = (latitude, longitude) => {
-            this.mapInstance.setCenter([latitude, longitude], 11, {
-                duration: 1000,
-            });
+        this.addMobileAppFunction_zoomToUser();
+        this.addMobileAppFunction_fetchMarkersData();
+        this.addMobileAppFunction_showPlacemark();
+    }
+
+    addMobileAppFunction_fetchMarkersData = () => {
+        window.fetchMarkersData = (catalogLevelOneId, catalogLevelTwoId) => {
+            this.fetchMarkersData(catalogLevelOneId, catalogLevelTwoId);
         }
+    }
 
-        window.fetchMarkersData = async (catalogLevelOneId, catalogLevelTwoId) => {
-            const {data, errors} = await this.fetchData(catalogLevelOneId, catalogLevelTwoId);
+    addMobileAppFunction_showPlacemark = () => {
+        window.showPlacemark = (placemarkId) => {
+            this.handleShowPlacemark(placemarkId);
+        }
+    }
 
-            if(!errors) {
-                this.offerData = data;
-
-                this.mapInstance.geoObjects.remove(this.mapCluster);
-                this.addMarkersToMap();
-
-                this.sendPlacemarksDataList();
-            }
+    addMobileAppFunction_zoomToUser = () => {
+        window.zoomToUser = (latitude, longitude) => {
+            this.zoomToUser(latitude, longitude);
         }
     }
 
     bind = () => {
-        addEventListener(document, 'j-event-map__show-placemark', this.handleShowPlacemark);
         addEventListener(document, 'j-event-modules-common-geo-components-button__update-geo', this.handleUpdateGeo);
         addEventListener(document, 'j-map-mobile-app-components-view-all__get-visible-markers-data', this.handleGetVisibleMarkerData)
     }
 
     bindMapEvents = () => {
         this.mapInstance.events.add(['boundschange'], debounce(this.handleMapBoundsChange, 500));
+    }
+
+    fetchMarkersData = async (catalogLevelOneId, catalogLevelTwoId) => {
+        const {data, errors} = await this.fetchData(catalogLevelOneId, catalogLevelTwoId);
+
+        if(!errors) {
+            this.offerData = data;
+
+            this.mapInstance.geoObjects.remove(this.mapCluster);
+            this.addMarkersToMap();
+
+            this.sendPlacemarksDataList();
+        }
     }
 
     getPlacemarksDataList = () => {
@@ -112,9 +126,9 @@ class MapMobileAppComponentsViewAll {
         });
     }
 
-    handleShowPlacemark = (e) => {
+    handleShowPlacemark = (placemarkId) => {
         const geoQueryResult = ymaps.geoQuery(this.mapCluster.getGeoObjects());
-        const geoQueryResultPlacemarks = geoQueryResult.search(`properties.id = "${e.detail.placemarkId}"`);
+        const geoQueryResultPlacemarks = geoQueryResult.search(`properties.id = "${placemarkId}"`);
 
         this.mapInstance.setCenter(geoQueryResultPlacemarks.get(0).geometry.getCoordinates(), 17, {
             duration: 1000,
@@ -219,6 +233,12 @@ class MapMobileAppComponentsViewAll {
         const {coords} = this.geo;
         const {latitude, longitude} = coords;
 
+        this.mapInstance.setCenter([latitude, longitude], 11, {
+            duration: 1000,
+        });
+    }
+
+    zoomToUser = (latitude, longitude) => {
         this.mapInstance.setCenter([latitude, longitude], 11, {
             duration: 1000,
         });
