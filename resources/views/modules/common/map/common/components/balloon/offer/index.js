@@ -75,8 +75,9 @@ const getMoreLinkLayout = (id) => {
 
 const getPhoneLayout = (currentSalePoint, phone) => {
     const _phone = currentSalePoint ? currentSalePoint['phone'] : phone;
+    const layout = `<a href="tel:${_phone}">${_phone}</a>`;
 
-    return getKeyValueLayout('Телефон', [`<a href="tel:${_phone}">${_phone}</a>`]);
+    return getKeyValueLayout('Телефон', [layout]);
 }
 
 const getPriceLayout = (price, price_description) => {
@@ -108,6 +109,20 @@ const getRatingLayout = (rating, rating_votes) => {
             ${rating_votes} ${plural_ru(rating_votes, ['оценка', 'оценки', 'оценок'])}
         </div>
     `) : ''
+}
+
+const getSellerLayout = (id, name) => {
+    const _name = name ? name : 'Имя не указано';
+    const layout = `
+        <a href="/sellers/${id}">
+            ${_name}
+            <div class="modules-common-map-common-components-balloon-offer__hint">
+                Подробнее о фермере
+            </div>
+        </a>
+    `;
+
+    return getKeyValueLayout('Фермер', [layout]);
 }
 
 const getTitleLayout = (title) => {
@@ -186,6 +201,7 @@ export const getOfferBalloon = (offerData, markerId) => {
     const priceLayout = getPriceLayout(price, price_description);
     const publishLayout = getPublishDateLayout(created_at);
     const ratingLayout = getRatingLayout(rating, rating_votes);
+    const sellerLayout = getSellerLayout(sellerId, name);
     const titleLayout = getTitleLayout(title);
     const workingHoursLayout = getWorkingHoursLayout(working_hours);
 
@@ -202,6 +218,7 @@ export const getOfferBalloon = (offerData, markerId) => {
             ${workingHoursLayout}
             ${titleLayout}
             ${descriptionLayout}
+            ${sellerLayout}
             ${moreLinkLayout}
         </div>
     `
