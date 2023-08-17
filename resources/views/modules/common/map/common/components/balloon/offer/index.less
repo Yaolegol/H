@@ -1,0 +1,62 @@
+@import (reference) '~styles/colors';
+
+.modules-common-map-common-components-balloon-offer {
+    &__block {
+        margin-top: 15px;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    &__container {
+        margin-top: 5px;
+    }
+
+    &__publish-date {
+        color: @black_20;
+    }
+
+    &__price {
+        font-weight: 800;
+    }
+
+    &__rating-block {
+        align-items: flex-end;
+        display: flex;
+    }
+
+    &__rating-star-container {
+        display: flex;
+        height: 20px;
+        position: relative;
+        width: 100px;
+    }
+
+    &__rating-star-container-active {
+        background: url('/build/icons/star_active.svg');
+        background-size: 20px;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+    }
+
+    &__rating-star-container-default {
+        background: url('/build/icons/star_default.svg');
+        background-size: 20px;
+        width: 100%;
+    }
+
+    &__rating-votes-container {
+        color: @black_20;
+        line-height: 16px;
+        margin-left: 10px;
+    }
+
+    &__title {
+        font-weight: 800;
+    }
+}
