@@ -1,5 +1,5 @@
 import {debounce} from "helpers/debounce";
-import {getOfferBalloon} from "views/modules/common/map/common/components/balloon/offer";
+import {getOfferBalloon_mobileApp} from "views/modules/common/map/mobileApp/components/balloon/offer/viewAll";
 import './index.less';
 
 class MapMobileAppComponentsViewAll {
@@ -156,7 +156,7 @@ class MapMobileAppComponentsViewAll {
     }
 
     getBalloonContentLayoutClass = (offerData, markerId) => {
-        return ymaps.templateLayoutFactory.createClass(getOfferBalloon(offerData, markerId));
+        return ymaps.templateLayoutFactory.createClass(getOfferBalloon_mobileApp(offerData, markerId));
     };
 
     handleYMapsReady = () => {
