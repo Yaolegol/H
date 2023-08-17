@@ -59,9 +59,7 @@ class MapMobileAppComponentsViewAll {
                 this.mapInstance.geoObjects.remove(this.mapCluster);
                 this.addMarkersToMap();
 
-                const list = this.getPlacemarksDataList();
-
-                this.sendPlacemarksDataListUpdateEvent({list});
+                this.sendPlacemarksDataList();
             }
         }
     }
@@ -103,7 +101,7 @@ class MapMobileAppComponentsViewAll {
     }
 
     handleMapBoundsChange = () => {
-        this.updatePlacemarsDataList();
+        this.sendPlacemarksDataList();
     }
 
     handlePlacemarkClick = (e) => {
@@ -165,7 +163,7 @@ class MapMobileAppComponentsViewAll {
         this.initMap();
         this.addMarkersToMap();
         this.bindMapEvents();
-        this.updatePlacemarsDataList();
+        this.sendPlacemarksDataList();
 
         this.addMobileAppFunctions();
 
@@ -207,12 +205,14 @@ class MapMobileAppComponentsViewAll {
         });
     }
 
-    sendPlacemarksDataListUpdateEvent = ({list}) => {
-        document.dispatchEvent(new CustomEvent('j-map-mobile-app-components-view-all__update-visible-markers-data', {
-            detail: {
-                list,
-            }
-        }));
+    sendPlacemarksDataList = () => {
+        const list = this.getPlacemarksDataList();
+
+        if(window.MOBILE_APP__EVENTS) {
+            window.MOBILE_APP__EVENTS.postMessage(JSON.stringify({
+                data: list,
+            }));
+        }
     }
 
     showGeoCoordinates = () => {
@@ -222,17 +222,6 @@ class MapMobileAppComponentsViewAll {
         this.mapInstance.setCenter([latitude, longitude], 11, {
             duration: 1000,
         });
-    }
-
-    updatePlacemarsDataList = () => {
-        const list = this.getPlacemarksDataList();
-
-        // this.sendPlacemarksDataListUpdateEvent({list});
-        if(window.MOBILE_APP__EVENTS) {
-            window.MOBILE_APP__EVENTS.postMessage(JSON.stringify({
-                data: list,
-            }));
-        }
     }
 }
 
