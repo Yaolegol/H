@@ -113,13 +113,16 @@ const getRatingLayout = (rating, rating_votes) => {
 
 const getSellerLayout = (id, name) => {
     const _name = name ? name : 'Имя не указано';
+
     const layout = `
         <a href="/sellers/${id}">
             ${_name}
-            <div class="modules-common-map-common-components-balloon-offer__hint">
-                Подробнее о фермере
-            </div>
         </a>
+        <div class="modules-common-map-common-components-balloon-offer__hint">
+            <a href="/sellers/${id}">
+                Подробнее о фермере
+            </a>
+        </div>
     `;
 
     return getKeyValueLayout('Фермер', [layout]);
