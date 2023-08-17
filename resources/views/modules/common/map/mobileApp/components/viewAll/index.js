@@ -201,7 +201,7 @@ class MapMobileAppComponentsViewAll {
                         data: {
                             id: idProduct,
                         },
-                        type: 'BALLOON__CLICK-PRODUCT-LINK'
+                        type: 'MOBILE_APP__EVENTS__BALLOON__CLICK-PRODUCT-LINK'
                     }));
                 },
                 handleClickLinkSeller: function(e) {
@@ -215,7 +215,7 @@ class MapMobileAppComponentsViewAll {
                         data: {
                             id: idSeller,
                         },
-                        type: 'BALLOON__CLICK-SELLER-LINK'
+                        type: 'MOBILE_APP__EVENTS__BALLOON__CLICK-SELLER-LINK'
                     }));
                 },
                 customGetBalloon: function() {
@@ -293,7 +293,7 @@ class MapMobileAppComponentsViewAll {
         if(window.MOBILE_APP__EVENTS) {
             window.MOBILE_APP__EVENTS.postMessage(JSON.stringify({
                 data: list,
-                type: 'MAP__UPDATE-PLACEMARKS_LIST'
+                type: 'MOBILE_APP__EVENTS__MAP__UPDATE-PLACEMARKS_LIST'
             }));
         }
     }
