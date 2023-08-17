@@ -1,4 +1,3 @@
-import {addEventListener} from "helpers/events";
 import {debounce} from "helpers/debounce";
 import {getOfferBalloon} from "views/modules/common/map/yandex/components/balloon/offer/viewAll";
 import './index.less';
@@ -9,7 +8,6 @@ class MapMobileAppComponentsViewAll {
         this.mapContainer = this.module.querySelector('.j-map-mobile-app-components-view-all__map-container');
 
         this.init();
-        this.bind();
     }
 
     addMarkersToMap = () => {
@@ -66,10 +64,6 @@ class MapMobileAppComponentsViewAll {
         }
     }
 
-    bind = () => {
-        addEventListener(document, 'j-map-mobile-app-components-view-all__get-visible-markers-data', this.handleGetVisibleMarkerData)
-    }
-
     bindMapEvents = () => {
         this.mapInstance.events.add(['boundschange'], debounce(this.handleMapBoundsChange, 500));
     }
@@ -101,16 +95,6 @@ class MapMobileAppComponentsViewAll {
         });
 
         return list;
-    }
-
-    handleGetVisibleMarkerData = () => {
-        const list = this.getPlacemarksDataList();
-
-        document.dispatchEvent(new CustomEvent('j-map-mobile-app-components-view-all__get-visible-markers-data-complete', {
-            detail: {
-                list,
-            }
-        }));
     }
 
     handleMapBoundsChange = () => {
