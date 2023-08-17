@@ -171,7 +171,7 @@ const wrapWithBlock = (layout) => {
     `
 }
 
-export const getOfferBalloon = (offerData, markerId) => {
+export const getOfferBalloon_mobileApp = (offerData, markerId) => {
     const {catalog, product, salePoints, seller} = offerData;
     const {
         address,
