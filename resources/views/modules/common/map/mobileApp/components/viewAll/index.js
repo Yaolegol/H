@@ -156,12 +156,12 @@ class MapMobileAppComponentsViewAll {
     }
 
     getBalloonContentLayoutClass = (offerData, markerId) => {
-        return ymaps.templateLayoutFactory.createClass(
+        const balloonContentLayout = ymaps.templateLayoutFactory.createClass(
             getOfferBalloon_mobileApp(offerData, markerId),
             {
                 build: function() {
                     // Сначала вызываем метод build родительского класса.
-                    BalloonContentLayout.superclass.build.call(this);
+                    balloonContentLayout.superclass.build.call(this);
 
                     const linkProduct = this.customGetLinkProduct();
                     const linkSeller = this.customGetLinkSeller();
@@ -188,20 +188,14 @@ class MapMobileAppComponentsViewAll {
                         linkSeller.removeEventListener('click', this.handleClickLinkSeller);
                     }
 
-                    BalloonContentLayout.superclass.clear.call(this);
+                    balloonContentLayout.superclass.clear.call(this);
                 },
-                handleClickLinkProduct: function() {
+                handleClickLinkProduct: function(e) {
                     if(!window.MOBILE_APP__EVENTS) {
                         return;
                     }
 
-                    const balloon = this.customGetBalloon();
-
-                    if(!balloon) {
-                        return;
-                    }
-
-                    const {idProduct} = balloon.dataset;
+                    const {idProduct} = e.currentTarget.dataset;
 
                     window.MOBILE_APP__EVENTS.postMessage(JSON.stringify({
                         data: {
@@ -210,18 +204,12 @@ class MapMobileAppComponentsViewAll {
                         type: 'BALLOON__CLICK-PRODUCT-LINK'
                     }));
                 },
-                handleClickLinkSeller: function() {
+                handleClickLinkSeller: function(e) {
                     if(!window.MOBILE_APP__EVENTS) {
                         return;
                     }
 
-                    const balloon = this.customGetBalloon();
-
-                    if(!balloon) {
-                        return;
-                    }
-
-                    const {idSeller} = balloon.dataset;
+                    const {idSeller} = e.currentTarget.dataset;
 
                     window.MOBILE_APP__EVENTS.postMessage(JSON.stringify({
                         data: {
@@ -253,6 +241,8 @@ class MapMobileAppComponentsViewAll {
                 }
             }
         );
+
+        return balloonContentLayout;
     };
 
     handleYMapsReady = () => {

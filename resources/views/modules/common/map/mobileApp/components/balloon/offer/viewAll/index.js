@@ -64,7 +64,10 @@ const getKeyValueLayout = (key, values) => {
 
 const getMoreLinkLayout = (id) => {
     return wrapWithBlock(`
-        <span class="modules-common-map-common-components-balloon-offer__title">
+        <span
+            class="modules-common-map-common-components-balloon-offer__title j-modules-common-map-common-components-balloon-offer__link-product"
+            data-id-product="${id}"
+        >
             Подробнее о товаре
         </span>
     `);
@@ -112,13 +115,14 @@ const getSellerLayout = (id, name) => {
     const _name = name ? name : 'Имя не указано';
 
     const layout = `
-        <a href="/sellers/${id}">
+        <div
+            class="j-modules-common-map-common-components-balloon-offer__link-seller"
+            data-id-seller="${id}"
+        >
             ${_name}
-        </a>
-        <div class="modules-common-map-common-components-balloon-offer__hint">
-            <a href="/sellers/${id}">
+            <div class="modules-common-map-common-components-balloon-offer__hint">
                 Подробнее о фермере
-            </a>
+            </div>
         </div>
     `;
 
@@ -208,7 +212,6 @@ export const getOfferBalloon_mobileApp = (offerData, markerId) => {
     return `
         <div
             class="modules-common-map-common-components-balloon-offer j-modules-common-map-common-components-balloon-offer"
-            data-id-product="${id}"
             data-id-seller="${sellerId}"
         >
             ${publishLayout}
