@@ -1,12 +1,24 @@
 @import (reference) '~styles/colors';
 
-.modules-common-map-yandex-components-balloon-offer-view-all {
-    &__created-at-block {
+.modules-common-map-common-components-balloon-offer {
+    &__block {
+        margin-top: 10px;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    &__container {
+
+    }
+
+    &__hint {
         color: @black_20;
     }
 
-    &__price {
-        font-weight: 800;
+    &__publish-date {
+        color: @black_20;
     }
 
     &__rating-block {
@@ -44,35 +56,7 @@
         margin-left: 10px;
     }
 
-    &__section-link {
-        margin-top: 15px;
-    }
-
-    &__section-link-title {
-        font-weight: 800;
-    }
-
-    &__section-price {
-        margin-top: 15px;
-    }
-
-    &__section-price-title {
-        font-weight: 800;
-    }
-
-    &__section-seller {
-        margin-top: 15px;
-    }
-
-    &__section-seller-title {
-        font-weight: 800;
-    }
-
     &__title {
         font-weight: 800;
-
-        &_with-offset {
-            margin-top: 15px;
-        }
     }
 }
