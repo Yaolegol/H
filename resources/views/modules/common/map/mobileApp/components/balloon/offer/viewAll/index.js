@@ -101,14 +101,16 @@ const getPublishDateLayout = (created_at) => {
 
 const getRatingLayout = (rating, rating_votes) => {
     return rating > 0 ? wrapWithBlock(`
-        <div class="modules-common-map-common-components-balloon-offer__rating-star-container">
-            <div class="modules-common-map-common-components-balloon-offer__rating-star-container-default"></div>
-            <div class="modules-common-map-common-components-balloon-offer__rating-star-container-active" style="width: ${20 * rating}px"></div>
+        <div class="modules-common-map-common-components-balloon-offer__rating">
+            <div class="modules-common-map-common-components-balloon-offer__rating-star-container">
+                <div class="modules-common-map-common-components-balloon-offer__rating-star-container-default"></div>
+                <div class="modules-common-map-common-components-balloon-offer__rating-star-container-active" style="width: ${20 * rating}px"></div>
+            </div>
+            <div class="modules-common-map-common-components-balloon-offer__rating-votes-container">
+                ${rating_votes} ${plural_ru(rating_votes, ['оценка', 'оценки', 'оценок'])}
+            </div>
         </div>
-        <div class="modules-common-map-common-components-balloon-offer__rating-votes-container">
-            ${rating_votes} ${plural_ru(rating_votes, ['оценка', 'оценки', 'оценок'])}
-        </div>
-    `) : ''
+    `, true) : ''
 }
 
 const getSellerLayout = (id, name) => {
@@ -164,9 +166,9 @@ const getWorkingHoursLayout = (working_hours) => {
     return getKeyValueLayout('Время работы', [working_hours]);
 }
 
-const wrapWithBlock = (layout) => {
+const wrapWithBlock = (layout, isSmallOffset) => {
     return `
-        <div class="modules-common-map-common-components-balloon-offer__block">
+        <div class="modules-common-map-common-components-balloon-offer__block ${isSmallOffset ? 'modules-common-map-common-components-balloon-offer__block_offset-small' : ''}">
             ${layout}
         </div>
     `
@@ -216,14 +218,14 @@ export const getOfferBalloon_mobileApp = (offerData, markerId) => {
         >
             ${publishLayout}
             ${ratingLayout}
+            ${titleLayout}
+            ${addressLayout}
             ${catalogCategoriesLevelTwoLayout}
             ${priceLayout}
             ${contactPersonLayout}
             ${phoneLayout}
-            ${addressLayout}
             ${deliveryLayout}
             ${workingHoursLayout}
-            ${titleLayout}
             ${descriptionLayout}
             ${sellerLayout}
             ${moreLinkLayout}

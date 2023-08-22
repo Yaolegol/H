@@ -1,11 +1,17 @@
 @import (reference) '~styles/colors';
 
 .modules-common-map-common-components-balloon-offer {
+    max-width: 200px;
+
     &__block {
         margin-top: 10px;
 
         &:first-child {
             margin-top: 0;
+        }
+
+        &_offset-small {
+            margin-top: 5px;
         }
     }
 
@@ -19,6 +25,11 @@
 
     &__publish-date {
         color: @black_20;
+    }
+
+    &__rating {
+        align-items: flex-end;
+        display: flex;
     }
 
     &__rating-block {
