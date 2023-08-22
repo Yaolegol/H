@@ -61,8 +61,8 @@ class MapMobileAppComponentsViewAll {
     }
 
     addMobileAppFunction_showPlacemark = () => {
-        window.showPlacemark = (placemarkId) => {
-            this.handleShowPlacemark(placemarkId);
+        window.showPlacemark = (placemarkId, offerId) => {
+            this.handleShowPlacemark(placemarkId, offerId);
         }
     }
 
@@ -117,9 +117,11 @@ class MapMobileAppComponentsViewAll {
         });
     }
 
-    handleShowPlacemark = (placemarkId) => {
+    handleShowPlacemark = (placemarkId, offerId) => {
+        const id = offerId ? `${offerId}_${placemarkId}` : placemarkId;
+
         const geoQueryResult = ymaps.geoQuery(this.mapCluster.getGeoObjects());
-        const geoQueryResultPlacemarks = geoQueryResult.search(`properties.id = "${placemarkId}"`);
+        const geoQueryResultPlacemarks = geoQueryResult.search(`properties.id = "${id}"`);
 
         this.mapInstance.setCenter(geoQueryResultPlacemarks.get(0).geometry.getCoordinates(), 17, {
             duration: 1000,

@@ -122,6 +122,10 @@ function apiGetSalePointsData($offerItem) {
         $data = [
             'address' => $salePointItem['address'],
             'contact_person' => $salePointItem['contact_person'],
+            'coords' => [
+                'lat'=> $salePointItem['map_marker_lat'],
+                'lng'=> $salePointItem['map_marker_lng'],
+            ],
             'description' => $salePointItem['description'],
             'id' => $salePointItem['id'],
             'is_approved' => $salePointItem['is_approved'],
