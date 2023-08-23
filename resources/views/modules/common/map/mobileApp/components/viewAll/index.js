@@ -1,5 +1,5 @@
 import {debounce} from "helpers/debounce";
-import {getOfferBalloon_mobileApp} from "views/modules/common/map/mobileApp/components/balloon/offer/viewAll";
+import {getOfferBalloon_mobileApp_viewAll} from "views/modules/common/map/mobileApp/components/balloon/offer/viewAll";
 import './index.less';
 
 class MapMobileAppComponentsViewAll {
@@ -159,7 +159,7 @@ class MapMobileAppComponentsViewAll {
 
     getBalloonContentLayoutClass = (offerData, markerId) => {
         const balloonContentLayout = ymaps.templateLayoutFactory.createClass(
-            getOfferBalloon_mobileApp(offerData, markerId),
+            getOfferBalloon_mobileApp_viewAll(offerData, markerId),
             {
                 build: function() {
                     // Сначала вызываем метод build родительского класса.

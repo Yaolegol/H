@@ -45,7 +45,7 @@ const getDescriptionLayout = (description) => {
 
 const getKeyLayout = (key) => {
     return `
-        <div class="modules-common-map-common-components-balloon-offer__title">
+        <div class="modules-common-map-mobile-app-components-balloon-offer-view-product__title">
             ${key}
         </div>
     `;
@@ -65,7 +65,7 @@ const getKeyValueLayout = (key, values) => {
 const getMoreLinkLayout = (id) => {
     return wrapWithBlock(`
         <span
-            class="modules-common-map-common-components-balloon-offer__title j-modules-common-map-common-components-balloon-offer__link-product"
+            class="modules-common-map-mobile-app-components-balloon-offer-view-product__title j-modules-common-map-mobile-app-components-balloon-offer-view-product__link-product"
             data-id-product="${id}"
         >
             Подробнее о товаре
@@ -75,7 +75,12 @@ const getMoreLinkLayout = (id) => {
 
 const getPhoneLayout = (currentSalePoint, phone) => {
     const _phone = currentSalePoint ? currentSalePoint['phone'] : phone;
-    const layout = `<a href="tel:${_phone}">${_phone}</a>`;
+    const layout = `
+        <span
+            class="j-modules-common-map-mobile-app-components-balloon-offer-view-product__phone"
+            data-phone="${_phone}"
+        >${_phone}</span>
+    `;
 
     return getKeyValueLayout('Телефон', [layout]);
 }
@@ -93,7 +98,7 @@ const getPublishDateLayout = (created_at) => {
     const createdAtYear = createdAtDate.getFullYear();
 
     return wrapWithBlock(`
-        <div class="modules-common-map-common-components-balloon-offer__publish-date">
+        <div class="modules-common-map-mobile-app-components-balloon-offer-view-product__publish-date">
             Опубликовано: ${createdAtDayFormatted}.${createdAtMonthFormatted}.${createdAtYear}
         </div>
     `)
@@ -101,12 +106,12 @@ const getPublishDateLayout = (created_at) => {
 
 const getRatingLayout = (rating, rating_votes) => {
     return rating > 0 ? wrapWithBlock(`
-        <div class="modules-common-map-common-components-balloon-offer__rating">
-            <div class="modules-common-map-common-components-balloon-offer__rating-star-container">
-                <div class="modules-common-map-common-components-balloon-offer__rating-star-container-default"></div>
-                <div class="modules-common-map-common-components-balloon-offer__rating-star-container-active" style="width: ${20 * rating}px"></div>
+        <div class="modules-common-map-mobile-app-components-balloon-offer-view-product__rating">
+            <div class="modules-common-map-mobile-app-components-balloon-offer-view-product__rating-star-container">
+                <div class="modules-common-map-mobile-app-components-balloon-offer-view-product__rating-star-container-default"></div>
+                <div class="modules-common-map-mobile-app-components-balloon-offer-view-product__rating-star-container-active" style="width: ${20 * rating}px"></div>
             </div>
-            <div class="modules-common-map-common-components-balloon-offer__rating-votes-container">
+            <div class="modules-common-map-mobile-app-components-balloon-offer-view-product__rating-votes-container">
                 ${rating_votes} ${plural_ru(rating_votes, ['оценка', 'оценки', 'оценок'])}
             </div>
         </div>
@@ -118,11 +123,11 @@ const getSellerLayout = (id, name) => {
 
     const layout = `
         <div
-            class="j-modules-common-map-common-components-balloon-offer__link-seller"
+            class="j-modules-common-map-mobile-app-components-balloon-offer-view-product__link-seller"
             data-id-seller="${id}"
         >
             ${_name}
-            <div class="modules-common-map-common-components-balloon-offer__hint">
+            <div class="modules-common-map-mobile-app-components-balloon-offer-view-product__hint">
                 Подробнее о фермере
             </div>
         </div>
@@ -137,7 +142,7 @@ const getTitleLayout = (title) => {
 
 const getValueLayout = (value) => {
     return `
-        <div class="modules-common-map-common-components-balloon-offer__container">
+        <div class="modules-common-map-mobile-app-components-balloon-offer-view-product__container">
             ${value}
         </div>
     `
@@ -168,13 +173,13 @@ const getWorkingHoursLayout = (working_hours) => {
 
 const wrapWithBlock = (layout, isSmallOffset) => {
     return `
-        <div class="modules-common-map-common-components-balloon-offer__block ${isSmallOffset ? 'modules-common-map-common-components-balloon-offer__block_offset-small' : ''}">
+        <div class="modules-common-map-mobile-app-components-balloon-offer-view-product__block ${isSmallOffset ? 'modules-common-map-mobile-app-components-balloon-offer-view-product__block_offset-small' : ''}">
             ${layout}
         </div>
     `
 }
 
-export const getOfferBalloon_mobileApp_viewAll = (offerData, markerId) => {
+export const getOfferBalloon_mobileApp_viewProduct = (offerData, markerId) => {
     const {catalog, product, salePoints, seller} = offerData;
     const {
         address,
@@ -213,22 +218,13 @@ export const getOfferBalloon_mobileApp_viewAll = (offerData, markerId) => {
 
     return `
         <div
-            class="modules-common-map-common-components-balloon-offer j-modules-common-map-common-components-balloon-offer"
+            class="modules-common-map-mobile-app-components-balloon-offer-view-product j-modules-common-map-mobile-app-components-balloon-offer-view-product"
             data-id-seller="${sellerId}"
         >
-            ${publishLayout}
-            ${ratingLayout}
-            ${titleLayout}
             ${addressLayout}
-            ${catalogCategoriesLevelTwoLayout}
-            ${priceLayout}
             ${contactPersonLayout}
             ${phoneLayout}
-            ${deliveryLayout}
             ${workingHoursLayout}
-            ${descriptionLayout}
-            ${sellerLayout}
-            ${moreLinkLayout}
         </div>
     `
 }
