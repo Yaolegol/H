@@ -141,6 +141,7 @@ class MapMobileAppComponentsViewProduct {
                 },
                 {
                     balloonContentLayout: this.getBalloonContentLayoutClass(offer, id.toString()),
+                    balloonPanelMaxMapArea: 0,
                 },
             );
 
