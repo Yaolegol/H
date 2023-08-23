@@ -2,7 +2,8 @@ import {plural_ru} from "helpers/plural";
 import './index.less';
 
 const getAddressLayout = (currentSalePoint, address) => {
-    const _address = currentSalePoint ? currentSalePoint['address'] : address;
+    const currentSalePointValue = currentSalePoint['address'];
+    const _address = currentSalePointValue ? currentSalePointValue : address;
 
     return getKeyValueLayout('Адрес', [_address]);
 }
@@ -14,7 +15,8 @@ const getCatalogLevelTwoLayout = (catalog_level_two) => {
 }
 
 const getContactPersonLayout = (currentSalePoint, contactPerson) => {
-    const _contactPerson = currentSalePoint ? currentSalePoint['contact_person'] : contactPerson;
+    const currentSalePointValue = currentSalePoint['contact_person'];
+    const _contactPerson = currentSalePointValue ? currentSalePointValue : contactPerson;
 
     return getKeyValueLayout('Контактное лицо', [_contactPerson]);
 }
@@ -74,7 +76,8 @@ const getMoreLinkLayout = (id) => {
 }
 
 const getPhoneLayout = (currentSalePoint, phone) => {
-    const _phone = currentSalePoint ? currentSalePoint['phone'] : phone;
+    const currentSalePointValue = currentSalePoint['phone'];
+    const _phone = currentSalePointValue ? currentSalePointValue : phone;
     const layout = `
         <span
             class="j-modules-common-map-mobile-app-components-balloon-offer-view-product__phone"
@@ -200,7 +203,7 @@ export const getOfferBalloon_mobileApp_viewProduct = (offerData, markerId) => {
     const {id: sellerId, name} = seller;
     const {catalog_level_two} = catalog;
 
-    const currentSalePoint = getCurrentSalePoint(markerId, salePoints);
+    const currentSalePoint = getCurrentSalePoint(markerId, salePoints) || {};
 
     const addressLayout = getAddressLayout(currentSalePoint, address);
     const catalogCategoriesLevelTwoLayout = getCatalogLevelTwoLayout(catalog_level_two);
