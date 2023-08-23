@@ -4,11 +4,9 @@ namespace App\Http\Controllers\controllers\map\mobileApp;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 
-require_once(app_path() . '/Http/Controllers/helpers/common/catalog/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/web/offers/index.php');
 
 class MapMobileAppSinglePoint extends Controller
 {
@@ -30,5 +28,19 @@ class MapMobileAppSinglePoint extends Controller
     public function viewAll()
     {
         return view('pages.map.mobileApp.viewAll.index', []);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function viewProduct(Request $request, $id)
+    {
+        $offer = getOfferFormatted($id);
+
+        return view('pages.map.mobileApp.viewProduct.index', [
+            'offer' => $offer,
+        ]);
     }
 }
