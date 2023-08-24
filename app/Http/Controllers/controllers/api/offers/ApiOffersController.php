@@ -45,7 +45,7 @@ class ApiOffersController extends Controller
      */
     public function show($id)
     {
-        $offerData = getOfferFormatted($id);
+        $offerData = getOfferFormatted($id, true);
 
         $data = [
             'data' => $offerData,

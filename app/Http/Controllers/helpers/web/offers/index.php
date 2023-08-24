@@ -56,7 +56,7 @@ function DB_getOffers($filters) {
     }
 }
 
-function formatOffer($offerItem) {
+function formatOffer($offerItem, $isAPI = false) {
     setUserAvatarData($offerItem);
     setOfferLink($offerItem);
     setOfferPhotoArray($offerItem);
@@ -65,6 +65,7 @@ function formatOffer($offerItem) {
     setOfferCatalogLinks($offerItem);
     setOfferMeasure($offerItem);
     setSellerLink($offerItem);
+    setAuthUserOfferRatingData($offerItem, $isAPI);
 
     return $offerItem;
 }
@@ -105,12 +106,12 @@ function getLocationFilters($searchCountryId, $searchRegionId, $searchCityId) {
     return $locationFilters;
 }
 
-function getOfferFormatted($id)
+function getOfferFormatted($id, $isAPI = false)
 {
     $offer = DB_getOffer($id);
     $offerItem = array_merge(...$offer);
 
-    return formatOffer($offerItem);
+    return formatOffer($offerItem, $isAPI);
 }
 
 function getOfferLink($id) {
@@ -134,11 +135,17 @@ function getOffersPaginatedData($catalogLevelTwoItem, $searchCountry, $searchReg
     return formatOffersPaginatedData($offersPaginatedData);
 }
 
-function getAuthUserOfferRatingData($id) {
-    $authUser = Auth::user();
+function getAuthUserOfferRatingData($id, $isAPI = false) {
+    $authUser = null;
+
+    if($isAPI) {
+        $authUser = auth('sanctum')->user();
+    } else {
+        $authUser = Auth::user();
+    }
 
     if(!$authUser) {
-        return [];
+        return null;
     }
     $ratedOffers = $authUser->offerRating()->get()->toArray();
 
@@ -147,6 +154,10 @@ function getAuthUserOfferRatingData($id) {
     });
 
     return array_merge(...$ratedOfferDataList);
+}
+
+function setAuthUserOfferRatingData(&$offer, $isAPI = false) {
+    $offer['auth_user_offer_rating_data'] = getAuthUserOfferRatingData($offer['id'], $isAPI);
 }
 
 function setOfferCatalogLinks(&$offerItem) {

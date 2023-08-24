@@ -252,7 +252,7 @@
                             'isUpdate' => count($authUserRatingData) > 0,
                             'offerId' => $offer['id'],
                         ])
-                            @if(count($authUserRatingData) > 0)
+                            @if($authUserRatingData !== null)
                                 @if($authUserRatingData['is_comment_approved'] === 0 && $authUserRatingData['approved_comment_error_message'] === null)
                                     <div class="modules-pages-offers-routes-show__rating-success-message">Спасибо!<br />Ваш отзыв отправлен на проверку и скоро будет опубликован или отклонен с указанием причины!</div>
                                 @endif
