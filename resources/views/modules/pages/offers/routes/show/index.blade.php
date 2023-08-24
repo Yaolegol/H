@@ -249,7 +249,7 @@
                 @auth
                     <div class="modules-pages-offers-routes-show__rating-container">
                         @component('components.rating.common.set.controller.index', [
-                            'isUpdate' => count($authUserRatingData) > 0,
+                            'isUpdate' => $authUserRatingData !== null,
                             'offerId' => $offer['id'],
                         ])
                             @if($authUserRatingData !== null)
@@ -273,12 +273,12 @@
 
                             <div class="modules-pages-offers-routes-show__rating-item modules-pages-offers-routes-show__rating-item_center">
                                 @include('components.rating.common.set.stars.index', [
-                                    'defaultValue' => $authUserRatingData['value'] ?? 5,
+                                    'defaultValue' => $authUserRatingData !== null ? $authUserRatingData['value'] : 5,
                                 ])
                             </div>
                             <div class="modules-pages-offers-routes-show__rating-item">
                                 @include('components.textarea.common.index', [
-                                    'defaultValue' => $authUserRatingData['comment'] ?? '',
+                                    'defaultValue' => $authUserRatingData !== null ? $authUserRatingData['comment'] : '',
                                     'name' => 'comment',
                                     'placeholder' => 'Напишите отзыв о товаре!'
                                 ])

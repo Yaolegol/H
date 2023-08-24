@@ -147,11 +147,16 @@ function getAuthUserOfferRatingData($id, $isAPI = false) {
     if(!$authUser) {
         return null;
     }
+
     $ratedOffers = $authUser->offerRating()->get()->toArray();
 
     $ratedOfferDataList = array_filter($ratedOffers, function($data) use($id) {
         return $data['offer_id'] === (int) $id;
     });
+
+    if(count($ratedOfferDataList) == 0) {
+        return null;
+    }
 
     return array_merge(...$ratedOfferDataList);
 }
