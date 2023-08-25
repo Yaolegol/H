@@ -29,6 +29,12 @@ function apiGetOfferListByPhoneFromDB($title) {
     return Offer::where([
         ['phone','like', $queryString],
     ])
+        ->orWhereHas('salePoints', function ($query) use ($queryString) {
+            $query->where('phone', 'like', $queryString);
+        })
+        ->orWhereHas('organization', function ($query) use ($queryString) {
+            $query->where('phone', 'like', $queryString);
+        })
         ->get()
         ->toArray();
 }
@@ -59,6 +65,12 @@ function apiGetUserListByPhoneFromDB($title) {
         ['phone','like', $queryString],
     ])
         ->whereHas('offers')
+        ->orWhereHas('offers', function ($query) use ($queryString) {
+            $query->where('phone', 'like', $queryString);
+        })
+        ->orWhereHas('organizations', function ($query) use ($queryString) {
+            $query->where('phone', 'like', $queryString);
+        })
         ->get()
         ->toArray();
 }
@@ -69,11 +81,11 @@ function apiGetSearchCommonResultFormatted($request) {
 
     $normalizedTitle = normalizeTitle($title);
 
-//    $offerList = apiGetOfferListByPhoneFromDB($normalizedTitle);
+    $offerList = apiGetOfferListByPhoneFromDB($normalizedTitle);
     $userList = apiGetUserListByPhoneFromDB($normalizedTitle);
 
-//    $offersDataList = apiGetOfferLinks($offerList);
-//    setOfferFullLinks($offersDataList);
+    $offersDataList = apiGetOfferLinks($offerList);
+    setOfferFullLinks($offersDataList);
 
     $usersDataList = apiGetUserLinks($userList);
     setUserFullLinks($usersDataList);
@@ -84,7 +96,7 @@ function apiGetSearchCommonResultFormatted($request) {
             'title' => 'Фермеры',
         ],
         [
-            'dataList' => [],
+            'dataList' => $offersDataList,
             'title' => 'Товары',
         ],
     ];
