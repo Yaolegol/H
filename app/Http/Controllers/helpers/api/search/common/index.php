@@ -58,6 +58,7 @@ function apiGetUserListByPhoneFromDB($title) {
     return User::where([
         ['phone','like', $queryString],
     ])
+        ->whereHas('offers')
         ->get()
         ->toArray();
 }
