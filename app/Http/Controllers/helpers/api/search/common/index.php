@@ -109,6 +109,7 @@ function apiGetOfferLinks($offerList) {
         $offerLink = '/offers/' . $offerData['id'];
 
         return [
+            'id' => $offerData['id'],
             'link' => $offerLink,
             'phone' => $offerData['phone'],
             'title' => $offerData['title'],
