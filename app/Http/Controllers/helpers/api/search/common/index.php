@@ -108,6 +108,7 @@ function apiGetUserLinks($userList) {
         $userLink = '/sellers/' . $userData['id'];
 
         return [
+            'id' => $userData['id'],
             'link' => $userLink,
             'phone' => '+' . $userData['phone'],
             'title' => $userData['name'],
