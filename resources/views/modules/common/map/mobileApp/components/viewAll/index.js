@@ -167,6 +167,7 @@ class MapMobileAppComponentsViewAll {
 
                     const linkProduct = this.customGetLinkProduct();
                     const linkSeller = this.customGetLinkSeller();
+                    const phone = this.customGetPhone();
 
                     if(linkProduct) {
                         linkProduct.addEventListener('click', this.handleClickLinkProduct);
@@ -175,12 +176,17 @@ class MapMobileAppComponentsViewAll {
                     if(linkSeller) {
                         linkSeller.addEventListener('click', this.handleClickLinkSeller);
                     }
+
+                    if(phone) {
+                        phone.addEventListener('click', this.handleClickPhone);
+                    }
                 },
                 clear: function() {
                     // Выполняем действия в обратном порядке - сначала снимаем слушателя,
                     // а потом вызываем метод clear родительского класса.
                     const linkProduct = this.customGetLinkProduct();
                     const linkSeller = this.customGetLinkSeller();
+                    const phone = this.customGetPhone();
 
                     if(linkProduct) {
                         linkProduct.removeEventListener('click', this.handleClickLinkProduct);
@@ -188,6 +194,10 @@ class MapMobileAppComponentsViewAll {
 
                     if(linkSeller) {
                         linkSeller.removeEventListener('click', this.handleClickLinkSeller);
+                    }
+
+                    if(phone) {
+                        phone.removeEventListener('click', this.handleClickPhone);
                     }
 
                     balloonContentLayout.superclass.clear.call(this);
@@ -220,6 +230,20 @@ class MapMobileAppComponentsViewAll {
                         type: 'MOBILE_APP__EVENTS__BALLOON__CLICK-SELLER-LINK'
                     }));
                 },
+                handleClickPhone: function(e) {
+                    if(!window.MOBILE_APP__EVENTS) {
+                        return;
+                    }
+
+                    const {phone} = e.currentTarget.dataset;
+
+                    window.MOBILE_APP__EVENTS.postMessage(JSON.stringify({
+                        data: {
+                            phone,
+                        },
+                        type: 'MOBILE_APP__EVENTS__BALLOON__CLICK-PHONE'
+                    }));
+                },
                 customGetBalloon: function() {
                     return document.querySelector('.j-modules-common-map-common-components-balloon-offer');
                 },
@@ -240,7 +264,16 @@ class MapMobileAppComponentsViewAll {
                     }
 
                     return balloon.querySelector('.j-modules-common-map-common-components-balloon-offer__link-seller');
-                }
+                },
+                customGetPhone: function() {
+                    const balloon = this.customGetBalloon();
+
+                    if(!balloon) {
+                        return;
+                    }
+
+                    return balloon.querySelector('.j-modules-common-map-common-components-balloon-offer__phone');
+                },
             }
         );
 
