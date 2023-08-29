@@ -10,12 +10,6 @@ class MapYandexComponentsSaleOffer {
         this.addMobileAppFunctions();
     }
 
-    addInitialMarker = () => {
-        if(this.markerLat && this.markerLng) {
-            this.addMarkerFromClick([this.markerLat, this.markerLng]);
-        }
-    }
-
     addMarkerFromClick = (coords) => {
         if(this.marker) {
             this.removeMarkerFromMap(this.marker);
@@ -76,7 +70,7 @@ class MapYandexComponentsSaleOffer {
             if(isSalePoint) {
                 this.addMarkerFromCheckbox({lat, lng, value});
             } else {
-                this.addMarkerToMap([lat, lng]);
+                this.addMarkerFromClick([lat, lng]);
             }
         });
     }
