@@ -36,6 +36,7 @@ class MapYandexComponentsSaleOffer {
     }
 
     addMobileAppFunctions = () => {
+        this.addMobileAppFunctions_addMarkersList();
         this.addMobileAppFunctions_addMarkerFromCheckbox();
         this.addMobileAppFunction_zoomToUser();
     }
@@ -43,6 +44,12 @@ class MapYandexComponentsSaleOffer {
     addMobileAppFunctions_addMarkerFromCheckbox = () => {
         window.addMarkerFromCheckbox = (data) => {
             this.handleAddMapMarkerFromCheckbox(data);
+        }
+    }
+
+    addMobileAppFunctions_addMarkersList = () => {
+        window.addMarkersList = (list) => {
+            this.handleAddMarkersList(list);
         }
     }
 
@@ -60,6 +67,18 @@ class MapYandexComponentsSaleOffer {
         } else {
             this.removeMarkerFromCheckbox(value);
         }
+    }
+
+    handleAddMarkersList = (list) => {
+        list.forEach((data) => {
+            const {isSalePoint, lat, lng, value} = data;
+
+            if(isSalePoint) {
+                this.addMarkerFromCheckbox({lat, lng, value});
+            } else {
+                this.addMarkerToMap([lat, lng]);
+            }
+        });
     }
 
     handleClickOnMap = (e) => {
