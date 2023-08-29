@@ -15,6 +15,16 @@ class MapMobileAppSinglePoint extends Controller
      *
      * @return Response
      */
+    public function saleOffer()
+    {
+        return view('pages.map.mobileApp.saleOffer.index', []);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
     public function singlePoint()
     {
         return view('pages.map.mobileApp.singlePoint.index', []);

@@ -60,6 +60,7 @@ Route::get('/logout', [LogoutController::class, 'index']);
 
 Route::get('/mobile-app/map/all', [MapMobileAppSinglePoint::class, 'viewAll']);
 Route::get('/mobile-app/map/product/{id}', [MapMobileAppSinglePoint::class, 'viewProduct']);
+Route::get('/mobile-app/map/sale-offer', [MapMobileAppSinglePoint::class, 'saleOffer']);
 Route::get('/mobile-app/map/single-point', [MapMobileAppSinglePoint::class, 'singlePoint']);
 
 Route::get('/legal/rules/cookie', [LegalController::class, 'cookie']);

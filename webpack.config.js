@@ -59,6 +59,7 @@ const createConfig = (env, argv) => {
             legal_privacyPolicy: path.resolve(appDirectoriesData.path_pages, 'legal', 'privacyPolicy', 'index'),
             legal_termsOfUse: path.resolve(appDirectoriesData.path_pages, 'legal', 'termsOfUse', 'index'),
             map_web_index: path.resolve(appDirectoriesData.path_pages, 'map', 'web', 'index'),
+            map_mobileApp_saleOffer_index: path.resolve(appDirectoriesData.path_pages, 'map', 'mobileApp', 'saleOffer', 'index'),
             map_mobileApp_singlePoint_index: path.resolve(appDirectoriesData.path_pages, 'map', 'mobileApp', 'singlePoint', 'index'),
             map_mobileApp_viewAll_index: path.resolve(appDirectoriesData.path_pages, 'map', 'mobileApp', 'viewAll', 'index'),
             map_mobileApp_viewProduct_index: path.resolve(appDirectoriesData.path_pages, 'map', 'mobileApp', 'viewProduct', 'index'),
