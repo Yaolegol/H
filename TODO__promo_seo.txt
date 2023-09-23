@@ -1,4 +1,7 @@
 0. CURRENT
+    - title
+    - description
+    - keywords
 
 1. RED
 
