@@ -36,8 +36,18 @@
                         @endforeach
                     @else
                         <div class="modules-pages-profile-routes-sale-offers-info-index__empty-block">
-                            <div>Чтобы создать торговое предложение, нажмите "Добавить торговое предложение"</div>
-                            <div>Это просто и бесплатно!</div>
+                            <div>У Вас пока не создано торговых предложений</div>
+                            <div class="modules-pages-profile-routes-sale-offers-info-index__empty-container">Чтобы создать торговое предложение, нажмите
+                                <a
+                                    class="modules-pages-profile-routes-sale-offers-info-index__empty-link"
+                                    href="/profile/sale-offers/create"
+                                >
+                                    "Добавить торговое предложение"
+                                </a>
+                            </div>
+                            <div class="modules-pages-profile-routes-sale-offers-info-index__empty-container modules-pages-profile-routes-sale-offers-info-index__empty-container_bold">
+                                Это просто и бесплатно!
+                            </div>
                         </div>
                     @endif
                 @endcomponent

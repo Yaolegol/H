@@ -46,7 +46,7 @@ class LoginController extends Controller
         if ($isUserAuth) {
             $request->session()->regenerate();
 
-            return redirect()->intended('profile/sale-offers/create');
+            return redirect()->intended('profile/sale-offers');
         }
 
         return back()->with(['commonError' => 'Неверный телефон или пароль. Попробуйте снова']);

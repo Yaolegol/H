@@ -1,4 +1,4 @@
-<div>
+<div class="modules-pages-profile-routes-organization-info-index">
     @component('modules.pages.profile.common.components.header.index', ['activeTab' => 'organization-info'])
         @component('modules.pages.profile.common.components.body.index.index', [
                 'createLink' => '/profile/organization-info/create',
@@ -15,8 +15,18 @@
                 @endforeach
             @else
                 <div class="modules-pages-profile-routes-organization-info-index__empty-block">
-                    <div>Чтобы создать организацию, нажмите "Добавить организацию"</div>
-                    <div>Это просто и бесплатно!</div>
+                    <div>У Вас пока не добавлено организаций</div>
+                    <div class="modules-pages-profile-routes-organization-info-index__empty-container">Чтобы добавить организацию, нажмите
+                        <a
+                            class="modules-pages-profile-routes-organization-info-index__empty-link"
+                            href="/profile/organization-info/create"
+                        >
+                            "Добавить организацию"
+                        </a>
+                    </div>
+                    <div class="modules-pages-profile-routes-organization-info-index__empty-container modules-pages-profile-routes-organization-info-index__empty-container_bold">
+                        Это просто и бесплатно!
+                    </div>
                 </div>
             @endif
         @endcomponent
