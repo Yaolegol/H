@@ -9,7 +9,7 @@
     </div>
     <div class="modules-pages-profile-common-components-body-index__content-container">
         <div class="modules-pages-profile-common-components-body-index__title-container">
-            <h2>{{$title}}</h2>
+            <h4>{{$title}}</h4>
         </div>
         {{$slot}}
     </div>
