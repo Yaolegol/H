@@ -144,7 +144,7 @@ function getPersonalDataValidator($request) {
         $request->all(),
         [
             'avatar' => ['image', 'max:10240'],
-            'name' => ['max:100'],
+            'name' => ['max:100', 'unique:users'],
             'description' => ['max:1000'],
         ],
         [
@@ -152,6 +152,7 @@ function getPersonalDataValidator($request) {
             'max' => 'Поле должно содержать максимум :max символов',
             'required' => 'Поле обязательно для заполнения',
             'size' => 'Поле должно содержать картинку, размером не более 10Мб',
+            'unique' => 'Пользователь с таким именем уже зарегистрирован, попробуйте выбрать другое',
         ]
     );
 }
