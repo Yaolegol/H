@@ -1,6 +1,6 @@
 <div class="modules-pages-profile-common-components-container-header">
     <div class="modules-pages-profile-common-components-container-header__title-container">
-        <h1 class="modules-pages-profile-common-components-container-header__title">Ваш профиль</h1>
+        <h1 class="modules-pages-profile-common-components-container-header__title">Профиль</h1>
     </div>
     <div class="modules-pages-profile-common-components-container-header__mobile-container">
         <a href="/logout">Выйти</a>
