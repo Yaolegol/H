@@ -24,8 +24,7 @@
     }
 
     &__tab-button {
-        border-radius: 10px;
-        box-shadow: 0 0 10px 1px @shadow;
+        border-bottom: 2px solid @black_10;
         color: @black_80;
         cursor: pointer;
         display: inline-block;
@@ -34,14 +33,17 @@
         text-align: center;
 
         &:hover:not(.modules-pages-profile-common-components-container-header__tab-button_active) {
-            background-color: @primary_50;
-            color: @white;
+            border-color: #189e16;
+            font-weight: 900;
         }
 
         &_active {
-            background-color: @primary;
-            color: @white;
+            border-color: #189e16;
             font-weight: 900;
+        }
+
+        &_size-medium {
+            min-width: 170px;
         }
     }
 
