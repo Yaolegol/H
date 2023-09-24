@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\controllers\map\mobileApp\MapMobileAppSinglePoint;
+use App\Http\Controllers\controllers\web\admin\AdminController;
 use App\Http\Controllers\controllers\web\admin\offers\AdminOffersController;
 use App\Http\Controllers\controllers\web\admin\offersRating\AdminOffersRatingController;
 use App\Http\Controllers\controllers\web\admin\organizations\AdminOrganizationsController;
@@ -70,6 +71,7 @@ Route::get('/legal/rules/terms-of-use', [LegalController::class, 'termsOfUse']);
 Route::get('/copyright/images', [CopyrightController::class, 'images']);
 
 Route::middleware(['auth', 'userExistsWeb'])->group(function () {
+    Route::get('/admin', [AdminController::class, 'index']);
     Route::get('/admin/offers', [AdminOffersController::class, 'index']);
     Route::post('/admin/offer/approve/{id}', [AdminOffersController::class, 'approve']);
     Route::post('/admin/offer/reject/{id}', [AdminOffersController::class, 'reject']);
