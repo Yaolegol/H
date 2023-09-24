@@ -9,7 +9,7 @@
         <div class="modules-pages-profile-common-components-container-header__tabs-container">
             <div class="modules-pages-profile-common-components-container-header__tab-item-container">
                 <a
-                    class="modules-pages-profile-common-components-container-header__tab-button {{$activeTab === 'sale-offers' ? 'modules-pages-profile-common-components-container-header__tab-button_active' : ''}}"
+                    class="modules-pages-profile-common-components-container-header__tab-button modules-pages-profile-common-components-container-header__tab-button_size-large {{$activeTab === 'sale-offers' ? 'modules-pages-profile-common-components-container-header__tab-button_active' : ''}}"
                     href="/profile/sale-offers"
                 >
                     Торговые предложения
