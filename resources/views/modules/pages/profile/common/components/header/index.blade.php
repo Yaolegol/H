@@ -9,38 +9,39 @@
         <div class="modules-pages-profile-common-components-container-header__tabs-container">
             <div class="modules-pages-profile-common-components-container-header__tab-item-container">
                 <a
-                    class="modules-pages-profile-common-components-container-header__tab-button {{$activeTab === 'personal-info' ? 'modules-pages-profile-common-components-container-header__tab-button_active' : ''}}"
-                    href="/profile/personal-info"
-                >
-                    Личные данные
-                </a>
-            </div>
-            <div
-                class="modules-pages-profile-common-components-container-header__tab-item-container">
-                <a
-                    class="modules-pages-profile-common-components-container-header__tab-button {{$activeTab === 'organization-info' ? 'modules-pages-profile-common-components-container-header__tab-button_active' : ''}}"
-                    href="/profile/organization-info"
-                >
-                    Организации
-                </a>
-            </div>
-            <div
-                class="modules-pages-profile-common-components-container-header__tab-item-container">
-                <a
-                    class="modules-pages-profile-common-components-container-header__tab-button {{$activeTab === 'sale-points-info' ? 'modules-pages-profile-common-components-container-header__tab-button_active' : ''}}"
-                    href="/profile/sale-points-info"
-                >
-                    Торговые точки
-                </a>
-            </div>
-            <div
-                class="modules-pages-profile-common-components-container-header__tab-item-container">
-                <a
                     class="modules-pages-profile-common-components-container-header__tab-button {{$activeTab === 'sale-offers' ? 'modules-pages-profile-common-components-container-header__tab-button_active' : ''}}"
                     href="/profile/sale-offers"
                 >
                     Торговые предложения
                 </a>
+            </div>
+            <div class="modules-pages-profile-common-components-container-header__tabs-secondary-container">
+                <div class="modules-pages-profile-common-components-container-header__tab-item-container">
+                    <a
+                        class="modules-pages-profile-common-components-container-header__tab-button {{$activeTab === 'personal-info' ? 'modules-pages-profile-common-components-container-header__tab-button_active' : ''}}"
+                        href="/profile/personal-info"
+                    >
+                        Личные данные
+                    </a>
+                </div>
+                <div
+                    class="modules-pages-profile-common-components-container-header__tab-item-container">
+                    <a
+                        class="modules-pages-profile-common-components-container-header__tab-button {{$activeTab === 'organization-info' ? 'modules-pages-profile-common-components-container-header__tab-button_active' : ''}}"
+                        href="/profile/organization-info"
+                    >
+                        Организации
+                    </a>
+                </div>
+                <div
+                    class="modules-pages-profile-common-components-container-header__tab-item-container">
+                    <a
+                        class="modules-pages-profile-common-components-container-header__tab-button {{$activeTab === 'sale-points-info' ? 'modules-pages-profile-common-components-container-header__tab-button_active' : ''}}"
+                        href="/profile/sale-points-info"
+                    >
+                        Торговые точки
+                    </a>
+                </div>
             </div>
         </div>
     </div>

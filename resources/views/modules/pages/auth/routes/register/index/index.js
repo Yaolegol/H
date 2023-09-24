@@ -50,7 +50,7 @@ class Register {
             return;
         }
 
-        window.location.href = '/'
+        window.location.href = 'profile/sale-offers/create'
     }
 
     handleSendSms = async (e) => {
