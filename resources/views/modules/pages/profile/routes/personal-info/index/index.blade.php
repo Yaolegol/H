@@ -92,7 +92,7 @@
                                 </div>
                             </div>
                             <div class="modules-pages-profile-routes-personal-info-index__send-button-container">
-                                <button class="button">Сохранить</button>
+                                <button class="button j-components-click-block">Сохранить</button>
                             </div>
                             <div class="modules-pages-profile-routes-personal-info-index__info-container-required">
                                 <div>* Для сохранения необходимо заполнить поле</div>
@@ -156,7 +156,7 @@
                                     </div>
                                 </div>
                                 <div class="modules-pages-profile-routes-personal-info-index__send-button-container">
-                                    <button class="button">Сохранить</button>
+                                    <button class="button j-components-click-block">Сохранить</button>
                                 </div>
                                 <div class="modules-pages-profile-routes-personal-info-index__info-container-required">
                                     <div>* Для сохранения необходимо заполнить все обязательные поля</div>
@@ -194,7 +194,7 @@
                                     </div>
                                 </div>
                                 <div class="modules-pages-profile-routes-personal-info-index__send-button-container">
-                                    <button class="button button_hover_red">Удалить</button>
+                                    <button class="button button_hover_red j-components-click-block">Удалить</button>
                                 </div>
                                 <div class="modules-pages-profile-routes-personal-info-index__info-container-required">
                                     <div>* Для удаления необходимо заполнить все обязательные поля</div>
