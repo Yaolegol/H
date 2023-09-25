@@ -81,6 +81,21 @@ class Search {
 
                 break;
             default:
+                items = dataList.map(({linkFull, phone, title}) => {
+                    const _title = title || 'Имя не указано';
+
+                    return `
+                        <div class="modules-common-header-search-item">
+                            <a
+                                class="modules-common-header-search-item__link j-header-search__search-result-item-link"
+                                href="${linkFull}"
+                            >
+                                ${_title}, ${phone}
+                            </a>
+                        </div>
+                    `;
+                });
+
                 break;
         }
 
@@ -90,20 +105,6 @@ class Search {
         console.log(type)
         console.log('items')
         console.log(items)
-
-        // const itemsList = dataList.map(({linkFull, phone, title}) => {
-        //     const template = this.getCardTemplateCatalog(title);
-        //
-        //
-        //     const itemTemplate = this.getSearchItemTemplateHTML();
-        //     const linkElement = itemTemplate.querySelector('.j-header-search__search-result-item-link');
-        //
-        //     const _title = title || 'Имя не указано';
-        //     linkElement.innerHTML = `${_title}, ${phone}`;
-        //     linkElement.href = linkFull;
-        //
-        //     return template;
-        // });
 
         return items.join('');
     }
@@ -139,12 +140,6 @@ class Search {
 
     getSearchContainerTemplateHTML = () => {
         const template = this.module.querySelector('.j-template[data-template-id="header-search-result-container"]');
-
-        return template.content.firstElementChild.cloneNode(true);
-    }
-
-    getSearchItemTemplateHTML = () => {
-        const template = this.module.querySelector('.j-template[data-template-id="header-search-result-item"]');
 
         return template.content.firstElementChild.cloneNode(true);
     }
