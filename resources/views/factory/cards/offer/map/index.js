@@ -32,6 +32,9 @@ export class MapOfferCard {
         const {link: sellerLink, name} = seller;
         const {catalog_level_one, catalog_level_two} = catalog;
 
+        console.log('catalog_level_one');
+        console.log(catalog_level_one);
+
         let _name = name;
 
         if(!_name) {
@@ -102,7 +105,11 @@ export class MapOfferCard {
             </div>
         `;
 
-        const catalogCategoriesLevelTwoTitleList = catalog_level_two.map(({title}) => title).join(', ');
+        let productsTitles = catalog_level_two.map(({title}) => title).join(', ');
+
+        if(productsTitles === '') {
+            productsTitles = catalog_level_one['title'];
+        }
 
         const ratingLayout = rating > 0 ? `
             <div class="factory-cards-offer-map__rating-container">
@@ -187,7 +194,7 @@ export class MapOfferCard {
                     <div class="factory-cards-offer-map__category-block">
                         <div>
                             <span class="factory-cards-offer-map__category-title">Товары:</span>
-                            ${catalogCategoriesLevelTwoTitleList}
+                            ${productsTitles}
                         </div>
                         ${ratingLayout}
                         <div class="factory-cards-offer-map__created-at-block">
