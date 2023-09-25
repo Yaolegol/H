@@ -28,7 +28,12 @@ function apiGetOfferListByPhoneFromDB($title) {
 
     return Offer::where([
         ['phone','like', $queryString],
+        ['is_removed', false],
     ])
+        ->orWhere([
+            ['id','like', $queryString],
+            ['is_removed', false],
+        ])
         ->orWhereHas('salePoints', function ($query) use ($queryString) {
             $query->where('phone', 'like', $queryString);
         })
@@ -63,6 +68,7 @@ function apiGetUserListByPhoneFromDB($title) {
 
     return User::where([
         ['phone','like', $queryString],
+        ['is_removed', false],
     ])
         ->whereHas('offers')
         ->orWhereHas('offers', function ($query) use ($queryString) {
