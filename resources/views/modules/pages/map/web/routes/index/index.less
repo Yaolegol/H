@@ -3,6 +3,7 @@
 
 .modules-pages-map-web-routes-index {
     &__add-product-block {
+        margin-left: auto;
         text-align: end;
 
         @media @mobile {
@@ -34,6 +35,7 @@
 
         @media @mobile {
             flex-direction: column;
+            margin-top: 15px;
             width: 100%;
         }
     }
@@ -48,11 +50,41 @@
         &:first-child {
             margin: 0;
         }
+
+        &_geo {
+            @media @mobile {
+                order: 1;
+            }
+        }
+
+        &_mobile-offset {
+            @media @mobile {
+                margin: 15px 0 0 !important;
+            }
+        }
+
+        &_mobile-offset-no {
+            @media @mobile {
+                margin: 0 !important;
+            }
+        }
     }
 
     &__content-area {
         margin: 0 auto;
         max-width: 1400px;
+    }
+
+    &__content-header {
+    }
+
+    &__content-header-main {
+    }
+
+    &__content-header-top {
+        align-items: flex-end;
+        display: flex;
+        justify-content: space-between;
     }
 
     &__filter-button {
@@ -71,7 +103,6 @@
     &__filters-block {
         align-items: center;
         display: flex;
-        justify-content: flex-end;
         padding-top: 10px;
     }
 

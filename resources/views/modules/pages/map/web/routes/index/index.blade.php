@@ -1,45 +1,51 @@
 <div class="modules-pages-map-web-routes-index">
     <div class="modules-pages-map-web-routes-index__content-area">
-        <div class="modules-pages-map-web-routes-index__add-product-block">
-            @guest
-                <div class="modules-pages-map-web-routes-index__add-product-container">
-                    <div class="modules-pages-map-web-routes-index__add-product-text">
-                        Разместить объявление!
+        <div class="modules-pages-map-web-routes-index__content-header">
+            <div class="modules-pages-map-web-routes-index__content-header-top">
+                @include('components.info.common.index', [
+                    'className' => 'modules-pages-map-web-routes-index__share-block',
+                    'id' => 'local_storage__info_share',
+                    'text' => 'Мы только открылись!<br /> Поделитесь ссылкой на сайт в социальных сетях, чтобы было больше продуктов!',
+                ])
+                <div class="modules-pages-map-web-routes-index__add-product-block">
+                    @guest
+                        <div class="modules-pages-map-web-routes-index__add-product-container">
+                            <div class="modules-pages-map-web-routes-index__add-product-text">
+                                Разместить объявление!
+                            </div>
+                            @include('components.hint.common.index', [
+                                'text' => 'Чтобы разместить объявление нужно',
+                            ])
+                        </div>
+                    @endguest
+                    @auth
+                        <a
+                            class="modules-pages-map-web-routes-index__link"
+                            href="/profile/sale-offers/create"
+                        >Разместить объявление!</a>
+                    @endauth
+                    <div>Это просто и бесплатно!</div>
+                </div>
+            </div>
+            <div class="modules-pages-map-web-routes-index__content-header-main">
+                <div class="modules-pages-map-web-routes-index__filters-block">
+                    <div class="modules-pages-map-web-routes-index__buttons-block">
+                        <div class="modules-pages-map-web-routes-index__button-container modules-pages-map-web-routes-index__button-container_geo modules-pages-map-web-routes-index__button-container_mobile-offset">
+                            @include('components.buttons.filter.index', [
+                                'className' => 'j-modules-common-geo-components-button',
+                                'dataset' => [],
+                                'defaultTitle' => 'Показать рядом со мной',
+                                'icon' => 'icons.location',
+                                'title' => 'Показать рядом со мной',
+                            ])
+                        </div>
+                        <div class="modules-pages-map-web-routes-index__button-container modules-pages-map-web-routes-index__button-container_mobile-offset-no">
+                            @include('modules.common.map.common.components.filters.product.index')
+                        </div>
                     </div>
-                    @include('components.hint.common.index', [
-                        'text' => 'Чтобы разместить объявление нужно',
-                    ])
-                </div>
-            @endguest
-            @auth
-                <a
-                    class="modules-pages-map-web-routes-index__link"
-                    href="/profile/sale-offers/create"
-                >Разместить объявление!</a>
-            @endauth
-            <div>Это просто и бесплатно!</div>
-        </div>
-        <div class="modules-pages-map-web-routes-index__filters-block">
-            <div class="modules-pages-map-web-routes-index__buttons-block">
-                <div class="modules-pages-map-web-routes-index__button-container">
-                    @include('modules.common.map.common.components.filters.product.index')
-                </div>
-                <div class="modules-pages-map-web-routes-index__button-container">
-                    @include('components.buttons.filter.index', [
-                        'className' => 'j-modules-common-geo-components-button',
-                        'dataset' => [],
-                        'defaultTitle' => 'Показать рядом со мной',
-                        'icon' => 'icons.location',
-                        'title' => 'Показать рядом со мной',
-                    ])
                 </div>
             </div>
         </div>
-        @include('components.info.common.index', [
-            'className' => 'modules-pages-map-web-routes-index__share-block',
-            'id' => 'local_storage__info_share',
-            'text' => 'Мы только открылись!<br /> Поделитесь ссылкой на сайт в социальных сетях, чтобы было больше продуктов!',
-        ])
         <div class="modules-pages-map-web-routes-index__map-area">
             <div class="modules-pages-map-web-routes-index__map-block">
                 @include('modules.common.map.yandex.components.viewAll.index')
