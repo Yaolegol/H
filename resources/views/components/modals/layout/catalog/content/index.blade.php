@@ -8,7 +8,7 @@
             <div class="modules-common-catalog-content__header j-header-catalog__search-element">
                 <div class="modules-common-catalog-content__header-item">
                     @include($navigationItem, [
-                        'className' => 'j-modules-common-filters-product-modal-components-buttons-navigation',
+                        'className' => 'j-modules-common-filters-product-modal-components-buttons-navigation j-modules-common-filters-product-modal-components-buttons-navigation_mobile_clickable',
                         'contentData' => $catalogItem,
                         'isBold' => true,
                     ])
