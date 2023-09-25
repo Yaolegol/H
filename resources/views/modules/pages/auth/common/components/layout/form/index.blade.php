@@ -8,7 +8,13 @@
     {{$slot}}
 
     <div class="modules-pages-auth-common-components-layout-form__send-button-container">
-        <button class="button modules-pages-auth-common-components-layout-form__send-button">Отправить</button>
+        <button
+            class="
+                button
+                modules-pages-auth-common-components-layout-form__send-button
+                j-components-click-block
+            "
+        >Отправить</button>
     </div>
     <div class="modules-pages-auth-common-components-layout-form__info-container-required">
         <div>* Для отправки необходимо заполнить все поля</div>
