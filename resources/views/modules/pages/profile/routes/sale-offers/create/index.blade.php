@@ -84,16 +84,16 @@
                     'required' => true,
                     'title' => 'Телефон:'
                     ])
-                    @component('modules.pages.auth.common.components.formItemContainer.index')
-                        @include('components.inputs.phone.index', [
-                                        'name' => 'phone',
-                                        'required' => true,
-                                        'value' => old('phone'),
-                        ])
-                        @include('components.form.error.index', [
-                            'message' => $errors->first('phone'),
-                        ])
-                    @endcomponent
+                    @include('components.inputs.form.index', [
+                                    'name' => 'phone',
+                                    'placeholder' => 'Телефон',
+                                    'required' => true,
+                                    'type' => 'tel',
+                                    'value' => old('phone'),
+                                ])
+                    @include('components.form.error.index', [
+                        'message' => $errors->first('phone'),
+                    ])
                 @endcomponent
 
                 @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Режим работы:'])
