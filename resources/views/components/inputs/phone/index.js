@@ -18,6 +18,14 @@ class PhoneInput {
     }
 
     handleInput = (e) => {
+        const valueUnmasked = this.IMaskInstance.unmaskedValue;
+
+        if(valueUnmasked.length < 11) {
+            this.input.value = '';
+
+            return;
+        }
+
         this.input.value = this.IMaskInstance.unmaskedValue;
     }
 
