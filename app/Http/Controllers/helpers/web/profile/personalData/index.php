@@ -140,19 +140,28 @@ function getPasswordValidator($request) {
 }
 
 function getPersonalDataValidator($request) {
+    $authUser = Auth::user();
+    $authUserName = $authUser->name;
+    $requestName = $request->input('name');
+
+    $rules = [
+        'avatar' => ['image', 'max:10240'],
+        'description' => ['max:1000'],
+    ];
+
+    if($requestName !== $authUserName) {
+        $rules['name'] = ['max:100', 'unique:users'];
+    }
+
     return Validator::make(
         $request->all(),
-        [
-            'avatar' => ['image', 'max:10240'],
-            'name' => ['max:100', 'unique:users'],
-            'description' => ['max:1000'],
-        ],
+        $rules,
         [
             'image' => 'Поле должно содержать картинку, размером не более 10Мб',
             'max' => 'Поле должно содержать максимум :max символов',
             'required' => 'Поле обязательно для заполнения',
             'size' => 'Поле должно содержать картинку, размером не более 10Мб',
-            'unique' => 'Пользователь с таким именем уже зарегистрирован, попробуйте выбрать другое',
+            'unique' => 'Пользователь с именем :input уже зарегистрирован, попробуйте выбрать другое',
         ]
     );
 }
