@@ -15,6 +15,7 @@ class Register {
         this.inputsCodeModule = this.module.querySelector('.j-components-inputs-code');
         this.CSRFContainer = document.querySelector('.j-csrf-token');
         this.CSRFValue = this.CSRFContainer?.dataset.value;
+        this.isSMSCodeChecking = false;
 
         this.bind();
     }
@@ -25,6 +26,10 @@ class Register {
     }
 
     handleCompleteCode = (e) => {
+        if(this.isSMSCodeChecking) {
+            return;
+        }
+
         const {code} = e.detail;
 
         this.errorContainer.innerHTML = '';
@@ -41,16 +46,25 @@ class Register {
             password_confirmation: this.password_confirmationValue,
         }
 
-        const {errors} = await this.sendConfirmCode(_data);
+        this.isSMSCodeChecking = true;
 
-        if(errors !== '') {
-            this.errorContainer.innerHTML = errors[0];
-            this.errorContainer.classList.remove('hidden');
+        try {
+            const {errors} = await this.sendConfirmCode(_data);
 
-            return;
+            if(errors !== '') {
+                this.errorContainer.innerHTML = errors[0];
+                this.errorContainer.classList.remove('hidden');
+                this.isSMSCodeChecking = false;
+
+                return;
+            }
+
+            window.location.href = 'profile/sale-offers'
+        } catch(e) {
+            this.isSMSCodeChecking = false;
+            
+            console.error(e);
         }
-
-        window.location.href = 'profile/sale-offers'
     }
 
     handleSendSms = async (e) => {
