@@ -34,19 +34,21 @@
             type="checkbox"
         >
         @foreach($contentList as $contentItem)
-            <div
-                class="
+            @if(count($contentItem['content']) > 0)
+                <div
+                    class="
                     components-inputs-radio-group-second-level__content-container
                     j-inputs-radio-group-second-level__content-container
                 "
-                data-listen-id="{{$contentItem['listenId']}}"
-            >
-                @include('components.inputs.radio.checkbox-group.index', [
-                    'list' => $contentItem['content'],
-                    'name' => $inputsName,
-                    'required' => $required ?? false,
-                ])
-            </div>
+                    data-listen-id="{{$contentItem['listenId']}}"
+                >
+                    @include('components.inputs.radio.checkbox-group.index', [
+                        'list' => $contentItem['content'],
+                        'name' => $inputsName,
+                        'required' => $required ?? false,
+                    ])
+                </div>
+            @endif
         @endforeach
     </div>
 </div>

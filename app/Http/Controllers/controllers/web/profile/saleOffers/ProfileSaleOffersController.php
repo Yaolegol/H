@@ -71,7 +71,7 @@ class ProfileSaleOffersController extends Controller
         $CLOId = $request->input('catalog_level_one_id');
         $catalogLevelTwoIdsArray = getProfileSaleOffersCatalogLevelTwoList($request);
 
-        if($CLOId != 1) {
+        if($CLOId != '999') {
             if(count($catalogLevelTwoIdsArray) == 0) {
                 return back()
                     ->withErrors([
@@ -144,14 +144,17 @@ class ProfileSaleOffersController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $CLOId = $request->input('catalog_level_one_id');
         $catalogLevelTwoIdsArray = getProfileSaleOffersCatalogLevelTwoList($request);
 
-        if(count($catalogLevelTwoIdsArray) == 0) {
-            return back()
-                ->withErrors([
-                    'commonError' => 'Не выбрана подкатегория!',
-                ])
-                ->withInput();
+        if($CLOId != '999') {
+            if(count($catalogLevelTwoIdsArray) == 0) {
+                return back()
+                    ->withErrors([
+                        'commonError' => 'Не выбрана подкатегория!',
+                    ])
+                    ->withInput();
+            }
         }
 
         $isCatalogLevelOneItemCreated = checkIsCatalogLevelOneItemCreated($request, $id);
