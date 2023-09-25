@@ -10,6 +10,8 @@ class ClickBlock {
 
     handleClick = (e) => {
         this.module.classList.add('button_disabled');
+        this.module.innerHTML = '';
+        this.module.classList.add('preloader');
     }
 }
 

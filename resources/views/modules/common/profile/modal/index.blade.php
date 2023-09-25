@@ -9,7 +9,7 @@
                 class="
                     modules-common-profile-modal__link
                     j-modules-common-profile-modal__link
-                    j-click-block
+                    j-components-click-block
                 "
                 href=""
             >Удалить</a>
