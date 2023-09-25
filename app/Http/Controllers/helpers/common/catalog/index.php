@@ -23,6 +23,20 @@ function checkIsCatalogItemEmpty($catalogItem) {
 function formatCatalogFull(&$catalog) {
     setCatalogFullLinks($catalog);
     setCatalogFullImages($catalog);
+
+    foreach($catalog as &$item) {
+        usort($item['catalog_level_two'], function($a, $b) {
+            if($a['title'] == 'Остальное') {
+                return 1;
+            }
+
+            if($b['title'] == 'Остальное') {
+                return -1;
+            }
+
+            return 0;
+        });
+    }
 }
 
 function getCatalogCategoriesList($catalogFull) {
@@ -47,12 +61,26 @@ function getCatalogCategoriesWithSelectedList($catalogFull, $saleOfferItemData) 
 }
 
 function getCatalogLevelTwoItemsListFormatted($catalogLevelTwoList) {
-    return array_map(function($catalogLevelTwoItem) {
+    $dataList = array_map(function($catalogLevelTwoItem) {
         return [
             'title' => $catalogLevelTwoItem['title'],
             'value' => $catalogLevelTwoItem['id'],
         ];
     }, $catalogLevelTwoList);
+
+    usort($dataList, function($a, $b) {
+        if($a['title'] == 'Остальное') {
+            return 1;
+        }
+
+        if($b['title'] == 'Остальное') {
+            return -1;
+        }
+
+        return 0;
+    });
+
+    return $dataList;
 }
 
 function getCatalogSubCategoriesList($catalogFull) {

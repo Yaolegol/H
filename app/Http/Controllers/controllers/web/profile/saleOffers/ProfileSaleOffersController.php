@@ -68,14 +68,17 @@ class ProfileSaleOffersController extends Controller
      */
     public function store(Request $request)
     {
+        $CLOId = $request->input('catalog_level_one_id');
         $catalogLevelTwoIdsArray = getProfileSaleOffersCatalogLevelTwoList($request);
 
-        if(count($catalogLevelTwoIdsArray) == 0) {
-            return back()
-                ->withErrors([
-                    'commonError' => 'Не выбрана подкатегория!',
-                ])
-                ->withInput();
+        if($CLOId != 1) {
+            if(count($catalogLevelTwoIdsArray) == 0) {
+                return back()
+                    ->withErrors([
+                        'commonError' => 'Не выбрана подкатегория!',
+                    ])
+                    ->withInput();
+            }
         }
 
         $isCatalogLevelOneItemCreated = checkIsCatalogLevelOneItemCreated($request);
