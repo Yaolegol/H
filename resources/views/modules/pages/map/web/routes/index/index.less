@@ -85,6 +85,13 @@
         align-items: flex-end;
         display: flex;
         justify-content: space-between;
+
+        @media @tablet {
+            align-items: center;
+            flex-direction: column;
+            justify-content: flex-start;
+            margin-top: 15px;
+        }
     }
 
     &__filter-button {
@@ -209,9 +216,8 @@
     }
 
     &__share-block {
-        margin-top: 5px;
-
         @media @tablet {
+            margin-bottom: 50px;
             text-align: center;
         }
     }
