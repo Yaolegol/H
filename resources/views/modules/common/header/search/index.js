@@ -4,6 +4,7 @@ import {module} from "helpers/module";
 import {toggleClass} from "helpers/toggle";
 import "views/modules/common/header/search/templates/search-result-container";
 import "views/modules/common/header/search/templates/search-result-item";
+import "views/modules/common/header/search/templates/search-result-item/catalog";
 import './index.less';
 
 class Search {
@@ -38,13 +39,13 @@ class Search {
         this.module.classList.remove('j-style-header-search__mobile-show');
     }
 
-    createSearchResultBlock = ({dataList, title}) => {
+    createSearchResultBlock = ({dataList, title, type}) => {
         if(!dataList.length) {
             return;
         }
 
         const container = this.createSearchResultContainer(title);
-        const items = this.createSearchResultItems(dataList);
+        const items = this.createSearchResultItems(dataList, type);
 
         const itemsContainer = container.querySelector('.j-header-search__search-results-container');
         itemsContainer.innerHTML = items;
@@ -61,22 +62,50 @@ class Search {
         return containerTemplate;
     }
 
-    createSearchResultItems = (dataList) => {
-        const itemsList = dataList.map(({linkFull, phone, title}) => {
-            const itemTemplate = this.getSearchItemTemplateHTML();
-            const linkElement = itemTemplate.querySelector('.j-header-search__search-result-item-link');
 
-            console.log('title')
-            console.log(title)
 
-            const _title = title || 'Имя не указано';
-            linkElement.innerHTML = `${_title}, ${phone}`;
-            linkElement.href = linkFull;
+    createSearchResultItems = (dataList, type) => {
+        let items = [];
 
-            return itemTemplate.outerHTML;
-        });
+        switch (type) {
+            case 'catalogLevelOne':
+                items = dataList.map(({id, title}) => {
+                    return this.getCardTemplateCatalog(1, id, title);
+                });
 
-        return itemsList.join('');
+                break;
+            case 'catalogLevelTwo':
+                items = dataList.map(({id, title}) => {
+                    return this.getCardTemplateCatalog(2, id, title);
+                });
+
+                break;
+            default:
+                break;
+        }
+
+        console.log('dataList')
+        console.log(dataList)
+        console.log('type')
+        console.log(type)
+        console.log('items')
+        console.log(items)
+
+        // const itemsList = dataList.map(({linkFull, phone, title}) => {
+        //     const template = this.getCardTemplateCatalog(title);
+        //
+        //
+        //     const itemTemplate = this.getSearchItemTemplateHTML();
+        //     const linkElement = itemTemplate.querySelector('.j-header-search__search-result-item-link');
+        //
+        //     const _title = title || 'Имя не указано';
+        //     linkElement.innerHTML = `${_title}, ${phone}`;
+        //     linkElement.href = linkFull;
+        //
+        //     return template;
+        // });
+
+        return items.join('');
     }
 
     fetchData = async () => {
@@ -93,6 +122,19 @@ class Search {
         }
 
         this.setData(data);
+    }
+
+    getCardTemplateCatalog = (level, id, title) => {
+        return `
+            <div class="modules-common-header-search-item">
+                <button
+                    class="j-modules-common-header-search-templates-search-result-item-catalog"
+                    data-id="${id}"
+                    data-level="${level}"
+                    type="button"
+                >${title}</button>
+            </div>
+        `;
     }
 
     getSearchContainerTemplateHTML = () => {
@@ -185,6 +227,8 @@ class Search {
         const listFiltered = list.filter((item) => item);
 
         this.searchResultsOutput.prepend(...listFiltered);
+
+        module.updateModules();
     }
 }
 
