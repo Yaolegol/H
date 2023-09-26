@@ -27,12 +27,13 @@ class ValuesCommon {
         this.module.appendChild(template);
         this.buttonsFilterInstance = new ButtonsFilter({
             container: template,
-            onReset: this.handleResetClick(data, id),
+            onReset: this.handleResetClick(template, data, id),
         });
     }
 
-    handleResetClick = (data, id) => {
+    handleResetClick = (template, data, id) => {
         return () => {
+            template.remove();
             this.sendMessage(data, id);
         }
     }
