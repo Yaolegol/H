@@ -1,4 +1,9 @@
-<div class="modules-pages-profile-common-components-container-form-field">
+<div
+    class="
+        modules-pages-profile-common-components-container-form-field
+        {{$withoutOffset ?? false ? "modules-pages-profile-common-components-container-form-field_without-offset" : ""}}
+    "
+>
     @isset($title)
         <div class="modules-pages-profile-common-components-container-form-field__title">
             {{$title}}
