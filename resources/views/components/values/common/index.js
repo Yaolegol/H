@@ -1,11 +1,13 @@
 import {addEventListener} from "helpers/events";
 import {module} from "helpers/module";
 import {ButtonsFilter} from "views/components/buttons/filter";
+import './index.less';
 
 class ValuesCommon {
     constructor(element) {
         this.module = element;
         this.templateButton = this.module.querySelector('.j-components-values-common__template-button');
+        this.valuesContainer = this.module.querySelector('.j-components-values-common__values-container');
         this.id = this.module.dataset.id;
 
         console.log('INIT ValuesCommon')
@@ -24,7 +26,7 @@ class ValuesCommon {
         const template = this.templateButton.cloneNode(true);
         this.setButtonTemplateStyles(template);
         this.setButtonTemplateTitle(template, title);
-        this.module.appendChild(template);
+        this.valuesContainer.appendChild(template);
         this.buttonsFilterInstance = new ButtonsFilter({
             container: template,
             onReset: this.handleResetClick(template, data, id),
