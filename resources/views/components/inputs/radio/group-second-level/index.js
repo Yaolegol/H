@@ -61,11 +61,6 @@ class InputsRadioGroupSecondLevel {
 
         if(this.activeContentContainer) {
             this.activeContentContainer.classList.remove('components-inputs-radio-group-second-level__content-container_active');
-            const checkedInput = this.activeContentContainer.querySelector('input:checked');
-
-            if(checkedInput) {
-                checkedInput.checked = false;
-            }
         }
 
         this.activeContentContainer = contentContainer;
