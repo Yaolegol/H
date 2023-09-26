@@ -15,7 +15,9 @@
 
                 <div class="modules-pages-profile-routes-sale-offers-create__categories-area">
                     <div class="modules-pages-profile-routes-sale-offers-create__categories-block-values">
-                        @include('modules.pages.profile.common.components.container.form-field.index')
+                        @include('components.values.common.index', [
+                            'id' => 'id-categories'
+                        ])
                     </div>
                     <div class="modules-pages-profile-routes-sale-offers-create__categories-block-content">
                         <div class="modules-pages-profile-routes-sale-offers-create__categories-container">
