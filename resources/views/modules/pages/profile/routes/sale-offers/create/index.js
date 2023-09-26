@@ -16,4 +16,5 @@ import 'views/modules/pages/profile/common/components/container/section';
 import 'views/modules/pages/profile/common/components/footer';
 import 'views/modules/pages/profile/common/components/header';
 import 'views/modules/pages/profile/routes/sale-offers/common/categories/controller';
+import 'views/modules/pages/profile/routes/sale-offers/common/values/controller';
 import './index.less';

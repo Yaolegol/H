@@ -13,7 +13,7 @@
             >
                 @csrf
 
-                <div class="modules-pages-profile-routes-sale-offers-create__categories-area j-modules-pages-profile-routes-sale-offers-common-categories-controller">
+                <div class="modules-pages-profile-routes-sale-offers-create__categories-area j-modules-pages-profile-routes-sale-offers-common-values-controller">
                     <div class="modules-pages-profile-routes-sale-offers-create__categories-block-values">
                         @include('components.values.common.index', [
                             'id' => 'id-categories'
@@ -26,12 +26,19 @@
                                 'title' => 'Категория:',
                                 'withoutOffset' => true,
                             ])
-                                @include('components.inputs.radio.group-first-level.index', [
-                                            'groupName' => 'radio-group__catalog_level_one',
-                                            'itemsList' => $catalogCategoriesList,
-                                            'inputName' => 'catalog_level_one_id',
-                                            'required' => true,
-                                    ])
+                                <div class="j-modules-pages-profile-routes-sale-offers-common-categories-controller">
+                                    @foreach($catalogCategoriesList as $item)
+                                        <div class="modules-pages-profile-routes-sale-offers-create__category-button-container">
+                                            <button
+                                                class="j-modules-pages-profile-routes-sale-offers-common-categories-controller__button"
+                                                data-id="{{$item['value']}}"
+                                                type="button"
+                                            >
+                                                {{$item['title']}}
+                                            </button>
+                                        </div>
+                                    @endforeach
+                                </div>
                                 @include('components.form.error.index', [
                                     'message' => $errors->first('catalog_level_one_id'),
                                 ])

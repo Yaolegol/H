@@ -23,36 +23,28 @@ class CategoriesController {
     }
 
     bind = () => {
-        addEventListener(document, CHANGE, this.handleChange);
+        addEventListener(this.module, 'click', this.handleClick);
     }
 
-    handleChange = (e) => {
-        const {groupName, isChecked, title, value} = e.detail;
-        console.log('CategoriesController handleChange');
-        console.log('title');
-        console.log(title);
-        console.log('isChecked');
-        console.log(isChecked);
-        console.log('groupName');
-        console.log(groupName);
-        console.log('value');
-        console.log(value);
+    handleClick = (e) => {
+        console.log('CategoriesController handleClick');
 
-        const detailData = {
-            data: {
-                isChecked,
-                title,
-                value,
-            },
-            id: 'id-categories',
+        const target = e.target;
+        const isButton = target.classList.contains('j-modules-pages-profile-routes-sale-offers-common-categories-controller__button');
+
+        if(!isButton) {
+            return;
         }
 
-        this.sendMessageToCategoriesValues(detailData);
+        this.sendMessage(target.dataset.id);
     }
 
-    sendMessageToCategoriesValues = (detail) => {
-        document.dispatchEvent(new CustomEvent('j-event-components-values-common__values-set', {
-            detail
+    sendMessage = (id) => {
+        document.dispatchEvent(new CustomEvent(CHANGE, {
+            detail: {
+                groupName: 'radio-group__catalog_level_one',
+                value: id,
+            }
         }));
     }
 }
