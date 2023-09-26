@@ -20,23 +20,29 @@ class ValuesCommon {
         addEventListener(document, 'j-event-components-values-common__values-remove', this.handleValuesRemove);
     }
 
-    createTemplateButton = (detail) => {
-        const {data, id, title} = detail;
+    createTemplateButton = (data) => {
+        const {title, value} = data;
 
         const template = this.templateButton.cloneNode(true);
         this.setButtonTemplateStyles(template);
+        this.setButtonTemplateValue(template, value);
         this.setButtonTemplateTitle(template, title);
         this.valuesContainer.appendChild(template);
         this.buttonsFilterInstance = new ButtonsFilter({
             container: template,
-            onReset: this.handleResetClick(template, data, id),
+            onReset: this.handleResetClick(template, data),
         });
     }
 
-    handleResetClick = (template, data, id) => {
+    getButtonByValue = (value) => {
+        return this.module.querySelector(`[data-value="${value}"]`);
+    }
+
+    handleResetClick = (template, data) => {
         return () => {
             template.remove();
-            this.sendMessage(data, id);
+
+            this.sendMessage(data);
         }
     }
 
@@ -56,14 +62,36 @@ class ValuesCommon {
             return;
         }
 
-        const buttonTemplate = this.createTemplateButton(detail);
+        const {data} = detail;
+
+        if(data.isChecked) {
+            const buttonTemplate = this.createTemplateButton(data);
+
+            return;
+        }
+
+        this.removeButton(data);
     }
 
-    sendMessage = (data, id) => {
+    removeButton = (data) => {
+        console.log('--- removeButton')
+        console.log('data')
+        console.log(data)
+
+        const button = this.getButtonByValue(data.value);
+
+        console.log('button')
+        console.log(button)
+
+        if(!button) {
+            return;
+        }
+    }
+
+    sendMessage = (data) => {
         document.dispatchEvent(new CustomEvent('j-event-components-values-common__click-reset', {
             detail: {
                 data,
-                id,
             }
         }));
     }
@@ -76,6 +104,10 @@ class ValuesCommon {
     setButtonTemplateTitle = (template, title) => {
         const titleContainer = template.querySelector('.j-buttons-filter__title');
         titleContainer.innerHTML = title;
+    }
+
+    setButtonTemplateValue = (template, value) => {
+        template.setAttribute('data-value', value);
     }
 }
 

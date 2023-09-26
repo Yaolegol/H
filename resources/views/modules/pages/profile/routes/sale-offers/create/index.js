@@ -15,4 +15,5 @@ import 'views/modules/pages/profile/common/components/container/form-field';
 import 'views/modules/pages/profile/common/components/container/section';
 import 'views/modules/pages/profile/common/components/footer';
 import 'views/modules/pages/profile/common/components/header';
+import 'views/modules/pages/profile/routes/sale-offers/common/categories/controller';
 import './index.less';
