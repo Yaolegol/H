@@ -6,6 +6,7 @@ import 'views/components/inputs/file/item';
 import 'views/components/inputs/form';
 import 'views/components/inputs/radio/group-first-level';
 import 'views/components/inputs/textarea/base';
+import 'views/components/values/common';
 import 'views/modules/common/geo/components/button';
 import 'views/modules/common/map/yandex/components/add-marker';
 import 'views/modules/pages/profile/common/components/body/create';
