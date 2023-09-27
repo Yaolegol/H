@@ -48,7 +48,8 @@
                     ])
                     <div class="components-inputs-radio-group-second-level__content">
                         @include('components.inputs.radio.checkbox-group.index', [
-                            'id' => $contentItem['listenId'],
+                            'classNameInput' => $classNameInput ?? '',
+                            'groupId' => $contentItem['listenId'],
                             'list' => $contentItem['content'],
                             'name' => $inputsName,
                             'required' => $required ?? false,
