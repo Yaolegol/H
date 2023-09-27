@@ -4,7 +4,6 @@ import './index.less';
 class CheckboxGroup {
     constructor(element) {
         this.module = element;
-        this.hiddenInput = this.module.querySelector('.j-components-inputs-radio-checkbox-group__hidden-input');
         this.inputList = [...this.module.querySelectorAll('.j-components-inputs-radio-checkbox-group__input')];
         this.listenGroupName = this.module.dataset.listenGroupName;
 
@@ -19,6 +18,13 @@ class CheckboxGroup {
         this.hiddenInput.checked = this.inputList.some((input) => {
             return input.checked;
         });
+
+        document.dispatchEvent(new CustomEvent('j-event-components-inputs-radio-checkbox-group__click', {
+            detail: {
+                group: this.listenGroupName,
+                isGroupHasCheckedInput: this.hiddenInput.checked,
+            }
+        }))
     }
 }
 

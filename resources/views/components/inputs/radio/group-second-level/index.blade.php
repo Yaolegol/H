@@ -13,8 +13,9 @@
         @endisset
     </div>
     <div
-        class="components-inputs-radio-group-second-level__content-block j-components-inputs-radio-checkbox-group"
+        class="components-inputs-radio-group-second-level__content-block"
         data-listen-group-name="{{$listenGroupName}}"
+
     >
         <input
             @foreach($contentList as $contentItem)
@@ -26,7 +27,7 @@
                     @endif
                 @endforeach
             @endforeach
-            class="components-inputs-radio-checkbox-group__input j-components-inputs-radio-checkbox-group__hidden-input"
+            class="components-inputs-radio-checkbox-group__input j-inputs-radio-group-second-level__hidden-input"
             name="{{$inputsName}}"
             @if($required ?? false)
                 required

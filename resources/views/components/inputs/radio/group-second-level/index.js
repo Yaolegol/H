@@ -18,12 +18,18 @@ class InputsRadioGroupSecondLevel {
     constructor(element) {
         this.module = element;
         this.contentContainerList = [...this.module.querySelectorAll('.j-inputs-radio-group-second-level__content-container')];
+        this.allInputList = [...this.module.querySelectorAll('.j-components-inputs-radio-checkbox-group__input')];
+        this.hiddenInput = this.module.querySelector('.j-inputs-radio-group-second-level__hidden-input');
         this.contentContainersMap = this.getContentContainersMap();
         this.listenGroupName = this.module.dataset.listenGroupName;
         this.activeContentContainer = null;
 
-        addEventListener(document, INIT, this.handleChange);
-        addEventListener(document, CHANGE, this.handleChange);
+        this.bind();
+    }
+
+    bind = () => {
+        addEventListener(this.module, 'change', this.handleChange);
+        addEventListener(document, CHANGE, this.handleDocumentChange);
     }
 
     getContentContainersMap = () => {
@@ -38,6 +44,12 @@ class InputsRadioGroupSecondLevel {
     }
 
     handleChange = (e) => {
+        this.hiddenInput.checked = this.allInputList.some((input) => {
+            return input.checked;
+        });
+    }
+
+    handleDocumentChange = (e) => {
         const {detail} = e;
         const {groupName, value} = detail;
 
@@ -48,23 +60,38 @@ class InputsRadioGroupSecondLevel {
         const contentContainer = this.contentContainersMap[value];
 
         if(!contentContainer) {
-            this.module.classList.add('components-inputs-radio-group-second-level_hidden');
-
-            if(this.activeContentContainer) {
-                this.activeContentContainer.classList.remove('components-inputs-radio-group-second-level__content-container_active');
-            }
+            this.hideContent();
 
             return;
         }
 
-        this.module.classList.remove('components-inputs-radio-group-second-level_hidden');
+        this.toggleModule();
+        this.hideActiveBlock();
+        this.setActiveBlock(contentContainer);
+    }
 
+    hideActiveBlock = () => {
         if(this.activeContentContainer) {
             this.activeContentContainer.classList.remove('components-inputs-radio-group-second-level__content-container_active');
         }
+    }
 
-        this.activeContentContainer = contentContainer;
+    hideContent = () => {
+        this.toggleModule(false);
+        this.hideActiveBlock();
+    }
+
+    setActiveBlock = (content) => {
+        this.activeContentContainer = content;
         this.activeContentContainer.classList.add('components-inputs-radio-group-second-level__content-container_active');
+    }
+
+    toggleModule = (isShow = true) => {
+        if(isShow) {
+            this.module.classList.remove('components-inputs-radio-group-second-level_hidden');
+        } else {
+            this.module.classList.add('components-inputs-radio-group-second-level_hidden');
+        }
     }
 }
 
