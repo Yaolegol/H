@@ -57,11 +57,9 @@ class CategoriesController {
 
         if(buttonId === otherButtonId) {
             this.toggleOtherButton(target);
-
-            return;
         }
 
-        this.sendMessage(target.dataset.id);
+        this.sendMessage(buttonId);
     }
 
     handleClickSecondLevel = (e) => {
