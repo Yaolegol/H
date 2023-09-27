@@ -104,6 +104,7 @@ class ProfileSaleOffersController extends Controller
         $salePointsList = getSaleOfferSalePointsListFormatted($saleOfferItemData);
         $catalogCategoriesList = getCatalogCategoriesWithSelectedList($catalogFull, $saleOfferItemData);
         $catalogSubCategoriesList = getCatalogSubCategoriesWithSelectedList($catalogFull, $saleOfferItemData);
+        $selectedCategoriesLevelOne = getSelectedCategoriesLevelOne($saleOfferItemData);
 
         return view('pages.profile.sale-offers.edit.index', [
             'catalogCategoriesList' => $catalogCategoriesList,
@@ -113,6 +114,7 @@ class ProfileSaleOffersController extends Controller
             'organizationsList' => $organizationsList,
             'saleOfferItemData' => $saleOfferItemData,
             'salePointsList' => $salePointsList,
+            'selectedCategoriesLevelOne' => $selectedCategoriesLevelOne,
         ]);
     }
 

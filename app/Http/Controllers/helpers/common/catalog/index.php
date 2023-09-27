@@ -189,6 +189,14 @@ function getCatalogLevelTwoLink($catalogLevelTwoId) {
     return '/?catalogLevelTwoId=' . $catalogLevelTwoId;
 }
 
+function getSelectedCategoriesLevelOne($offerData) {
+    $idsList = array_map(function($data) {
+        return $data['id'];
+    }, $offerData['catalog_level_one']);
+
+    return join(',', $idsList);
+}
+
 function setCatalogFullImages(&$catalog) {
     foreach ($catalog as &$catalogLevelOneItem) {
         $catalogLevelOneItem['image'] = formatAssetPath($catalogLevelOneItem['image']);
