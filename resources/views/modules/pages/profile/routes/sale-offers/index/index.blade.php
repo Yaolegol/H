@@ -24,7 +24,7 @@
                 @component('modules.pages.profile.common.components.body.index.index', [
                 'createLink' => '/profile/sale-offers/create',
                 'createTitle' => 'Добавить товары',
-                'title' => 'Ваши товары'
+                'title' => 'Товары'
             ])
                     @if(count($saleOffersList) > 0)
                         @foreach ($saleOffersList as $saleOfferItem)
