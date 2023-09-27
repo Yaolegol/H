@@ -21,9 +21,12 @@ class CheckboxGroup {
         const hasChecked = this.inputList.some((input) => {
             return input.checked;
         });
+        const hasUnChecked = this.inputList.some((input) => {
+            return !input.checked;
+        });
 
         this.hiddenInput.checked = hasChecked;
-        this.notifyClick(hasChecked);
+        this.notifyClick(hasChecked, hasUnChecked);
     }
 
     handleSelectAllChange = (e) => {
@@ -37,14 +40,15 @@ class CheckboxGroup {
             input.checked = isChecked;
         });
 
-        this.notifyClick(isChecked);
+        this.notifyClick(isChecked, !isChecked);
     }
 
-    notifyClick = (hasChecked) => {
+    notifyClick = (hasChecked, hasUnChecked) => {
         document.dispatchEvent(new CustomEvent('j-event-components-inputs-radio-checkbox-group__click', {
             detail: {
                 id: this.id,
                 hasCheckedInput: hasChecked,
+                hasUnCheckedInput: hasUnChecked,
             }
         }))
     }

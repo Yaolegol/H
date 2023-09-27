@@ -17,10 +17,21 @@ class SelectAllCheckbox {
     bind = () => {
         addEventListener(document, 'j-event-components-inputs-checkbox-select-all__set-checked', this.handleSetChecked);
         addEventListener(this.input, 'change', this.handleChange);
+        addEventListener(document, 'j-event-components-inputs-radio-checkbox-group__click', this.handleClickSecondLevel);
     }
 
     handleChange = () => {
         this.sendMessage();
+    }
+
+    handleClickSecondLevel = (e) => {
+        const {id, hasUnCheckedInput} = e.detail;
+
+        if(this.id !== id) {
+            return;
+        }
+
+        this.input.checked = !hasUnCheckedInput;
     }
 
     handleSetChecked = (e) => {
