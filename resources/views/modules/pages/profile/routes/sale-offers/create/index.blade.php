@@ -30,7 +30,7 @@
                                     @foreach($catalogCategoriesList as $item)
                                         <div class="modules-pages-profile-routes-sale-offers-create__category-button-container">
                                             <button
-                                                class="j-modules-pages-profile-routes-sale-offers-common-categories-controller__button"
+                                                class="modules-pages-profile-routes-sale-offers-create__category-button j-modules-pages-profile-routes-sale-offers-common-categories-controller__button"
                                                 data-id="{{$item['value']}}"
                                                 type="button"
                                             >
