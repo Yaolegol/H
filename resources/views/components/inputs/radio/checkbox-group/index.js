@@ -5,6 +5,7 @@ import './index.less';
 class CheckboxGroup {
     constructor(element) {
         this.module = element;
+        this.id = this.module.dataset.id;
         this.inputList = [...this.module.querySelectorAll('.j-components-inputs-radio-checkbox-group__input')];
         this.listenGroupName = this.module.dataset.listenGroupName;
 
@@ -13,6 +14,7 @@ class CheckboxGroup {
 
     bind = () => {
         addEventListener(this.module, 'click', this.handleClick);
+        addEventListener(document, 'j-event-components-inputs-checkbox-select-all__change', this.handleSelectAllChange);
     }
 
     handleClick = () => {
@@ -26,6 +28,18 @@ class CheckboxGroup {
                 isGroupHasCheckedInput: this.hiddenInput.checked,
             }
         }))
+    }
+
+    handleSelectAllChange = (e) => {
+        const {id, isChecked} = e.detail;
+
+        if(this.id !== id) {
+            return;
+        }
+
+        this.inputList.forEach((input) => {
+            input.checked = isChecked;
+        });
     }
 }
 

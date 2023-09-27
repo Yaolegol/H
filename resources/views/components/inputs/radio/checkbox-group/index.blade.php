@@ -1,4 +1,7 @@
-<div class="components-inputs-radio-checkbox-group">
+<div
+    class="components-inputs-radio-checkbox-group j-components-inputs-radio-checkbox-group"
+    data-id="{{$id ?? ''}}"
+>
     @foreach($list as $item)
         @include('components.inputs.checkbox.common.index', [
             'classNameInput' => 'j-components-inputs-radio-checkbox-group__input',
