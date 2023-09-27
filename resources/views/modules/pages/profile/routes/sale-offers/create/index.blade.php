@@ -14,11 +14,6 @@
                 @csrf
 
                 <div class="modules-pages-profile-routes-sale-offers-create__categories-area j-modules-pages-profile-routes-sale-offers-common-values-controller">
-                    <div class="modules-pages-profile-routes-sale-offers-create__categories-block-values">
-                        @include('components.values.common.index', [
-                            'id' => 'id-categories'
-                        ])
-                    </div>
                     <div class="modules-pages-profile-routes-sale-offers-create__categories-block-content">
                         <div class="modules-pages-profile-routes-sale-offers-create__categories-container">
                             @component('modules.pages.profile.common.components.container.form-field.index', [
