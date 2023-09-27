@@ -30,7 +30,10 @@
             <div class="modules-pages-map-web-routes-index__content-header-main">
                 <div class="modules-pages-map-web-routes-index__filters-block">
                     <div class="modules-pages-map-web-routes-index__buttons-block">
-                        <div class="modules-pages-map-web-routes-index__button-container modules-pages-map-web-routes-index__button-container_geo modules-pages-map-web-routes-index__button-container_mobile-offset">
+                        <div class="modules-pages-map-web-routes-index__button-container">
+                            @include('modules.common.map.common.components.filters.product.index')
+                        </div>
+                        <div class="modules-pages-map-web-routes-index__button-container">
                             @include('components.buttons.filter.index', [
                                 'className' => 'j-modules-common-geo-components-button',
                                 'dataset' => [],
@@ -38,9 +41,6 @@
                                 'icon' => 'icons.location',
                                 'title' => 'Показать рядом со мной',
                             ])
-                        </div>
-                        <div class="modules-pages-map-web-routes-index__button-container modules-pages-map-web-routes-index__button-container_mobile-offset-no">
-                            @include('modules.common.map.common.components.filters.product.index')
                         </div>
                     </div>
                 </div>
