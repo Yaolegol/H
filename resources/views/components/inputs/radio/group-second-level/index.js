@@ -1,5 +1,6 @@
 import {EVENTS_NAMES} from 'events/index';
 import {addEventListener} from 'helpers/events';
+import 'views/components/inputs/checkbox/selectAll';
 import 'views/components/inputs/radio/checkbox-group';
 import './index.less';
 

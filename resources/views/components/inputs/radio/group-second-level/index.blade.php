@@ -43,11 +43,8 @@
                 "
                     data-listen-id="{{$contentItem['listenId']}}"
                 >
-                    @include('components.inputs.checkbox.common.index', [
-                        'isChecked' => false,
-                        'name' => '',
-                        'title' => 'Выбрать все',
-                        'value' => '',
+                    @include('components.inputs.checkbox.selectAll.index', [
+                        'id' => $contentItem['listenId'],
                     ])
                     <div class="components-inputs-radio-group-second-level__content">
                         @include('components.inputs.radio.checkbox-group.index', [
