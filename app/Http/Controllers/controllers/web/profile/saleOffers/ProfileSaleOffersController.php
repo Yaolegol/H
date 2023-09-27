@@ -125,16 +125,6 @@ class ProfileSaleOffersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $isCatalogLevelOneItemCreated = checkIsCatalogLevelOneItemCreated($request, $id);
-
-        if($isCatalogLevelOneItemCreated) {
-            return back()
-                ->withErrors([
-                    'commonError' => 'У Вас уже создано торговое предложение с указанной категорией!',
-                ])
-                ->withInput();
-        }
-
         $validator = getProfileSaleOffersValidator($request);
 
         if($validator->fails()) {
