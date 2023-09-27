@@ -20,7 +20,6 @@ class CategoriesController {
         this.module = element;
         this.hiddenInput = this.module.querySelector('.j-modules-pages-profile-routes-sale-offers-common-categories-controller__hidden-input');
         this.buttonsList = [...this.module.querySelectorAll('.j-modules-pages-profile-routes-sale-offers-common-categories-controller__button')];
-        this.inputsList = [...this.module.querySelectorAll('.j-modules-pages-profile-routes-sale-offers-common-categories-controller__input')];
         this.selectedCategoriesList = [];
 
         this.bind();
@@ -34,11 +33,13 @@ class CategoriesController {
     buttonSelect = (button, id) => {
         button.classList.add('active');
         this.selectedCategoriesList.push(id);
+        this.setHiddenInputValue();
     }
 
     buttonUnselect = (button, id) => {
         button.classList.remove('active');
         this.selectedCategoriesList = this.selectedCategoriesList.filter((selectedId) => selectedId !== id);
+        this.setHiddenInputValue();
     }
 
     checkIsSelectedIdExists = (id) => {
@@ -87,6 +88,10 @@ class CategoriesController {
                 value: id,
             }
         }));
+    }
+
+    setHiddenInputValue = () => {
+        this.hiddenInput.checked = this.selectedCategoriesList.length > 0;
     }
 
     toggleOtherButton = (button) => {

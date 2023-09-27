@@ -24,8 +24,8 @@
                                 <div class="j-modules-pages-profile-routes-sale-offers-common-categories-controller">
                                     <input
                                         class="hidden j-modules-pages-profile-routes-sale-offers-common-categories-controller__hidden-input"
-                                        type="text"
-                                        value=""
+                                        required
+                                        type="checkbox"
                                     >
                                     @include('components.buttons.category.common.group.index', [
                                         'classNameButton' => 'j-modules-pages-profile-routes-sale-offers-common-categories-controller__button',
@@ -42,7 +42,6 @@
                                 'withoutOffset' => true,
                             ])
                                 @include('components.inputs.radio.group-second-level.index', [
-                                            'classNameInput' => 'j-modules-pages-profile-routes-sale-offers-common-categories-controller__input',
                                             'contentList' => $catalogSubCategoriesList,
                                             'inputsName' => 'catalog_level_two_id',
                                             'listenGroupName' => 'radio-group__catalog_level_one',
