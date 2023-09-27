@@ -32,9 +32,17 @@ class CheckboxGroup {
     handleSelectAllChange = (e) => {
         const {id, isChecked} = e.detail;
 
+        console.log('!!! handleSelectAllChange')
+
         if(this.groupId !== id) {
             return;
         }
+
+        console.log('id')
+        console.log(id)
+
+        console.log('isChecked')
+        console.log(isChecked)
 
         this.inputList.forEach((input) => {
             input.checked = isChecked;
