@@ -22,17 +22,10 @@
                                 'withoutOffset' => true,
                             ])
                                 <div class="j-modules-pages-profile-routes-sale-offers-common-categories-controller">
-                                    @foreach($catalogCategoriesList as $item)
-                                        <div class="modules-pages-profile-routes-sale-offers-create__category-button-container">
-                                            <button
-                                                class="modules-pages-profile-routes-sale-offers-create__category-button j-modules-pages-profile-routes-sale-offers-common-categories-controller__button"
-                                                data-id="{{$item['value']}}"
-                                                type="button"
-                                            >
-                                                {{$item['title']}}
-                                            </button>
-                                        </div>
-                                    @endforeach
+                                    @include('components.buttons.category.common.group.index', [
+                                        'classNameButton' => 'j-modules-pages-profile-routes-sale-offers-common-categories-controller__button',
+                                        'list' => $catalogCategoriesList,
+                                    ])
                                 </div>
                                 @include('components.form.error.index', [
                                     'message' => $errors->first('catalog_level_one_id'),

@@ -1,4 +1,5 @@
 import 'views/components/buttons/filter';
+import 'views/components/buttons/category/common/group';
 import 'views/components/checkboxes/map';
 import 'views/components/checkboxes/withTextArea';
 import 'views/components/form/error';
