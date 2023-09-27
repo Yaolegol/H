@@ -14,9 +14,9 @@
                 @csrf
                 @method('PUT')
 
-                <div class="modules-pages-profile-routes-sale-offers-create__categories-area">
-                    <div class="modules-pages-profile-routes-sale-offers-create__categories-block-content">
-                        <div class="modules-pages-profile-routes-sale-offers-create__categories-container">
+                <div class="modules-pages-profile-routes-sale-offers-edit__categories-area">
+                    <div class="modules-pages-profile-routes-sale-offers-edit__categories-block-content">
+                        <div class="modules-pages-profile-routes-sale-offers-edit__categories-container">
                             @component('modules.pages.profile.common.components.container.form-field.index', [
                                 'required' => true,
                                 'title' => 'Категория:',
@@ -38,7 +38,7 @@
                                 ])
                             @endcomponent
                         </div>
-                        <div class="modules-pages-profile-routes-sale-offers-create___categories-container">
+                        <div class="modules-pages-profile-routes-sale-offers-edit___categories-container">
                             @component('modules.pages.profile.common.components.container.form-field.index', [
                                 'withoutOffset' => true,
                             ])
