@@ -49,13 +49,16 @@ function getCatalogCategoriesList($catalogFull) {
 }
 
 function getCatalogCategoriesWithSelectedList($catalogFull, $saleOfferItemData) {
-    $offerCatalogId = $saleOfferItemData['catalog_level_one']['id'];
+    $offerCatalogIdList = $saleOfferItemData['catalog_level_one'];
 
-    return array_map(function($catalogLevelOneItem) use($offerCatalogId) {
+    return array_map(function($catalogLevelOneItem) use($offerCatalogIdList) {
+        $catalogLevelOneId = $catalogLevelOneItem['id'];
+        $isCategoryExists = in_array($catalogLevelOneId, $offerCatalogIdList);
+
         return [
-            'isChecked' => $catalogLevelOneItem['id'] === $offerCatalogId,
+            'isChecked' => $isCategoryExists,
             'title' => $catalogLevelOneItem['title'],
-            'value' => $catalogLevelOneItem['id'],
+            'value' => $catalogLevelOneId,
         ];
     }, $catalogFull);
 }

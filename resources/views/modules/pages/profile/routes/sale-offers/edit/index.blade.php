@@ -1,4 +1,4 @@
-<div>
+<div class="modules-pages-profile-routes-sale-offers-edit">
     @component('modules.pages.profile.common.components.header.index', ['activeTab' => 'sale-offers'])
         @component('modules.pages.profile.common.components.body.create.index', [
                 'backLink' => '/profile/sale-offers',
@@ -7,38 +7,54 @@
             ])
             <form
                 action="/profile/sale-offers/{{$saleOfferItemData['id']}}"
-                class="form modules-pages-profile-routes-sale-offers-edit"
+                class="form"
                 enctype="multipart/form-data"
                 method="POST"
             >
                 @csrf
                 @method('PUT')
 
-                @component('modules.pages.profile.common.components.container.form-field.index', [
-                    'required' => true,
-                    'title' => 'Категория:'])
-                    @include('components.inputs.radio.group-first-level.index', [
-                                'groupName' => 'radio-group__catalog_level_one',
-                                'itemsList' => $catalogCategoriesList,
-                                'inputName' => 'catalog_level_one_id',
+                <div class="modules-pages-profile-routes-sale-offers-create__categories-area">
+                    <div class="modules-pages-profile-routes-sale-offers-create__categories-block-content">
+                        <div class="modules-pages-profile-routes-sale-offers-create__categories-container">
+                            @component('modules.pages.profile.common.components.container.form-field.index', [
                                 'required' => true,
+                                'title' => 'Категория:',
+                                'withoutOffset' => true,
                             ])
-                    @include('components.form.error.index', [
-                        'message' => $errors->first('catalog_level_one_id'),
-                    ])
-                @endcomponent
-
-                @component('modules.pages.profile.common.components.container.form-field.index')
-                    @include('components.inputs.radio.group-second-level.index', [
-                                'contentList' => $catalogSubCategoriesList,
-                                'inputsName' => 'catalog_level_two_id',
-                                'listenGroupName' => 'radio-group__catalog_level_one',
-                                'title' => 'Подкатегории (можно указать несколько)',
+                                <div class="j-modules-pages-profile-routes-sale-offers-common-categories-controller">
+                                    <input
+                                        class="hidden j-modules-pages-profile-routes-sale-offers-common-categories-controller__hidden-input"
+                                        required
+                                        type="checkbox"
+                                    >
+                                    @include('components.buttons.category.common.group.index', [
+                                        'classNameButton' => 'j-modules-pages-profile-routes-sale-offers-common-categories-controller__button',
+                                        'list' => $catalogCategoriesList,
+                                    ])
+                                </div>
+                                @include('components.form.error.index', [
+                                    'message' => $errors->first('catalog_level_one_id'),
+                                ])
+                            @endcomponent
+                        </div>
+                        <div class="modules-pages-profile-routes-sale-offers-create___categories-container">
+                            @component('modules.pages.profile.common.components.container.form-field.index', [
+                                'withoutOffset' => true,
                             ])
-                    @include('components.form.error.index', [
-                        'message' => $errors->first('catalog_level_two_id'),
-                    ])
-                @endcomponent
+                                @include('components.inputs.radio.group-second-level.index', [
+                                            'contentList' => $catalogSubCategoriesList,
+                                            'inputsName' => 'catalog_level_two_id',
+                                            'listenGroupName' => 'radio-group__catalog_level_one',
+                                            'title' => 'Подкатегории (можно указать несколько)',
+                                        ])
+                                @include('components.form.error.index', [
+                                    'message' => $errors->first('catalog_level_two_id'),
+                                ])
+                            @endcomponent
+                        </div>
+                    </div>
+                </div>
 
                 @component('modules.pages.profile.common.components.container.form-field.index', [
                     'required' => true,
