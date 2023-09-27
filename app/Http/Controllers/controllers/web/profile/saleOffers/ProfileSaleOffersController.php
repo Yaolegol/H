@@ -81,18 +81,6 @@ class ProfileSaleOffersController extends Controller
 //            }
 //        }
 
-        dd($request->all());
-
-        $isCatalogLevelOneItemCreated = checkIsCatalogLevelOneItemCreated($request);
-
-        if($isCatalogLevelOneItemCreated) {
-            return back()
-                ->withErrors([
-                    'commonError' => 'У Вас уже создано торговое предложение с указанной категорией!',
-                ])
-                ->withInput();
-        }
-
         $validator = getProfileSaleOffersValidator($request);
 
         if($validator->fails()) {

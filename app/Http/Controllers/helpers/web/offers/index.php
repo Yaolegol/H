@@ -168,7 +168,7 @@ function setAuthUserOfferRatingData(&$offer, $isAPI = false) {
 function setOfferCatalogLinks(&$offerItem) {
     $offerItemCatalogLevelOne = &$offerItem['catalog_level_one'];
 
-    $offerItemCatalogLevelOne['linkFull'] = '/?catalogLevelOneId=' . $offerItem['catalog_level_one']['id'];
+//    $offerItemCatalogLevelOne['linkFull'] = '/?catalogLevelOneId=' . $offerItem['catalog_level_one']['id'];
 }
 
 function setOfferLink(&$offerItem) {

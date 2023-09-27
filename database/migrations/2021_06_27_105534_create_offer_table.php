@@ -39,8 +39,6 @@ class CreateOfferTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->bigInteger('organization_id')->unsigned()->index()->nullable();
             $table->foreign('organization_id')->references('id')->on('organization')->nullOnDelete();
-            $table->bigInteger('catalog_level_one_id')->unsigned()->index()->nullable();
-            $table->foreign('catalog_level_one_id')->references('id')->on('catalog_level_one');
             $table->integer('is_approved')->default(0);
             $table->text('approved_error_message')->nullable();
             $table->boolean('is_removed')->default(false);

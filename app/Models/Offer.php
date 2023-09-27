@@ -36,8 +36,6 @@ class Offer extends Model
         'is_approved',
         'user_id',
         'organization_id',
-        'catalog_level_one_id',
-        'catalog_level_two_id',
         'is_removed',
     ];
 
@@ -45,7 +43,7 @@ class Offer extends Model
 
     public function catalogLevelOne()
     {
-        return $this->belongsTo(CatalogLevelOne::class, 'catalog_level_one_id');
+        return $this->belongsToMany(CatalogLevelOne::class, 'catalog_level_one_offer', 'offer_id', 'catalog_level_one_id');
     }
 
     public function catalogLevelTwo()

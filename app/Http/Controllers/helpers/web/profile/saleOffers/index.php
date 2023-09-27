@@ -13,7 +13,6 @@ function DB_createSaleOffer($request, $userId) {
     try {
         $data = [
             'address' => $request->input('address'),
-            'catalog_level_one_id' => $request->input('catalog_level_one_id'),
             'description' => $request->input('description'),
             'contact_person' => $request->input('contact_person'),
             'delivery' => $delivery,
@@ -100,6 +99,16 @@ function DB_getUserSaleOffers()
     }
 }
 
+function DB_syncSaleOfferCatalogLevelOneData($request, $saleOffer) {
+    $catalogLevelTwoIdsArray = getProfileSaleOffersCatalogLevelOneList($request);
+
+    try {
+        $saleOffer->catalogLevelOne()->sync($catalogLevelTwoIdsArray);
+    } catch(\Exception $error) {
+        abort(500);
+    }
+}
+
 function DB_syncSaleOfferCatalogLevelTwoData($request, $saleOffer) {
     $catalogLevelTwoIdsArray = getProfileSaleOffersCatalogLevelTwoList($request);
 
@@ -159,10 +168,22 @@ function formatSaleOffersListItemsAssetsPath(&$saleOffersList) {
     }
 }
 
+function getProfileSaleOffersCatalogLevelOneList($request) {
+    $catalogLevelOneIdsArray = [];
+    foreach($request->all() as $key => $value){
+        if("catalog_level_two_id" == substr($key,0,20)){
+            $dataArray = explode('__', $key);
+            array_push($catalogLevelOneIdsArray, $dataArray[1]);
+        }
+    }
+
+    return $catalogLevelOneIdsArray;
+}
+
 function getProfileSaleOffersCatalogLevelTwoList($request) {
     $catalogLevelTwoIdsArray = [];
     foreach($request->all() as $key => $value){
-        if("catalog_level_two_id_" == substr($key,0,21)){
+        if("catalog_level_two_id" == substr($key,0,20)){
             array_push($catalogLevelTwoIdsArray, $value);
         }
     }
@@ -175,7 +196,6 @@ function getProfileSaleOffersValidator($request) {
         $request->all(),
         [
             'address' => ['max:1000'],
-            'catalog_level_one_id' => ['required'],
             'contact_person' => ['max:1000'],
             'delivery_description' => ['max:1000'],
             'description' => ['max:1000'],
@@ -313,6 +333,7 @@ function trySaveSaleOfferInDB($request)
 
     DB_updateSaleOfferData($user_id, $createdSaleOfferId, $updatedPhotoList);
     DB_syncSaleOfferSalePointsData($request, $createdSaleOffer);
+    DB_syncSaleOfferCatalogLevelOneData($request, $createdSaleOffer);
     DB_syncSaleOfferCatalogLevelTwoData($request, $createdSaleOffer);
 
     return true;

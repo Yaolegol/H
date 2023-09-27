@@ -15,7 +15,7 @@
         @include('components.inputs.checkbox.common.index', [
             'classNameInput' => $classNameInput ?? false ? $classNameInput . ' ' . 'j-components-inputs-radio-checkbox-group__input' : 'j-components-inputs-radio-checkbox-group__input',
             'isChecked' => $item['isChecked'] ?? false,
-            'name' => $name . '_' . $loop->index,
+            'name' => $name . $loop->index,
             'title' => $item['title'],
             'value' => $item['value'],
         ])

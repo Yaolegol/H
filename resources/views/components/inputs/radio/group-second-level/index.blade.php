@@ -50,7 +50,7 @@
                             'classNameInput' => $classNameInput ?? '',
                             'groupId' => $contentItem['listenId'],
                             'list' => $contentItem['content'],
-                            'name' => $inputsName,
+                            'name' => $inputsName . '__' . $contentItem['listenId'] . '__',
                             'required' => $required ?? false,
                         ])
                     </div>
