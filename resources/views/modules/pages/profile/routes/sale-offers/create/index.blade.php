@@ -2,8 +2,8 @@
     @component('modules.pages.profile.common.components.header.index', ['activeTab' => 'sale-offers'])
         @component('modules.pages.profile.common.components.body.create.index', [
                 'backLink' => '/profile/sale-offers',
-                'backTitle' => 'Смотреть все мои торговые предложения',
-                'title' => 'Добавить торговое предложение'
+                'backTitle' => 'Смотреть все мои товары',
+                'title' => 'Добавить товары'
             ])
             <form
                 action="/profile/sale-offers"

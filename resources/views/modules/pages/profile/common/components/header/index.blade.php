@@ -12,7 +12,7 @@
                     class="modules-pages-profile-common-components-container-header__tab-button modules-pages-profile-common-components-container-header__tab-button_size-large {{$activeTab === 'sale-offers' ? 'modules-pages-profile-common-components-container-header__tab-button_active' : ''}}"
                     href="/profile/sale-offers"
                 >
-                    Торговые предложения
+                    Мои товары
                 </a>
             </div>
             <div class="modules-pages-profile-common-components-container-header__tabs-secondary-container">
