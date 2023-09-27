@@ -2,7 +2,7 @@
 
 use App\Models\Offer;
 
-function apiGetAllOffers($filter, $catalogLevelTwoIds = []) {
+function apiGetAllOffers($filter, $catalogLevelOneIdList = [], $catalogLevelTwoIds = []) {
     $queryBuilder = Offer::where($filter)->with([
         'catalogLevelOne',
         'catalogLevelTwo',
@@ -11,6 +11,12 @@ function apiGetAllOffers($filter, $catalogLevelTwoIds = []) {
         'salePoints',
         'user',
     ]);
+
+    if(count($catalogLevelOneIdList) > 0) {
+        $queryBuilder->whereHas('catalogLevelOne', function($query) use($catalogLevelOneIdList) {
+            $query->whereIn('catalog_level_one_id', $catalogLevelOneIdList);
+        });
+    }
 
     if(count($catalogLevelTwoIds) > 0) {
         $queryBuilder->whereHas('catalogLevelTwo', function($query) use($catalogLevelTwoIds) {
@@ -40,22 +46,21 @@ function apiGetAllOffersMapMarkersDataFormatted($request) {
         ['is_approved', true],
         ['is_removed', false],
     ];
+    $catalogLevelOneIdList = [];
     $catalogLevelTwoIdList = [];
 
     $catalogLevelOneId = $requestFilter['catalog']['levelOneId'] ?? null;
     $catalogLevelTwoId = $requestFilter['catalog']['levelTwoId'] ?? null;
 
     if($catalogLevelOneId) {
-        array_push($DBFilter, [
-            'catalog_level_one_id', $catalogLevelOneId
-        ]);
+        array_push($catalogLevelOneIdList, [$catalogLevelOneId]);
     }
 
     if($catalogLevelTwoId) {
         array_push($catalogLevelTwoIdList, [$catalogLevelTwoId]);
     }
 
-    $offers = apiGetAllOffers($DBFilter, $catalogLevelTwoIdList);
+    $offers = apiGetAllOffers($DBFilter, $catalogLevelOneIdList, $catalogLevelTwoIdList);
 
     $offersMapMarkersDataList = [];
 
