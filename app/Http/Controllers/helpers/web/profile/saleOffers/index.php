@@ -324,6 +324,12 @@ function trySaveSaleOfferInDB($request)
     $authUser = Auth::user();
     $user_id = $authUser->id;
 
+    $userSaleOffersList = DB_getUserSaleOffers();
+
+    if(count($userSaleOffersList) >= 50) {
+        return false;
+    }
+
     $createdSaleOffer = DB_createSaleOffer($request, $user_id);
     $createdSalePointData = $createdSaleOffer->toArray();
     $createdSaleOfferId = $createdSalePointData['id'];

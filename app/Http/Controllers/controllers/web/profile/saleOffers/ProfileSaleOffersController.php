@@ -84,7 +84,11 @@ class ProfileSaleOffersController extends Controller
             return redirect('/profile/sale-offers');
         }
 
-        return abort(500);
+        return back()
+            ->withErrors([
+                'commonError' => 'Достигнут лимит количества товарных предложений! Вы можете удалить или отредактировать имеющиеся, а также написать нам на email, телефон или в социальных сетях для увеличения лимита!'
+            ])
+            ->withInput();
     }
 
     /**
