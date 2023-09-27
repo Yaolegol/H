@@ -81,6 +81,8 @@ class ProfileSaleOffersController extends Controller
 //            }
 //        }
 
+        dd($request->all());
+
         $isCatalogLevelOneItemCreated = checkIsCatalogLevelOneItemCreated($request);
 
         if($isCatalogLevelOneItemCreated) {
