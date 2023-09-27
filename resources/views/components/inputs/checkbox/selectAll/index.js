@@ -30,6 +30,10 @@ class SelectAllCheckbox {
     }
 
     sendMessage = () => {
+        console.log('SelectAllCheckbox sendMessage')
+        console.log('id')
+        console.log(this.id)
+
         document.dispatchEvent(new CustomEvent('j-event-components-inputs-checkbox-select-all__change', {
             detail: {
                 id: this.id,
