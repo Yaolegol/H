@@ -1,4 +1,5 @@
 import {addEventListener} from "helpers/events";
+import 'views/components/inputs/checkbox/common';
 import './index.less';
 
 class CheckboxGroup {
