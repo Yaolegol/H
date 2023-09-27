@@ -68,19 +68,6 @@ class ProfileSaleOffersController extends Controller
      */
     public function store(Request $request)
     {
-//        $CLOId = $request->input('catalog_level_one_id');
-//        $catalogLevelTwoIdsArray = getProfileSaleOffersCatalogLevelTwoList($request);
-//
-//        if($CLOId != '999') {
-//            if(count($catalogLevelTwoIdsArray) == 0) {
-//                return back()
-//                    ->withErrors([
-//                        'commonError' => 'Не выбрана подкатегория!',
-//                    ])
-//                    ->withInput();
-//            }
-//        }
-
         $validator = getProfileSaleOffersValidator($request);
 
         if($validator->fails()) {
@@ -134,19 +121,6 @@ class ProfileSaleOffersController extends Controller
      */
     public function update(Request $request, $id)
     {
-//        $CLOId = $request->input('catalog_level_one_id');
-//        $catalogLevelTwoIdsArray = getProfileSaleOffersCatalogLevelTwoList($request);
-
-//        if($CLOId != '999') {
-//            if(count($catalogLevelTwoIdsArray) == 0) {
-//                return back()
-//                    ->withErrors([
-//                        'commonError' => 'Не выбрана подкатегория!',
-//                    ])
-//                    ->withInput();
-//            }
-//        }
-
         $isCatalogLevelOneItemCreated = checkIsCatalogLevelOneItemCreated($request, $id);
 
         if($isCatalogLevelOneItemCreated) {
