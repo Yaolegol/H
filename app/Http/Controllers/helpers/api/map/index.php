@@ -79,9 +79,7 @@ function apiGetAllOffersMapMarkersDataFormatted($request) {
 function apiGetOfferData($offerItem) {
     return [
         'catalog' => [
-            'catalog_level_one' => [
-                'title' => $offerItem['catalog_level_one']['title'],
-            ],
+            'catalog_level_one' => $offerItem['catalog_level_one'],
             'catalog_level_two' => $offerItem['catalog_level_two'],
         ],
         'product' => [

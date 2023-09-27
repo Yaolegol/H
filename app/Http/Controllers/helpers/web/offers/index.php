@@ -62,7 +62,7 @@ function formatOffer($offerItem, $isAPI = false) {
     setOfferPhotoArray($offerItem);
     setOfferOrganizationData($offerItem);
     setOfferSalePointsData($offerItem);
-    setOfferCatalogLinks($offerItem);
+//    setOfferCatalogLinks($offerItem);
     setOfferMeasure($offerItem);
     setSellerLink($offerItem);
     setAuthUserOfferRatingData($offerItem, $isAPI);
@@ -168,7 +168,7 @@ function setAuthUserOfferRatingData(&$offer, $isAPI = false) {
 function setOfferCatalogLinks(&$offerItem) {
     $offerItemCatalogLevelOne = &$offerItem['catalog_level_one'];
 
-//    $offerItemCatalogLevelOne['linkFull'] = '/?catalogLevelOneId=' . $offerItem['catalog_level_one']['id'];
+    $offerItemCatalogLevelOne['linkFull'] = '/?catalogLevelOneId=' . $offerItem['catalog_level_one']['id'];
 }
 
 function setOfferLink(&$offerItem) {
