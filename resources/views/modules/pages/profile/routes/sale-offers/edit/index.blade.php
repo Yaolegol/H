@@ -22,10 +22,7 @@
                                 'title' => 'Категория:',
                                 'withoutOffset' => true,
                             ])
-                                <div
-                                    class="j-modules-pages-profile-routes-sale-offers-common-categories-controller"
-                                    data-initial-selected-list="{{$selectedCategoriesLevelOne}}"
-                                >
+                                <div class="j-modules-pages-profile-routes-sale-offers-common-categories-controller">
                                     <input
                                         class="hidden j-modules-pages-profile-routes-sale-offers-common-categories-controller__hidden-input"
                                         required

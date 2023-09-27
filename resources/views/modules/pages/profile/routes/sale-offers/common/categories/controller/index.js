@@ -18,12 +18,10 @@ const otherButtonId = '999';
 class CategoriesController {
     constructor(element) {
         this.module = element;
-        this.initialSelectedList = this.module.dataset.initialSelectedList;
         this.hiddenInput = this.module.querySelector('.j-modules-pages-profile-routes-sale-offers-common-categories-controller__hidden-input');
         this.buttonsList = [...this.module.querySelectorAll('.j-modules-pages-profile-routes-sale-offers-common-categories-controller__button')];
         this.selectedCategoriesList = [];
 
-        this.init();
         this.bind();
     }
 
@@ -81,24 +79,6 @@ class CategoriesController {
         } else {
             this.buttonUnselect(button, id);
         }
-    }
-
-    init = () => {
-        if(!this.initialSelectedList) {
-            return;
-        }
-
-        this.initialSelectedList.split(',').forEach((id) => {
-            const button = this.buttonsList.find((button) => {
-                return button.dataset.id === id;
-            });
-
-            if(!button) {
-                return;
-            }
-
-            this.buttonSelect(button, id);
-        });
     }
 
     sendMessage = (id) => {

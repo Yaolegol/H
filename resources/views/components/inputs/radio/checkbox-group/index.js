@@ -15,6 +15,7 @@ class CheckboxGroup {
     bind = () => {
         addEventListener(this.module, 'change', this.handleChange);
         addEventListener(document, 'j-event-components-inputs-checkbox-select-all__change', this.handleSelectAllChange);
+        addEventListener(document, 'j-event-module__init', this.handleModulesInit);
     }
 
     handleChange = () => {
@@ -27,6 +28,10 @@ class CheckboxGroup {
 
         this.hiddenInput.checked = hasChecked;
         this.notifyChange(hasChecked, hasUnChecked);
+    }
+
+    handleModulesInit = () => {
+        this.handleChange();
     }
 
     handleSelectAllChange = (e) => {

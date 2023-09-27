@@ -33,6 +33,8 @@ class Module {
 
             new JsClass(element);
         });
+
+        this.notifyInit();
     }
 
     getInitName = (name) => {
@@ -54,6 +56,10 @@ class Module {
         }
 
         this.createModule(cssClass, JsClass);
+    }
+
+    notifyInit = () => {
+        document.dispatchEvent(new CustomEvent('j-event-module__init'));
     }
 
     updateModules = () => {
