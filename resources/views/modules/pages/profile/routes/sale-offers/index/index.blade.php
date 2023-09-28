@@ -36,18 +36,7 @@
                         @endforeach
                     @else
                         <div class="modules-pages-profile-routes-sale-offers-info-index__empty-block">
-                            <div>У Вас пока не создано торговых предложений</div>
-                            <div class="modules-pages-profile-routes-sale-offers-info-index__empty-container">Чтобы добавить товары, нажмите
-                                <a
-                                    class="modules-pages-profile-routes-sale-offers-info-index__empty-link"
-                                    href="/profile/sale-offers/create"
-                                >
-                                    "Добавить товары"
-                                </a>
-                            </div>
-                            <div class="modules-pages-profile-routes-sale-offers-info-index__empty-container modules-pages-profile-routes-sale-offers-info-index__empty-container_bold">
-                                Это просто и бесплатно!
-                            </div>
+                            <div>Добавьте товары - <span style="font-weight: bold">это просто и бесплатно!</span></div>
                         </div>
                     @endif
                 @endcomponent
