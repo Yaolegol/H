@@ -40,8 +40,8 @@
             </div>
             <div class="modules-pages-offers-shared-components-item__categories-block">
                 <div>
-                    <span class="modules-pages-offers-shared-components-item__title">Товары:</span>
-                    @foreach($offer['catalog_level_two'] as $catalogLevelTwoItem)
+                    <span class="modules-pages-offers-shared-components-item__title">Категории:</span>
+                    @foreach($offer['catalog_level_one'] as $catalogLevelTwoItem)
                         {{$catalogLevelTwoItem['title']}}@if($loop->iteration < $loop->count), @endif
                     @endforeach
                 </div>
