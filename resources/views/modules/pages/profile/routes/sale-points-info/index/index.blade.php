@@ -15,18 +15,7 @@
                 @endforeach
             @else
                 <div class="modules-pages-profile-routes-sale-points-info-index__empty-block">
-                    <div>У Вас пока не добавлено торговых точек</div>
-                    <div class="modules-pages-profile-routes-sale-points-info-index__empty-container">Чтобы добавить торговую точку, нажмите
-                        <a
-                            class="modules-pages-profile-routes-sale-points-info-index__empty-link"
-                            href="/profile/sale-points-info/create"
-                        >
-                            "Добавить торговую точку"
-                        </a>
-                    </div>
-                    <div class="modules-pages-profile-routes-sale-points-info-index__empty-container modules-pages-profile-routes-sale-points-info-index__empty-container_bold">
-                        Это просто и бесплатно!
-                    </div>
+                    <div>Добавьте торговую точку - <span style="font-weight: bold">это просто и бесплатно!</span></div>
                 </div>
             @endif
         @endcomponent

@@ -15,18 +15,7 @@
                 @endforeach
             @else
                 <div class="modules-pages-profile-routes-organization-info-index__empty-block">
-                    <div>У Вас пока не добавлено организаций</div>
-                    <div class="modules-pages-profile-routes-organization-info-index__empty-container">Чтобы добавить организацию, нажмите
-                        <a
-                            class="modules-pages-profile-routes-organization-info-index__empty-link"
-                            href="/profile/organization-info/create"
-                        >
-                            "Добавить организацию"
-                        </a>
-                    </div>
-                    <div class="modules-pages-profile-routes-organization-info-index__empty-container modules-pages-profile-routes-organization-info-index__empty-container_bold">
-                        Это просто и бесплатно!
-                    </div>
+                    <div>Добавьте организацию - <span style="font-weight: bold">это просто и бесплатно!</span></div>
                 </div>
             @endif
         @endcomponent
