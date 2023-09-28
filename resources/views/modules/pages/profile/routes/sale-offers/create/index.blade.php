@@ -18,7 +18,7 @@
                         <div class="modules-pages-profile-routes-sale-offers-create__categories-container">
                             @component('modules.pages.profile.common.components.container.form-field.index', [
                                 'required' => true,
-                                'title' => 'Категория:',
+                                'title' => 'Категории:',
                                 'withoutOffset' => true,
                             ])
                                 <div class="j-modules-pages-profile-routes-sale-offers-common-categories-controller">
