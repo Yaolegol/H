@@ -106,6 +106,24 @@ function getLocationFilters($searchCountryId, $searchRegionId, $searchCityId) {
     return $locationFilters;
 }
 
+function getOfferCategoriesData($offer) {
+    $dataList = [];
+
+    foreach ($offer['catalog_level_one'] as $item) {
+        $categoryId = $item['id'];
+
+        $subCategoriesList = array_filter($offer['catalog_level_two'], function($item) use($categoryId) {
+            return $item['catalog_level_one_id'] == $categoryId;
+        });
+
+        $item['catalog_level_two'] = $subCategoriesList;
+
+        array_push($dataList, $item);
+    }
+
+    return $dataList;
+}
+
 function getOfferFormatted($id, $isAPI = false)
 {
     $offer = DB_getOffer($id);

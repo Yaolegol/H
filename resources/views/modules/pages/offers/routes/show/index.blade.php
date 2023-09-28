@@ -40,8 +40,21 @@
             <div class="modules-pages-offers-routes-show__info-item-container">
                 <div class="modules-pages-offers-routes-show__info-item-title">Товары</div>
                 <div class="modules-pages-offers-routes-show__info-item-description">
-                    @foreach($offer['catalog_level_two'] as $catalogLevelTwoItem)
-                        {{$catalogLevelTwoItem['title']}}@if($loop->iteration < $loop->count), @endif
+                    @foreach($offerCategoriesData as $catalogLevelOneItem)
+                        <div>
+                            <div>Категория</div>
+                            <div>
+                                {{$catalogLevelOneItem['title']}}@if($loop->iteration < $loop->count), @endif
+                            </div>
+                        </div>
+                        <div>
+                            <div>Товары</div>
+                            <div>
+                                @foreach($catalogLevelOneItem['catalog_level_two'] as $catalogLevelTwoItem)
+                                    {{$catalogLevelTwoItem['title']}}@if($loop->iteration < $loop->count), @endif
+                                @endforeach
+                            </div>
+                        </div>
                     @endforeach
                 </div>
             </div>
