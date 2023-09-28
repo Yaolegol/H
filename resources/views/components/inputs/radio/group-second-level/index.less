@@ -1,23 +1,36 @@
 @import (reference) '~styles/colors';
 
 .components-inputs-radio-group-second-level {
+    display: flex;
+    flex-direction: column;
+
+    &_full-height {
+        height: 100%;
+    }
+
     &_hidden {
         display: none;
     }
 
     &__content {
+        flex: 1 1 auto;
         margin-top: 15px;
+        min-height: 0;
     }
 
     &__content-block {
+        flex: 1 1 auto;
         margin-top: 5px;
+        min-height: 0;
     }
 
     &__content-container {
         display: none;
+        flex-direction: column;
+        height: 100%;
 
         &_active {
-            display: block;
+            display: flex;
         }
     }
 

@@ -1,5 +1,9 @@
 <div
-    class="components-inputs-radio-checkbox-group j-components-inputs-radio-checkbox-group"
+    class="
+        components-inputs-radio-checkbox-group
+        {{$fullHeight ?? false ? 'components-inputs-radio-checkbox-group_full-height' : ''}}
+        j-components-inputs-radio-checkbox-group
+    "
     data-group-id="{{$groupId ?? ''}}"
 >
     <input

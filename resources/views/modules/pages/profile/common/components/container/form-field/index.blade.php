@@ -2,6 +2,7 @@
     class="
         modules-pages-profile-common-components-container-form-field
         {{$withoutOffset ?? false ? "modules-pages-profile-common-components-container-form-field_without-offset" : ""}}
+        {{$fullHeight ?? false ? 'modules-pages-profile-common-components-container-form-field_full-height' : ''}}
     "
 >
     @isset($title)

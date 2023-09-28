@@ -2,6 +2,7 @@
     class="
         components-inputs-radio-group-second-level
         components-inputs-radio-group-second-level_hidden
+        {{$fullHeight ?? false ? 'components-inputs-radio-group-second-level_full-height' : ''}}
         j-inputs-radio-group-second-level
     "
     data-listen-group-name="{{$listenGroupName}}"
@@ -48,6 +49,7 @@
                     <div class="components-inputs-radio-group-second-level__content">
                         @include('components.inputs.radio.checkbox-group.index', [
                             'classNameInput' => $classNameInput ?? '',
+                            'fullHeight' => true,
                             'groupId' => $contentItem['listenId'],
                             'list' => $contentItem['content'],
                             'name' => $inputsName . '__' . $contentItem['listenId'] . '__',
