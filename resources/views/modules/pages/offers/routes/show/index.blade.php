@@ -53,6 +53,9 @@
                             </div>
                             <div class="modules-pages-offers-routes-show__categories-block">
                                 <div class="modules-pages-offers-routes-show__categories-container">
+                                    @if($catalogLevelOneItem['id'] == 999)
+                                        Разные товары
+                                    @endif
                                     @foreach($catalogLevelOneItem['catalog_level_two'] as $catalogLevelTwoItem)
                                         {{$catalogLevelTwoItem['title']}}@if($loop->iteration < $loop->count), @endif
                                     @endforeach
