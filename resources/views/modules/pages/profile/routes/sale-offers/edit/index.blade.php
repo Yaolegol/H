@@ -38,7 +38,7 @@
                                 ])
                             @endcomponent
                         </div>
-                        <div class="modules-pages-profile-routes-sale-offers-edit___categories-container">
+                        <div class="modules-pages-profile-routes-sale-offers-edit__categories-container">
                             <div class="modules-pages-profile-routes-sale-offers-edit__sub-categories-container">
                                 @component('modules.pages.profile.common.components.container.form-field.index', [
                                     'fullHeight' => true,
