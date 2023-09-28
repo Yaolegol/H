@@ -2,7 +2,12 @@ import {plural_ru} from "helpers/plural";
 import './index.less';
 
 const getAddressLayout = (currentSalePoint, address) => {
-    const _address = currentSalePoint ? currentSalePoint['address'] : address;
+    let _address = address;
+    const salePointAddress = currentSalePoint['address'];
+
+    if(salePointAddress) {
+        _address = salePointAddress;
+    }
 
     return getKeyValueLayout('Адрес', [_address]);
 }
@@ -20,7 +25,12 @@ const getCatalogLevelTwoLayout = (catalog_level_two) => {
 }
 
 const getContactPersonLayout = (currentSalePoint, contactPerson) => {
-    const _contactPerson = currentSalePoint ? currentSalePoint['contact_person'] : contactPerson;
+    let _contactPerson = contactPerson;
+    const salePointContactPerson = currentSalePoint['contact_person'];
+
+    if(salePointContactPerson) {
+        _contactPerson = salePointContactPerson;
+    }
 
     return getKeyValueLayout('Контактное лицо', [_contactPerson]);
 }
@@ -28,9 +38,11 @@ const getContactPersonLayout = (currentSalePoint, contactPerson) => {
 const getCurrentSalePoint = (markerId, salePoints) => {
     const salePointId = markerId.split('_')[1];
 
-    return salePoints.find(({id}) => {
+    const salePoint = salePoints.find(({id}) => {
         return id.toString() === salePointId;
     });
+
+    return salePoint || {};
 }
 
 const getDeliveryLayout = (delivery, deliveryDescription) => {
@@ -78,6 +90,7 @@ const getMoreLinkLayout = (id) => {
         <a
             class="modules-common-map-yandex-components-balloon-offer-view-item__title"
             href="/offers/${id}"
+            target="_blank"
         >
             Подробнее о товаре
         </a>
@@ -85,7 +98,13 @@ const getMoreLinkLayout = (id) => {
 }
 
 const getPhoneLayout = (currentSalePoint, phone) => {
-    const _phone = currentSalePoint ? currentSalePoint['phone'] : phone;
+    let _phone = phone;
+    const salePointPhone = currentSalePoint['phone'];
+
+    if(salePointPhone) {
+        _phone = salePointPhone;
+    }
+
     const layout = `<a href="tel:${_phone}">${_phone}</a>`;
 
     return getKeyValueLayout('Телефон', [layout]);
@@ -126,11 +145,11 @@ const getSellerLayout = (id, name) => {
     const _name = name ? name : 'Имя не указано';
 
     const layout = `
-        <a href="/sellers/${id}">
+        <a href="/sellers/${id}" target="_blank">
             ${_name}
         </a>
         <div class="modules-common-map-yandex-components-balloon-offer-view-item__hint">
-            <a href="/sellers/${id}">
+            <a href="/sellers/${id}" target="_blank">
                 Подробнее о фермере
             </a>
         </div>
@@ -139,8 +158,18 @@ const getSellerLayout = (id, name) => {
     return getKeyValueLayout('Фермер', [layout]);
 }
 
-const getTitleLayout = (title) => {
-    return wrapWithBlock(title);
+const getTitleLayout = (title, id) => {
+    const titleLayout = `
+        <a
+            class="modules-common-map-yandex-components-balloon-offer-view-item__title"
+            href="/offers/${id}"
+            target="_blank"
+        >
+            ${title}
+        </a>
+    `;
+
+    return wrapWithBlock(titleLayout);
 }
 
 const getValueLayout = (value) => {
@@ -217,7 +246,7 @@ export const getOfferBalloonProductPage = (offerData, markerId) => {
     const publishLayout = getPublishDateLayout(created_at);
     const ratingLayout = getRatingLayout(rating, rating_votes);
     const sellerLayout = getSellerLayout(sellerId, name);
-    const titleLayout = getTitleLayout(title);
+    const titleLayout = getTitleLayout(title, id);
     const workingHoursLayout = getWorkingHoursLayout(working_hours);
 
     return `
@@ -231,4 +260,3 @@ export const getOfferBalloonProductPage = (offerData, markerId) => {
         </div>
     `
 }
-

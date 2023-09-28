@@ -2,7 +2,12 @@ import {plural_ru} from "helpers/plural";
 import './index.less';
 
 const getAddressLayout = (currentSalePoint, address) => {
-    const _address = currentSalePoint ? currentSalePoint['address'] : address;
+    let _address = address;
+    const salePointAddress = currentSalePoint['address'];
+
+    if(salePointAddress) {
+        _address = salePointAddress;
+    }
 
     return getKeyValueLayout('Адрес', [_address]);
 }
@@ -20,7 +25,12 @@ const getCatalogLevelTwoLayout = (catalog_level_two) => {
 }
 
 const getContactPersonLayout = (currentSalePoint, contactPerson) => {
-    const _contactPerson = currentSalePoint ? currentSalePoint['contact_person'] : contactPerson;
+    let _contactPerson = contactPerson;
+    const salePointContactPerson = currentSalePoint['contact_person'];
+
+    if(salePointContactPerson) {
+        _contactPerson = salePointContactPerson;
+    }
 
     return getKeyValueLayout('Контактное лицо', [_contactPerson]);
 }
@@ -28,9 +38,11 @@ const getContactPersonLayout = (currentSalePoint, contactPerson) => {
 const getCurrentSalePoint = (markerId, salePoints) => {
     const salePointId = markerId.split('_')[1];
 
-    return salePoints.find(({id}) => {
+    const salePoint = salePoints.find(({id}) => {
         return id.toString() === salePointId;
     });
+
+    return salePoint || {};
 }
 
 const getDeliveryLayout = (delivery, deliveryDescription) => {
@@ -86,7 +98,13 @@ const getMoreLinkLayout = (id) => {
 }
 
 const getPhoneLayout = (currentSalePoint, phone) => {
-    const _phone = currentSalePoint ? currentSalePoint['phone'] : phone;
+    let _phone = phone;
+    const salePointPhone = currentSalePoint['phone'];
+
+    if(salePointPhone) {
+        _phone = salePointPhone;
+    }
+
     const layout = `<a href="tel:${_phone}">${_phone}</a>`;
 
     return getKeyValueLayout('Телефон', [layout]);
