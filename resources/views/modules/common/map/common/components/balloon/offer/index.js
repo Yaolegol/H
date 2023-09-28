@@ -7,12 +7,14 @@ const getAddressLayout = (currentSalePoint, address) => {
     return getKeyValueLayout('Адрес', [_address]);
 }
 
-const getCatalogLevelTwoLayout = (catalog_level_one, catalog_level_two) => {
-    let stringValues = catalog_level_two.map(({title}) => title).join(', ');
+const getCatalogLevelOneLayout = (catalog_level_one) => {
+    let stringValues = catalog_level_one.map(({title}) => title).join(', ');
 
-    if(stringValues === '') {
-        stringValues = catalog_level_one['title'];
-    }
+    return getKeyValueLayout('Категории', [stringValues]);
+}
+
+const getCatalogLevelTwoLayout = (catalog_level_two) => {
+    let stringValues = catalog_level_two.map(({title}) => title).join(', ');
 
     return getKeyValueLayout('Товары', [stringValues]);
 }
@@ -56,11 +58,16 @@ const getKeyLayout = (key) => {
 }
 
 const getKeyValueLayout = (key, values) => {
-    const keyLayout = getKeyLayout(key);
     const valuesLayout = getValuesListLayout(values);
 
     if(valuesLayout === '') {
         return '';
+    }
+
+    let keyLayout = '';
+
+    if(key) {
+        keyLayout = getKeyLayout(key);
     }
 
     return wrapWithBlock(`${keyLayout} ${valuesLayout}`);
@@ -133,7 +140,7 @@ const getSellerLayout = (id, name) => {
 }
 
 const getTitleLayout = (title) => {
-    return getKeyValueLayout('Название товаров', [title]);
+    return wrapWithBlock(title);
 }
 
 const getValueLayout = (value) => {
@@ -199,7 +206,8 @@ export const getOfferBalloon = (offerData, markerId) => {
     const currentSalePoint = getCurrentSalePoint(markerId, salePoints);
 
     const addressLayout = getAddressLayout(currentSalePoint, address);
-    const catalogCategoriesLevelTwoLayout = getCatalogLevelTwoLayout(catalog_level_one, catalog_level_two);
+    const catalogCategoriesLevelOneLayout = getCatalogLevelOneLayout(catalog_level_one);
+    // const catalogCategoriesLevelTwoLayout = getCatalogLevelTwoLayout(catalog_level_two);
     const contactPersonLayout = getContactPersonLayout(currentSalePoint, contact_person);
     const deliveryLayout = getDeliveryLayout(delivery, delivery_description);
     const descriptionLayout = getDescriptionLayout(description);
@@ -216,15 +224,15 @@ export const getOfferBalloon = (offerData, markerId) => {
         <div class="modules-common-map-common-components-balloon-offer">
             ${publishLayout}
             ${ratingLayout}
-            ${catalogCategoriesLevelTwoLayout}
+            ${catalogCategoriesLevelOneLayout}
+            ${titleLayout}
+            ${descriptionLayout}
             ${priceLayout}
             ${contactPersonLayout}
             ${phoneLayout}
             ${addressLayout}
             ${deliveryLayout}
             ${workingHoursLayout}
-            ${titleLayout}
-            ${descriptionLayout}
             ${sellerLayout}
             ${moreLinkLayout}
         </div>

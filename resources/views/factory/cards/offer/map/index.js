@@ -105,11 +105,7 @@ export class MapOfferCard {
             </div>
         `;
 
-        let productsTitles = catalog_level_two.map(({title}) => title).join(', ');
-
-        if(productsTitles === '') {
-            productsTitles = catalog_level_one['title'];
-        }
+        const productsCategories = catalog_level_one.map(({title}) => title).join(', ');
 
         const ratingLayout = rating > 0 ? `
             <div class="factory-cards-offer-map__rating-container">
@@ -193,8 +189,8 @@ export class MapOfferCard {
                     </div>
                     <div class="factory-cards-offer-map__category-block">
                         <div>
-                            <span class="factory-cards-offer-map__category-title">Товары:</span>
-                            ${productsTitles}
+                            <span class="factory-cards-offer-map__category-title">Категории:</span>
+                            ${productsCategories}
                         </div>
                         ${ratingLayout}
                         <div class="factory-cards-offer-map__created-at-block">
