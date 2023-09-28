@@ -9,6 +9,7 @@ import './index.less';
 class Register {
     constructor(element) {
         this.module = element;
+        this.form = this.module.querySelector('.j-components-form-submit');
         this.sendSmsContainer = this.module.querySelector('.j-modules-pages-auth-routes-register-index__send-sms-container');
         this.confirmCodeContainer = this.module.querySelector('.j-modules-pages-auth-routes-register-index__confirm-code-container');
         this.errorContainer = this.module.querySelector('.j-modules-pages-auth-routes-register-index__error-container');
@@ -62,7 +63,7 @@ class Register {
             window.location.href = 'profile/sale-offers'
         } catch(e) {
             this.isSMSCodeChecking = false;
-            
+
             console.error(e);
         }
     }
@@ -85,6 +86,7 @@ class Register {
         const {errors} = await this.sendSms(_data);
 
         if(errors !== '') {
+            this.form.dispatchEvent(new CustomEvent('j-event-components-form-submit__enable-submit-button'));
             this.errorContainer.innerHTML = errors[0];
             this.errorContainer.classList.remove('hidden');
 

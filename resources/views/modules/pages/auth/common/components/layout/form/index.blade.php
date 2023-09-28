@@ -1,6 +1,9 @@
 <form
     action="{{$formAction}}"
-    class="{{$formClass ?? 'modules-pages-auth-common-components-layout-form'}}"
+    class="
+        {{$formClass ?? 'modules-pages-auth-common-components-layout-form'}}
+        j-components-form-submit
+    "
     method="POST"
 >
     @csrf
@@ -12,7 +15,7 @@
             class="
                 button
                 modules-pages-auth-common-components-layout-form__send-button
-                j-components-click-block
+                j-components-form-submit__submit-button
             "
         >Отправить</button>
     </div>
