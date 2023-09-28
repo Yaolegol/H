@@ -48,7 +48,7 @@
                                                 'fullHeight' => true,
                                                 'inputsName' => 'catalog_level_two_id',
                                                 'listenGroupName' => 'radio-group__catalog_level_one',
-                                                'title' => 'Подкатегории (можно указать несколько)',
+                                                'title' => 'Подкатегории:*',
                                             ])
                                     @include('components.form.error.index', [
                                         'message' => $errors->first('catalog_level_two_id'),

@@ -39,19 +39,23 @@
                             @endcomponent
                         </div>
                         <div class="modules-pages-profile-routes-sale-offers-edit___categories-container">
-                            @component('modules.pages.profile.common.components.container.form-field.index', [
-                                'withoutOffset' => true,
-                            ])
-                                @include('components.inputs.radio.group-second-level.index', [
-                                            'contentList' => $catalogSubCategoriesList,
-                                            'inputsName' => 'catalog_level_two_id',
-                                            'listenGroupName' => 'radio-group__catalog_level_one',
-                                            'title' => 'Подкатегории (можно указать несколько)',
-                                        ])
-                                @include('components.form.error.index', [
-                                    'message' => $errors->first('catalog_level_two_id'),
+                            <div class="modules-pages-profile-routes-sale-offers-edit__sub-categories-container">
+                                @component('modules.pages.profile.common.components.container.form-field.index', [
+                                    'fullHeight' => true,
+                                    'withoutOffset' => true,
                                 ])
-                            @endcomponent
+                                    @include('components.inputs.radio.group-second-level.index', [
+                                                'contentList' => $catalogSubCategoriesList,
+                                                'fullHeight' => true,
+                                                'inputsName' => 'catalog_level_two_id',
+                                                'listenGroupName' => 'radio-group__catalog_level_one',
+                                                'title' => 'Подкатегории:*',
+                                            ])
+                                    @include('components.form.error.index', [
+                                        'message' => $errors->first('catalog_level_two_id'),
+                                    ])
+                                @endcomponent
+                            </div>
                         </div>
                     </div>
                 </div>
