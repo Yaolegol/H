@@ -78,6 +78,7 @@ const getMoreLinkLayout = (id) => {
         <a
             class="modules-common-map-common-components-balloon-offer__title"
             href="/offers/${id}"
+            target="_blank"
         >
             Подробнее о товаре
         </a>
@@ -126,11 +127,11 @@ const getSellerLayout = (id, name) => {
     const _name = name ? name : 'Имя не указано';
 
     const layout = `
-        <a href="/sellers/${id}">
+        <a href="/sellers/${id}" target="_blank">
             ${_name}
         </a>
         <div class="modules-common-map-common-components-balloon-offer__hint">
-            <a href="/sellers/${id}">
+            <a href="/sellers/${id}" target="_blank">
                 Подробнее о фермере
             </a>
         </div>
@@ -139,8 +140,18 @@ const getSellerLayout = (id, name) => {
     return getKeyValueLayout('Фермер', [layout]);
 }
 
-const getTitleLayout = (title) => {
-    return wrapWithBlock(title);
+const getTitleLayout = (title, id) => {
+    const titleLayout = `
+        <a
+            class="modules-common-map-common-components-balloon-offer__title"
+            href="/offers/${id}"
+            target="_blank"
+        >
+            ${title}
+        </a>
+    `;
+
+    return wrapWithBlock(titleLayout);
 }
 
 const getValueLayout = (value) => {
@@ -217,7 +228,7 @@ export const getOfferBalloon = (offerData, markerId) => {
     const publishLayout = getPublishDateLayout(created_at);
     const ratingLayout = getRatingLayout(rating, rating_votes);
     const sellerLayout = getSellerLayout(sellerId, name);
-    const titleLayout = getTitleLayout(title);
+    const titleLayout = getTitleLayout(title, id);
     const workingHoursLayout = getWorkingHoursLayout(working_hours);
 
     return `
