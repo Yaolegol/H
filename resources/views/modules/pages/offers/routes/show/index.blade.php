@@ -38,24 +38,28 @@
                 <div class="modules-pages-offers-routes-show__info-item-description">{{$offer['description']}}</div>
             </div>
             <div class="modules-pages-offers-routes-show__info-item-container">
-                <div class="modules-pages-offers-routes-show__info-item-title">Товары</div>
-                <div class="modules-pages-offers-routes-show__info-item-description">
-                    @foreach($offerCategoriesData as $catalogLevelOneItem)
-                        <div>
-                            <div>Категория</div>
-                            <div>
-                                {{$catalogLevelOneItem['title']}}@if($loop->iteration < $loop->count), @endif
+                <div class="modules-pages-offers-routes-show__info-item-title">
+                    Товары
+                </div>
+                <div class="modules-pages-offers-routes-show__info-item-description modules-pages-offers-routes-show__info-item-description_offset-large">
+                    <div class="modules-pages-offers-routes-show__categories-area">
+                        @foreach($offerCategoriesData as $catalogLevelOneItem)
+                            <div class="modules-pages-offers-routes-show__categories-block">
+                                <div class="modules-pages-offers-routes-show__categories-container">
+                                    <div class="modules-pages-offers-routes-show__info-item-title modules-pages-offers-routes-show__info-item-title_right">
+                                        {{$catalogLevelOneItem['title']}}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <div>Товары</div>
-                            <div>
-                                @foreach($catalogLevelOneItem['catalog_level_two'] as $catalogLevelTwoItem)
-                                    {{$catalogLevelTwoItem['title']}}@if($loop->iteration < $loop->count), @endif
-                                @endforeach
+                            <div class="modules-pages-offers-routes-show__categories-block">
+                                <div class="modules-pages-offers-routes-show__categories-container">
+                                    @foreach($catalogLevelOneItem['catalog_level_two'] as $catalogLevelTwoItem)
+                                        {{$catalogLevelTwoItem['title']}}@if($loop->iteration < $loop->count), @endif
+                                    @endforeach
+                                </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
                 </div>
             </div>
             <div class="modules-pages-offers-routes-show__info-item-container">

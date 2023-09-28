@@ -15,6 +15,21 @@
         }
     }
 
+    &__categories-area {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -15px 0 0 -15px;
+    }
+
+    &__categories-block {
+        flex: 1 1 50%;
+    }
+
+    &__categories-container {
+        margin: 15px 0 0 15px;
+        text-align: left;
+    }
+
     &__content-area {
         margin: 50px auto 0;
         max-width: 800px;
@@ -51,10 +66,18 @@
         &_link {
             text-decoration-line: underline;
         }
+
+        &_offset-large {
+            margin-top: 15px;
+        }
     }
 
     &__info-item-title {
         font-weight: 800;
+
+        &_right {
+            text-align: right;
+        }
     }
 
     &__info-section {
