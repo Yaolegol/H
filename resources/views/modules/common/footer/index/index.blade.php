@@ -80,17 +80,17 @@
                             </div>
                             <div class="modules-common-footer-index__contacts-item modules-common-footer-index__contacts-item_flex">
                                 <div class="modules-common-footer-index__contacts-messenger-container">
-                                    <a href="viber://chat?number=%2B79539117514">
+                                    <a href="viber://chat?number=%2B79539117514" rel="noopener noreferrer" target="_blank">
                                         @include('icons.messengers.viber')
                                     </a>
                                 </div>
                                 <div class="modules-common-footer-index__contacts-messenger-container">
-                                    <a href="https://wa.me/+79539117514">
+                                    <a href="https://wa.me/+79539117514" rel="noopener noreferrer" target="_blank">
                                         @include('icons.messengers.whatsapp')
                                     </a>
                                 </div>
                                 <div class="modules-common-footer-index__contacts-messenger-container">
-                                    <a href="https://t.me/Clickferma">
+                                    <a href="https://t.me/Clickferma" rel="noopener noreferrer" target="_blank">
                                         @include('icons.messengers.telegram')
                                     </a>
                                 </div>
