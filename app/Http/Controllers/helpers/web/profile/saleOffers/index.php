@@ -183,8 +183,10 @@ function getProfileSaleOffersCatalogLevelOneList($request) {
 function getProfileSaleOffersCatalogLevelTwoList($request) {
     $catalogLevelTwoIdsArray = [];
     foreach($request->all() as $key => $value){
-        if("catalog_level_two_id" == substr($key,0,20)){
-            array_push($catalogLevelTwoIdsArray, $value);
+        if("catalog_level_two_id" == substr($key,0,20)) {
+            if($key !== 'catalog_level_two_id__999__1') {
+                array_push($catalogLevelTwoIdsArray, $value);
+            }
         }
     }
 

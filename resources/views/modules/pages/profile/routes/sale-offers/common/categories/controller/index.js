@@ -99,9 +99,33 @@ class CategoriesController {
 
         if(isSelected) {
             this.buttonUnselect(button, otherButtonId);
+            this.toggleOtherInput();
         } else {
             this.buttonSelect(button, otherButtonId);
+            this.toggleOtherInput(true);
         }
+    }
+
+    toggleOtherInput = (isAppend) => {
+        if(isAppend) {
+            this.module.insertAdjacentHTML('afterbegin', `
+                <input
+                    class="j-modules-pages-profile-routes-sale-offers-common-categories-controller__other-input"
+                    name="catalog_level_two_id__999__1"
+                    type="hidden"
+                >
+            `);
+
+            return;
+        }
+
+        const input = this.module.querySelector('.j-modules-pages-profile-routes-sale-offers-common-categories-controller__other-input');
+
+        if(!input) {
+            return;
+        }
+
+        input.remove();
     }
 }
 
