@@ -2245,12 +2245,36 @@ class CatalogLevelTwoSeeder extends Seeder
 
         // Эко туризм
         [
-            'image' => 'public/catalog/levelOne/items/tourism/images/main/sub/tourism/1.jpg',
+            'image' => 'public/catalog/levelOne/items/tourism/images/main/sub/eco-tourism/1.jpg',
             'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/houses-and-trees-on-a-beautiful-grass-covered-hill-by-a-lake-captured-in-finland_17232054.htm#query=%D0%94%D0%BE%D0%BC%20%D0%B2%20%D0%BF%D0%BE%D0%BB%D0%B5&position=24&from_view=search&track=ais">Изображение от wirestock</a> на Freepik',
-            'link' => 'tourism',
+            'link' => 'eco-tourism',
             'order' => 1,
             'catalog_level_one_id' => 24,
             'title' => 'Эко туризм',
+        ],
+        [
+            'image' => 'public/catalog/levelOne/items/tourism/images/main/sub/sauna/1.jpg',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/clean-and-empty-sauna-room_22820155.htm#query=%D0%B1%D0%B0%D0%BD%D1%8F&position=0&from_view=search&track=sph">Freepik</a>',
+            'link' => 'sauna',
+            'order' => 1,
+            'catalog_level_one_id' => 24,
+            'title' => 'Баня, сауна',
+        ],
+        [
+            'image' => 'public/catalog/levelOne/items/tourism/images/main/sub/camping/1.jpg',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/camping-tents-under-pine-trees-with-sunlight-at-pang-ung-lake-mae-hong-son-in-thailand_13181286.htm#query=camping&position=34&from_view=search&track=sph">Изображение от tawatchai07</a> на Freepik',
+            'link' => 'camping',
+            'order' => 1,
+            'catalog_level_one_id' => 24,
+            'title' => 'Кэмпинг',
+        ],
+        [
+            'image' => 'public/catalog/levelOne/items/tourism/images/main/sub/base-rest/1.jpg',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/wooden-arbors-among-trees-and-mountains_6384730.htm#query=%D0%B1%D0%B0%D0%B7%D0%B0%20%D0%BE%D1%82%D0%B4%D1%8B%D1%85%D0%B0&position=18&from_view=search&track=ais">Изображение от KamranAydinov</a> на Freepik',
+            'link' => 'base-rest',
+            'order' => 1,
+            'catalog_level_one_id' => 24,
+            'title' => 'База отдыха',
         ],
         [
             'image' => 'public/catalog/levelOne/items/tourism/images/main/sub/other/1.jpg',
