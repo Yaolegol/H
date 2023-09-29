@@ -131,7 +131,7 @@
                 @component('modules.pages.profile.common.components.container.form-field.index', [
                     'required' => true,
                     'title' => 'Цена:'])
-                    @include('components.inputs.form.index', [
+                    @include('components.inputs.textarea.base.index', [
                                     'name' => 'price',
                                     'placeholder' => 'Цена',
                                     'required' => true,
@@ -147,6 +147,7 @@
                 ])
                     @include('components.inputs.textarea.base.index', [
                         'name' => 'price_description',
+                        'placeholder' => 'Примечание к цене',
                         'value' => $saleOfferItemData['price_description'],
                     ])
                     @include('components.form.error.index', [
