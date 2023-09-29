@@ -2320,9 +2320,9 @@ class CatalogLevelTwoSeeder extends Seeder
             'title' => 'Пшеница',
         ],
         [
-            'image' => 'public/catalog/levelOne/items/seed/images/main/sub//1.jpg',
-            'image_licence_link' => '',
-            'link' => '',
+            'image' => 'public/catalog/levelOne/items/seed/images/main/sub/rye/1.jpg',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/golden-wheat-field_6659448.htm#query=Rye&position=13&from_view=search&track=sph?log-in=google">Изображение от ArthurHidden</a> на Freepik',
+            'link' => 'rye',
             'order' => 1,
             'catalog_level_one_id' => 26,
             'title' => 'Рожь',
