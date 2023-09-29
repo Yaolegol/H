@@ -174,7 +174,7 @@ class CatalogLevelOneSeeder extends Seeder
             'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/large-green-rice-field-with-green-rice-plants-in-rows_12909734.htm#page=13&query=village&position=0&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
             'link' => 'tourism',
             'order' => 27,
-            'title' => 'Эко туризм, баня, кэмпинг',
+            'title' => 'Эко туризм, баня, кэмпинг, рыбалка',
         ],
         [
             'image' => 'public/catalog/levelOne/items/clothes/images/main/1.jpg',
