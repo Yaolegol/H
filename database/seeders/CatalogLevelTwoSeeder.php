@@ -2337,15 +2337,15 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/seed/images/main/sub/barley/1.jpg',
-            'image_licence_link' => 'barley',
-            'link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/wheat-close-up_1436241.htm#page=2&query=barley&position=1&from_view=search&track=sph">Изображение от kotkoa</a> на Freepik',
+            'link' => 'barley',
             'order' => 1,
             'catalog_level_one_id' => 26,
             'title' => 'Ячмень',
         ],
         [
             'image' => 'public/catalog/levelOne/items/seed/images/main/sub/corn/1.jpg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/corn-cobs-on-a-wooden-piece-on-a-wooden-table-top-view_8488809.htm#query=corn&position=2&from_view=search&track=sph">Изображение от 8photo</a> на Freepik',
             'link' => 'corn',
             'order' => 1,
             'catalog_level_one_id' => 26,
@@ -2353,7 +2353,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/seed/images/main/sub/buckwheat/1.jpg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/pile-of-uncooked-buckwheat-on-wooden-spoon_16936271.htm#query=Buckwheat&position=2&from_view=search&track=sph">Изображение от azerbaijan_stockers</a> на Freepik',
             'link' => 'buckwheat',
             'order' => 1,
             'catalog_level_one_id' => 26,
@@ -2369,7 +2369,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/seed/images/main/sub/peas/1.jpg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/soybean-seeds-on-wooden-floor-and-hemp-sacks-food-nutrition-concept_10400236.htm#query=%D0%93%D0%BE%D1%80%D0%BE%D1%85&position=6&from_view=search&track=sph">Изображение от jcomp</a> на Freepik',
             'link' => 'peas',
             'order' => 1,
             'catalog_level_one_id' => 26,
@@ -2377,7 +2377,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/seed/images/main/sub/beans/1.jpg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/red-kidney-beans-in-a-small-bowl-place-on-sack-fabric_11994590.htm#query=%D0%A4%D0%B0%D1%81%D0%BE%D0%BB%D1%8C&position=0&from_view=search&track=sph">Изображение от jcomp</a> на Freepik',
             'link' => 'beans',
             'order' => 1,
             'catalog_level_one_id' => 26,
@@ -2385,7 +2385,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/seed/images/main/sub/soy/1.jpg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/soybean-sauce-and-soybean-on-wooden-floor-soy-sauce-food-nutrition-concept_10400224.htm#query=soy&position=0&from_view=search&track=sph">Изображение от jcomp</a> на Freepik',
             'link' => 'soy',
             'order' => 1,
             'catalog_level_one_id' => 26,
@@ -2393,7 +2393,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/seed/images/main/sub/rapeseed/1.jpg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/vertical-shot-of-a-vast-rapeseed-plantation-under-a-cloudy-sky_20386528.htm#query=rapeseed&position=0&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
             'link' => 'rapeseed',
             'order' => 1,
             'catalog_level_one_id' => 26,
@@ -2401,7 +2401,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/seed/images/main/sub/lentil/1.jpg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/lentils_1204884.htm#query=%D0%A7%D0%B5%D1%87%D0%B5%D0%B2%D0%B8%D1%86%D0%B0&position=2&from_view=search&track=sph">Изображение от luis_molinero</a> на Freepik',
             'link' => 'lentil',
             'order' => 1,
             'catalog_level_one_id' => 26,
@@ -2409,7 +2409,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/seed/images/main/sub/sunflower/1.jpg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/beautiful-sunflower-with-green-leaves_7251851.htm#page=2&query=sunflower&position=3&from_view=search&track=sph">Изображение от timolina</a> на Freepik',
             'link' => 'sunflower',
             'order' => 1,
             'catalog_level_one_id' => 26,
@@ -2417,7 +2417,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/seed/images/main/sub/millet/1.jpg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/raw-organic-healthy-millet-top-view_8275664.htm#query=%D0%9F%D1%80%D0%BE%D1%81%D0%BE&position=1&from_view=search&track=sph">Изображение от azerbaijan_stockers</a> на Freepik',
             'link' => 'millet',
             'order' => 1,
             'catalog_level_one_id' => 26,
@@ -2425,7 +2425,7 @@ class CatalogLevelTwoSeeder extends Seeder
         ],
         [
             'image' => 'public/catalog/levelOne/items/seed/images/main/sub/other/1.jpg',
-            'image_licence_link' => '',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/paddy-in-the-hands-of-men-with-a-paddy_5491634.htm#query=%D0%97%D0%B5%D1%80%D0%BD%D0%BE&position=1&from_view=search&track=sph">Изображение от jcomp</a> на Freepik',
             'link' => 'other',
             'order' => 1,
             'catalog_level_one_id' => 26,
