@@ -2181,6 +2181,14 @@ class CatalogLevelTwoSeeder extends Seeder
             'title' => 'Корма для пчел',
         ],
         [
+            'image' => 'public/catalog/levelOne/items/feed/images/main/sub/hay/1.jpg',
+            'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/beautiful-landscape-with-rolls-of-hays-and-sunset_5272830.htm#query=%D0%A1%D0%B5%D0%BD%D0%BE&position=5&from_view=search&track=sph">Freepik</a>',
+            'link' => 'hay',
+            'order' => 1,
+            'catalog_level_one_id' => 22,
+            'title' => 'Сено',
+        ],
+        [
             'image' => 'public/catalog/levelOne/items/feed/images/main/sub/other/1.jpg',
             'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/close-wild-big-brown-bear-near-a-forest-lake_11011847.htm#query=bear&position=29&from_view=search&track=sph">Изображение от byrdyak</a> на Freepik',
             'link' => 'other',
