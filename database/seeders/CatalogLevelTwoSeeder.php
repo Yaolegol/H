@@ -2205,7 +2205,7 @@ class CatalogLevelTwoSeeder extends Seeder
 
         // Двесина
         [
-            'image' => 'public/catalog/levelOne/items/hay/images/main/sub/firewood/1.jpg',
+            'image' => 'public/catalog/levelOne/items/wood/images/main/sub/firewood/1.jpg',
             'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/closeup-shot-of-oak-and-beech-firewoods-stacked-on-each-other_14890434.htm#query=%D0%94%D1%80%D0%BE%D0%B2%D0%B0&position=1&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
             'link' => 'firewood',
             'order' => 1,
@@ -2213,7 +2213,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'title' => 'Дрова',
         ],
         [
-            'image' => 'public/catalog/levelOne/items/hay/images/main/sub/round_timber/1.jpg',
+            'image' => 'public/catalog/levelOne/items/wood/images/main/sub/round_timber/1.jpg',
             'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/front-view-of-tree-trunks_11768201.htm#query=%D0%94%D1%80%D0%BE%D0%B2%D0%B0&position=5&from_view=search&track=sph">Freepik</a>',
             'link' => 'round_timber',
             'order' => 1,
@@ -2221,7 +2221,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'title' => 'Кругляк',
         ],
         [
-            'image' => 'public/catalog/levelOne/items/hay/images/main/sub/lumber/1.jpg',
+            'image' => 'public/catalog/levelOne/items/wood/images/main/sub/lumber/1.jpg',
             'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/3d-wood-planks_1049241.htm#query=%D0%9F%D0%B8%D0%BB%D0%BE%D0%BC%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D1%8B&position=0&from_view=search&track=sph">Изображение от kjpargeter</a> на Freepik',
             'link' => 'lumber',
             'order' => 1,
@@ -2229,7 +2229,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'title' => 'Пиломатериалы',
         ],
         [
-            'image' => 'public/catalog/levelOne/items/hay/images/main/sub/other/1.jpg',
+            'image' => 'public/catalog/levelOne/items/wood/images/main/sub/other/1.jpg',
             'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/pile-of-wood-planks-front-view_11106927.htm#query=%D0%92%D0%B0%D0%B3%D0%BE%D0%BD%D0%BA%D0%B0&position=11&from_view=search&track=sph">Freepik</a>',
             'link' => 'other',
             'order' => 999,

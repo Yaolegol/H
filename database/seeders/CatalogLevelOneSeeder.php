@@ -163,9 +163,9 @@ class CatalogLevelOneSeeder extends Seeder
             'title' => 'Корма для животных',
         ],
         [
-            'image' => 'public/catalog/levelOne/items/hay/images/main/1.jpg',
-            'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/harvested-grain-field-captured-on-a-sunny-day-with-some-clouds_17244521.htm#query=village&position=45&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
-            'link' => 'hay',
+            'image' => 'public/catalog/levelOne/items/wood/images/main/1.jpg',
+            'image_licence_link' => 'Изображение от <a href="https://ru.freepik.com/free-photo/flat-lay-natural-wooden-texture_18036918.htm#query=%D0%94%D1%80%D0%B5%D0%B2%D0%B5%D1%81%D0%B8%D0%BD%D0%B0&position=4&from_view=search&track=sph">Freepik</a>',
+            'link' => 'wood',
             'order' => 26,
             'title' => 'Древесина',
         ],
