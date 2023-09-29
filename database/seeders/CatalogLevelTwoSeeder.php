@@ -1494,7 +1494,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'link' => 'pine_nut',
             'order' => 1,
             'catalog_level_one_id' => 13,
-            'title' => 'Кедровый орех',
+            'title' => 'Кедровый орех и шишка',
         ],
         [
             'image' => 'public/catalog/levelOne/items/nuts/images/main/sub/pistachios/1.jpg',
