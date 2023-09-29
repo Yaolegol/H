@@ -9,6 +9,7 @@ function DB_getCatalogLevelOne($withLevelTwo = true)
     $withArray = $withLevelTwo ? ['catalogLevelTwo'] : [];
 
     return CatalogLevelOne::query()
+        ->orderBy('order', 'ASC')
         ->with($withArray)
         ->get()
         ->toArray();

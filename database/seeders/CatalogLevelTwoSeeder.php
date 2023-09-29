@@ -2272,7 +2272,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'link' => 'clothes',
             'order' => 1,
             'catalog_level_one_id' => 25,
-            'title' => 'Национальная одежда',
+            'title' => 'Одежда',
         ],
         [
             'image' => 'public/catalog/levelOne/items/clothes/images/main/sub/souvenirs/1.jpg',
@@ -2280,7 +2280,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'link' => 'souvenirs',
             'order' => 1,
             'catalog_level_one_id' => 25,
-            'title' => 'Национальные сувениры',
+            'title' => 'Сувениры',
         ],
         [
             'image' => 'public/catalog/levelOne/items/clothes/images/main/sub/other/1.jpg',
