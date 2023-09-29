@@ -202,7 +202,7 @@ class CatalogLevelOneSeeder extends Seeder
             'image_licence_link' => 'Photo by <a href="https://unsplash.com/@myfunkypixel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Vita Leonis</a> on <a href="https://unsplash.com/photos/jvn8gPiGEac?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>',
             'link' => 'furs',
             'order' => 24,
-            'title' => 'Пушнина',
+            'title' => 'Пушнина, меха',
         ],
         [
             'id' => 999,
