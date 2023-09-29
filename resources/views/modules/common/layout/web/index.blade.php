@@ -5,10 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- About -->
-        <title>{{ config('app.name', 'Кликферма') }}</title>
+        <title>{{env('APP_NAME')}}</title>
         <meta
             name="description"
-            content="Продать, найти, купить натуральные фермерские продукты. Объявления о продаже натуральных фермерских продуктов. Бесплатное размещение объявлений"
+            content="{{env('APP_DESCRIPTION')}}"
         >
 
         <!-- Styles -->
@@ -29,7 +29,15 @@
         >
 
         <!-- CSRF Token -->
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="csrf-token" content="{{csrf_token()}}">
+
+        <!-- OGP -->
+        <meta property="og:title" content="{{env('APP_NAME')}}">
+        <meta property="og:description" content="{{env('APP_DESCRIPTION')}}">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="clickferma.ru">
+        <meta property="og:url" content="https://clickferma.ru">
+        <meta property="og:image" content="https://clickferma.ru/build/icons/favicon/favicon.svg">
     </head>
     <body class="j-location-controller j-modules-pages-map-web-common-components-filters-product-controller">
         <div class="j-csrf-token" data-value="{{ csrf_token() }}"></div>
