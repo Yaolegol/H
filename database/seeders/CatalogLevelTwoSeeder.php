@@ -2431,6 +2431,72 @@ class CatalogLevelTwoSeeder extends Seeder
             'catalog_level_one_id' => 26,
             'title' => 'Остальное',
         ],
+
+        // Удобрения
+        [
+            'image' => 'public/catalog/levelOne/items/fertilizers/images/main/sub/mineral/1.jpg',
+            'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/compost-still-life-concept_17538508.htm#query=%D0%9D%D0%B0%D0%B2%D0%BE%D0%B7&position=0&from_view=search&track=sph">Freepik</a>',
+            'link' => 'mineral',
+            'order' => 1,
+            'catalog_level_one_id' => 26,
+            'title' => 'Минеральные удобрения',
+        ],
+        [
+            'image' => 'public/catalog/levelOne/items/fertilizers/images/main/sub/nitrogen/1.jpg',
+            'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/compost-still-life-concept_17538508.htm#query=%D0%9D%D0%B0%D0%B2%D0%BE%D0%B7&position=0&from_view=search&track=sph">Freepik</a>',
+            'link' => 'nitrogen',
+            'order' => 1,
+            'catalog_level_one_id' => 26,
+            'title' => 'Азотные удобрения',
+        ],
+        [
+            'image' => 'public/catalog/levelOne/items/fertilizers/images/main/sub/phosphorus/1.jpg',
+            'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/compost-still-life-concept_17538508.htm#query=%D0%9D%D0%B0%D0%B2%D0%BE%D0%B7&position=0&from_view=search&track=sph">Freepik</a>',
+            'link' => 'phosphorus',
+            'order' => 1,
+            'catalog_level_one_id' => 26,
+            'title' => 'Фосфорные удобрения',
+        ],
+        [
+            'image' => 'public/catalog/levelOne/items/fertilizers/images/main/sub/potassium/1.jpg',
+            'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/compost-still-life-concept_17538508.htm#query=%D0%9D%D0%B0%D0%B2%D0%BE%D0%B7&position=0&from_view=search&track=sph">Freepik</a>',
+            'link' => 'potassium',
+            'order' => 1,
+            'catalog_level_one_id' => 26,
+            'title' => 'Калийные удобрения',
+        ],
+        [
+            'image' => 'public/catalog/levelOne/items/fertilizers/images/main/sub/lime/1.jpg',
+            'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/compost-still-life-concept_17538508.htm#query=%D0%9D%D0%B0%D0%B2%D0%BE%D0%B7&position=0&from_view=search&track=sph">Freepik</a>',
+            'link' => 'lime',
+            'order' => 1,
+            'catalog_level_one_id' => 26,
+            'title' => 'Известковые удобрения',
+        ],
+        [
+            'image' => 'public/catalog/levelOne/items/fertilizers/images/main/sub/chlorine/1.jpg',
+            'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/compost-still-life-concept_17538508.htm#query=%D0%9D%D0%B0%D0%B2%D0%BE%D0%B7&position=0&from_view=search&track=sph">Freepik</a>',
+            'link' => 'chlorine',
+            'order' => 1,
+            'catalog_level_one_id' => 26,
+            'title' => 'Хлорсодержащие удобрения',
+        ],
+        [
+            'image' => 'public/catalog/levelOne/items/fertilizers/images/main/sub/manure/1.jpg',
+            'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/compost-still-life-concept_17538508.htm#query=%D0%9D%D0%B0%D0%B2%D0%BE%D0%B7&position=0&from_view=search&track=sph">Freepik</a>',
+            'link' => 'manure',
+            'order' => 1,
+            'catalog_level_one_id' => 26,
+            'title' => 'Навоз',
+        ],
+        [
+            'image' => 'public/catalog/levelOne/items/fertilizers/images/main/sub/other/1.jpg',
+            'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/compost-still-life-concept_17538508.htm#query=%D0%9D%D0%B0%D0%B2%D0%BE%D0%B7&position=0&from_view=search&track=sph">Freepik</a>',
+            'link' => 'other',
+            'order' => 1,
+            'catalog_level_one_id' => 26,
+            'title' => 'Остальное',
+        ],
     ];
 
     /**
