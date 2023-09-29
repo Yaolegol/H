@@ -2488,7 +2488,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => 'Photo by <a href="https://unsplash.com/@myfunkypixel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Vita Leonis</a> on <a href="https://unsplash.com/photos/jvn8gPiGEac?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>',
             'link' => 'beaver',
             'order' => 1,
-            'catalog_level_one_id' => 24,
+            'catalog_level_one_id' => 28,
             'title' => 'Бобр',
         ],
         [
@@ -2496,7 +2496,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => 'Photo by <a href="https://unsplash.com/@myfunkypixel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Vita Leonis</a> on <a href="https://unsplash.com/photos/jvn8gPiGEac?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>',
             'link' => 'squirrel',
             'order' => 1,
-            'catalog_level_one_id' => 24,
+            'catalog_level_one_id' => 28,
             'title' => 'Белка',
         ],
         [
@@ -2504,7 +2504,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => 'Photo by <a href="https://unsplash.com/@myfunkypixel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Vita Leonis</a> on <a href="https://unsplash.com/photos/jvn8gPiGEac?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>',
             'link' => 'harek',
             'order' => 1,
-            'catalog_level_one_id' => 24,
+            'catalog_level_one_id' => 28,
             'title' => 'Харек',
         ],
         [
@@ -2512,7 +2512,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => 'Photo by <a href="https://unsplash.com/@myfunkypixel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Vita Leonis</a> on <a href="https://unsplash.com/photos/jvn8gPiGEac?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>',
             'link' => 'mink',
             'order' => 1,
-            'catalog_level_one_id' => 24,
+            'catalog_level_one_id' => 28,
             'title' => 'Норка',
         ],
         [
@@ -2520,7 +2520,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => 'Photo by <a href="https://unsplash.com/@myfunkypixel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Vita Leonis</a> on <a href="https://unsplash.com/photos/jvn8gPiGEac?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>',
             'link' => 'nutria',
             'order' => 1,
-            'catalog_level_one_id' => 24,
+            'catalog_level_one_id' => 28,
             'title' => 'Нутрия',
         ],
         [
@@ -2528,7 +2528,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => 'Photo by <a href="https://unsplash.com/@myfunkypixel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Vita Leonis</a> on <a href="https://unsplash.com/photos/jvn8gPiGEac?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>',
             'link' => 'ermine',
             'order' => 1,
-            'catalog_level_one_id' => 24,
+            'catalog_level_one_id' => 28,
             'title' => 'Горностай',
         ],
         [
@@ -2536,7 +2536,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => 'Photo by <a href="https://unsplash.com/@myfunkypixel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Vita Leonis</a> on <a href="https://unsplash.com/photos/jvn8gPiGEac?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>',
             'link' => 'sable',
             'order' => 1,
-            'catalog_level_one_id' => 24,
+            'catalog_level_one_id' => 28,
             'title' => 'Соболь',
         ],
         [
@@ -2544,7 +2544,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => 'Photo by <a href="https://unsplash.com/@myfunkypixel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Vita Leonis</a> on <a href="https://unsplash.com/photos/jvn8gPiGEac?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>',
             'link' => 'arctic-fox',
             'order' => 1,
-            'catalog_level_one_id' => 24,
+            'catalog_level_one_id' => 28,
             'title' => 'Песец',
         ],
         [
@@ -2552,7 +2552,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => 'Photo by <a href="https://unsplash.com/@myfunkypixel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Vita Leonis</a> on <a href="https://unsplash.com/photos/jvn8gPiGEac?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>',
             'link' => 'muskrat',
             'order' => 1,
-            'catalog_level_one_id' => 24,
+            'catalog_level_one_id' => 28,
             'title' => 'Ондатра',
         ],
         [
@@ -2560,7 +2560,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => 'Photo by <a href="https://unsplash.com/@myfunkypixel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Vita Leonis</a> on <a href="https://unsplash.com/photos/jvn8gPiGEac?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>',
             'link' => 'otter',
             'order' => 1,
-            'catalog_level_one_id' => 24,
+            'catalog_level_one_id' => 28,
             'title' => 'Выдра',
         ],
         [
@@ -2568,15 +2568,15 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => 'Photo by <a href="https://unsplash.com/@myfunkypixel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Vita Leonis</a> on <a href="https://unsplash.com/photos/jvn8gPiGEac?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>',
             'link' => 'fox',
             'order' => 1,
-            'catalog_level_one_id' => 24,
+            'catalog_level_one_id' => 28,
             'title' => 'Лисица',
         ],
         [
-            'image' => 'public/catalog/levelOne/items/fertilizers/images/main/sub/other/1.jpg',
+            'image' => 'public/catalog/levelOne/items/furs/images/main/sub/other/1.jpg',
             'image_licence_link' => 'Photo by <a href="https://unsplash.com/@myfunkypixel?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Vita Leonis</a> on <a href="https://unsplash.com/photos/jvn8gPiGEac?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>',
             'link' => 'other',
             'order' => 1,
-            'catalog_level_one_id' => 27,
+            'catalog_level_one_id' => 28,
             'title' => 'Остальное',
         ],
     ];
