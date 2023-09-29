@@ -2277,6 +2277,14 @@ class CatalogLevelTwoSeeder extends Seeder
             'title' => 'База отдыха',
         ],
         [
+            'image' => 'public/catalog/levelOne/items/tourism/images/main/sub/fishing/1.jpg',
+            'image_licence_link' => '<a href="https://ru.freepik.com/free-photo/man-fishing-on-a-lake_800482.htm#query=%D0%A0%D1%8B%D0%B1%D0%B0%D0%BB%D0%BA%D0%B0&position=8&from_view=search&track=sph">Изображение от danmir12</a> на Freepik',
+            'link' => 'fishing',
+            'order' => 1,
+            'catalog_level_one_id' => 24,
+            'title' => 'Рыбалка',
+        ],
+        [
             'image' => 'public/catalog/levelOne/items/tourism/images/main/sub/other/1.jpg',
             'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/trees-growing-on-the-mountains-in-front-of-the-water_9654415.htm#query=%D0%A0%D1%8B%D0%B1%D0%B0%D0%BB%D0%BA%D0%B0&position=1&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
             'link' => 'other',
