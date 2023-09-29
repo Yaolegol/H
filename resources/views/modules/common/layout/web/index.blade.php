@@ -11,6 +11,9 @@
             content="Продать, найти, купить натуральные фермерские продукты. Объявления о продаже натуральных фермерских продуктов. Бесплатное размещение объявлений"
         >
 
+        <!-- Styles -->
+        @yield('layout-styles')
+
         <!-- Favicon -->
         <link
             href="/build/icons/favicon/favicon.svg"
@@ -27,9 +30,6 @@
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <!-- Styles -->
-        @yield('layout-styles')
     </head>
     <body class="j-location-controller j-modules-pages-map-web-common-components-filters-product-controller">
         <div class="j-csrf-token" data-value="{{ csrf_token() }}"></div>
