@@ -167,7 +167,7 @@ class CatalogLevelOneSeeder extends Seeder
             'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/harvested-grain-field-captured-on-a-sunny-day-with-some-clouds_17244521.htm#query=village&position=45&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
             'link' => 'hay',
             'order' => 23,
-            'title' => 'Дрова, сено, удобрение, зерно',
+            'title' => 'Древесина',
         ],
         [
             'image' => 'public/catalog/levelOne/items/tourism/images/main/1.jpg',

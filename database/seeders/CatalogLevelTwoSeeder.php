@@ -2203,7 +2203,7 @@ class CatalogLevelTwoSeeder extends Seeder
 
 
 
-        // Дрова, сено, удобрение, зерно
+        // Двесина
         [
             'image' => 'public/catalog/levelOne/items/hay/images/main/sub/firewood/1.jpg',
             'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/closeup-shot-of-oak-and-beech-firewoods-stacked-on-each-other_14890434.htm#query=%D0%94%D1%80%D0%BE%D0%B2%D0%B0&position=1&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
@@ -2211,30 +2211,6 @@ class CatalogLevelTwoSeeder extends Seeder
             'order' => 1,
             'catalog_level_one_id' => 23,
             'title' => 'Дрова',
-        ],
-        [
-            'image' => 'public/catalog/levelOne/items/hay/images/main/sub/hay/1.jpg',
-            'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/beautiful-landscape-with-rolls-of-hays-and-sunset_5272830.htm#query=%D0%A1%D0%B5%D0%BD%D0%BE&position=5&from_view=search&track=sph">Freepik</a>',
-            'link' => 'hay',
-            'order' => 1,
-            'catalog_level_one_id' => 23,
-            'title' => 'Сено',
-        ],
-        [
-            'image' => 'public/catalog/levelOne/items/hay/images/main/sub/manure/1.jpg',
-            'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/compost-still-life-concept_17538508.htm#query=%D0%9D%D0%B0%D0%B2%D0%BE%D0%B7&position=0&from_view=search&track=sph">Freepik</a>',
-            'link' => 'manure',
-            'order' => 1,
-            'catalog_level_one_id' => 23,
-            'title' => 'Навоз',
-        ],
-        [
-            'image' => 'public/catalog/levelOne/items/hay/images/main/sub/seed/1.jpg',
-            'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/oats-peeled_1197007.htm#query=%D0%B7%D0%B5%D1%80%D0%BD%D0%BE&position=41&from_view=search&track=sph">Изображение от luis_molinero</a> на Freepik',
-            'link' => 'seed',
-            'order' => 1,
-            'catalog_level_one_id' => 23,
-            'title' => 'Зерно',
         ],
         [
             'image' => 'public/catalog/levelOne/items/hay/images/main/sub/round_timber/1.jpg',
