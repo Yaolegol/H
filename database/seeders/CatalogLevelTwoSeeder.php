@@ -2115,13 +2115,93 @@ class CatalogLevelTwoSeeder extends Seeder
 
 
 
+        // Корма
+        [
+            'image' => 'public/catalog/levelOne/items/feed/images/main/sub/cow/1.jpg',
+            'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/beautiful-cow-on-green-grass-with-blue-sky_11244791.htm#query=cow&position=14&from_view=search&track=sph">Изображение от vwalakte</a> на Freepik',
+            'link' => 'cow',
+            'order' => 1,
+            'catalog_level_one_id' => 22,
+            'title' => 'Корма для коров',
+        ],
+        [
+            'image' => 'public/catalog/levelOne/items/feed/images/main/sub/chicken/1.jpg',
+            'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/closeup-shot-of-a-white-hen-walking-in-a-field_10759817.htm#query=%D0%9A%D1%83%D1%80%D0%B8%D1%86%D0%B0&position=27&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
+            'link' => 'chicken',
+            'order' => 1,
+            'catalog_level_one_id' => 22,
+            'title' => 'Корма для кур',
+        ],
+        [
+            'image' => 'public/catalog/levelOne/items/feed/images/main/sub/pig/1.jpg',
+            'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/closeup-shot-of-three-domesticated-pigs_17244243.htm#query=pig&position=37&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
+            'link' => 'pig',
+            'order' => 1,
+            'catalog_level_one_id' => 22,
+            'title' => 'Корма для свиней',
+        ],
+        [
+            'image' => 'public/catalog/levelOne/items/feed/images/main/sub/sheep/1.jpg',
+            'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/head-of-a-white-sheep_15672323.htm#query=sheep&position=4&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
+            'link' => 'sheep',
+            'order' => 1,
+            'catalog_level_one_id' => 22,
+            'title' => 'Корма для овец',
+        ],
+        [
+            'image' => 'public/catalog/levelOne/items/feed/images/main/sub/rabbit/1.jpg',
+            'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://www.freepik.com/free-photo/portrait-cute-fluffy-gray-rabbit-with-ears-natural-green_9604087.htm#page=2&query=rabbit&position=28&from_view=search&track=sph">Image by pereslavtseva</a> on Freepik',
+            'link' => 'rabbit',
+            'order' => 1,
+            'catalog_level_one_id' => 22,
+            'title' => 'Корма для кроликов',
+        ],
+        [
+            'image' => 'public/catalog/levelOne/items/feed/images/main/sub/goat/1.jpg',
+            'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://www.freepik.com/free-photo/cute-white-goat-leaning-another-goat_8857775.htm#query=goats&position=2&from_view=search&track=sph">Image by wirestock</a> on Freepik',
+            'link' => 'goat',
+            'order' => 1,
+            'catalog_level_one_id' => 22,
+            'title' => 'Корма для коз',
+        ],
+        [
+            'image' => 'public/catalog/levelOne/items/feed/images/main/sub/fish/1.jpg',
+            'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/shoal-of-fish-underwater_1115927.htm#query=fish%20ocean&position=0&from_view=search&track=ais">Изображение от LuqueStock</a> на Freepik',
+            'link' => 'fish',
+            'order' => 1,
+            'catalog_level_one_id' => 22,
+            'title' => 'Корма для рыб',
+        ],
+        [
+            'image' => 'public/catalog/levelOne/items/feed/images/main/sub/bee/1.jpg',
+            'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/closeup-shot-of-many-bees-on-a-honeycomb-frame-making-honey_17242902.htm#query=%D0%9F%D1%87%D0%B5%D0%BB%D1%8B&position=22&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
+            'link' => 'bee',
+            'order' => 1,
+            'catalog_level_one_id' => 22,
+            'title' => 'Корма для пчел',
+        ],
+        [
+            'image' => 'public/catalog/levelOne/items/feed/images/main/sub/other/1.jpg',
+            'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/close-wild-big-brown-bear-near-a-forest-lake_11011847.htm#query=bear&position=29&from_view=search&track=sph">Изображение от byrdyak</a> на Freepik',
+            'link' => 'other',
+            'order' => 999,
+            'catalog_level_one_id' => 22,
+            'title' => 'Остальное',
+        ],
+
+
+
+
+
+
+
         // Дрова, сено, удобрение, зерно
         [
             'image' => 'public/catalog/levelOne/items/hay/images/main/sub/firewood/1.jpg',
             'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/closeup-shot-of-oak-and-beech-firewoods-stacked-on-each-other_14890434.htm#query=%D0%94%D1%80%D0%BE%D0%B2%D0%B0&position=1&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
             'link' => 'firewood',
             'order' => 1,
-            'catalog_level_one_id' => 22,
+            'catalog_level_one_id' => 23,
             'title' => 'Дрова',
         ],
         [
@@ -2129,7 +2209,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/beautiful-landscape-with-rolls-of-hays-and-sunset_5272830.htm#query=%D0%A1%D0%B5%D0%BD%D0%BE&position=5&from_view=search&track=sph">Freepik</a>',
             'link' => 'hay',
             'order' => 1,
-            'catalog_level_one_id' => 22,
+            'catalog_level_one_id' => 23,
             'title' => 'Сено',
         ],
         [
@@ -2137,7 +2217,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/compost-still-life-concept_17538508.htm#query=%D0%9D%D0%B0%D0%B2%D0%BE%D0%B7&position=0&from_view=search&track=sph">Freepik</a>',
             'link' => 'manure',
             'order' => 1,
-            'catalog_level_one_id' => 22,
+            'catalog_level_one_id' => 23,
             'title' => 'Навоз',
         ],
         [
@@ -2145,7 +2225,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/oats-peeled_1197007.htm#query=%D0%B7%D0%B5%D1%80%D0%BD%D0%BE&position=41&from_view=search&track=sph">Изображение от luis_molinero</a> на Freepik',
             'link' => 'seed',
             'order' => 1,
-            'catalog_level_one_id' => 22,
+            'catalog_level_one_id' => 23,
             'title' => 'Зерно',
         ],
         [
@@ -2153,7 +2233,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/front-view-of-tree-trunks_11768201.htm#query=%D0%94%D1%80%D0%BE%D0%B2%D0%B0&position=5&from_view=search&track=sph">Freepik</a>',
             'link' => 'round_timber',
             'order' => 1,
-            'catalog_level_one_id' => 22,
+            'catalog_level_one_id' => 23,
             'title' => 'Кругляк',
         ],
         [
@@ -2161,7 +2241,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/3d-wood-planks_1049241.htm#query=%D0%9F%D0%B8%D0%BB%D0%BE%D0%BC%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D1%8B&position=0&from_view=search&track=sph">Изображение от kjpargeter</a> на Freepik',
             'link' => 'lumber',
             'order' => 1,
-            'catalog_level_one_id' => 22,
+            'catalog_level_one_id' => 23,
             'title' => 'Пиломатериалы',
         ],
         [
@@ -2169,7 +2249,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/pile-of-wood-planks-front-view_11106927.htm#query=%D0%92%D0%B0%D0%B3%D0%BE%D0%BD%D0%BA%D0%B0&position=11&from_view=search&track=sph">Freepik</a>',
             'link' => 'other',
             'order' => 999,
-            'catalog_level_one_id' => 22,
+            'catalog_level_one_id' => 23,
             'title' => 'Остальное',
         ],
 
@@ -2185,7 +2265,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/houses-and-trees-on-a-beautiful-grass-covered-hill-by-a-lake-captured-in-finland_17232054.htm#query=%D0%94%D0%BE%D0%BC%20%D0%B2%20%D0%BF%D0%BE%D0%BB%D0%B5&position=24&from_view=search&track=ais">Изображение от wirestock</a> на Freepik',
             'link' => 'tourism',
             'order' => 1,
-            'catalog_level_one_id' => 23,
+            'catalog_level_one_id' => 24,
             'title' => 'Эко туризм',
         ],
         [
@@ -2193,7 +2273,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/trees-growing-on-the-mountains-in-front-of-the-water_9654415.htm#query=%D0%A0%D1%8B%D0%B1%D0%B0%D0%BB%D0%BA%D0%B0&position=1&from_view=search&track=sph">Изображение от wirestock</a> на Freepik',
             'link' => 'other',
             'order' => 999,
-            'catalog_level_one_id' => 23,
+            'catalog_level_one_id' => 24,
             'title' => 'Остальное',
         ],
 
@@ -2207,7 +2287,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/agriculture-of-hilltribe-women_3952378.htm#page=7&query=%D0%9D%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5%20%D0%BA%D0%BE%D1%81%D1%82%D1%8E%D0%BC%D1%8B&position=11&from_view=search&track=ais">Изображение от jcomp</a> на Freepik',
             'link' => 'clothes',
             'order' => 1,
-            'catalog_level_one_id' => 24,
+            'catalog_level_one_id' => 25,
             'title' => 'Национальная одежда',
         ],
         [
@@ -2215,7 +2295,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/plates-on-market-in-morocco_4246651.htm#query=%D0%9D%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5%20%D1%81%D1%83%D0%B2%D0%B5%D0%BD%D0%B8%D1%80%D1%8B&position=1&from_view=search&track=ais">Freepik</a>',
             'link' => 'souvenirs',
             'order' => 1,
-            'catalog_level_one_id' => 24,
+            'catalog_level_one_id' => 25,
             'title' => 'Национальные сувениры',
         ],
         [
@@ -2223,7 +2303,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => '<a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/asian-market-of-bamboo-and-wicker-baskets_1036745.htm#page=2&query=%D0%9D%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5%20%D1%81%D1%83%D0%B2%D0%B5%D0%BD%D0%B8%D1%80%D1%8B&position=14&from_view=search&track=ais">Изображение от jcstudio</a> на Freepik',
             'link' => 'other',
             'order' => 999,
-            'catalog_level_one_id' => 24,
+            'catalog_level_one_id' => 25,
             'title' => 'Остальное',
         ],
     ];
