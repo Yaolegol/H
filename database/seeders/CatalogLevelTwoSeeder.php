@@ -2438,7 +2438,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/compost-still-life-concept_17538508.htm#query=%D0%9D%D0%B0%D0%B2%D0%BE%D0%B7&position=0&from_view=search&track=sph">Freepik</a>',
             'link' => 'mineral',
             'order' => 1,
-            'catalog_level_one_id' => 26,
+            'catalog_level_one_id' => 27,
             'title' => 'Минеральные удобрения',
         ],
         [
@@ -2446,7 +2446,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/compost-still-life-concept_17538508.htm#query=%D0%9D%D0%B0%D0%B2%D0%BE%D0%B7&position=0&from_view=search&track=sph">Freepik</a>',
             'link' => 'nitrogen',
             'order' => 1,
-            'catalog_level_one_id' => 26,
+            'catalog_level_one_id' => 27,
             'title' => 'Азотные удобрения',
         ],
         [
@@ -2454,7 +2454,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/compost-still-life-concept_17538508.htm#query=%D0%9D%D0%B0%D0%B2%D0%BE%D0%B7&position=0&from_view=search&track=sph">Freepik</a>',
             'link' => 'phosphorus',
             'order' => 1,
-            'catalog_level_one_id' => 26,
+            'catalog_level_one_id' => 27,
             'title' => 'Фосфорные удобрения',
         ],
         [
@@ -2462,7 +2462,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/compost-still-life-concept_17538508.htm#query=%D0%9D%D0%B0%D0%B2%D0%BE%D0%B7&position=0&from_view=search&track=sph">Freepik</a>',
             'link' => 'potassium',
             'order' => 1,
-            'catalog_level_one_id' => 26,
+            'catalog_level_one_id' => 27,
             'title' => 'Калийные удобрения',
         ],
         [
@@ -2470,7 +2470,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/compost-still-life-concept_17538508.htm#query=%D0%9D%D0%B0%D0%B2%D0%BE%D0%B7&position=0&from_view=search&track=sph">Freepik</a>',
             'link' => 'lime',
             'order' => 1,
-            'catalog_level_one_id' => 26,
+            'catalog_level_one_id' => 27,
             'title' => 'Известковые удобрения',
         ],
         [
@@ -2478,7 +2478,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/compost-still-life-concept_17538508.htm#query=%D0%9D%D0%B0%D0%B2%D0%BE%D0%B7&position=0&from_view=search&track=sph">Freepik</a>',
             'link' => 'chlorine',
             'order' => 1,
-            'catalog_level_one_id' => 26,
+            'catalog_level_one_id' => 27,
             'title' => 'Хлорсодержащие удобрения',
         ],
         [
@@ -2486,7 +2486,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/compost-still-life-concept_17538508.htm#query=%D0%9D%D0%B0%D0%B2%D0%BE%D0%B7&position=0&from_view=search&track=sph">Freepik</a>',
             'link' => 'manure',
             'order' => 1,
-            'catalog_level_one_id' => 26,
+            'catalog_level_one_id' => 27,
             'title' => 'Навоз',
         ],
         [
@@ -2494,7 +2494,7 @@ class CatalogLevelTwoSeeder extends Seeder
             'image_licence_link' => 'Изображение от <a style="text-decoration: underline" target="_blank" rel="noopener noreferrer" href="https://ru.freepik.com/free-photo/compost-still-life-concept_17538508.htm#query=%D0%9D%D0%B0%D0%B2%D0%BE%D0%B7&position=0&from_view=search&track=sph">Freepik</a>',
             'link' => 'other',
             'order' => 1,
-            'catalog_level_one_id' => 26,
+            'catalog_level_one_id' => 27,
             'title' => 'Остальное',
         ],
     ];
