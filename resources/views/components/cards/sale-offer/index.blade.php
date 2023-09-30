@@ -27,22 +27,82 @@
         </div>
     @endif
 
-    <div class="components-cards-sale-offer__content-area">
-        <div class="components-cards-sale-offer__image-block">
-            <div class="components-cards-sale-offer__image-container">
-                <img alt="{{$saleOffer['title']}}" class="components-cards-sale-offer__image" src="{{$saleOffer['photoArray'][0] ?? ''}}">
-            </div>
+    <div class="components-cards-sale-offer__info-area">
+        <div class="components-cards-sale-offer__item-container">
+            <div class="components-cards-sale-offer__title">Заголовок объявления</div>
+            <div class="components-cards-sale-offer__value">{{$saleOffer['title']}}</div>
         </div>
-        <div class="components-cards-sale-offer__content-block">
-            <div class="components-cards-sale-offer__info-section">
-                <div>
-                    <span
-                        class="components-cards-sale-offer__product-link"
-                    >{{$saleOffer['title']}}</span>
+        @if($saleOffer['description'])
+            <div class="components-cards-sale-offer__item-container">
+                <div class="components-cards-sale-offer__title">Описание</div>
+                <div class="components-cards-sale-offer__value">{{$saleOffer['description']}}</div>
+            </div>
+        @endif
+        @if($saleOffer['contact_person'])
+            <div class="components-cards-sale-offer__item-container">
+                <div class="components-cards-sale-offer__title">Контактное лицо</div>
+                <div class="components-cards-sale-offer__value">{{$saleOffer['contact_person']}}</div>
+            </div>
+        @endif
+        <div class="components-cards-sale-offer__item-container">
+            <div class="components-cards-sale-offer__title">Телефон</div>
+            <div class="components-cards-sale-offer__value">{{$saleOffer['phone']}}</div>
+        </div>
+        @if($saleOffer['working_hours'])
+            <div class="components-cards-sale-offer__item-container">
+                <div class="components-cards-sale-offer__title">Режим работы</div>
+                <div class="components-cards-sale-offer__value">{{$saleOffer['working_hours']}}</div>
+            </div>
+        @endif
+        <div class="components-cards-sale-offer__item-container">
+            <div class="components-cards-sale-offer__title">Цена</div>
+            <div class="components-cards-sale-offer__value">{{$saleOffer['price']}}</div>
+        </div>
+        @if($saleOffer['price_description'])
+            <div class="components-cards-sale-offer__item-container">
+                <div class="components-cards-sale-offer__title">Примечание к цене</div>
+                <div class="components-cards-sale-offer__value">{{$saleOffer['price_description']}}</div>
+            </div>
+        @endif
+        @if($saleOffer['delivery'] === 1 || $saleOffer['delivery'] === true)
+            <div class="components-cards-sale-offer__item-container">
+                <div class="components-cards-sale-offer__title">Доставка: есть</div>
+            </div>
+        @endif
+        @if($saleOffer['delivery_description'])
+            <div class="components-cards-sale-offer__item-container">
+                <div class="components-cards-sale-offer__title">Примечание к доставке</div>
+                <div class="components-cards-sale-offer__value">{{$saleOffer['delivery_description']}}</div>
+            </div>
+        @endif
+        <div class="components-cards-sale-offer__item-container">
+            <div class="components-cards-sale-offer__title">Адрес</div>
+            <div class="components-cards-sale-offer__value">{{$saleOffer['address']}}</div>
+        </div>
+        @if($saleOffer['organization'])
+            <div class="components-cards-sale-offer__item-container">
+                <div class="components-cards-sale-offer__title">Организация</div>
+                <div class="components-cards-sale-offer__value">{{$saleOffer['organization']['title']}}</div>
+            </div>
+        @endif
+        @if($saleOffer['sale_points'])
+            <div class="components-cards-sale-offer__item-container">
+                <div class="components-cards-sale-offer__title">Торговые точки</div>
+                <div class="components-cards-sale-offer__value">
+                    @foreach($saleOffer['sale_points'] as $salePointItem)
+                        <div>{{$salePointItem['title']}}</div>
+                    @endforeach
                 </div>
-                <div class="components-cards-sale-offer__description-container">
-                    {{$saleOffer['description']}}
-                </div>
+            </div>
+        @endif
+        <div class="components-cards-sale-offer__item-container">
+            <div class="components-cards-sale-offer__title">Фото</div>
+            <div class="components-cards-sale-offer__image-list-container">
+                @foreach($saleOffer['photoArray'] as $photoImg)
+                    <div class="components-cards-sale-offer__image-item-container">
+                        <img alt="" class="components-cards-sale-offer__image" src="{{$photoImg}}">
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
