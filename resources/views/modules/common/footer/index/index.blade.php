@@ -64,7 +64,7 @@
                     </a>
                 </div>
                 <div class="modules-common-footer-index__social-media">
-                    <div>Социальные сети</div>
+{{--                    <div>Социальные сети</div>--}}
                 </div>
             </div>
             <div class="modules-common-footer-index__block-top-right">
@@ -94,6 +94,12 @@
                                         @include('icons.messengers.telegram')
                                     </a>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="modules-common-footer-index__share-block">
+                            <div>Вы можете поддержать проект - поделитесь ссылкой на сайт!</div>
+                            <div class="modules-common-footer-index__share-block-icons-container">
+                                @include('components.share.common.index')
                             </div>
                         </div>
                     </div>
