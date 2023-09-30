@@ -64,7 +64,7 @@
                     </a>
                 </div>
                 <div class="modules-common-footer-index__social-media">
-{{--                    <div>Социальные сети</div>--}}
+                    @include('components.contacts.links.common.index')
                 </div>
             </div>
             <div class="modules-common-footer-index__block-top-right">
