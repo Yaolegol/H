@@ -1,7 +1,7 @@
 <div class="components-contacts-links-common">
     <div class="components-contacts-links-common__container">
-        <a href="viber://chat?number=%2B79539117514" rel="noopener noreferrer" target="_blank">
-            @include('icons.messengers.viber')
+        <a href="https://t.me/Clickferma" rel="noopener noreferrer" target="_blank">
+            @include('icons.messengers.telegram')
         </a>
     </div>
     <div class="components-contacts-links-common__container">
@@ -10,8 +10,8 @@
         </a>
     </div>
     <div class="components-contacts-links-common__container">
-        <a href="https://t.me/Clickferma" rel="noopener noreferrer" target="_blank">
-            @include('icons.messengers.telegram')
+        <a href="viber://chat?number=%2B79539117514" rel="noopener noreferrer" target="_blank">
+            @include('icons.messengers.viber')
         </a>
     </div>
 </div>
