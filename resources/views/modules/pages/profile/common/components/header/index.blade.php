@@ -8,7 +8,7 @@
     <div class="modules-pages-profile-common-components-container-header__help-area">
         <div>Возникли трудности?</div>
         <div>Напишите нам - мы обязательно Вам поможем!</div>
-        <div>
+        <div class="modules-pages-profile-common-components-container-header__help-area-messengers">
             @include('components.contacts.links.common.index')
         </div>
     </div>
