@@ -16,15 +16,25 @@
             </div>
         </div>
     @else
-        <div class="components-cards-sale-offer__moderation-label {{$saleOffer['is_approved'] ? 'components-cards-sale-offer__moderation-label_approved' : ''}}">
-            {{$saleOffer['is_approved'] ? 'Опубликовано' : 'На проверке'}}
-            <div class="components-cards-sale-offer__moderation-hint">
-                <div>Ваше сообщение проверяется администрацией сайта!</div>
-                <div class="components-cards-sale-offer__moderation-hint-container">После проверки оно будет опубликовано или отклонено с указанием причины</div>
-                <div class="components-cards-sale-offer__moderation-hint-container">Обычно проверка занимает не более суток</div>
-                <div class="components-cards-sale-offer__moderation-hint-container">Спасибо за терпение!</div>
+        @if($saleOffer['is_enabled'])
+            <div class="components-cards-sale-offer__moderation-label {{$saleOffer['is_approved'] ? 'components-cards-sale-offer__moderation-label_approved' : ''}}">
+                {{$saleOffer['is_approved'] ? 'Опубликовано' : 'На проверке'}}
+                <div class="components-cards-sale-offer__moderation-hint">
+                    <div>Ваше сообщение проверяется администрацией сайта!</div>
+                    <div class="components-cards-sale-offer__moderation-hint-container">После проверки оно будет опубликовано или отклонено с указанием причины</div>
+                    <div class="components-cards-sale-offer__moderation-hint-container">Обычно проверка занимает не более суток</div>
+                    <div class="components-cards-sale-offer__moderation-hint-container">Спасибо за терпение!</div>
+                </div>
             </div>
-        </div>
+        @else
+            <div class="components-cards-sale-offer__moderation-label">
+                Вы приостановили публикацию
+                <div class="components-cards-sale-offer__moderation-hint">
+                    <div>Вы приостановили публикацию</div>
+                    <div class="components-cards-sale-offer__moderation-hint-container">Чтобы возобновить публикацию, нажмите "Возобновить публикацию" ниже</div>
+                </div>
+            </div>
+        @endif
     @endif
 
     <div class="components-cards-sale-offer__info-area">
@@ -108,22 +118,24 @@
     </div>
 
    <div>
-       @if($saleOffer['is_approved'])
-           <div class="components-cards-sale-offer__approved-block">
-               <div class="components-cards-sale-offer__approved-block-title">Поздравляем!</div>
-               <div class="components-cards-sale-offer__approved-block-container">Для Вашего товара создана отдельная страница:</div>
-               <div>
-                   <a
-                       class="components-cards-sale-offer__approved-block-link"
-                       href="/offers/{{$saleOffer['id']}}"
-                   >
-                       {{request()->getHost()}}/offers/{{$saleOffer['id']}}
-                   </a>
+       @if($saleOffer['is_enabled'])
+           @if($saleOffer['is_approved'])
+               <div class="components-cards-sale-offer__approved-block">
+                   <div class="components-cards-sale-offer__approved-block-title">Поздравляем!</div>
+                   <div class="components-cards-sale-offer__approved-block-container">Для Вашего товара создана отдельная страница:</div>
+                   <div>
+                       <a
+                           class="components-cards-sale-offer__approved-block-link"
+                           href="/offers/{{$saleOffer['id']}}"
+                       >
+                           {{request()->getHost()}}/offers/{{$saleOffer['id']}}
+                       </a>
+                   </div>
+                   <div class="components-cards-sale-offer__approved-block-container">
+                       Отправьте эту ссылку покупателям, чтобы его можно было легко найти на сайте!
+                   </div>
                </div>
-               <div class="components-cards-sale-offer__approved-block-container">
-                   Отправьте эту ссылку покупателям, чтобы его можно было легко найти на сайте!
-               </div>
-           </div>
+           @endif
        @endif
    </div>
 
