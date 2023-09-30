@@ -127,4 +127,6 @@ Route::middleware(['auth', 'userExistsWeb'])->group(function () {
     Route::put('/profile/sale-offers/{id}', [ProfileSaleOffersController::class, 'update']);
     Route::get('/profile/sale-offers', [ProfileSaleOffersController::class, 'index']);
     Route::post('/profile/sale-offers', [ProfileSaleOffersController::class, 'store']);
+    Route::get('/profile/sale-offers/{id}/disable', [ProfileSaleOffersController::class, 'disable']);
+    Route::get('/profile/sale-offers/{id}/enable', [ProfileSaleOffersController::class, 'enable']);
 });

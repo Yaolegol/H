@@ -34,6 +34,17 @@ function DB_createSaleOffer($request, $userId) {
     }
 }
 
+function DB_toggleOfferEnable($user_id, $saleOfferId, $isEnabled) {
+    $saleOffer = Offer::where([
+        ['user_id', $user_id],
+        ['id', $saleOfferId],
+        ['is_removed', false],
+    ])->first();
+
+    $saleOffer->is_enabled = $isEnabled;
+    $saleOffer->save();
+}
+
 function DB_destroySaleOfferItem($user_id, $saleOfferId) {
 //    $saleOffer = Offer::where([
 //        ['user_id', $user_id],
@@ -160,6 +171,19 @@ function checkIsCatalogLevelOneItemCreated($request, $offerId = null) {
     }
 
     return (string) $offer->id !== $offerId;
+}
+
+function toggleOfferEnable($id, $isEnabled) {
+    try {
+        $authUser = Auth::user();
+        $user_id = $authUser->id;
+
+        DB_toggleOfferEnable($user_id, $id, $isEnabled);
+
+        return true;
+    } catch (\Exception $error) {
+        return false;
+    }
 }
 
 function formatSaleOffersListItemsAssetsPath(&$saleOffersList) {

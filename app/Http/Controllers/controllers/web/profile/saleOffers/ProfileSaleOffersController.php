@@ -61,6 +61,44 @@ class ProfileSaleOffersController extends Controller
     }
 
     /**
+     * Show the form for creating a new resource.
+     *
+     * @return Response
+     */
+    public function enable(Request $request, $saleOfferId)
+    {
+        $isSaved = toggleOfferEnable($saleOfferId, 1);
+
+        if($isSaved) {
+            return redirect('/profile/sale-offers');
+        }
+
+        return back()
+            ->withErrors([
+                'commonError' => 'Что-то пошло не так. Попробуйте снова'
+            ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return Response
+     */
+    public function disable(Request $request, $saleOfferId)
+    {
+        $isSaved = toggleOfferEnable($saleOfferId, 0);
+
+        if($isSaved) {
+            return redirect('/profile/sale-offers');
+        }
+
+        return back()
+            ->withErrors([
+                'commonError' => 'Что-то пошло не так. Попробуйте снова'
+            ]);
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  Request  $request
