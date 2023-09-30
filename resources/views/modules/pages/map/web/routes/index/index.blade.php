@@ -5,7 +5,7 @@
                 @include('components.info.common.index', [
                     'className' => 'modules-pages-map-web-routes-index__share-block',
                     'id' => 'local_storage__info_share',
-                    'text' => 'Мы только открылись!<br /> Вы можете поддержать проект - поделитесь ссылкой на сайт в социальных сетях!',
+                    'text' => 'Мы только открылись!<br /> Вы можете поддержать проект - поделитесь ссылкой на сайт!',
                 ])
                 <div class="modules-pages-map-web-routes-index__add-product-block">
                     @guest
