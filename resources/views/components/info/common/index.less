@@ -1,9 +1,18 @@
+@import (reference) '~styles/adaptive';
 @import (reference) '~styles/colors';
 
 .components-info-common {
     &__button {
         font-style: italic;
         text-decoration: underline;
+    }
+
+    &__message-area {
+        display: flex;
+
+        @media @tablet {
+            justify-content: center;
+        }
     }
 
     &__text {
