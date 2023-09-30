@@ -67,16 +67,31 @@
        @endif
    </div>
 
-    <div class="components-cards-sale-offer__service-container">
-        <div class="components-cards-sale-offer__edit-button-container">
-            <a class="components-cards-sale-offer__link components-cards-sale-offer__link_edit" href="./sale-offers/edit/{{$saleOffer['id']}}">Редактировать</a>
+    <div class="components-cards-sale-offer__service-area">
+        <div class="components-cards-sale-offer__service-buttons-container-additional">
+            <div>
+                <a
+                    class="components-cards-sale-offer__link"
+                    href=""
+                >
+                    Приостановить публикацию
+                </a>
+            </div>
         </div>
-        <div class="components-cards-sale-offer__remove-button-container">
-            <button
-                class="components-cards-sale-offer__link components-cards-sale-offer__link_remove j-components-buttons-modal-open"
-                data-href="/profile/sale-offers/destroy/{{$saleOffer['id']}}"
-                data-template-id="confirm-remove"
-            >Удалить</button>
+        <div class="components-cards-sale-offer__service-buttons-container-main">
+            <div class="components-cards-sale-offer__edit-button-container">
+                <a
+                    class="components-cards-sale-offer__link components-cards-sale-offer__link_edit"
+                    href="./sale-offers/edit/{{$saleOffer['id']}}"
+                >Редактировать</a>
+            </div>
+            <div class="components-cards-sale-offer__remove-button-container">
+                <button
+                    class="components-cards-sale-offer__link components-cards-sale-offer__link_remove j-components-buttons-modal-open"
+                    data-href="/profile/sale-offers/destroy/{{$saleOffer['id']}}"
+                    data-template-id="confirm-remove"
+                >Удалить</button>
+            </div>
         </div>
     </div>
 </div>

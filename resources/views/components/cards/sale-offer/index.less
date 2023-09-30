@@ -184,10 +184,28 @@
         .ellipsis(2);
     }
 
-    &__service-container {
+    &__service-area {
         display: flex;
         justify-content: flex-end;
         margin-top: 25px;
+
+        @media @mobile {
+            display: unset;
+        }
+    }
+
+    &__service-buttons-container-additional {
+        text-align: right;
+    }
+
+    &__service-buttons-container-main {
+        display: flex;
+        justify-content: flex-end;
+        margin: 0 0 0 15px;
+
+        @media @mobile {
+            margin: 15px 0 0;
+        }
     }
 
     &__remove-button-container {
