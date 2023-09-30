@@ -1,8 +1,6 @@
 @import (reference) '~styles/colors';
 
 .modules-pages-offers-routes-show {
-    text-align: center;
-
     &__additional-info-block {
         margin-top: 25px;
     }
@@ -33,10 +31,19 @@
     &__content-area {
         margin: 50px auto 0;
         max-width: 800px;
-        position: relative;
 
         @media (max-width: 1023px) {
             margin: 25px auto 0;
+        }
+    }
+
+    &__content-block {
+        margin: 50px 0 0;
+        position: relative;
+        text-align: center;
+
+        @media (max-width: 1023px) {
+            margin: 25px 0 0;
         }
     }
 
@@ -112,6 +119,16 @@
         margin-top: 20px;
     }
 
+    &__rating-create-area {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__rating-create-block {
+        flex: 1 1 auto;
+        max-width: 500px;
+    }
+
     &__rating-error-message {
         margin-top: 15px;
     }
@@ -130,6 +147,7 @@
 
     &__rating-item {
         margin-top: 20px;
+        max-width: 500px;
 
         &_center {
             display: flex;
@@ -138,12 +156,12 @@
     }
 
     &__rating-submit-button {
-        border: 1px solid @black_10;
         border-radius: 8px;
+        box-shadow: 0 0 10px 1px @shadow;
         padding: 20px;
 
         &:hover {
-            border-color: @black_20;
+            box-shadow: 0 0 10px 1px @shadow_hover;
         }
     }
 

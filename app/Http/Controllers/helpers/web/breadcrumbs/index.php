@@ -50,7 +50,7 @@ function getOfferBreadcrumbs()
         [
             'isLink' => true,
             'link' => '/catalog',
-            'title' => 'Каталог',
+            'title' => 'Перейти в каталог',
         ],
     ];
 }
