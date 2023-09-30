@@ -41,6 +41,18 @@
         <div class="components-admin-cards-offer__title">ID</div>
         <div class="components-admin-cards-offer__value">{{$notApprovedItem['id']}}</div>
     </div>
+        <div class="components-admin-cards-offer__item-container">
+            <div class="components-admin-cards-offer__title">Категории</div>
+            @foreach($notApprovedItem['catalog_level_one'] as $item)
+                <div class="components-admin-cards-offer__value">{{$item['title']}}</div>
+            @endforeach
+        </div>
+        <div class="components-admin-cards-offer__item-container">
+            <div class="components-admin-cards-offer__title">Подкатегории</div>
+            @foreach($notApprovedItem['catalog_level_two'] as $item)
+                <div class="components-admin-cards-offer__value">{{$item['title']}}</div>
+            @endforeach
+        </div>
     <div class="components-admin-cards-offer__item-container components-admin-cards-offer__item-container_without-offset">
         <div class="components-admin-cards-offer__title">Название</div>
         <div class="components-admin-cards-offer__value">{{$notApprovedItem['title']}}</div>
