@@ -32,7 +32,7 @@ function formatSellerData($sellerData) {
 
     if($sellerData['offers']) {
         $offers_approved = array_filter($sellerData['offers'], function($offer) {
-            return $offer['is_approved'] === 1;
+            return $offer['is_approved'] === 1 && $offer['is_enabled'];
         });
         $sellerData['offers'] = formatOffers($offers_approved);
     }

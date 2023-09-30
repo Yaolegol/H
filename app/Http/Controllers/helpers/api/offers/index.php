@@ -27,6 +27,7 @@ function API_DB_getOffer($id)
 function API_DB_getOffers($filters = []) {
     try {
         $filter = [
+            'is_enabled' => 1,
             'is_approved' => 1,
             'is_removed' => 0,
         ];

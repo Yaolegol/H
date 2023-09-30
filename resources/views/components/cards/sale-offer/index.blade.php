@@ -130,12 +130,21 @@
     <div class="components-cards-sale-offer__service-area">
         <div class="components-cards-sale-offer__service-buttons-container-additional">
             <div>
-                <a
-                    class="components-cards-sale-offer__link"
-                    href=""
-                >
-                    Приостановить публикацию
-                </a>
+                @if($saleOffer['is_enabled'])
+                    <a
+                        class="components-cards-sale-offer__link"
+                        href="./sale-offers/{{$saleOffer['id']}}/disable"
+                    >
+                        Приостановить публикацию
+                    </a>
+                @else
+                    <a
+                        class="components-cards-sale-offer__link"
+                        href="./sale-offers/{{$saleOffer['id']}}/enable"
+                    >
+                        Возобновить публикацию
+                    </a>
+                @endif
             </div>
         </div>
         <div class="components-cards-sale-offer__service-buttons-container-main">

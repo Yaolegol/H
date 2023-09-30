@@ -11,6 +11,7 @@ function DB_getOffer($id)
     try {
         $offerData = Offer::where([
             'id' => $id,
+            'is_enabled' => 1,
             'is_approved' => true,
             'is_removed' => false,
         ])->with([
@@ -38,6 +39,7 @@ function DB_getOffer($id)
 function DB_getOffers($filters) {
     try {
         $filter = [
+            'is_enabled' => 1,
             'is_removed' => false,
             'is_approved' => 1,
         ];

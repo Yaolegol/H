@@ -43,6 +43,7 @@ function apiGetAllOffersByCatalogLevelTwo($idList) {
 function apiGetAllOffersMapMarkersDataFormatted($request) {
     $requestFilter = $request->input('filter') ?? [];
     $DBFilter = [
+        ['is_enabled', 1],
         ['is_approved', true],
         ['is_removed', false],
     ];
