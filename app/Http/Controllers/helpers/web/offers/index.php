@@ -123,6 +123,32 @@ function getOfferCategoriesData($offer) {
         array_push($dataList, $item);
     }
 
+    usort($dataList, function ($item1, $item2) {
+        if($item1['id'] == 999) {
+            return 1;
+        }
+
+        if($item2['id'] == 999) {
+            return -1;
+        }
+
+        return strcmp($item1['title'], $item2['title']);
+    });
+
+    foreach ($dataList as $item) {
+        usort($item['catalog_level_two'], function ($item1, $item2) {
+            if($item1['title'] == 'Остальное') {
+                return 1;
+            }
+
+            if($item2['title'] == 'Остальное') {
+                return -1;
+            }
+
+            return strcmp($item1['title'], $item2['title']);
+        });
+    }
+
     return $dataList;
 }
 
