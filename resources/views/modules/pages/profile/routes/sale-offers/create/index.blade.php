@@ -75,10 +75,10 @@
                     ])
                 @endcomponent
 
-                @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Описание товара:'])
+                @component('modules.pages.profile.common.components.container.form-field.index', ['title' => 'Описание:'])
                     @include('components.inputs.form.index', [
                                     'name' => 'description',
-                                    'placeholder' => 'Описание товара',
+                                    'placeholder' => 'Описание',
                                     'type' => 'text',
                                     'value' => old('description'),
                                 ])
@@ -133,7 +133,7 @@
                 ])
                     @include('components.inputs.textarea.base.index', [
                                     'name' => 'price',
-                                    'placeholder' => 'Цена',
+                                    'placeholder' => 'Например, яблоки от 50руб., груши от 80руб.',
                                     'required' => true,
                                     'value' => old('price'),
                                 ])
