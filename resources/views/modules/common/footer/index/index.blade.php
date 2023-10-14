@@ -66,6 +66,12 @@
                 <div class="modules-common-footer-index__social-media">
                     @include('components.contacts.links.common.index')
                 </div>
+                <div class="modules-common-footer-index__about">
+                    <a
+                        href="/help"
+                        target="_blank"
+                    >О проекте</a>
+                </div>
             </div>
             <div class="modules-common-footer-index__block-top-right">
                 <div class="modules-common-footer-index__contacts-block-right">
