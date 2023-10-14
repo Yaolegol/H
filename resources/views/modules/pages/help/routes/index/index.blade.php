@@ -29,11 +29,17 @@
                 <span class="modules-pages-help-routes-index__bold">Это просто и бесплатно!</span><br />Вот небольшая видеоинструкция - всего 1 минута!
             </div>
             <div class="modules-pages-help-routes-index__block-content-video">
-                <video
-                    class="modules-pages-help-routes-index__video"
-                    controls
-                    src="/video/profile/1.mp4"
-                ></video>
+                <div class="modules-pages-help-routes-index__video-block">
+                    <div class="modules-pages-help-routes-index__video-container">
+                        <video
+                            class="modules-pages-help-routes-index__video"
+                            controls
+                            poster="/build/icons/favicon/favicon.svg"
+                            preload="none"
+                            src="/video/profile/1.mp4"
+                        ></video>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="modules-pages-help-routes-index__block">
@@ -44,11 +50,17 @@
                 <span class="modules-pages-help-routes-index__bold">Это просто и бесплатно!</span><br />Вот небольшая видеоинструкция - всего 1 минута!
             </div>
             <div class="modules-pages-help-routes-index__block-content-video">
-                <video
-                    class="modules-pages-help-routes-index__video"
-                    controls
-                    src="/video/profile/1.mp4"
-                ></video>
+                <div class="modules-pages-help-routes-index__video-block">
+                    <div class="modules-pages-help-routes-index__video-container">
+                        <video
+                            class="modules-pages-help-routes-index__video"
+                            controls
+                            poster="/build/icons/favicon/favicon.svg"
+                            preload="none"
+                            src="/video/profile/1.mp4"
+                        ></video>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="modules-pages-help-routes-index__block">
@@ -59,11 +71,17 @@
                 <span class="modules-pages-help-routes-index__bold">Это просто и бесплатно!</span><br />Вот небольшая видеоинструкция - всего 1 минута!
             </div>
             <div class="modules-pages-help-routes-index__block-content-video">
-                <video
-                    class="modules-pages-help-routes-index__video"
-                    controls
-                    src="/video/profile/1.mp4"
-                ></video>
+                <div class="modules-pages-help-routes-index__video-block">
+                    <div class="modules-pages-help-routes-index__video-container">
+                        <video
+                            class="modules-pages-help-routes-index__video"
+                            controls
+                            poster="/build/icons/favicon/favicon.svg"
+                            preload="none"
+                            src="/video/profile/1.mp4"
+                        ></video>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="modules-pages-help-routes-index__block">
@@ -74,11 +92,17 @@
                 <span class="modules-pages-help-routes-index__bold">Это просто и бесплатно!</span><br />Вот небольшая видеоинструкция - всего 1 минута!
             </div>
             <div class="modules-pages-help-routes-index__block-content-video">
-                <video
-                    class="modules-pages-help-routes-index__video"
-                    controls
-                    src="/video/profile/1.mp4"
-                ></video>
+                <div class="modules-pages-help-routes-index__video-block">
+                    <div class="modules-pages-help-routes-index__video-container">
+                        <video
+                            class="modules-pages-help-routes-index__video"
+                            controls
+                            poster="/build/icons/favicon/favicon.svg"
+                            preload="none"
+                            src="/video/profile/1.mp4"
+                        ></video>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
