@@ -11,11 +11,19 @@ class UserSeeder extends Seeder
     public $data = [
         [
             'avatar' => '',
-            'description' => 'Админ 1',
+            'description' => '',
             'is_admin' => true,
             'lang_id' => 1,
             'name' => 'Админ',
-            'password' => '',
+            'password' => '13467928465!',
+            'phone' => '71346792846',
+        ],
+        [
+            'avatar' => '',
+            'description' => 'Начинающий фермер!',
+            'lang_id' => 1,
+            'name' => 'Иван Иванович (образец пользователя)',
+            'password' => '13467928465!',
             'phone' => '71111111111',
         ],
     ];
@@ -28,7 +36,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         foreach ($this->data as $dataItem) {
-            $hashPassword = Hash::make('13467982465!');
+            $hashPassword = Hash::make($dataItem['password']);
             $dataItem['password'] = $hashPassword;
 
             DB::table('users')->insert($dataItem);
