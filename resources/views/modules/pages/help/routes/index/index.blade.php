@@ -26,7 +26,7 @@
                 Как разместить товар на сайте?
             </h4>
             <div class="modules-pages-help-routes-index__block-content">
-                Это просто и бесплатно!<br />Вот небольшая видеоинструкция - всего 1 минута!
+                <span class="modules-pages-help-routes-index__bold">Это просто и бесплатно!</span><br />Вот небольшая видеоинструкция - всего 1 минута!
             </div>
             <div class="modules-pages-help-routes-index__block-content-video">
                 <video
@@ -41,7 +41,7 @@
                 Как указать имя и добавить фото?
             </h4>
             <div class="modules-pages-help-routes-index__block-content">
-                Это просто и бесплатно!<br />Вот небольшая видеоинструкция - всего 1 минута!
+                <span class="modules-pages-help-routes-index__bold">Это просто и бесплатно!</span><br />Вот небольшая видеоинструкция - всего 1 минута!
             </div>
             <div class="modules-pages-help-routes-index__block-content-video">
                 <video
@@ -56,7 +56,7 @@
                 Как добавить торговую точку?
             </h4>
             <div class="modules-pages-help-routes-index__block-content">
-                Это просто и бесплатно!<br />Вот небольшая видеоинструкция - всего 1 минута!
+                <span class="modules-pages-help-routes-index__bold">Это просто и бесплатно!</span><br />Вот небольшая видеоинструкция - всего 1 минута!
             </div>
             <div class="modules-pages-help-routes-index__block-content-video">
                 <video
@@ -71,7 +71,7 @@
                 Как добавить организацию?
             </h4>
             <div class="modules-pages-help-routes-index__block-content">
-                Это просто и бесплатно!<br />Вот небольшая видеоинструкция - всего 1 минута!
+                <span class="modules-pages-help-routes-index__bold">Это просто и бесплатно!</span><br />Вот небольшая видеоинструкция - всего 1 минута!
             </div>
             <div class="modules-pages-help-routes-index__block-content-video">
                 <video
