@@ -78,9 +78,9 @@
                             <div class="modules-common-footer-index__contacts-item">
                                 <a href="mailto:clickferma@yandex.ru">clickferma@yandex.ru</a>
                             </div>
-                            <div class="modules-common-footer-index__contacts-item modules-common-footer-index__contacts-item_flex">
-                                @include('components.contacts.links.common.index')
-                            </div>
+{{--                            <div class="modules-common-footer-index__contacts-item modules-common-footer-index__contacts-item_flex">--}}
+{{--                                @include('components.contacts.links.common.index')--}}
+{{--                            </div>--}}
                         </div>
                         <div class="modules-common-footer-index__share-block">
                             <div>Вы можете поддержать проект - поделитесь ссылкой на сайт!</div>
