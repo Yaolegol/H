@@ -14,6 +14,7 @@ use App\Http\Controllers\controllers\web\authorization\register\RegisterControll
 use App\Http\Controllers\controllers\web\catalog\CatalogController;
 use App\Http\Controllers\controllers\web\copyright\CopyrightController;
 use App\Http\Controllers\controllers\web\favorites\FavoritesController;
+use App\Http\Controllers\controllers\web\help\HelpController;
 use App\Http\Controllers\controllers\web\legal\LegalController;
 use App\Http\Controllers\controllers\web\map\MapController;
 use App\Http\Controllers\controllers\web\offers\OffersController;
@@ -67,6 +68,8 @@ Route::get('/mobile-app/map/single-point', [MapMobileAppSinglePoint::class, 'sin
 Route::get('/legal/rules/cookie', [LegalController::class, 'cookie']);
 Route::get('/legal/rules/privacy-policy', [LegalController::class, 'privacyPolicy']);
 Route::get('/legal/rules/terms-of-use', [LegalController::class, 'termsOfUse']);
+
+Route::get('/help', [HelpController::class, 'index']);
 
 Route::get('/copyright/images', [CopyrightController::class, 'images']);
 

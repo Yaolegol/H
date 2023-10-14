@@ -56,6 +56,7 @@ const createConfig = (env, argv) => {
             catalog_secondLevel_index: path.resolve(appDirectoriesData.path_pages, 'catalog', 'secondLevel', 'index'),
             copyright_images: path.resolve(appDirectoriesData.path_pages, 'copyright', 'images', 'index'),
             favorites_index: path.resolve(appDirectoriesData.path_pages, 'favorites', 'index'),
+            help_index: path.resolve(appDirectoriesData.path_pages, 'help', 'index'),
             legal_cookie: path.resolve(appDirectoriesData.path_pages, 'legal', 'cookie', 'index'),
             legal_privacyPolicy: path.resolve(appDirectoriesData.path_pages, 'legal', 'privacyPolicy', 'index'),
             legal_termsOfUse: path.resolve(appDirectoriesData.path_pages, 'legal', 'termsOfUse', 'index'),
