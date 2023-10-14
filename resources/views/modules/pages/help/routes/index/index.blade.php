@@ -22,9 +22,54 @@
     </div>
     <div class="modules-pages-help-routes-index__area modules-pages-help-routes-index__area_faq">
         <div class="modules-pages-help-routes-index__block">
-            <div class="modules-pages-help-routes-index__block-title">
+            <h4 class="modules-pages-help-routes-index__block-title">
                 Как разместить товар на сайте?
+            </h4>
+            <div class="modules-pages-help-routes-index__block-content">
+                Это просто и бесплатно!<br />Вот небольшая видеоинструкция - всего 1 минута!
             </div>
+            <div class="modules-pages-help-routes-index__block-content-video">
+                <video
+                    class="modules-pages-help-routes-index__video"
+                    controls
+                    src="/video/profile/1.mp4"
+                ></video>
+            </div>
+        </div>
+        <div class="modules-pages-help-routes-index__block">
+            <h4 class="modules-pages-help-routes-index__block-title">
+                Как указать имя и добавить фото?
+            </h4>
+            <div class="modules-pages-help-routes-index__block-content">
+                Это просто и бесплатно!<br />Вот небольшая видеоинструкция - всего 1 минута!
+            </div>
+            <div class="modules-pages-help-routes-index__block-content-video">
+                <video
+                    class="modules-pages-help-routes-index__video"
+                    controls
+                    src="/video/profile/1.mp4"
+                ></video>
+            </div>
+        </div>
+        <div class="modules-pages-help-routes-index__block">
+            <h4 class="modules-pages-help-routes-index__block-title">
+                Как добавить торговую точку?
+            </h4>
+            <div class="modules-pages-help-routes-index__block-content">
+                Это просто и бесплатно!<br />Вот небольшая видеоинструкция - всего 1 минута!
+            </div>
+            <div class="modules-pages-help-routes-index__block-content-video">
+                <video
+                    class="modules-pages-help-routes-index__video"
+                    controls
+                    src="/video/profile/1.mp4"
+                ></video>
+            </div>
+        </div>
+        <div class="modules-pages-help-routes-index__block">
+            <h4 class="modules-pages-help-routes-index__block-title">
+                Как добавить организацию?
+            </h4>
             <div class="modules-pages-help-routes-index__block-content">
                 Это просто и бесплатно!<br />Вот небольшая видеоинструкция - всего 1 минута!
             </div>
