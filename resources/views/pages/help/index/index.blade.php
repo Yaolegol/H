@@ -1,6 +1,4 @@
-@extends('modules.common.layout.web.index', [
-    'withoutOffset' => true
-])
+@extends('modules.common.layout.web.index')
 
 @section('layout-styles')
     <link
