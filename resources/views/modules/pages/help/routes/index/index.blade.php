@@ -23,10 +23,17 @@
     <div class="modules-pages-help-routes-index__area modules-pages-help-routes-index__area_faq">
         <div class="modules-pages-help-routes-index__block">
             <div class="modules-pages-help-routes-index__block-title">
-                test 1
+                Как разместить товар на сайте?
             </div>
             <div class="modules-pages-help-routes-index__block-content">
-                test 2
+                Это просто и бесплатно!<br />Вот небольшая видеоинструкция - всего 1 минута!
+            </div>
+            <div class="modules-pages-help-routes-index__block-content-video">
+                <video
+                    class="modules-pages-help-routes-index__video"
+                    controls
+                    src="/video/profile/1.mp4"
+                ></video>
             </div>
         </div>
     </div>
