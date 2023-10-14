@@ -6,10 +6,20 @@
         <a href="/logout">Выйти</a>
     </div>
     <div class="modules-pages-profile-common-components-container-header__help-area">
-        <div>Возникли трудности?</div>
-        <div>Напишите нам - мы обязательно Вам поможем!</div>
-        <div class="modules-pages-profile-common-components-container-header__help-area-messengers">
-            @include('components.contacts.links.common.index')
+        <div class="modules-pages-profile-common-components-container-header__help-block">
+            <div class="modules-pages-profile-common-components-container-header__help-title">Возникли трудности?</div>
+        </div>
+        <div class="modules-pages-profile-common-components-container-header__help-block">
+            <a
+                class="modules-pages-profile-common-components-container-header__help-video-link"
+                href=""
+            >Посмотрите короткую видеоинструкцию</a>
+        </div>
+        <div class="modules-pages-profile-common-components-container-header__help-block">или напишите нам - мы обязательно Вам поможем!</div>
+        <div class="modules-pages-profile-common-components-container-header__help-block">
+            <div class="modules-pages-profile-common-components-container-header__help-area-messengers">
+                @include('components.contacts.links.common.index')
+            </div>
         </div>
     </div>
     <div class="modules-pages-profile-common-components-container-header__tabs-block">
