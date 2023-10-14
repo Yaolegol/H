@@ -1,3 +1,33 @@
 <div class="modules-pages-help-routes-index">
-test
+    <div class="modules-pages-help-routes-index__area">
+        <h1 class="modules-pages-help-routes-index__area-title">
+            О проекте
+        </h1>
+        <div class="modules-pages-help-routes-index__area-description">
+            <span class="modules-pages-help-routes-index__bold">Кликферма</span><br />это сайт, на котором каждый может <span class="modules-pages-help-routes-index__bold">абсолютно бесплатно</span><br />и <span class="modules-pages-help-routes-index__bold">за пару кликов разместить объявление</span><br /> о продаже фермерской продукции!
+        </div>
+        <div class="modules-pages-help-routes-index__area-description">
+            Мы хотим помочь фермерам найти покупателей,<br />а покупателям - фермера!
+        </div>
+    </div>
+    <div class="modules-pages-help-routes-index__area modules-pages-help-routes-index__area_join">
+        <div class="modules-pages-help-routes-index__block-join">
+            <div class="modules-pages-help-routes-index__block-join-title">
+                Присоединяйтесь!
+            </div>
+            <div class="modules-pages-help-routes-index__block-join-media">
+                @include('components.contacts.links.common.index')
+            </div>
+        </div>
+    </div>
+    <div class="modules-pages-help-routes-index__area modules-pages-help-routes-index__area_faq">
+        <div class="modules-pages-help-routes-index__block">
+            <div class="modules-pages-help-routes-index__block-title">
+                test 1
+            </div>
+            <div class="modules-pages-help-routes-index__block-content">
+                test 2
+            </div>
+        </div>
+    </div>
 </div>
