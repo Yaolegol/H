@@ -1,5 +1,15 @@
 <div class="components-contacts-links-common">
     <div class="components-contacts-links-common__container">
+        <a href="#" rel="noopener noreferrer" target="_blank">
+            @include('icons.social.vk')
+        </a>
+    </div>
+    <div class="components-contacts-links-common__container">
+        <a href="#" rel="noopener noreferrer" target="_blank">
+            @include('icons.social.ok')
+        </a>
+    </div>
+    <div class="components-contacts-links-common__container">
         <a href="https://t.me/Clickferma" rel="noopener noreferrer" target="_blank">
             @include('icons.messengers.telegram')
         </a>
