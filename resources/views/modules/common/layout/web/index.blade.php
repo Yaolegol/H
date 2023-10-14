@@ -40,6 +40,18 @@
         <meta property="og:image" content="https://clickferma.ru/build/icons/favicon/favicon.svg">
     </head>
     <body class="j-location-controller j-modules-pages-map-web-common-components-filters-product-controller">
+        <!-- SVG Styles for telegram -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" viewBox="0 0 44 44" fill="none" style="position: absolute; pointer-events: none;">
+            <defs>
+                <linearGradient id="paint0_linear_14_67" x1="2200" y1="0" x2="2200" y2="4367.37" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#2AABEE"/>
+                    <stop offset="1" stop-color="#229ED9"/>
+                </linearGradient>
+                <clipPath id="clip0_14_67">
+                    <rect width="44" height="44" fill="white"/>
+                </clipPath>
+            </defs>
+        </svg>
         <div class="j-csrf-token" data-value="{{ csrf_token() }}"></div>
         @auth
             <div class="j-user__auth"></div>
