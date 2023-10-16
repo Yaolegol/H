@@ -2,10 +2,25 @@
 
 .components-buttons-category-common-group {
     &__item {
+        align-items: center;
+        display: flex;
         margin-top: 5px;
 
         &:first-child {
             margin-top: 0;
+        }
+    }
+
+    &__item-arrow {
+        background-color: @green_100;
+        border-radius: 50%;
+        display: none;
+        height: 5px;
+        margin-right: 10px;
+        width: 5px;
+
+        .components-buttons-category-common-group__item.active & {
+            display: block;
         }
     }
 }
