@@ -33,6 +33,8 @@ class MapYandexComponentsViewAll {
                 const markerInstance = new ymaps.Placemark(
                     [lat, lng],
                     {
+                        balloonContentBody: getOfferBalloon(offer, id.toString()),
+                        balloonContentHeader: offer['product']['title'],
                         data: {
                             offer,
                         },
