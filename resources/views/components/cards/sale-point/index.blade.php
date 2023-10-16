@@ -17,10 +17,10 @@
         </div>
     @else
         <div class="components-cards-sale-point__moderation-label {{$salePoint['is_approved'] ? 'components-cards-sale-point__moderation-label_approved' : ''}}">
-            {{$salePoint['is_approved'] ? 'Опубликовано' : 'На проверке'}}
+            {{$salePoint['is_approved'] ? 'Одобрено' : 'На проверке'}}
             <div class="components-cards-sale-point__moderation-hint">
                 <div>Ваше сообщение проверяется администрацией сайта!</div>
-                <div class="components-cards-sale-point__moderation-hint-container">После проверки оно будет опубликовано или отклонено с указанием причины</div>
+                <div class="components-cards-sale-point__moderation-hint-container">После проверки оно будет одобрено или отклонено с указанием причины</div>
                 <div class="components-cards-sale-point__moderation-hint-container">Обычно проверка занимает не более суток</div>
                 <div class="components-cards-sale-point__moderation-hint-container">Спасибо за терпение!</div>
             </div>
