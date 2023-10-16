@@ -1,5 +1,6 @@
 import {addEventListener} from 'helpers/events';
 import {module} from "helpers/module";
+import 'views/components/share/common';
 import './index.less';
 
 export class Info {

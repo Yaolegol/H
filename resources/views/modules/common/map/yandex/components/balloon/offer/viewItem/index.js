@@ -1,10 +1,222 @@
+import {plural_ru} from "helpers/plural";
 import './index.less';
 
+const getAddressLayout = (currentSalePoint, address) => {
+    let _address = address;
+    const salePointAddress = currentSalePoint['address'];
+
+    if(salePointAddress) {
+        _address = salePointAddress;
+    }
+
+    return getKeyValueLayout('Адрес', [_address]);
+}
+
+const getCatalogLevelOneLayout = (catalog_level_one) => {
+    let stringValues = catalog_level_one.map(({title}) => title).join(', ');
+
+    return getKeyValueLayout('Категории', [stringValues]);
+}
+
+const getCatalogLevelTwoLayout = (catalog_level_two) => {
+    let stringValues = catalog_level_two.map(({title}) => title).join(', ');
+
+    return getKeyValueLayout('Товары', [stringValues]);
+}
+
+const getContactPersonLayout = (currentSalePoint, contactPerson) => {
+    let _contactPerson = contactPerson;
+    const salePointContactPerson = currentSalePoint['contact_person'];
+
+    if(salePointContactPerson) {
+        _contactPerson = salePointContactPerson;
+    }
+
+    return getKeyValueLayout('Контактное лицо', [_contactPerson]);
+}
+
+const getCurrentSalePoint = (markerId, salePoints) => {
+    const salePointId = markerId.split('_')[1];
+
+    const salePoint = salePoints.find(({id}) => {
+        return id.toString() === salePointId;
+    });
+
+    return salePoint || {};
+}
+
+const getDeliveryLayout = (delivery, deliveryDescription) => {
+    if(!delivery) {
+        return '';
+    }
+
+    return getKeyValueLayout('Доставка: есть', [deliveryDescription]);
+}
+
+const getDescriptionLayout = (description) => {
+    if(!description) {
+        return '';
+    }
+
+    return getKeyValueLayout('Описание', [description]);
+}
+
+const getKeyLayout = (key) => {
+    return `
+        <div class="modules-common-map-yandex-components-balloon-offer-view-item__title">
+            ${key}
+        </div>
+    `;
+}
+
+const getKeyValueLayout = (key, values) => {
+    const valuesLayout = getValuesListLayout(values);
+
+    if(valuesLayout === '') {
+        return '';
+    }
+
+    let keyLayout = '';
+
+    if(key) {
+        keyLayout = getKeyLayout(key);
+    }
+
+    return wrapWithBlock(`${keyLayout} ${valuesLayout}`);
+}
+
+const getMoreLinkLayout = (id) => {
+    return wrapWithBlock(`
+        <a
+            class="modules-common-map-yandex-components-balloon-offer-view-item__title"
+            href="/offers/${id}"
+            target="_blank"
+        >
+            Подробнее о товаре
+        </a>
+    `);
+}
+
+const getPhoneLayout = (currentSalePoint, phone) => {
+    let _phone = phone;
+    const salePointPhone = currentSalePoint['phone'];
+
+    if(salePointPhone) {
+        _phone = salePointPhone;
+    }
+
+    const layout = `<a href="tel:${_phone}">${_phone}</a>`;
+
+    return getKeyValueLayout('Телефон', [layout]);
+}
+
+const getPriceLayout = (price, price_description) => {
+    return getKeyValueLayout('Цена', [price, price_description]);
+}
+
+const getPublishDateLayout = (created_at) => {
+    const createdAtDate = new Date(created_at);
+    const createdAtMonth = createdAtDate.getMonth() + 1;
+    const createdAtDay = createdAtDate.getDate();
+    const createdAtDayFormatted = createdAtDay < 10 ? `0${createdAtDay}` : createdAtDay;
+    const createdAtMonthFormatted = createdAtMonth < 10 ? `0${createdAtMonth}` : createdAtMonth;
+    const createdAtYear = createdAtDate.getFullYear();
+
+    return wrapWithBlock(`
+        <div class="modules-common-map-yandex-components-balloon-offer-view-item__publish-date">
+            Опубликовано: ${createdAtDayFormatted}.${createdAtMonthFormatted}.${createdAtYear}
+        </div>
+    `)
+}
+
+const getRatingLayout = (rating, rating_votes) => {
+    return rating > 0 ? wrapWithBlock(`
+        <div class="modules-common-map-yandex-components-balloon-offer-view-item__rating-star-container">
+            <div class="modules-common-map-yandex-components-balloon-offer-view-item__rating-star-container-default"></div>
+            <div class="modules-common-map-yandex-components-balloon-offer-view-item__rating-star-container-active" style="width: ${20 * rating}px"></div>
+        </div>
+        <div class="modules-common-map-yandex-components-balloon-offer-view-item__rating-votes-container">
+            ${rating_votes} ${plural_ru(rating_votes, ['оценка', 'оценки', 'оценок'])}
+        </div>
+    `) : ''
+}
+
+const getSellerLayout = (id, name) => {
+    const _name = name ? name : 'Имя не указано';
+
+    const layout = `
+        <a href="/sellers/${id}" target="_blank">
+            ${_name}
+        </a>
+        <div class="modules-common-map-yandex-components-balloon-offer-view-item__hint">
+            <a href="/sellers/${id}" target="_blank">
+                Подробнее о фермере
+            </a>
+        </div>
+    `;
+
+    return getKeyValueLayout('Фермер', [layout]);
+}
+
+const getTitleLayout = (title, id) => {
+    const titleLayout = `
+        <a
+            class="modules-common-map-yandex-components-balloon-offer-view-item__title"
+            href="/offers/${id}"
+            target="_blank"
+        >
+            ${title}
+        </a>
+    `;
+
+    return wrapWithBlock(titleLayout);
+}
+
+const getValueLayout = (value) => {
+    return `
+        <div class="modules-common-map-yandex-components-balloon-offer-view-item__container">
+            ${value}
+        </div>
+    `
+}
+
+const getValuesListLayout = (values) => {
+    let layout = '';
+
+    values.forEach((_value) => {
+        if(!_value) {
+            return;
+        }
+
+        const valueLayout = getValueLayout(_value);
+        layout += valueLayout;
+    });
+
+    return layout;
+}
+
+const getWorkingHoursLayout = (working_hours) => {
+    if(!working_hours) {
+        return '';
+    }
+
+    return getKeyValueLayout('Время работы', [working_hours]);
+}
+
+const wrapWithBlock = (layout) => {
+    return `
+        <div class="modules-common-map-yandex-components-balloon-offer-view-item__block">
+            ${layout}
+        </div>
+    `
+}
+
 export const getOfferBalloonProductPage = (offerData, markerId) => {
-    const {product, salePoints, seller} = offerData;
+    const {catalog, product, salePoints, seller} = offerData;
     const {
         address,
         contact_person,
+        created_at,
         delivery,
         delivery_description,
         description,
@@ -12,95 +224,39 @@ export const getOfferBalloonProductPage = (offerData, markerId) => {
         phone,
         price,
         price_description,
+        rating,
+        rating_votes,
         title,
         working_hours,
     } = product;
     const {id: sellerId, name} = seller;
+    const {catalog_level_one, catalog_level_two} = catalog;
 
-    const salePointId = markerId.split('_')[1];
-    const currentSalePoint = salePoints.find(({id}) => {
-        return id.toString() === salePointId;
-    });
+    const currentSalePoint = getCurrentSalePoint(markerId, salePoints);
 
-    let contactAddress = address;
-    let contactName = name ?? 'не указано';
-    let contactPhone = phone;
-    let balloonDescription = description ?? '';
-    let deliveryDescription = delivery_description ?? '';
-
-    if(contact_person) {
-        contactName = contact_person;
-    }
-
-    if(currentSalePoint) {
-        const _contactAddress = currentSalePoint['address'];
-        const _contactName = currentSalePoint['contact_person'] || contact_person;
-        const _contactPhone = currentSalePoint['phone'];
-        const _description = currentSalePoint['description'] ?? '';
-
-        if(_description) {
-            balloonDescription = _description;
-        }
-
-        if(_contactName) {
-            contactName = _contactName;
-        }
-
-        if(_contactPhone) {
-            contactPhone = _contactPhone;
-        }
-
-        if(_contactAddress) {
-            contactAddress = _contactAddress;
-        }
-    }
+    const addressLayout = getAddressLayout(currentSalePoint, address);
+    const catalogCategoriesLevelOneLayout = getCatalogLevelOneLayout(catalog_level_one);
+    // const catalogCategoriesLevelTwoLayout = getCatalogLevelTwoLayout(catalog_level_two);
+    const contactPersonLayout = getContactPersonLayout(currentSalePoint, contact_person);
+    const deliveryLayout = getDeliveryLayout(delivery, delivery_description);
+    const descriptionLayout = getDescriptionLayout(description);
+    const moreLinkLayout = getMoreLinkLayout(id);
+    const phoneLayout = getPhoneLayout(currentSalePoint, phone);
+    const priceLayout = getPriceLayout(price, price_description);
+    const publishLayout = getPublishDateLayout(created_at);
+    const ratingLayout = getRatingLayout(rating, rating_votes);
+    const sellerLayout = getSellerLayout(sellerId, name);
+    const titleLayout = getTitleLayout(title, id);
+    const workingHoursLayout = getWorkingHoursLayout(working_hours);
 
     return `
         <div class="modules-common-map-yandex-components-balloon-offer-view-item">
-            <div class="modules-common-map-yandex-components-balloon-offer-view-item__title">
-                ${title}
-            </div>
-            <div>${balloonDescription}</div>
-            <div>${contactAddress}</div>
-            <div class="modules-common-map-yandex-components-balloon-offer-view-item__section-price">
-                <div class="modules-common-map-yandex-components-balloon-offer-view-item__section-price-title">Цена</div>
-                <div>
-                    <span class="modules-common-map-yandex-components-balloon-offer-view-item__price">${price}</span>
-                </div>
-                <div>${price_description ?? ''}</div>
-            </div>
-            <div class="modules-common-map-yandex-components-balloon-offer-view-item__section-seller">
-                <div class="modules-common-map-yandex-components-balloon-offer-view-item__section-seller-title">Контактное лицо:</div>
-                <div>
-                    <a
-                        href="/sellers/${sellerId}"
-                    >${contactName}</a>
-                </div>
-            </div>
-            <div class="modules-common-map-yandex-components-balloon-offer-view-item__section-seller">
-                <div class="modules-common-map-yandex-components-balloon-offer-view-item__section-seller-title">Телефон</div>
-                <div>
-                    <a
-                        href="tel:${contactPhone}"
-                    >${contactPhone}</a>
-                </div>
-            </div>
-            ${delivery ?
-                `
-                    <div class="modules-common-map-yandex-components-balloon-offer-view-item__section-seller">
-                        <div class="modules-common-map-yandex-components-balloon-offer-view-item__section-seller-title">Доставка: есть</div>
-                        <div>${deliveryDescription}</div>
-                    </div>
-                `
-            : ""}
-            ${working_hours ?
-                `
-                            <div class="modules-common-map-yandex-components-balloon-offer-view-item__section-seller">
-                                <div class="modules-common-map-yandex-components-balloon-offer-view-item__section-seller-title">Время работы:</div>
-                                <div>${working_hours}</div>
-                            </div>
-                        `
-                : ""}
+            ${priceLayout}
+            ${contactPersonLayout}
+            ${phoneLayout}
+            ${addressLayout}
+            ${deliveryLayout}
+            ${workingHoursLayout}
         </div>
     `
 }

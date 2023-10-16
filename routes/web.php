@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\controllers\map\mobileApp\MapMobileAppSinglePoint;
+use App\Http\Controllers\controllers\web\admin\AdminController;
 use App\Http\Controllers\controllers\web\admin\offers\AdminOffersController;
 use App\Http\Controllers\controllers\web\admin\offersRating\AdminOffersRatingController;
 use App\Http\Controllers\controllers\web\admin\organizations\AdminOrganizationsController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\controllers\web\authorization\register\RegisterControll
 use App\Http\Controllers\controllers\web\catalog\CatalogController;
 use App\Http\Controllers\controllers\web\copyright\CopyrightController;
 use App\Http\Controllers\controllers\web\favorites\FavoritesController;
+use App\Http\Controllers\controllers\web\help\HelpController;
 use App\Http\Controllers\controllers\web\legal\LegalController;
 use App\Http\Controllers\controllers\web\map\MapController;
 use App\Http\Controllers\controllers\web\offers\OffersController;
@@ -58,15 +60,21 @@ Route::post('/register/confirmCode', [RegisterController::class, 'confirmCode'])
 
 Route::get('/logout', [LogoutController::class, 'index']);
 
-Route::get('/map/mobile-app/single-point', [MapMobileAppSinglePoint::class, 'singlePoint']);
+Route::get('/mobile-app/map/all', [MapMobileAppSinglePoint::class, 'viewAll']);
+Route::get('/mobile-app/map/product/{id}', [MapMobileAppSinglePoint::class, 'viewProduct']);
+Route::get('/mobile-app/map/sale-offer', [MapMobileAppSinglePoint::class, 'saleOffer']);
+Route::get('/mobile-app/map/single-point', [MapMobileAppSinglePoint::class, 'singlePoint']);
 
 Route::get('/legal/rules/cookie', [LegalController::class, 'cookie']);
 Route::get('/legal/rules/privacy-policy', [LegalController::class, 'privacyPolicy']);
 Route::get('/legal/rules/terms-of-use', [LegalController::class, 'termsOfUse']);
 
+Route::get('/help', [HelpController::class, 'index']);
+
 Route::get('/copyright/images', [CopyrightController::class, 'images']);
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'userExistsWeb'])->group(function () {
+    Route::get('/admin', [AdminController::class, 'index']);
     Route::get('/admin/offers', [AdminOffersController::class, 'index']);
     Route::post('/admin/offer/approve/{id}', [AdminOffersController::class, 'approve']);
     Route::post('/admin/offer/reject/{id}', [AdminOffersController::class, 'reject']);
@@ -122,4 +130,6 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/profile/sale-offers/{id}', [ProfileSaleOffersController::class, 'update']);
     Route::get('/profile/sale-offers', [ProfileSaleOffersController::class, 'index']);
     Route::post('/profile/sale-offers', [ProfileSaleOffersController::class, 'store']);
+    Route::get('/profile/sale-offers/{id}/disable', [ProfileSaleOffersController::class, 'disable']);
+    Route::get('/profile/sale-offers/{id}/enable', [ProfileSaleOffersController::class, 'enable']);
 });

@@ -2,6 +2,7 @@
     class="
         components-inputs-radio-group-second-level
         components-inputs-radio-group-second-level_hidden
+        {{$fullHeight ?? false ? 'components-inputs-radio-group-second-level_full-height' : ''}}
         j-inputs-radio-group-second-level
     "
     data-listen-group-name="{{$listenGroupName}}"
@@ -13,8 +14,9 @@
         @endisset
     </div>
     <div
-        class="components-inputs-radio-group-second-level__content-block j-components-inputs-radio-checkbox-group"
+        class="components-inputs-radio-group-second-level__content-block"
         data-listen-group-name="{{$listenGroupName}}"
+
     >
         <input
             @foreach($contentList as $contentItem)
@@ -26,27 +28,36 @@
                     @endif
                 @endforeach
             @endforeach
-            class="components-inputs-radio-checkbox-group__input j-components-inputs-radio-checkbox-group__hidden-input"
-            name="{{$inputsName}}"
-            @if($required)
+            class="components-inputs-radio-checkbox-group__input j-inputs-radio-group-second-level__hidden-input"
+            @if($required ?? false)
                 required
             @endif
             type="checkbox"
         >
         @foreach($contentList as $contentItem)
-            <div
-                class="
+            @if(count($contentItem['content']) > 0)
+                <div
+                    class="
                     components-inputs-radio-group-second-level__content-container
                     j-inputs-radio-group-second-level__content-container
                 "
-                data-listen-id="{{$contentItem['listenId']}}"
-            >
-                @include('components.inputs.radio.checkbox-group.index', [
-                    'list' => $contentItem['content'],
-                    'name' => $inputsName,
-                    'required' => $required ?? false,
-                ])
-            </div>
+                    data-listen-id="{{$contentItem['listenId']}}"
+                >
+                    @include('components.inputs.checkbox.selectAll.index', [
+                        'id' => $contentItem['listenId'],
+                    ])
+                    <div class="components-inputs-radio-group-second-level__content">
+                        @include('components.inputs.radio.checkbox-group.index', [
+                            'classNameInput' => $classNameInput ?? '',
+                            'fullHeight' => true,
+                            'groupId' => $contentItem['listenId'],
+                            'list' => $contentItem['content'],
+                            'name' => $inputsName . '__' . $contentItem['listenId'] . '__',
+                            'required' => $required ?? false,
+                        ])
+                    </div>
+                </div>
+            @endif
         @endforeach
     </div>
 </div>

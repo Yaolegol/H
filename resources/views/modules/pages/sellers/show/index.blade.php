@@ -8,11 +8,17 @@
                 </div>
                 <div class="modules-pages-sellers-show__header-info-container">
                     <div class="modules-pages-sellers-show__header-info-title">{{$sellerData['name']}}</div>
-                    <div>{{$sellerData['description']}}</div>
+                    <div class="modules-pages-sellers-show__header-info-description">{{$sellerData['description']}}</div>
                 </div>
                 <div class="modules-pages-sellers-show__header-info-container">
                     <div class="modules-pages-sellers-show__header-info-title">Телефон</div>
-                    <a href="tel:+{{$sellerData['phone']}}">+{{$sellerData['phone']}}</a>
+                    <div class="modules-pages-sellers-show__header-info-description">
+                        <a
+                            href="tel:+{{$sellerData['phone']}}"
+                        >
+                            +{{$sellerData['phone']}}
+                        </a>
+                    </div>
                 </div>
             </div>
         @endif

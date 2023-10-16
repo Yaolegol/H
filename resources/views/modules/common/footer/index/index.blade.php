@@ -64,7 +64,13 @@
                     </a>
                 </div>
                 <div class="modules-common-footer-index__social-media">
-                    <div>Социальные сети</div>
+                    @include('components.contacts.links.common.index')
+                </div>
+                <div class="modules-common-footer-index__about">
+                    <a
+                        href="/help"
+                        target="_blank"
+                    >О проекте</a>
                 </div>
             </div>
             <div class="modules-common-footer-index__block-top-right">
@@ -78,22 +84,14 @@
                             <div class="modules-common-footer-index__contacts-item">
                                 <a href="mailto:clickferma@yandex.ru">clickferma@yandex.ru</a>
                             </div>
-                            <div class="modules-common-footer-index__contacts-item modules-common-footer-index__contacts-item_flex">
-                                <div class="modules-common-footer-index__contacts-messenger-container">
-                                    <a href="viber://chat?number=%2B79539117514">
-                                        @include('icons.messengers.viber')
-                                    </a>
-                                </div>
-                                <div class="modules-common-footer-index__contacts-messenger-container">
-                                    <a href="https://wa.me/+79539117514">
-                                        @include('icons.messengers.whatsapp')
-                                    </a>
-                                </div>
-                                <div class="modules-common-footer-index__contacts-messenger-container">
-                                    <a href="https://t.me/Clickferma">
-                                        @include('icons.messengers.telegram')
-                                    </a>
-                                </div>
+{{--                            <div class="modules-common-footer-index__contacts-item modules-common-footer-index__contacts-item_flex">--}}
+{{--                                @include('components.contacts.links.common.index')--}}
+{{--                            </div>--}}
+                        </div>
+                        <div class="modules-common-footer-index__share-block">
+                            <div>Вы можете поддержать проект - поделитесь ссылкой на сайт!</div>
+                            <div class="modules-common-footer-index__share-block-icons-container">
+                                @include('components.share.common.index')
                             </div>
                         </div>
                     </div>
@@ -103,7 +101,7 @@
         <div class="modules-common-footer-index__area-bottom">
             <div class="modules-common-footer-index__block-bottom-left">
                 <div class="modules-common-footer-index__copyright-container">
-                    © clickferma, 2023. Все права защищены
+                    © ООО "Кликферма", 2023. Все права защищены
                 </div>
             </div>
             <div class="modules-common-footer-index__block-bottom-right">

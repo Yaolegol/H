@@ -1,10 +1,13 @@
 import {addEventListener} from "helpers/events";
+import 'views/components/share/common';
 import {MapOfferCard} from "views/factory/cards/offer/map";
 import './index.less';
 
 class OffersList {
     constructor(element) {
         this.module = element;
+        this.contentArea = this.module.querySelector('.j-modules-common-offers-list__content-area');
+        this.emptyArea = this.module.querySelector('.j-modules-common-offers-list__empty-area');
 
         this.bind();
     }
@@ -15,8 +18,6 @@ class OffersList {
 
     handleUpdateVisibleMarkersData = (e) => {
         const {list} = e.detail;
-
-        this.module.innerHTML = '';
 
         const formattedData = {};
 
@@ -36,9 +37,14 @@ class OffersList {
         });
 
         const htmlList = Object.values(formattedData).map((data) => MapOfferCard.createMapOfferCard(data));
+        this.contentArea.innerHTML = '';
+
+        console.log('!!!!!!!!!!!!!!list');
+        console.log(list);
 
         if(htmlList.length) {
-            this.module.insertAdjacentHTML('beforeend', htmlList.join(''));
+            this.emptyArea.classList.add('hidden');
+            this.contentArea.insertAdjacentHTML('beforeend', htmlList.join(''));
 
             MapOfferCard.init();
             document.dispatchEvent(new CustomEvent('j-event-module__update'));
@@ -48,14 +54,7 @@ class OffersList {
                 }
             }));
         } else {
-            this.module.innerHTML = `
-                <div style="margin-top: 20px; font-style: italic;">
-                    В видимой области карты <span style="font-weight: 800;">товаров не найдено</span>, попробуйте переместить карту!
-                </div>
-                <div style="margin-top: 20px;">
-                    <span style="font-weight: 800;">Поделитесь ссылкой на сайт</span> в социальных сетях и мессенджерах, чтобы&nbsp;на&nbsp;сайте было больше товаров!
-                </div>
-            `;
+            this.emptyArea.classList.remove('hidden');
         }
     }
 }

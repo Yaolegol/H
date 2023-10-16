@@ -10,6 +10,10 @@
         text-align: center;
     }
 
+    &__about {
+        margin-top: 15px;
+    }
+
     &__area-bottom {
         display: flex;
         justify-content: space-between;
@@ -91,15 +95,6 @@
         }
     }
 
-    &__contacts-messenger-container {
-        line-height: 0;
-        margin-left: 15px;
-
-        svg {
-            width: 24px;
-        }
-    }
-
     &__content-area {
         margin: 0 auto;
         max-width: 1440px;
@@ -150,6 +145,26 @@
             @media (min-width: 1024px) {
                 display: none;
             }
+        }
+    }
+
+    &__share-block {
+        margin-top: 15px;
+    }
+
+    &__share-block-icons-container {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 5px;
+
+        @media @tablet {
+            justify-content: center;
+        }
+    }
+
+    &__social-media {
+        @media @tablet {
+            margin-top: 10px;
         }
     }
 }

@@ -6,7 +6,11 @@
         <h4 class="modules-common-profile-modal__title">Подтвердите удаление</h4>
         <div class="modules-common-profile-modal__remove-container">
             <a
-                class="modules-common-profile-modal__link j-modules-common-profile-modal__link"
+                class="
+                    modules-common-profile-modal__link
+                    j-modules-common-profile-modal__link
+                    j-components-click-block
+                "
                 href=""
             >Удалить</a>
         </div>

@@ -1,4 +1,5 @@
 import 'views/components/buttons/filter';
+import 'views/components/buttons/category/common/group';
 import 'views/components/checkboxes/map';
 import 'views/components/checkboxes/withTextArea';
 import 'views/components/form/error';
@@ -14,4 +15,5 @@ import 'views/modules/pages/profile/common/components/container/form-field';
 import 'views/modules/pages/profile/common/components/container/section';
 import 'views/modules/pages/profile/common/components/footer';
 import 'views/modules/pages/profile/common/components/header';
+import 'views/modules/pages/profile/routes/sale-offers/common/categories/controller';
 import './index.less';

@@ -23,8 +23,8 @@
             <div class="modules-pages-profile-routes-sale-offers-info-index__form-container">
                 @component('modules.pages.profile.common.components.body.index.index', [
                 'createLink' => '/profile/sale-offers/create',
-                'createTitle' => 'Добавить торговое предложение',
-                'title' => 'Ваши торговые предложения'
+                'createTitle' => 'Добавить товары',
+                'title' => 'Товары'
             ])
                     @if(count($saleOffersList) > 0)
                         @foreach ($saleOffersList as $saleOfferItem)
@@ -36,8 +36,7 @@
                         @endforeach
                     @else
                         <div class="modules-pages-profile-routes-sale-offers-info-index__empty-block">
-                            <div>Чтобы создать торговое предложение, нажмите "Добавить торговое предложение"</div>
-                            <div>Это просто и бесплатно!</div>
+                            <div>Добавьте товары - <span style="font-weight: bold">это просто и бесплатно!</span></div>
                         </div>
                     @endif
                 @endcomponent

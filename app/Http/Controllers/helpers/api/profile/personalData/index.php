@@ -34,14 +34,12 @@ function apiTryChangeUserAvatarInDB($request)
 function apiTryChangeUserPersonalDataInDB($request)
 {
     try {
+        $description = $request->input('description');
         $name = $request->input('name');
-        $phone = $request->input('phone');
-        $visible_email = $request->input('visible_email');
 
         $authUser = Auth::user();
         $authUser->name = $name;
-        $authUser->phone = $phone;
-        $authUser->visible_email = $visible_email;
+        $authUser->description = $description;
 
         $authUser->save();
 
@@ -56,7 +54,7 @@ function apiTryDeleteUserAvatarInDB() {
         $authUser = Auth::user();
         $authUserId = $authUser->id;
 
-        STORAGE_removeUserAvatar($authUserId);
+        S3_STORAGE_removeUserAvatar($authUserId);
 
         $authUser->avatar = '';
         $authUser->save();

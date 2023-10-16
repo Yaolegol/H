@@ -2,7 +2,7 @@
 
 use App\Models\Offer;
 
-function apiGetAllOffers($filter, $catalogLevelTwoIds = []) {
+function apiGetAllOffers($filter, $catalogLevelOneIdList = [], $catalogLevelTwoIds = []) {
     $queryBuilder = Offer::where($filter)->with([
         'catalogLevelOne',
         'catalogLevelTwo',
@@ -11,6 +11,12 @@ function apiGetAllOffers($filter, $catalogLevelTwoIds = []) {
         'salePoints',
         'user',
     ]);
+
+    if(count($catalogLevelOneIdList) > 0) {
+        $queryBuilder->whereHas('catalogLevelOne', function($query) use($catalogLevelOneIdList) {
+            $query->whereIn('catalog_level_one_id', $catalogLevelOneIdList);
+        });
+    }
 
     if(count($catalogLevelTwoIds) > 0) {
         $queryBuilder->whereHas('catalogLevelTwo', function($query) use($catalogLevelTwoIds) {
@@ -37,25 +43,25 @@ function apiGetAllOffersByCatalogLevelTwo($idList) {
 function apiGetAllOffersMapMarkersDataFormatted($request) {
     $requestFilter = $request->input('filter') ?? [];
     $DBFilter = [
+        ['is_enabled', 1],
         ['is_approved', true],
         ['is_removed', false],
     ];
+    $catalogLevelOneIdList = [];
     $catalogLevelTwoIdList = [];
 
     $catalogLevelOneId = $requestFilter['catalog']['levelOneId'] ?? null;
     $catalogLevelTwoId = $requestFilter['catalog']['levelTwoId'] ?? null;
 
     if($catalogLevelOneId) {
-        array_push($DBFilter, [
-            'catalog_level_one_id', $catalogLevelOneId
-        ]);
+        array_push($catalogLevelOneIdList, [$catalogLevelOneId]);
     }
 
     if($catalogLevelTwoId) {
         array_push($catalogLevelTwoIdList, [$catalogLevelTwoId]);
     }
 
-    $offers = apiGetAllOffers($DBFilter, $catalogLevelTwoIdList);
+    $offers = apiGetAllOffers($DBFilter, $catalogLevelOneIdList, $catalogLevelTwoIdList);
 
     $offersMapMarkersDataList = [];
 
@@ -79,9 +85,7 @@ function apiGetAllOffersMapMarkersDataFormatted($request) {
 function apiGetOfferData($offerItem) {
     return [
         'catalog' => [
-            'catalog_level_one' => [
-                'title' => $offerItem['catalog_level_one']['title'],
-            ],
+            'catalog_level_one' => $offerItem['catalog_level_one'],
             'catalog_level_two' => $offerItem['catalog_level_two'],
         ],
         'product' => [
@@ -122,6 +126,10 @@ function apiGetSalePointsData($offerItem) {
         $data = [
             'address' => $salePointItem['address'],
             'contact_person' => $salePointItem['contact_person'],
+            'coords' => [
+                'lat'=> $salePointItem['map_marker_lat'],
+                'lng'=> $salePointItem['map_marker_lng'],
+            ],
             'description' => $salePointItem['description'],
             'id' => $salePointItem['id'],
             'is_approved' => $salePointItem['is_approved'],

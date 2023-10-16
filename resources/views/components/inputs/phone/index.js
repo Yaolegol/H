@@ -18,7 +18,7 @@ class PhoneInput {
     }
 
     handleInput = (e) => {
-        this.input.value = this.IMaskInstance.unmaskedValue;
+        this.setInputValue();
     }
 
     init = () => {
@@ -27,6 +27,13 @@ class PhoneInput {
             mask: '+{7}(000)000-00-00',
             placeholderChar: '_',
         });
+
+        this.setInputValue();
+    }
+
+    setInputValue = () => {
+        const valueUnmasked = this.IMaskInstance.unmaskedValue;
+        this.input.value = valueUnmasked.length < 11 ? '' : valueUnmasked;
     }
 }
 

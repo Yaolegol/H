@@ -15,6 +15,6 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return redirect('profile/personal-info');
+        return redirect('profile/sale-offers');
     }
 }
