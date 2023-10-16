@@ -1,18 +1,18 @@
 <div class="modules-pages-admin-routes-index">
-    <div>
-        <a href="/admin/users">Пользователи</a>
+    <div class="modules-pages-admin-routes-index__item">
+        <a href="/admin/users" target="_blank">Пользователи</a>
     </div>
-    <div>
-        <a href="/admin/organizations">Организации</a>
+    <div class="modules-pages-admin-routes-index__item">
+        <a href="/admin/organizations" target="_blank">Организации</a>
     </div>
-    <div>
-        <a href="/admin/sale-points">Торговые точки</a>
+    <div class="modules-pages-admin-routes-index__item">
+        <a href="/admin/sale-points" target="_blank">Торговые точки</a>
     </div>
-    <div>
-        <a href="/admin/offers">Торговые предложения</a>
+    <div class="modules-pages-admin-routes-index__item">
+        <a href="/admin/offers" target="_blank">Торговые предложения</a>
     </div>
-    <div>
-        <a href="/admin/offers-rating">Отзывы</a>
+    <div class="modules-pages-admin-routes-index__item">
+        <a href="/admin/offers-rating" target="_blank">Отзывы</a>
     </div>
 </div>
 
