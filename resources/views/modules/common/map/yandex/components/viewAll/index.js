@@ -117,6 +117,7 @@ class MapYandexComponentsViewAll {
         });
 
         balloon.open();
+        this.mapContainer.scrollIntoView();
     }
 
     handleUpdateGeo = (e) => {
