@@ -60,6 +60,7 @@ class CategoriesController {
             this.toggleOtherButton(target);
         }
 
+        this.toggleActiveItem(target);
         this.sendMessage(buttonId);
     }
 
@@ -92,6 +93,21 @@ class CategoriesController {
 
     setHiddenInputValue = () => {
         this.hiddenInput.checked = this.selectedCategoriesList.length > 0;
+    }
+
+    toggleActiveItem = (button) => {
+        const item = button.closest('.j-modules-pages-profile-routes-sale-offers-common-categories-controller__item');
+
+        if(!item) {
+            return;
+        }
+
+        if(this.activeItem) {
+            this.activeItem.classList.remove('active');
+        }
+
+        this.activeItem = item;
+        this.activeItem.classList.add('active');
     }
 
     toggleOtherButton = (button) => {
