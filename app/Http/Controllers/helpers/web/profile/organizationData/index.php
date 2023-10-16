@@ -9,6 +9,7 @@ function DB_createOrganization($request, $authUserId) {
         $data = [
             'email' => $request->input('email') ?? '',
             'inn' => $request->input('inn') ?? '',
+            'is_approved' => false,
             'legal_address' => $request->input('legal_address') ?? '',
             'phone' => $request->input('phone') ?? '',
             'real_address' => $request->input('real_address') ?? '',

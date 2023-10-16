@@ -29,6 +29,7 @@ class SalePoint extends Model
         'map_marker_lng',
         'user_id',
         'is_removed',
+        'is_approved',
     ];
 
     protected $table = 'sale_point';

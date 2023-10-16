@@ -1,4 +1,31 @@
 <div class="components-cards-organization">
+    @if($organization['approved_error_message'])
+        <div class="components-cards-organization__moderation-label components-cards-organization__moderation-label_reject">
+            Отклонено
+            <div class="components-cards-organization__moderation-hint">
+                <div>Причина отклонения:</div>
+                <div class="components-cards-organization__moderation-hint-container">
+                    {{$organization['approved_error_message']}}
+                </div>
+                <div class="components-cards-organization__moderation-hint-container">
+                    Как исправить?
+                </div>
+                <div class="components-cards-organization__moderation-hint-container">
+                    Вы можете отредактировать сообщение и оно сново будет отправлено на проверку
+                </div>
+            </div>
+        </div>
+    @else
+        <div class="components-cards-organization__moderation-label {{$organization['is_approved'] ? 'components-cards-organization__moderation-label_approved' : ''}}">
+            {{$organization['is_approved'] ? 'Одобрено' : 'На проверке'}}
+            <div class="components-cards-organization__moderation-hint">
+                <div>Ваше сообщение проверяется администрацией сайта!</div>
+                <div class="components-cards-organization__moderation-hint-container">После проверки оно будет одобрено или отклонено с указанием причины</div>
+                <div class="components-cards-organization__moderation-hint-container">Обычно проверка занимает не более суток</div>
+                <div class="components-cards-organization__moderation-hint-container">Спасибо за терпение!</div>
+            </div>
+        </div>
+    @endif
     <div class="components-cards-organization__item-container components-cards-organization__item-container_without-offset">
         <div class="components-cards-organization__title">Название</div>
         <div class="components-cards-organization__value">{{$organization['title']}}</div>
