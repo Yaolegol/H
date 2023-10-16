@@ -22,6 +22,7 @@ class CategoriesController {
         this.buttonsList = [...this.module.querySelectorAll('.j-modules-pages-profile-routes-sale-offers-common-categories-controller__button')];
         this.selectedCategoriesList = [];
 
+        this.init();
         this.bind();
     }
 
@@ -58,6 +59,10 @@ class CategoriesController {
 
         if(buttonId === otherButtonId) {
             this.toggleOtherButton(target);
+            this.resetActiveItem();
+            this.sendMessage(buttonId);
+
+            return;
         }
 
         this.toggleActiveItem(target);
@@ -82,6 +87,31 @@ class CategoriesController {
         }
     }
 
+    init = () => {
+        const otherButton = this.buttonsList.find((button) => {
+            return button.dataset.id === otherButtonId;
+        });
+
+        if(!otherButton) {
+            return;
+        }
+
+        const isActive = otherButton.classList.contains('active');
+
+        if(!isActive) {
+            return;
+        }
+
+        this.toggleOtherButton(otherButton);
+    }
+
+    resetActiveItem = () => {
+        if(this.activeItem) {
+            this.activeItem.classList.remove('active');
+            this.activeItem = null;
+        }
+    }
+
     sendMessage = (id) => {
         document.dispatchEvent(new CustomEvent(CHANGE, {
             detail: {
@@ -102,10 +132,7 @@ class CategoriesController {
             return;
         }
 
-        if(this.activeItem) {
-            this.activeItem.classList.remove('active');
-        }
-
+        this.resetActiveItem();
         this.activeItem = item;
         this.activeItem.classList.add('active');
     }

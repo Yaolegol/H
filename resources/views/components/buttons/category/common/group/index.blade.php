@@ -5,6 +5,7 @@
             @include('components.buttons.category.common.single.index', [
                 'className' => $classNameButton,
                 'id' => $item['value'],
+                'isChecked' => $item['isChecked'],
                 'title' => $item['title'],
             ])
         </div>
