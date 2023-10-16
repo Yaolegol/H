@@ -16,6 +16,7 @@ function DB_createSalePoint($request, $userId) {
             'map_marker_lat' => $request->input('map_marker_lat'),
             'map_marker_lng' => $request->input('map_marker_lng'),
             'user_id' => $userId,
+            'is_approved' => false,
         ];
 
         return SalePoint::create($data)->toArray();

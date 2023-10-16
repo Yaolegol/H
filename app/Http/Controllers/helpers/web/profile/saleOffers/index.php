@@ -275,7 +275,7 @@ function getSaleOfferSalePointsIdsList($saleOfferItemData) {
 }
 
 function getSaleOfferSalePointsListFormatted($saleOfferItemData) {
-    $userSalePointsList = DB_getUserSalePoints();
+    $userSalePointsList = DB_getUserSalePoints(true);
     setCheckedPropertyForSalePointsList($userSalePointsList, $saleOfferItemData);
 
     return $userSalePointsList;
@@ -297,7 +297,7 @@ function getUserOrganizationsListFormatted($isApproved = false) {
 }
 
 function getUserOrganizationsWithSelectedList($saleOfferItemData) {
-    $userOrganizationsList = getUserOrganizationsListFormatted();
+    $userOrganizationsList = getUserOrganizationsListFormatted(true);
     setCheckedPropertyForOrganizationsList($userOrganizationsList, $saleOfferItemData);
 
     return $userOrganizationsList;
