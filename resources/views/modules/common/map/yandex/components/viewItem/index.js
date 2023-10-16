@@ -53,10 +53,25 @@ class MapYandexComponentsViewItem {
     }
 
     initMap = () => {
+        let zoom = 2;
+        const screenWidth = window.innerWidth;
+
+        if(screenWidth >= 768 && screenWidth < 1024) {
+            zoom = 2.4;
+        } else if(screenWidth >= 600 && screenWidth < 768) {
+            zoom = 2.2;
+        } else if(screenWidth >= 500 && screenWidth < 600) {
+            zoom = 1.5;
+        } else if(screenWidth >= 375 && screenWidth < 500) {
+            zoom = 1.2;
+        } else if(screenWidth < 375) {
+            zoom = 1;
+        }
+
         this.mapInstance = new ymaps.Map(this.mapContainer, {
             center: [62.395570, 104.432320],
             controls: ['zoomControl'],
-            zoom: 2,
+            zoom,
         });
 
         this.mapInstance.options.set('dragCursor', 'arrow');
