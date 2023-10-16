@@ -50,7 +50,10 @@ function getCatalogCategoriesList($catalogFull) {
 }
 
 function getCatalogCategoriesWithSelectedList($catalogFull, $saleOfferItemData) {
-    $offerCatalogIdList = $saleOfferItemData['catalog_level_one'];
+    $offerCatalogLevelOneList = $saleOfferItemData['catalog_level_one'];
+    $offerCatalogIdList = array_map(function($itemData) {
+        return $itemData['id'];
+    }, $offerCatalogLevelOneList);
 
     return array_map(function($catalogLevelOneItem) use($offerCatalogIdList) {
         $catalogLevelOneId = $catalogLevelOneItem['id'];
