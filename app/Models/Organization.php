@@ -34,6 +34,7 @@ class Organization extends Model
         'photo_3',
         'user_id',
         'is_removed',
+        'is_approved',
     ];
 
     protected $hidden = [
