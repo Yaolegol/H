@@ -1,51 +1,69 @@
-import {EVENTS_NAMES} from "events/index";
 import {addEventListener} from "helpers/events";
+import 'views/components/inputs/checkbox/common';
 import './index.less';
-
-const {
-    INPUTS: {
-        RADIO: {
-            GROUP: {
-                CHANGE,
-            }
-        }
-    }
-} = EVENTS_NAMES;
 
 class CheckboxGroup {
     constructor(element) {
         this.module = element;
+        this.groupId = this.module.dataset.groupId;
         this.hiddenInput = this.module.querySelector('.j-components-inputs-radio-checkbox-group__hidden-input');
         this.inputList = [...this.module.querySelectorAll('.j-components-inputs-radio-checkbox-group__input')];
-        this.listenGroupName = this.module.dataset.listenGroupName;
 
         this.bind();
     }
 
     bind = () => {
-        addEventListener(this.module, 'click', this.handleClick);
-        addEventListener(document, CHANGE, this.handleChange);
+        addEventListener(this.module, 'change', this.handleChange);
+        addEventListener(document, 'j-event-components-inputs-checkbox-select-all__change', this.handleSelectAllChange);
+        addEventListener(document, 'j-event-module__init', this.handleModulesInit);
     }
 
-    handleChange = (e) => {
-        const {detail} = e;
-        const {groupName} = detail;
+    handleChange = () => {
+        const hasChecked = this.inputList.some((input) => {
+            return input.checked;
+        });
+        const hasUnChecked = this.inputList.some((input) => {
+            return !input.checked;
+        });
 
-        if(groupName !== this.listenGroupName) {
+        this.hiddenInput.checked = hasChecked;
+        this.notifyChange(hasChecked, hasUnChecked);
+    }
+
+    handleModulesInit = () => {
+        this.handleChange();
+    }
+
+    handleSelectAllChange = (e) => {
+        const {id, isChecked} = e.detail;
+
+        console.log('!!! handleSelectAllChange')
+
+        if(this.groupId !== id) {
             return;
         }
 
+        console.log('id')
+        console.log(id)
+
+        console.log('isChecked')
+        console.log(isChecked)
+
         this.inputList.forEach((input) => {
-            input.checked = false;
+            input.checked = isChecked;
         });
 
-        this.hiddenInput.checked = false;
+        this.notifyChange(isChecked, !isChecked);
     }
 
-    handleClick = () => {
-        this.hiddenInput.checked = this.inputList.some((input) => {
-            return input.checked;
-        });
+    notifyChange = (hasChecked, hasUnChecked) => {
+        document.dispatchEvent(new CustomEvent('j-event-components-inputs-radio-checkbox-group__change', {
+            detail: {
+                id: this.groupId,
+                hasCheckedInput: hasChecked,
+                hasUnCheckedInput: hasUnChecked,
+            }
+        }))
     }
 }
 

@@ -2,7 +2,7 @@ import {getCookieData} from "helpers/cookie";
 import {addEventListener} from "helpers/events";
 import {debounce} from "helpers/debounce";
 import {getQueryData} from "helpers/query";
-import {getOfferBalloon} from "views/modules/common/map/yandex/components/balloon/offer/viewAll";
+import {getOfferBalloon} from "views/modules/common/map/common/components/balloon/offer";
 import './index.less';
 
 class MapYandexComponentsViewAll {
@@ -101,13 +101,22 @@ class MapYandexComponentsViewAll {
         });
     }
 
-    handleShowPlacemark = (e) => {
+    handleShowPlacemark = async (e) => {
         const geoQueryResult = ymaps.geoQuery(this.mapCluster.getGeoObjects());
         const geoQueryResultPlacemarks = geoQueryResult.search(`properties.id = "${e.detail.placemarkId}"`);
+        const placemark = geoQueryResultPlacemarks.get(0);
 
-        this.mapInstance.setCenter(geoQueryResultPlacemarks.get(0).geometry.getCoordinates(), 17, {
+        if(!placemark) {
+            return;
+        }
+
+        const {balloon, geometry} = placemark;
+
+        await this.mapInstance.setCenter(geometry.getCoordinates(), 17, {
             duration: 1000,
         });
+
+        balloon.open();
     }
 
     handleUpdateGeo = (e) => {

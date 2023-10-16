@@ -99,6 +99,7 @@ function getProfileSalePointsValidator($request) {
         $request->all(),
         [
             'title' => ['required', 'max:1000'],
+            'description' => ['max:1000'],
             'address' => ['required', 'max:1000'],
             'working_hours' => ['max:1000'],
             'contact_person' => ['max:1000'],
@@ -196,6 +197,7 @@ function tryUpdateSalePointDataInDB($request, $salePointId) {
 
         $data = [
             'title' => $request->input('title') ?? '',
+            'description' => $request->input('description') ?? '',
             'address' => $request->input('address') ?? '',
             'working_hours' => $request->input('working_hours') ?? '',
             'contact_person' => $request->input('contact_person') ?? '',

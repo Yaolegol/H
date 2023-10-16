@@ -55,6 +55,7 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Offer::class, 'users_favorites_offers', 'user_id', 'offer_id')
             ->where([
+                'is_enabled' => 1,
                 'is_approved' => true,
                 'is_removed' => false,
             ])

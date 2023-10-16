@@ -1,4 +1,5 @@
 @import (reference) '~styles/colors';
+@import (reference) '~styles/typography';
 
 .modules-pages-profile-common-components-body-create {
     &__all-points-link {
@@ -25,10 +26,18 @@
 
     &__all-points-link-container {
         margin-top: 10px;
+
+        @media (max-width: 1023px) {
+            text-align: center;
+        }
     }
 
     &__description-container {
         margin-top: 5px;
+
+        @media (max-width: 1023px) {
+            text-align: center;
+        }
     }
 
     &__form-container {
@@ -44,6 +53,12 @@
     &__input-container {
         margin-top: 5px;
         max-width: 500px;
+    }
+
+    &__title {
+        @media (max-width: 1023px) {
+            text-align: center;
+        }
     }
 
     &__title-container {

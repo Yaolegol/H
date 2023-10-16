@@ -1,46 +1,65 @@
 <div class="modules-pages-profile-common-components-container-header">
     <div class="modules-pages-profile-common-components-container-header__title-container">
-        <h1 class="modules-pages-profile-common-components-container-header__title">Ваш профиль</h1>
+        <h1 class="modules-pages-profile-common-components-container-header__title">Профиль</h1>
     </div>
     <div class="modules-pages-profile-common-components-container-header__mobile-container">
         <a href="/logout">Выйти</a>
+    </div>
+    <div class="modules-pages-profile-common-components-container-header__help-area">
+        <div class="modules-pages-profile-common-components-container-header__help-block">
+            <div class="modules-pages-profile-common-components-container-header__help-title">Возникли трудности?</div>
+        </div>
+        <div class="modules-pages-profile-common-components-container-header__help-block">
+            <a
+                class="modules-pages-profile-common-components-container-header__help-video-link"
+                href="/help"
+                target="_blank"
+            >Посмотрите короткую видеоинструкцию</a>
+        </div>
+        <div class="modules-pages-profile-common-components-container-header__help-block">или напишите нам - мы обязательно Вам поможем!</div>
+        <div class="modules-pages-profile-common-components-container-header__help-block">
+            <div class="modules-pages-profile-common-components-container-header__help-area-messengers">
+                @include('components.contacts.links.common.index')
+            </div>
+        </div>
     </div>
     <div class="modules-pages-profile-common-components-container-header__tabs-block">
         <div class="modules-pages-profile-common-components-container-header__tabs-container">
             <div class="modules-pages-profile-common-components-container-header__tab-item-container">
                 <a
-                    class="modules-pages-profile-common-components-container-header__tab-button {{$activeTab === 'personal-info' ? 'modules-pages-profile-common-components-container-header__tab-button_active' : ''}}"
-                    href="/profile/personal-info"
-                >
-                    Личные данные
-                </a>
-            </div>
-            <div
-                class="modules-pages-profile-common-components-container-header__tab-item-container">
-                <a
-                    class="modules-pages-profile-common-components-container-header__tab-button {{$activeTab === 'organization-info' ? 'modules-pages-profile-common-components-container-header__tab-button_active' : ''}}"
-                    href="/profile/organization-info"
-                >
-                    Организации
-                </a>
-            </div>
-            <div
-                class="modules-pages-profile-common-components-container-header__tab-item-container">
-                <a
-                    class="modules-pages-profile-common-components-container-header__tab-button {{$activeTab === 'sale-points-info' ? 'modules-pages-profile-common-components-container-header__tab-button_active' : ''}}"
-                    href="/profile/sale-points-info"
-                >
-                    Торговые точки
-                </a>
-            </div>
-            <div
-                class="modules-pages-profile-common-components-container-header__tab-item-container">
-                <a
-                    class="modules-pages-profile-common-components-container-header__tab-button {{$activeTab === 'sale-offers' ? 'modules-pages-profile-common-components-container-header__tab-button_active' : ''}}"
+                    class="modules-pages-profile-common-components-container-header__tab-button modules-pages-profile-common-components-container-header__tab-button_size-large {{$activeTab === 'sale-offers' ? 'modules-pages-profile-common-components-container-header__tab-button_active' : ''}}"
                     href="/profile/sale-offers"
                 >
-                    Торговые предложения
+                    Мои товары
                 </a>
+            </div>
+            <div class="modules-pages-profile-common-components-container-header__tabs-secondary-container">
+                <div class="modules-pages-profile-common-components-container-header__tab-item-container">
+                    <a
+                        class="modules-pages-profile-common-components-container-header__tab-button modules-pages-profile-common-components-container-header__tab-button_size-medium {{$activeTab === 'personal-info' ? 'modules-pages-profile-common-components-container-header__tab-button_active' : ''}}"
+                        href="/profile/personal-info"
+                    >
+                        Личные данные
+                    </a>
+                </div>
+                <div
+                    class="modules-pages-profile-common-components-container-header__tab-item-container">
+                    <a
+                        class="modules-pages-profile-common-components-container-header__tab-button modules-pages-profile-common-components-container-header__tab-button_size-medium {{$activeTab === 'organization-info' ? 'modules-pages-profile-common-components-container-header__tab-button_active' : ''}}"
+                        href="/profile/organization-info"
+                    >
+                        Организации
+                    </a>
+                </div>
+                <div
+                    class="modules-pages-profile-common-components-container-header__tab-item-container">
+                    <a
+                        class="modules-pages-profile-common-components-container-header__tab-button modules-pages-profile-common-components-container-header__tab-button_size-medium {{$activeTab === 'sale-points-info' ? 'modules-pages-profile-common-components-container-header__tab-button_active' : ''}}"
+                        href="/profile/sale-points-info"
+                    >
+                        Торговые точки
+                    </a>
+                </div>
             </div>
         </div>
     </div>

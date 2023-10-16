@@ -5,11 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- About -->
-        <title>{{ config('app.name', 'Кликферма') }}</title>
+        <title>{{env('APP_NAME')}}</title>
         <meta
             name="description"
-            content="Найти, купить натуральные фермерские продукты. Объявления о продаже натуральных фермерских продуктов. Бесплатное размещение объявлений"
+            content="{{env('APP_DESCRIPTION')}}"
         >
+
+        <!-- Styles -->
+        @yield('layout-styles')
 
         <!-- Favicon -->
         <link
@@ -26,12 +29,29 @@
         >
 
         <!-- CSRF Token -->
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="csrf-token" content="{{csrf_token()}}">
 
-        <!-- Styles -->
-        @yield('layout-styles')
+        <!-- OGP -->
+        <meta property="og:title" content="{{env('APP_NAME')}}">
+        <meta property="og:description" content="{{env('APP_DESCRIPTION')}}">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="clickferma.ru">
+        <meta property="og:url" content="https://clickferma.ru">
+        <meta property="og:image" content="https://clickferma.ru/build/icons/favicon/favicon.svg">
     </head>
     <body class="j-location-controller j-modules-pages-map-web-common-components-filters-product-controller">
+        <!-- SVG Styles for telegram -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" viewBox="0 0 44 44" fill="none" style="position: absolute; pointer-events: none;">
+            <defs>
+                <linearGradient id="paint0_linear_14_67" x1="2200" y1="0" x2="2200" y2="4367.37" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#2AABEE"/>
+                    <stop offset="1" stop-color="#229ED9"/>
+                </linearGradient>
+                <clipPath id="clip0_14_67">
+                    <rect width="44" height="44" fill="white"/>
+                </clipPath>
+            </defs>
+        </svg>
         <div class="j-csrf-token" data-value="{{ csrf_token() }}"></div>
         @auth
             <div class="j-user__auth"></div>
@@ -60,7 +80,7 @@
 
         <!-- Yandex map -->
         <script
-            src="https://api-maps.yandex.ru/2.1/?apikey=b92366ae-3520-458e-bf9f-17db62817585&lang=ru_RU"
+            src="https://api-maps.yandex.ru/2.1/?apikey={{env('YANDEX_MAP_KEY')}}&lang=ru_RU"
             type="text/javascript"
         ></script>
 

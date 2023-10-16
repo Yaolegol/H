@@ -1,27 +1,27 @@
-<div class="components-inputs-radio-checkbox-group">
+<div
+    class="
+        components-inputs-radio-checkbox-group
+        {{$fullHeight ?? false ? 'components-inputs-radio-checkbox-group_full-height' : ''}}
+        j-components-inputs-radio-checkbox-group
+    "
+    data-group-id="{{$groupId ?? ''}}"
+>
+    <input
+        @foreach($list as $item)
+            @if($item['isChecked'] ?? false)
+                checked
+            @endif
+        @endforeach
+        class="hidden j-components-inputs-radio-checkbox-group__hidden-input"
+        type="checkbox"
+    >
     @foreach($list as $item)
-        <div class="components-inputs-radio-checkbox-group__item-container">
-            <label
-                class="components-inputs-radio-checkbox-group__input-label"
-            >
-                <input
-                    @if($item['isChecked'] ?? false)
-                        checked
-                    @endif
-                    class="components-inputs-radio-checkbox-group__input j-components-inputs-radio-checkbox-group__input"
-                    name="{{$name . '_' . $loop->index}}"
-                    type="checkbox"
-                    value="{{$item['value']}}"
-                >
-                <span class="components-inputs-radio-checkbox-group__marker-block">
-                    <span class="components-inputs-radio-checkbox-group__marker-container">
-                        @include('icons.checkmark')
-                    </span>
-                </span>
-                <span class="components-inputs-radio-checkbox-group__title">
-                    {{$item['title']}}
-                </span>
-            </label>
-        </div>
+        @include('components.inputs.checkbox.common.index', [
+            'classNameInput' => $classNameInput ?? false ? $classNameInput . ' ' . 'j-components-inputs-radio-checkbox-group__input' : 'j-components-inputs-radio-checkbox-group__input',
+            'isChecked' => $item['isChecked'] ?? false,
+            'name' => $name . $loop->index,
+            'title' => $item['title'],
+            'value' => $item['value'],
+        ])
     @endforeach
 </div>

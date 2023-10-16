@@ -32,6 +32,9 @@ export class MapOfferCard {
         const {link: sellerLink, name} = seller;
         const {catalog_level_one, catalog_level_two} = catalog;
 
+        console.log('catalog_level_one');
+        console.log(catalog_level_one);
+
         let _name = name;
 
         if(!_name) {
@@ -74,13 +77,25 @@ export class MapOfferCard {
             <div class="modules-pages-favorites-shared-components-button__hint-block">
                 <div class="modules-pages-favorites-shared-components-button__hint-title">Чтобы добавить товар в избранное нужно</div>
                 <div class="modules-pages-favorites-shared-components-button__hint-text-container">
-                    <a class="modules-pages-favorites-shared-components-button__hint-link" href="/login">Войти</a>
+                    <a
+                        class="modules-pages-favorites-shared-components-button__hint-link"
+                        href="/login"
+                        target="_blank"
+                    >
+                        Войти
+                    </a>
                 </div>
                 <div class="modules-pages-favorites-shared-components-button__hint-text-container">
                     <div class="modules-pages-favorites-shared-components-button__hint-text">или</div>
                 </div>
                 <div class="modules-pages-favorites-shared-components-button__hint-text-container">
-                    <a class="modules-pages-favorites-shared-components-button__hint-link" href="/register">Зарегистрироваться</a>
+                    <a
+                        class="modules-pages-favorites-shared-components-button__hint-link"
+                        href="/register"
+                        target="_blank"
+                    >
+                        Зарегистрироваться
+                    </a>
                 </div>
                 <div class="modules-pages-favorites-shared-components-button__hint-text-container">
                     Это бесплатно!
@@ -102,7 +117,7 @@ export class MapOfferCard {
             </div>
         `;
 
-        const catalogCategoriesLevelTwoTitleList = catalog_level_two.map(({title}) => title).join(', ');
+        const productsCategories = catalog_level_one.map(({title}) => title).join(', ');
 
         const ratingLayout = rating > 0 ? `
             <div class="factory-cards-offer-map__rating-container">
@@ -141,6 +156,7 @@ export class MapOfferCard {
                         <a
                             class="factory-cards-offer-map__image-link"
                             href="${productLink}"
+                            target="_blank"
                         ></a>
                     </div>
                 </div>
@@ -150,6 +166,7 @@ export class MapOfferCard {
                             <a
                                 class="factory-cards-offer-map__product-link"
                                 href="${productLink}"
+                                target="_blank"
                             >${title}</a>
                         </div>
                         <div class="factory-cards-offer-map__address-container j-factory-cards-offer-map__placemark-link">
@@ -176,18 +193,28 @@ export class MapOfferCard {
                         <div class="factory-cards-offer-map__contacts-block">
                             <div class="factory-cards-offer-map__phone-container">
                                 <span class="factory-cards-offer-map__phone-title">Телефон:</span>
-                                <a class="j-modules-common-offers-list__phone-link" href="tel:${phone}">${phone}</a>
+                                <a
+                                    class="j-modules-common-offers-list__phone-link"
+                                    href="tel:${phone}"
+                                >
+                                    ${phone}
+                                </a>
                             </div>
                             <div class="factory-cards-offer-map__seller-info-container">
                                 <span class="factory-cards-offer-map__seller-info-title">Фермер:</span>
-                                <a href="${sellerLink}">${_name}</a>
+                                <a
+                                    href="${sellerLink}"
+                                    target="_blank"
+                                >
+                                    ${_name}
+                                </a>
                             </div>
                         </div>
                     </div>
                     <div class="factory-cards-offer-map__category-block">
                         <div>
-                            <span class="factory-cards-offer-map__category-title">Товары:</span>
-                            ${catalogCategoriesLevelTwoTitleList}
+                            <span class="factory-cards-offer-map__category-title">Категории:</span>
+                            ${productsCategories}
                         </div>
                         ${ratingLayout}
                         <div class="factory-cards-offer-map__created-at-block">

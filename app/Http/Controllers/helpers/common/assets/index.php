@@ -4,7 +4,7 @@ use Aws\S3\S3Client;
 use Illuminate\Support\Facades\File;
 
 function formatAssetPath($path) {
-    return str_replace('public/', '/storage/', $path);
+    return str_replace('public/', '/images/', $path);
 }
 
 function getAssetArrayFormatted($item, $name, $count, $preserveOrder = false) {

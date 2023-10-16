@@ -140,17 +140,41 @@ function getPasswordValidator($request) {
 }
 
 function getPersonalDataValidator($request) {
+    $authUser = Auth::user();
+    $authUserName = $authUser->name;
+    $requestName = $request->input('name');
+
+    $rules = [
+        'avatar' => ['image', 'max:10240'],
+        'description' => ['max:1000'],
+    ];
+
+    if($requestName !== $authUserName) {
+        $rules['name'] = ['max:100', 'unique:users'];
+    }
+
     return Validator::make(
         $request->all(),
-        [
-            'avatar' => ['image', 'max:10240'],
-            'name' => ['max:100'],
-            'description' => ['max:1000'],
-        ],
+        $rules,
         [
             'image' => 'Поле должно содержать картинку, размером не более 10Мб',
             'max' => 'Поле должно содержать максимум :max символов',
             'required' => 'Поле обязательно для заполнения',
+            'size' => 'Поле должно содержать картинку, размером не более 10Мб',
+            'unique' => 'Пользователь с именем :input уже зарегистрирован, попробуйте выбрать другое',
+        ]
+    );
+}
+
+function getPersonalDataValidator_api($request) {
+    return Validator::make(
+        $request->all(),
+        [
+            'name' => ['max:100'],
+            'description' => ['max:1000'],
+        ],
+        [
+            'max' => 'Поле должно содержать максимум :max символов',
             'size' => 'Поле должно содержать картинку, размером не более 10Мб',
         ]
     );
@@ -199,7 +223,7 @@ function S3_STORAGE_saveAuthUserAvatar($authUserId, $avatar)
 {
     try {
         $s3 = S3_STORAGE_getS3Client();
-        $data = $s3->upload(env('AWS_S3_STORAGE__BUCKET__USERS'), $authUserId . '/' . 'personalData/avatar.jpg',  file_get_contents($avatar));
+        $data = $s3->upload(env('AWS_S3_STORAGE__BUCKET__USERS'), $authUserId . '/' . 'personalData/avatar_' . time() . '.'  . $avatar->extension(),  file_get_contents($avatar));
 
         return $data->get('ObjectURL');
     } catch(\Exception $err) {
@@ -213,6 +237,8 @@ function updateUserAvatar($authUser, $request)
     $avatar = $request->file('avatar');
 
     if ($avatar) {
+        S3_STORAGE_removeUserAvatar($authUserId);
+
         $avatarPath = S3_STORAGE_saveAuthUserAvatar($authUserId, $avatar);
         $authUser->avatar = $avatarPath;
     } else {

@@ -15,6 +15,7 @@ use App\Http\Controllers\controllers\api\profile\personalData\ApiProfilePersonal
 use App\Http\Controllers\controllers\api\profile\organizationData\ApiProfileOrganizationDataController;
 use App\Http\Controllers\controllers\api\profile\saleOffers\ApiProfileSaleOffersController;
 use App\Http\Controllers\controllers\api\profile\salePointsInfo\ApiProfileSalePointsController;
+use App\Http\Controllers\controllers\web\rating\offer\OfferRatingController;
 use App\Http\Controllers\controllers\api\search\common\ApiSearchCommonController;
 use App\Http\Controllers\controllers\api\sellers\ApiSellersController;
 use Illuminate\Http\Request;
@@ -53,7 +54,10 @@ Route::post('/search/common', [ApiSearchCommonController::class, 'index']);
 
 Route::get('/sellers/{id}', [ApiSellersController::class, 'show']);
 
-Route::group(['middleware' => ['auth:sanctum']], function() {
+Route::group(['middleware' => ['auth:sanctum', 'userExistsApi']], function() {
+    Route::post('/offer/rating', [OfferRatingController::class, 'store']);
+    Route::post('/offer/rating/{id}', [OfferRatingController::class, 'update']);
+
     Route::get('/favorites/products', [ApiFavoritesProductController::class, 'index']);
     Route::get('/favorites/product/add/{id}', [ApiFavoritesProductController::class, 'add']);
     Route::get('/favorites/product/remove/{id}', [ApiFavoritesProductController::class, 'remove']);
@@ -64,6 +68,7 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::post('/profile/change-email', [ApiProfilePersonalDataController::class, 'updatePersonalEmail']);
     Route::post('/profile/change-password', [ApiProfilePersonalDataController::class, 'updatePersonalPassword']);
     Route::post('/profile/remove-avatar', [ApiProfilePersonalDataController::class, 'removeAvatar']);
+    Route::post('/profile/destroy', [ApiProfilePersonalDataController::class, 'destroy']);
 
     Route::get('/profile/organizations-info', [ApiProfileOrganizationDataController::class, 'index']);
     Route::post('/profile/organizations-info', [ApiProfileOrganizationDataController::class, 'store']);

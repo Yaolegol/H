@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 
 require_once(app_path() . '/Http/Controllers/helpers/common/errors/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/web/authorization/index.php');
 
 class ApiLoginController extends Controller
 {
@@ -18,22 +19,10 @@ class ApiLoginController extends Controller
      */
     public function login(Request $request)
     {
-        $email = $request->input('phone');
+        $phone = $request->input('phone');
         $password = $request->input('password');
 
-        $validator = Validator::make(
-            $request->all(),
-            [
-                'password' => ['required', 'max:50', 'min:6'],
-                'phone' => ['required', 'digits:11', new StartWith('7')],
-            ],
-            [
-                'digits' => 'Поле должно содержать :digits цифр',
-                'max' => 'Поле должно содержать максимум :max символов',
-                'min' => 'Поле должно содержать минимум :min символов',
-                'required' => 'Поле обязательно для заполнения',
-            ]
-        );
+        $validator = getLoginValidator($request);
 
         if ($validator->fails()) {
             $data = [
@@ -44,15 +33,12 @@ class ApiLoginController extends Controller
             return json_encode($data, JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_PRETTY_PRINT);
         }
 
-        if (Auth::attempt(
-            [
-                'phone' => $email,
-                'password' => $password,
-            ]
-        )) {
+        $isUserAuth = DB_tryAuthUser($phone, $password);
+
+        if ($isUserAuth) {
             $data = [
                 'data' => [
-                    'token' => $request->user()->createToken($request->input('phone'))->plainTextToken,
+                    'token' => $request->user()->createToken($phone)->plainTextToken,
                 ],
                 'errors' => '',
             ];

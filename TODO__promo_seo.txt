@@ -1,0 +1,16 @@
+0. CURRENT
+    - title
+    - description
+    - keywords
+
+1. RED
+
+2. YELLOW
+
+3. GREEN
+
+4. BACKLOG
+
+DONE
+
+NOT RELEVANT

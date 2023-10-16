@@ -15,7 +15,7 @@ function apiGetCatalogLevelOneListByTitleFromDB($title) {
     return CatalogLevelOne::where([
         ['title','like', $queryString],
     ])
-        ->get(['title', 'link'])
+        ->get()
         ->toArray();
 }
 
@@ -28,7 +28,18 @@ function apiGetOfferListByPhoneFromDB($title) {
 
     return Offer::where([
         ['phone','like', $queryString],
+        ['is_removed', false],
     ])
+        ->orWhere([
+            ['id','like', $queryString],
+            ['is_removed', false],
+        ])
+        ->orWhereHas('salePoints', function ($query) use ($queryString) {
+            $query->where('phone', 'like', $queryString);
+        })
+        ->orWhereHas('organization', function ($query) use ($queryString) {
+            $query->where('phone', 'like', $queryString);
+        })
         ->get()
         ->toArray();
 }
@@ -57,7 +68,15 @@ function apiGetUserListByPhoneFromDB($title) {
 
     return User::where([
         ['phone','like', $queryString],
+        ['is_removed', false],
     ])
+        ->whereHas('offers')
+        ->orWhereHas('offers', function ($query) use ($queryString) {
+            $query->where('phone', 'like', $queryString);
+        })
+        ->orWhereHas('organizations', function ($query) use ($queryString) {
+            $query->where('phone', 'like', $queryString);
+        })
         ->get()
         ->toArray();
 }
@@ -68,23 +87,38 @@ function apiGetSearchCommonResultFormatted($request) {
 
     $normalizedTitle = normalizeTitle($title);
 
-//    $offerList = apiGetOfferListByPhoneFromDB($normalizedTitle);
+    $offerList = apiGetOfferListByPhoneFromDB($normalizedTitle);
     $userList = apiGetUserListByPhoneFromDB($normalizedTitle);
 
-//    $offersDataList = apiGetOfferLinks($offerList);
-//    setOfferFullLinks($offersDataList);
+    $offersDataList = apiGetOfferLinks($offerList);
+    setOfferFullLinks($offersDataList);
 
     $usersDataList = apiGetUserLinks($userList);
     setUserFullLinks($usersDataList);
 
+    $catalogLevelOneList = apiGetCatalogLevelOneListByTitleFromDB($normalizedTitle);
+    $catalogLevelTwoList = apiGetCatalogLevelTwoListByTitleFromDB($normalizedTitle);
+
     $data = [
+        [
+            'dataList' => $catalogLevelOneList,
+            'title' => 'Категории',
+            'type' => 'catalogLevelOne',
+        ],
+        [
+            'dataList' => $catalogLevelTwoList,
+            'title' => 'Подкатегории',
+            'type' => 'catalogLevelTwo',
+        ],
+        [
+            'dataList' => $offersDataList,
+            'title' => 'Товары',
+            'type' => 'products',
+        ],
         [
             'dataList' => $usersDataList,
             'title' => 'Фермеры',
-        ],
-        [
-            'dataList' => [],
-            'title' => 'Товары',
+            'type' => 'sellers',
         ],
     ];
 
@@ -96,6 +130,7 @@ function apiGetOfferLinks($offerList) {
         $offerLink = '/offers/' . $offerData['id'];
 
         return [
+            'id' => $offerData['id'],
             'link' => $offerLink,
             'phone' => $offerData['phone'],
             'title' => $offerData['title'],
@@ -108,6 +143,7 @@ function apiGetUserLinks($userList) {
         $userLink = '/sellers/' . $userData['id'];
 
         return [
+            'id' => $userData['id'],
             'link' => $userLink,
             'phone' => '+' . $userData['phone'],
             'title' => $userData['name'],

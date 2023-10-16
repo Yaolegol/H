@@ -1,7 +1,12 @@
 @import (reference) '~styles/colors';
 
 .components-inputs-radio-checkbox-group {
+    overflow: auto;
     position: relative;
+
+    &_full-height {
+        height: 100%;
+    }
 
     &__input {
         height: 0;
@@ -19,6 +24,11 @@
 
     &__item-container {
         display: flex;
+        margin-top: 10px;
+
+        &:first-child {
+            margin-top: 0;
+        }
     }
 
     &__marker-block {

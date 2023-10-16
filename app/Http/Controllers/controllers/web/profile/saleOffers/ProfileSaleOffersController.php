@@ -61,6 +61,44 @@ class ProfileSaleOffersController extends Controller
     }
 
     /**
+     * Show the form for creating a new resource.
+     *
+     * @return Response
+     */
+    public function enable(Request $request, $saleOfferId)
+    {
+        $isSaved = toggleOfferEnable($saleOfferId, 1);
+
+        if($isSaved) {
+            return redirect('/profile/sale-offers');
+        }
+
+        return back()
+            ->withErrors([
+                'commonError' => 'Что-то пошло не так. Попробуйте снова'
+            ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return Response
+     */
+    public function disable(Request $request, $saleOfferId)
+    {
+        $isSaved = toggleOfferEnable($saleOfferId, 0);
+
+        if($isSaved) {
+            return redirect('/profile/sale-offers');
+        }
+
+        return back()
+            ->withErrors([
+                'commonError' => 'Что-то пошло не так. Попробуйте снова'
+            ]);
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  Request  $request
@@ -68,26 +106,6 @@ class ProfileSaleOffersController extends Controller
      */
     public function store(Request $request)
     {
-        $catalogLevelTwoIdsArray = getProfileSaleOffersCatalogLevelTwoList($request);
-
-        if(count($catalogLevelTwoIdsArray) == 0) {
-            return back()
-                ->withErrors([
-                    'commonError' => 'Не выбрана категория!',
-                ])
-                ->withInput();
-        }
-
-        $isCatalogLevelOneItemCreated = checkIsCatalogLevelOneItemCreated($request);
-
-        if($isCatalogLevelOneItemCreated) {
-            return back()
-                ->withErrors([
-                    'commonError' => 'У Вас уже создано торговое предложение с указанной категорией!',
-                ])
-                ->withInput();
-        }
-
         $validator = getProfileSaleOffersValidator($request);
 
         if($validator->fails()) {
@@ -104,7 +122,11 @@ class ProfileSaleOffersController extends Controller
             return redirect('/profile/sale-offers');
         }
 
-        return abort(500);
+        return back()
+            ->withErrors([
+                'commonError' => 'Достигнут лимит количества товарных предложений! Вы можете удалить или отредактировать имеющиеся, а также написать нам на email, телефон или в социальных сетях для увеличения лимита!'
+            ])
+            ->withInput();
     }
 
     /**
@@ -141,26 +163,6 @@ class ProfileSaleOffersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $catalogLevelTwoIdsArray = getProfileSaleOffersCatalogLevelTwoList($request);
-
-        if(count($catalogLevelTwoIdsArray) == 0) {
-            return back()
-                ->withErrors([
-                    'commonError' => 'Не выбрана категория!',
-                ])
-                ->withInput();
-        }
-
-        $isCatalogLevelOneItemCreated = checkIsCatalogLevelOneItemCreated($request, $id);
-
-        if($isCatalogLevelOneItemCreated) {
-            return back()
-                ->withErrors([
-                    'commonError' => 'У Вас уже создано торговое предложение с указанной категорией!',
-                ])
-                ->withInput();
-        }
-
         $validator = getProfileSaleOffersValidator($request);
 
         if($validator->fails()) {

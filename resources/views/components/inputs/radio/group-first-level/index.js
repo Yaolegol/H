@@ -22,9 +22,12 @@ class InputsRadioGroupFirstLevel {
         this.checkedInput = this.module.querySelector('input[checked]');
         this.value = this.checkedInput ? this.checkedInput.value : null;
 
-        addEventListener(this.module, 'click', this.handleClick);
-
+        this.bind();
         this.init();
+    }
+
+    bind = () => {
+        addEventListener(this.module, 'click', this.handleClick);
     }
 
     handleClick = (e) => {

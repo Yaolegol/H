@@ -43,6 +43,7 @@ const createConfig = (env, argv) => {
     return {
         devtool: production ? false : 'source-map',
         entry: {
+            admin_index: path.resolve(appDirectoriesData.path_pages, 'admin', 'index'),
             admin_offers: path.resolve(appDirectoriesData.path_pages, 'admin', 'offers'),
             admin_offersRating: path.resolve(appDirectoriesData.path_pages, 'admin', 'offersRating'),
             admin_organizations: path.resolve(appDirectoriesData.path_pages, 'admin', 'organizations'),
@@ -55,11 +56,15 @@ const createConfig = (env, argv) => {
             catalog_secondLevel_index: path.resolve(appDirectoriesData.path_pages, 'catalog', 'secondLevel', 'index'),
             copyright_images: path.resolve(appDirectoriesData.path_pages, 'copyright', 'images', 'index'),
             favorites_index: path.resolve(appDirectoriesData.path_pages, 'favorites', 'index'),
+            help_index: path.resolve(appDirectoriesData.path_pages, 'help', 'index'),
             legal_cookie: path.resolve(appDirectoriesData.path_pages, 'legal', 'cookie', 'index'),
             legal_privacyPolicy: path.resolve(appDirectoriesData.path_pages, 'legal', 'privacyPolicy', 'index'),
             legal_termsOfUse: path.resolve(appDirectoriesData.path_pages, 'legal', 'termsOfUse', 'index'),
             map_web_index: path.resolve(appDirectoriesData.path_pages, 'map', 'web', 'index'),
+            map_mobileApp_saleOffer_index: path.resolve(appDirectoriesData.path_pages, 'map', 'mobileApp', 'saleOffer', 'index'),
             map_mobileApp_singlePoint_index: path.resolve(appDirectoriesData.path_pages, 'map', 'mobileApp', 'singlePoint', 'index'),
+            map_mobileApp_viewAll_index: path.resolve(appDirectoriesData.path_pages, 'map', 'mobileApp', 'viewAll', 'index'),
+            map_mobileApp_viewProduct_index: path.resolve(appDirectoriesData.path_pages, 'map', 'mobileApp', 'viewProduct', 'index'),
             offers_index: path.resolve(appDirectoriesData.path_pages, 'offers', 'index'),
             offers_show: path.resolve(appDirectoriesData.path_pages, 'offers', 'show'),
             profile_organizationInfo_create: path.resolve(appDirectoriesData.path_pages, 'profile', 'organization-info', 'create'),

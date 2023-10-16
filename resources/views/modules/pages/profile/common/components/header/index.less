@@ -9,6 +9,30 @@
         margin: 0
     }
 
+    &__help-area {
+        align-items: flex-end;
+        display: flex;
+        flex-direction: column;
+        margin-top: 15px;
+        text-align: center;
+
+        @media @tablet {
+            align-items: center;
+        }
+    }
+
+    &__help-area-messengers {
+        margin-top: 5px;
+    }
+
+    &__help-title {
+        font-weight: 800;
+    }
+
+    &__help-video-link {
+        text-decoration: underline;
+    }
+
     &__info-container {
         margin-top: 50px;
     }
@@ -18,14 +42,13 @@
         justify-content: center;
         margin-top: 15px;
 
-        @media (min-width: 500px) {
+        @media (min-width: 1024px) {
             display: none;
         }
     }
 
     &__tab-button {
-        border-radius: 10px;
-        box-shadow: 0 0 10px 1px @shadow;
+        border-bottom: 2px solid @black_10;
         color: @black_80;
         cursor: pointer;
         display: inline-block;
@@ -34,14 +57,21 @@
         text-align: center;
 
         &:hover:not(.modules-pages-profile-common-components-container-header__tab-button_active) {
-            background-color: @primary_50;
-            color: @white;
+            border-color: #189e16;
+            font-weight: 900;
         }
 
         &_active {
-            background-color: @primary;
-            color: @white;
+            border-color: #189e16;
             font-weight: 900;
+        }
+
+        &_size-large {
+            min-width: 230px;
+        }
+
+        &_size-medium {
+            min-width: 170px;
         }
     }
 
@@ -50,19 +80,27 @@
     }
 
     &__tabs-block {
-        margin-top: 50px;
-
-        @media (max-width: 1023px) {
-            margin-top: 25px;
-        }
+        margin-top: 15px;
     }
 
     &__tabs-container {
+        display: flex;
+        justify-content: space-between;
+
+        @media (max-width: 1023px) {
+            align-items: center;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+    }
+
+    &__tabs-secondary-container {
         display: flex;
 
         @media (max-width: 1023px) {
             align-items: center;
             flex-direction: column;
+            margin: 50px 0 0 0;
         }
     }
 

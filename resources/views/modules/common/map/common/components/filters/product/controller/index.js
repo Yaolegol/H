@@ -26,9 +26,16 @@ class MapProductFilterController {
     }
 
     handleClick = (e) => {
+        console.log('!!! click');
+
         const target = e.target;
         const isNavigationButton = target.classList.contains('j-modules-common-filters-product-modal-components-buttons-navigation');
         const isContentButton = target.classList.contains('j-modules-common-filters-product-modal-components-buttons-content');
+
+        console.log('isNavigationButton')
+        console.log(isNavigationButton)
+        console.log('isContentButton')
+        console.log(isContentButton)
 
         if(!isNavigationButton && !isContentButton) {
             return;
@@ -38,6 +45,14 @@ class MapProductFilterController {
         const query = [];
 
         if(isNavigationButton) {
+            const isMobile = window.innerWidth < 1024;
+
+            if(isMobile) {
+                if(!target.classList.contains('j-modules-common-filters-product-modal-components-buttons-navigation_mobile_clickable')) {
+                    return;
+                }
+            }
+
             query.push(
                 {
                     key: 'catalogLevelOneId',
@@ -64,6 +79,8 @@ class MapProductFilterController {
         }
 
         if(window.location.pathname === '/') {
+            console.log('111')
+
             setUrlQuery(query);
             this.setFilter(target.innerHTML);
 

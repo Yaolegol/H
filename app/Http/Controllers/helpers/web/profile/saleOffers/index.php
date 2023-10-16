@@ -13,7 +13,6 @@ function DB_createSaleOffer($request, $userId) {
     try {
         $data = [
             'address' => $request->input('address'),
-            'catalog_level_one_id' => $request->input('catalog_level_one_id'),
             'description' => $request->input('description'),
             'contact_person' => $request->input('contact_person'),
             'delivery' => $delivery,
@@ -33,6 +32,17 @@ function DB_createSaleOffer($request, $userId) {
     } catch(\Exception $error) {
         return abort(500);
     }
+}
+
+function DB_toggleOfferEnable($user_id, $saleOfferId, $isEnabled) {
+    $saleOffer = Offer::where([
+        ['user_id', $user_id],
+        ['id', $saleOfferId],
+        ['is_removed', false],
+    ])->first();
+
+    $saleOffer->is_enabled = $isEnabled;
+    $saleOffer->save();
 }
 
 function DB_destroySaleOfferItem($user_id, $saleOfferId) {
@@ -100,6 +110,16 @@ function DB_getUserSaleOffers()
     }
 }
 
+function DB_syncSaleOfferCatalogLevelOneData($request, $saleOffer) {
+    $catalogLevelTwoIdsArray = getProfileSaleOffersCatalogLevelOneList($request);
+
+    try {
+        $saleOffer->catalogLevelOne()->sync($catalogLevelTwoIdsArray);
+    } catch(\Exception $error) {
+        abort(500);
+    }
+}
+
 function DB_syncSaleOfferCatalogLevelTwoData($request, $saleOffer) {
     $catalogLevelTwoIdsArray = getProfileSaleOffersCatalogLevelTwoList($request);
 
@@ -153,17 +173,44 @@ function checkIsCatalogLevelOneItemCreated($request, $offerId = null) {
     return (string) $offer->id !== $offerId;
 }
 
+function toggleOfferEnable($id, $isEnabled) {
+    try {
+        $authUser = Auth::user();
+        $user_id = $authUser->id;
+
+        DB_toggleOfferEnable($user_id, $id, $isEnabled);
+
+        return true;
+    } catch (\Exception $error) {
+        return false;
+    }
+}
+
 function formatSaleOffersListItemsAssetsPath(&$saleOffersList) {
     foreach ($saleOffersList as &$saleOffer) {
         $saleOffer['photoArray'] = getAssetArrayFormatted($saleOffer, 'photo', 3);
     }
 }
 
+function getProfileSaleOffersCatalogLevelOneList($request) {
+    $catalogLevelOneIdsArray = [];
+    foreach($request->all() as $key => $value){
+        if("catalog_level_two_id" == substr($key,0,20)){
+            $dataArray = explode('__', $key);
+            array_push($catalogLevelOneIdsArray, $dataArray[1]);
+        }
+    }
+
+    return $catalogLevelOneIdsArray;
+}
+
 function getProfileSaleOffersCatalogLevelTwoList($request) {
     $catalogLevelTwoIdsArray = [];
     foreach($request->all() as $key => $value){
-        if("catalog_level_two_id_" == substr($key,0,21)){
-            array_push($catalogLevelTwoIdsArray, $value);
+        if("catalog_level_two_id" == substr($key,0,20)) {
+            if($key !== 'catalog_level_two_id__999__1') {
+                array_push($catalogLevelTwoIdsArray, $value);
+            }
         }
     }
 
@@ -175,7 +222,6 @@ function getProfileSaleOffersValidator($request) {
         $request->all(),
         [
             'address' => ['max:1000'],
-            'catalog_level_one_id' => ['required'],
             'contact_person' => ['max:1000'],
             'delivery_description' => ['max:1000'],
             'description' => ['max:1000'],
@@ -304,6 +350,12 @@ function trySaveSaleOfferInDB($request)
     $authUser = Auth::user();
     $user_id = $authUser->id;
 
+    $userSaleOffersList = DB_getUserSaleOffers();
+
+    if(count($userSaleOffersList) >= 50) {
+        return false;
+    }
+
     $createdSaleOffer = DB_createSaleOffer($request, $user_id);
     $createdSalePointData = $createdSaleOffer->toArray();
     $createdSaleOfferId = $createdSalePointData['id'];
@@ -313,6 +365,7 @@ function trySaveSaleOfferInDB($request)
 
     DB_updateSaleOfferData($user_id, $createdSaleOfferId, $updatedPhotoList);
     DB_syncSaleOfferSalePointsData($request, $createdSaleOffer);
+    DB_syncSaleOfferCatalogLevelOneData($request, $createdSaleOffer);
     DB_syncSaleOfferCatalogLevelTwoData($request, $createdSaleOffer);
 
     return true;
@@ -328,7 +381,6 @@ function tryUpdateSaleOfferInDB($request, $saleOfferId)
 
     $data = [
         'address' => $request->input('address'),
-        'catalog_level_one_id' => $request->input('catalog_level_one_id'),
         'description' => $request->input('description'),
         'contact_person' => $request->input('contact_person'),
         'delivery' => $delivery,
@@ -356,6 +408,7 @@ function tryUpdateSaleOfferInDB($request, $saleOfferId)
 
     $currentOffer = DB_updateSaleOfferData($authUserId, $saleOfferId, $newSaleOfferData);
     DB_syncSaleOfferSalePointsData($request, $currentOffer);
+    DB_syncSaleOfferCatalogLevelOneData($request, $currentOffer);
     DB_syncSaleOfferCatalogLevelTwoData($request, $currentOffer);
 
     return true;

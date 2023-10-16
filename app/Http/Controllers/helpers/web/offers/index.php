@@ -11,6 +11,7 @@ function DB_getOffer($id)
     try {
         $offerData = Offer::where([
             'id' => $id,
+            'is_enabled' => 1,
             'is_approved' => true,
             'is_removed' => false,
         ])->with([
@@ -38,6 +39,7 @@ function DB_getOffer($id)
 function DB_getOffers($filters) {
     try {
         $filter = [
+            'is_enabled' => 1,
             'is_removed' => false,
             'is_approved' => 1,
         ];
@@ -56,15 +58,16 @@ function DB_getOffers($filters) {
     }
 }
 
-function formatOffer($offerItem) {
+function formatOffer($offerItem, $isAPI = false) {
     setUserAvatarData($offerItem);
     setOfferLink($offerItem);
     setOfferPhotoArray($offerItem);
     setOfferOrganizationData($offerItem);
     setOfferSalePointsData($offerItem);
-    setOfferCatalogLinks($offerItem);
+//    setOfferCatalogLinks($offerItem);
     setOfferMeasure($offerItem);
     setSellerLink($offerItem);
+    setAuthUserOfferRatingData($offerItem, $isAPI);
 
     return $offerItem;
 }
@@ -105,12 +108,56 @@ function getLocationFilters($searchCountryId, $searchRegionId, $searchCityId) {
     return $locationFilters;
 }
 
-function getOfferFormatted($id)
+function getOfferCategoriesData($offer) {
+    $dataList = [];
+
+    foreach ($offer['catalog_level_one'] as $item) {
+        $categoryId = $item['id'];
+
+        $subCategoriesList = array_filter($offer['catalog_level_two'], function($item) use($categoryId) {
+            return $item['catalog_level_one_id'] == $categoryId;
+        });
+
+        $item['catalog_level_two'] = $subCategoriesList;
+
+        array_push($dataList, $item);
+    }
+
+    usort($dataList, function ($item1, $item2) {
+        if($item1['id'] == 999) {
+            return 1;
+        }
+
+        if($item2['id'] == 999) {
+            return -1;
+        }
+
+        return strcmp($item1['title'], $item2['title']);
+    });
+
+    foreach ($dataList as $item) {
+        usort($item['catalog_level_two'], function ($item1, $item2) {
+            if($item1['title'] == 'Остальное') {
+                return 1;
+            }
+
+            if($item2['title'] == 'Остальное') {
+                return -1;
+            }
+
+            return strcmp($item1['title'], $item2['title']);
+        });
+    }
+
+    return $dataList;
+}
+
+function getOfferFormatted($id, $isAPI = false)
 {
     $offer = DB_getOffer($id);
     $offerItem = array_merge(...$offer);
 
-    return formatOffer($offerItem);
+    return formatOffer($offerItem, $isAPI);
 }
 
 function getOfferLink($id) {
@@ -134,19 +181,34 @@ function getOffersPaginatedData($catalogLevelTwoItem, $searchCountry, $searchReg
     return formatOffersPaginatedData($offersPaginatedData);
 }
 
-function getAuthUserOfferRatingData($id) {
-    $authUser = Auth::user();
+function getAuthUserOfferRatingData($id, $isAPI = false) {
+    $authUser = null;
+
+    if($isAPI) {
+        $authUser = auth('sanctum')->user();
+    } else {
+        $authUser = Auth::user();
+    }
 
     if(!$authUser) {
-        return [];
+        return null;
     }
+
     $ratedOffers = $authUser->offerRating()->get()->toArray();
 
     $ratedOfferDataList = array_filter($ratedOffers, function($data) use($id) {
         return $data['offer_id'] === (int) $id;
     });
 
+    if(count($ratedOfferDataList) == 0) {
+        return null;
+    }
+
     return array_merge(...$ratedOfferDataList);
+}
+
+function setAuthUserOfferRatingData(&$offer, $isAPI = false) {
+    $offer['auth_user_offer_rating_data'] = getAuthUserOfferRatingData($offer['id'], $isAPI);
 }
 
 function setOfferCatalogLinks(&$offerItem) {

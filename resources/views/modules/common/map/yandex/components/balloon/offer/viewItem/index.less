@@ -1,32 +1,59 @@
 @import (reference) '~styles/colors';
 
 .modules-common-map-yandex-components-balloon-offer-view-item {
-    &__price {
-        font-weight: 800;
+    &__block {
+        margin-top: 10px;
+
+        &:first-child {
+            margin-top: 0;
+        }
     }
 
-    &__section-link {
-        margin-top: 15px;
+    &__container {
+
     }
 
-    &__section-link-title {
-        font-weight: 800;
+    &__hint {
+        color: @black_20;
     }
 
-    &__section-price {
-        margin-top: 15px;
+    &__publish-date {
+        color: @black_20;
     }
 
-    &__section-price-title {
-        font-weight: 800;
+    &__rating-block {
+        align-items: flex-end;
+        display: flex;
     }
 
-    &__section-seller {
-        margin-top: 15px;
+    &__rating-star-container {
+        display: flex;
+        height: 20px;
+        position: relative;
+        width: 100px;
     }
 
-    &__section-seller-title {
-        font-weight: 800;
+    &__rating-star-container-active {
+        background: url('/build/icons/star_active.svg');
+        background-size: 20px;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+    }
+
+    &__rating-star-container-default {
+        background: url('/build/icons/star_default.svg');
+        background-size: 20px;
+        width: 100%;
+    }
+
+    &__rating-votes-container {
+        color: @black_20;
+        line-height: 16px;
+        margin-left: 10px;
     }
 
     &__title {

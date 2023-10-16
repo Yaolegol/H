@@ -15,6 +15,7 @@ require_once(app_path() . '/Http/Controllers/helpers/common/errors/index.php');
 require_once(app_path() . '/Http/Controllers/helpers/common/measure/index.php');
 require_once(app_path() . '/Http/Controllers/helpers/common/request/index.php');
 require_once(app_path() . '/Http/Controllers/helpers/web/location/index.php');
+require_once(app_path() . '/Http/Controllers/helpers/web/offers/index.php');
 require_once(app_path() . '/Http/Controllers/helpers/web/profile/organizationData/index.php');
 require_once(app_path() . '/Http/Controllers/helpers/web/profile/saleOffers/index.php');
 require_once(app_path() . '/Http/Controllers/helpers/web/profile/salePointsInfo/index.php');
@@ -46,6 +47,28 @@ class ApiProfileSaleOffersController extends Controller
      */
     public function store(Request $request)
     {
+        $catalogLevelTwoIdsArray = getProfileSaleOffersCatalogLevelTwoList($request);
+
+        if(count($catalogLevelTwoIdsArray) == 0) {
+            $data = [
+                'data' => '',
+                'errors' => ['Не выбрана подкатегория!'],
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+        }
+
+        $isCatalogLevelOneItemCreated = checkIsCatalogLevelOneItemCreated($request);
+
+        if($isCatalogLevelOneItemCreated) {
+            $data = [
+                'data' => '',
+                'errors' => ['У Вас уже создано торговое предложение с указанной категорией!'],
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+        }
+
         $validator = getProfileSaleOffersValidator($request);
 
         if($validator->fails()) {
@@ -87,6 +110,28 @@ class ApiProfileSaleOffersController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $catalogLevelTwoIdsArray = getProfileSaleOffersCatalogLevelTwoList($request);
+
+        if(count($catalogLevelTwoIdsArray) == 0) {
+            $data = [
+                'data' => '',
+                'errors' => ['Не выбрана подкатегория!'],
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+        }
+
+        $isCatalogLevelOneItemCreated = checkIsCatalogLevelOneItemCreated($request, $id);
+
+        if($isCatalogLevelOneItemCreated) {
+            $data = [
+                'data' => '',
+                'errors' => ['У Вас уже создано торговое предложение с указанной категорией!'],
+            ];
+
+            return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+        }
+
         $validator = getProfileSaleOffersValidator($request);
 
         if($validator->fails()) {
@@ -132,7 +177,7 @@ class ApiProfileSaleOffersController extends Controller
         if($isDestroyed) {
             $data = [
                 'data' => '',
-                'errors' => [],
+                'errors' => '',
             ];
 
             return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
@@ -140,9 +185,7 @@ class ApiProfileSaleOffersController extends Controller
 
         $data = [
             'data' => '',
-            'errors' => [
-                'common' => 'Что-то пошло не так. Попробуйте снова.',
-            ],
+            'errors' => ['Что-то пошло не так. Попробуйте снова.'],
         ];
 
         return json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
