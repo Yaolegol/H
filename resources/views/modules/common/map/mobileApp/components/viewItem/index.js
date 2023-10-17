@@ -61,9 +61,6 @@ class MapYandexComponentsViewItem {
 
         this.mapInstance.options.set('dragCursor', 'arrow');
 
-        console.log('this.offerData')
-        console.log(this.offerData)
-
         const {markersList, offer} = this.offerData;
 
         if(!markersList.length) {

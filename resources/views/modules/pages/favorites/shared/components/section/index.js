@@ -52,9 +52,6 @@ class FavoritesSection {
     handleUpdateFavoritesProducts = (e) => {
         const {list} = e.detail;
 
-        console.log('list')
-        console.log(list)
-
         this.data = list;
     }
 
