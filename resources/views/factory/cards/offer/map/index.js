@@ -32,9 +32,6 @@ export class MapOfferCard {
         const {link: sellerLink, name} = seller;
         const {catalog_level_one, catalog_level_two} = catalog;
 
-        console.log('catalog_level_one');
-        console.log(catalog_level_one);
-
         let _name = name;
 
         if(!_name) {

@@ -17,8 +17,6 @@ class SearchResultItemCatalog {
     }
 
     handleDocumentClick = (e) => {
-        console.log('TEST')
-
         const query = [];
 
         if(this.level === 1) {

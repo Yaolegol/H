@@ -10,8 +10,6 @@ class ValuesCommon {
         this.valuesContainer = this.module.querySelector('.j-components-values-common__values-container');
         this.id = this.module.dataset.id;
 
-        console.log('INIT ValuesCommon')
-
         this.bind();
     }
 
@@ -54,10 +52,6 @@ class ValuesCommon {
         const {detail} = e;
         const {id} = detail;
 
-        console.log('handleValuesSet')
-        console.log('detail')
-        console.log(detail)
-
         if(id !== this.id) {
             return;
         }
@@ -74,14 +68,7 @@ class ValuesCommon {
     }
 
     removeButton = (data) => {
-        console.log('--- removeButton')
-        console.log('data')
-        console.log(data)
-
         const button = this.getButtonByValue(data.value);
-
-        console.log('button')
-        console.log(button)
 
         if(!button) {
             return;

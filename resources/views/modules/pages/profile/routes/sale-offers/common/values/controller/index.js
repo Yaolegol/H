@@ -15,8 +15,6 @@ const {
 
 class ValuesController {
     constructor(element) {
-        console.log('ValuesController constructor');
-
         this.module = element;
 
         this.bind();
@@ -28,15 +26,6 @@ class ValuesController {
 
     handleChange = (e) => {
         const {groupName, isChecked, title, value} = e.detail;
-        console.log('ValuesController handleChange');
-        console.log('title');
-        console.log(title);
-        console.log('isChecked');
-        console.log(isChecked);
-        console.log('groupName');
-        console.log(groupName);
-        console.log('value');
-        console.log(value);
 
         const detailData = {
             data: {

@@ -39,9 +39,6 @@ class OffersList {
         const htmlList = Object.values(formattedData).map((data) => MapOfferCard.createMapOfferCard(data));
         this.contentArea.innerHTML = '';
 
-        console.log('!!!!!!!!!!!!!!list');
-        console.log(list);
-
         if(htmlList.length) {
             this.emptyArea.classList.add('hidden');
             this.contentArea.insertAdjacentHTML('beforeend', htmlList.join(''));
