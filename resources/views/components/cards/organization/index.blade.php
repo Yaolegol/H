@@ -1,9 +1,10 @@
 <div class="components-cards-organization">
     @if($organization['approved_error_message'])
         <div class="components-cards-organization__moderation-label components-cards-organization__moderation-label_reject">
-            Отклонено
+            Ваше сообщение отклонено
             <div class="components-cards-organization__moderation-hint">
-                <div>Причина отклонения:</div>
+                <div>К сожалению, Ваше сообщение отклонено</div>
+                <div class="components-cards-organization__moderation-hint-container">Причина отклонения:</div>
                 <div class="components-cards-organization__moderation-hint-container">
                     {{$organization['approved_error_message']}}
                 </div>
@@ -11,17 +12,17 @@
                     Как исправить?
                 </div>
                 <div class="components-cards-organization__moderation-hint-container">
-                    Вы можете отредактировать сообщение и оно сново будет отправлено на проверку
+                    Вы можете отредактировать сообщение и оно сново будет передано в очередь на добавление в личный кабинет
                 </div>
             </div>
         </div>
     @else
         <div class="components-cards-organization__moderation-label {{$organization['is_approved'] ? 'components-cards-organization__moderation-label_approved' : ''}}">
-            {{$organization['is_approved'] ? 'Одобрено' : 'На проверке'}}
+            {{$organization['is_approved'] ? 'Добавлено в личный кабинет' : 'В очереди на добавление в личный кабинет'}}
             <div class="components-cards-organization__moderation-hint">
-                <div>Ваше сообщение проверяется администрацией сайта!</div>
-                <div class="components-cards-organization__moderation-hint-container">После проверки оно будет одобрено или отклонено с указанием причины</div>
-                <div class="components-cards-organization__moderation-hint-container">Обычно проверка занимает не более суток</div>
+                <div>Поздравляем!</div>
+                <div class="components-cards-organization__moderation-hint-container">Ваше сообщение в очереди на добавление в личный кабинет!</div>
+                <div class="components-cards-organization__moderation-hint-container">Обычно это занимает не более дня</div>
                 <div class="components-cards-organization__moderation-hint-container">Спасибо за терпение!</div>
             </div>
         </div>
