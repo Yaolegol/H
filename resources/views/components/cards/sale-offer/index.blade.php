@@ -23,7 +23,7 @@
                 <div class="components-cards-sale-offer__moderation-hint">
                     <div>Поздравляем!</div>
                     <div class="components-cards-sale-offer__moderation-hint-container">Ваше сообщение в очереди на публикацию!</div>
-                    <div class="components-cards-sale-offer__moderation-hint-container">Обычно публикация занимает не более дня</div>
+                    <div class="components-cards-sale-offer__moderation-hint-container">Обычно публикация занимает не более дня!</div>
                     <div class="components-cards-sale-offer__moderation-hint-container">Спасибо за терпение!</div>
                 </div>
             </div>

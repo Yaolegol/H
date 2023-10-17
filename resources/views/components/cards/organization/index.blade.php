@@ -22,7 +22,7 @@
             <div class="components-cards-organization__moderation-hint">
                 <div>Поздравляем!</div>
                 <div class="components-cards-organization__moderation-hint-container">Ваше сообщение в очереди на добавление в личный кабинет!</div>
-                <div class="components-cards-organization__moderation-hint-container">Обычно это занимает не более дня</div>
+                <div class="components-cards-organization__moderation-hint-container">Обычно это занимает не более дня!</div>
                 <div class="components-cards-organization__moderation-hint-container">Спасибо за терпение!</div>
             </div>
         </div>

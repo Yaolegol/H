@@ -38,7 +38,7 @@
                                         <div class="modules-pages-profile-routes-personal-info-index__moderation-hint">
                                             <div>Поздравляем!</div>
                                             <div class="modules-pages-profile-routes-personal-info-index__moderation-hint-container">Ваше сообщение обрабатывается и скоро будет сохранено!</div>
-                                            <div class="modules-pages-profile-routes-personal-info-index__moderation-hint-container">Обычно это занимает не более дня</div>
+                                            <div class="modules-pages-profile-routes-personal-info-index__moderation-hint-container">Обычно это занимает не более дня!</div>
                                             <div class="modules-pages-profile-routes-personal-info-index__moderation-hint-container">Спасибо за терпение!</div>
                                         </div>
                                     </div>
