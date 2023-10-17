@@ -38,6 +38,9 @@ class Offer extends Model
         'user_id',
         'organization_id',
         'is_removed',
+        'rating',
+        'rating_values',
+        'rating_votes',
     ];
 
     protected $table = 'offer';
