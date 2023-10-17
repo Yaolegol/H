@@ -1,9 +1,10 @@
 <div class="components-cards-sale-offer">
     @if($saleOffer['approved_error_message'])
         <div class="components-cards-sale-offer__moderation-label components-cards-sale-offer__moderation-label_reject">
-            Отклонено
+            Ваше сообщение отклонено
             <div class="components-cards-sale-offer__moderation-hint">
-                <div>Причина отклонения:</div>
+                <div>К сожалению, Ваше сообщение отклонено</div>
+                <div class="components-cards-sale-offer__moderation-hint-container">Причина отклонения:</div>
                 <div class="components-cards-sale-offer__moderation-hint-container">
                     {{$saleOffer['approved_error_message']}}
                 </div>
@@ -11,18 +12,18 @@
                     Как исправить?
                 </div>
                 <div class="components-cards-sale-offer__moderation-hint-container">
-                    Вы можете отредактировать сообщение и оно сново будет отправлено на проверку
+                    Вы можете отредактировать сообщение и оно сново будет передано в очередь на публикацию
                 </div>
             </div>
         </div>
     @else
         @if($saleOffer['is_enabled'])
             <div class="components-cards-sale-offer__moderation-label {{$saleOffer['is_approved'] ? 'components-cards-sale-offer__moderation-label_approved' : ''}}">
-                {{$saleOffer['is_approved'] ? 'Опубликовано' : 'На проверке'}}
+                {{$saleOffer['is_approved'] ? 'Опубликовано' : 'В очереди на публикацию'}}
                 <div class="components-cards-sale-offer__moderation-hint">
-                    <div>Ваше сообщение проверяется администрацией сайта!</div>
-                    <div class="components-cards-sale-offer__moderation-hint-container">После проверки оно будет опубликовано или отклонено с указанием причины</div>
-                    <div class="components-cards-sale-offer__moderation-hint-container">Обычно проверка занимает не более суток</div>
+                    <div>Поздравляем!</div>
+                    <div class="components-cards-sale-offer__moderation-hint-container">Ваше сообщение в очереди на публикацию!</div>
+                    <div class="components-cards-sale-offer__moderation-hint-container">Обычно публикация занимает не более дня!</div>
                     <div class="components-cards-sale-offer__moderation-hint-container">Спасибо за терпение!</div>
                 </div>
             </div>

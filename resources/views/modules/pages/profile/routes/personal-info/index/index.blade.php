@@ -17,9 +17,10 @@
                             <div class="modules-pages-profile-routes-personal-info-index__approve-container">
                                 @if($userData['approved_error_message'])
                                     <div class="modules-pages-profile-routes-personal-info-index__moderation-label modules-pages-profile-routes-personal-info-index__moderation-label_reject">
-                                        Отклонено
+                                        Ваше сообщение отклонено
                                         <div class="modules-pages-profile-routes-personal-info-index__moderation-hint">
-                                            <div>Причина отклонения:</div>
+                                            <div>К сожалению, Ваше сообщение отклонено</div>
+                                            <div class="modules-pages-profile-routes-personal-info-index__moderation-hint-container">Причина отклонения:</div>
                                             <div class="modules-pages-profile-routes-personal-info-index__moderation-hint-container">
                                                 {{$userData['approved_error_message']}}
                                             </div>
@@ -27,17 +28,17 @@
                                                 Как исправить?
                                             </div>
                                             <div class="modules-pages-profile-routes-personal-info-index__moderation-hint-container">
-                                                Вы можете отредактировать сообщение и оно сново будет отправлено на проверку
+                                                Вы можете отредактировать сообщение и оно сново будет отправлено в очередь на публикацию
                                             </div>
                                         </div>
                                     </div>
                                 @else
                                     <div class="modules-pages-profile-routes-personal-info-index__moderation-label {{$userData['is_approved'] ? 'modules-pages-profile-routes-personal-info-index__moderation-label_approved' : ''}}">
-                                        {{$userData['is_approved'] ? 'Сохранено' : 'На проверке'}}
+                                        {{$userData['is_approved'] ? 'Сохранено' : 'Обрабатывается'}}
                                         <div class="modules-pages-profile-routes-personal-info-index__moderation-hint">
-                                            <div>Ваше сообщение проверяется администрацией сайта!</div>
-                                            <div class="modules-pages-profile-routes-personal-info-index__moderation-hint-container">После проверки оно будет опубликовано или отклонено с указанием причины</div>
-                                            <div class="modules-pages-profile-routes-personal-info-index__moderation-hint-container">Обычно проверка занимает не более суток</div>
+                                            <div>Поздравляем!</div>
+                                            <div class="modules-pages-profile-routes-personal-info-index__moderation-hint-container">Ваше сообщение обрабатывается и скоро будет сохранено!</div>
+                                            <div class="modules-pages-profile-routes-personal-info-index__moderation-hint-container">Обычно это занимает не более дня!</div>
                                             <div class="modules-pages-profile-routes-personal-info-index__moderation-hint-container">Спасибо за терпение!</div>
                                         </div>
                                     </div>
