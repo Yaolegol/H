@@ -5,8 +5,6 @@ import './index.less';
 
 class SelectAllCheckbox {
     constructor(element) {
-        console.log('SelectAllCheckbox constructor');
-
         this.module = element;
         this.input = this.module.querySelector('.j-components-inputs-checkbox-select-all__input');
         this.id = this.module.dataset.id;
@@ -41,10 +39,6 @@ class SelectAllCheckbox {
     }
 
     sendMessage = () => {
-        console.log('SelectAllCheckbox sendMessage')
-        console.log('id')
-        console.log(this.id)
-
         document.dispatchEvent(new CustomEvent('j-event-components-inputs-checkbox-select-all__change', {
             detail: {
                 id: this.id,

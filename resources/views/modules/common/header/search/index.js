@@ -99,13 +99,6 @@ class Search {
                 break;
         }
 
-        console.log('dataList')
-        console.log(dataList)
-        console.log('type')
-        console.log(type)
-        console.log('items')
-        console.log(items)
-
         return items.join('');
     }
 

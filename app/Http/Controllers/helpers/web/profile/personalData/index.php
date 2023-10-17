@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Offer;
+use App\Models\OfferRating;
 use App\Models\Organization;
 use App\Models\SalePoint;
 
@@ -53,10 +54,12 @@ function DB_tryDestroyProfile()
         $userOffers = Offer::where($filter);
         $userOrganizations = Organization::where($filter);
         $userSalePoints = SalePoint::where($filter);
+        $userRating = OfferRating::where($filter);
 
         $userOffers->update($newData);
         $userOrganizations->update($newData);
         $userSalePoints->update($newData);
+        $userRating->update($newData);
 
         $authUser->phone_before_removed = $authUser->phone;
         $authUser->phone = null;
@@ -90,8 +93,6 @@ function DB_tryChangeUserPersonalDataInDB($request)
 
         return true;
     } catch (\Exception $error) {
-        dd($error);
-
         return false;
     }
 }
