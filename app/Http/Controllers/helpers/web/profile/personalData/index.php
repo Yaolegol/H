@@ -93,8 +93,6 @@ function DB_tryChangeUserPersonalDataInDB($request)
 
         return true;
     } catch (\Exception $error) {
-        dd($error);
-
         return false;
     }
 }
