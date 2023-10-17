@@ -18,10 +18,10 @@
         </div>
     @else
         <div class="components-cards-sale-point__moderation-label {{$salePoint['is_approved'] ? 'components-cards-sale-point__moderation-label_approved' : ''}}">
-            {{$salePoint['is_approved'] ? 'Добавлено в личный кабинет' : 'В очереди на добавление в личный кабинет'}}
+            {{$salePoint['is_approved'] ? 'Сохранено' : 'Обрабатывается'}}
             <div class="components-cards-sale-point__moderation-hint">
                 <div>Поздравляем!</div>
-                <div class="components-cards-sale-point__moderation-hint-container">Ваше сообщение в очереди на добавление в личный кабинет!</div>
+                <div class="components-cards-sale-point__moderation-hint-container">Ваше сообщение обрабатывается и скоро будет сохранено!</div>
                 <div class="components-cards-sale-point__moderation-hint-container">Обычно это занимает не более дня!</div>
                 <div class="components-cards-sale-point__moderation-hint-container">Спасибо за терпение!</div>
             </div>
