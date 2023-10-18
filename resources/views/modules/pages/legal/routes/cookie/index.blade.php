@@ -4,6 +4,7 @@
             Политика
             <br />в отношении использования куки (cookie) файлов
         </h1>
+        <div class="modules-pages-legal-routes-cookie__description">(редакция от 18.10.2023 года)</div>
     </div>
     <div class="modules-pages-legal-routes-cookie__text-block">
         <div class="modules-pages-legal-routes-cookie__section">

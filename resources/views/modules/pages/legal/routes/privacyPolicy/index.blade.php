@@ -5,6 +5,7 @@
             <br />в отношении обработки персональных данных
             <br />ООО «Кликферма»
         </h1>
+        <div class="modules-pages-legal-routes-privacy-policy__description">(редакция от 18.10.2023 года)</div>
     </div>
     <div class="modules-pages-legal-routes-privacy-policy__text-block">
         <div class="modules-pages-legal-routes-privacy-policy__section">
