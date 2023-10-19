@@ -11,7 +11,9 @@
     </div>
     <div class="components-contacts-links-channels__container">
         <a href="https://dzen.ru/clickferma" rel="noopener noreferrer" target="_blank">
-            @include('icons.social.dzen')
+            @include('icons.social.dzen', [
+                'forWhiteBackground' => $forWhiteBackground ?? false,
+            ])
         </a>
     </div>
     <div class="components-contacts-links-channels__container">

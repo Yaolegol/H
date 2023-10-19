@@ -71,7 +71,7 @@
                 </div>
                 <div class="modules-common-footer-index__social-media">
                     <div class="modules-common-footer-index__social-media-title">
-                        Подпишитесь на наши группы в вк, одноклассниках и телеграм,<br />
+                        Подпишитесь на наши группы в телеграм, вк, дзен и одноклассниках,<br />
                         чтобы быть в курсе событий!
                     </div>
                     <div class="modules-common-footer-index__social-media-description">
