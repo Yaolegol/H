@@ -16,7 +16,8 @@
     <div class="modules-pages-help-routes-index__area modules-pages-help-routes-index__area_join">
         <div class="modules-pages-help-routes-index__block-join">
             <div class="modules-pages-help-routes-index__block-join-title">
-                Присоединяйтесь!
+                Подпишитесь на наши группы в вк, одноклассниках и телеграм,<br />
+                чтобы быть в курсе событий!
             </div>
             <div class="modules-pages-help-routes-index__block-join-media">
                 @include('components.contacts.links.channels.index')
