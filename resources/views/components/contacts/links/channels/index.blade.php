@@ -1,17 +1,22 @@
 <div class="components-contacts-links-channels">
     <div class="components-contacts-links-channels__container">
+        <a href="https://t.me/clickferma" rel="noopener noreferrer" target="_blank">
+            @include('icons.messengers.telegram')
+        </a>
+    </div>
+    <div class="components-contacts-links-channels__container">
         <a href="https://vk.com/club223053542" rel="noopener noreferrer" target="_blank">
             @include('icons.social.vk')
         </a>
     </div>
     <div class="components-contacts-links-channels__container">
-        <a href="https://ok.ru/group/70000004104678" rel="noopener noreferrer" target="_blank">
-            @include('icons.social.ok')
+        <a href="https://dzen.ru/clickferma" rel="noopener noreferrer" target="_blank">
+            @include('icons.social.dzen')
         </a>
     </div>
     <div class="components-contacts-links-channels__container">
-        <a href="https://t.me/clickferma" rel="noopener noreferrer" target="_blank">
-            @include('icons.messengers.telegram')
+        <a href="https://ok.ru/group/70000004104678" rel="noopener noreferrer" target="_blank">
+            @include('icons.social.ok')
         </a>
     </div>
 </div>
