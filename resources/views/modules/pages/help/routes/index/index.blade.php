@@ -26,10 +26,10 @@
     <div class="modules-pages-help-routes-index__area modules-pages-help-routes-index__area_faq">
         <div class="modules-pages-help-routes-index__block">
             <h4 class="modules-pages-help-routes-index__block-title">
-                Как разместить товар на сайте?
+                Как зарегистрироваться на сайте?
             </h4>
             <div class="modules-pages-help-routes-index__block-content">
-                <span class="modules-pages-help-routes-index__bold">Это просто и бесплатно!</span><br />Вот небольшая видеоинструкция - всего 1 минута!
+                <span class="modules-pages-help-routes-index__bold">Это просто и бесплатно!</span><br />Вот небольшая видеоинструкция - всего 2 минуты!
             </div>
             <div class="modules-pages-help-routes-index__block-content-video">
                 <div class="modules-pages-help-routes-index__video-block">
@@ -39,7 +39,28 @@
                             controls
                             poster="/build/icons/favicon/favicon.svg"
                             preload="none"
-                            src="/video/profile/1.mp4"
+                            src="/video/profile/registration/1.mp4"
+                        ></video>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modules-pages-help-routes-index__block">
+            <h4 class="modules-pages-help-routes-index__block-title">
+                Как разместить товар на сайте?
+            </h4>
+            <div class="modules-pages-help-routes-index__block-content">
+                <span class="modules-pages-help-routes-index__bold">Это просто и бесплатно!</span><br />Вот небольшая видеоинструкция - всего 7 минут!
+            </div>
+            <div class="modules-pages-help-routes-index__block-content-video">
+                <div class="modules-pages-help-routes-index__video-block">
+                    <div class="modules-pages-help-routes-index__video-container">
+                        <video
+                            class="modules-pages-help-routes-index__video"
+                            controls
+                            poster="/build/icons/favicon/favicon.svg"
+                            preload="none"
+                            src="/video/profile/products/1.mp4"
                         ></video>
                     </div>
                 </div>
@@ -50,7 +71,7 @@
                 Как указать имя и добавить фото?
             </h4>
             <div class="modules-pages-help-routes-index__block-content">
-                <span class="modules-pages-help-routes-index__bold">Это просто и бесплатно!</span><br />Вот небольшая видеоинструкция - всего 1 минута!
+                <span class="modules-pages-help-routes-index__bold">Это просто и бесплатно!</span><br />Вот небольшая видеоинструкция - всего 2 минуты!
             </div>
             <div class="modules-pages-help-routes-index__block-content-video">
                 <div class="modules-pages-help-routes-index__video-block">
@@ -60,28 +81,7 @@
                             controls
                             poster="/build/icons/favicon/favicon.svg"
                             preload="none"
-                            src="/video/profile/1.mp4"
-                        ></video>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modules-pages-help-routes-index__block">
-            <h4 class="modules-pages-help-routes-index__block-title">
-                Как добавить торговую точку?
-            </h4>
-            <div class="modules-pages-help-routes-index__block-content">
-                <span class="modules-pages-help-routes-index__bold">Это просто и бесплатно!</span><br />Вот небольшая видеоинструкция - всего 1 минута!
-            </div>
-            <div class="modules-pages-help-routes-index__block-content-video">
-                <div class="modules-pages-help-routes-index__video-block">
-                    <div class="modules-pages-help-routes-index__video-container">
-                        <video
-                            class="modules-pages-help-routes-index__video"
-                            controls
-                            poster="/build/icons/favicon/favicon.svg"
-                            preload="none"
-                            src="/video/profile/1.mp4"
+                            src="/video/profile/personal/1.mp4"
                         ></video>
                     </div>
                 </div>
@@ -92,7 +92,7 @@
                 Как добавить организацию?
             </h4>
             <div class="modules-pages-help-routes-index__block-content">
-                <span class="modules-pages-help-routes-index__bold">Это просто и бесплатно!</span><br />Вот небольшая видеоинструкция - всего 1 минута!
+                <span class="modules-pages-help-routes-index__bold">Это просто и бесплатно!</span><br />Вот небольшая видеоинструкция - всего 2 минуты!
             </div>
             <div class="modules-pages-help-routes-index__block-content-video">
                 <div class="modules-pages-help-routes-index__video-block">
@@ -102,7 +102,28 @@
                             controls
                             poster="/build/icons/favicon/favicon.svg"
                             preload="none"
-                            src="/video/profile/1.mp4"
+                            src="/video/profile/organizations/1.mp4"
+                        ></video>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modules-pages-help-routes-index__block">
+            <h4 class="modules-pages-help-routes-index__block-title">
+                Как добавить торговую точку?
+            </h4>
+            <div class="modules-pages-help-routes-index__block-content">
+                <span class="modules-pages-help-routes-index__bold">Это просто и бесплатно!</span><br />Вот небольшая видеоинструкция - всего 3 минуты!
+            </div>
+            <div class="modules-pages-help-routes-index__block-content-video">
+                <div class="modules-pages-help-routes-index__video-block">
+                    <div class="modules-pages-help-routes-index__video-container">
+                        <video
+                            class="modules-pages-help-routes-index__video"
+                            controls
+                            poster="/build/icons/favicon/favicon.svg"
+                            preload="none"
+                            src="/video/profile/sale-points/1.mp4"
                         ></video>
                     </div>
                 </div>
