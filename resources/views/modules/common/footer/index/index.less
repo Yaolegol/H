@@ -11,7 +11,9 @@
     }
 
     &__about {
-        margin-top: 15px;
+        @media @tablet {
+            margin-top: 15px;
+        }
     }
 
     &__area-bottom {
@@ -163,8 +165,19 @@
     }
 
     &__social-media {
+        margin-top: 10px;
+    }
+
+    &__social-media-description {
+        margin-top: 5px;
+
         @media @tablet {
-            margin-top: 10px;
+            display: flex;
+            justify-content: center;
         }
+    }
+
+    &__social-media-title {
+
     }
 }

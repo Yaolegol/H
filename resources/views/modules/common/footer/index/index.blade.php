@@ -63,14 +63,20 @@
                         </svg>
                     </a>
                 </div>
-                <div class="modules-common-footer-index__social-media">
-                    @include('components.contacts.links.channels.index')
-                </div>
                 <div class="modules-common-footer-index__about">
                     <a
                         href="/help"
                         target="_blank"
                     >О проекте</a>
+                </div>
+                <div class="modules-common-footer-index__social-media">
+                    <div class="modules-common-footer-index__social-media-title">
+                        Подпишитесь на наши группы в вк, одноклассниках и телеграм,<br />
+                        чтобы быть в курсе событий!
+                    </div>
+                    <div class="modules-common-footer-index__social-media-description">
+                        @include('components.contacts.links.channels.index')
+                    </div>
                 </div>
             </div>
             <div class="modules-common-footer-index__block-top-right">
