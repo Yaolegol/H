@@ -7,5 +7,8 @@
             {{$catalogItem['title']}}
         </div>
     </div>
-    <a class="modules-pages-catalog-common-components-item__link" href="{{$catalogItem['linkFull']}}"></a>
+    <a
+        class="modules-pages-catalog-common-components-item__link"
+        href="{{$catalogItem['title'] == 'Другое' ? '/?catalogLevelOneId=999' : $catalogItem['linkFull']}}"
+    ></a>
 </div>
