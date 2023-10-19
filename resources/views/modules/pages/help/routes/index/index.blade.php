@@ -19,7 +19,7 @@
                 Присоединяйтесь!
             </div>
             <div class="modules-pages-help-routes-index__block-join-media">
-                @include('components.contacts.links.common.index')
+                @include('components.contacts.links.channels.index')
             </div>
         </div>
     </div>

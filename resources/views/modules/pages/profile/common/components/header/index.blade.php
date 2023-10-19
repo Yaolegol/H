@@ -19,7 +19,7 @@
         <div class="modules-pages-profile-common-components-container-header__help-block">или напишите нам - мы обязательно Вам поможем!</div>
         <div class="modules-pages-profile-common-components-container-header__help-block">
             <div class="modules-pages-profile-common-components-container-header__help-area-messengers">
-                @include('components.contacts.links.common.index')
+                @include('components.contacts.links.messengers.index')
             </div>
         </div>
     </div>

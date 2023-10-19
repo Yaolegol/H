@@ -1,2 +1,2 @@
-import 'views/components/contacts/links/common';
+import 'views/components/contacts/links/messengers';
 import './index.less';
