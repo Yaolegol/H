@@ -5,7 +5,7 @@
         </a>
     </div>
     <div class="components-contacts-links-channels__container">
-        <a href="#" rel="noopener noreferrer" target="_blank">
+        <a href="https://ok.ru/group/70000004104678" rel="noopener noreferrer" target="_blank">
             @include('icons.social.ok')
         </a>
     </div>
