@@ -32,7 +32,7 @@
                 Как зарегистрироваться на сайте?
             </h4>
             <div class="modules-pages-help-routes-index__block-content">
-                <span class="modules-pages-help-routes-index__bold">Это просто и бесплатно!</span><br />Вот небольшая видеоинструкция - всего 2 минуты!
+                <span class="modules-pages-help-routes-index__bold">Это просто и бесплатно!</span><br />Вот небольшая видеоинструкция - всего 1 минута!
             </div>
             <div class="modules-pages-help-routes-index__block-content-video">
                 <div class="modules-pages-help-routes-index__video-block">
