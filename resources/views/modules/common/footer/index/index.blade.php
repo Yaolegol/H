@@ -107,7 +107,7 @@
         <div class="modules-common-footer-index__area-bottom">
             <div class="modules-common-footer-index__block-bottom-left">
                 <div class="modules-common-footer-index__copyright-container">
-                    © ООО "Кликферма", 2023. Все права защищены
+                    © ООО "101Ферма", 2023. Все права защищены
                 </div>
             </div>
             <div class="modules-common-footer-index__block-bottom-right">
