@@ -11,7 +11,7 @@ location ^~ /.well-known/acme-challenge/ {
 
 fetch certificates
 
-> sudo certbot certonly --preferred-challenges http -d clickferma-test.ru --webroot --webroot-path /home/oleg/clickferma/H/public
+> sudo certbot certonly --preferred-challenges http -d 101ferma-test.ru --webroot --webroot-path /home/oleg/clickferma/H/public
 
 restart nginx
 

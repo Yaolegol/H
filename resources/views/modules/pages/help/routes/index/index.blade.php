@@ -7,7 +7,7 @@
             Продать и купить фермерскую продукцию<br /> еще никогда не было так легко!
         </div>
         <div class="modules-pages-help-routes-index__area-description">
-            <span class="modules-pages-help-routes-index__bold">Кликферма</span><br />это сайт, на котором каждый может <span class="modules-pages-help-routes-index__bold">абсолютно бесплатно</span><br />и <span class="modules-pages-help-routes-index__bold">за пару кликов разместить объявление</span><br /> о продаже фермерской продукции!
+            <span class="modules-pages-help-routes-index__bold">101Ферма</span><br />это сайт, на котором каждый может <span class="modules-pages-help-routes-index__bold">абсолютно бесплатно</span><br />и <span class="modules-pages-help-routes-index__bold">за пару кликов разместить объявление</span><br /> о продаже фермерской продукции!
         </div>
         <div class="modules-pages-help-routes-index__area-description">
             Мы хотим помочь фермеру найти покупателей,<br />а покупателям - фермера!

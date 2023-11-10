@@ -35,9 +35,9 @@
         <meta property="og:title" content="{{env('APP_NAME')}}">
         <meta property="og:description" content="{{env('APP_DESCRIPTION')}}">
         <meta property="og:type" content="website">
-        <meta property="og:site_name" content="clickferma.ru">
-        <meta property="og:url" content="https://clickferma.ru">
-        <meta property="og:image" content="https://clickferma.ru/build/icons/favicon/favicon.svg">
+        <meta property="og:site_name" content="101ferma.ru">
+        <meta property="og:url" content="https://101ferma.ru">
+        <meta property="og:image" content="https://101ferma.ru/build/icons/favicon/favicon.svg">
     </head>
     <body class="j-location-controller j-modules-pages-map-web-common-components-filters-product-controller">
         <!-- SVG Styles for telegram -->

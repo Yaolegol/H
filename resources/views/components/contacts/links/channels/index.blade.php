@@ -1,6 +1,6 @@
 <div class="components-contacts-links-channels">
     <div class="components-contacts-links-channels__container">
-        <a href="https://t.me/clickferma" rel="noopener noreferrer" target="_blank">
+        <a href="https://t.me/101ferma" rel="noopener noreferrer" target="_blank">
             @include('icons.messengers.telegram')
         </a>
     </div>
@@ -10,7 +10,7 @@
         </a>
     </div>
     <div class="components-contacts-links-channels__container">
-        <a href="https://dzen.ru/clickferma" rel="noopener noreferrer" target="_blank">
+        <a href="https://dzen.ru/101ferma" rel="noopener noreferrer" target="_blank">
             @include('icons.social.dzen', [
                 'forWhiteBackground' => $forWhiteBackground ?? false,
             ])

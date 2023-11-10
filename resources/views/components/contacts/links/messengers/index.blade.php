@@ -1,6 +1,6 @@
 <div class="components-contacts-links-messengers">
     <div class="components-contacts-links-messengers__container">
-        <a href="https://t.me/clickferma_chat" rel="noopener noreferrer" target="_blank">
+        <a href="https://t.me/101ferma_chat" rel="noopener noreferrer" target="_blank">
             @include('icons.messengers.telegram')
         </a>
     </div>
