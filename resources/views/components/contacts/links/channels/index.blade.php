@@ -5,7 +5,7 @@
         </a>
     </div>
     <div class="components-contacts-links-channels__container">
-        <a href="https://vk.com/club223053542" rel="noopener noreferrer" target="_blank">
+        <a href="https://vk.com/vk101ferma" rel="noopener noreferrer" target="_blank">
             @include('icons.social.vk')
         </a>
     </div>
