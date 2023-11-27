@@ -65,7 +65,7 @@
                 </div>
                 <div class="modules-common-footer-index__about">
                     <a
-                        href="/help"
+                        href="/about"
                         target="_blank"
                     >О проекте</a>
                 </div>

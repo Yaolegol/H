@@ -69,7 +69,7 @@ Route::get('/legal/rules/cookie', [LegalController::class, 'cookie']);
 Route::get('/legal/rules/privacy-policy', [LegalController::class, 'privacyPolicy']);
 Route::get('/legal/rules/terms-of-use', [LegalController::class, 'termsOfUse']);
 
-Route::get('/help', [HelpController::class, 'index']);
+Route::get('/about', [HelpController::class, 'index']);
 
 Route::get('/copyright/images', [CopyrightController::class, 'images']);
 

@@ -12,7 +12,7 @@
         <div class="modules-pages-profile-common-components-container-header__help-block">
             <a
                 class="modules-pages-profile-common-components-container-header__help-video-link"
-                href="/help"
+                href="/about"
                 target="_blank"
             >Посмотрите короткую видеоинструкцию</a>
         </div>
