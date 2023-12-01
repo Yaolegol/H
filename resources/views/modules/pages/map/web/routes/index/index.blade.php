@@ -5,7 +5,15 @@
                 @include('components.info.common.index', [
                     'className' => 'modules-pages-map-web-routes-index__share-block',
                     'id' => 'local_storage__info_share',
-                    'text' => 'Мы только открылись!<br /><b>Дарим 500 рублей на телефон указанный при регистрации за размещение объявления!</b><br />Вы можете поддержать проект - поделитесь ссылкой на сайт!',
+                    'text' => '
+                        Мы только открылись!<br />
+                        <a
+                            href="/about"
+                            target="_blank"
+                        >Нажмите, чтобы узнать больше о проекте!</a><br />
+                        <b>Дарим 500 рублей на телефон указанный при регистрации за размещение объявления!</b><br />
+                        Вы можете поддержать проект - поделитесь ссылкой на сайт!<br />
+                    ',
                 ])
                 <div class="modules-pages-map-web-routes-index__add-product-block">
                     @guest
