@@ -1,0 +1,23 @@
+@import (reference) '~styles/adaptive';
+@import (reference) '~styles/colors';
+
+.modules-common-callback-new {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+
+    @media @mobile {
+        align-items: center;
+        text-align: center;
+    }
+
+    &__area-input {
+        margin-top: 5px;
+    }
+
+    &__title {
+        font-weight: 800;
+        text-decoration: underline;
+    }
+}
