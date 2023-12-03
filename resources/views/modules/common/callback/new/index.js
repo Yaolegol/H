@@ -15,10 +15,6 @@ class CallBackNew {
     }
 
     handleClick = (e) => {
-        console.log('click!!!')
-        console.log('this.input.value');
-        console.log(this.input.value);
-
         const value = this.input.value;
 
         if(this.isSend || !value) {
