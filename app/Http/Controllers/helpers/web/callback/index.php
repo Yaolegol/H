@@ -20,7 +20,7 @@ function getCallbackValidator($request) {
     return Validator::make(
         $request->all(),
         [
-            'text' => ['required', 'max:100'],
+            'text' => ['required', 'max:500'],
         ],
         [
             'max' => 'Поле должно содержать максимум :max символов',
