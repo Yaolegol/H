@@ -16,6 +16,19 @@ function DB_trySaveCallbackText($request)
     }
 }
 
+function DB_tryGetCallbackInfo($request)
+{
+    try {
+        return Callback::all()->toArray();
+    } catch(\Exception $err) {
+        return abort(500);
+    }
+}
+
+function getCallbackInfo($request) {
+    return DB_tryGetCallbackInfo($request);
+}
+
 function getCallbackValidator($request) {
     return Validator::make(
         $request->all(),

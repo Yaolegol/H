@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\controllers\map\mobileApp\MapMobileAppSinglePoint;
 use App\Http\Controllers\controllers\web\admin\AdminController;
+use App\Http\Controllers\controllers\web\admin\callback\AdminCallbackController;
 use App\Http\Controllers\controllers\web\admin\offers\AdminOffersController;
 use App\Http\Controllers\controllers\web\admin\offersRating\AdminOffersRatingController;
 use App\Http\Controllers\controllers\web\admin\organizations\AdminOrganizationsController;
@@ -97,6 +98,8 @@ Route::middleware(['auth', 'userExistsWeb'])->group(function () {
     Route::get('/admin/offers-rating', [AdminOffersRatingController::class, 'index']);
     Route::post('/admin/offers-rating/approve/{id}', [AdminOffersRatingController::class, 'approve']);
     Route::post('/admin/offers-rating/reject/{id}', [AdminOffersRatingController::class, 'reject']);
+
+    Route::get('/admin/callback', [AdminCallbackController::class, 'index']);
 
     Route::get('/favorites', [FavoritesController::class, 'index']);
     Route::get('/favorites/products', [FavoritesController::class, 'products']);

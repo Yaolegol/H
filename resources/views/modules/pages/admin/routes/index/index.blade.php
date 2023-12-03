@@ -14,6 +14,9 @@
     <div class="modules-pages-admin-routes-index__item">
         <a href="/admin/offers-rating" target="_blank">Отзывы</a>
     </div>
+    <div class="modules-pages-admin-routes-index__item">
+        <a href="/admin/callback" target="_blank">Обратный звонок</a>
+    </div>
 </div>
 
 
