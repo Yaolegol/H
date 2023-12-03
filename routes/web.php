@@ -11,6 +11,7 @@ use App\Http\Controllers\controllers\web\authorization\forgotPassword\ForgotPass
 use App\Http\Controllers\controllers\web\authorization\login\LoginController;
 use App\Http\Controllers\controllers\web\authorization\logout\LogoutController;
 use App\Http\Controllers\controllers\web\authorization\register\RegisterController;
+use App\Http\Controllers\controllers\web\callback\CallbackController;
 use App\Http\Controllers\controllers\web\catalog\CatalogController;
 use App\Http\Controllers\controllers\web\copyright\CopyrightController;
 use App\Http\Controllers\controllers\web\favorites\FavoritesController;
@@ -72,6 +73,8 @@ Route::get('/legal/rules/terms-of-use', [LegalController::class, 'termsOfUse']);
 Route::get('/about', [HelpController::class, 'index']);
 
 Route::get('/copyright/images', [CopyrightController::class, 'images']);
+
+Route::post('/callback', [CallbackController::class, 'store']);
 
 Route::middleware(['auth', 'userExistsWeb'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index']);

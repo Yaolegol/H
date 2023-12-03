@@ -10,6 +10,7 @@ class CallBackNew {
         this.input = this.module.querySelector('.j-modules-common-callback-new__input');
         this.isSend = false;
 
+        this.init();
         addEventListener(this.button, 'click', this.handleClick);
     }
 
@@ -18,12 +19,47 @@ class CallBackNew {
         console.log('this.input.value');
         console.log(this.input.value);
 
-        if(this.isSend) {
+        const value = this.input.value;
+
+        if(this.isSend || !value) {
             return;
         }
 
         this.isSend = true;
         this.module.classList.add('success');
+        this.sendRequest(value);
+    }
+
+    init = () => {
+        this.setCSRFToken();
+    }
+
+    sendRequest = async (value) => {
+        const data = {
+            text: value,
+        }
+
+        try {
+            const response = await fetch('/callback', {
+                body: JSON.stringify(data),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': this.CSRFToken,
+                },
+                method: 'POST',
+            });
+
+            return response.json();
+        } catch(e) {
+            console.error(e);
+        }
+    }
+
+    setCSRFToken = () => {
+        const csrfContainer = document.querySelector('.j-csrf-token');
+
+        this.CSRFToken = csrfContainer.dataset.value;
     }
 }
 
