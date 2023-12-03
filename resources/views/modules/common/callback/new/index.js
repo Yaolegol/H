@@ -8,6 +8,7 @@ class CallBackNew {
         this.module = element;
         this.button = this.module.querySelector('.j-modules-common-callback-new__button');
         this.input = this.module.querySelector('.j-modules-common-callback-new__input');
+        this.isSend = false;
 
         addEventListener(this.button, 'click', this.handleClick);
     }
@@ -16,6 +17,13 @@ class CallBackNew {
         console.log('click!!!')
         console.log('this.input.value');
         console.log(this.input.value);
+
+        if(this.isSend) {
+            return;
+        }
+
+        this.isSend = true;
+        this.module.classList.add('success');
     }
 }
 
