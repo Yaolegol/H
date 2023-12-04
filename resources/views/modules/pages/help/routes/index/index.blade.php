@@ -4,7 +4,7 @@
             О проекте
         </h1>
         <div class="modules-pages-help-routes-index__area-description modules-pages-help-routes-index__area-description_small-offset">
-            Продать и купить фермерскую продукцию<br /> еще никогда не было так легко!
+            Продать и купить фермерскую продукцию<br /> еще никогда не было так просто!
         </div>
         <div class="modules-pages-help-routes-index__area-description">
             <span class="modules-pages-help-routes-index__bold">101ferma.ru</span><br />это сайт, на котором каждый может <span class="modules-pages-help-routes-index__bold">абсолютно бесплатно</span><br />и <span class="modules-pages-help-routes-index__bold">за пару кликов разместить объявление</span><br /> о продаже фермерской продукции!
