@@ -39,7 +39,7 @@ function S3_STORAGE_deleteAssetByNumber($userId, $path, $number) {
 function S3_STORAGE_getS3Client() {
     return new S3Client([
         'version' => 'latest',
-        'endpoint' => 'https://storage.yandexcloud.net',
+        'endpoint' => 'https://s3.regru.cloud',
         'region' => 'ru-central1',
     ]);
 }

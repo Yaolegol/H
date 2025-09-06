@@ -15,17 +15,9 @@ class UserSeeder extends Seeder
             'is_admin' => true,
             'lang_id' => 1,
             'name' => 'Админ',
-            'password' => '13467928465!',
-            'phone' => '71346792846',
-        ],
-        [
-            'avatar' => '',
-            'description' => 'Начинающий фермер!',
-            'lang_id' => 1,
-            'name' => 'Иван Иванович (образец пользователя)',
-            'password' => '13467928465!',
-            'phone' => '71111111111',
-        ],
+            'password' => '123123',
+            'phone' => '77777777777',
+        ]
     ];
 
     /**
