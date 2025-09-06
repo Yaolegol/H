@@ -6,14 +6,11 @@
                     'className' => 'modules-pages-map-web-routes-index__share-block',
                     'id' => 'local_storage__info_share',
                     'text' => '
-                        Мы только открылись!<br />
-                        <b>Первым 100 фермерам дарим 500 рублей<br />
-                        на телефон указанный при регистрации за размещение объявления!</b><br />
                         <a
                             href="/about"
                             target="_blank"
                         >Нажмите, чтобы узнать больше о проекте!</a><br />
-                        Вы можете поддержать проект - поделитесь ссылкой на сайт!<br />
+                        Поделитесь ссылкой на сайт!<br />
                     ',
                 ])
                 <div class="modules-pages-map-web-routes-index__add-product-block">

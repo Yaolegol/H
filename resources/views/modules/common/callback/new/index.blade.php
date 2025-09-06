@@ -1,7 +1,7 @@
 <div class="modules-common-callback-new j-modules-common-callback-new">
     <div class="modules-common-callback-new__area-send">
         <div class="modules-common-callback-new__title">
-            Укажите телефон и мы свяжемся с Вами, чтобы рассказать о проекте!
+            Укажите телефон и мы свяжемся с Вами!
         </div>
         <div class="modules-common-callback-new__area-input">
             @include('components.inputs.send.index', [

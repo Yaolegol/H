@@ -69,33 +69,12 @@
                         target="_blank"
                     >О проекте</a>
                 </div>
-                <div class="modules-common-footer-index__social-media">
-                    <div class="modules-common-footer-index__social-media-title">
-                        Подпишитесь на наши группы в телеграм, вк, дзен и одноклассниках,<br />
-                        чтобы быть в курсе событий!
-                    </div>
-                    <div class="modules-common-footer-index__social-media-description">
-                        @include('components.contacts.links.channels.index')
-                    </div>
-                </div>
             </div>
             <div class="modules-common-footer-index__block-top-right">
                 <div class="modules-common-footer-index__contacts-block-right">
                     <div>
-                        <div>
-                            Если у Вас есть вопросы по работе сайте, пожелания,&nbsp;предложения -
-                            <br />обязательно свяжитесь с нами! Мы&nbsp;всегда&nbsp;Вам&nbsp;рады!
-                        </div>
-                        <div class="modules-common-footer-index__contacts-container">
-                            <div class="modules-common-footer-index__contacts-item">
-                                <a href="mailto:mail-101ferma@yandex.ru">mail-101ferma@yandex.ru</a>
-                            </div>
-{{--                            <div class="modules-common-footer-index__contacts-item modules-common-footer-index__contacts-item_flex">--}}
-{{--                                @include('components.contacts.links.messengers.index')--}}
-{{--                            </div>--}}
-                        </div>
                         <div class="modules-common-footer-index__share-block">
-                            <div>Вы можете поддержать проект - поделитесь ссылкой на сайт!</div>
+                            <div>Поделитесь ссылкой на сайт!</div>
                             <div class="modules-common-footer-index__share-block-icons-container">
                                 @include('components.share.common.index')
                             </div>
@@ -118,21 +97,6 @@
                     >
                         Список использованных изображений и&nbsp;их&nbsp;авторов
                     </a>
-                </div>
-                <div class="modules-common-footer-index__legal-container">
-                    Просмотр и использование сайта означает согласие с
-                    <a
-                        class="modules-common-footer-index__link"
-                        href="/legal/rules/terms-of-use"
-                    >Пользовательским соглашением</a>,
-                    <a
-                        class="modules-common-footer-index__link"
-                        href="/legal/rules/privacy-policy"
-                    >Политикой обработки персональных данных</a>,
-                    <a
-                        class="modules-common-footer-index__link"
-                        href="/legal/rules/cookie"
-                    >Политикой в отношении куки (cookie)&nbsp;файлов</a>
                 </div>
             </div>
         </div>
