@@ -5,24 +5,6 @@
     <div class="modules-pages-profile-common-components-container-header__mobile-container">
         <a href="/logout">Выйти</a>
     </div>
-    <div class="modules-pages-profile-common-components-container-header__help-area">
-        <div class="modules-pages-profile-common-components-container-header__help-block">
-            <div class="modules-pages-profile-common-components-container-header__help-title">Возникли трудности?</div>
-        </div>
-        <div class="modules-pages-profile-common-components-container-header__help-block">
-            <a
-                class="modules-pages-profile-common-components-container-header__help-video-link"
-                href="/about"
-                target="_blank"
-            >Посмотрите короткую видеоинструкцию</a>
-        </div>
-        <div class="modules-pages-profile-common-components-container-header__help-block">или напишите нам - мы обязательно Вам поможем!</div>
-        <div class="modules-pages-profile-common-components-container-header__help-block">
-            <div class="modules-pages-profile-common-components-container-header__help-area-messengers">
-                @include('components.contacts.links.messengers.index')
-            </div>
-        </div>
-    </div>
     <div class="modules-pages-profile-common-components-container-header__tabs-block">
         <div class="modules-pages-profile-common-components-container-header__tabs-container">
             <div class="modules-pages-profile-common-components-container-header__tab-item-container">
